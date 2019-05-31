@@ -57,7 +57,7 @@ process.once('loaded', () => {
 
 ### `process.isMainFrame`
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+`Boolean` で、現在のレンダラコンテキストが「メイン」レンダラフレームである場合は `true` です。現在のフレームの ID が欲しいならば、`webFrame.routingId` を使うべきです。
 
 ### `process.mas`
 
@@ -97,7 +97,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+現在のプロセスの種類を表す `String` で、 `"browser"` (すなわちメインプロセス)、`"renderer"` または `"worker"` (すなわち web worker) の値をとります。
 
 ### `process.versions.chrome`
 

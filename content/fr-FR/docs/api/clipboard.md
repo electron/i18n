@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Mon exemple')
 ```
 
-Sur les systèmes Windows, il y existe aussi un presse-papiers de sélection. Pour le manipuler, vous devez passer le paramètre `selection` pour chaque méthode :
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -28,53 +28,53 @@ Le module `clipboard` dispose des méthodes suivantes :
 
 ### `clipboard.readText([type])`
 
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Retourne `String` - Le contenu du presse-papiers en tant que texte brut.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Écrit le `text` dans le presse-papiers au format texte brut.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Retourne `String` - Le contenu du presse-papiers en tant que balisage.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Écrit le `markup` dans le presse-papiers.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Retourne [`NativeImage`](native-image.md) - Le contenu de l'image du presse-papiers.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Écrit l'`image` dans le presse-papiers.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Retourne `String` - Le contenu presse-papiers en RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Écrit le `text` dans le presse-papiers en RTF.
 
@@ -91,7 +91,7 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 
 * `title` String
 * `url` String
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Écrit le `title` et `url` dans le presse-papiers comme marque-page.
 
@@ -116,20 +116,20 @@ Retourne `String` - Le texte du pasteboard. Cette méthode utilise l'IPC synchro
 
 ### `clipboard.clear([type])`
 
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Efface le contenu du presse-papiers.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Retourne `String[]` - Un tableau de format pris en charge pour le `type` du presse-papiers.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Retourne `Boolean` - Si le presse-papiers prend en charge le `format` spécifié.
 
@@ -154,7 +154,7 @@ Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Écrit le `buffer` dans le presse-papiers comme `format`.
 
@@ -166,7 +166,7 @@ Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
   * `image` [NativeImage](native-image.md) (facultatif)
   * `rtf` String (facultatif)
   * `bookmark` String (facultatif) - Le titre de l'url dans le `text`.
-* `type` String (facultatif)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')

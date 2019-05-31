@@ -234,8 +234,9 @@ Retourne :
 
 * `event` Événement
 * `title` String
+* `explicitSet` Boolean
 
-Émis lorsque le document a changé son titre, appeler `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
+Émis lorsque le document a changé son titre, appeler `event.preventDefault()` empêchera le titre de la fenêtre native de changer. `explicitSet` is false when title is synthesized from file url.
 
 #### Événement : 'close'
 

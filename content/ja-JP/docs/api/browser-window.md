@@ -234,8 +234,9 @@ child.once('ready-to-show', () => {
 
 * `event` Event
 * `title` String
+* `explicitSet` Boolean
 
-ドキュメントのタイトルが変更されたときに発生します。`event.preventDefault()` を呼び出すことで、ネイティブウインドウのタイトルが変更されるのをキャンセルできます。
+ドキュメントのタイトルが変更されたときに発生します。`event.preventDefault()` を呼び出すことで、ネイティブウインドウのタイトルが変更されるのをキャンセルできます。 タイトルがファイル url から合成される場合、`explicitSet` は false です。
 
 #### イベント: 'close'
 

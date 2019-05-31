@@ -92,11 +92,21 @@ Ibinabalika ang:
 
 Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
-#### Kaganapan: 'pahina-favicon-updated'
+#### Event: 'page-title-updated'
 
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
+* `title` String
+* `explicitSet` Boolean
+
+Itigil kapag ang titulo ng page ay naitakdang habang naka-nabigasyon. Ang `explicitSet` ay di totoo kapag ang titulo ay nabuo mula sa file url.
+
+#### Kaganapan: 'pahina-favicon-updated'
+
+Ibinabalik ang:
+
+* `event` Event
 * `favicons` String[] - Hanay ng mga URL.
 
 Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
@@ -138,7 +148,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Ibinabalik ang:
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `url` Tali
 
 Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
@@ -153,7 +163,7 @@ Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Tali
 * `isInPlace` Boolean
 * `ay pangunahing kuwadro` Boolean
@@ -166,7 +176,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `isInPlace` Boolean
 * `ay pangunahing kuwadro` Boolean
@@ -183,7 +193,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Tali
 * `isInPlace` Boolean
 * `ay pangunahing kuwadro` Boolean
@@ -194,7 +204,7 @@ Emitted after a server side redirect occurs during navigation. For example a 302
 
 This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
-#### Event: 'did-navigate'
+#### Kaganapan: 'ginawa-navigate'
 
 Ibinabalik ang:
 
@@ -235,13 +245,13 @@ Ibinabalik ang:
 
 Emitted when an in-page navigation happened in any frame.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
+Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
 #### Kaganapan: 'will-prevent-unload'
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 
 Naipalalabas kapag ang `beforeunload` ay sinusubukan ng tagahawak ng kaganapan na kanselahin ang pag-unload ng pahina.
 
@@ -270,7 +280,7 @@ manalo.webContents.on('will-prevent-unload', (kaganapan) => {
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` Ang event
 * `killed` Ang Boolean
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
@@ -287,7 +297,7 @@ Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
 
 Ibinabalik ang:
 
-* `event` Ang event
+* `kaganapan` kaganapan
 * `name` String
 * `Bersyon` Pisi
 
@@ -301,7 +311,7 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `event` Ang event
 * `input` Bagay - Input properties. 
   * `uri` Pisi - Alinman `keyUp` o `keyDown`.
   * `susi` Pisi - Katumbas ng [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -330,7 +340,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Kaganapan: 'devtools-binuksan'
 
-Ilabas kapag ang mga DevTool ay nabuksan.
+Nilalabas kapag ang DevTools ay nabuksan.
 
 #### Kaganapan: 'devtools-sarado'
 
@@ -338,13 +348,13 @@ Nilalabas kapag ang DevTools ay sarado.
 
 #### Kaganapan: 'devtools-nakatuon'
 
-Ilabas kapag ang mga DevTool ay napukos / nabuksan.
+Nilalabas kapag ang DevTools ay nakatuon/binuksan.
 
 #### Mga event: 'certificate-error'
 
 Ibinabalik ang:
 
-* `event` Ang event
+* `kaganapan` kaganapan
 * `url` Tali
 * `error` String - Ang code ng error.
 * `certificate` [Certificate](structures/certificate.md)
@@ -359,7 +369,7 @@ Ang paggamit ay pareho sa [ang kaganapan `certificate-error` ng `app` ](app.md#e
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -373,7 +383,7 @@ Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `kahilingan` Bagay 
   * `method` na String
   * `url` Ang URL
@@ -396,10 +406,10 @@ Ang paggamit ay pareho sa [ang kaganapan `login` ng `app`](app.md#event-login).
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `resulta` Bagay 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
+  * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
   * `tugma` Integer - Bilang ng Mga Tugma.
   * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
@@ -412,7 +422,7 @@ Naipalalabas kapag nagsimula ng maglaro ang media.
 
 #### Kaganapan: 'media-paused'
 
-Ilabas kapag ang medya ay nahinto o natapos na.
+Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 #### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
@@ -424,14 +434,14 @@ Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil s
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
 
 #### Kaganapan: 'update-target-url'
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 
 Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.

@@ -92,6 +92,16 @@ Restituisce:
 
 Emitted when the document in the given frame is loaded.
 
+#### Evento: 'page-title-updated'
+
+Restituisce:
+
+* `event` Event
+* `Titolo` Stringa
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Event: 'page-favicon-updated'
 
 Restituisce:

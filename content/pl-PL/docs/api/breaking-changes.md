@@ -222,7 +222,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `przetwórz`
 
 ```js
-// Deprecated
+// Przestarzałe
 const info = process.getProcessMemoryInfo()
 ```
 

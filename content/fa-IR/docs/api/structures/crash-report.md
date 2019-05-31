@@ -1,4 +1,4 @@
-# شئِ گزارشِ شکست
+# CrashReport Object
 
-* `تاریخ` رشته
-* `نام وسیله` رشته
+* `date` Date
+* `id` String

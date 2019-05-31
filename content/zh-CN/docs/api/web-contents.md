@@ -92,6 +92,16 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 一个框架中的文本加载完成后触发该事件。
 
+#### 事件： 'page-title-updated'
+
+返回:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### 事件: 'page-favicon-updated'
 
 返回:
@@ -348,7 +358,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `url` String
 * `error` String - 错误码.
 * `certificate` [证书](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `isTrusted` Boolean - 用于显示证书是否可信。
 
 `证书`的`链接`验证失败时，触发该事件。
@@ -362,7 +372,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 当一个客户证书被请求的时候发出。

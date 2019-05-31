@@ -92,6 +92,16 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when the document in the given frame is loaded.
 
+#### Подія: 'page-title-updated'
+
+Повертає:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Event: 'page-favicon-updated'
 
 Повертає:

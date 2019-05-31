@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-在 X Window 系统上还有一个可选的剪贴板 。对其复制时需要传递` selection ` 参数到每个函数：
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,53 +29,53 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readText([type])`
 
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 返回 ` String `- 剪贴板中的纯文本内容。
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 将 ` text ` 作为纯文本写入剪贴板。
 
 ### `clipboard.readHTML([type])`
 
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 返回 ` String `- 剪贴板中的HTML内容。
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 将 ` markup ` 写入剪贴板。
 
 ### `clipboard.readImage([type])`
 
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 返回 [` NativeImage `](native-image.md)- 剪贴板中的图像内容。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 将 ` image ` 写入剪贴板。
 
 ### `clipboard.readRTF([type])`
 
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 返回 ` String `- 剪贴板中的RTF内容。
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 向剪贴板中写入 RTF 格式的 `text`.
 
@@ -92,7 +92,7 @@ console.log(clipboard.readText('selection'))
 
 * `title` String
 * `url` String
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 将书签的 ` title ` 和 ` url ` 写入剪贴板。
 
@@ -117,20 +117,20 @@ clipboard.write({
 
 ### `clipboard.clear([type])`
 
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 清除剪贴板内容。
 
 ### `clipboard.availableFormats([type])`
 
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 返回 ` String [] `- 剪贴板 ` type ` 所支持的格式的数组。
 
 ### `clipboard.has(format[, type])` *实验功能*
 
 * `format` String
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 返回 ` Boolean `, 剪贴板是否支持指定的 ` format `。
 
@@ -155,7 +155,7 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 * `buffer` Buffer
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 将 `buffer ` 作为 ` format ` 类型写入剪贴板。
 
@@ -167,7 +167,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * `image` [NativeImage](native-image.md) (可选)
   * `rtf` String (可选)
   * ` bookmark ` String (可选)- url 的标题 `text`。
-* ` type ` String（可选）
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')

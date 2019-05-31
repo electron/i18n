@@ -1,4 +1,4 @@
-# Chinese Travelers
+# Hướng dẫn sử dụng chính thức
 
 Hãy chắc chắn rằng bạn đang sử dụng các tài liệu phù hợp với phiên bản Electron của bạn. Các đánh số của phiên bản là một phần của URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. Để xem các tài liệu của phiên bản cũ hơn, bạn có thể [duyệt theo thẻ](https://github.com/electron/electron/tree/v1.4.0) trên GitHub mở trình đơn thả xuống "Swich branches/tags" và chọn từ khóa phù hợp với phiên bản của bạn.
 
@@ -10,25 +10,25 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 ## Guides and Tutorials
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Khởi động môi trường của nhà phát triển](tutorial/development-environment.md) 
+  * [Khởi động cho macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Khởi động cho Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Khởi động cho Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Chọn Editor](tutorial/development-environment.md#a-good-editor)
+* [Tạo ra ứng dụng đầu tiên](tutorial/first-app.md) 
+  * [Cài đặt Electron](tutorial/first-app.md#installing-electron)
+  * [Tóm tắt phát triển Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Chạy ứng dụng của bạn](tutorial/first-app.md#running-your-app)
+* [Boilerplates và CLIs](tutorial/boilerplates-and-clis.md) 
+  * [Boilerplates và CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
+  * [Các công cụ khác và Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [Cấu trúc ứng dụng](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Sử dụng APIs của Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [Sử dụng Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
 * Adding Features to Your App 
   * [Notifications](tutorial/notifications.md)
@@ -70,18 +70,18 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 ## Detailed Tutorials
 
-These individual tutorials expand on topics discussed in the guide above.
+Những hướng dẫn sau đây là mở rộng của các chủ đề đã được thảo luận trong các tài liệu trên.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Proxy](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
+* [Chi tiết: Cách cài đặt Electron](tutorial/installation.md) 
+  * [Proxies](tutorial/installation.md#proxies)
+  * [Tuỳ chỉnh Mirrors và Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Xử lý sự cố](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Chi tiết: Quá trình check phiên bản của Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+  * [Ổn định branches](tutorial/electron-versioning.md#stabilization-branches)
+  * [Bản dùng thử và xử lý Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [Chi tiết: Đóng gói code nguồn của ứng dụng với asar](tutorial/application-packaging.md) 
+  * [Tạo ra một file asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Sử dụng các file đóng gói asar](tutorial/application-packaging.md#using-asar-archives)
   * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)

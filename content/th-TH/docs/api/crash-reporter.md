@@ -75,7 +75,17 @@ Returns [`CrashReport`](structures/crash-report.md):
 
 Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
-### `crashReporter.getUploadedReports()`
+### `# tip of default branch
+Get /gh/:owner/:repo/graphs/sunburst.svg?token=:graph_token
+
+# tip of branch
+Get /gh/:owner/:repo/branch/:branch/graphs/sunburst.svg?token=:graph_token
+
+# tip of pull
+Get /gh/:owner/:repo/pull/:id/graphs/sunburst.svg?token=:graph_token
+
+# specific commit
+Get /gh/:owner/:repo/commit/:sha/graphs/sunburst.svg?token=:graph_token`
 
 Returns [`CrashReport[]`](structures/crash-report.md):
 

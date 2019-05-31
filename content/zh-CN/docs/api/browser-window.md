@@ -234,8 +234,9 @@ child.once('ready-to-show', () => {
 
 * `event` Event
 * `title` String
+* `explicitSet` Boolean
 
-文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题
+文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题 `explicitSet` is false when title is synthesized from file url.
 
 #### 事件： 'close'
 

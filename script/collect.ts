@@ -1,33 +1,50 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-require('dotenv-safe').load()
-
-const del = require('del')
-const electronDocs = require('electron-docs')
-const fs = require('fs')
-const got = require('got')
-const mkdir = require('make-dir').sync
-const path = require('path')
-const { execSync } = require('child_process')
-const github = require('@octokit/rest')()
-const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
-
-if (process.env.GH_TOKEN) {
-  github.authenticate({
-    type: 'token',
-    token: process.env.GH_TOKEN
-  })
+if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
+  require('dotenv-safe').load()
 }
 
-let release
+import * as del from 'del'
+import * as fs from 'fs'
+import * as got from 'got'
+import { sync as mkdir } from 'make-dir'
+import * as path from 'path'
+import { execSync } from 'child_process'
+import * as Octokit from '@octokit/rest';
+const electronDocs = require('electron-docs')
+const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
-del(englishBasepath)
-  .then(fetchRelease)
-  .then(fetchAPIDocsFromLatestStableRelease)
-  .then(fetchApiData)
-  .then(getMasterBranchCommit)
-  .then(fetchTutorialsFromMasterBranch)
-  .then(fetchWebsiteContent)
+const github = new Octokit({
+  auth: process.env.GH_TOKEN ? process.env.GH_TOKEN : ''
+})
+
+interface IResponse {
+  tag_name: string
+  assets: Octokit.ReposGetReleaseByTagResponseAssetsItem[]
+}
+
+interface IElectronDocsResponse {
+  slug: string
+  filename: string
+  markdown_content: string
+}
+
+let release: IResponse
+
+main().catch((err: Error) => {
+  console.log('Something goes wrong. Error: ', err)
+  process.exit(1)
+})
+
+async function main() {
+  await del(englishBasepath)
+  await fetchRelease()
+  await fetchAPIDocsFromLatestStableRelease()
+  await fetchApiData()
+  await getMasterBranchCommit()
+  await fetchTutorialsFromMasterBranch()
+  await fetchWebsiteContent()
+}
 
 async function fetchRelease () {
   console.log(`Determining 'latest' version dist-tag on npm`)
@@ -52,7 +69,7 @@ async function fetchAPIDocsFromLatestStableRelease () {
   const docs = await electronDocs(release.tag_name)
 
   docs
-    .filter(doc => doc.filename.startsWith('api/'))
+    .filter((doc: IElectronDocsResponse) => doc.filename.startsWith('api/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
@@ -93,8 +110,8 @@ async function fetchTutorialsFromMasterBranch () {
   const docs = await electronDocs('master')
 
   docs
-    .filter(doc => !doc.filename.startsWith('api/'))
-    .filter(doc => !doc.filename.includes('images/'))
+    .filter((doc: IElectronDocsResponse) => !doc.filename.startsWith('api/'))
+    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('images/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
@@ -115,14 +132,14 @@ async function fetchWebsiteContent () {
 
 // Utility functions
 
-function writeDoc (doc) {
+function writeDoc (doc: IElectronDocsResponse) {
   const filename = path.join(englishBasepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
   // console.log('   ' + path.relative(englishBasepath, filename))
 }
 
-function writeToPackageJSON (key, value) {
+function writeToPackageJSON (key: string, value: string) {
   const pkg = require('../package.json')
   pkg[key] = value
   fs.writeFileSync(

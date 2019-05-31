@@ -1,12 +1,12 @@
-# شئِ نمایش
+# Display Object
 
 * id - (شماره) - شناسه های خاص مربوط به صفحه نمایش.
-* rotation - (معنا: چرخش - نوع:شماره) - چرخش صفحه نمایش در جهت عقربه های ساعت بر حسب درجه. می تواند(0 و 90 و 180 و 270) باشد.
-* scaleFactor - (معنا: مقیاس عامل - نوع:شماره) - ضریب مقیاس خروجی دستگاه بر حسب پیکسل.
-* touchSupport - (معنا:پشتیبانی از لمس - نوع: رشته) - می تواند available , unavailable , unknown باشد. (مقدار ها به ترتیب به معنای در دسترس , عدم دسترسی و نا شناخته هستند)
-* size - (معنا: حدود - نوع: چهارگوش) - فاقد توضیح
-* size - (معنا: اندازه - نوع: اندازه) - فاقد توضیح
-* workArea - (معنا: ناحیه کاری - نوع: مستطیل) - فاقد توضیح
-* workAreaSize - (معنا: اندازه ناحیه کاری - نوع: مسطیل) - فاقد توضیح
+* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `scaleFactor` Number - Output device's pixel scale factor.
+* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
+* `bounds` [Rectangle](rectangle.md)
+* `size` [Size](size.md)
+* `workArea` [Rectangle](rectangle.md)
+* `workAreaSize` [Size](size.md)
 
-شی `Display` نشان دهنده یک صفحه نمایش فیزیکی متصل به سیستم است. یک شی جعلی `Display` ممکن است روی یک سیستم بدون نمایشگر وجود داشته باشد و یا مربوط به یک ریموت(کنترل کننده) ویا نمایشگر مجازی باشد.
+The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.

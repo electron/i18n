@@ -1,8 +1,8 @@
 # Gỡ lỗi trên Windows
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+Nếu bạn đang gặp phải lỗi hoặc có vấn đề với Electron mà bạn tin rằng lý do không phải từ ứng dụng JavaScript, mà bởi chính Electron, giải quyết lỗi có thể hơi khó khăn một chút, đặc biệt nếu như bạn không quen sử dụng tính năng debugging của native/C++. Nhưng nếu bạn đang sử dụng Visual Studio, Electron Symbol Server được hosted bởi GitHub, và với code của Electron, bạn có thể bật tính năng sửa lỗi theo từng bước với breakpoints trong Electron.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**Xem thêm**: Có rất nhiều nguồn để sửa lỗi cho Chromium, đa số đều có thể ứng dụng cho Electron, xem tại website của lập trình viên Chromium: [Sửa lỗi cho Chromium trên Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## Yêu cầu
 

@@ -92,6 +92,16 @@ Devuelve:
 
 Emitido cuando el documento en el frame dado es cargado.
 
+#### Evento: "page-title-updated"
+
+Devuelve:
+
+* `event` Event
+* `title` Cadena
+* `explicitSet` Boolen
+
+Disparado cuando el título de la página es establecido durante la navegación. `explicitSet` es falso cuando el título es sintetizado del archivo url.
+
 #### Evento: 'page-favicon-updated'
 
 Devuelve:
@@ -154,7 +164,7 @@ Llamando `event.preventDefault()` evitará la navegación.
 Devuelve:
 
 * `event` Event
-* `url` String
+* `url` Cadena
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -167,7 +177,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 Devuelve:
 
 * `event` Event
-* `url` Cadena
+* `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -400,7 +410,7 @@ Devuelve:
 * `resultado` Object 
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
-  * `matches` Íntegro - Número de Coincidencias.
+  * `matches` Integer - Número de coincidencias.
   * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
   * `finalUpdate` Boolean
 
@@ -623,7 +633,7 @@ Devuelve:
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### Event: 'remote-require'
+#### Evento: 'remote-require'
 
 Devuelve:
 
@@ -632,7 +642,7 @@ Devuelve:
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-global'
+#### Evento: 'remote-get-global'
 
 Devuelve:
 
@@ -851,7 +861,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Evalúa el `código` en la página.
 
-En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 Si el resultado del código ejecutado es una promise, el callback será el valor resuelto de la promise. Recomendamos que utilice la Promise devuelta para manejar el código que da como resultado una Promise.
 

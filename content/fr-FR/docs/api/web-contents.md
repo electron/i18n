@@ -92,6 +92,16 @@ Retourne :
 
 Émis lorsque le document dans le frame donné est chargé.
 
+#### Événement : 'page-title-updated'
+
+Retourne :
+
+* `event` Événement
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Événement : 'page-favicon-updated'
 
 Retourne :
@@ -455,7 +465,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `params` Objet 
   * `x` Integer - coordonnée x.
   * `y` Integer - coordonée y.
@@ -497,7 +507,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String

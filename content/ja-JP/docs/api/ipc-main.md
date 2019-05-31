@@ -12,7 +12,7 @@
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* 非同期メッセージを送信者に返送するには、`event.reply(...)` を使用できます。 このヘルパーメソッドはメインフレームではないフレーム (例: iframe) から来るメッセージを自動的に処理します。一方、`event.sender.send(...)` は常にメインフレームに送信されます。
 
 レンダラー/メインプロセス間のメッセージの送信と処理の例:
 
@@ -78,7 +78,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ### `event.frameId`
 
-An `Integer` representing the ID of the renderer frame that sent this message.
+このメッセージを送信したレンダラーフレームの ID を表す `Integer`。
 
 ### `event.returnValue`
 
@@ -90,4 +90,4 @@ An `Integer` representing the ID of the renderer frame that sent this message.
 
 ### `event.reply`
 
-A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+現在処理している元のメッセージを送信したレンダリングフレームに IPC メッセージを送信する機能。 返信が正しいプロセスとフレームに行くことを保証するために、このメソッドを使って送信されたメッセージに「返信」するべきです。

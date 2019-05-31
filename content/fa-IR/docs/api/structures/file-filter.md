@@ -1,4 +1,4 @@
-# شئ FileFilter
+# FileFilter Object
 
 * `نام` رشته
-* `extensions` رشته[]
+* `extensions` String[]

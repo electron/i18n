@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Ejemplo de cadena')
 ```
 
-En los sistemas X Window, también hay un portapapeles de selección. Para manipularlo, debe pasar `selección` a cada método:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,59 +29,59 @@ El módulo `portapapeles` tiene los siguientes métodos:
 
 ### `clipboard.readText([type])`
 
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 
 ### `clipboard.writeText(text[, type])`
 
 * `texto` String
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Escribe el `texto` en el portapapeles como texto sin formato.
 
 ### `clipboard.readHTML([type])`
 
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Devuelve `Cadena` - El contenido en el portapapeles como marca.
 
 ### `clipboard.writeHTML(markupo[, type])`
 
 * `markup` Cadena
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Escribe `markup` en el portapapeles.
 
 ### `clipboard.readImage([type])`
 
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
 ### `clipboard.writeImage(imageo[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Escribe `image` en el portapapeles.
 
 ### `clipboard.readRTF([type])`
 
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
 ### `clipboard.writeRTF(texto[, type])`
 
 * `texto` String
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Escribe el `text` en el portapapeles en RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `title` Cadena
 * `url` Cadena
@@ -92,7 +92,7 @@ Devuelve un Objeto que contiene las claves `title` y `url` que representan el ma
 
 * `title` Cadena
 * `url` Cadena
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Escribe el `título` y la `url` en el portapapeles como un marcador.
 
@@ -117,20 +117,20 @@ Escribe el `text` en el portapapeles de búsqueda como texto sin formato. Este m
 
 ### `clipboard.clear([type])`
 
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Borra el contenido del portapapeles.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` Cadena
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
 
@@ -155,11 +155,11 @@ Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
 * `format` Cadena
 * `buffer` Buffer
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Escribe el `buffer` en el portapapeles como `formato`.
 
-### `clipboard.write(data[, type])`
+### `clipboard.write(datao[, type])`
 
 * `datos` Objecto 
   * `text` Cadena (opcional)
@@ -167,7 +167,7 @@ Escribe el `buffer` en el portapapeles como `formato`.
   * `image` [NativeImage](native-image.md) (opcional)
   * `rtf` Cadena (opcional)
   * `marcador` Cadena (opcional) - El título de la url en `text`.
-* `type` Cadena (opcional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')

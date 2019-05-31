@@ -234,8 +234,9 @@ Zwraca:
 
 * `event` Event
 * `title` String
+* `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file url.
 
 #### Zdarzenie: 'close'
 
@@ -313,7 +314,7 @@ Emitted when the window is minimized.
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'will-resize' *macOS* *Windows*
+#### Zdarzenie: 'will-resize' *macOS* *Windows*
 
 Zwraca:
 
@@ -328,7 +329,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'will-move' *Windows*
+#### Zdarzenie: 'will-move' *Windows*
 
 Zwraca:
 
@@ -365,7 +366,7 @@ Emitted when the window enters a full-screen state triggered by HTML API.
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Zdarzenie: 'always-on-top-changed' *macOS*
 
 Zwraca:
 
@@ -1095,7 +1096,7 @@ Sets the opacity of the window. On Linux does nothing.
 
 Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` *Windows* *Linux* *Eksperymentalne*
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 

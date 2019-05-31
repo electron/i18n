@@ -92,12 +92,22 @@ Rückgabewert:
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### Event: 'page-title-updated'
 
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code>favicons` String[] - Array mit URLs.
+<li><code>title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
+#### Event: 'page-favicon-updated'
+
+Rückgabewert:
+
+* `event` Event
+* `favicons` String[] - Array mit URLs.
 
 Emitted when page receives favicon urls.
 
@@ -228,8 +238,8 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 Rückgabewert:
 
 * `event` Event
-* `url` String
-* `isMainFrame` Boolean
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -345,8 +355,8 @@ Emitted when DevTools is focused / opened.
 Rückgabewert:
 
 * `event` Event
-* `url` String
-* `error` String - Der error code.
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>error` String - Der error code.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Funktion 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -378,7 +388,7 @@ Rückgabewert:
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Objekt 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -397,7 +407,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Rückgabewert:
 
 * `event` Event
-* `result` Objekt 
+* `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -432,15 +442,17 @@ Rückgabewert:
 Rückgabewert:
 
 * `event` Event
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-#### Event: 'cursor-changed'
+<h4>Event: 'cursor-changed'</h4>
 
-Rückgabewert:
+<p>Rückgabewert:</p>
 
-* `event` Event
+<ul>
+<li><code>event` Event
 * `type` String
 * `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
@@ -456,7 +468,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Rückgabewert:
 
 * `event` Event
-* `params` Objekt 
+* `params` Object 
   * `x` Integer - x Koordinate.
   * `y` Integer - y Koordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -636,8 +648,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * `event` Event
-  * `globalName` String
+  * ` Ereignis </ 0>  Ereignis</li>
+<li><code>globalName` String
   
   Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
   
