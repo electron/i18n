@@ -1,16 +1,16 @@
-# 分发应用
+# 应用部署
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+为了使用 Electron 部署你的应用，您需要进行打包和重塑。这样做的最简单的方法是使用以下第三方打包工具之一：
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+这些工具将覆盖发布一个Electron应用所需采取的所有步骤，例如，打包应用程序，重组可执行程序，设置图标和可配置的创建安装程序。
 
-## Manual distribution
+## 手动发布
 
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+您也可以选择手动发布你的app。只需执行下面的步骤
 
 为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹Resources下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron/`表示。
 
