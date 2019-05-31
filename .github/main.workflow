@@ -35,7 +35,7 @@ action "Run tests" {
 }
 
 action "Release master branch only" {
-  uses = "BinaryMuse/tip-of-branch@stable"
+  uses = "BinaryMuse/tip-of-branch@master"
   needs = ["Run tests"]
   args = "master"
   secrets = ["GITHUB_TOKEN"]
