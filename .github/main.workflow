@@ -35,9 +35,10 @@ action "Run tests" {
 }
 
 action "Release master branch only" {
-  uses = "actions/bin/filter@master"
+  uses = "BinaryMuse/tip-of-branch@master"
   needs = ["Run tests"]
-  args = "branch master"
+  args = "master"
+  secrets = ["GITHUB_TOKEN"]
 }
 
 action "Publish via semantic-release" {
