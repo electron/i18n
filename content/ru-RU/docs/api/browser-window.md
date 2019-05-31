@@ -236,7 +236,7 @@ child.once('ready-to-show', () = > {
 * `title` String
 * `explicitSet` Boolean
 
-Вызывается, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка родного окна. `explicitSet` is false when title is synthesized from file url.
+Происходит, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка нативного окна. `explicitSet` является false, когда заголовок синтезирован из url файла.
 
 #### Событие: 'close'
 
@@ -244,9 +244,9 @@ child.once('ready-to-show', () = > {
 
 * `event` Event
 
-Вызывается при закрытии окна. Оно вызывается перед событиями `beforeunload` и `unload` в DOM. Вызов `event.preventDefault()` предотвратит закрытие.
+Происходит при закрытии окна. Оно происходит перед событиями `beforeunload` и `unload` в DOM. Вызов `event.preventDefault()` предотвратит закрытие.
 
-Скорее всего, вы захотите использовать обработчик `beforeunload` чтобы решить, когда окно должно быть закрыто, который также будет вызываться, когда окно перезагружается. В Electron, возврат любого значения, отличного от `undefined` предотвратит закрытие. Например:
+Скорее всего, Вы захотите использовать обработчик `beforeunload`, чтобы решить, когда окно должно быть закрыто, который также будет вызываться, когда окно перезагружается. В Electron возврат любого значения, отличного от `undefined`, предотвратит закрытие. Например:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -254,165 +254,165 @@ window.onbeforeunload = (e) => {
 
   // В отличие от браузеров, пользователю будет показано окно с сообщением.
   // Возврат любого значения незаметно отменит закрытие.
-  // Рекомендуется использовать dialog API чтобы дать пользователям
+  // Рекомендуется использовать dialog API, чтобы дать пользователям
   // возможность подтвердить закрытие приложения.
   e.returnValue = false // идентично `return false`, но в использовании не рекомендуется
 }
 ```
 
-***Примечание**: Существует тонкая разница между поведением `window.onbeforeunload = handler` и `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***Примечание**: Существует тонкая разница между поведением `window.onbeforeunload = handler` и `window.addEventListener('beforeunload', handler)`. Рекомендуется всегда устанавливать `event.returnValue` явно, вместо того, чтобы просто возвращать значение, поскольку первое работает более последовательно в Electron.*
 
 #### Событие: 'closed'
 
-Вызывается, когда окно закрыто. После того, как вы получили это событие, вы должны удалить ссылку на окно и больше не использовать его.
+Происходит, когда окно закрыто. После того, как Вы получили это событие, Вы должны удалить ссылку на окно и больше не использовать ее.
 
 #### Событие: 'session-end' *Windows*
 
-Вызывается, когда оконный сеанс заканчивается из-за выключения или перезагрузки компьютера или отключения сеанса.
+Происходит, когда сеанс окна заканчивается из-за выключения, перезагрузки компьютера или отключения сеанса.
 
 #### Событие: 'unresponsive'
 
-Вызывается, когда страница "не отвечает".
+Происходит, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
-Вызывается, когда неотвечавшая страница снова реагирует.
+Происходит, когда страница, которая "не отвечала", снова реагирует.
 
 #### Событие: 'blur'
 
-Вызывается, когда окно теряет фокус.
+Происходит, когда окно теряет фокус.
 
 #### Событие: 'focus'
 
-Вызывается, когда на окне фокусируются.
+Происходит, когда на окне фокусируются.
 
 #### Событие: 'show'
 
-Вызывается, когда отображается окно.
+Происходит, когда отображается окно.
 
 #### Событие: 'hide'
 
-Вызывается, когда окно спрятано.
+Происходит, когда окно спрятано.
 
 #### Событие: 'ready-to-show'
 
-Вызывается, когда веб-страница была отрендерена (пока не отображена) и окно может быть отображено без визуальной вспышки.
+Происходит, когда веб-страница была отрисована (пока не отображена) и окно может быть отображено без визуального мерцания.
 
 #### Событие: 'maximize'
 
-Вызывается, когда окно увеличивается до предела.
+Происходит, когда окно увеличивается до предела.
 
 #### Событие: 'unmaximize'
 
-Вызывается, когда окно выходит из максимизированного состояния.
+Происходит, когда окно выходит из увеличенного состояния.
 
 #### Событие: 'minimize'
 
-Вызывается, когда окно было свёрнуто.
+Происходит, когда окно было свернуто.
 
 #### Событие: 'restore'
 
-Вызывается, когда окно восстанавливается из свёрнутого состояния.
+Происходит, когда окно восстанавливается из свернутого состояния.
 
-#### Event: 'will-resize' *macOS* *Windows*
+#### Событие: 'will-resize' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - размер окна, на который будет изменено.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+Происходит перед изменением размера окна. Вызов `event.preventDefault()` предотвратит изменение размера окна.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Обратите внимание, что это происходит, только когда размер окна будет изменяться вручную. Изменение размера окна с помощью `setBounds`/`setSize` не вызовет это событие.
 
 #### Событие: 'resize'
 
-Emitted after the window has been resized.
+Происходит после того, как изменился размер окна.
 
-#### Event: 'will-move' *Windows*
+#### Событие: 'will-move' *Windows*
 
 Возвращает:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - расположение, куда окно будет перемещено.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Происходит перед перемещением окна. Вызов `event.preventDefault()` предотвратит перемещение окна.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Обратите внимание, что это происходит, только когда размер окна будет изменяться вручную. Изменение размера окна с помощью `setBounds`/`setSize` не вызовет это событие.
 
 #### Событие: 'move'
 
-Вызывается, когда окно перемещено на новое место.
+Происходит, когда окно перемещено на новое место.
 
-**Note**: On macOS this event is an alias of `moved`.
+**Примечание**: На macOS это событие является псевдонимом `moved`.
 
 #### Событие: 'moved' *macOS*
 
-Вызывается единожды, когда окно перемещается в новое положение.
+Происходит единожды, когда окно перемещается в новое положение.
 
 #### Событие: 'enter-full-screen'
 
-Вызывается, когда окно переходит в полноэкранный режим.
+Происходит, когда окно переходит в полноэкранный режим.
 
 #### Событие: 'leave-full-screen'
 
-Вызывается, когда окно выходит из полноэкранного режима.
+Происходит, когда окно выходит из полноэкранного режима.
 
 #### Событие: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Происходит, когда окно входит в полноэкранный режим с помощью HTML API.
 
 #### Событие: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Происходит, когда окно выходит из полноэкранного режима с помощью HTML API.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Событие: 'always-on-top-changed' *macOS*
 
 Возвращает:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
 
-Emitted when the window is set or unset to show always on top of other windows.
+Происходит, когда окно переключает режим отображения поверх всех окон.
 
-#### Event: 'app-command' *Windows* *Linux*
+#### Событие: 'app-command' *Windows* *Linux*
 
 Возвращает:
 
 * `event` Event
 * `command` String
 
-Вызывается, когда вызван [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Происходит, когда вызывается [команда приложения](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Обычно это касается клавиатурных медиа-клавиш или команд браузера, а также кнопки "Назад", встроенной в некоторые мыши на Windows.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Команды в нижнем регистре, подчеркивание заменено на дефисы, а префикс `APPCOMMAND_` обрезан. например `APPCOMMAND_BROWSER_BACKWARD` происходит как `browser-backward`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Возврат на предидущий экран, когда пользователь мышкой нажимает кнопку "назад"
+  // Возврат на предыдущий экран, когда пользователь мышкой нажимает кнопку "назад"
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-The following app commands are explictly supported on Linux:
+Следующие команды приложения явно поддерживаются на Linux:
 
 * `browser-backward`
 * `browser-forward`
 
 #### Событие: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Происходит, когда начинается прокрутка колеса.
 
 #### Событие: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Происходит, когда заканчивается прокрутка колеса.
 
 #### Событие: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Происходит, когда прокрутка колеса достигает края элемента.
 
 #### Событие: 'swipe' *macOS*
 
@@ -421,19 +421,19 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Происходит при свайпе тремя пальцами. Возможные направления: `up`, `right`, `down` и `left`.
 
 #### Событие: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Происходит, когда окно открывает лист.
 
 #### Событие: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Происходит, когда окно закрыло лист.
 
 #### Событие: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Происходит, когда нажимается нативная кнопка новой вкладки.
 
 ### Статические методы
 
