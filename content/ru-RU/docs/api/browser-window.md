@@ -557,31 +557,31 @@ win.loadURL('https://github.com')
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Пытается закрыть окно. Имеет такой же эффект, как ручное нажатие пользователем кнопки "Закрыть окно". Несмотря на это, веб-страница может отменить закрытие. Смотрите [событие close](#event-close).
 
 #### `win.focus()`
 
-Focuses on the window.
+Фокусирует окно.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Убирает фокус с окна.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Возвращает `Boolean` - сфокусировано окно или нет.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Возвращает `Boolean` - уничтожено окно или нет.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Показывает и фокусирует окно.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Показывает окно, но не фокусирует его.
 
 #### `win.hide()`
 
@@ -589,51 +589,51 @@ Shows the window but doesn't focus on it.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Возвращает `Boolean` - видно окно для пользователя или нет.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Возвращает `Boolean` - модальное текущее окно или нет.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Увеличивает окно до предела. Также показывает окно (но не фокусирует), если оно еще не было отображено.
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Выходит из увеличенного состояния окна.
 
 #### `win.isMaximized()`
 
-Возвращает `Boolean` - если окно развернуто.
+Возвращает `Boolean` - увеличено окно до предела или нет.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Сворачивает окно. На некоторых платформах свернутое окно будет показано в Dock.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Восстанавливает окно из свернутого состояния до его предыдущего состояния.
 
 #### `win.isMinimized()`
 
-Возвращает `Boolean` - если окно свернуто.
+Возвращает `Boolean` - свернуто окно или нет.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Устанавливает окно в полноэкранный режим.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Возвращает `Boolean` - в полноэкранном режиме окно или нет.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Входит или покидает простой полноэкранный режим.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
