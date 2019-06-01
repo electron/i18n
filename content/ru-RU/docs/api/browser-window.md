@@ -493,9 +493,9 @@ win.on('app-command', (e, cmd) => {
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Добавляет расширение инструмента разработчика, размещенного в `path`, и возвращает имя расширения.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Расширение будет запоминаться, так что Вам нужно только вызвать этот метод один раз, этот метод не используется для программирования. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
