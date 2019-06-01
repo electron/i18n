@@ -42,7 +42,7 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 
 ```javascript
 // In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+require('electron').console.log(require('electron').remote.getGlobal('sharedObject').someProperty = 'new value)
 ```
 
 ## My app's window/tray disappeared after a few minutes.
