@@ -543,17 +543,17 @@ win.loadURL('https://github.com')
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+`Integer`, представляющий уникальный ID окна.
 
 ### Методы экземпляра
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Объекты, созданные с помощью `new BrowserWindow`, имеют следующие методы экземпляра:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Принудительно закрывает окно, события `unload` и `beforeunload` не произойдут для веб-страниц, а событие `close` также не будет происходить для этого окна, но гарантировано, что событие `closed` будет происходить.
 
 #### `win.close()`
 
