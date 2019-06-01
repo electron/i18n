@@ -14,7 +14,7 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. Ver [roles](#roles).
-  * `tipo` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
+  * `type` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `label` String (opcional)
   * `sublabel` String (opcional)
   * `accelerator` [Accelerator](accelerator.md) (opcional)
