@@ -1015,7 +1015,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Вы можете загрузить URL, используя `POST`-запрос с зашифрованными URL данными, сделав следующее:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1031,35 +1031,35 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (опционально) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (опционально) - переданный в `url.format()`.
+  * `search` String (опционально) - переданная в `url.format()`.
+  * `hash` String (опционально) - переданная в `url.format()`.
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Тоже, что и `webContents.loadFile`, `filePath` должно быть путем до HTML-файла, относительно корня приложения. Смотрите документацию `webContents` для подробностей.
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Тоже, что и `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+Устанавливает `menu` в меню окна.
 
 #### `win.removeMenu()` *Linux* *Windows*
 
-Remove the window's menu bar.
+Удаляет меню окна.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
 * `options` Object (опционально) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String *Windows* - Режим для индикатора прогресса. Может быть `none`, `normal`, `indeterminate`, `error` или `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Устанавливает значение прогресса в индикатор прогресса. Допустимый диапозон - [0, 1.0].
 
 Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
 
