@@ -785,7 +785,7 @@ console.log(win.getBounds())
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Возвращает `Boolean` - может пользователь перемещать окно или нет.
 
 На Linux всегда возвращает `true`.
 
@@ -793,11 +793,11 @@ Returns `Boolean` - Whether the window can be moved by user.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Устанавливает, может ли пользователь вручную сворачивать окно. На Linux ничего не делает.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Возвращает `Boolean` - может пользователь вручную сворачивать окно или нет
 
 На Linux всегда возвращает `true`.
 
@@ -805,11 +805,11 @@ Returns `Boolean` - Whether the window can be manually minimized by user
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Устанавливает, может ли пользователь вручную увеличивать до предела окно. На Linux ничего не делает.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Возвращает `Boolean` - может пользователь вручную увеличивать до предела окно или нет.
 
 На Linux всегда возвращает `true`.
 
@@ -817,17 +817,17 @@ Returns `Boolean` - Whether the window can be manually maximized by user.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Устанавливает, может ли кнопка увеличить/зумировать окно переключать полноэкранный режим или увеличивать до предела окно.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Возвращает `Boolean` - может ли кнопка увеличить/зумировать окно переключать полноэкранный режим или увеличивать до предела окно.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Устанавливает, может ли пользователь вручную закрыть окно. На Linux ничего не делает.
 
 #### `win.isClosable()` *macOS* *Windows*
 
