@@ -665,29 +665,29 @@ win.loadURL('https://github.com')
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `path` String - абсолютный путь до файла, для предпросмотра в QuickLook. Это важно, так как QuickLook использует имя файла и расширение файла из пути, чтобы определить тип содержимого файла для открытия.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `displayName` String (опционально) - имя файла, для отображения в модальном виде QuickLook. Это чисто визуально и не влияет на тип содержимого файла. По умолчанию `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Использует [QuickLook](https://en.wikipedia.org/wiki/Quick_Look) для предпросмотра файла, по данному пути.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Закрывает текущую открытую панель [QuickLook](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) *macOS*
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+Изменяет размер и перемещает окно в заданные границы. Любые свойства, которые не заданы, будут установлены в их текущее значение.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-// set all bounds properties
+// Установить все свойства границы
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
 
-// set a single bounds property
+// Установить одно свойство границы
 win.setBounds({ width: 100 })
 
 // { x: 440, y: 225, width: 100, height: 600 }
@@ -701,9 +701,9 @@ console.log(win.getBounds())
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Меняет размеры и перемещает клиентскую область окна (например, веб-страницу) на заданные границы.
 
 #### `win.getContentBounds()`
 
@@ -711,7 +711,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+Возвращает [`Rectangle`](structures/rectangle.md) - содержит границы окна в нормальном состоянии
 
 **Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
 
