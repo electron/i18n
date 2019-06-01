@@ -25,9 +25,9 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 ## サポートされているバージョン
 
-The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+最新の 3 つの主要バージョンは Electron チームによってサポートされています。 たとえば、最新リリースが 5.0.x の場合、4.x.y シリーズがサポートされます。以前の2つのリリースシリーズ 3.x.y と 2.x.y も同様です。
 
-### Currently supported versions
+### 現在のサポート対象バージョン
 
 * 5.x
 * 4.x
