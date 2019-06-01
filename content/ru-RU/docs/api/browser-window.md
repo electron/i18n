@@ -652,7 +652,7 @@ win.loadURL('https://github.com')
 
 Это заставит окно поддерживать соотношение сторон. Дополнительный размер позволяет разработчику иметь пространство, указанное в пикселях, которое не входит в расчеты соотношения сторон. Этот метод уже учитывает разницу между размером окна и размером его содержимого.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
+Рассмотрим нормально окно в HD видео-плеером, и связанными с ним контроллерами. Возможно, на левом крае есть 15-ти пиксельный контроллер, 25-ти пиксельный контроллер на правом крае и 50-ти пиксельный контроллер внизу плеера. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
 
