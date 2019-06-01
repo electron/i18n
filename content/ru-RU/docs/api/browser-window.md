@@ -526,20 +526,20 @@ console.log(installed)
 
 ### Свойства экземпляра
 
-Objects created with `new BrowserWindow` have the following properties:
+Объекты, созданные с помощью `new BrowserWindow`, имеют следующие свойства:
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// In this example `win` is our instance
+// В этом примере `win` это наш экземпляр
 let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Объект `WebContents`, которым владеет это окно. Все события и операции, связанные с веб-страницей, должны выполняться через этот объект.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Смотрите [документацию `webContents`](web-contents.md) для его методов и событий.
 
 #### `win.id`
 
