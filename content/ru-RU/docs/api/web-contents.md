@@ -1032,7 +1032,7 @@ console.log(requestId)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Захватывает снимок страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные скриншота. Пропустив `rect`, будет сделан захват всей видимой страницы.
+Захватывает снимок страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные захвата страницы. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
 **[Скоро устареет](promisification.md)**
 
