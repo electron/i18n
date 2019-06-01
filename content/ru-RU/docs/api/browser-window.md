@@ -949,21 +949,21 @@ win.setSheetOffset(toolbarRect.height)
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Устанавливает путь до файла, который представляет окно, и иконки файла, которая будет показываться в заголовке окна.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Возвращает `String` - путь до файла, который представляет окно.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Определяет, был ли отредактирован документ окна, иконка в заголовке станет серой, когда установлено `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Возвращает `Boolean` - был ли изменен документ окна.
 
 #### `win.focusOnWebView()`
 
@@ -971,17 +971,17 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (опционально) - границы захвата
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Делает скриншот страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные скриншота. Пропустив `rect`, будет сделан скриншот всей видимой страницы.
 
 **[Скоро устареет](promisification.md)**
 
 #### `win.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (опционально) - границы захвата
 
 * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
