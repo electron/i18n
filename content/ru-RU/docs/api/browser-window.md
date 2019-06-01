@@ -975,7 +975,7 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Захватывает снимок страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные скриншота. Пропустив `rect`, будет сделан захват всей видимой страницы.
+Захватывает снимок страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные захвата страницы. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
 **[Скоро устареет](promisification.md)**
 
@@ -993,7 +993,7 @@ win.setSheetOffset(toolbarRect.height)
 * `options` Object (опционально) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - HTTP Referrer.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
-  * `extraHeaders` String (опционально) - дополнительный заголовки, разделенные "\n"
+  * `extraHeaders` String (опционально) - дополнительные заголовки, разделенные "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опционально)
   * `baseURLForDataURL` String (опционально) - Базовый URL (с разделителем пути), для файлов, которые будут загружены по URL данных. Это необходимо, только если указанный `url` это URL данных и необходимо загрузить другие файлы.
 
@@ -1057,9 +1057,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `progress` Double
 * `options` Object (опционально) 
-  * `mode` String *Windows* - Режим для индикатора прогресса. Может быть `none`, `normal`, `indeterminate`, `error` или `paused`.
+  * `mode` String *Windows* - режим для индикатора прогресса. Может быть `none`, `normal`, `indeterminate`, `error` или `paused`.
 
-Устанавливает значение прогресса в индикатор прогресса. Допустимый диапозон - [0, 1.0].
+Устанавливает значение прогресса в индикатор прогресса. Допустимый диапазон - [0, 1.0].
 
 Удаляет индикатор прогресса, когда прогресс меньше 0; Изменяет в режим indeterminate, когда прогресс больше 1.
 
