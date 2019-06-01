@@ -739,33 +739,33 @@ console.log(win.getBounds())
 * `height` Integer
 * `animate` Boolean (опционально) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Меняет размер клиентской области окна (например, веб-страница) на `width` и `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Возвращает `Integer[]` - содержит ширину и высоту клиентской области окна.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Устанавливает минимальный размер окна на `width` и `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Возвращает `Integer[]` - содержит минимальную ширину и высоту окна.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Устанавливает максимальный размер окна на `width` и `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Возвращает `Integer[]` - содержит максимальную ширину и высоту окна.
 
 #### `win.setResizable(resizable)`
 
@@ -775,13 +775,13 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 #### `win.isResizable()`
 
-Возвращает `Boolean` - Когда окно может быть изменено пользователем вручную.
+Возвращает `Boolean` - может пользователь изменять размеры окна вручную или нет.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Устанавливает, может ли пользователь перемещать окно. На Linux ничего не делает.
 
 #### `win.isMovable()` *macOS* *Windows*
 
