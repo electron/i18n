@@ -841,50 +841,50 @@ console.log(win.getBounds())
 * `level` String (опционально) *macOS* - значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver` и ~~`dock`~~ (Устарело). По-умолчанию - `floating`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nswindow/level) для подробностей.
 * `relativeLevel` Integer (опционально) *macOS* - количество слоев выше, чтобы установить окно относительно заданного `level`. По умолчанию - `0`. Обратите внимание, что Apple не рекомендует устанавливать уровни выше, чем 1 верхнего `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Устанавливает, должно ли окно всегда показываться поверх остальных окон. После настройки, окно все еще является нормальным, не окно панели инструментов, которое не может быть сфокусировано.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Возвращает `Boolean` - всегда ли окно поверх остальных окон.
 
 #### `win.moveTop()` *macOS* *Windows*
 
-Moves window to top(z-order) regardless of focus
+Перемещает окно на верх(z-order) независимо от фокуса
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Перемещает окно в центр экрана.
 
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) *macOS*
 
-Moves window to `x` and `y`.
+Перемещает окно на `x` и `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Возвращает `Integer[]` - содержит текущую позицию окна.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Изменяет название нативного окна на `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Возвращает `String` - название нативного окна.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Примечание:** Название веб-страницы может отличаться от названия нативного окна.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (опционально)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Изменяет точку прикрепления для листов на macOS. По умолчанию, листы прикреплены под рамкой окна, но Вы можете отобразить их под панелью инструментов HTML. Например:
 
 ```javascript
 const { BrowserWindow } = require('electron')
