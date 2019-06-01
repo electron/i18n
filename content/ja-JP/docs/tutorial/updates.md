@@ -31,13 +31,13 @@ require('update-electron-app')()
 
 ## `electron-builder`の使用
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+アプリが [`electron-builder`](https://github.com/electron-userland/electron-builder) でパッケージされている場合は、[electron-updater](https://www.electron.build/auto-update) モジュールを使用できます。これはサーバを必要とせず、S3、GitHub、その他の静的ファイルホストからの更新も可能です。 これは、Electron に組み込まれているアップデートメカニズムを回避するものです。つまり、このドキュメントの残りの部分は、`electron-builder` のアップデートには適用されません。
 
 ## アップロードサーバーを配備
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+プライベートの Electron アプリケーションを開発している場合、または GitHub リリースにリリースを公開していない場合は、独自のアップデートサーバーを実行する必要があるかもしれません。
 
-Depending on your needs, you can choose from one of these:
+ニーズに応じて、次のいずれかから選択できます。
 
 - [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
 - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
