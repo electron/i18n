@@ -495,25 +495,25 @@ win.on('app-command', (e, cmd) => {
 
 Добавляет расширение инструмента разработчика, размещенного в `path`, и возвращает имя расширения.
 
-Расширение будет запоминаться, так что Вам нужно только вызвать этот метод один раз, этот метод не используется для программирования. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Расширение будет запоминаться, так что Вам нужно только вызвать этот метод один раз, этот метод не используется для программирования. Если Вы попытаетесь добавить расширение, которое уже было загружено, этот метод не возвратит значение и вместо этого выведет предупреждение в консоль.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Метод не возвратит значение, если манифест расширения отсутствует или неполный.
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+**Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Удаляет расширение DevTools с указанным именем.
+Удаляет расширение инструмента разработчика с указанным именем.
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+**Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Возвращает `Object` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
-To check if a DevTools extension is installed you can run the following:
+Чтобы проверить установлено ли расширение инструмента разработчика, Вы можете запустить следующее:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -522,7 +522,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+**Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 ### Свойства экземпляра
 
