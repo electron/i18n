@@ -437,15 +437,15 @@ win.on('app-command', (e, cmd) => {
 
 ### Статические методы
 
-The `BrowserWindow` class has the following static methods:
+Класс `BrowserWindow` имеет следующие статические методы:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Возвращает `BrowserWindow[]` - массив всех открытых окон браузера.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+Возвращает `BrowserWindow | null` - окно, которое сфокусировано в этом приложении, иначе возвращает `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
@@ -457,7 +457,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Возвращает `BrowserWindow | null` - окно, которое владеет указанным `browserView`. Если данный вид не прикреплен к любому окну, возвращает `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -469,11 +469,11 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Добавляет расширение Chrome, расположенное в `path`, и возвращает имя расширения.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Метод не возвратит имя, если манифест расширения отсутствует или неполный.
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+**Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -481,13 +481,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Удаляет расширение Chrome с указанным именем.
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+**Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Возвращает `Object` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+**Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
