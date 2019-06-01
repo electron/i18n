@@ -713,7 +713,7 @@ console.log(win.getBounds())
 
 Возвращает [`Rectangle`](structures/rectangle.md) - содержит границы окна в нормальном состоянии
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+**Примечание:** Независимо от текущего состояния окна: увеличено до предела, свернуто или в полноэкранном режиме, эта функция всегда возвратит позицию и размер окна в нормальном состоянии. В нормальном состоянии, getBounds и getNormalBounds возвращают тот же [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
@@ -725,19 +725,19 @@ console.log(win.getBounds())
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Меняет размер окна на `width` и `height`. Если `width` или `height` ниже любого ограничения минимального размера окна, будет зафиксировано на минимальном размере.
 
 #### `win.getSize()`
 
-Возвращает `Integer[]` - Содержит высоту и ширину окна.
+Возвращает `Integer[]` - содержит высоту и ширину окна.
 
 #### `win.setContentSize(width, height[, animate])`
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (необязательно) *macOS*
+* `animate` Boolean (опционально) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
