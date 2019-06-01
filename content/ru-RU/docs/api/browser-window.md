@@ -975,7 +975,7 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Делает скриншот страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные скриншота. Пропустив `rect`, будет сделан скриншот всей видимой страницы.
+Захватывает снимок страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные скриншота. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
 **[Скоро устареет](promisification.md)**
 
@@ -983,19 +983,19 @@ win.setSheetOffset(toolbarRect.height)
 
 * `rect` [Rectangle](structures/rectangle.md) (опционально) - границы захвата
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+* Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Захватывает снимок страницы в границах `rect`. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (опционально) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - HTTP Referrer.
+  * `userAgent` String (опционально) - user-agent, создающий запрос.
+  * `extraHeaders` String (опционально) - дополнительный заголовки, разделенные "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опционально)
+  * `baseURLForDataURL` String (опционально) - Базовый URL (с разделителем пути), для файлов, которые будут загружены по URL данных. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
