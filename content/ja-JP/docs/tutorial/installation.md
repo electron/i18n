@@ -81,7 +81,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Skip binary download
+## バイナリダウンロードのスキップ
 
 When installing the `electron` NPM package, it automatically downloads the electron binary.
 
