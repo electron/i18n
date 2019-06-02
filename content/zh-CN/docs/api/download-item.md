@@ -96,11 +96,11 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.isPaused()`
 
-返回`Boolean` - 下载是否暂停。
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-恢复已暂停的下载。
+Resumes the download that has been paused.
 
 **笔记：** 为了支持断点下载，必须要从支持范围内请求下载，并且提供`Last-Modified` 和 `ETag`的值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
