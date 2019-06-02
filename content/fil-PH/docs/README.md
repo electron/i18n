@@ -1,6 +1,6 @@
 # Opisyal na Gabay
 
-Pakitiyak na ginagamit mo ang mga dokumento na tumutugma sa iyong bersyon ng Electron. Ang numero ng bersyon ay dapat na isang bahagi ng URL ng pahina. Kung hindi, ikaw ay marahil gumagamit ng dokumentasyon ng sangay sa pag-unlad na maaaring naglalaman ng mga pagbabago ng API na hindi tugma sa iyong bersyon ng Electron. Upang tingnan ang mas matandang mga bersyon ng dokumentasyon, maaari kang [ mag-browse ayon sa tag ](https://github.com/electron/electron/tree/v1.4.0) sa GitHub sa pamamagitan ng pagbukas ng dropdown na mga branch / tag "at pagpili sa tag na tumutugma sa iyong bersyon.
+Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## FAQ
 

@@ -2,16 +2,13 @@
 
 > Control file downloads from remote sources.
 
-Process: [Main](../glossary.md#main-process)
+Messages 
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// ใน main process
-const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
-win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+// In the main process.
+{ BrowserWindow }
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {

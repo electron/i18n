@@ -18,7 +18,7 @@
 | Tue, 2019-Jan-29 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Feb-05 | 5.0.0-beta.x | Last Date to Join [AFP](https://electronjs.org/blog/app-feedback-program) |
 | Tue, 2019-Feb-12 | 5.0.0-beta.x |                                                                           |
-| Tue, 2019-Feb-19 | none         | Maintainers Summit                                                        |
+| Tue, 2019-Feb-19 | なし           | Maintainers Summit                                                        |
 | Tue, 2019-Feb-26 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Mar-05 | 5.0.0-beta.x | halfway mark                                                              |
 | Tue, 2019-Mar-12 | 5.0.0-beta.x |                                                                           |
@@ -26,7 +26,7 @@
 | Tue, 2019-Mar-26 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Apr-02 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Apr-09 | 5.0.0-beta.x |                                                                           |
-| Tue, 2019-Apr-16 | none         | quiet period - stable prep                                                |
+| Tue, 2019-Apr-16 | なし           | quiet period - stable prep                                                |
 | Tue, 2019-Apr-23 | 5.0.0        | ✨stable ✨                                                                 |
 
 ## 6.0.0 リリーススケジュール

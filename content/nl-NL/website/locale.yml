@@ -13,10 +13,10 @@ nav:
   releases: Releases
   search: Zoeken
   userland: Userland
-  governance: Governance
+  governance: Bestuur
 keyboard_modal:
   title: Toetsencombinaties
-  key: Key
+  key: Sleutel
   action: Action
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
