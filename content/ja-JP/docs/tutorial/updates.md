@@ -39,22 +39,22 @@ require('update-electron-app')()
 
 ニーズに応じて、次のいずれかから選択できます。
 
-- [Hazel](https://github.com/zeit/hazel) – [今すぐ](https://zeit.co/now)に無料でデプロイできるプライベートまたはオープンソースのアプリ用にサーバーを更新します。 It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel](https://github.com/zeit/hazel) – [今すぐ](https://zeit.co/now)に無料でデプロイできるプライベートまたはオープンソースのアプリ用にサーバーを更新します。 それは [GitHub Releases](https://help.github.com/articles/creating-releases/) から引き出され、GitHub の CDN の力を活用します。
+- [Nuts](https://github.com/GitbookIO/nuts) – [GitHub Releases](https://help.github.com/articles/creating-releases/) も使用しますが、アプリの更新をディスクにキャッシュし、プライベートリポジトリをサポートします。
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – リリースを処理するためのダッシュボードを提供します。リリースを GitHub で作成する必要はありません。
+- [Nucleus](https://github.com/atlassian/nucleus) – Atlassian がメンテナンスしている Electron アプリのための完全なアップデートサーバー。 複数のアプリケーションとチャンネルをサポートします。サーバーのコストを最小限に抑えるために静的ファイルストアを使用します。
 
 ## アプリケーションでの更新の実装
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+アップデートサーバをデプロイしたら、コードに必要なモジュールをインポートします。 次のコードはサーバソフトウェアによって異なる場合がありますが、[Hazel](https://github.com/zeit/hazel) を使用したときの説明のように機能します。
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**重要:** 以下のコードは、開発中ではなく、パッケージ化されたアプリでのみ実行されるようにしてください。 [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) を使って環境をチェックすることができます。
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+次に、アップデートサーバーの URL を作成し、それについて [autoUpdater](../api/auto-updater.md) に伝えます。
 
 ```javascript
 const server = 'https://your-deployment-url.com'
