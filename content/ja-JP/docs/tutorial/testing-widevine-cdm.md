@@ -34,7 +34,7 @@ Chrome ブラウザで `chrome://components/` を開き、`Widevine Content Decr
 
 ## ライブラリの使用
 
-After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
+ライブラリファイルを取得したら、`--widevine-cdm-path` コマンドラインスイッチを使用してファイルへのパスを渡し、`--widevine-cdm-version` スイッチを使用してライブラリのバージョンを渡す必要があります。 `app` モジュールの `ready` イベントが発行される前に、コマンドラインスイッチを渡す必要があります。
 
 コード例
 
@@ -55,9 +55,9 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying Widevine CDM support
+## Widevine CDM サポートの確認
 
-To verify whether widevine works, you can use following ways:
+widevine が機能するかどうかを確認するには、次の方法を使用できます。
 
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* https://shaka-player-demo.appspot.com/ を開き、`Widevine` を使用するマニフェストを読み込みます。
+* http://www.dash-player.com/demo/drm-test-area/ を開き、ページに `bitdash uses Widevine in your browser` と表示されているかどうかを確認してから、ビデオを再生します。
