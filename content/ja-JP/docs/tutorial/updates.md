@@ -63,7 +63,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+最後のステップとして、更新を確認してください。以下の例は毎分チェックします。
 
 ```javascript
 setInterval(() => {
@@ -71,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+アプリケーションが[パッケージ化される](../tutorial/application-distribution.md)と、公開した新しい [GitHub Release](https://help.github.com/articles/creating-releases/) ごとにアップデートが届きます。
 
 ## アップデートの適用
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+アプリケーションの基本的な更新メカニズムを設定したので、更新があるとユーザに通知されるようにする必要があります。 これは autoUpdater API [events](../api/auto-updater.md#events) を使用して実現できます。
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -93,7 +93,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+エラーが[処理されている](../api/auto-updater.md#event-error)ことも確認してください。これらは `stderr` にログを出力するための例です:
 
 ```javascript
 autoUpdater.on('error', message => {
