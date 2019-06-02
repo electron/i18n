@@ -144,7 +144,7 @@ npm uninstall -g electron
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Для анти-алиасинга подпикселя требуется непрозрачный фон, содержащий глифы шрифта. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
