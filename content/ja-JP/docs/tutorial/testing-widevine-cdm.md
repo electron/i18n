@@ -1,8 +1,8 @@
-# Testing Widevine CDM
+# Widevine CDM のテスト
 
-In Electron you can use the Widevine CDM library shipped with Chrome browser.
+Electron では、Chrome ブラウザに同梱されている Widevine CDM ライブラリを使用できます。
 
-Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Widevine Content Decryption Modules (CDMs) は、Flash や Silverlight のような NPAPI プラグインに頼ることなく、ストリーミングサービスが HTML 5 ビデオを使用して Web ブラウザにコンテンツを保護する方法です。 Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
 
 #### Note on VMP
 
@@ -36,7 +36,7 @@ The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chro
 
 After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
 
-Example code:
+コード例
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
