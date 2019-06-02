@@ -2,15 +2,15 @@
 
 Electron では、Chrome ブラウザに同梱されている Widevine CDM ライブラリを使用できます。
 
-Widevine Content Decryption Modules (CDMs) は、Flash や Silverlight のような NPAPI プラグインに頼ることなく、ストリーミングサービスが HTML 5 ビデオを使用して Web ブラウザにコンテンツを保護する方法です。 Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Widevine Content Decryption Modules (CDMs) は、Flash や Silverlight のような NPAPI プラグインに頼ることなく、ストリーミングサービスが HTML 5 ビデオを使用して Web ブラウザにコンテンツを保護する方法です。 Widevine サポートは、DRM 保護されたビデオコンテンツの再生に現在 Silverlight を使用しているストリーミングサービスの代替ソリューションです。 Web サイトは NPAPI プラグインを使用せずに Firefox で DRM 保護されたビデオコンテンツを表示することができます。 Widevine CDM はオープンソースの CDM サンドボックスで実行され、NPAPI プラグインよりも優れたユーザーセキュリティを提供します。
 
-#### Note on VMP
+#### VMP に関する注意
 
-As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
+[`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1) 以降では、以下のステップは Widevine を有効にするために必要なステップの一部に過ぎません。Widevine CDM を使用する予定の、そのバージョン以降のアプリは、[Widevine](https://www.widevine.com/) 自体から取得したライセンスを使用して署名する必要があります。
 
-Per [Widevine](https://www.widevine.com/):
+[Widevine](https://www.widevine.com/) あたり:
 
-> Chrome 59 (and later) includes support for Verified Media Path (VMP). VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
+> Chrome 59 (以降) には、検証済みメディアパス (VMP) のサポートが含まれています。 VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
 > 
 > The proxy integration guide has been updated with information about VMP and how to issue licenses.
 > 
