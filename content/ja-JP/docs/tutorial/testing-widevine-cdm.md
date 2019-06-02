@@ -10,27 +10,27 @@ Widevine Content Decryption Modules (CDMs) は、Flash や Silverlight のよう
 
 [Widevine](https://www.widevine.com/) あたり:
 
-> Chrome 59 (以降) には、検証済みメディアパス (VMP) のサポートが含まれています。 VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
+> Chrome 59 (以降) には、検証済みメディアパス (VMP) のサポートが含まれています。 VMP はデバイスプラットフォームの信頼性を検証する方法を提供します。 ブラウザ展開の場合、これはブラウザベースの実装が信頼性があり安全であるかどうかを判断するための追加のシグナルを提供します。
 > 
-> The proxy integration guide has been updated with information about VMP and how to issue licenses.
+> プロキシ統合ガイドが VMP およびライセンスの発行方法に関する情報で更新されました。
 > 
-> Widevine recommends our browser-based integrations (vendors and browser-based applications) add support for VMP.
+> Widevine は、私たちのブラウザベースの統合 (ベンダおよびブラウザベースのアプリケーション) が VMP のサポートを追加することを推奨しています。
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+この新しい制限でビデオの再生を可能にするために、[castLabs](https://castlabs.com/open-source/downstream/) は、Widevine から必要なライセンスを取得した場合に、Widevine を Electron アプリケーションで再生できるようにするために必要な変更を実装した [fork](https://github.com/castlabs/electron-releases) を作成しました。
 
 ## ライブラリの取得
 
-Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
+Chrome ブラウザで `chrome://components/` を開き、`Widevine Content Decryption Module` を見つけて最新のものであることを確認したら、アプリケーションディレクトリからライブラリファイルを見つけることができます。
 
 ### Windowsの場合
 
-The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
+ライブラリファイル `widevinecdm.dll` は、`Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` ディレクトリにあります。
 
 ### macOSの場合
 
-The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
+ライブラリファイル `libwidevinecdm.dylib` は、`/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` ディレクトリにあります。
 
-**Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
+**注意:** Electron が使用する chrome バージョンが、Chrome の widevine cdm コンポーネントの `min_chrome_version` 値以上であることを確認してください。 値は、`WidevineCdm` ディレクトリの `manifest.json` にあります。
 
 ## ライブラリの使用
 
