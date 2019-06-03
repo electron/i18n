@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "10571",
-    "translated": "7455",
+    "translated": "7467",
     "approved": "39",
     "words": "97502",
-    "words_translated": "55658",
+    "words_translated": "55780",
     "words_approved": "142",
     "translated_progress": 57,
     "approved_progress": 0,
-    "qa_issues": 2148
+    "qa_issues": 2157
   },
   {
     "name": "German",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10571",
-    "translated": "6543",
-    "approved": "2775",
+    "translated": "6586",
+    "approved": "2927",
     "words": "97502",
-    "words_translated": "50578",
-    "words_approved": "23805",
-    "translated_progress": 51,
-    "approved_progress": 24,
-    "qa_issues": 1381
+    "words_translated": "51101",
+    "words_approved": "25131",
+    "translated_progress": 52,
+    "approved_progress": 25,
+    "qa_issues": 1338
   },
   {
     "name": "Spanish",
