@@ -1100,7 +1100,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `rects` [Rectangle[]](structures/rectangle.md) - устанавливает форму окна. Передача пустого списка возвращает окно к прямоугольной форме.
 
-Установка формы окна, которая определяет область в окне, где система разрешает отрисовку и взаимодействие пользователя. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+Установка формы окна, которая определяет область в окне, где система разрешает отрисовку и взаимодействие пользователя. Вне данного региона ни один пиксель не отрисуется и ни одно событие мыши не будет зарегистрировано. Вне региона события мыши не будут получены этим окном, но будет передаваться чему-либо позади окна.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1108,7 +1108,7 @@ win.loadURL('http://localhost:8000/post', {
 
 Возвращает `Boolean` - успешно ли добавлены кнопки
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Добавляет панель миниатюр, с определенным набором кнопок, на слой кнопок в изображении эскиза окна в панели задач. Возвращает объект `Boolean`, который указывает успешно ли добавлена панель миниатюр.
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
