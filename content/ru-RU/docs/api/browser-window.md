@@ -1168,7 +1168,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+Устанавливает, должны ли быть видны кнопки контроля окна.
 
 This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
