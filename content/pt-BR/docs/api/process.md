@@ -77,7 +77,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+Uma `String` que representa o caminho para o diretório de recursos.
 
 ### `process.sandboxed`
 
