@@ -1170,13 +1170,13 @@ win.loadURL('http://localhost:8000/post', {
 
 Устанавливает, должны ли быть видны кнопки контроля окна.
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+Этот метод невозможно вызвать, когда `titleBarStyle` установлено в `customButtonsOnHover`.
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Устанавливает, должна ли панель меню автоматически прятать себя. После установки панель меню будет показываться, только когда пользователи нажмут на клавишу `Alt`.
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
