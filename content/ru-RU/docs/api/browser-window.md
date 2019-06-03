@@ -1110,12 +1110,12 @@ win.loadURL('http://localhost:8000/post', {
 
 Добавляет панель миниатюр, с определенным набором кнопок, на слой кнопок в изображении эскиза окна в панели задач. Возвращает объект `Boolean`, который указывает успешно ли добавлена панель миниатюр.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Количество кнопок в панели миниатюр не должно быть больше, чем 7, из-за ограничений. После установки панели миниатюр, панель не может быть удалена, из-за ограничений платформы. Но Вы можете вызвать метод с пустым массивом, чтобы убрать кнопки.
 
 `buttons` является массивом объектов `Button`:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
+  * `icon` [NativeImage](native-image.md) - иконка, отображаемая на панели миниатюр.
   * `click` Function
   * `tooltip` String (опционально) - текст всплывающей подсказки на кнопке.
   * `flags` String[] (опционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
@@ -1124,22 +1124,22 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 * `enabled` - кнопка активна и доступна пользователю.
 * `disabled` - кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
-* `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
-* `nobackground` - не рисует границы кнопок, использует только изображение.
+* `dismissonclick` - когда кнопка нажата, окно панели миниатюр закрывается немедленно.
+* `nobackground` - не рисует границы кнопки, использует только изображение.
 * `hidden` - кнопка не отображается пользователю.
 * `noninteractive` - кнопка включена, но не интерактивная; рисуется не нажимаемое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Область окна
+* `region` [Rectangle](structures/rectangle.md) - область окна
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Устанавливает область окна, которая будет показана в панели миниатюр, когда мышь наводится на окно в панели задач. Вы можете сбросить панель миниатюры, чтобы показывалось окно полностью, указав пустую область: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Устанавливает всплывающую подсказку, которая будет отображена, когда мышь наведется на панель миниатюры окна в панели задач.
 
 #### `win.setAppDetails(options)` *Windows*
 
