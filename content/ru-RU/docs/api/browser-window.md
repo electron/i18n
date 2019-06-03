@@ -1070,37 +1070,37 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
 * `overlay` [NativeImage](native-image.md) | null - иконка, которая будет отображаться в правом краю иконки на панели задач. Если параметр `null`, оверлей будет очищен
-* `description` String - a description that will be provided to Accessibility screen readers
+* `description` String - описание, которое будет представлено для доступности чтения с экрана
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Устанавливает 16x16 пиксельный оверлей поверх текущей иконки в панели задач, обычно используется для передачи какого-либо статуса приложения или пассивного уведомления пользователя.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Устанавливает, должно ли окно иметь тень. На Windows и Linux ничего не делает.
 
 #### `win.hasShadow()` *macOS*
 
-Возвращает `Boolean` - был ли вызов успешным.
+Возвращает `Boolean` - есть ли у окна тень.
 
-В Windows и Linux всегда возвращает `true`.
+На Windows и Linux всегда возвращает `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - между 0.0 (полная прозрачность) и 1.0 (полная видимость)
 
-Sets the opacity of the window. On Linux does nothing.
+Устанавливает прозрачность окна. На Linux ничего не делает.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость)
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` *Windows* *Linux* *Экспериментально*
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - устанавливает форму окна. Передача пустого списка возвращает окно к прямоугольной форме.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+Установка формы окна, которая определяет область в окне, где система разрешает отрисовку и взаимодействие пользователя. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
