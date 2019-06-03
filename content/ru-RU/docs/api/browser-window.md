@@ -1178,41 +1178,41 @@ win.loadURL('http://localhost:8000/post', {
 
 Устанавливает, должна ли панель меню автоматически прятать себя. После установки панель меню будет показываться, только когда пользователи нажмут на клавишу `Alt`.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Если панель меню уже видна, вызов `setAutoHideMenuBar(true)` не спрячет ее немедленно.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Возвращает `Boolean` - прячет ли меню себя автоматически.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Устанавливает видимость панели меню. Если панель меню прячется автоматически, пользователи все еще могут открыть панель меню нажатием на клавишу `Alt`.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Возвращает `Boolean` - видна ли панель меню.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
 * `options` Object (опционально) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (опционально) *macOS* - устанавливает видимость панели меню в полноэкранном режиме окна
 
-Sets whether the window should be visible on all workspaces.
+Устанавливает видимость окна на всех рабочих местах.
 
-**Note:** This API does nothing on Windows.
+**Примечание:** Этот метод ничего не делает Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Возвращает `Boolean` - видно ли окно на всех рабочих местах.
 
-**Примечание:** Данный API всегда возвращает false в Windows.
+**Примечание:** Этот метод всегда возвращает false на Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 * `options` Object (опционально) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
