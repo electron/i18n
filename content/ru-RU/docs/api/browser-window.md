@@ -1133,13 +1133,13 @@ win.loadURL('http://localhost:8000/post', {
 
 * `region` [Rectangle](structures/rectangle.md) - область окна
 
-Устанавливает область окна, которая будет показана в панели миниатюр, когда мышь наводится на окно в панели задач. Вы можете сбросить панель миниатюры, чтобы показывалось окно полностью, указав пустую область: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Устанавливает область окна, которая будет показана в панели миниатюр, при наведении мыши на окно в панели задач. Вы можете сбросить панель миниатюры, чтобы показывалось окно полностью, указав пустую область: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Устанавливает всплывающую подсказку, которая будет отображена, когда мышь наведется на панель миниатюры окна в панели задач.
+Устанавливает всплывающую подсказку, которая будет отображена, при наведении мыши на панель миниатюры окна в панели задач.
 
 #### `win.setAppDetails(options)` *Windows*
 
@@ -1290,30 +1290,30 @@ win.loadURL('http://localhost:8000/post', {
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Устанавливает слой сенсорной панели для текущего окна. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
 
 **Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
 #### `win.setBrowserView(browserView)` *Экспериментально*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md). Прикрепляет browserView к окну. Если к окну прикреплены другие browserView, они будут убраны с окна.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Экспериментально*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Возвращает `BrowserView | null` - BrowserView, которое прикреплено. Возвращает `null`, если не прикреплено. Выбрасывает ошибку, если прикреплены множественные BrowserView.
 
 #### `win.addBrowserView(browserView)` *Экспериментально*
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+Заменяет метод setBrowserView, для поддержки работы с множественными видами браузера.
 
 #### `win.removeBrowserView(browserView)` *Экспериментально*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` *Экспериментально*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Возвращает массив объектов `BrowserView`, которые были прикреплены с помощью addBrowserView или setBrowserView.
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
