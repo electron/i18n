@@ -162,11 +162,11 @@ To compile for a platform that isn't the same as the one you're building on, set
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium.
+Nicht alle Kombinationen von Quell- und Ziel-Prozessor/Betriebssystem werden von Chromium unterstützt.
 
 <table>
   
-<tr><th>Host</th><th>Target</th><th>Status</th></tr>
+<tr><th>Host</th><th>Ziel</th><th>Status</th></tr>
   
   <tr>
     <td>
@@ -180,24 +180,24 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
     <td>
       Experimentell
     </td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automatisch getestet</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatisch getestet</td></tr>
 </table> 
     
     <p>
-      If you test other combinations and find them to work, please update this document :)
+      Wenn Sie andere Kombinationen testen und diese funktionieren aktualisieren Sie bitte dieses Dokument :)
     </p>
     
     <p>
-      See the GN reference for allowable values of <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> and <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+      Siehe GN-Referenz für zulässige Werte von <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> und <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
     </p>
     
     <h4>
-      Windows on Arm (experimental)
+      Windows auf Arm (experimentell)
     </h4>
     
     <p>
-      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+      Um Windows auf Arm zu kompilieren, folgen Sie<a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">dem Chromium-Guide</a> um die notwendigen Abhängigkeiten, SDK und Bibliotheken zu erhalten, und bauen Sie dann mit <code>ELECTRON_BUILDING_WOA=1</code> in Ihrer Umgebung, bevor Sie <code>gclient sync</code>ausführen.
     </p>
     
     <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
@@ -205,7 +205,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Or (if using PowerShell):
+      Oder (wenn Sie PowerShell benutzen):
     </p>
     
     <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
@@ -213,7 +213,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+      Als nächstes führe <code>gn gen</code> aus wie oben mit <code>target_cpu="arm64"</code>.
     </p>
     
     <h2>
