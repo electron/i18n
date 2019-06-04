@@ -25,7 +25,13 @@ $ brew install python@2 && brew link python@2 --force
 
 如果你已经在使用Homebrew来管理Python，那你可以通过安装以下Python模块来实现版本支持：
 
-* [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+* [pyobjc](https://pypi.org/project/pyobjc/#description)
+
+You can use `pip` to install it:
+
+```sh
+$ pip install pyobjc
+```
 
 ## macOS SDK
 
@@ -35,4 +41,4 @@ $ brew install python@2 && brew link python@2 --force
 
 ## 构建Electron
 
-参照[Build Instructions: GN](build-instructions-gn.md).
+参照[Build Instructions: GN](build-instructions-gn.md)
