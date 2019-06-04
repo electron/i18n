@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: เอกสารประกอบของ อิเล็กตรอน
   description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
-  guides: คู่มือ
+  guides: "Guides: Getting Started with Electron"
   api_reference: API อ้างอิง
   api_structures: โครงสร้าง API
   advanced: ขั้นสูง
+  detailed: In Detail
+  custom_dom: Custom DOM Elements
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: ปรับปรุงเอกสารนี้
     version_history: ประวัติรุ่น
