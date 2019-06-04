@@ -27,7 +27,7 @@ Homebrew で提供される Python を使用している場合、以下の Pytho
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+以下のように `pip` を使ってインストールできます。
 
 ```sh
 $ pip install pyobjc
