@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Tài liệu Electron
   description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
-  guides: Các hướng dẫn
+  guides: "Guides: Getting Started with Electron"
   api_reference: Tài liệu tham khảo về API
   api_structures: Cấu trúc API
   advanced: Nâng cao
+  detailed: In Detail
+  custom_dom: Tùy chỉnh các DOM Element
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Cải thiện tài liệu này
     version_history: Lịch sử phiên bản
