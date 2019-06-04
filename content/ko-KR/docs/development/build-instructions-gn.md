@@ -161,56 +161,128 @@ ninja -C out/Release electron:electron_dist_zip
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지는 않습니다. Electron에서는 Windows 64-비트에서 Windows 32-비트, 리눅스 64-비트에서 리북스 32-비트에 대한 크로스-컴파일만 테스트되었습니다. 다른 조합을 테스트해보시고 잘 동작한다면, 이 문서를 업데이트 해주시길 바랍니다.
+Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지는 않습니다.
 
-GN 문서에서 사용 가능한 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) 및 [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) 값을 확인하실 수 있습니다.
-
-## 테스트
-
-테스트를 실행하려면 우선 빌드 과정에서 빌드된 Node.js 버전과 같은 버전을 기준으로 테스트 모듈을 빌드해야합니다. 컴파일하려는 모듈을 위한 빌드 헤더를 생성하려면 `src/` 디렉토리 안에서 다음 명령어를 실행하세요.
-
-```sh
-$ ninja -C out/Debug third_party/electron_node:headers
+<table>
+  
+<tr><th>Host</th><th>Target</th><th>Status</th></tr>
+  
+  <tr>
+    <td>
+      Windows x64
+    </td>
+    
+    <td>
+      Windows arm64
+    </td>
+    
+    <td>
+      Experimental
+    </td>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+</table> 
+    
+    <p>
+      If you test other combinations and find them to work, please update this document :)
+    </p>
+    
+    <p>
+      See the GN reference for allowable values of <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> and <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+    </p>
+    
+    <h4>
+      Windows on Arm (experimental)
+    </h4>
+    
+    <p>
+      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+    </p>
+    
+    <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Or (if using PowerShell):
+    </p>
+    
+    <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+    </p>
+    
+    <h2>
+      테스트
+    </h2>
+    
+    <p>
+      테스트를 실행하려면 우선 빌드 과정에서 빌드된 Node.js 버전과 같은 버전을 기준으로 테스트 모듈을 빌드해야합니다. 컴파일하려는 모듈을 위한 빌드 헤더를 생성하려면 <code>src/</code> 디렉토리 안에서 다음 명령어를 실행하세요.
+    </p>
+    
+    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
 # 생성된 헤더를 이용해 테스트 모듈을 설치하세요
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
-```
-
-그리고 `electron/spec` 인자와 함께 Electron을 실행하세요.
-
-```sh
-# Mac:
+</code></pre>
+    
+    <p>
+      그리고 <code>electron/spec</code> 인자와 함께 Electron을 실행하세요.
+    </p>
+    
+    <pre><code class="sh"># Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # Windows:
 $ ./out/Debug/electron.exe electron/spec
 # 리눅스:
 $ ./out/Debug/electron electron/spec
-```
-
-Electron 바이너리에 추가 플래그를 넘겨주면 디버깅하는데 도움이 될 것입니다:
-
-```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+</code></pre>
+    
+    <p>
+      Electron 바이너리에 추가 플래그를 넘겨주면 디버깅하는데 도움이 될 것입니다:
+    </p>
+    
+    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
-```
-
-## 다른 컴퓨터와 git cache 공유하기
-
-리눅스에서는 SMB 공유를 이용한 내보내기를 통해 gclient git cache를 다른 컴퓨터와 공유할 수 있습니다. 하지만 한 번에 한 프로세스/컴퓨터에서만 캐시를 사용할 수 있습니다. git-cache 스크립트에 의해 생성된 locks이 이러한 상황을 막기 위해 노력하겠지만, 네트워크 환경에서는 완벽하게 동작하지는 않을 수 있습니다.
-
-Windows에서는 SMBv2 는 캐시 디렉토리를 가지고 있는데 git cache 스크립트와 문제를 일으킬 수 있습니다. 따라서, 아래의 레지스터 키를
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-0으로 설정해 비활성화시켜야 합니다. 추가 정보는 이곳에서 확인하세요: https://stackoverflow.com/a/9935126
-
-## 문제 해결
-
-### git cache 안의 오래된 locks
-
-git cache 이용 과정 중에 `gclient sync`가 중단되면, 캐시는 잠긴 상태(locked) 로 남을 것입니다. lock을 제거하려면, `--break_repo_locks` 인자를 `gclient sync`에 전달하시길 바랍니다.
-
-### chromium-internal.googlesource.com에 대한 사용자이름/비밀번호를 물어보는 경우
-
-Windows에서 `gclient sync`를 실행했을 때 `'https://chrome-internal.googlesource.com':에 대한 사용자 이름` 을 요청하는 창이 나타났다면, `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 0으로 설정하지 않았기 때문일 것입니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다. 이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
+</code></pre>
+    
+    <h2>
+      다른 컴퓨터와 git cache 공유하기
+    </h2>
+    
+    <p>
+      리눅스에서는 SMB 공유를 이용한 내보내기를 통해 gclient git cache를 다른 컴퓨터와 공유할 수 있습니다. 하지만 한 번에 한 프로세스/컴퓨터에서만 캐시를 사용할 수 있습니다. git-cache 스크립트에 의해 생성된 locks이 이러한 상황을 막기 위해 노력하겠지만, 네트워크 환경에서는 완벽하게 동작하지는 않을 수 있습니다.
+    </p>
+    
+    <p>
+      Windows에서는 SMBv2 는 캐시 디렉토리를 가지고 있는데 git cache 스크립트와 문제를 일으킬 수 있습니다. 따라서, 아래의 레지스터 키를
+    </p>
+    
+    <pre><code class="sh">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+</code></pre>
+    
+    <p>
+      0으로 설정해 비활성화시켜야 합니다. 추가 정보는 이곳에서 확인하세요: https://stackoverflow.com/a/9935126
+    </p>
+    
+    <h2>
+      문제 해결
+    </h2>
+    
+    <h3>
+      git cache 안의 오래된 locks
+    </h3>
+    
+    <p>
+      git cache 이용 과정 중에 <code>gclient sync</code>가 중단되면, 캐시는 잠긴 상태(locked) 로 남을 것입니다. lock을 제거하려면, <code>--break_repo_locks</code> 인자를 <code>gclient sync</code>에 전달하시길 바랍니다.
+    </p>
+    
+    <h3>
+      chromium-internal.googlesource.com에 대한 사용자이름/비밀번호를 물어보는 경우
+    </h3>
+    
+    <p>
+      Windows에서 <code>gclient sync</code>를 실행했을 때 <code>'https://chrome-internal.googlesource.com':에 대한 사용자 이름</code> 을 요청하는 창이 나타났다면, <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> 환경 변수를 0으로 설정하지 않았기 때문일 것입니다. <code>제어판</code>→<code>시스템과 보안</code>→<code>시스템</code>→<code>고급 시스템 설정</code>을 열고, 그 값이 <code>0</code> 인 시스템 변수 <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code>을 추가합니다. 이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 <code>depot_tools</code>에게 알려주는 설정입니다. (이같은 설정이 없다면, <code>depot_tools</code>는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
+    </p>

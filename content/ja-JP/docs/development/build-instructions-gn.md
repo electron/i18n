@@ -161,56 +161,128 @@ ninja -C out/Release electron:electron_dist_zip
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。 Windows 64 ビットからの Windows 32 ビットと、Linux 64 ビットからの Linux 32 ビットのクロスコンパイルのみが Electron でテストされています。 他の組み合わせをテストしてうまく動作することがわかっている場合は、このドキュメントを更新してください :)
+ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。
 
-[`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許される値については、 GN リファレンスを参照してください。
-
-## テスト
-
-このテストを実行するために、あなたは最初に、このビルドプロセスの一部としてビルドする Node.js と同じバージョンに対してテストモジュールをビルドする必要があります。 再びコンパイルするモジュールのためのビルドヘッダを生成するために、`src/`ディレクトリの下で以下のように実行します。
-
-```sh
-$ ninja -C out/Debug third_party/electron_node:headers
+<table>
+  
+<tr><th>Host</th><th>Target</th><th>状況</th></tr>
+  
+  <tr>
+    <td>
+      Windows x64
+    </td>
+    
+    <td>
+      Windows arm64
+    </td>
+    
+    <td>
+      実験的
+    </td>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+</table> 
+    
+    <p>
+      If you test other combinations and find them to work, please update this document :)
+    </p>
+    
+    <p>
+      See the GN reference for allowable values of <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> and <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+    </p>
+    
+    <h4>
+      Windows on Arm (experimental)
+    </h4>
+    
+    <p>
+      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+    </p>
+    
+    <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Or (if using PowerShell):
+    </p>
+    
+    <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+    </p>
+    
+    <h2>
+      テスト
+    </h2>
+    
+    <p>
+      このテストを実行するために、あなたは最初に、このビルドプロセスの一部としてビルドする Node.js と同じバージョンに対してテストモジュールをビルドする必要があります。 再びコンパイルするモジュールのためのビルドヘッダを生成するために、<code>src/</code>ディレクトリの下で以下のように実行します。
+    </p>
+    
+    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
 # 生成ヘッダありでテストモジュールをインストールする場合
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
-```
-
-それから、`electron/spec` を引数にして Electronを実行します。
-
-```sh
-# macOSの場合:
+</code></pre>
+    
+    <p>
+      それから、<code>electron/spec</code> を引数にして Electronを実行します。
+    </p>
+    
+    <pre><code class="sh"># macOSの場合:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # Windowsの場合:
 $ ./out/Debug/electron.exe electron/spec
 # Linuxの場合:
 $ ./out/Debug/electron electron/spec
-```
-
-もし何かをデバッグ中であれば、以下のフラグを Electron バイナリに渡すと役に立つかもしれません。
-
-```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+</code></pre>
+    
+    <p>
+      もし何かをデバッグ中であれば、以下のフラグを Electron バイナリに渡すと役に立つかもしれません。
+    </p>
+    
+    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
-```
-
-## 複数マシン間での gitのキャッシュの共有
-
-gclient git キャッシュを Linux 上で SMB 共有としてエクスポートすることで、他のマシンと共有することは可能ですが、一度に一つのプロセス/マシンだけがキャッシュを使用できます。 git-cache スクリプトによって作成されたロックはこれを防止しようとしますが、ネットワーク内で完璧には動作しない可能性があります。
-
-Windows では、SMBv2 にはディレクトリキャッシュがあり、git キャッシュスクリプトに問題が発生するため、レジストリキー
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-を0に設定して無効にする必要があります。 詳細: https://stackoverflow.com/a/9935126
-
-## トラブルシューティング
-
-### git キャッシュ内の古いロック
-
-git キャッシュを使用している間に `gclient sync` が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、`gclient sync` に `--break_repo_locks` 引数を渡します。
-
-### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
-
-Windows 上で `gclient sync` を実行しているときに `Username for 'https://chrome-internal.googlesource.com':` のプロンプトが表示された場合、おそらく `DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数が 0 に設定されていないからです。 `コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。 これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
+</code></pre>
+    
+    <h2>
+      複数マシン間での gitのキャッシュの共有
+    </h2>
+    
+    <p>
+      gclient git キャッシュを Linux 上で SMB 共有としてエクスポートすることで、他のマシンと共有することは可能ですが、一度に一つのプロセス/マシンだけがキャッシュを使用できます。 git-cache スクリプトによって作成されたロックはこれを防止しようとしますが、ネットワーク内で完璧には動作しない可能性があります。
+    </p>
+    
+    <p>
+      Windows では、SMBv2 にはディレクトリキャッシュがあり、git キャッシュスクリプトに問題が発生するため、レジストリキー
+    </p>
+    
+    <pre><code class="sh">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+</code></pre>
+    
+    <p>
+      を0に設定して無効にする必要があります。 詳細: https://stackoverflow.com/a/9935126
+    </p>
+    
+    <h2>
+      トラブルシューティング
+    </h2>
+    
+    <h3>
+      git キャッシュ内の古いロック
+    </h3>
+    
+    <p>
+      git キャッシュを使用している間に <code>gclient sync</code> が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、<code>gclient sync</code> に <code>--break_repo_locks</code> 引数を渡します。
+    </p>
+    
+    <h3>
+      chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
+    </h3>
+    
+    <p>
+      Windows 上で <code>gclient sync</code> を実行しているときに <code>Username for 'https://chrome-internal.googlesource.com':</code> のプロンプトが表示された場合、おそらく <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> 環境変数が 0 に設定されていないからです。 <code>コントロール パネル</code> → <code>システムとセキュリティ</code> → <code>システム</code> → <code>システムの詳細設定</code> を開き、<code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> 環境変数を追加して値を <code>0</code> にします。 これはローカルにインストールされているバージョンの Visual Studio を使用するように <code>depot_tools</code> に知らせます (デフォルトで <code>depot_tools</code> は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
+    </p>

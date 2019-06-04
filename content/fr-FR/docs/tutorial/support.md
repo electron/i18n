@@ -8,7 +8,7 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
 
 * [`electron`](https://discuss.atom.io/c/electron) sur le forum de Atom
 * `#atom-shell` sur le channel Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) sur le channel Slack d'Atom
+* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Russe)*
 * [`electron-br`](https://electron-br.slack.com) *(Brézilien Portugais)*
 * [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coréen)*

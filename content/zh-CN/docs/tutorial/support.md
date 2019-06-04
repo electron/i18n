@@ -8,7 +8,7 @@
 
 * [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
 * `#atom-shell` Freenode上的频道
-* [`Electron`](https://atom-slack.herokuapp.com) Atom's Slack上的频道
+* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
 * [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
 * <[`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*

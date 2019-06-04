@@ -161,56 +161,128 @@ To compile for a platform that isn't the same as the one you're building on, set
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
+Not all combinations of source and target CPU/OS are supported by Chromium.
 
-See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values)
-
-## Тестирование
-
-To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
-
-```sh
-$ ninja -C out/Debug third_party/electron_node:headers
+<table>
+  
+<tr><th>Host</th><th>Target</th><th>Состояние</th></tr>
+  
+  <tr>
+    <td>
+      Windows x64
+    </td>
+    
+    <td>
+      Windows arm64
+    </td>
+    
+    <td>
+      Экспериментально
+    </td>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+</table> 
+    
+    <p>
+      If you test other combinations and find them to work, please update this document :)
+    </p>
+    
+    <p>
+      See the GN reference for allowable values of <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> and <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+    </p>
+    
+    <h4>
+      Windows on Arm (experimental)
+    </h4>
+    
+    <p>
+      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+    </p>
+    
+    <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Or (if using PowerShell):
+    </p>
+    
+    <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+    </p>
+    
+    <h2>
+      Тестирование
+    </h2>
+    
+    <p>
+      To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under <code>src/</code> directory.
+    </p>
+    
+    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
 # Install the test modules with the generated headers
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
-```
-
-Then, run Electron with `electron/spec` as the argument:
-
-```sh
-# на Mac:
+</code></pre>
+    
+    <p>
+      Then, run Electron with <code>electron/spec</code> as the argument:
+    </p>
+    
+    <pre><code class="sh"># на Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # на Windows:
 $ ./out/Debug/electron.exe electron/spec
 # на Linux:
 $ ./out/Debug/electron electron/spec
-```
-
-Если вы что-то отлаживаете, то вам может быть полезно передать некоторые дополнительные флаги в бинарный Electron:
-
-```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+</code></pre>
+    
+    <p>
+      Если вы что-то отлаживаете, то вам может быть полезно передать некоторые дополнительные флаги в бинарный Electron:
+    </p>
+    
+    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
-```
-
-## Sharing the git cache between multiple machines
-
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Блокировки, установленные скриптом git-cache попытаются предотвратить это, однако возможна нестабильная работа по сети.
-
-На Windows, у SMBv2 есть кэш директорий, который будет создавать проблемы со скриптом git-cache, поэтому необходимо отключить его, установив ключ регистра
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-на 0. Подробнее: https://stackoverflow.com/a/9935126
-
-## Устранение проблем
-
-### Stale locks in the git cache
-
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
-
-### I'm being asked for a username/password for chromium-internal.googlesource.com
-
-Если вы видите запрос для `Имя пользователя для 'https://chrome-internal.googlesource.com':` при запуске `gclient sync` на Windows, это возможно, потому что `DEPOT_TOOLS_WIN_TOOLCHAIN` переменная окружения не установлена в 0. Откройте `Панель управления` → `Система и безопасность` → `Система` → `Дополнительные параметры системы` и добавьте системную переменную `DEPOT_TOOLS_WIN_TOOLCHAIN` с значением `0`. Она говорит `depot_tools` использовать вашу локальную версию Visual Studio (по умолчанию, `depot_tools` попробует загрузить приватную Google версию к которой имеют доступ только Гугловцы).
+</code></pre>
+    
+    <h2>
+      Sharing the git cache between multiple machines
+    </h2>
+    
+    <p>
+      It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Блокировки, установленные скриптом git-cache попытаются предотвратить это, однако возможна нестабильная работа по сети.
+    </p>
+    
+    <p>
+      На Windows, у SMBv2 есть кэш директорий, который будет создавать проблемы со скриптом git-cache, поэтому необходимо отключить его, установив ключ регистра
+    </p>
+    
+    <pre><code class="sh">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+</code></pre>
+    
+    <p>
+      на 0. Подробнее: https://stackoverflow.com/a/9935126
+    </p>
+    
+    <h2>
+      Устранение проблем
+    </h2>
+    
+    <h3>
+      Stale locks in the git cache
+    </h3>
+    
+    <p>
+      If <code>gclient sync</code> is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the <code>--break_repo_locks</code> argument to <code>gclient sync</code>.
+    </p>
+    
+    <h3>
+      I'm being asked for a username/password for chromium-internal.googlesource.com
+    </h3>
+    
+    <p>
+      Если вы видите запрос для <code>Имя пользователя для 'https://chrome-internal.googlesource.com':</code> при запуске <code>gclient sync</code> на Windows, это возможно, потому что <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> переменная окружения не установлена в 0. Откройте <code>Панель управления</code> → <code>Система и безопасность</code> → <code>Система</code> → <code>Дополнительные параметры системы</code> и добавьте системную переменную <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> с значением <code>0</code>. Она говорит <code>depot_tools</code> использовать вашу локальную версию Visual Studio (по умолчанию, <code>depot_tools</code> попробует загрузить приватную Google версию к которой имеют доступ только Гугловцы).
+    </p>

@@ -1069,38 +1069,38 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md) | null - иконка, которая будет отображаться в правом краю иконки на панели задач. Если параметр `null`, оверлей будет очищен
+* `description` String - описание, которое будет представлено для доступности чтения с экрана
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Устанавливает 16x16 пиксельный оверлей поверх текущей иконки в панели задач, обычно используется для передачи какого-либо статуса приложения или пассивного уведомления пользователя.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Устанавливает, должно ли окно иметь тень. На Windows и Linux ничего не делает.
 
 #### `win.hasShadow()` *macOS*
 
-Возвращает `Boolean` - был ли вызов успешным.
+Возвращает `Boolean` - есть ли у окна тень.
 
-В Windows и Linux всегда возвращает `true`.
+На Windows и Linux всегда возвращает `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - между 0.0 (полная прозрачность) и 1.0 (полная видимость)
 
-Sets the opacity of the window. On Linux does nothing.
+Устанавливает прозрачность окна. На Linux ничего не делает.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость)
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` *Windows* *Linux* *Экспериментально*
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - устанавливает форму окна. Передача пустого списка возвращает окно к прямоугольной форме.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+Установка формы окна, которая определяет область в окне, где система разрешает отрисовку и взаимодействие пользователя. Вне данного региона ни один пиксель не отрисуется и ни одно событие мыши не будет зарегистрировано. Вне региона события мыши не будут получены этим окном, но будет передаваться чему-либо позади окна.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1108,14 +1108,14 @@ Setting a window shape determines the area within the window where the system pe
 
 Возвращает `Boolean` - успешно ли добавлены кнопки
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Добавляет панель миниатюр, с определенным набором кнопок, на слой кнопок в изображении эскиза окна в панели задач. Возвращает объект `Boolean`, который указывает успешно ли добавлена панель миниатюр.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Количество кнопок в панели миниатюр не должно быть больше, чем 7, из-за ограничений. После установки панели миниатюр, панель не может быть удалена, из-за ограничений платформы. Но Вы можете вызвать метод с пустым массивом, чтобы убрать кнопки.
 
 `buttons` является массивом объектов `Button`:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
+  * `icon` [NativeImage](native-image.md) - иконка, отображаемая на панели миниатюр.
   * `click` Function
   * `tooltip` String (опционально) - текст всплывающей подсказки на кнопке.
   * `flags` String[] (опционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
@@ -1124,101 +1124,101 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 * `enabled` - кнопка активна и доступна пользователю.
 * `disabled` - кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
-* `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
-* `nobackground` - не рисует границы кнопок, использует только изображение.
+* `dismissonclick` - когда кнопка нажата, окно панели миниатюр закрывается немедленно.
+* `nobackground` - не рисует границы кнопки, использует только изображение.
 * `hidden` - кнопка не отображается пользователю.
 * `noninteractive` - кнопка включена, но не интерактивная; рисуется не нажимаемое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Область окна
+* `region` [Rectangle](structures/rectangle.md) - область окна
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Устанавливает область окна, которая будет показана в панели миниатюр, при наведении мыши на окно в панели задач. Вы можете сбросить панель миниатюры, чтобы показывалось окно полностью, указав пустую область: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Устанавливает всплывающую подсказку, которая будет отображена, при наведении мыши на панель миниатюры окна в панели задач.
 
 #### `win.setAppDetails(options)` *Windows*
 
 * `options` Object 
-  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
-  * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
-  * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-  * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
+  * `appId` String (опционально) - [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx) окна. Это должно быть установлено, иначе остальные параметры не будут иметь никакого эффекта.
+  * `appIconPath` String (опционально) - [иконка перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx) окна.
+  * `appIconIndex` Integer (опционально) - индекс иконки в `appIconPath`. Игнорируется, когда `appIconPath` не установлено. По умолчанию - `0`.
+  * `relaunchCommand` String (опционально) - [команда перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx) окна.
+  * `relaunchDisplayName` String (опционально) - [отображаемое имя перезапуска](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx) окна.
 
-Sets the properties for the window's taskbar button.
+Устанавливает свойства для кнопки окна на панели задач.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Примечание:** `relaunchCommand` и `relaunchDisplayName` должны быть установлены вместе. Если одно из этого свойства не будет установлено, тогда ни одно из них не будет использоваться.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+Тоже, что и `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Меняет иконку окна.
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+Устанавливает, должны ли быть видны кнопки контроля окна.
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+Этот метод невозможно вызвать, когда `titleBarStyle` установлено в `customButtonsOnHover`.
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Устанавливает, должна ли панель меню автоматически прятать себя. После установки панель меню будет показываться, только когда пользователи нажмут на клавишу `Alt`.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Если панель меню уже видна, вызов `setAutoHideMenuBar(true)` не спрячет ее немедленно.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Возвращает `Boolean` - прячет ли меню себя автоматически.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Устанавливает видимость панели меню. Если панель меню прячется автоматически, пользователи все еще могут открыть панель меню нажатием на клавишу `Alt`.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Возвращает `Boolean` - видна ли панель меню.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
 * `options` Object (опционально) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (опционально) *macOS* - устанавливает видимость панели меню в полноэкранном режиме окна
 
-Sets whether the window should be visible on all workspaces.
+Устанавливает видимость окна на всех рабочих местах.
 
-**Note:** This API does nothing on Windows.
+**Примечание:** Этот метод ничего не делает Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Возвращает `Boolean` - видно ли окно на всех рабочих местах.
 
-**Примечание:** Данный API всегда возвращает false в Windows.
+**Примечание:** Этот метод всегда возвращает false на Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 * `options` Object (опционально) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (опционально) *macOS* *Windows* - Если true, перенаправляет сообщения о передвижение мыши в Chromium, включая события мыши, такие как `mouseleave`. Используется, только когда `ignore` - true. Если `ignore` - false, перенаправление всегда будет отключено, независимо от этого значения.
 
-Включает для окна игнорирование событий от мыши.
+Заставляет окно игнорировать все события мыши.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Все события мыши, произошедшие в этом окне, будут переданы окну позади этого окна, но, если это окно сфокусировано, оно все еще будет получать события клавиатуры.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
@@ -1226,19 +1226,19 @@ All mouse events happened in this window will be passed to the window below this
 
 Предотвращает захват содержимого окна другими приложениями.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+На macOS это устанавливает NSWindow sharingType в NSWindowSharingNone. На Windows это вызывает SetWindowDisplayAffinity с `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Меняет, может ли окно быть сфокусировано.
 
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Устанавливает `parent` как родителя текущего окна, передав `null` превратит текущее окно в окно верхнего уровня.
 
 #### `win.getParentWindow()`
 
@@ -1252,68 +1252,68 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Контролирует скрытие курсора, во время печатания.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Выбирает предыдущую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Выбирает следующую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Объединяет все окна в одно окно с множественными вкладками, когда нативные вкладки включены и в присутствуют открытые окна больше, чем 1.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Перемещает текущую вкладку в новое окно, если нативные вкладки включены и присутствует больше, чем одна вкладка, в текущем окне.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Переключает видимость вкладки, если включены нативные вкладки и присутствует только одна вкладка в текущем окне.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Добавляет окно, как вкладку, в это окно, после вкладки экземпляра окна.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String - может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` или `ultra-dark`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для подробностей.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Добавляет эффект вибрации окну браузера. Передав `null` или пустой массив строк, эффект вибрации окна будет убран.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Экспериментально*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Устанавливает слой сенсорной панели для текущего окна. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
 
 **Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
 #### `win.setBrowserView(browserView)` *Экспериментально*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md). Прикрепляет browserView к окну. Если к окну прикреплены другие browserView, они будут убраны с окна.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Экспериментально*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Возвращает `BrowserView | null` - BrowserView, которое прикреплено. Возвращает `null`, если не прикреплено. Выбрасывает ошибку, если прикреплены множественные BrowserView.
 
 #### `win.addBrowserView(browserView)` *Экспериментально*
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+Заменяет метод setBrowserView, для поддержки работы с множественными видами браузера.
 
 #### `win.removeBrowserView(browserView)` *Экспериментально*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` *Экспериментально*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Возвращает массив объектов `BrowserView`, которые были прикреплены с помощью addBrowserView или setBrowserView.
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.

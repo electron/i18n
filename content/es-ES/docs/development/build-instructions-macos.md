@@ -25,7 +25,13 @@ $ brew install python@2 && brew link python@2 --force
 
 Si está utilizando Python descargado por Homebrew, también debe instalar los siguientes módulos de Python:
 
-* [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+* [pyobjc](https://pypi.org/project/pyobjc/#description)
+
+You can use `pip` to install it:
+
+```sh
+$ pip install pyobjc
+```
 
 ## macOS SDK
 

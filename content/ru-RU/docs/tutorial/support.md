@@ -8,7 +8,7 @@
 
 * [`electron`](https://discuss.atom.io/c/electron) категория на Atom форумы
 * `#atom-shell` канал на Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) канал на Atom's Slack
+* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Русский)*
 * [`electron-br`](https://electron-br.slack.com) *(Бразильский Португальский)*
 * [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Корейский)*
