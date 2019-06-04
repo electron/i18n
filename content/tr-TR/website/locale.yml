@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Electron Dokümanları
   description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
-  guides: Kılavuzlar
+  guides: "Guides: Getting Started with Electron"
   api_reference: API Referansı
   api_structures: API Yapıları
   advanced: Gelişmiş
+  detailed: In Detail
+  custom_dom: Özel DOM Elementleri
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Bu dökümanı geliştir
     version_history: Sürüm geçmişi
