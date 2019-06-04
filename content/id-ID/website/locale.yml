@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Dokumentasi Electron
   description: Lihat semua <a href="/docs/all">dokumentasi di satu halaman</a> atau lihat <a href="/docs/faq">FAQ</a>.
-  guides: Panduan
+  guides: "Guides: Getting Started with Electron"
   api_reference: Referensi API
   api_structures: API Structures
   advanced: Peningkatan
+  detailed: In Detail
+  custom_dom: Elemen DOM Khusus
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Meningkatkan sebuah dokumen
     version_history: Riwayat cerita
