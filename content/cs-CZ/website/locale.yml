@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Dokumentace Electronu
   description: Koukněte na všechny <a href="/docs/all"> dokumenty na jedné stránce</a> nebo se podívejte na <a href="/docs/faq" title="často kladené dotazy"> FAQ</a>.
-  guides: Návody
+  guides: "Guides: Getting Started with Electron"
   api_reference: API Reference
   api_structures: API Structures
   advanced: Pokročilé
+  detailed: In Detail
+  custom_dom: Vlastní prvky DOM
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Pomozte vylepšit tuto dokumentaci
     version_history: Historie verzí
