@@ -162,56 +162,128 @@ To compile for a platform that isn't the same as the one you're building on, set
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
+Not all combinations of source and target CPU/OS are supported by Chromium.
 
-See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values)
-
-## 测试
-
-To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
-
-```sh
-$ ninja -C out/Debug third_party/electron_node:headers
+<table>
+  
+<tr><th>Host</th><th>Target</th><th>状态</th></tr>
+  
+  <tr>
+    <td>
+      Windows x64
+    </td>
+    
+    <td>
+      Windows arm64
+    </td>
+    
+    <td>
+      实验功能
+    </td>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+</table> 
+    
+    <p>
+      If you test other combinations and find them to work, please update this document :)
+    </p>
+    
+    <p>
+      See the GN reference for allowable values of <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> and <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+    </p>
+    
+    <h4>
+      Windows on Arm (experimental)
+    </h4>
+    
+    <p>
+      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+    </p>
+    
+    <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Or (if using PowerShell):
+    </p>
+    
+    <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+    </p>
+    
+    <h2>
+      测试
+    </h2>
+    
+    <p>
+      To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under <code>src/</code> directory.
+    </p>
+    
+    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
 # Install the test modules with the generated headers
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
-```
-
-接着，通过`electron/spec`命令来运行Electron：
-
-```sh
-# on Mac:
+</code></pre>
+    
+    <p>
+      接着，通过<code>electron/spec</code>命令来运行Electron：
+    </p>
+    
+    <pre><code class="sh"># on Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # on Windows:
 $ ./out/Debug/electron.exe electron/spec
 # on Linux:
 $ ./out/Debug/electron electron/spec
-```
-
-可以通过增加其它标记来调试程序，例如：
-
-```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+</code></pre>
+    
+    <p>
+      可以通过增加其它标记来调试程序，例如：
+    </p>
+    
+    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
-```
-
-## Sharing the git cache between multiple machines
-
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
-
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-to 0. More information: https://stackoverflow.com/a/9935126
-
-## 故障排查
-
-### Stale locks in the git cache
-
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
-
-### I'm being asked for a username/password for chromium-internal.googlesource.com
-
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. 这将促使`depot_tools` 使用本地已安装的Visual Studio(默认状态下，`depot_tools`将会下载一个只有谷歌内部员工有权限使用的内部版本)。
+</code></pre>
+    
+    <h2>
+      Sharing the git cache between multiple machines
+    </h2>
+    
+    <p>
+      It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+    </p>
+    
+    <p>
+      On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+    </p>
+    
+    <pre><code class="sh">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+</code></pre>
+    
+    <p>
+      to 0. More information: https://stackoverflow.com/a/9935126
+    </p>
+    
+    <h2>
+      故障排查
+    </h2>
+    
+    <h3>
+      Stale locks in the git cache
+    </h3>
+    
+    <p>
+      If <code>gclient sync</code> is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the <code>--break_repo_locks</code> argument to <code>gclient sync</code>.
+    </p>
+    
+    <h3>
+      I'm being asked for a username/password for chromium-internal.googlesource.com
+    </h3>
+    
+    <p>
+      If you see a prompt for <code>Username for 'https://chrome-internal.googlesource.com':</code> when running <code>gclient sync</code> on Windows, it's probably because the <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> environment variable is not set to 0. Open <code>Control Panel</code> → <code>System and Security</code> → <code>System</code> → <code>Advanced system settings</code> and add a system variable <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> with value <code>0</code>. 这将促使<code>depot_tools</code> 使用本地已安装的Visual Studio(默认状态下，<code>depot_tools</code>将会下载一个只有谷歌内部员工有权限使用的内部版本)。
+    </p>
