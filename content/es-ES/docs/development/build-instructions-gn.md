@@ -161,56 +161,128 @@ Para compilar una plataforma que no sea la misma que la que estás construyendo,
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. Si prueba otras combinaciones y funcionan, por favor actualice este documento :)
+No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Chromium.
 
-Ver la referencia GN para valores permitidos de [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) y [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values)
-
-## Verificación
-
-Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. To generate build headers for the modules to compile against, run the following under `src/` directory.
-
-```sh
-$ ninja -C out/Debug third_party/electron_node:headers
+<table>
+  
+<tr><th>Host</th><th>Target</th><th>Estado</th></tr>
+  
+  <tr>
+    <td>
+      Windows x64
+    </td>
+    
+    <td>
+      Windows arm64
+    </td>
+    
+    <td>
+      Experimental
+    </td>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+</table> 
+    
+    <p>
+      If you test other combinations and find them to work, please update this document :)
+    </p>
+    
+    <p>
+      Ver la referencia GN para valores permitidos de <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> y <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+    </p>
+    
+    <h4>
+      Windows on Arm (experimental)
+    </h4>
+    
+    <p>
+      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+    </p>
+    
+    <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Or (if using PowerShell):
+    </p>
+    
+    <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
+gclient sync -f --with_branch_heads --with_tags
+</code></pre>
+    
+    <p>
+      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+    </p>
+    
+    <h2>
+      Verificación
+    </h2>
+    
+    <p>
+      Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. To generate build headers for the modules to compile against, run the following under <code>src/</code> directory.
+    </p>
+    
+    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
 # Instalar los módulos de prueba con los encabezados generados
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
-```
-
-Luego, ejecuta Electron con `electron/spec` como el argumento:
-
-```sh
-# En Mac:
+</code></pre>
+    
+    <p>
+      Luego, ejecuta Electron con <code>electron/spec</code> como el argumento:
+    </p>
+    
+    <pre><code class="sh"># En Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # En Windows:
 $ ./out/Debug/electron.exe electron/spec
 # En Linux:
 $ ./out/Debug/electron electron/spec
-```
-
-Si estás depurando algo, puede ser de gran ayuda pasarle algunas banderas adicionales a el binario de Electron:
-
-```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+</code></pre>
+    
+    <p>
+      Si estás depurando algo, puede ser de gran ayuda pasarle algunas banderas adicionales a el binario de Electron:
+    </p>
+    
+    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
-```
-
-## Compartir la caché git entre varias máquinas
-
-Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
-
-En Windows, SMBv2 tiene un caché de directorio que causará problemas con el script del git cache, por lo que es necesario desactivarlo configurando la clave de registro
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-a cero. Para más información: https://stackoverflow.com/a/9935126
-
-## Problemas
-
-### Stale locks in the git cache
-
-Si `gclient sync` se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para eliminar el bloqueo, pase el argumento `--break_repo_locks` a `gclient sync`.
-
-### Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
-
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
+</code></pre>
+    
+    <h2>
+      Compartir la caché git entre varias máquinas
+    </h2>
+    
+    <p>
+      Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
+    </p>
+    
+    <p>
+      En Windows, SMBv2 tiene un caché de directorio que causará problemas con el script del git cache, por lo que es necesario desactivarlo configurando la clave de registro
+    </p>
+    
+    <pre><code class="sh">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+</code></pre>
+    
+    <p>
+      a cero. Para más información: https://stackoverflow.com/a/9935126
+    </p>
+    
+    <h2>
+      Problemas
+    </h2>
+    
+    <h3>
+      Stale locks in the git cache
+    </h3>
+    
+    <p>
+      Si <code>gclient sync</code> se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para eliminar el bloqueo, pase el argumento <code>--break_repo_locks</code> a <code>gclient sync</code>.
+    </p>
+    
+    <h3>
+      Se me está pidiendo un nombre de usuario/contraseña para chromium-internal.googlesource.com
+    </h3>
+    
+    <p>
+      If you see a prompt for <code>Username for 'https://chrome-internal.googlesource.com':</code> when running <code>gclient sync</code> on Windows, it's probably because the <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> environment variable is not set to 0. Open <code>Control Panel</code> → <code>System and Security</code> → <code>System</code> → <code>Advanced system settings</code> and add a system variable <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> with value <code>0</code>. Esto le indica a <code>depot_tools</code> que utilice tu version instalada de Visual Studio (por defecto, <code>depot_tools</code> intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
+    </p>
