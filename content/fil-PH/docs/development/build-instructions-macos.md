@@ -26,7 +26,13 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     If you are using Python as provided by Homebrew, you also need to install the following Python modules:
     
-    * [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+    * [pyobjc](https://pypi.org/project/pyobjc/#description)
+    
+    You can use `pip` to install it:
+    
+    ```sh
+    $ pip install pyobjc
+    ```
     
     ## macOS SDK
     
