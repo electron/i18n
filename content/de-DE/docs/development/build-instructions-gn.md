@@ -221,28 +221,28 @@ gclient sync -f --with_branch_heads --with_tags
     </h2>
     
     <p>
-      To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under <code>src/</code> directory.
+      Um die Tests durchzuführen, müssen Sie zuerst die Testmodule gegen die gleiche Version von Node.js bauen, die als Teil des Build-Prozesses gebaut wurde. Um Build Header für die Module zu kompilieren, führen Sie folgende Befehle in dem <code>src/</code> Verzeichnis aus.
     </p>
     
     <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
-# Install the test modules with the generated headers
+# Installieren Sie die Testmodule mit den generierten Headern
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 </code></pre>
     
     <p>
-      Then, run Electron with <code>electron/spec</code> as the argument:
+      Dann führen Sie Electron mit <code>electron/spec</code> als Argument aus:
     </p>
     
-    <pre><code class="sh"># on Mac:
+    <pre><code class="sh"># auf Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
+# auf Windows:
 $ ./out/Debug/electron.exe electron/spec
-# on Linux:
+# auf Linux:
 $ ./out/Debug/electron electron/spec
 </code></pre>
     
     <p>
-      If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+      Wenn Sie etwas debuggen kann es hilfreich sein einige zusätzlichen Flaggen zu der Electron Binärdatei zu übergeben:
     </p>
     
     <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
