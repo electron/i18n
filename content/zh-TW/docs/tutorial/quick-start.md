@@ -1,6 +1,6 @@
 # 快速入門
 
-Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作業系統) APIs 來建立桌面應用程式。 你可以將它視為另一個著重於桌面應用程式的 Node.js ，而非網站伺服器。
+Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. 你可以將它視為另一個著重於桌面應用程式的 Node.js ，而非網站伺服器。
 
 The old "Quick Start" document that used to live here has been split up into two documents:
 

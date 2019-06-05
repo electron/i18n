@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Документація Electron
   description: Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.
-  guides: Посібники
+  guides: "Guides: Getting Started with Electron"
   api_reference: Довідник API
   api_structures: Структура API
   advanced: Додатково
+  detailed: In Detail
+  custom_dom: Користувацькі DOM Елементи
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Поліпшити цю документацію
     version_history: Історія версій

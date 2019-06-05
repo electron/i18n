@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Electron 문서
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
-  guides: 안내서
+  guides: "Guides: Getting Started with Electron"
   api_reference: API 참조
   api_structures: API 구조
   advanced: 상급(advanced) 주제
+  detailed: In Detail
+  custom_dom: 사용자 지정 DOM 요소
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: 문서 개선 작업 참여
     version_history: 버전 역사

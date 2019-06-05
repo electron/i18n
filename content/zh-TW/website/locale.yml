@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Electron 文件
   description: 也可以一次<a href="/docs/all">單頁顯示所有文件</a>，或到<a href="/docs/faq">常見問題集</a>看看。
-  guides: 導引
+  guides: "Guides: Getting Started with Electron"
   api_reference: API 參考
   api_structures: API 結構
   advanced: 進階
+  detailed: In Detail
+  custom_dom: Custom DOM Elements
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: 改善這份文件
     version_history: 版本歷程記錄

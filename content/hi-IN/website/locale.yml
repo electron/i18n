@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: इलेक्ट्रान दस्तावेज़ीकरण
   description: <a href="/docs/all">एक ही पेज पर सभी दस्तावेज़</a> देखें या फ़िर <a href="/docs/faq">अक्सर पूछे जाने वाले सवाल (FAQ)</a> पढ़ें |
-  guides: गाइड्स
+  guides: "Guides: Getting Started with Electron"
   api_reference: एपीआई रेफरेंस
   api_structures: API Structures
   advanced: उन्नत
+  detailed: In Detail
+  custom_dom: विशिष्ट डीओएम तत्व
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: इस दस्तावेज़ को सुधारें
     version_history: संस्करण इतिहास

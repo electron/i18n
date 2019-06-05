@@ -180,8 +180,8 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
     <td>
       Experimental
     </td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Testado automaticamente</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Testado automaticamente</td></tr>
 </table> 
     
     <p>
@@ -193,7 +193,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
     </p>
     
     <h4>
-      Windows on Arm (experimental)
+      Windows no Arm (experimental)
     </h4>
     
     <p>
@@ -205,7 +205,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Or (if using PowerShell):
+      Ou (se usando PowerShell):
     </p>
     
     <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
@@ -285,5 +285,5 @@ $ ./out/Debug/electron electron/spec
     </h3>
     
     <p>
-      If you see a prompt for <code>Username for 'https://chrome-internal.googlesource.com':</code> when running <code>gclient sync</code> on Windows, it's probably because the <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> environment variable is not set to 0. Open <code>Control Panel</code> → <code>System and Security</code> → <code>System</code> → <code>Advanced system settings</code> and add a system variable <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> with value <code>0</code>. This tells <code>depot_tools</code> to use your locally installed version of Visual Studio (by default, <code>depot_tools</code> will try to download a Google-internal version that only Googlers have access to).
+      If you see a prompt for <code>Username for 'https://chrome-internal.googlesource.com':</code> when running <code>gclient sync</code> on Windows, it's probably because the <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> environment variable is not set to 0. Abra <code>Painel de Controle</code> → <code>Sistema e Segurança</code> → <code>Sistema</code> → <code>Configurações avançadas do sistema</code> e adicione uma variável de sistema <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> com valor <code>0</code>. This tells <code>depot_tools</code> to use your locally installed version of Visual Studio (by default, <code>depot_tools</code> will try to download a Google-internal version that only Googlers have access to).
     </p>

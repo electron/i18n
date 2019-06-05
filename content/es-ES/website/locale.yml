@@ -27,10 +27,15 @@ keyboard_modal:
 docs:
   title: Documentación de Electron
   description: Ver todos los <a href="/docs/all">documentos en una sola página</a> o consultar las <a href="/docs/faq">preguntas frecuentes</a>.
-  guides: Guías
+  guides: "Guides: Getting Started with Electron"
   api_reference: Referencia de la API
   api_structures: Estructuras del API
   advanced: Avanzado
+  detailed: In Detail
+  custom_dom: Elementos de DOM personalizados
+  main_proc_modules: Main Process Modules
+  renderer_proc_modules: Renderer Process Modules
+  both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Mejora este documento
     version_history: Historial de versiones
