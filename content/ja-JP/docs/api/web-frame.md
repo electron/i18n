@@ -69,7 +69,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
 
-The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
+`provider` は、スペルチェックのために個々の単語の配列を受け取る `spellCheck` メソッドを持つオブジェクトである必要があります。 `spellCheck` 関数は非同期的に実行され、完了時にスペルミスの単語を含む `callback` 関数を呼び出します。
 
 [node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
 
@@ -141,11 +141,11 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `info` Object 
-  * `securityOrigin` String (optional) - Security origin for the isolated world.
-  * `csp` String (optional) - Content Security Policy for the isolated world.
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
+  * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
+  * `name` String (任意) - 孤立した世界の名前。devtools で役に立ちます
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+セキュリティのオリジン、コンテンツセキュリティポリシー、隔離された空間の名前を設定します。 注: `csp` が指定されている場合は、`securityOrigin` も指定する必要があります。
 
 ### `webFrame.getResourceUsage()`
 
