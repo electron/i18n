@@ -47,12 +47,12 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternal(url[, options])`
 
-* `url` String - Max 2081 characters on windows.
+* `url` String - Windows では最大2081文字です。
 * `options` Object (任意) 
   * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
   * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
 
