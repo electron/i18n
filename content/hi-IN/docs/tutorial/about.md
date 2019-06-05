@@ -1,16 +1,16 @@
 # About Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron Chromium और Node.js को एक रनटाइम में जोड़कर काम करता है। Apps को Mac, Windows और Linux के लिए पैक किया जा सकता है।
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+इलेक्ट्रॉन की शुरुआत 2013 में हुई थी, जिस पर  एटम </ 0>, GitHub का हैक करने योग्य टेक्स्ट एडिटर बनाया गया था। दोनों को 2014 के वसंत में लॉन्च किया गया था।</p> 
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+यह तब से एक लोकप्रिय टूल बन गया है जिसका उपयोग ओपन सोर्स डेवलपर्स, स्टार्टअप और स्थापित कंपनियों द्वारा किया जाता है।  देखें कि इलेक्ट्रॉन पर कौन निर्माण कर रहा है </ 0>।</p> 
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+</a>इलेक्ट्रॉन के योगदानकर्ताओं और रिलीज़ के बारे में और जानने के लिए पढ़ें या इलेक्ट्रॉन के साथ  क्विक स्टार्ट गाइड </ 0> में निर्माण शुरू करें।</p> 
 
-## Core Team and Contributors
+## कोर टीम और योगदानकर्ता
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+इलेक्ट्रॉन को GitHub में एक टीम के साथ-साथ समुदाय से  सक्रिय योगदानकर्ताओं </ 0> के एक समूह द्वारा मदद की जाती है। कुछ योगदानकर्ता व्यक्ति हैं, कुछ बड़ी कंपनियों में काम करते हैं जो इलेक्ट्रॉन पर काम कर रहे हैं। हम रखवाले के रूप में परियोजना में लगातार योगदानकर्ताओं को जोड़ने के लिए खुश हैं। इलेक्ट्रॉन के लिए योगदान  के बारे में और पढ़ें </ 0>।</p> 
 
 ## रिलीज़स
 
