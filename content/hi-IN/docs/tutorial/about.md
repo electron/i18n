@@ -1,6 +1,6 @@
 # About Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron Chromium और Node.js को एक रनटाइम में जोड़कर काम करता है। Apps को Mac, Windows और Linux के लिए पैक किया जा सकता है।
+[Electron](https://electronjs.org) एक ओपन सोर्स टूल है, जिसे GitHub द्वारा HTML, CSS और JavaScript के साथ क्रॉस-प्लेटफॉर्म डेस्कटॉप सॉफ्टवेयर बनाने के लिए विकसित किया गया है। Electron Chromium और Node.js को एक रनटाइम में जोड़कर काम करता है। Apps को Mac, Windows और Linux के लिए पैक किया जा सकता है।
 
 इलेक्ट्रॉन की शुरुआत 2013 में हुई थी, जिस पर  एटम </ 0>, GitHub का हैक करने योग्य टेक्स्ट एडिटर बनाया गया था। दोनों को 2014 के वसंत में लॉन्च किया गया था।</p> 
 
@@ -26,35 +26,51 @@
 
 ### संस्करण
 
-संस्करण के रूप में 2.0 इलेक्ट्रॉन  इस प्रकार है ` semver= </ 1> </ 0>।
-For most applications, and using any recent version of npm,
-running <code>$ npm install electron` will do the right thing.</p> 
+संस्करण के रूप में 2.0 इलेक्ट्रॉन [ इस प्रकार है ` semver= </ 1> </ 0>।
+अधिकांश अनुप्रयोगों के लिए, और npm के किसी भी हाल के संस्करण का उपयोग करके, <code> $ npm install electron </ 0> चलाने से सही काम होगा।</p>
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+<p>संस्करण अद्यतन प्रक्रिया हमारे <a href="electron-versioning.md"> संस्करण डॉक </ 0> में स्पष्ट रूप से विस्तृत है।</p>
 
-### LTS
+<h3>LTS</h3>
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+<p>इलेक्ट्रॉन के पुराने संस्करणों का दीर्घकालिक समर्थन वर्तमान में मौजूद नहीं है। यदि आपका इलेक्ट्रॉन का वर्तमान संस्करण आपके लिए काम करता है, तो आप उस पर तब तक बने रह सकते हैं, जब तक आप चाहें। यदि आप नई सुविधाओं का उपयोग करना चाहते हैं, जैसा कि वे आप में आते हैं तो उन्हें नए संस्करण में अपग्रेड करना चाहिए।</p>
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+<p>एक बड़ा अद्यतन  <code> v1.0.0 </ 0> संस्करण के साथ आया था। यदि आप अभी तक इस संस्करण का उपयोग नहीं कर रहे हैं, तो आपको <code> <1> v1.0.0 </ 1> परिवर्तन </ 0> के बारे में अधिक पढ़ना चाहिए।</p>
 
-## Core Philosophy
+<h2>कोर फिलॉसफी</h2>
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+<p>इलेक्ट्रॉन को छोटा (फ़ाइल आकार) और टिकाऊ (निर्भरता और एपीआई के प्रसार) रखने के लिए परियोजना कोर प्रोजेक्ट के दायरे को सीमित करती है।</p>
 
-For instance, Electron uses Chromium's rendering library rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+<p>उदाहरण के लिए, इलेक्ट्रॉन क्रोमियम के सभी के बजाय क्रोमियम के प्रतिपादन पुस्तकालय का उपयोग करता है। इससे क्रोमियम को अपग्रेड करना आसान हो जाता है लेकिन इसका अर्थ यह भी है कि Google क्रोम में पाए जाने वाले कुछ ब्राउज़र फीचर इलेक्ट्रॉन में मौजूद नहीं हैं।</p>
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+<p>इलेक्ट्रॉन में जोड़े गए नए फीचर्स मुख्य रूप से देशी एपीआई होने चाहिए। यदि कोई विशेषता अपना स्वयं का Node.js मॉड्यूल हो सकता है, तो यह संभवतः होना चाहिए। समुदाय द्वारा निर्मित <a href="https://electronjs.org/community"> ​​इलेक्ट्रॉन उपकरण देखें </ 0>।</p>
 
-## History
+<h2>इतिहास</h2>
 
-Below are milestones in Electron's history.
+<p>Below are milestones in Electron's history.</p>
 
-| :calendar:      | :tada:                                                                                                         |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **May 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+<table>
+<thead>
+<tr>
+  <th>:calendar:</th>
+  <th>:tada:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>April 2013</strong></td>
+  <td><a href="https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45">Atom Shell is started</a>.</td>
+</tr>
+<tr>
+  <td><strong>May 2014</strong></td>
+  <td><a href="https://blog.atom.io/2014/05/06/atom-is-now-open-source.html">Atom Shell is open sourced</a>.</td>
+</tr>
+<tr>
+  <td><strong>April 2015</strong></td>
+  <td><a href="https://github.com/electron/electron/pull/1389">Atom Shell is re-named Electron</a>.</td>
+</tr>
+<tr>
+  <td><strong>May 2016</strong></td>
+  <td><a href="https://electronjs.org/blog/electron-1-0">Electron releases <code>v1.0.0`](https://semver.org).</td> </tr> 
+
+</tbody> </table>
