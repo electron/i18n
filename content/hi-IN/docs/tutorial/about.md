@@ -26,7 +26,7 @@
 
 ### संस्करण
 
-संस्करण के रूप में 2.0 इलेक्ट्रॉन [ इस प्रकार है ` semver= </ 1> </ 0>।
+संस्करण के रूप में 2.0 इलेक्ट्रॉन  इस प्रकार है  semver= </ 1> </ 0>।
 अधिकांश अनुप्रयोगों के लिए, और npm के किसी भी हाल के संस्करण का उपयोग करके, <code> $ npm install electron </ 0> चलाने से सही काम होगा।</p>
 
 <p>संस्करण अद्यतन प्रक्रिया हमारे <a href="electron-versioning.md"> संस्करण डॉक </ 0> में स्पष्ट रूप से विस्तृत है।</p>
@@ -47,30 +47,39 @@
 
 <h2>इतिहास</h2>
 
-<p>Below are milestones in Electron's history.</p>
+<p>नीचे इलेक्ट्रॉन के इतिहास में मील के पत्थर हैं।</p>
 
 <table>
 <thead>
 <tr>
-  <th>:calendar:</th>
+  <th>:calender:</th>
   <th>:tada:</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>April 2013</strong></td>
-  <td><a href="https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45">Atom Shell is started</a>.</td>
+  <td><strong>अप्रैल 2016</strong></td>
+  <td><a href="https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45"> एटम शेल शुरू किया गया है </ 0>।</td>
 </tr>
 <tr>
-  <td><strong>May 2014</strong></td>
-  <td><a href="https://blog.atom.io/2014/05/06/atom-is-now-open-source.html">Atom Shell is open sourced</a>.</td>
+  <td><strong>मई 2016</strong></td>
+  <td><a href="https://blog.atom.io/2014/05/06/atom-is-now-open-source.html"> एटम शेल को ओपनसोर्स </ 0> बनाया गया है।</td>
 </tr>
 <tr>
-  <td><strong>April 2015</strong></td>
-  <td><a href="https://github.com/electron/electron/pull/1389">Atom Shell is re-named Electron</a>.</td>
+  <td><strong>अप्रैल 2016</strong></td>
+  <td><a href="https://github.com/electron/electron/pull/1389"> एटम शैल का पुनः नाम इलेक्ट्रॉन है </ 0>।</td>
 </tr>
 <tr>
-  <td><strong>May 2016</strong></td>
-  <td><a href="https://electronjs.org/blog/electron-1-0">Electron releases <code>v1.0.0`](https://semver.org).</td> </tr> 
-
-</tbody> </table>
+  <td><strong>मई 2016</strong></td>
+  <td><a href="https://electronjs.org/blog/electron-1-0"> इलेक्ट्रॉन रिलीज़ <code> v1.0.0 </ 1> </ 0>।</td>
+</tr>
+<tr>
+  <td><strong>मई 2016</strong></td>
+  <td>मैक ऐप स्टोर के साथ <a href="mac-app-store-submission-guide.md"> इलेक्ट्रॉन ऐप्स संगत </ 0>।</td>
+</tr>
+<tr>
+  <td><strong>अगस्त 2016</strong></td>
+  <td><a href="windows-store-guide.md"> इलेक्ट्रॉन ऐप्स के लिए विंडोज स्टोर का समर्थन </ 0>।</td>
+</tr>
+</tbody>
+</table>
