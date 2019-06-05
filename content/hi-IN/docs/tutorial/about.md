@@ -14,19 +14,21 @@
 
 ## रिलीज़स
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+ इलेक्ट्रॉन सॉफ़्टवेयर को अक्सर जारी किया जाता है </ 0>। हम इसे तब जारी करते हैं जब महत्वपूर्ण बग फिक्स, नए एपीआई या इलेक्ट्रॉन में क्रोमियम या नोड.जेएस के संस्करण अपडेट होते हैं।</p> 
 
-### Updating Dependencies
+### निर्भरता को अद्यतन करना
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+क्रोमियम का इलेक्ट्रॉन संस्करण आमतौर पर एक या दो सप्ताह के भीतर अपडेट किया जाता है, एक नया स्थिर क्रोमियम संस्करण जारी होने के बाद, उन्नयन में शामिल प्रयास के आधार पर।
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+जब Node.js का एक नया संस्करण जारी किया जाता है, तो इलेक्ट्रॉन अधिक स्थिर संस्करण में लाने के लिए अपग्रेड करने से पहले आमतौर पर एक महीने तक इंतजार करता है।
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+इलेक्ट्रॉन में, Node.js और क्रोमियम एकल V8 उदाहरण साझा करते हैं - आमतौर पर क्रोमियम का उपयोग करने वाला संस्करण। ज्यादातर समय यह * सिर्फ काम करता है </ 0> लेकिन कभी-कभी इसका मतलब है नोड्स। पैच करना</p> 
 
 ### संस्करण
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+संस्करण के रूप में 2.0 इलेक्ट्रॉन  इस प्रकार है ` semver= </ 1> </ 0>।
+For most applications, and using any recent version of npm,
+running <code>$ npm install electron` will do the right thing.</p> 
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
