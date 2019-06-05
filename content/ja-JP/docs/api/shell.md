@@ -36,14 +36,14 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternalSync(url[, options])`
 
-* `url` String - Max 2081 characters on Windows, or the function returns false.
+* `url` String - Windows では最大2081文字、そうでなければ関数は false を返します。
 * `options` Object (任意) 
   * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
   * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
 
-Returns `Boolean` - Whether an application was available to open the URL.
+戻り値 `Boolean` - URL を開くためにアプリケーションが利用可能かどうか。
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
 
 ### `shell.openExternal(url[, options])`
 
@@ -54,7 +54,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 Returns `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
 
 ### `shell.moveItemToTrash(fullPath)`
 
