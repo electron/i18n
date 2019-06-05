@@ -153,4 +153,4 @@ client
 
 Electron を再構築せずにアプリケーションをテストするには、アプリケーションソースを Electron のリソースディレクトリに[配置します](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)。
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+あるいは、自分のアプリのフォルダを指す引数をあなたの Electron バイナリで実行するように渡します。これにより、アプリを Electron のリソースディレクトリにコピー & ペーストする必要がなくなります。
