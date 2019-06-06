@@ -93,23 +93,23 @@ Podając parametr `role` na systemie macOS, tylko opcje `label` i `accelerator` 
 
 ### Właściwości instancji
 
-The following properties are available on instances of `MenuItem`:
+Następujące właściwości są dostępne w instancjach klasy `MenuItem`:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Wartość typu `Boolean` definiująca czy element jest włączony, ta wartość może być zmieniana dynamicznie.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Wartość typu `Boolean` definiująca czy element jest widoczny, ta wartość może być zmieniana dynamicznie.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Wartość typu `Boolean` definiująca czy element jest zaznaczony, ta wartość może być zmieniana dynamicznie.
 
 A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Element menu typu `radio` ustawi wartość `checked` na true kiedy zostanie wciśnięty, natomiast kiedy zostanie wciśnięty inny sąsiadujący element w tym samym menu zmieni wartość na false.
 
 You can add a `click` function for additional behavior.
 
