@@ -111,7 +111,7 @@ A `checkbox` menu item will toggle the `checked` property on and off when select
 
 Element menu typu `radio` ustawi wartość `checked` na true kiedy zostanie wciśnięty, natomiast kiedy zostanie wciśnięty inny sąsiadujący element w tym samym menu zmieni wartość na false.
 
-You can add a `click` function for additional behavior.
+Możesz dodać funkcję `click` dla dodatkowej akcji.
 
 #### `menuItem.label`
 
@@ -119,4 +119,4 @@ A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+Funkcja wykonująca się gdy element MenuItem otrzyma zdarzenie `click`.
