@@ -54,7 +54,7 @@
     "build:stats": "node script/stats.js",
     "build:module": "node script/build-module.js",
     "build:nav": "ts-node script/parse-nav.ts",
-    "build:readme": "ts-node script/readme.ts",
+    "build:readme": "node script/readme.js",
     "update-source-content": "script/update-source-content.sh",
     "content-cleanup": "ts-node script/i18n-content-cleanup.ts",
     "test": "npm run test-only",
