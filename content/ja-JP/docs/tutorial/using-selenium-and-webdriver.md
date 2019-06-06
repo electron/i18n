@@ -45,11 +45,11 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 ## WebDriverJs の設定
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) は、Web Driver でテストするための Node パッケージを提供します。ここでは例として使用します。
 
 ### 1. ChromeDriverを開始する
 
-First you need to download the `chromedriver` binary, and run it:
+最初に、`chromedriver` バイナリをダウンロードして実行する必要があります。
 
 ```sh
 $ npm install electron-chromedriver
@@ -58,7 +58,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+後で使用されるポート番号 `9515` を覚えておいてください。
 
 ### 2. WebDriverJSのインストール
 
@@ -66,9 +66,9 @@ Remember the port number `9515`, which will be used later
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. ChromeDriver に接続する
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+Electron での `selenium-webdriver` の使用方法は、手動で chrome driver の接続方法と Electron のバイナリの検索場所を指定する必要があることを除いて、upstream と同じです。
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -97,13 +97,13 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## WebdriverIO で設定する
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/) は、Web Driver でテストするための Node パッケージを提供します。
 
 ### 1. ChromeDriverを開始する
 
-First you need to download the `chromedriver` binary, and run it:
+最初に、`chromedriver` バイナリをダウンロードして実行する必要があります。
 
 ```sh
 $ npm install electron-chromedriver
@@ -112,7 +112,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+後で使用されるポート番号 `9515` を覚えておいてください。
 
 ### WebdriverIOのインストール
 
@@ -149,8 +149,8 @@ client
   .end()
 ```
 
-## Workflow
+## ワークフロー
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Electron を再構築せずにアプリケーションをテストするには、アプリケーションソースを Electron のリソースディレクトリに[配置します](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)。
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+あるいは、自分のアプリのフォルダを指す引数をあなたの Electron バイナリで実行するように渡します。これにより、アプリを Electron のリソースディレクトリにコピー & ペーストする必要がなくなります。

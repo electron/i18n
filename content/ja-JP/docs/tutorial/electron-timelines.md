@@ -2,8 +2,8 @@
 
 ### 注釈:
 
-* The `-beta.1` and `stable` dates are our *concrete* release dates.
-* We strive for weekly beta releases, however we often release more betas than scheduled.
+* `-beta.1` および `stable` の日付は、*具体的な*リリース日です。
+* 私たちは毎週ベータ版のリリースを目指しますが、予定より多くのベータ版をリリースすることがよくあります。
 * これら全ての日付は私たちの目標ですが、セキュリティバグなど、安定版リリースの期限を調整する理由があるかもしれません。
 
 ## 5.0.0 リリーススケジュール

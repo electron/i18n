@@ -27,15 +27,15 @@ keyboard_modal:
 docs:
   title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
-  guides: "Guides: Getting Started with Electron"
+  guides: "ガイド: Electronで始める"
   api_reference: API リファレンス
   api_structures: API構造
   advanced: 発展的なドキュメント
-  detailed: In Detail
+  detailed: 詳細
   custom_dom: Custom DOM Elements
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: メインプロセスモジュール
+  renderer_proc_modules: レンダラープロセスモジュール
+  both_proc_modules: 両プロセスタイプのモジュール
   footer:
     propose_change: このドキュメントを改善する
     version_history: 過去のバージョン
