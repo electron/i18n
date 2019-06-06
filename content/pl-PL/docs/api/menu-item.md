@@ -50,11 +50,11 @@ Wartość `role` może mieć następujące wartości:
 * `pasteAndMatchStyle`
 * `selectAll`
 * `delete`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit` - Quit the application.
-* `reload` - Reload the current window.
-* `forceReload` - Reload the current window ignoring the cache.
+* `minimize` - Minimalizuje obecne okno.
+* `close` - Zamyka obecne okno.
+* `quit` - Wychodzi z aplikacji.
+* `reload` - Przeładowuje obecne okno.
+* `forceReload` - Przeładowuje obecne okno ignorując pamięć podręczną.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
@@ -65,7 +65,7 @@ Wartość `role` może mieć następujące wartości:
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
-The following additional roles are available on *macOS*:
+Następujące dodatkowe role są dostępne na systemie *macOS*:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - Map to the `orderFrontStandardAboutPanel` action.
@@ -87,7 +87,7 @@ The following additional roles are available on *macOS*:
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+Podając parametr `role` na systemie macOS, tylko opcje `label` i `accelerator` wpłyną na element menu. Wszystkie inne parametry zostaną zignorowane. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
