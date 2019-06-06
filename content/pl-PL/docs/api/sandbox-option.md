@@ -123,7 +123,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `webFrame`
 - `fs`
 - `os`
-- `zegary`
+- `timers`
 - `url`
 
 More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
