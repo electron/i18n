@@ -10,6 +10,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 
 ## Handleidingen en Tutorials
 
+* [Over Electron](tutorial/about.md)
 * [Een Ontwikkelingsomgeving opzetten](tutorial/development-environment.md) 
   * [MacOS instellen](tutorial/development-environment.md#setting-up-macos)
   * [Windows instellen](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Het gebruik maken van Native Node.js Modules](tutorial/using-native-node-modules.md)
 * Toevoegen van functionaliteit aan uw App 
   * [Notificaties](tutorial/notifications.md)
-  * [Recente documenten](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Recente documenten](tutorial/recent-documents.md)
   * [Voortgang van de applicatie](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Custom Windows Taakbalk](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Offline/Online Detectie](tutorial/online-offline-events.md)
   * [Representatief bestand voor macOS BrowserWindows](tutorial/represented-file.md)
   * [Drag & Drop Bestanden](tutorial/native-file-drag-drop.md)
+  * [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Toegankelijkheid beschikbaar maken](tutorial/accessibility.md#enabling-accessibility)
 * [Testen en Debuggen](tutorial/application-debugging.md) 
   * [Debuggen van het hoofd proces](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Het gebruik maken van Selenium en WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools extensie](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Een Update Server implementeren](tutorial/updates.md#deploying-an-update-server)
   * [Updates implementeren in uw App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Updates toepassen](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Gedetailleerde tutorials
 
 Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden besproken.
 
-* [In detail: Electron installeren](tutorial/installation.md) 
+* [Electron installeren](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors en Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Probleemoplossen](tutorial/installation.md#troubleshooting)
-* [In detail: Versie schema van Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilisatie branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases en Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In detail: Inpakken App broncode met asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Genereren asar archieven](tutorial/application-packaging.md#generating-asar-archives)
   * [Het gebruik maken van asar archieven](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaties](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Voeg uitgepakte bestanden toe aan asar archieven](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In detail: Het testen van de Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In detail: Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [`Bestand` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Functie](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Modules voor het basisproces:
 
@@ -125,8 +130,10 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocool](api/protocol.md)
+* [scherm](api/screen.md)
 * [sessie](api/session.md)
 * [systeemVoorkeuren](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [klembord](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [scherm](api/screen.md)
 * [shell](api/shell.md)
 
 ## Ontwikkeling

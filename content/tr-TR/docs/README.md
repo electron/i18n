@@ -10,6 +10,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ## 1 whan to business in online application
 
+* [Electron Hakkında](tutorial/about.md)
 * [Geliştirme Ortamını Kurmak](tutorial/development-environment.md) 
   * [MacOS İçin Kurulum](tutorial/development-environment.md#setting-up-macos)
   * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Yerli Node.js Modüllerini Kullanma](tutorial/using-native-node-modules.md)
 * Uygulamanıza Özellikler Ekleme 
   * [Bildirimler](tutorial/notifications.md)
-  * [Son Günlerdeki Dokümanlar](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Son Günlerdeki Dokümanlar](tutorial/recent-documents.md)
   * [Uygulama İlerleyişi](tutorial/progress-bar.md)
   * [Özel Dock Menü](tutorial/macos-dock.md)
   * [Özel Windows Görev Çubuğu](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Çevrimdışı/Çevrimiçi Algılama](tutorial/online-offline-events.md)
   * [MacOS BrowserWindows için temsil edilen dosya](tutorial/represented-file.md)
   * [Yerel dosya sürükle & bırak](tutorial/native-file-drag-drop.md)
+  * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Erişilebilirlik](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Erişilebilirliği Etkinleştirmek](tutorial/accessibility.md#enabling-accessibility)
 * [Test ve Hata Ayıklama](tutorial/application-debugging.md) 
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Güncelleme Sunucusunu Dağıtma](tutorial/updates.md#deploying-an-update-server)
   * [Uygulama içerisinde güncellemeleri yapmak](tutorial/updates.md#implementing-updates-in-your-app)
   * [Güncellemeleri Uygulama](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Detaylı Öğreticiler
 
 Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda genişler.
 
-* [Ayrıntılı olarak: Electron Yüklemek](tutorial/installation.md) 
+* [Electron'u Yükleme](tutorial/installation.md) 
   * [Vekil Sunucular](tutorial/installation.md#proxies)
   * [Özel Aynalar ve Önbellekler](tutorial/installation.md#custom-mirrors-and-caches)
   * [Arıza giderme](tutorial/installation.md#troubleshooting)
-* [Ayrıntılı olarak: Electron'un sürüm şeması](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Dengeleme Dalları](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Bültenleri ve Hata Düzeltmeleri](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Ayrıntılı olarak: asar ile App Kaynak Kodu Paketlemek](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
   * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar Arşivlerine Paketlenmemiş Dosyaları Eklemek](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Ayrıntılı olarak: Widevine CDM Sınamak](tutorial/testing-widevine-cdm.md)
-* [Ayrıntılı olarak: Pepper Flash Eklentisi Kullanmak](tutorial/using-pepper-flash-plugin.md)
-* [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
+* [Widevine CDM’inin Test Edilmesi](tutorial/testing-widevine-cdm.md)
+* [Pepper Flash Eklentisini Kullanma](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [`File` Nesne](api/file-object.md)
 * [`<webview>`Etiket](api/webview-tag.md)
 * [`window.open` Fonksiyon](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Ana Süreç İçin Modüller:
 
@@ -125,8 +130,10 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Geliştirme

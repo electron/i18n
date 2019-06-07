@@ -10,10 +10,11 @@
 
 ## 使用導引與教學
 
+* [關於 Electron](tutorial/about.md)
 * [開發環境設定](tutorial/development-environment.md) 
   * [macOS 設定](tutorial/development-environment.md#setting-up-macos)
   * [Windows 設定](tutorial/development-environment.md#setting-up-windows)
-  * [Linux設定](tutorial/development-environment.md#setting-up-linux)
+  * [Linux 設定](tutorial/development-environment.md#setting-up-linux)
   * [選擇編輯器](tutorial/development-environment.md#a-good-editor)
 * [建立你的第一個應用程式](tutorial/first-app.md) 
   * [安裝 Electron](tutorial/first-app.md#installing-electron)
@@ -32,7 +33,7 @@
   * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
 * 新增功能進應用程式 
   * [通知](tutorial/notifications.md)
-  * [最近的文件](tutorial/desktop-environment-integration.md#recent-documents)
+  * [最近的文件](tutorial/recent-documents.md)
   * [應用程式進度](tutorial/progress-bar.md)
   * [自訂 Dock 選單](tutorial/macos-dock.md)
   * [自訂 Windows 工作列](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@
   * [離線/上線偵測](tutorial/online-offline-events.md)
   * [macOS BrowserWindows 的代表檔案](tutorial/represented-file.md)
   * [原生檔案拖放](tutorial/native-file-drag-drop.md)
+  * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [協助工具](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [啟用協助工具](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * [Debug 主處理序](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools 擴充](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@
   * [佈署更新伺服器](tutorial/updates.md#deploying-an-update-server)
   * [在應用程式中實作更新功能](tutorial/updates.md#implementing-updates-in-your-app)
   * [套用更新](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## 深入教學
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [深入: 安裝 Electron](tutorial/installation.md) 
+* [安裝 Electron](tutorial/installation.md) 
   * [代理伺服器](tutorial/installation.md#proxies)
   * [自訂鏡像及快取](tutorial/installation.md#custom-mirrors-and-caches)
   * [疑難排解](tutorial/installation.md#troubleshooting)
-* [深入: Electron 版號規則](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [穩定分支](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta 版及 Bug 修正](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [深入: 用 asar 打包應用程式原始碼](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [產生 asar 封存檔](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [將無法封存的檔案與 asar 封存檔整合](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [深入: 使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
-* [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [`File` 物件](api/file-object.md)
 * [`<webview>` 標籤](api/webview-tag.md)
 * [`window.open` 函式](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### 主處理序可用的模組：
 
@@ -125,8 +130,10 @@ These individual tutorials expand on topics discussed in the guide above.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ These individual tutorials expand on topics discussed in the guide above.
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## 開發

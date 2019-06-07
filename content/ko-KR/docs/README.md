@@ -10,6 +10,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 ## 가이드와 튜토리얼
 
+* [Electron 에 대하여](tutorial/about.md)
 * [개발 환경 설정하기](tutorial/development-environment.md) 
   * [macOS 설정](tutorial/development-environment.md#setting-up-macos)
   * [Windows 설정](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
 * 여러분의 앱에 기능 추가하기 
   * [알림(Notifications)](tutorial/notifications.md)
-  * [최근 문서들(Recent Documents)](tutorial/desktop-environment-integration.md#recent-documents)
+  * [최근 문서](tutorial/recent-documents.md)
   * [애플리케이션 진행 상황](tutorial/progress-bar.md)
   * [커스텀 Dock 메뉴](tutorial/macos-dock.md)
   * [커스텀 Windows 작업 표시줄](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [오프라인/온라인 감지](tutorial/online-offline-events.md)
   * [macOS BrowserWindows에 대한 파일 표현](tutorial/represented-file.md)
   * [기본 파일 드래그 & 드랍](tutorial/native-file-drag-drop.md)
+  * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [접근성](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [접근성 활성화](tutorial/accessibility.md#enabling-accessibility)
 * [테스팅과 디버깅](tutorial/application-debugging.md) 
   * [메인 프로세스 디버깅하기](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Selenium 과 WebDriver 사용하기](tutorial/using-selenium-and-webdriver.md)
   * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
   * [DevTools 확장](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [서버에 업데이트 배포](tutorial/updates.md#deploying-an-update-server)
   * [앱에 업데이트 구현하기](tutorial/updates.md#implementing-updates-in-your-app)
   * [업데이트 적용](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## 자세한 튜토리얼
 
 이 가이드는 위에서 설명된 주제의 확장입니다.
 
-* [자세히 설명된 Electron 설치](tutorial/installation.md) 
+* [Electron 설치하기](tutorial/installation.md) 
   * [프록시](tutorial/installation.md#proxies)
   * [커스텀 미러와 캐시](tutorial/installation.md#custom-mirrors-and-caches)
   * [문제 해결](tutorial/installation.md#troubleshooting)
-* [자세히 설명된 Electron의 버전 매김 스키마](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [안정화 브랜치](tutorial/electron-versioning.md#stabilization-branches)
-  * [베타 출시와 버그 수정](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [자세히 설명된 asar로 앱 소스 코드 패키징](tutorial/application-packaging.md) 
-  * [asar 아카이브 생성](tutorial/application-packaging.md#generating-asar-archives)
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [asar 아카이브 생성하기](tutorial/application-packaging.md#generating-asar-archives)
   * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)
   * [제한 사항](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar 아카이브에 압축 해제된 파일 추가하기](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [자세히 설명된 Widevine CDM 테스트하기](tutorial/testing-widevine-cdm.md)
-* [자세히 설명된 Pepper Flash 플러그인 사용하기](tutorial/using-pepper-flash-plugin.md)
-* [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Pepper Flash 플러그인 사용하기](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [`File` 객체](api/file-object.md)
 * [`<webview>` 태그](api/webview-tag.md)
 * [`window.open` 함수](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### 주요 프로세스 모듈:
 
@@ -125,8 +130,10 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## 개발

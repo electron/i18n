@@ -10,6 +10,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 ## Guias e Tutoriais
 
+* [Sobre o Electron](tutorial/about.md)
 * [Configurar Ambiente de Desenvolvimento](tutorial/development-environment.md) 
   * [Configurando o macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurando o Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
 * Adicionando Recursos para Seu Aplicativo 
   * [Notificações](tutorial/notifications.md)
-  * [Documentos Recentes](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Documentos Recentes](tutorial/recent-documents.md)
   * [Progresso do Aplicativo](tutorial/progress-bar.md)
   * [Menu Dock Personalizado](tutorial/macos-dock.md)
   * [Barra de Tarefas do Windows Personalizado](tutorial/windows-taskbar.md)
@@ -40,13 +41,16 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Atalhos do Teclado](tutorial/keyboard-shortcuts.md)
   * [Detecção de Offline/Online](tutorial/online-offline-events.md)
   * [Representação de Arquivo para o macOS BrowserWindows](tutorial/represented-file.md)
-  * [Nativo Arquivo Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Nativo Arquivo Drag & Drop (Arrastar e Soltar)](tutorial/native-file-drag-drop.md)
+  * [Renderização fora da tela](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Acessibilidade](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Permitindo Acessibilidade](tutorial/accessibility.md#enabling-accessibility)
 * [Teste e Depuração](tutorial/application-debugging.md) 
   * [O Processo Principal de Depuração](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Usando Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testando em sistemas de CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensão de DevTools](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Implementando um Servidor de Atualizações](tutorial/updates.md#deploying-an-update-server)
   * [Implementando Atualizações em Seu App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicando Atualizações](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Tutoriais Detalhados
 
 Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
-* [Em Detalhes: Instalando Electron](tutorial/installation.md) 
+* [Instalando o Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Mirrors e Caches Customizados](tutorial/installation.md#custom-mirrors-and-caches)
   * [Solução de Problemas](tutorial/installation.md#troubleshooting)
-* [Em Detalhes: Esquema de Versionamento do Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilizando Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Versões Betas e Correções de Bugs](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Em Detalhes: Empacotar Código do App com asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Gerando Arquivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando Arquivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitações](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adicionando Arquivos Descompactados para os Arquivos asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Em Detalhes: Testando o Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Em Detalhes: Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Renderização fora da tela](tutorial/offscreen-rendering.md)
+* [Testando Widevine CCDM](tutorial/testing-widevine-cdm.md)
+* [Usando o Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -99,13 +103,14 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [Processamento de Objeto](api/process.md)
 * [Suporte ao Terminal de Comando do Chrome](api/chrome-command-line-switches.md)
 * [Variáveis de Ambiente](api/environment-variables.md)
-* [Grandes Alterações na API](api/breaking-changes.md)
+* [Alterações na API](api/breaking-changes.md)
 
 ### Elementos de DOM Personalizado:
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Função](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Módulos para o Processo Principal:
 
@@ -125,8 +130,10 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Desenvolvimento

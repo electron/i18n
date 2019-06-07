@@ -10,6 +10,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
 
 ## Poradniki i Samouczki
 
+* [O Electronie](tutorial/about.md)
 * [Konfigurowanie środowiska programistycznego](tutorial/development-environment.md) 
   * [Konfigurowanie systemu macOS](tutorial/development-environment.md#setting-up-macos)
   * [Konfigurowanie systemu Windows](tutorial/development-environment.md#setting-up-windows)
@@ -20,11 +21,11 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Rozwój Electrona w pigułce](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Uruchamianie Twojej aplikacji](tutorial/first-app.md#running-your-app)
 * [Boilerplates i CLI](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [Teskt standardowy vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Inne narzędzia i boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [Inne narzędzia i teksty standardowe](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architektura aplikacji](tutorial/application-architecture.md) 
   * [Proces główny i renderer](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Używanie API Electrona](tutorial/application-architecture.md#using-electron-apis)
@@ -32,7 +33,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
 * Dodawanie funkcji do twojej aplikacji 
   * [Powiadomienia](tutorial/notifications.md)
-  * [Ostatnie dokumenty](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Ostatnie dokumenty](tutorial/recent-documents.md)
   * [Postęp aplikacji](tutorial/progress-bar.md)
   * [Niestandardowe Dock Menu](tutorial/macos-dock.md)
   * [Niestandardowy Pasek Zadań systemu Windows](tutorial/windows-taskbar.md)
@@ -40,54 +41,57 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
   * [Wykrywanie trybu offline/online](tutorial/online-offline-events.md)
   * [Reprezentowany plik dla macOS BrowserWindows](tutorial/represented-file.md)
-  * [Natywne przeciąganie & upuszczanie plików](tutorial/native-file-drag-drop.md)
+  * [Natywne przeciąganie i upuszczanie plików](tutorial/native-file-drag-drop.md)
+  * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Dostępność](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Włączanie ułatwień dostępu](tutorial/accessibility.md#enabling-accessibility)
 * [Testowania i debugowanie](tutorial/application-debugging.md) 
-  * [Debugowanie w Procesie Głównym](tutorial/debugging-main-process.md)
+  * [Debugowanie Głównego Wątku](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testowanie na Systemach CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)
   * [Automatyczne testowania z pomocą niestandardowego sterownika](tutorial/automated-testing-with-a-custom-driver.md)
 * Pakowanie 
   * [Podpisywanie kodu](tutorial/code-signing.md)
 * [Dystrybucja](tutorial/application-distribution.md) 
   * [Wsparcie](tutorial/support.md)
-  * [Sklep App Store](tutorial/mac-app-store-submission-guide.md)
+  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Bezpieczeństwo](tutorial/security.md) 
-  * [Zgłaszanie Problemów z Bezpieczeństwem](tutorial/security.md#reporting-security-issues)
-  * [Problemy z Bezpieczeństwem i Aktualizacje Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Zgłaszanie Błędów Bezpieczeństwa](tutorial/security.md#reporting-security-issues)
+  * [Bezpieczeństwa i uaktualnienia Chrominum](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Ostrzeżenia bezpieczeństwa Electrona](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizacje](tutorial/updates.md) 
-  * [Wdrażanie serwera aktualizacji](tutorial/updates.md#deploying-an-update-server)
+  * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
   * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Wdrażanie aktualizacji](tutorial/updates.md#applying-updates)
+  * [Stosowanie aktualizacji](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Szczegółowe poradniki
 
 Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
-* [Szczegółowo: Instalowanie Electrona](tutorial/installation.md) 
+* [Instalowanie Electrona](tutorial/installation.md) 
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Rozwiązywanie problemów](tutorial/installation.md#troubleshooting)
-* [Szczegółowo: Schemat Wersjonowania Electrona](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilizacja gałęzi](tutorial/electron-versioning.md#stabilization-branches)
-  * [Wersje beta i poprawki błędów](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Szczegółowo: Pakowanie Kodu Źródłowego z asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generowanie Archiwów asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Szczegółowo: Testowanie z Widevine CDM Plugin](tutorial/testing-widevine-cdm.md)
-* [Szczegółowo: Używanie Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Używanie Pluginu Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Obiekt `File`](api/file-object.md)
 * [Tag `<webview>`](api/webview-tag.md)
 * [Funkcja `window.open`](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Moduły Głównego Wątku:
 
@@ -125,8 +130,10 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Rozwój

@@ -1,7 +1,7 @@
-# TraceConfig Object
+# Obiekt TraceConfig
 
-* `included_categories` String[] (optional)
-* `excluded_categories` String[] (optional)
-* `memory_dump_config` Object (optional)
+* `included_categories` String[] (opcjonalne)
+* `excluded_categories` String[] (opcjonalne)
+* `memory_dump_config` Object (opcjonalne)
 
-See an example in the [Chromium docs](https://chromium.googlesource.com/chromium/src/+/master/docs/memory-infra/memory_infra_startup_tracing.md#the-advanced-way).
+Zobacz przykład w [dokumentacji Chromium'a](https://chromium.googlesource.com/chromium/src/+/master/docs/memory-infra/memory_infra_startup_tracing.md#the-advanced-way).

@@ -10,6 +10,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 ## Guides and Tutorials
 
+* [Về Electron](tutorial/about.md)
 * [Khởi động môi trường của nhà phát triển](tutorial/development-environment.md) 
   * [Khởi động cho macOS](tutorial/development-environment.md#setting-up-macos)
   * [Khởi động cho Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
 * Adding Features to Your App 
   * [Notifications](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Recent Documents](tutorial/recent-documents.md)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Offline/Online Detection](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Sử dụng Selenium và WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Phần mở rộng DevTools](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Detailed Tutorials
 
 Những hướng dẫn sau đây là mở rộng của các chủ đề đã được thảo luận trong các tài liệu trên.
 
-* [Chi tiết: Cách cài đặt Electron](tutorial/installation.md) 
+* [Cài đặt Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Tuỳ chỉnh Mirrors và Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Xử lý sự cố](tutorial/installation.md#troubleshooting)
-* [Chi tiết: Quá trình check phiên bản của Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Ổn định branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Bản dùng thử và xử lý Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Chi tiết: Đóng gói code nguồn của ứng dụng với asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Tạo ra một file asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Sử dụng các file đóng gói asar](tutorial/application-packaging.md#using-asar-archives)
   * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Việc sử dụng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Các Module của Main Process:
 
@@ -125,8 +130,10 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Development
