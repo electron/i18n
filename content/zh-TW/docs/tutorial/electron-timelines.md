@@ -1,6 +1,6 @@
 # Electron Release Timelines
 
-### 備註:
+### 備註
 
 * The `-beta.1` and `stable` dates are our *concrete* release dates.
 * We strive for weekly beta releases, however we often release more betas than scheduled.
