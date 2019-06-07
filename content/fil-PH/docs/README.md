@@ -10,6 +10,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ## Gabay at Tutorial
 
+* [Tungkol sa Electron](tutorial/about.md)
 * [Setup para sa Development Environment](tutorial/development-environment.md) 
   * [Pagsetup ng macOS](tutorial/development-environment.md#setting-up-macos)
   * [Pagsetuo ng Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Paggamit ng katutubong Node.js Modules](tutorial/using-native-node-modules.md)
 * Pagdagdag ng features sa iyong aplikasyon 
   * [Mga Paalala](tutorial/notifications.md)
-  * [Kasalukuyang dokumento](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Kasalukuyang dokumento](tutorial/recent-documents.md)
   * [Kaunlaran sa Aplikasyon](tutorial/progress-bar.md)
   * [Pasadyang Dock Menu](tutorial/macos-dock.md)
   * [Pasadyang Windows Taskbar](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Offline/Online Deteksyon](tutorial/online-offline-events.md)
   * [File na nagrerepresenta sa macOS BrowserWindows](tutorial/represented-file.md)
   * [Katutubong File Drag& Drop](tutorial/native-file-drag-drop.md)
+  * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Aksesibilidad](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
-  * [DevtronDevtron](tutorial/accessibility.md#devtron)
+  * [Devtron](tutorial/accessibility.md#devtron)
   * [Paganahin ang aksesibilidad](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * ["Debugging" ang Pangunahing Proseso](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensyon ng DevTools](tutorial/devtools-extension.md)
@@ -65,29 +69,29 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Listahan ng Seguridad](tutorial/security.md#checklist-security-recommendations)
 * [Updates](tutorial/updates.md) 
   * [Pagde-deploy ng isang Update na Server](tutorial/updates.md#deploying-an-update-server)
-  * [Pagpapatupad ng mga Update sa iyong App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Pagimplementa ng update sa iyong applikasyon](tutorial/updates.md#implementing-updates-in-your-app)
   * [Pag-aaplay sa mga Update](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Detalyadong Tutorials
 
 Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
-* [Detalyadong pag install ng Electron](tutorial/installation.md) 
+* [Paginstall ng Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Paghahanap ng ProblemaPaghahanap ng Problema](tutorial/installation.md#troubleshooting)
-* [Detalyadong eskema sa versioning sa Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Pagpapapanatag ng mga Branch](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases at ang pagsasaayos ng Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Detalyadong pagimpake ng App Source Code gamit ang asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Pagbubuo ng mga asar na Archive](tutorial/application-packaging.md#generating-asar-archives)
   * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Pagdaragdag ng mga naka-unpack na mga file sa asar na mga Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Detalyadong paggamit ng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [`Kikil ` Bagay](api/file-object.md)
 * [`<webview>` Pananda](api/webview-tag.md)
 * [` bintana. buksan ` Tungkulin](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Mga modyul para sa pangunahing proseso:
 
@@ -125,8 +130,10 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [ang powerMonitor](api/power-monitor.md)
 * [ang powerSaveBlocker](api/power-save-blocker.md)
 * [ang protokol](api/protocol.md)
-* [sesyon](api/session.md)
+* [magtabi](api/screen.md)
+* [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [iipit sa tabla](api/clipboard.md)
 * [kalabog ng tagapagbalita](api/crash-reporter.md)
 * [gupitin ng maikli ang mga litrato](api/native-image.md)
-* [magtabi](api/screen.md)
 * [kabibi](api/shell.md)
 
 ## Pag-unlad
