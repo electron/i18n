@@ -6,10 +6,11 @@
 
 هذه اسئلة شائعة يتم طرحها بشكل متكرر، الرجاء مراجعتها قبل ان طرح مسألة جديدة:
 
-* [إلكترون - الاسئلة الشائعة](faq.md)
+* [Electron FAQ](faq.md)
 
 ## الدليل الإرشادي والدروس
 
+* [حول Electron قناة شليلة shlylt35@gmail.com ](tutorial/about.md)
 * [اعداد وتجهيز بيئة التطوير](tutorial/development-environment.md) 
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
   * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
@@ -32,23 +33,26 @@
   * [باستخدام Native Node.js Modules](tutorial/using-native-node-modules.md)
 * إضافة ميزات إلى تطبيقك 
   * [الإشعارات](tutorial/notifications.md)
-  * [المستندات الأخيرة](tutorial/desktop-environment-integration.md#recent-documents)
+  * [المستندات الأخيرة](tutorial/recent-documents.md)
   * [سير الترجمة](tutorial/progress-bar.md)
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
+  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
   * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
   * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
+  * [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [إمكانية الوصول](tutorial/accessibility.md) 
-  * [سبيكترون](tutorial/accessibility.md#spectron)
+  * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md) 
   * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
-  * [استخدام السيلينيوم و WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [اختبار على أنظمة CI بدون رأس (ترافيس ، جنكينز)](tutorial/testing-on-headless-ci.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [الاختبار الآلي مع برنامج تشغيل مخصص](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging 
@@ -67,27 +71,27 @@
   * [نشر خادم التحديث](tutorial/updates.md#deploying-an-update-server)
   * [تنفيذ التحديثات في تطبيقك](tutorial/updates.md#implementing-updates-in-your-app)
   * [تطبيق التحديثات](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## دروس مفصلة
 
 هذه دروس مفصلة للمواضيع التي تمت مناقشتها في الدليل بالأعلى.
 
-* [في التفاصيل: تثبيت الكترون](tutorial/installation.md) 
+* [تثبيت إكترون](tutorial/installation.md) 
   * [بروكسيات](tutorial/installation.md#proxies)
-  * [مرايا مخصصة ومخابئ](tutorial/installation.md#custom-mirrors-and-caches)
+  * [الكاش ومصادر أخرى](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
-* [بالتفصيل: نظام إصدار إلكترون](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [فروع التثبيت](tutorial/electron-versioning.md#stabilization-branches)
-  * [إصدارات بيتا وإصلاحات الأخطاء](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [بالتفاصيل: رمز مصدر تطبيق Packaging مع asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
   * [استخدام أرشيفات asar](tutorial/application-packaging.md#using-asar-archives)
   * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [بالتفصيل: اختبار Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [بالتفصيل: استخدام ملحق فلاش Pepper](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,13 +110,14 @@
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### وحدات للـ Main Process:
 
 * [app (التطبيق)](api/app.md)
 * [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
 * [BrowserView (عرض المتصفح)](api/browser-view.md)
-* [BrowserWindow (نوافذ المتصفح)](api/browser-window.md)
+* [نافذة المتصفح](api/browser-window.md)
 * [contentTracing (تتبع المحتوى)](api/content-tracing.md)
 * [dialog (الحوار)](api/dialog.md)
 * [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
@@ -125,8 +130,10 @@
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [شاشة](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@
 * [الحافظة](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [شاشة](api/screen.md)
 * [صدفة](api/shell.md)
 
 ## التطوير
