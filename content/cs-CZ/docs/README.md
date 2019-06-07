@@ -10,6 +10,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 
 ## Průvodci a postupy
 
+* [About Electron](tutorial/about.md)
 * [Nastavení vývojového prostředí](tutorial/development-environment.md) 
   * [Nastavení pro macOS](tutorial/development-environment.md#setting-up-macos)
   * [Nastavení pro Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
 * Adding Features to Your App 
   * [Notifikace](tutorial/notifications.md)
-  * [Nedávné dokumenty](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Nedávné dokumenty](tutorial/recent-documents.md)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Offline/Online Detection](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Využití Selenium a WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools rozšíření](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Detailní provodci
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [Instalování Electronu](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Odstranění problémů](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Omezení](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen vykreslování](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Používání Pepper Flash Pluginu](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Funkce](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Moduly pro hlavní proces:
 
@@ -125,8 +130,10 @@ These individual tutorials expand on topics discussed in the guide above.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [obrazovka](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ These individual tutorials expand on topics discussed in the guide above.
 * [schránka](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [obrazovka](api/screen.md)
 * [shell](api/shell.md)
 
 ## Vývoj

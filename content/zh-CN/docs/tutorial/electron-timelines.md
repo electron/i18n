@@ -12,7 +12,7 @@
 
 查看 5.0.0 版本时间线的 [博客文章](https://electronjs.org/blog/electron-5-0-timeline) 以了解我们有关发布日期的信息。
 
-| Date/Week Of     | Release      | Comments                                                                  |
+| Date/Week Of     | Release      | 评论                                                                        |
 | ---------------- | ------------ | ------------------------------------------------------------------------- |
 | Tue, 2019-Jan-22 | 5.0.0-beta.1 | 🔥                                                                         |
 | Tue, 2019-Jan-29 | 5.0.0-beta.x |                                                                           |
@@ -33,7 +33,7 @@
 
 *Includes: Chromium M76 and Node v12.0*
 
-| Date/Week Of     | Release      | Comments                       |
+| Date/Week Of     | Release      | 评论                             |
 | ---------------- | ------------ | ------------------------------ |
 | Tue, 2019-Apr-30 | 6.0.0-beta.1 | 🔥                              |
 | Tue, 2019-May-07 | 6.0.0-beta.x |                                |

@@ -10,6 +10,7 @@
 
 ## راهنماها و آموزشها
 
+* [درباره الکترون](tutorial/about.md)
 * [راه اندازی محیط توسعه](tutorial/development-environment.md) 
   * [راه اندازی macOS](tutorial/development-environment.md#setting-up-macos)
   * [راه اندازی ویندوز](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
 * اضافه کردن ویژگی ها به برنامه شما 
   * [اطلاعیه](tutorial/notifications.md)
-  * [اسناد اخیر](tutorial/desktop-environment-integration.md#recent-documents)
+  * [اسناد اخیر](tutorial/recent-documents.md)
   * [پیشرفت برنامه](tutorial/progress-bar.md)
   * [منوی داک سفارشی](tutorial/macos-dock.md)
   * [وظیفه سفارشی سازی ویندوز](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@
   * [ تشخیص آفلاین / آنلاین](tutorial/online-offline-events.md)
   * [نمایه فایل برای macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [دسترسی](tutorial/accessibility.md) 
   * [اسپکترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [فعال کردن قابلیت](tutorial/accessibility.md#enabling-accessibility)
 * [تست و اشکال زدایی](tutorial/application-debugging.md) 
   * [اشکال زدایی فرآیند اصلی ](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [استفاده از Selenium و WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [تست سیستم های CI (Travis، Jenkins)](tutorial/testing-on-headless-ci.md)
   * [افزونه DevTools](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@
   * [استقرار یک سرور به روز رسانی](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [اعمال بروزرسانی](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## آموزش های مفصل
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [نصب الکترون Electron](tutorial/installation.md) 
   * [پروکسی ها](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [عیب یابی](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [محدودیت ها](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [`فایل` شیء](api/file-object.md)
 * [`<webview>` برچسب](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Modules for the Main Process:
 
@@ -125,8 +130,10 @@ These individual tutorials expand on topics discussed in the guide above.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [پروتکل](api/protocol.md)
+* [صفحه نمایش](api/screen.md)
 * [جلسه](api/session.md)
 * [تنظیمات سیستم](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ These individual tutorials expand on topics discussed in the guide above.
 * [کلیپ بورد](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [صفحه نمایش](api/screen.md)
 * [shell](api/shell.md)
 
 ## توسعه

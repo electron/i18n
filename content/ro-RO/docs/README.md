@@ -10,6 +10,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
 
 ## Ghiduri și tutoriale
 
+* [About Electron](tutorial/about.md)
 * [Configurarea mediului de dezvoltare](tutorial/development-environment.md) 
   * [Configurarea macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurarea Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Utilizarea modulelor native Node.js](tutorial/using-native-node-modules.md)
 * Adăugarea funcționalităților în aplicația ta 
   * [Notificări](tutorial/notifications.md)
-  * [Documente recente](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Documente recente](tutorial/recent-documents.md)
   * [Progresul aplicației](tutorial/progress-bar.md)
   * [Meniu de andocare personalizat](tutorial/macos-dock.md)
   * [Bară de activități Windows personalizată](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Detecție offline/online](tutorial/online-offline-events.md)
   * [Fișier reprezentant pentru macOS BrowserWindows](tutorial/represented-file.md)
   * [Fișier nativ drag & drop](tutorial/native-file-drag-drop.md)
+  * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Accesibilitate](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Activarea accesibilității](tutorial/accessibility.md#enabling-accessibility)
 * [Testare și depanare](tutorial/application-debugging.md) 
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Utilizarea Selenium și WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testarea pe sistemele Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensia DevTools](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Implementarea unui server de actualizare](tutorial/updates.md#deploying-an-update-server)
   * [Implementarea actualizărilor în aplicația ta](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicarea actualizărilor](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Tutoriale detaliate
 
 Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul de mai sus.
 
-* [În detaliu: instalarea Electron](tutorial/installation.md) 
+* [Instalarea Electron](tutorial/installation.md) 
   * [Proxiuri](tutorial/installation.md#proxies)
   * [Oglinzi și cacheuri personalizate](tutorial/installation.md#custom-mirrors-and-caches)
   * [Depanare](tutorial/installation.md#troubleshooting)
-* [În detaliu: schema de versionare Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilizarea ramurilor](tutorial/electron-versioning.md#stabilization-branches)
-  * [Lansări beta și fixări de erori](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [În detaliu: ambalarea codului sursă al aplicației cu asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generarea arhivelor asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Utilizarea arhivelor asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adăugarea fișierelor despachetate în arhivele asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [În detaliu: testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [În detaliu: utilizarea modulului Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Randare în afara ecranului](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul `File`](api/file-object.md)
 * [Eticheta `<webview>`](api/webview-tag.md)
 * [Funcția `window.open`](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Module pentru procesul principal:
 
@@ -125,8 +130,10 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Dezvoltare

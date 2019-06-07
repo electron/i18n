@@ -10,6 +10,7 @@
 
 ## Посібники та Підручники
 
+* [Про Electron](tutorial/about.md)
 * [Налаштовування Середовища Розробки](tutorial/development-environment.md) 
   * [Налаштовування macOS](tutorial/development-environment.md#setting-up-macos)
   * [Налаштовування Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
 * Додавання Функцій до Вашого Застосунку 
   * [Сповіщення](tutorial/notifications.md)
-  * [Останні Документи](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Останні Документи](tutorial/recent-documents.md)
   * [Прогрес Перекладу](tutorial/progress-bar.md)
   * [Налаштовуване Dock Меню](tutorial/macos-dock.md)
   * [Налаштовувана Панель Завдань Windows](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@
   * [Оффлайн/Онлайн Виявлення](tutorial/online-offline-events.md)
   * [Представлення Файлу для macOS BrowserWindows](tutorial/represented-file.md)
   * [Нативний Drag & Drop Файлу](tutorial/native-file-drag-drop.md)
+  * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Доступність](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
 * [Тестування та відлагодження](tutorial/application-debugging.md) 
   * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Використання Selenium і WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Розширення DevTools](tutorial/devtools-extension.md)
@@ -65,29 +69,29 @@
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
 * [Оновлення](tutorial/updates.md) 
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
-  * [Реалізація Оновлення у Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Докладні Підручники
 
 Ці окремі підручники розширюють теми, що обговорюються в Путівнику вище.
 
-* [Детальніше: Встановлення Electron](tutorial/installation.md) 
+* [Встановлення Electron](tutorial/installation.md) 
   * [Проксі](tutorial/installation.md#proxies)
   * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
   * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
-* [Детальніше: Схема Версій Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Стабілізація Гілок](tutorial/electron-versioning.md#stabilization-branches)
-  * [Бета Релізи і Усування Помилок](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Детальніше: Пакування Коду Застосунку з asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
   * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Додавання Нерозпакованих Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Детальніше: Тестування Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Детальніше: Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -99,13 +103,14 @@
 * [Обробка Об'єктів](api/process.md)
 * [Підтримувані Параметри Командного Рядка Chrome](api/chrome-command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
-* [Останні важливі зміни в API](api/breaking-changes.md)
+* [Зміни API](api/breaking-changes.md)
 
 ### Користувацькі DOM Елементи:
 
 * [Об'єкт `File`](api/file-object.md)
 * [Тег `<webview>`](api/webview-tag.md)
 * [Функція `window.open`](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Модулі для Головного Процесу:
 
@@ -125,8 +130,10 @@
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Розробка

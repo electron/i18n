@@ -10,14 +10,15 @@
 
 ## ガイドとチュートリアル
 
+* [Electron について](tutorial/about.md)
 * [開発環境のセットアップ](tutorial/development-environment.md) 
   * [macOS をセット アップ](tutorial/development-environment.md#setting-up-macos)
-  * [Windows をセットアップ](tutorial/development-environment.md#setting-up-windows)
-  * [Linux をセットアップ](tutorial/development-environment.md#setting-up-linux)
+  * [Windows のセットアップ](tutorial/development-environment.md#setting-up-windows)
+  * [Linux のセットアップ](tutorial/development-environment.md#setting-up-linux)
   * [エディタの選択](tutorial/development-environment.md#a-good-editor)
 * [初めてのアプリ制作](tutorial/first-app.md) 
   * [Electronのインストール](tutorial/first-app.md#installing-electron)
-  * [3分くらいでわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [3分でわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [アプリの実行](tutorial/first-app.md#running-your-app)
 * [ボイラープレートとCLI](tutorial/boilerplates-and-clis.md) 
   * [ボイラープレート vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -32,21 +33,24 @@
   * [ネイティブ Node.js モジュールを使用する](tutorial/using-native-node-modules.md)
 * アプリに機能を追加する 
   * [通知](tutorial/notifications.md)
-  * [最近使用したドキュメント](tutorial/desktop-environment-integration.md#recent-documents)
+  * [最近使用したドキュメント](tutorial/recent-documents.md)
   * [アプリケーションの進行状況](tutorial/progress-bar.md)
   * [カスタム Dock メニュー](tutorial/macos-dock.md)
   * [カスタム Windows タスクバー](tutorial/windows-taskbar.md)
   * [カスタム Linux デスクトップアクション](tutorial/linux-desktop-actions.md)
-  * [キーボード ショートカット](tutorial/keyboard-shortcuts.md)
+  * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
   * [オフライン/オンライン検出](tutorial/online-offline-events.md)
-  * [macOS の BrowserWindow の Represented File](tutorial/represented-file.md)
+  * [macOS の BrowserWindow が表すファイル](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
+  * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [アクセシビリティ](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [アクセシビリティの有効化](tutorial/accessibility.md#enabling-accessibility)
 * [テストとデバッグ](tutorial/application-debugging.md) 
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)
@@ -54,7 +58,7 @@
 * パッケージ化 
   * [コード署名](tutorial/code-signing.md)
 * [配布方法](tutorial/application-distribution.md) 
-  * [Support（サポート）](tutorial/support.md)
+  * [サポート](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -67,27 +71,27 @@
   * [アップロードサーバーを配備](tutorial/updates.md#deploying-an-update-server)
   * [アプリケーションでの更新の実装](tutorial/updates.md#implementing-updates-in-your-app)
   * [アップデートの適用](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## 詳細なチュートリアル
 
 これらの個別のチュートリアルでは、上のガイドで説明したトピックを拡張しています。
 
-* [詳解: Electron のインストール](tutorial/installation.md) 
+* [Electronのインストール](tutorial/installation.md) 
   * [プロキシ環境下](tutorial/installation.md#proxies)
   * [ミラーとキャッシュのカスタマイズ](tutorial/installation.md#custom-mirrors-and-caches)
   * [トラブルシューティング](tutorial/installation.md#troubleshooting)
-* [詳解: Electron のバージョニングスキーム](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [安定ブランチ](tutorial/electron-versioning.md#stabilization-branches)
-  * [ベータリリースとバグ修正](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [詳解: asar でアプリソースコードのパッケージ](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [asar アーカイブの生成](tutorial/application-packaging.md#generating-asar-archives)
   * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar アーカイブへパックされていないファイルを追加](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [詳解: Widevine CDM のテスト](tutorial/testing-widevine-cdm.md)
-* [詳解: Pepper Flash Plugin を使う](tutorial/using-pepper-flash-plugin.md)
-* [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
+* [Widevine CDM のテスト](tutorial/testing-widevine-cdm.md)
+* [Pepper Flash プラグインを使用する](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -99,13 +103,14 @@
 * [プロセスオブジェクト](api/process.md)
 * [サポートしているChromeコマンドラインスイッチ](api/chrome-command-line-switches.md)
 * [環境変数](api/environment-variables.md)
-* [API の破壊的変更](api/breaking-changes.md)
+* [破壊的な API の変更](api/breaking-changes.md)
 
 ### カスタム DOM 要素
 
 * [`File`オブジェクト](api/file-object.md)
 * [`<webview>`タグ](api/webview-tag.md)
 * [`window.open`関数](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### メインプロセスのモジュール
 
@@ -125,8 +130,10 @@
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@
 * [clipboard ](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## 開発

@@ -10,6 +10,7 @@
 
 ## Ръководства и уроци
 
+* [About Electron](tutorial/about.md)
 * [Създаване на среда за разработка](tutorial/development-environment.md) 
   * [Настройване при macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройване при Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
 * Добавяне на функции към вашето приложение 
   * [Известия](tutorial/notifications.md)
-  * [Последни документи](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Последни документи](tutorial/recent-documents.md)
   * [Прогрес на приложението](tutorial/progress-bar.md)
   * [Потребителско док меню](tutorial/macos-dock.md)
   * [Потребителска Windows лентата на задачите](tutorial/windows-taskbar.md)
@@ -41,13 +42,16 @@
   * [Offline/Online откриване](tutorial/online-offline-events.md)
   * [Представляващ файл за macOS BrowserWindows](tutorial/represented-file.md)
   * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
+  * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * [Отстраняване на грешк](tutorial/debugging-main-process.md)
-  * [Работа със Selenium и Web Driver](tutorial/using-selenium-and-webdriver.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
@@ -67,27 +71,27 @@
   * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Детайлни уроци
 
 Тези индивидуални уроци добавят към темите, обсъдени в ръководството по-горе.
 
-* [Инсталиране на Електрон в детайли](tutorial/installation.md) 
+* [Инсталиране на Електрон](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Потребителски mirrors и кеширане](tutorial/installation.md#custom-mirrors-and-caches)
   * [Отстраняване на неизправности](tutorial/installation.md#troubleshooting)
-* [Схема на версиите в детайли](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Стабилни клонове](tutorial/electron-versioning.md#stabilization-branches)
-  * [Бета версии и поправка на bug-ове](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [В детайли: Пакетиране на кода на приложението с asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Генериране на asar архиви](tutorial/application-packaging.md#generating-asar-archives)
   * [Използване на asar архиви](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавяне на непакетирани файлове към asar архивите](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Използване на Pepper Flash Plugin в детайли](tutorial/using-pepper-flash-plugin.md)
-* [Рендиране извън екрана](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@
 * [Обект `File`](api/file-object.md)
 * [`<webview>`Етикет](api/webview-tag.md)
 * [Функция `window.open`](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Модули за основния процес:
 
@@ -125,8 +130,10 @@
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Разработка
