@@ -10,6 +10,7 @@
 
 ## Guides and Tutorials
 
+* [About Electron](tutorial/about.md)
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [मैकओएस का सेटअप करना](tutorial/development-environment.md#setting-up-macos)
   * [विंडोज का सेटअप करना](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
 * Adding Features to Your App 
   * [नोटीफीकेशनस](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Recent Documents](tutorial/recent-documents.md)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@
   * [Offline/Online Detection](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [स्पेकट्रॉन](tutorial/accessibility.md#spectron)
   * [डेवट्रॉन](tutorial/accessibility.md#devtron)
   * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
   * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [सेलेनियम और वेबड्राईवर का इस्तेमाल](tutorial/using-selenium-and-webdriver.md)
   * [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
   * [डेवटूल्स एक्सटेंशन](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Detailed Tutorials
 
 These individual tutorials expand on topics discussed in the guide above.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [Installing Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [समस्या निवारण](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [स्थिरीकरण शाखायें](tutorial/electron-versioning.md#stabilization-branches)
-  * [बीटा रिलीज़ और बग फिक्सेस](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [पेप्पर फ़्लैश प्लगइन का इस्तेमाल](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [`फाइल` ऑब्जेक्ट](api/file-object.md)
 * [`<webview>` टैग](api/webview-tag.md)
 * [`विंडो.ओपन` फंक्शन](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### मुख्य प्रक्रिया के लिए मोड्यूलस:
 
@@ -125,8 +130,10 @@ These individual tutorials expand on topics discussed in the guide above.
 * [पॉवर मॉनिटर](api/power-monitor.md)
 * [पॉवर सेवब्लॉकर](api/power-save-blocker.md)
 * [प्रोटोकॉल](api/protocol.md)
+* [स्क्रीन](api/screen.md)
 * [सत्र](api/session.md)
 * [सिस्टम प्रैफरेंसेज](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [ट्रे](api/tray.md)
 * [वेबसामग्री](api/web-contents.md)
 
@@ -142,7 +149,6 @@ These individual tutorials expand on topics discussed in the guide above.
 * [क्लिपबोर्ड](api/clipboard.md)
 * [क्रेश रिपोर्टर](api/crash-reporter.md)
 * [मूल छवि](api/native-image.md)
-* [स्क्रीन](api/screen.md)
 * [शैल](api/shell.md)
 
 ## विकास
