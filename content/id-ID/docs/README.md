@@ -10,6 +10,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 ## Panduan dan Tutorial
 
+* [Tentang Electron](tutorial/about.md)
 * [Setting up the Development Environment](tutorial/development-environment.md) 
   * [Menyiapkan macOS](tutorial/development-environment.md#setting-up-macos)
   * [Menyiapkan Windows](tutorial/development-environment.md#setting-up-windows)
@@ -21,9 +22,9 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Menjalankan Aplikasi Anda](tutorial/first-app.md#running-your-app)
 * [Boilerplates dan CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [elektron-penempa](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [elektron-bereaksi-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Alat dan Boilerplate lainnya](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Arsitektur Aplikasi](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
@@ -31,8 +32,8 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Menggunakan API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
 * Menambahkan Fitur ke Aplikasi Anda 
-  * [Pemberitahuan](tutorial/notifications.md)
-  * [Dokumen Terkini](tutorial/desktop-environment-integration.md#recent-documents)
+  * [pemberitahuan](tutorial/notifications.md)
+  * [Dokumen Terkini](tutorial/recent-documents.md)
   * [Progres Aplikasi](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Windows Taskbar Kustom](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Deteksi Luring/Daring](tutorial/online-offline-events.md)
   * [File yang direpresentasikan untuk BrowserWindows macOS](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Rendering di luar layar](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Aksesibilitas](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Mengaktifkan Aksesibilitas](tutorial/accessibility.md#enabling-accessibility)
 * [Pengujian dan Debugging](tutorial/application-debugging.md) 
   * [Debugging Proses Utama](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Menggunakan Selenium dan WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensi DevTools](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Menerapkan Server Pembaruan](tutorial/updates.md#deploying-an-update-server)
   * [Menerapkan pembaruan di aplikasi Anda](tutorial/updates.md#implementing-updates-in-your-app)
   * [Menerapkan Pembaruan](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Tutorial Rinci
 
 Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 
-* [Secara Detail: Memasang Electron](tutorial/installation.md) 
+* [Memasang Elektron](tutorial/installation.md) 
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Penyelesaian masalah](tutorial/installation.md#troubleshooting)
-* [Secara Detail: Skema Versi Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Cabang Stabilisasi](tutorial/electron-versioning.md#stabilization-branches)
-  * [Rilis Beta dan Perbaikan Bug](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Secara Detail: Mengemas Kode Sumber Aplikasi dengan asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Menghasilkan Arsip asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Menggunakan Arsip asar](tutorial/application-packaging.md#using-asar-archives)
   * [Keterbatasan](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Menambahkan File yang Belum Dikemas ke Arsip asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Secara Detail: Menggunakan Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Rendering di luar layar](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Menggunakan Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [`File` Objek](api/file-object.md)
 * [`<webview>`Tag](api/webview-tag.md)
 * [`window.open` fungsi](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Modul untuk Proses Utama:
 
@@ -125,8 +130,10 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protokol](api/protocol.md)
+* [layar](api/screen.md)
 * [sesi](api/session.md)
 * [preferensiSistem](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Nampan](api/tray.md)
 * [kontenWeb](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [clipboard](api/clipboard.md)
 * [kerusakanReporter](api/crash-reporter.md)
 * [gambarasli](api/native-image.md)
-* [layar](api/screen.md)
 * [kulit](api/shell.md)
 
 ## Pengembangan
