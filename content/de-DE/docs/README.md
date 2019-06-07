@@ -10,8 +10,9 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 ## Leitfäden und Tutorials
 
+* [Über Electron](tutorial/about.md)
 * [Entwicklungsumgebung einrichten](tutorial/development-environment.md) 
-  * [Einrichtung auf macOSX](tutorial/development-environment.md#setting-up-macos)
+  * [Einrichtung auf macOS](tutorial/development-environment.md#setting-up-macos)
   * [Einrichtung auf Windows](tutorial/development-environment.md#setting-up-windows)
   * [Einrichtung auf Linux](tutorial/development-environment.md#setting-up-linux)
   * [Wähle einen Editor](tutorial/development-environment.md#a-good-editor)
@@ -26,13 +27,13 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Andere Tools und Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Anwendungsarchitektur](tutorial/application-architecture.md) 
-  * [Haupt- und Renderprozesse](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Main und Render Prozesse](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron's APIs benutzen](tutorial/application-architecture.md#using-electron-apis)
-  * [Node.js APIs benutzen](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Node.js APIs verwenden](tutorial/application-architecture.md#using-nodejs-apis)
   * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
 * Features zu deiner App hinzufügen 
   * [Benachrichtigungen](tutorial/notifications.md)
-  * [Kürzliche Dokumente](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Kürzliche Dokumente](tutorial/recent-documents.md)
   * [Anwendungsprozess](tutorial/progress-bar.md)
   * [Benutzerdefiniertes Dockmenu](tutorial/macos-dock.md)
   * [Benutzerdefinierte Windows Taskleiste](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Offline/Online erkennung](tutorial/online-offline-events.md)
   * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
   * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Barrierefreiheit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Barrierefreiheit aktivieren](tutorial/accessibility.md#enabling-accessibility)
 * [Testen und Debuggen](tutorial/application-debugging.md) 
   * [Debuggen des Hauptprozesses](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Bereitstellung eines Update-Servers](tutorial/updates.md#deploying-an-update-server)
   * [Implementieren von Updates in deiner App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Updates anwenden](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## detaillierte Tutorials
 
 Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendrüber.
 
-* [Im Detail: Electron installieren](tutorial/installation.md) 
+* [Installiere Electron](tutorial/installation.md) 
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
-* [Im Detail: Electron's Versionierungsschema](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabillisations Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta-Versionen und Fehlerbehebungen](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Im Detail: Anwendungsquellcode packen mit asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
   * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)
   * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ungepacket Dateien zu Asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Im Detail: Testen des Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Im Detail: Benutzung des Pepper Flash Plugins](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Verwendung des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Funktion](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Module für den Hauptprozess:
 
@@ -125,8 +130,10 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Fach](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendr�
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Entwicklung
