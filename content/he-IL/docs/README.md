@@ -10,6 +10,7 @@
 
 ## מדריכים וערכות לימוד
 
+* [אודות Electron](tutorial/about.md)
 * [הגדרת סביבת הפיתוח](tutorial/development-environment.md) 
   * [הגדרת macOS](tutorial/development-environment.md#setting-up-macos)
   * [הגדרת Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@
   * [שימוש במודולים טבעיים של Node.js](tutorial/using-native-node-modules.md)
 * הוספת תכונות לאפליקציה שלך 
   * [התראות](tutorial/notifications.md)
-  * [מסמכים אחרונים](tutorial/desktop-environment-integration.md#recent-documents)
+  * [מסמכים אחרונים](tutorial/recent-documents.md)
   * [התקדמות התרגום](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [שורת משימות מותאמת אישית של Windows](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@
   * [זיהוי מקוון/לא מקוון](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [נגישות](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [בדיקה ואיתור באגים](tutorial/application-debugging.md) 
   * [איתור באגים בתהליך העיקרי](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [שימוש ב-Selenium ו-WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@
   * [הטמעת שרת עדכונים](tutorial/updates.md#deploying-an-update-server)
   * [הטמעת עדכונים ביישום שלך](tutorial/updates.md#implementing-updates-in-your-app)
   * [החלת עדכונים](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## מדריכים מפורטים
 
 אלו מדריכים פרטניים שנועדים לפרט על נושאים שנדונו בקווים המנחים שלהלן.
 
-* [בפירוט מוגבר: התקנת Electron](tutorial/installation.md) 
+* [התקנת Electron](tutorial/installation.md) 
   * [מתווכים](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [פתרון בעיות](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@
 * [`קובץ` Object](api/file-object.md)
 * [`<webview>` תג](api/webview-tag.md)
 * [`window.open` פונקציה](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### מודלים עבור ה־Main Process:
 
@@ -125,8 +130,10 @@
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## פיתוח
