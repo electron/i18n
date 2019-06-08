@@ -247,17 +247,16 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 윈도우를 닫을때 발생합니다. DOM의 `beforeunload` 와 `unload` 이벤트 전에 발생합니다. `event.preventDefault()`를 호출하면 닫기를 취소합니다.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 예시:
+일반적으로 `beforeunload` 핸들러를 사용하여 창을 닫아야하는지 여부를 결정할 수 있습니다. 이 핸들러는 창을 다시로드 할 때도 호출됩니다. 일렉트론에서 `undefined` 외의 다른 값을 리턴하는 것으로 닫기를 취소합니다. 예시:
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log('닫고 싶지 않아')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // 일반 브라우저와는 달리 메시지 상자에 사용자에게 메시지가 표시되므로
+  // void가 아닌 값을 반환하면 자동으로 닫기가 취소됩니다.
+  // dialog API를 사용하여 사용자가 응용 프로그램 닫기를 확인하도록 하는 것이 좋습니다.
+  e.returnValue = false // `return false` 와 같으나 추천하지 않음
 }
 ```
 
