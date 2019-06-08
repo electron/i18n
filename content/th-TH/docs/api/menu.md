@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+Messages 
 
 ### `new Menu()`
 
@@ -54,7 +54,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `options` Object (optional) 
+* `options` Object (optional) สิทธิพิเศษ 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -77,7 +77,7 @@ Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` String สตริง
 
 Returns `MenuItem` the item with the specified `id`
 
@@ -261,7 +261,7 @@ macOS has a completely different style of application menu from Windows and Linu
 
 ### Standard Menus
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `window`
 * `help`
