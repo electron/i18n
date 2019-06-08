@@ -327,7 +327,9 @@ Retourne :
 * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
 * `workingDirectory` String - Le répertoire de travail de la deuxième instance
 
-Cet évènement sera émis dans la première instance de votre votre application lorsqu'une seconde instance à été exécutée. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
