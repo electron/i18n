@@ -1,4 +1,4 @@
-# Contrat d'API
+# Breaking Chnages
 
 Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](../tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
