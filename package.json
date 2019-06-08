@@ -61,7 +61,7 @@
     "content-cleanup": "ts-node script/i18n-content-cleanup.ts",
     "test": "npm run test-only",
     "prettier": "prettier --check \"./**/*.{ts,js}\"",
-    "test-only": "mocha && prettier --write",
+    "test-only": "mocha && prettier --check \"./**/*.{ts,js}\" --write",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
     "pretest": "npm run build",
