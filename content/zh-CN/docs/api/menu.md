@@ -352,7 +352,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h3>
 
 <p>
-  在MacOS有一些系统自定的标准菜单，像<code>Services</code>和<code>Windows</code>。 让你的菜单更像MacOS标准菜单，只需设置菜单<code>role</code>值为如下示之一，Electron便会自动认出并设置成标准菜单，：
+  On macOS there are many system-defined standard menus, like the <a href="https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc"><code>Services</code></a> and <code>Windows</code> menus. 让你的菜单更像MacOS标准菜单，只需设置菜单<code>role</code>值为如下示之一，Electron便会自动认出并设置成标准菜单，：
 </p>
 
 <ul>
