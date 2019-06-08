@@ -328,7 +328,9 @@ Restituisce:
 * `argv` Stringa[] - Un insieme della linea di comando d'argomento della seconda istanza
 * `Directoryfunzionante` Stringa - La directory funzionante della seconda istanza
 
-Questo evento verrà emesso all'interno della prima istanza della tua applicazione quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
 
 Questo evento è garantito per essere emesso dopo che l'evento `ready` di `app` viene emesso.
 
