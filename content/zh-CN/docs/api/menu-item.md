@@ -42,8 +42,8 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 `role ` 属性可以具有以下值:
 
-* `undo`
-* `redo`
+* `撤消`
+* `重做`
 * `cut`
 * `copy`
 * `paste`
@@ -83,7 +83,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * ` moveTabToNewWindow ` - 映射到 ` moveTabToNewWindow ` 操作.
 * `window` - 这个子菜单是"Window" 菜单.
 * ` help `-这个子菜单是 "Help" 菜单.
-* ` services `-这个子菜单是 "Services" 菜单.
+* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
 

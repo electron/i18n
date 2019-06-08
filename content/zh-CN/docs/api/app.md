@@ -327,7 +327,9 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - 第二个实例的命令行参数数组
 * `workingDirectory` String - 第二个实例的工作目录
 
-此事件将在应用程序的主实例中触发，当第二个实例被执行时。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
@@ -449,7 +451,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-返回 `Promise&lt;void&gt;` - 当Electron 初始化完成。 可用作检查 `app.isReady()` 的方便选择，假如应用程序尚未就绪，则订阅`ready`事件。
+返回 `Promise<void>` - 当Electron 初始化完成。 可用作检查 `app.isReady()` 的方便选择，假如应用程序尚未就绪，则订阅`ready`事件。
 
 ### `app.focus()`
 

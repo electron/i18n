@@ -1,4 +1,4 @@
-# Contrato de API
+# Breaking Chnages
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 

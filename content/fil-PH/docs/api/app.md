@@ -327,7 +327,9 @@ Ibinabalik ang:
 * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
 * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. Ang `argv` ay isang Array ng mga command line argument ng ikalawang instance, at ang `workingDirectory` ay ang kasalukuyang working directory nito. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 

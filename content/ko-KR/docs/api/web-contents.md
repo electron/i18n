@@ -92,7 +92,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-title-updated'
+#### 이벤트: 'page-title-updated'
 
 반환:
 

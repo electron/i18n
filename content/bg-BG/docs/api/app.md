@@ -327,7 +327,9 @@ app.on('session-created', (event, session) => {
 * `argv` String [] - Масив от аргументи на командния ред на втората инстанция
 * `workingDirectory` String - Работната директория на втората инстанция
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` е масив от аргументи на командния ред на втората инстанция, а `workingDirectory` е неговата текущата работна директория. Обикновено приложенията отговарят на това чрез фокусирането на своя първичен прозорец, който не е минимизиран.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Обикновено приложенията отговарят на това чрез фокусирането на своя първичен прозорец, който не е минимизиран.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 

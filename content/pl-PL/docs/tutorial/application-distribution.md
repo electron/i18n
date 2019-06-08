@@ -8,7 +8,7 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
-## Manual distribution
+## Ręczna dystrybucja
 
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
@@ -34,7 +34,7 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## Pakowanie Aplikacji do Pliku
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 

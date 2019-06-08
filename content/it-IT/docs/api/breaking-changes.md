@@ -1,4 +1,4 @@
-# Contratto API
+# Breaking Chnages
 
 I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice JavaScript, dove possibile, saranno qui documentati almeno [una versione maggiore](../tutorial/electron-versioning.md#semver) prima che il cambiamento sia implementato.
 
