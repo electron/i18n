@@ -327,7 +327,9 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
 * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
 
-このイベントは、2つ目のインスタンスが実行されたときにアプリケーションの1つ目のインスタンス内で発火されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
