@@ -599,7 +599,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### 이벤트: 'page-title-updated'
 
 Returns:
 
