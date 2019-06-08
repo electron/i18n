@@ -261,7 +261,7 @@ macOS는 Window나 Linux와는 완전히 다른 어플리케이션 메뉴 스타
 
 ### 표준 메뉴
 
-macOS에는 `Services`와 `Windows` 메뉴처럼, 다양한 시스템 정의 표준 메뉴(system-defined standard menus) 가 존재합니다. 당신이 만든 메뉴가 일반적인 메뉴처럼 보이게 하기 위해서는, 메뉴의 `role`을 다음의 가이드 중 하나로 설정해야합니다. Electron은 설정을 인식하여, 표준 메뉴로 만들게 됩니다.
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. 당신이 만든 메뉴가 일반적인 메뉴처럼 보이게 하기 위해서는, 메뉴의 `role`을 다음의 가이드 중 하나로 설정해야합니다. Electron은 설정을 인식하여, 표준 메뉴로 만들게 됩니다.
 
 * `window`
 * `help`
