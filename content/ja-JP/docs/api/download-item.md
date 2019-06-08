@@ -88,7 +88,7 @@ This API allows the user to set custom options for the save dialog that opens fo
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+戻り値 `SaveDialogOptions` - `downloadItem.setSaveDialogOptions(options)`によってその前に設定されたオブジェクトを返す。
 
 #### `downloadItem.pause()`
 
