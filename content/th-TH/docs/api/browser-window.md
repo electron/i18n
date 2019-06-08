@@ -2,7 +2,7 @@
 
 > สร้างและควบคุม BrowserWindow
 
-Process: [Main](../glossary.md#main-process)
+Messages 
 
 ```javascript
 // ใน main process
@@ -109,7 +109,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > สร้างและควบคุม BrowserWindow
 
-Process: [Main](../glossary.md#main-process)
+Messages 
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
