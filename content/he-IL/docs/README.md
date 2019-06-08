@@ -41,20 +41,20 @@
   * [קיצורי מקלדת](tutorial/keyboard-shortcuts.md)
   * [זיהוי מקוון/לא מקוון](tutorial/online-offline-events.md)
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
+  * [גרירה & נפילה מובנית](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [תמיכה במצב כהה של macOS](tutorial/mojave-dark-mode-guide.md)
 * [נגישות](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
+  * [איפשור נגישות](tutorial/accessibility.md#enabling-accessibility)
 * [בדיקה ואיתור באגים](tutorial/application-debugging.md) 
   * [איתור באגים בתהליך העיקרי](tutorial/debugging-main-process.md)
   * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [שימוש ב-Selenium ו-WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
+  * [בדיקות אוטומטיות עם Driver מותאם אישית](tutorial/automated-testing-with-a-custom-driver.md)
 * אריזה 
   * [חתימה על קוד](tutorial/code-signing.md)
 * [הפצה](tutorial/application-distribution.md) 
@@ -71,7 +71,7 @@
   * [הטמעת שרת עדכונים](tutorial/updates.md#deploying-an-update-server)
   * [הטמעת עדכונים ביישום שלך](tutorial/updates.md#implementing-updates-in-your-app)
   * [החלת עדכונים](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [קבלת תמיכה](tutorial/support.md)
 
 ## מדריכים מפורטים
 
@@ -83,7 +83,7 @@
   * [פתרון בעיות](tutorial/installation.md#troubleshooting)
 * Electron Releases & Developer Feedback 
   * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
+  * [ציר זמן הוצאות לאור](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
@@ -114,7 +114,7 @@
 
 ### מודלים עבור ה־Main Process:
 
-* [app](api/app.md)
+* [יישומים](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
