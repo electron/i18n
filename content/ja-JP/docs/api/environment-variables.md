@@ -52,7 +52,7 @@ You can provide an API key for making requests to Google's geocoding webservice.
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). 既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://developers.google.com/maps/documentation/geocoding/get-api-key)を参照して下さい。
+例えば、Google APIキーを取得する方法については、[このページ](https://developers.google.com/maps/documentation/javascript/get-api-key)を参照して下さい。 既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://developers.google.com/maps/documentation/geocoding/get-api-key)を参照して下さい。
 
 ### `ELECTRON_NO_ASAR`
 
