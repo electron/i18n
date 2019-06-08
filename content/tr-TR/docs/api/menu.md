@@ -261,7 +261,7 @@ macOS, Windows ve Linux'dan tamamen farklı bir uygulama menüsü stiline sahipt
 
 ### Standart Menüler
 
-MacOS'da, `Services` ve `Windows` menüleri gibi birçok sistem tanımlı standart menü vardır. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. Menünüzü standart bir menü yapmak için menünüzün `role` aşağıdakilerden birine ayarlamanız gerekir ve Electron bunları tanır ve onları standart menüler haline getirir:
 
 * `pencere`
 * `yardım`
