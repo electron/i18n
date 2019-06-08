@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const walk = require('walk-sync')
-const rimraf = require('rimraf').sync
-const allStats = require('../stats.json')
+import * as fs from 'fs'
+import * as path from 'path'
+import * as walk from 'walk-sync'
+import { sync as rimraf } from 'rimraf'
+import * as allStats from '../stats.json'
 
 const basePath = path.join(__dirname, '..', 'content')
-const contentPath = (lang) => path.join(basePath, lang, 'docs')
+const contentPath = (lang: string) => path.join(basePath, lang, 'docs')
 
 const locales = fs.readdirSync(basePath)
 locales.forEach((locale) => {
