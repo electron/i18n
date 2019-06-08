@@ -225,11 +225,11 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### 인스턴스 이벤트
 
-Objects created with `new BrowserWindow` emit the following events:
+`new BrowserWindow`으로 생성된 오브젝트에서는 다음의 이벤트가 발생합니다:
 
 **참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
-#### Event: 'page-title-updated'
+#### 이벤트: 'page-title-updated'
 
 반환:
 
@@ -237,7 +237,7 @@ Objects created with `new BrowserWindow` emit the following events:
 * `title` String
 * `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file url.
+문서의 타이틀이 변경될때 발생하고, `event.preventDefault()`는 네이티브 윈도우의 타이틀이 변경되는 것을 방지합니다. 타이틀이 file url로부터 합성될때 `explicitSet`는 false입니다.
 
 #### 이벤트: 'close'
 
@@ -245,7 +245,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+윈도우를 닫을때 발생합니다. DOM의 `beforeunload` 와 `unload` 이벤트 전에 발생합니다. `event.preventDefault()`를 호출하면 닫기를 취소합니다.
 
 Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 예시:
 
