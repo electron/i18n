@@ -1,6 +1,6 @@
 # Guías oficiales
 
-Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que esta buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver la documentación de las versiones pasadas desde GitHub usted puede [navegar usando las etiquetas](https://github.com/electron/electron/tree/v1.4.0) al abrir el cuadro de selección "Switch branches/tags" y seleccionar la versión que coincida con la suya.
+Por favor, asegúrese de utilizar los documentos que correspondan con la versión de Electron que está buscando. El número de versión debe estar incluido en la URL de la página. De no ser así, probablemente está utilizando la documentación de una rama de desarrollo, la cual puede contener cambios en la API que no sean compatibles con su versión de Electron. Para ver la documentación de las versiones anteriores desde GitHub, usted puede [navegar usando las etiquetas](https://github.com/electron/electron/tree/v1.4.0) al abrir el cuadro de selección `Switch branches/tags` y seleccionar la versión que coincida con la suya.
 
 ## Preguntas más frecuentes
 
@@ -58,7 +58,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * Embalaje 
   * [Firma de código](tutorial/code-signing.md)
 * [Distribución](tutorial/application-distribution.md) 
-  * [Soperte](tutorial/support.md)
+  * [Soporte](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -71,7 +71,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Implementar un servidor de actualización](tutorial/updates.md#deploying-an-update-server)
   * [Implementación de actualizaciones en su aplicación](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicar actualizaciones](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Obteniendo apoyo](tutorial/support.md)
 
 ## Tutoriales detallados
 
