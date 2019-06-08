@@ -1,6 +1,6 @@
 # Linha do tempo das versões do Electron
 
-### Notas:
+### Notas
 
 * The `-beta.1` and `stable` dates are our *concrete* release dates.
 * We strive for weekly beta releases, however we often release more betas than scheduled.

@@ -10,6 +10,7 @@
 
 ## Руководство
 
+* [О Electron](tutorial/about.md)
 * [Настройка среды разработки](tutorial/development-environment.md) 
   * [Настройка macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройка Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
 * Добавление функционала в Ваше приложение 
   * [Уведомления](tutorial/notifications.md)
-  * [Недавние документы](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Недавние документы](tutorial/recent-documents.md)
   * [Прогресс приложения](tutorial/progress-bar.md)
   * [Пользовательское меню macOS](tutorial/macos-dock.md)
   * [Пользовательские задачи Windows](tutorial/windows-taskbar.md)
@@ -40,19 +41,22 @@
   * [Горячие клавиши](tutorial/keyboard-shortcuts.md)
   * [Оффлайн/Онлайн обнаружение](tutorial/online-offline-events.md)
   * [Представленный файл для macOS BrowserWindows](tutorial/represented-file.md)
-  * [Нативное перемещение файла](tutorial/native-file-drag-drop.md)
+  * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
+  * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [Доступность](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Включение доступности](tutorial/accessibility.md#enabling-accessibility)
 * [Тестирование и отладка](tutorial/application-debugging.md) 
-  * [Отладка основного( main ) процесса](tutorial/debugging-main-process.md)
+  * [Отладка главного процесса](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Использование Selenium и WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестирование с помощью систем непрерывной интеграции (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Расширение DevTools](tutorial/devtools-extension.md)
   * [Автоматическое тестирование с помощью специального драйвера](tutorial/automated-testing-with-a-custom-driver.md)
 * Упаковка 
-  * [Подписывание кода](tutorial/code-signing.md)
+  * [Цифровая подпись](tutorial/code-signing.md)
 * [Распространение](tutorial/application-distribution.md) 
   * [Поддержка](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -67,27 +71,27 @@
   * [Развертывание сервера обновлений](tutorial/updates.md#deploying-an-update-server)
   * [Внедрение обновлений в Ваше приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Применение обновлений](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## Подробное руководство
 
 Эти индивидуальные руководства расширят темы, обсуждаемые выше.
 
-* [В деталях: Установка Electron](tutorial/installation.md) 
+* [Установка Electron](tutorial/installation.md) 
   * [Прокси](tutorial/installation.md#proxies)
   * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
-* [В деталях: Схема управления версиями Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [Стабильные ветки](tutorial/electron-versioning.md#stabilization-branches)
-  * [Бета-релизы и исправление багов](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [В деталях: Упаковка исходного кода приложения с помощью asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Создание архива asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [В деталях: Тестирование Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [В деталях: Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Закадровый рендеринг](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@
 * [Объект `File`](api/file-object.md)
 * [Тег `<webview>`](api/webview-tag.md)
 * [Функция `window.open`](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### Модули для главного процесса:
 
@@ -125,8 +130,10 @@
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
+* [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
 * [shell](api/shell.md)
 
 ## Разработка

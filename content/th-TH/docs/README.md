@@ -10,6 +10,7 @@ Please make sure that you use the documents that match your Electron version. �
 
 ## แนะนำและบทความสอน
 
+* [เกี่ยวกับ Electron](tutorial/about.md)
 * [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md) 
   * [การติดตั้งบน macOS](tutorial/development-environment.md#setting-up-macos)
   * [การติดตั้งบน Windows](tutorial/development-environment.md#setting-up-windows)
@@ -32,7 +33,7 @@ Please make sure that you use the documents that match your Electron version. �
   * [วิธีการใช้เนทีฟโมดูลของ Node.js](tutorial/using-native-node-modules.md)
 * การเพิ่มฟีสเจอร์บนแอพของคุณ 
   * [การแจ้งเตือน](tutorial/notifications.md)
-  * [บทความปัจจุบัน](tutorial/desktop-environment-integration.md#recent-documents)
+  * [บทความปัจจุบัน](tutorial/recent-documents.md)
   * [ความคืบหน้าการแปลภาษา](tutorial/progress-bar.md)
   * [เมนู Dock แบบกำหนดเอง](tutorial/macos-dock.md)
   * [แถบงาน Windows แบบกำหนดเอง](tutorial/windows-taskbar.md)
@@ -41,12 +42,15 @@ Please make sure that you use the documents that match your Electron version. �
   * [ออฟไลน์ / ออนไลน์ ตรวจสอบ](tutorial/online-offline-events.md)
   * [ไฟล์ที่แสดงสำหรับ macOS Browser Windows](tutorial/represented-file.md)
   * [เนทิฟไฟล์ ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
+  * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
+  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
 * [การเข้าถึง](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [เปิดใช้งานการเข้าถึง](tutorial/accessibility.md#enabling-accessibility)
 * [การทดสอบและการดีบัก](tutorial/application-debugging.md) 
   * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
+  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
@@ -67,27 +71,27 @@ Please make sure that you use the documents that match your Electron version. �
   * [การติดตั้งบนเซิร์ฟเวอร์ที่มีการอัพเดต](tutorial/updates.md#deploying-an-update-server)
   * [วิธีการอัพเดตแอพของคุณ](tutorial/updates.md#implementing-updates-in-your-app)
   * [ใช้การอัพเดต](tutorial/updates.md#applying-updates)
+* [Getting Support](tutorial/support.md)
 
 ## รายละเอียดบทความสอน
 
 บทความสอนแต่ละบทจะขยายความจากหัวข้อคำแนะนำข้างบน
 
-* [ในรายละเอียด: การติดตั้ง Electron](tutorial/installation.md) 
+* [วิธีการติดตั้ง Electron](tutorial/installation.md) 
   * [ผู้รับมอบฉันทะ](tutorial/installation.md#proxies)
   * [กระจกและแคชที่กำหนดเอง](tutorial/installation.md#custom-mirrors-and-caches)
   * [วิธีแก้ปัญหาเบื้องต้น](tutorial/installation.md#troubleshooting)
-* [รายละเอียด: โครงการการกำหนดเวอร์ชันของ Electron](tutorial/electron-versioning.md) 
-  * [semver](tutorial/electron-versioning.md#semver)
-  * [สาขาลดการสั่นไหว](tutorial/electron-versioning.md#stabilization-branches)
-  * [รุ่นเบต้าและการแก้ไขข้อบกพร่อง](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [โดยละเอียด: ซอร์สโค้ดแอปของบรรจุภัณฑ์ที่มี asar](tutorial/application-packaging.md) 
+* Electron Releases & Developer Feedback 
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
+  * [App Feedback Program](tutorial/app-feedback-program.md)
+* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
   * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [ข้อจำกัด](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [ในรายละเอียด: การทดสอบ Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [ในรายละเอียด: การใช้ Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -106,6 +110,7 @@ Please make sure that you use the documents that match your Electron version. �
 * [ออบเจค `File`](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [ฟังก์ชัน `window.open`](api/window-open.md)
+* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### โมดูลสำหรับกระบวนการหลัก:
 
@@ -125,8 +130,10 @@ Please make sure that you use the documents that match your Electron version. �
 * [พลังงานจอภาพ](api/power-monitor.md)
 * [ประหยัดพลังงาน Blocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
+* [หน้าจอ](api/screen.md)
 * [เซสชั่น](api/session.md)
 * [systemPreferences](api/system-preferences.md)
+* [TouchBar](api/touch-bar.md)
 * [ถาด](api/tray.md)
 * [webContents](api/web-contents.md)
 
@@ -142,7 +149,6 @@ Please make sure that you use the documents that match your Electron version. �
 * [คลิปบอร์ด](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [หน้าจอ](api/screen.md)
 * [เชลล์](api/shell.md)
 
 ## การพัฒนา

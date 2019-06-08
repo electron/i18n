@@ -1,8 +1,8 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-const got = require('got')
-const fs = require('fs')
-const path = require('path')
+import * as got from 'got'
+import * as fs from 'fs'
+import * as path from 'path'
 const url = 'https://electronjs.org/crowdin/status'
 
 got(url, { json: true }).then(data => {

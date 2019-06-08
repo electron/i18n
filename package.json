@@ -14,6 +14,7 @@
     "@types/cheerio": "^0.22.11",
     "@types/got": "^9.4.4",
     "@types/rimraf": "^2.0.2",
+    "@types/lodash": "^4.14.134",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
@@ -51,10 +52,11 @@
   "scripts": {
     "collect": "ts-node script/collect.ts",
     "build": "npm-run-all build:*",
-    "build:stats": "node script/stats.js",
+    "build:stats": "ts-node script/stats.ts",
     "build:module": "node script/build-module.js",
     "build:nav": "ts-node script/parse-nav.ts",
-    "build:readme": "node script/readme.js",
+    "build:readme": "ts-node script/readme.ts",
+    "build:wordcount": "ts-node script/wordcount.ts > wordcount.md",
     "update-source-content": "script/update-source-content.sh",
     "content-cleanup": "ts-node script/i18n-content-cleanup.ts",
     "test": "npm run test-only",
@@ -65,11 +67,10 @@
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release",
     "upload-crowdin-glossary": "node script/upload-crowdin-glossary.js",
-    "wordcount": "node script/wordcount.js > wordcount.md",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v5.0.2",
-  "electronMasterBranchCommit": "8330507efd66a56fd17521c8f88e3be7330f531c",
+  "electronLatestStableTag": "v5.0.3",
+  "electronMasterBranchCommit": "ad54d38678ac28f5a1e6102650395c5ad61947be",
   "engines": {
     "node": ">=10"
   }
