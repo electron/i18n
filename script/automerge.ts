@@ -1,15 +1,15 @@
-import * as Octokit from '@octokit/rest';
+import * as Octokit from '@octokit/rest'
 
 const OWNER = 'electron'
-const REPO = 'i18n';
+const REPO = 'i18n'
 const BOTNAME = 'glotbot'
-const SEMANTIC_TITLE = 'feat: New Crowdin translations (auto-merging 🤖)';
+const SEMANTIC_TITLE = 'feat: New Crowdin translations (auto-merging 🤖)'
 const MERGEABILITY_RETRY_WAIT_TIME = 5_000
 
 enum Mergeability {
   MERGEABLE,
   UNMERGEABLE,
-  UNKNOWN
+  UNKNOWN,
 }
 
 const timer = (time: number): Promise<void> => {
@@ -17,25 +17,25 @@ const timer = (time: number): Promise<void> => {
 }
 
 const github = new Octokit({
-  auth: process.env.GH_TOKEN
+  auth: process.env.GH_TOKEN,
 })
 
 const getPRData = async (prNumber: number) => {
   return github.pulls.get({
     owner: OWNER,
     repo: REPO,
-    pull_number: prNumber
+    pull_number: prNumber,
   })
 }
 
 /**
  * Gets the number of opened pull request by the bot or user.
  */
-const findPRNumber = async (): Promise<{ found: boolean, number: number }> => {
+const findPRNumber = async (): Promise<{ found: boolean; number: number }> => {
   const prs = await github.pulls.list({
     owner: OWNER,
     repo: REPO,
-    per_page: 100
+    per_page: 100,
   })
   const glotbot = await prs.data.filter(pr => pr.user.login === BOTNAME)
   if (glotbot.length > 0) {
@@ -58,7 +58,7 @@ const updateTitle = async (pr: number) => {
     owner: OWNER,
     repo: REPO,
     pull_number: pr,
-    title: SEMANTIC_TITLE
+    title: SEMANTIC_TITLE,
   })
   return semanticTitle
 }
@@ -110,12 +110,12 @@ const mergeAndDeleteBranch = async (pr: number) => {
     repo: REPO,
     pull_number: pr,
     commit_message: '', // make commit message smaller.
-    merge_method: 'squash'
+    merge_method: 'squash',
   })
   await github.git.deleteRef({
     owner: OWNER,
     repo: REPO,
-    ref: "heads/new-translations"
+    ref: 'heads/new-translations',
   })
   return
 }
@@ -144,6 +144,6 @@ async function autoMerger() {
 }
 
 autoMerger().catch((err: Error) => {
-    console.log(`Error: ${err}`)
-    process.exit(1)
-  })
+  console.log(`Error: ${err}`)
+  process.exit(1)
+})

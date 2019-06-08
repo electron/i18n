@@ -25,12 +25,18 @@ describe('i18n.docs', () => {
   it('sets githubUrl on every doc', () => {
     const base = 'https://github.com/electron/electron/tree/master'
     const docs = i18n.docs['en-US']
-    docs['/docs/api/accelerator'].githubUrl.should.equal(`${base}/docs/api/accelerator.md`)
-    docs['/docs/tutorial/electron-versioning'].githubUrl.should.equal(`${base}/docs/tutorial/electron-versioning.md`)
+    docs['/docs/api/accelerator'].githubUrl.should.equal(
+      `${base}/docs/api/accelerator.md`
+    )
+    docs['/docs/tutorial/electron-versioning'].githubUrl.should.equal(
+      `${base}/docs/tutorial/electron-versioning.md`
+    )
   })
 
   it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
-    const html = i18n.docs['en-US']['/docs/api/accelerator'].sections.map((section) => section.html).join('')
+    const html = i18n.docs['en-US']['/docs/api/accelerator'].sections
+      .map(section => section.html)
+      .join('')
     html.should.be.a('string')
     html.should.contain('<p>')
     html.should.not.contain('<html>')
@@ -60,7 +66,7 @@ describe('i18n.docs', () => {
       sections.every(section => section.name && section.html).should.eq(true)
     })
 
-    xit('does not contain empty sections', function () {
+    xit('does not contain empty sections', function() {
       this.timeout(15 * 1000)
       const locales = Object.keys(i18n.docs)
       locales.length.should.be.above(0)
@@ -72,10 +78,16 @@ describe('i18n.docs', () => {
           doc.sections.length.should.be.above(0)
           doc.sections.forEach(section => {
             // expect(section.name, )
-            expect(section.name, `${locale} ${href} has a section without a name`).to.be.a('string')
+            expect(
+              section.name,
+              `${locale} ${href} has a section without a name`
+            ).to.be.a('string')
             section.name.length.should.be.above(0)
 
-            expect(section.html, `${locale} ${href} has a section without html`).to.be.a('string')
+            expect(
+              section.html,
+              `${locale} ${href} has a section without html`
+            ).to.be.a('string')
             section.html.length.should.be.above(0)
           })
         })
@@ -102,9 +114,11 @@ describe('i18n.glossary', () => {
   it('sets expected properties on every entry', () => {
     const glossary = Object.values(i18n.glossary['en-US'])
     glossary.length.should.be.at.least(10)
-    glossary.every(entry => {
-      return entry.term.length && entry.description.length
-    }).should.eq(true)
+    glossary
+      .every(entry => {
+        return entry.term.length && entry.description.length
+      })
+      .should.eq(true)
   })
 })
 
@@ -127,9 +141,11 @@ describe('API Docs', () => {
     const locales = Object.keys(i18n.locales)
     locales.length.should.be.above(1)
     locales.forEach(locale => {
-      const docs = Object.keys(i18n.docs[locale]).map(key => i18n.docs[locale][key])
+      const docs = Object.keys(i18n.docs[locale]).map(
+        key => i18n.docs[locale][key]
+      )
       const titles = docs.map(doc => doc.title)
-      const hasTitle = (title) => title !== ''
+      const hasTitle = title => title !== ''
       titles.length.should.be.above(1)
       titles.every(hasTitle).should.equal(true)
     })
@@ -162,7 +178,9 @@ describe('API Docs', () => {
     const locales = Object.keys(i18n.locales)
     locales.length.should.be.above(10)
     locales.forEach(locale => {
-      const docs = Object.keys(i18n.docs[locale]).map(key => i18n.docs[locale][key])
+      const docs = Object.keys(i18n.docs[locale]).map(
+        key => i18n.docs[locale][key]
+      )
       docs.length.should.be.above(10)
 
       const slugs = docs.map(doc => doc.slug)
@@ -181,26 +199,28 @@ describe('API Docs', () => {
 
   it('fixes relative links in docs', () => {
     const api = i18n.docs['en-US']['/docs/api/app']
-    const $ = cheerio.load(api.sections.map((section) => section.html).join(''))
+    const $ = cheerio.load(api.sections.map(section => section.html).join(''))
     const link = $('a[href*="glossary"]').first()
     link.attr('href').should.equal('/docs/glossary#main-process')
   })
 
   it('fixes relative images in docs', () => {
     const doc = i18n.docs['en-US']['/docs/tutorial/electron-versioning']
-    const $ = cheerio.load(doc.sections.map((section) => section.html).join(''))
+    const $ = cheerio.load(doc.sections.map(section => section.html).join(''))
     const sources = $('img')
       .map((i, el) => $(el).attr('src'))
       .get()
 
     sources.length.should.be.above(3)
-    sources.every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/')).should.eq(true)
+    sources
+      .every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/'))
+      .should.eq(true)
   })
 
   /** *********************************** FIXME **************************************
-  ** enable this test when the next stable release (> 1.8.3) of electron comes out **
-  ** see: https://github.com/electron/i18n/pull/274#issuecomment-373003188         **
-  ***********************************************************************************/
+   ** enable this test when the next stable release (> 1.8.3) of electron comes out **
+   ** see: https://github.com/electron/i18n/pull/274#issuecomment-373003188         **
+   ***********************************************************************************/
   it.skip('contains no empty links', () => {
     Object.keys(i18n.docs['en-US']).forEach(href => {
       const doc = i18n.docs['en-US'][href]
@@ -310,7 +330,9 @@ describe('i18n.locales', () => {
   })
 
   it('sorts locales by translation progress', () => {
-    const progress = Object.keys(i18n.locales).map(locale => i18n.locales[locale].stats.translated_progress)
+    const progress = Object.keys(i18n.locales).map(
+      locale => i18n.locales[locale].stats.translated_progress
+    )
     progress[0].should.be.above(progress[4])
     progress[4].should.be.above(progress[8])
   })
@@ -372,7 +394,9 @@ describe('i18n.electronLatestStableTag', () => {
 
   it('is a tag name', () => {
     i18n.electronLatestStableTag.should.match(/^v\d+\.\d+\.\d+$/)
-    i18n.electronLatestStableTag.should.eq('v' + i18n.electronLatestStableVersion)
+    i18n.electronLatestStableTag.should.eq(
+      'v' + i18n.electronLatestStableVersion
+    )
   })
 })
 
