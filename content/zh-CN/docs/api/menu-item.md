@@ -42,8 +42,8 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 `role ` 属性可以具有以下值:
 
-* `undo`
-* `redo`
+* `撤消`
+* `重做`
 * `cut`
 * `copy`
 * `paste`
