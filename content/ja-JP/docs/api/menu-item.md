@@ -83,7 +83,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `moveTabToNewWindow` - `moveTabToNewWindow` アクションに割り当てる。
 * `window` - "ウインドウ"サブメニュー。
 * `help` - "ヘルプ"サブメニュー。
-* `services` - "サービス"サブメニュー。
+* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 
