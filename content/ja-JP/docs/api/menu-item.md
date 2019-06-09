@@ -60,7 +60,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。
-* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `fileMenu` - デフォルト"ファイル" メニュー全体 (Close / Quit)
 * `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
