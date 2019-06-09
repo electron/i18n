@@ -43,14 +43,14 @@
   * [macOS の BrowserWindow が表すファイル](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [macOS のダークモードのサポート](tutorial/mojave-dark-mode-guide.md)
 * [アクセシビリティ](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [アクセシビリティの有効化](tutorial/accessibility.md#enabling-accessibility)
 * [テストとデバッグ](tutorial/application-debugging.md) 
   * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [VS Code におけるメインプロセスのデバッグ](tutorial/debugging-main-process-vscode.md)
   * [SeleniumとWebDriverを使用する](tutorial/using-selenium-and-webdriver.md)
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)
@@ -71,7 +71,7 @@
   * [アップロードサーバーを配備](tutorial/updates.md#deploying-an-update-server)
   * [アプリケーションでの更新の実装](tutorial/updates.md#implementing-updates-in-your-app)
   * [アップデートの適用](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [サポートを受ける](tutorial/support.md)
 
 ## 詳細なチュートリアル
 
