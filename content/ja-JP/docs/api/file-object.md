@@ -8,7 +8,7 @@ DOMのファイルインターフェースは、ユーザーがHTML5ファイル
 
 ```html
 <div id="holder">
-  Drag your file here
+  ファイルをここにドラッグしてください。
 </div>
 
 <script>

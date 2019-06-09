@@ -43,7 +43,7 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+戻り値 `Boolean` - ショートカットが正常に登録されたかどうか.
 
 `accelerator` のグローバルショートカットを登録します。登録されたショートカットがユーザーによって押下されるときに `callback` が呼び出されます。
 
@@ -58,12 +58,12 @@ Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
 ### `globalShortcut.registerAll(accelerators, callback)`
 
-* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `accelerators` String[] - [Accelerator](accelerator.md)の配列
 * `callback` Function
 
-Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+`accelerators`の全`accelerator`要素 のグローバルショートカットを登録します。登録されたショートカットがユーザーによって押下されるときに `callback` が呼び出されます。
 
-When a given accelerator is already taken by other applications, this call will silently fail. この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
+与えられたアクセラレータが他のアプリケーションによってすでに使用されている場合、この呼び出しは何も通知することなく失敗します。 この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
 
 以下のアクセラレータは、アプリが [信頼できるアクセシビリティクライアント](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html) として認識されていない限り macOS 10.14 Mojave に正常に登録されません。
 
