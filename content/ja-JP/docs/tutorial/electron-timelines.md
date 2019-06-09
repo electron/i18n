@@ -20,14 +20,14 @@
 | Tue, 2019-Feb-12 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Feb-19 | なし           | Maintainers Summit                                                        |
 | Tue, 2019-Feb-26 | 5.0.0-beta.x |                                                                           |
-| Tue, 2019-Mar-05 | 5.0.0-beta.x | halfway mark                                                              |
+| Tue, 2019-Jan-05 | 5.0.0-beta.x | halfway mark                                                              |
 | Tue, 2019-Mar-12 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Mar-19 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Mar-26 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Apr-02 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Apr-09 | 5.0.0-beta.x |                                                                           |
 | Tue, 2019-Apr-16 | なし           | quiet period - stable prep                                                |
-| Tue, 2019-Apr-23 | 5.0.0        | ✨stable ✨                                                                 |
+| Tue, 2019-Apr-23 | 5.0.0        | ✨安定版 ✨                                                                    |
 
 ## 6.0.0 リリーススケジュール
 
@@ -48,7 +48,7 @@
 | Tue, 2019-Jul-09 | 6.0.0-beta.x |                                |
 | Tue, 2019-Jul-16 | 6.0.0-beta.x |                                |
 | Tue, 2019-Jul-23 | 6.0.0-beta.x | 🚧 quiet period - stable prep 🚧 |
-| Tue, 2019-Jul-30 | 6.0.0        | ✨ stable ✨                     |
+| Tue, 2019-Jul-30 | 6.0.0        | ✨ 安定版 ✨                        |
 
 ## 7.0.0 リリーススケジュール
 
