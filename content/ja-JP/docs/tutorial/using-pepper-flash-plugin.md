@@ -51,7 +51,7 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 
 ## `<webview>` タグで Flash プラグインを有効化する
 
-Add `plugins` attribute to `<webview>` tag.
+`plugins`属性を `<webview>` tagに加える。
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
