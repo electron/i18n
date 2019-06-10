@@ -225,11 +225,11 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### 인스턴스 이벤트
 
-Objects created with `new BrowserWindow` emit the following events:
+`new BrowserWindow`으로 생성된 오브젝트에서는 다음의 이벤트가 발생합니다:
 
 **참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
-#### Event: 'page-title-updated'
+#### 이벤트: 'page-title-updated'
 
 반환:
 
@@ -237,7 +237,7 @@ Objects created with `new BrowserWindow` emit the following events:
 * `title` String
 * `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file url.
+문서의 타이틀이 변경될때 발생하고, `event.preventDefault()`는 네이티브 윈도우의 타이틀이 변경되는 것을 방지합니다. 타이틀이 file url로부터 합성될때 `explicitSet`는 false입니다.
 
 #### 이벤트: 'close'
 
@@ -245,23 +245,22 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+윈도우를 닫을때 발생합니다. DOM의 `beforeunload` 와 `unload` 이벤트 전에 발생합니다. `event.preventDefault()`를 호출하면 닫기를 취소합니다.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 예시:
+일반적으로 `beforeunload` 핸들러를 사용하여 창을 닫아야하는지 여부를 결정할 수 있습니다. 이 핸들러는 창을 다시로드 할 때도 호출됩니다. 일렉트론에서 `undefined` 외의 다른 값을 리턴하는 것으로 닫기를 취소합니다. 예시:
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log('닫고 싶지 않아')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // 일반 브라우저와는 달리 메시지 상자에 사용자에게 메시지가 표시되므로
+  // void가 아닌 값을 반환하면 자동으로 닫기가 취소됩니다.
+  // dialog API를 사용하여 사용자가 응용 프로그램 닫기를 확인하도록 하는 것이 좋습니다.
+  e.returnValue = false // `return false` 와 같으나 추천하지 않음
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다.*
 
 #### Event: 'closed'
 

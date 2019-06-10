@@ -1,4 +1,4 @@
-# API协议
+# Breaking Chnages
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](../tutorial/electron-versioning.md#semver).
 

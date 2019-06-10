@@ -2,7 +2,7 @@
 
 > ควบคุมวงรอบชีวิตของแอป
 
-Process: [Main](../glossary.md#main-process)
+Messages 
 
 ตัวอย่างด้านล่างนี้แสดงถึงการออกจาก application เมื่อหน้าต่างสุดท้ายถูกปิดลง
 
@@ -327,7 +327,9 @@ Returns:
 * `argv` String[] - An array of the second instance's command line arguments
 * `workingDirectory` String - The second instance's working directory
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
@@ -422,7 +424,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `options` Object (optional) สิทธิพิเศษ 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
@@ -496,7 +498,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (optional) สิทธิพิเศษ 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -519,7 +521,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (optional) สิทธิพิเศษ 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -802,7 +804,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` String สตริง
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
@@ -893,7 +895,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Object (optional) สิทธิพิเศษ 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 

@@ -327,7 +327,9 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - Масив параметрів командного рядка другого екземпляру
 * `workingDirectory` String - Робоча директорія другого екземпляру
 
-Ця подія буде викликана всередині головного екземпляра вашого застосунку, коли виконався інший екземпляр. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
 Ця подія гарантовано викличеться після події `ready` модуля `app`.
 

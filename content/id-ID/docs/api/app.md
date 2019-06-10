@@ -336,7 +336,9 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     * `argv` String[] - Sebuah array dari argumen baris perintah kedua
     * `workingDirectory` String - Direktori kerja contoh kedua
     
-    This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
+    This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+    
+    `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
     
     This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
     

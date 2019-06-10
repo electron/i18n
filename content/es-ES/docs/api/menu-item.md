@@ -83,7 +83,7 @@ Los siguientes roles adicionales están disponibles en *macOS*:
 * `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`.
 * `window` - El submenú es un menú "Ventana".
 * `help` - El submenú es un menú "Ayuda".
-* `services` - El submenú es un menú "Servicios".
+* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * `recentDocuments` - El submenú es un menú "Abrir reciente".
 * `clearRecentDocuments` - Enlace a la acción `clearRecentDocuments`.
 

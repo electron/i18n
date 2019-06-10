@@ -83,7 +83,7 @@ I seguenti valori sono disponibili per *macOS*:
 * `moveTabToNewWindow` - Mappa l'azione `moveTabToNewWindow`.
 * `window` - Il sottomenu è un menu "Window".
 * `help` - Il sottomenu è un menu "Help".
-* `services` - Il sottomenu è un menu "Services".
+* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * `recentDocuments` - Il sottomenu è un menu "Open Recent".
 * `clearRecentDocuments` - Mappa l'azione `clearRecentDocuments`.
 

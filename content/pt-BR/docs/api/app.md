@@ -327,7 +327,9 @@ Retorna:
 * `argv` String[] - Um array dos argumentos da linha de comando da segunda instância
 * `workingDirectory` String - O diretório de trabalho da segunda instância
 
-Este evento será emitido dentro da instância principal do seu aplicativo quando uma segunda instância é executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
 Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
 
@@ -379,7 +381,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Este evento será emitido quando `remote.getCurrentWindow()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+É emitido quando `remote.getCurrentWindow()` é chamado pelo processo de renderização de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-current-web-contents'
 
@@ -388,7 +390,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Este evento será emitido quando `remote.getCurrentWebContents()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+É emitido quando `remote.getCurrentWebContents()` é chamado pelo processo de renderização de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-guest-web-contents'
 

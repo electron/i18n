@@ -60,14 +60,14 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。
-* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `fileMenu` - デフォルト"ファイル" メニュー全体 (Close / Quit)
 * `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
-* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
+* `viewMenu` - デフォルトの"表示"メニュー全体 (リロード、開発ツールON/OFF等)
+* `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、ズーム等)。
 
 以下は *macOS* で有効な追加の role です。
 
-* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `appMenu` - デフォルトの"App"メニュー全体 (Electronについて、サービス等)
 * `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
 * `hide` - `hide` アクションに割り当てる。
 * `hideOthers` - `hideOtherApplications` アクションに割り当てる。
@@ -83,7 +83,7 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `moveTabToNewWindow` - `moveTabToNewWindow` アクションに割り当てる。
 * `window` - "ウインドウ"サブメニュー。
 * `help` - "ヘルプ"サブメニュー。
-* `services` - "サービス"サブメニュー。
+* `services` - ["サービス"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) メニューのサブメニュー。 これはこのアプリケーションのメニューにのみ使うことを意図しており、macOSアプリのコンテキストメニューで使用される "サービス"サブメニューと同じでは*ありません*。この"サービス"サブメニューはElectronでは実装しません。
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 

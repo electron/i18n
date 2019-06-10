@@ -51,7 +51,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Metode Contoh
+### Методы экземпляра
 
 The `menu` object has the following instance methods:
 
@@ -264,9 +264,7 @@ macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linu
 
 ### Menu Standar
 
-Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
- <code> Windows </ 0>. Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
- <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda ` peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
 
 <ul>
 <li><code>jendela`</li> 

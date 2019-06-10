@@ -83,7 +83,7 @@ The following additional roles are available on *macOS*:
 * `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
 * ` window ` - Alt menü bir "Pencere" menüsüdür.
 * `help` - Alt menü bir "Yardım" menüsüdür.
-* `services` - Alt menü bir "Servisler" menüsüdür.
+* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 

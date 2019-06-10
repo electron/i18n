@@ -261,7 +261,7 @@ macOS tiene un estilo de menú de aplicaciones completamente diferente de Window
 
 ### Menús Estándar
 
-En macOS hay muchos menús estándares definidos por el sistema, como los menus `Services` y `Windows`. Para hacer que el menú sea un menú estándar, se debe configurar el `role` del menú a uno de los siguientes y Electron los reconocerá y convertirá en menús estándares:
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. Para hacer que el menú sea un menú estándar, se debe configurar el `role` del menú a uno de los siguientes y Electron los reconocerá y convertirá en menús estándares:
 
 * `window`
 * `help`

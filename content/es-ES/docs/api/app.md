@@ -327,7 +327,9 @@ Devuelve:
 * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
 * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
-Este evento será emitido dentro de la instancia principal de la aplicación cuando se ha ejecutado una segunda instancia. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
+This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
 Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
