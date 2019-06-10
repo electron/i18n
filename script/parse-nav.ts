@@ -4,22 +4,28 @@ import * as fs from 'fs'
 const i18n = require('../')
 const locales = Object.keys(i18n.locales)
 
-function getNav (locale: string) {
+function getNav(locale: string) {
   const docs = i18n.docs[locale]
   const readme = docs['/docs/README']
-  const html = readme.sections.map((section: { html: string }) => section.html).join('\n')
+  const html = readme.sections
+    .map((section: { html: string }) => section.html)
+    .join('\n')
   const $ = cheerio.load(html)
   const startHeading = $('h2')[1]
-  const listItems = $(startHeading).next('ul').html()
+  const listItems = $(startHeading)
+    .next('ul')
+    .html()
   const nav = `<ul>${listItems}</ul>`
   return nav
 }
 
-const navsByLocale = locales
-  .reduce((acc, locale) => {
+const navsByLocale = locales.reduce(
+  (acc, locale) => {
     acc[locale] = getNav(locale)
     return acc
-  }, {} as Record<string, string>)
+  },
+  {} as Record<string, string>
+)
 
 i18n.navs = navsByLocale
 

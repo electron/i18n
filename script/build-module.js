@@ -24,23 +24,28 @@ const categoryNames = {
   api: 'API',
   'api/structures': 'API Structures',
   development: 'Development',
-  tutorial: 'Guides'
+  tutorial: 'Guides',
 }
 const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 
-function convertToUrlSlash (filePath) {
+function convertToUrlSlash(filePath) {
   return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
 }
 
 let ids = {}
 
-async function parseDocs () {
+async function parseDocs() {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
-  const markdownFiles = walk.entries(contentDir)
+  const markdownFiles = walk
+    .entries(contentDir)
     .filter(file => file.relativePath.endsWith('.md'))
-  console.log(`processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`)
+  console.log(
+    `processing ${markdownFiles.length} files in ${
+      Object.keys(locales).length
+    } locales`
+  )
   let docs = await Promise.all(markdownFiles.map(parseFile))
 
   // ignore some docs
@@ -50,7 +55,7 @@ async function parseDocs () {
   return docs
 }
 
-async function parseFile (file) {
+async function parseFile(file) {
   file.fullPath = path.join(file.basePath, file.relativePath)
   file.locale = file.relativePath.split('/')[0]
   file.slug = path.basename(file.relativePath, '.md')
@@ -88,14 +93,25 @@ async function parseFile (file) {
   }
 
   file.sections = await Promise.all(
-    splitMd(await fixMdLinks(markdown)).map(async (section) => {
+    splitMd(await fixMdLinks(markdown)).map(async section => {
       const parsed = await hubdown(section.body)
       const $ = cheerio.load(parsed.content || '')
-      file.title = file.title ||
-                  $('h1').first().text().trim() ||
-                  $('h2').first().text().replace('Class: ', '')
-      file.description = file.description ||
-                        $('blockquote').first().text().trim()
+      file.title =
+        file.title ||
+        $('h1')
+          .first()
+          .text()
+          .trim() ||
+        $('h2')
+          .first()
+          .text()
+          .replace('Class: ', '')
+      file.description =
+        file.description ||
+        $('blockquote')
+          .first()
+          .text()
+          .trim()
 
       // fix HREF for relative links
       $('a').each((i, el) => {
@@ -133,7 +149,8 @@ async function parseFile (file) {
       section.html = $('body').html()
 
       return section
-    }))
+    })
+  )
 
   // remove leftover file props from walk-sync
   delete file.mode
@@ -146,24 +163,26 @@ async function parseFile (file) {
   return cleanDeep(file)
 }
 
-function fixMdLinks (md) {
+function fixMdLinks(md) {
   return new Promise((resolve, reject) => {
-    remark().use(links).process(md, (err, file) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(file.contents)
-      }
-    })
+    remark()
+      .use(links)
+      .process(md, (err, file) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(file.contents)
+        }
+      })
   })
 }
 
-function splitMd (md) {
+function splitMd(md) {
   const slugger = new GithubSlugger()
   const sections = []
   let section = { name: null, body: [] }
   let inCodeBlock = false
-  const isHeading = (line) => (!inCodeBlock && line.trim().startsWith('#'))
+  const isHeading = line => !inCodeBlock && line.trim().startsWith('#')
 
   md.split('\n').forEach((curr, i, lines) => {
     if (curr.startsWith('```')) {
@@ -185,26 +204,24 @@ function splitMd (md) {
   return sections
 }
 
-async function main () {
+async function main() {
   const docs = await parseDocs()
-  const docsByLocale = Object.keys(locales)
-    .reduce((acc, locale) => {
-      acc[locale] = docs
-        .filter(doc => doc.locale === locale)
-        .sort((a, b) => a.slug.localeCompare(b.slug))
-        .reduce((allDocs, doc) => {
-          allDocs[doc.href] = doc
-          return allDocs
-        }, {})
+  const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
+    acc[locale] = docs
+      .filter(doc => doc.locale === locale)
+      .sort((a, b) => a.slug.localeCompare(b.slug))
+      .reduce((allDocs, doc) => {
+        allDocs[doc.href] = doc
+        return allDocs
+      }, {})
 
-      return acc
-    }, {})
+    return acc
+  }, {})
 
-  const websiteStringsByLocale = Object.keys(locales)
-    .reduce((acc, locale) => {
-      acc[locale] = require(`../content/${locale}/website/locale.yml`)
-      return acc
-    }, {})
+  const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
+    acc[locale] = require(`../content/${locale}/website/locale.yml`)
+    return acc
+  }, {})
 
   const glossary = {}
   for (let locale in locales) {
@@ -213,16 +230,23 @@ async function main () {
 
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
-    JSON.stringify({
-      electronLatestStableVersion: packageJSON.electronLatestStableTag.replace(/^v/, ''),
-      electronLatestStableTag: packageJSON.electronLatestStableTag,
-      electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
-      locales: locales,
-      docs: docsByLocale,
-      website: websiteStringsByLocale,
-      glossary: glossary,
-      date: new Date()
-    }, null, 2)
+    JSON.stringify(
+      {
+        electronLatestStableVersion: packageJSON.electronLatestStableTag.replace(
+          /^v/,
+          ''
+        ),
+        electronLatestStableTag: packageJSON.electronLatestStableTag,
+        electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
+        locales: locales,
+        docs: docsByLocale,
+        website: websiteStringsByLocale,
+        glossary: glossary,
+        date: new Date(),
+      },
+      null,
+      2
+    )
   )
 }
 

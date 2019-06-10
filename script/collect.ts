@@ -10,12 +10,12 @@ import * as got from 'got'
 import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
-import * as Octokit from '@octokit/rest';
+import * as Octokit from '@octokit/rest'
 const electronDocs = require('electron-docs')
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
 const github = new Octokit({
-  auth: process.env.GH_TOKEN ? process.env.GH_TOKEN : ''
+  auth: process.env.GH_TOKEN ? process.env.GH_TOKEN : '',
 })
 
 interface IResponse {
@@ -46,23 +46,25 @@ async function main() {
   await fetchWebsiteContent()
 }
 
-async function fetchRelease () {
+async function fetchRelease() {
   console.log(`Determining 'latest' version dist-tag on npm`)
-  const version = execSync('npm show electron version').toString().trim()
+  const version = execSync('npm show electron version')
+    .toString()
+    .trim()
 
   console.log(`Fetching release data from GitHub`)
 
   const repo = {
     owner: 'electron',
     repo: 'electron',
-    tag: `v${version}`
+    tag: `v${version}`,
   }
 
   const res = await github.repos.getReleaseByTag(repo)
   release = res.data
 }
 
-async function fetchAPIDocsFromLatestStableRelease () {
+async function fetchAPIDocsFromLatestStableRelease() {
   console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
@@ -75,36 +77,42 @@ async function fetchAPIDocsFromLatestStableRelease () {
   return Promise.resolve()
 }
 
-async function fetchApiData () {
-  console.log(`Fetching API definitions from electron/electron#${release.tag_name}`)
+async function fetchApiData() {
+  console.log(
+    `Fetching API definitions from electron/electron#${release.tag_name}`
+  )
 
   const asset = release.assets.find(asset => asset.name === 'electron-api.json')
 
   if (!asset) {
-    return Promise.reject(Error(`No electron-api.json asset found for ${release.tag_name}`))
+    return Promise.reject(
+      Error(`No electron-api.json asset found for ${release.tag_name}`)
+    )
   }
 
   const response = await got(asset.browser_download_url, { json: true })
   const apis = response.body
   const filename = path.join(englishBasepath, 'electron-api.json')
   mkdir(path.dirname(filename))
-  console.log(`Writing ${path.relative(englishBasepath, filename)} (without changes)`)
+  console.log(
+    `Writing ${path.relative(englishBasepath, filename)} (without changes)`
+  )
   fs.writeFileSync(filename, JSON.stringify(apis, null, 2))
   return Promise.resolve(apis)
 }
 
-async function getMasterBranchCommit () {
+async function getMasterBranchCommit() {
   console.log(`Fetching Electron master branch commit SHA`)
   const master = await github.repos.getBranch({
     owner: 'electron',
     repo: 'electron',
-    branch: 'master'
+    branch: 'master',
   })
 
   writeToPackageJSON('electronMasterBranchCommit', master.data.commit.sha)
 }
 
-async function fetchTutorialsFromMasterBranch () {
+async function fetchTutorialsFromMasterBranch() {
   console.log(`Fetching tutorial docs from electron/electron#master`)
 
   const docs = await electronDocs('master')
@@ -117,10 +125,11 @@ async function fetchTutorialsFromMasterBranch () {
   return Promise.resolve()
 }
 
-async function fetchWebsiteContent () {
+async function fetchWebsiteContent() {
   console.log(`Fetching locale.yml from electron/electronjs.org#master`)
 
-  const url = 'https://rawgit.com/electron/electronjs.org/master/data/locale.yml'
+  const url =
+    'https://rawgit.com/electron/electronjs.org/master/data/locale.yml'
   const response = await got(url)
   const content = response.body
   const websiteFile = path.join(englishBasepath, 'website', `locale.yml`)
@@ -132,14 +141,14 @@ async function fetchWebsiteContent () {
 
 // Utility functions
 
-function writeDoc (doc: IElectronDocsResponse) {
+function writeDoc(doc: IElectronDocsResponse) {
   const filename = path.join(englishBasepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
   // console.log('   ' + path.relative(englishBasepath, filename))
 }
 
-function writeToPackageJSON (key: string, value: string) {
+function writeToPackageJSON(key: string, value: string) {
   const pkg = require('../package.json')
   pkg[key] = value
   fs.writeFileSync(
