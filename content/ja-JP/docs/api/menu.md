@@ -261,7 +261,7 @@ macOS は、Windows や Linux とは全く異なるスタイルのアプリケ�
 
 ### 標準メニュー
 
-On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. メニューを標準メニューにするには、メニューの `role` を次のいずれかに設定する必要があります。Electron はそれらを認識して標準メニューにします。
+macOS ではシステムが定義する標準メニューがいくつかある。例えば、[`サービス`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) や`ウインドウ` メニューが該当する。 メニューを標準メニューにするには、メニューの `role` を次のいずれかに設定する必要があります。Electron はそれらを認識して標準メニューにします。
 
 * `window`
 * `help`
