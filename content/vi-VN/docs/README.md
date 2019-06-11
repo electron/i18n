@@ -8,7 +8,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 * [Electron FAQ (các câu hỏi thường gặp)](faq.md)
 
-## Guides and Tutorials
+## Hướng dẫn
 
 * [Về Electron](tutorial/about.md)
 * [Khởi động môi trường của nhà phát triển](tutorial/development-environment.md) 
