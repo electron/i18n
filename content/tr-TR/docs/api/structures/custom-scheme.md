@@ -1,10 +1,10 @@
 # CustomScheme Object
 
 * `scheme` String - Custom schemes to be registered with options.
-* `privileges` Obje (opsiyonel) 
-  * `standard` Boolean (optional) - Default false.
-  * `secure` Boolean (optional) - Default false.
-  * `bypassCSP` Boolean (optional) - Default false.
-  * `allowServiceWorkers` Boolean (optional) - Default false.
-  * `supportFetchAPI` Boolean (optional) - Default false.
-  * `corsEnabled` Boolean (optional) - Default false.
+* `ayrıcalıklar` Obje (opsiyonel) 
+  * `standard` Boolean (opsiyonel) - Varsayılan false.
+  * `secure` Boolean (opsiyonel) - Varsayılan false.
+  * `bypassCSP` Boolean (opsiyonel) - Varsayılan false.
+  * `allowServiceWorkers` Boolean (opsiyonel) - Varsayılan false.
+  * `supportFetchAPI` Boolean (opsiyonel) - Varsayılan false.
+  * `corsEnabled` Boolean (opsiyonel) - Varsayılan false.
