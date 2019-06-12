@@ -17,7 +17,7 @@ powerSaveBlocker.stop(id)
 
 ## Methoden
 
-The `powerSaveBlocker` module has the following methods:
+Das `powerSaveBlocker`-Modul hat folgende Methoden:
 
 ### `powerSaveBlocker.start(type)`
 
