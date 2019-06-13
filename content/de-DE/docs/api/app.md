@@ -1,6 +1,6 @@
 # app
 
-> Überwache den Ereignisverlauf deiner Applikation.
+> Kontrolliere den Ereignisverlauf deiner Anwendung.
 
 Prozess: [Main](../glossary.md#main-process)
 
