@@ -9,20 +9,20 @@ nav:
   docs: Dokumentation
   donors: Spender
   languages: Sprachen
-  license: License
+  license: Lizenz
   releases: Veröffentlichungen
   search: Suchen
   userland: Userland
   governance: Governance
 keyboard_modal:
   title: Tastenkürzel
-  key: Key
+  key: Schlüssel
   action: Aktion
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
+  scroll_up: Vorheriges Suchergebnis auswählen
+  open: Ausgewähltes Suchergebnis öffnen
   open_new_tab: Open the selected search result in a new tab
 docs:
   title: Electron-Dokumentation
@@ -31,7 +31,7 @@ docs:
   api_reference: API-Referenz
   api_structures: API Structures
   advanced: Erweitert
-  detailed: In Detail
+  detailed: Im Detail
   custom_dom: Benutzerdefinierte DOM-Elemente
   main_proc_modules: Main Process Modules
   renderer_proc_modules: Renderer Process Modules
