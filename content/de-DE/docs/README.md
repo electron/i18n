@@ -1,4 +1,4 @@
-# المرشدون الرسميون
+# Offizielle Anleitungen
 
 Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Andernfalls nutzen Sie möglicherweise unbeabsichtigt die Dokumentation einer Version von Electron, die Änderungen der API enthält, die mit Ihrer Version von Electron nicht kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
 
@@ -43,15 +43,15 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
   * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
-* [Barrierefreiheit](tutorial/accessibility.md) 
+  * [MakOS Dunkler Modus unterstützen](tutorial/mojave-dark-mode-guide.md)
+* [Zugänglichkeit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Barrierefreiheit aktivieren](tutorial/accessibility.md#enabling-accessibility)
+  * [Zugänglichkeit aktivieren](tutorial/accessibility.md#enabling-accessibility)
 * [Testen und Debuggen](tutorial/application-debugging.md) 
   * [Debuggen des Hauptprozesses](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
-  * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [Debuggen des Hauptprozesses mit Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Selenium und WebDriver nutzen](tutorial/using-selenium-and-webdriver.md)
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
   * [Automatisiertes Testen mit einem benutzerdefinierten Treiber](tutorial/automated-testing-with-a-custom-driver.md)
@@ -71,11 +71,11 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Bereitstellung eines Update-Servers](tutorial/updates.md#deploying-an-update-server)
   * [Implementieren von Updates in deiner App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Updates anwenden](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Support erhalten](tutorial/support.md)
 
-## detaillierte Tutorials
+## Detaillierte Tutorials
 
-Diese individuellen Tutorials erweitern die Überschriften aus dem Guide obendrüber.
+Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weiter oben diskutiert wurden.
 
 * [Installiere Electron](tutorial/installation.md) 
   * [Proxys](tutorial/installation.md#proxies)
