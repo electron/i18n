@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "10595",
-    "translated": "2877",
+    "translated": "2883",
     "approved": "2",
     "words": "97553",
-    "words_translated": "11065",
+    "words_translated": "11092",
     "words_approved": "19",
     "translated_progress": 11,
     "approved_progress": 0,
-    "qa_issues": 826
+    "qa_issues": 828
   },
   {
     "name": "Filipino",
