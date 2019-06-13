@@ -90,8 +90,8 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
   * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)
   * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ungepackte Dateien zu asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Verwendung des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
+* [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
+* [Verwenden des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -110,20 +110,20 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Funktion](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [`BrowserWindowProxy` Objekt](api/browser-window-proxy.md)
 
 ### Module für den Hauptprozess:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [Browserfenster](api/browser-window.md)
+* [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
-* [In-App-Käufe](api/in-app-purchase.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menü](api/menu.md)
+* [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
@@ -134,7 +134,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
-* [Fach](api/tray.md)
+* [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Module für den Renderer-Prozess (Webseite):
