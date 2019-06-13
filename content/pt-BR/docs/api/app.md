@@ -274,7 +274,7 @@ Retorna:
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
-O comportamento padrão é cancelar todas as autenticações. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+O comportamento padrão é cancelar todas as autenticações. Para sobrescrever isso você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar o `callback(username, password)` com as credenciais.
 
 ```javascript
 const { app } = require('electron')
