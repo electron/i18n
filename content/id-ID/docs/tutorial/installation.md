@@ -2,17 +2,17 @@
 
 Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disukai adalah menginstal Elektron sebagai ketergantungan pengembangan di aplikasi Anda:</p>
 
-<pre><code class="sh">npm menginstal elektron - menyimpan-dev
+<pre><code class="sh">npm install electron --save-dev
 `</pre> 
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+Lihat [Electron versioning documentation ](./electron-versioning.md) untuk informasi mengenai bagaimana mengatur versi Electron aplikasi anda.
 
 ## Instalasi global
 
-Anda juga dapat menginstal perintah ` elektron ` secara global di `$PATH` Anda:
+Anda juga dapat menginstal perintah ` electron` secara global di `$PATH` Anda:
 
 ```sh
-npm memasang elektron -g
+npm install electron -g
 ```
 
 ## Kustomisasi
@@ -20,7 +20,7 @@ npm memasang elektron -g
 Jika Anda ingin mengubah arsitektur yang diunduh (misalnya ` ia32 ` pada mesin ` x64 `), Anda dapat menggunakan flag ` --arch ` dengan npm pasang atau setel variabel lingkungan ` npm _config_arch `:
 
 ```shell
-memasang npm --lengkungan = dia32 elektron
+npm install --arch=ia32 electron
 ```
 
 Selain mengubah arsitektur, Anda juga bisa menentukan platformnya (misalnya, `win32`, `linux`, dll.) dengan menggunakan `--platform ` flag:
