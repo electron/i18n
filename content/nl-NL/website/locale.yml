@@ -17,9 +17,9 @@ nav:
 keyboard_modal:
   title: Toetsencombinaties
   key: Sleutel
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
+  action: Actie
+  focus_search: Focus op zoekvak
+  focus_and_clear: Focus de zoekbalk en zuivering
   scroll_down: Select the next search result
   scroll_up: Select the previous search result
   open: Open the selected search result
@@ -35,7 +35,7 @@ docs:
   custom_dom: Aangepaste DOM-elementen
   main_proc_modules: Main Process Modules
   renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  both_proc_modules: Modules voor beide processen
   footer:
     propose_change: Verbeter deze verwijzing
     version_history: Versiegeschiedenis
