@@ -102,8 +102,7 @@ Anda juga dapat mencoba mendownload Electron langsung dari [Electron/Electron/pe
 
 Jika penginstalan gagal dengan kesalahan ` EACCESS </ 0> Anda mungkin memerlukan <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions"> perbaiki izin npm anda </ 1>.</p>
 
-<p>If the above error persists, the <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> flag may need to be
-set to true:</p>
+<p>Jika error diatas masih ada, <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> flag mungkin harus di set true:</p>
 
 <pre><code class="sh">sudo npm menginstal elektron--tidak aman-perm = true
 `</pre> 
