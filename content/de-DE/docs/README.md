@@ -81,15 +81,15 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
   * [Proxys](tutorial/installation.md#proxies)
   * [Benutzerdefinierte Mirrors und Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Problemlösungen](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
+* Electron Veröffentlichungen & Entwickler Feedback 
+  * [Versionsrichtlinie](tutorial/electron-versioning.md)
+  * [Veröffentlichungszeitleisten](tutorial/electron-timelines.md)
+  * [App Feedback Programm](tutorial/app-feedback-program.md)
+* [Anwendungsquellcode packen mit asar](tutorial/application-packaging.md) 
+  * [asar Archive generieren](tutorial/application-packaging.md#generating-asar-archives)
   * [Verwenden von asar Archiven](tutorial/application-packaging.md#using-asar-archives)
   * [Einschränkungen](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Ungepacket Dateien zu Asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Ungepackte Dateien zu asar Archiven hinzufügen](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Verwendung des Pepper Flash-Plugins](tutorial/using-pepper-flash-plugin.md)
 
