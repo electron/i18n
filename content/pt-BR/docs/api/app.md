@@ -43,9 +43,9 @@ Retorna:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Emitido antes de a aplicação começar a fechar suas janelas. Chamar o `event.preventDefault()` irá impedir o comportamento padrão, que é encerrar a aplicação.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Nota:** Se o encerramento da aplicação for iniciado pelo `autoUpdater.quitAndInstall()`, então o `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
 **Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
@@ -274,7 +274,7 @@ Retorna:
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+O comportamento padrão é cancelar todas as autenticações. Para sobrescrever isso você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar o `callback(username, password)` com as credenciais.
 
 ```javascript
 const { app } = require('electron')
