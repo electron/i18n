@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "10595",
-    "translated": "7722",
+    "translated": "7729",
     "approved": "4",
     "words": "97553",
-    "words_translated": "61979",
+    "words_translated": "62079",
     "words_approved": "20",
     "translated_progress": 63,
     "approved_progress": 0,
-    "qa_issues": 4131
+    "qa_issues": 4136
   },
   {
     "name": "Italian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10595",
-    "translated": "4613",
+    "translated": "4626",
     "approved": "359",
     "words": "97553",
-    "words_translated": "33001",
+    "words_translated": "33091",
     "words_approved": "2585",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 1324
+    "qa_issues": 1332
   },
   {
     "name": "Romanian",
