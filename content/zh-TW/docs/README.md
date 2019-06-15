@@ -55,10 +55,9 @@
   * [在無周邊 CI 系統上測試 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools 擴充](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
 * [分發](tutorial/application-distribution.md) 
-  * [支援](tutorial/support.md)
+  * [支援平臺](tutorial/support.md#supported-platforms)
+  * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 市集](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
