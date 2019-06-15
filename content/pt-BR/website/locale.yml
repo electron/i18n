@@ -27,15 +27,15 @@ keyboard_modal:
 docs:
   title: Documentação do Electron
   description: Veja toda a <a href="/docs/all">documentação em uma só página</a> ou verifique as <a href="/docs/faq">perguntas frequente</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Guias: Começar com o Electron"
   api_reference: Referência da API
   api_structures: Estruturas da API
   advanced: Avançado
-  detailed: In Detail
+  detailed: Em Detalhes
   custom_dom: Elementos de DOM Personalizado
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Módulos do Processo Principais
+  renderer_proc_modules: Módulos do Processo de Renderização
+  both_proc_modules: Módulos para Ambos os Tipos de Processos
   footer:
     propose_change: Melhorar este documento
     version_history: Histórico de versões
@@ -135,7 +135,7 @@ help_translate: "Ajude a traduzir"
 footer:
   see_the_faq: Veja as perguntas frequentes
 companies:
-  title: Built on Electron
+  title: Aplicativos Feitos com Electron
   description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
@@ -230,13 +230,13 @@ landing:
 governance:
   title: Electron Governance
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  wgs: Grupos de Trabalho
   docstools:
     title: Documentações & Ferramentas
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
-    title: Outreach
-    description: Grows the Electron community
+    title: Alcance
+    description: Cresce a Comunidade do Electron
   releases:
     title: Versões
     description: Oversees all release branches, and tooling to support releases.
@@ -253,12 +253,12 @@ governance:
     title: Segurança
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
+    title: Administração
     description: The Administrative Working Group oversees the entire governance and project.
   global:
     overview: Visão Geral
     associated_repos: Repositórios associados
-    notes: Meeting Notes
+    notes: Anotações de Reunião
   definitions:
     title: Definições
     list:
