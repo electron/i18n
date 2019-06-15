@@ -1,12 +1,12 @@
-## Promisification
+## Promise 化
 
-The Electron team is currently undergoing an initiative to convert callback-based functions in Electron to return Promises. During this transition period, both the callback and Promise-based versions of these functions will work correctly, and will both be documented.
+Electron チームは現在、Electron のコールバックベースの関数を Promise を返すように変換するイニシアチブを進めています。 この移行期間中は、これらの関数のコールバックバージョンと Promise ベースバージョンの両方が正しく機能し、両方とも文書化されます。
 
-To enable deprecation warnings for these updated functions, use the `process.enablePromiseAPI` runtime flag.
+これら更新された関数に対する非推奨の警告を有効にするには、実行時フラグ`process.enablePromiseAPI` を使用します。
 
-When a majority of affected functions are migrated, this flag will be enabled by default and all developers will be able to see these deprecation warnings. At that time, the callback-based versions will also be removed from documentation. This document will be continuously updated as more functions are converted.
+影響を受ける機能の大部分が移行されると、このフラグはデフォルトで有効になり、すべての開発者はこれら非推奨の警告を見られるようになります。 その時点で、コールバックベースのバージョンもドキュメントから削除されます。 この文書は、より多くの関数が変換されるにつれて継続的に更新されます。
 
-### Candidate Functions
+### 候補の関数
 
 - [app.importCertificate(options, callback)](https://github.com/electron/electron/blob/master/docs/api/app.md#importCertificate)
 - [contentTracing.getTraceBufferUsage(callback)](https://github.com/electron/electron/blob/master/docs/api/content-tracing.md#getTraceBufferUsage)
@@ -37,7 +37,7 @@ When a majority of affected functions are migrated, this flag will be enabled by
 - [webviewTag.executeJavaScript(code[, userGesture, callback])](https://github.com/electron/electron/blob/master/docs/api/webview-tag.md#executeJavaScript)
 - [webviewTag.printToPDF(options, callback)](https://github.com/electron/electron/blob/master/docs/api/webview-tag.md#printToPDF)
 
-### Converted Functions
+### 変換済みの関数
 
 - [app.getFileIcon(path[, options], callback)](https://github.com/electron/electron/blob/master/docs/api/app.md#getFileIcon)
 - [contents.capturePage([rect, ]callback)](https://github.com/electron/electron/blob/master/docs/api/web-contents.md#capturePage)
