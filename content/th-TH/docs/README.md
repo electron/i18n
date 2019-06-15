@@ -55,10 +55,9 @@ Please make sure that you use the documents that match your Electron version. �
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
   * [การทดสอบอัตโนมัติด้วยไดรเวอร์ที่กำหนดเอง](tutorial/automated-testing-with-a-custom-driver.md)
-* แพคเกจ 
-  * [การเซ็นรหัส](tutorial/code-signing.md)
 * [การกระจาย](tutorial/application-distribution.md) 
-  * [สนับสนุน](tutorial/support.md)
+  * [แพลตฟอร์มที่รองรับ](tutorial/support.md#supported-platforms)
+  * [การเซ็นรหัส](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
