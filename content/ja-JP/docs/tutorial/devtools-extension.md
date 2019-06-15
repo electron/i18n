@@ -34,7 +34,11 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
 
 **注:** `BrowserWindow.addDevToolsExtension` API は app モジュールの ready イベントが発生する前には呼び出すことはできません。
 
-拡張機能の名前は `BrowserWindow.addDevToolsExtension` によって返され、拡張機能の名前を `BrowserWindow.removeDevToolsExtension` API に渡すことでアンロードすることができます。
+The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+
+### How to remove a DevTools Extension
+
+You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
 ## サポートされている DevTools 拡張
 
