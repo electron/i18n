@@ -18,11 +18,11 @@
 
 macOSではアプリケーション メニューとして `menu` を設定します。Windows と Linuxでは、`menu` は各ウィンドウの上部のメニューとして設定されます。
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+更に Windows と Linux では、最上位のアイテム名に `&` を使用して、アクセラレータを生成させるときに取得する文字を指定できます。 たとえば、ファイルメニューに `&File` を使用すると、その関連付けされたメニューを開く `Alt-F` アクセラレータが生成されます。 そのボタンラベルの指定された文字には下線が引かれます。 `&` 文字はボタンラベル上に表示されません。
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+`null` を渡すとデフォルトのメニューが表示されなくなります。Windows と Linux では、これによりウィンドウからメニューバーが削除されるという追加の効果があります。
 
-**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**注意:** アプリが何も設定しない場合は自動でデフォルトメニューが作成されます。 これは `ファイル`、`編集`、`表示`、`ウィンドウ`、`ヘルプ` のような標準のアイテムを含みます。
 
 #### `Menu.getApplicationMenu()`
 
@@ -46,7 +46,7 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 一般的に、`template` は [MenuItem](menu-item.md) を構築するための `options` の配列です。使用方法は上記を参照できます。
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+`template` の要素に他のフィールドを付けることもでき、それらは構築されたメニューアイテムのプロパティになります。
 
 ### インスタンスメソッド
 
