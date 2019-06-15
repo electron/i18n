@@ -13,7 +13,7 @@
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
@@ -95,6 +95,46 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 `MenuItem` のインスタンスには以下のプロパティがあります。
 
+#### `menuItem.id`
+
+A `String` indicating the item's unique id, this property can be dynamically changed.
+
+#### `menuItem.label`
+
+A `String` indicating the item's visible label, this property can be dynamically changed.
+
+#### `menuItem.click`
+
+A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `focusedWindow` [BrowserWindow](browser-window.md)
+* `focusedWebContents` [WebContents](web-contents.md)
+
+#### `menuItem.submenu`
+
+A `Menu` (optional) containing the menu item's submenu, if present.
+
+#### `menuItem.type`
+
+A `String` indicating the type of the item.
+
+#### `menuItem.role`
+
+A `String` (optional) indicating the item's role, if set.
+
+#### `menuItem.accelerator`
+
+A `String` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.icon`
+
+A `NativeImage | String` (optional) indicating the item's icon, if set.
+
+#### `menuItem.sublabel`
+
+A `String` indicating the item's sublabel, this property can be dynamically changed.
+
 #### `menuItem.enabled`
 
 アイテムが有効かどうかを示す `Boolean`。このプロパティは動的に変更できます。
@@ -113,10 +153,14 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 更なる動作は、`click` 関数の追加で可能です。
 
-#### `menuItem.label`
+#### `menuItem.registerAccelerator`
 
-メニューアイテムに表示されているラベルの `String`。
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
 
-#### `menuItem.click`
+#### `menuItem.commandId`
 
-MenuItem がクリックイベントを受け取った時に発火される `Function`。
+A `Number` indicating an item's sequential unique id.
+
+#### `menuItem.menu`
+
+A `Menu` that the item is a part of.
