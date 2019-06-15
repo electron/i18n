@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+戻り値 `Promise<String[]>` - すべての子プロセスが `getCategories` リクエストを受諾したとき、そのカテゴリグループの配列で解決されます。
 
 カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
 
@@ -65,7 +65,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+戻り値 `Promise<void>` - すべての子プロセスが `startRecording` リクエストを受諾したときに解決されます。
 
 すべてのプロセスで記録を開始します。
 
@@ -91,13 +91,13 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 * `resultFilePath` String
 
-Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+戻り値 `Promise<String>` - すべての子プロセスが `stopRecording` リクエストを受諾したとき、そのトレースデータを含むファイルで解決されます。
 
 すべてのプロセスで記録を停止します。
 
 子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
+トレースデータは空でない `resultFilePath` もしくは一時ファイルへと書き込まれます。
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
