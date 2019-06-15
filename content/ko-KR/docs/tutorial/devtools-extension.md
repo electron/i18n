@@ -34,7 +34,11 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
 
 **참고:** `BrowserWindow.addDevToolsExtension` API는 app 모듈의 ready 이벤트가 발생하기 전까지 사용할 수 없습니다.
 
-확장 기능의 이름은 `BrowserWindow.addDevToolsExtension`에서 반환되며, 이 이름을 `BrowserWindow.removeDevToolsExtension` API로 전달함으로써 해당하는 확장 기능을 언로드할 수 있습니다.
+The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+
+### How to remove a DevTools Extension
+
+You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
 ## 지원하는 개발자 도구 확장 기능
 
