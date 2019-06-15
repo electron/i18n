@@ -55,10 +55,9 @@
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [الاختبار الآلي مع برنامج تشغيل مخصص](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [توقيع الكود](tutorial/code-signing.md)
 * [التوزيع](tutorial/application-distribution.md) 
-  * [الدعم](tutorial/support.md)
+  * [Supported Platforms](tutorial/support.md#supported-platforms)
+  * [توقيع الكود](tutorial/code-signing.md)
   * [Mac App ore](tutorial/mac-app-store-submission-guide.md)
   * [متجر تطبيقات Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
