@@ -55,10 +55,9 @@
   * [تست سیستم های CI (Travis، Jenkins)](tutorial/testing-on-headless-ci.md)
   * [افزونه DevTools](tutorial/devtools-extension.md)
   * [تست خودکار با یک درایور سفارشی](tutorial/automated-testing-with-a-custom-driver.md)
-* پکها 
-  * [Code Signing](tutorial/code-signing.md)
 * [توضیع](tutorial/application-distribution.md) 
-  * [پشتیبانی](tutorial/support.md)
+  * [Supported Platforms](tutorial/support.md#supported-platforms)
+  * [Code Signing](tutorial/code-signing.md)
   * [فروشگاه Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [فروشگاه ویندوز](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
