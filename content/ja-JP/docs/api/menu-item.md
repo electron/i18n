@@ -13,7 +13,7 @@
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (任意) - `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `windowMenu` にできます。- メニューアイテムの挙動を指定します。`click` プロパティが指定されたときは無視されます。 [役割 (roles)](#roles) を参照してください。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
@@ -97,15 +97,15 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 #### `menuItem.id`
 
-A `String` indicating the item's unique id, this property can be dynamically changed.
+アイテムの一意な id を示す `String`。このプロパティは動的に変更できます。
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label, this property can be dynamically changed.
+アイテムの表示ラベルを示す `String`。このプロパティは動的に変更できます。
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+MenuItem がクリックイベントを受け取ったときに発火される `Function`。`menuItem.click(event, focusedWindow, focusedWebContents)` で呼び出せます。
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
@@ -113,27 +113,27 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.submenu`
 
-A `Menu` (optional) containing the menu item's submenu, if present.
+存在する場合、メニューアイテムのサブメニューを格納する `Menu` (任意)。
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+そのアイテムの種類を示す `String`。
 
 #### `menuItem.role`
 
-A `String` (optional) indicating the item's role, if set.
+セットされている場合、アイテムの役割を示す `String` (任意)。
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+セットされている場合、アイテムの Accelerator を示す `String` (任意)。
 
 #### `menuItem.icon`
 
-A `NativeImage | String` (optional) indicating the item's icon, if set.
+セットされている場合、アイテムのアイコンを示す `NativeImage | String` (任意)。
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel, this property can be dynamically changed.
+アイテムの副ラベルを示す `String`。このプロパティは動的に変更できます。
 
 #### `menuItem.enabled`
 
@@ -155,12 +155,12 @@ A `String` indicating the item's sublabel, this property can be dynamically chan
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+アクセラレータをシステムに登録する必要があるのか、ただ表示するだけなのかを示す `Boolean`。このプロパティは動的に変更できます。
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+アイテムの連続する一意な id を示す `Number`。
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+そのアイテムが属する `Menu`。
