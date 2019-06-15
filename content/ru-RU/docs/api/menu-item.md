@@ -117,37 +117,37 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+`Строка` с указанием типа элемента.
 
 #### `menuItem.role`
 
-A `String` (optional) indicating the item's role, if set.
+`Строка` (опционально) с указанием роли элемента, если установлено.
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+`Строка` (опционально) с указанием ускорителя элемента, если установлено.
 
 #### `menuItem.icon`
 
-A `NativeImage | String` (optional) indicating the item's icon, if set.
+`NativeImage | Строка` (опционально) с указанием иконки элемента, если установлено.
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel, this property can be dynamically changed.
+`Строка` с указанием подписи элемента, это свойство может быть динамически изменено.
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+`Boolean` указывает, включен ли элемент, это свойство может быть динамически изменено.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+`Boolean` указывает, видим ли элемент, это свойство может быть динамически изменено.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+`Boolean` указывает, помечен ли элемент флажком, это свойство может быть динамически изменено.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+`Сheckbox` пункт меню переключит `checked` при выборе.
 
 A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
@@ -155,12 +155,12 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+`Boolean` указывает, следует ли регистрировать ускоритель с системой или только что отобразить, это свойство может быть динамически изменено.
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+`Номер` с указанием уникального последовательного идентификатора элемента.
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+`Меню`, частью которого является элемент.
