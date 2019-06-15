@@ -34,7 +34,11 @@ Menggunakan [Alat-alat pengembang React](https://chrome.google.com/webstore/deta
 
 **Catatan:** `BrowserWindow.addDevToolsExtension` API tidak disebut sebelum event siap saat modul app dibunyikan.
 
-Nama ekstensi dikembalikan oleh `BrowserWindow.addDevToolsExtension`, dan Anda dapat melewati nama ekstensi ke `BrowserWindow.removeDevToolsExtension` API untuk membongkar itu.
+The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+
+### How to remove a DevTools Extension
+
+You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
 ## Dukungan Ekstensi DevTool
 
