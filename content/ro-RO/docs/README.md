@@ -55,10 +55,9 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Testarea pe sistemele Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensia DevTools](tutorial/devtools-extension.md)
   * [Testare automată cu un driver personalizat](tutorial/automated-testing-with-a-custom-driver.md)
-* Ambalare 
-  * [Semnarea codului](tutorial/code-signing.md)
 * [Distribuţie](tutorial/application-distribution.md) 
-  * [Asistență](tutorial/support.md)
+  * [Supported Platforms](tutorial/support.md#supported-platforms)
+  * [Semnarea codului](tutorial/code-signing.md)
   * [Magazin de aplicații Mac](tutorial/mac-app-store-submission-guide.md)
   * [Magazin Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
