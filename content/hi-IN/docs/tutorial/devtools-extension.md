@@ -34,7 +34,11 @@
 
 **ध्यान दें** इस `BrowserWindow.addDevToolsExtension` एपीआई को पहले नहीं बुलाया जा सकता है ऐप मॉड्यूल का तैयार ईवेंट उत्सर्जित होता है।
 
-एक्सटेंशन का नाम इसके द्वारा लौटाया गया है `BrowserWindow.addDevToolsExtension`, आप एक्सटेंशन के नाम को पास कर सकते हैं `BrowserWindow.addDevToolsExtension` एपीआई इसे उतारने के लिए।
+The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+
+### How to remove a DevTools Extension
+
+You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
 ## समर्थित डेवटूल्स एक्सटेंशन
 
