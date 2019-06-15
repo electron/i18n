@@ -55,10 +55,9 @@
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [בדיקות אוטומטיות עם Driver מותאם אישית](tutorial/automated-testing-with-a-custom-driver.md)
-* אריזה 
-  * [חתימה על קוד](tutorial/code-signing.md)
 * [הפצה](tutorial/application-distribution.md) 
-  * [תמיכה](tutorial/support.md)
+  * [Supported Platforms](tutorial/support.md#supported-platforms)
+  * [חתימה על קוד](tutorial/code-signing.md)
   * [חנות היישומים של Mac](tutorial/mac-app-store-submission-guide.md)
   * [חנות Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
