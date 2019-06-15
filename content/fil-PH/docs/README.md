@@ -55,10 +55,9 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensyon ng DevTools](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Mga suportadong plataporma](tutorial/support.md#supported-platforms)
+  * [Code Signing](tutorial/code-signing.md)
   * [App Store ng Mac](tutorial/mac-app-store-submission-guide.md)
   * [Tindahan ng Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
