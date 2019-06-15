@@ -80,7 +80,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
   * [Proxy](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Penyelesaian masalah](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Rilis Electron & Developer Feedback 
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
