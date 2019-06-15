@@ -13,7 +13,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
     * `menuItem`MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `kaganapan` kaganapan
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (opsyonal) - Ay maaaring `normal`, `separator`, `submenu`, `checkbox` o `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -95,6 +95,46 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
+#### `menuItem.id`
+
+A `String` indicating the item's unique id, this property can be dynamically changed.
+
+#### `ang menuItem.label`
+
+A `String` indicating the item's visible label, this property can be dynamically changed.
+
+#### `ang menuItem.click`
+
+A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `focusedWindow` [BrowserWindow](browser-window.md)
+* `focusedWebContents` [WebContents](web-contents.md)
+
+#### `menuItem.submenu`
+
+A `Menu` (optional) containing the menu item's submenu, if present.
+
+#### `menuItem.type`
+
+A `String` indicating the type of the item.
+
+#### `menuItem.role`
+
+A `String` (optional) indicating the item's role, if set.
+
+#### `menuItem.accelerator`
+
+A `String` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.icon`
+
+A `NativeImage | String` (optional) indicating the item's icon, if set.
+
+#### `menuItem.sublabel`
+
+A `String` indicating the item's sublabel, this property can be dynamically changed.
+
 #### `ang menuItem.enabled`
 
 Ang isang `Boolean` ay nagpapakita kung ang aytem ay pinagana na, ang katangian na ito ay maaaring mabago ng matindi.
@@ -113,10 +153,14 @@ Ang isang `radio` na aytem ng menu ay bubuksan ang kanyang `checked` na katangia
 
 Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
-#### `ang menuItem.label`
+#### `menuItem.registerAccelerator`
 
-Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
 
-#### `ang menuItem.click`
+#### `menuItem.commandId`
 
-Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik.
+A `Number` indicating an item's sequential unique id.
+
+#### `menuItem.menu`
+
+A `Menu` that the item is a part of.
