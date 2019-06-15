@@ -14,7 +14,7 @@ See [`Menu`](menu.md) for examples.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the
     `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or
     `radio`.
@@ -119,6 +119,50 @@ Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 The following properties are available on instances of `MenuItem`:
 
+#### `menuItem.id`
+
+A `String` indicating the item's unique id, this property can be
+dynamically changed.
+
+#### `menuItem.label`
+
+A `String` indicating the item's visible label, this property can be
+dynamically changed.
+
+#### `menuItem.click`
+
+A `Function` that is fired when the MenuItem receives a click event.
+It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `focusedWindow` [BrowserWindow](browser-window.md)
+* `focusedWebContents` [WebContents](web-contents.md)
+
+#### `menuItem.submenu`
+
+A `Menu` (optional) containing the menu
+item's submenu, if present.
+
+#### `menuItem.type`
+
+A `String` indicating the type of the item.
+
+#### `menuItem.role`
+
+A `String` (optional) indicating the item's role, if set.
+
+#### `menuItem.accelerator`
+
+A `String` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.icon`
+
+A `NativeImage | String` (optional) indicating the
+item's icon, if set.
+
+#### `menuItem.sublabel`
+
+A `String` indicating the item's sublabel, this property can be dynamically changed.
+
 #### `menuItem.enabled`
 
 A `Boolean` indicating whether the item is enabled, this property can be
@@ -142,10 +186,15 @@ will turn off that property for all adjacent items in the same menu.
 
 You can add a `click` function for additional behavior.
 
-#### `menuItem.label`
+#### `menuItem.registerAccelerator`
 
-A `String` representing the menu items visible label.
+A `Boolean` indicating if the accelerator should be registered with the
+system or just displayed, this property can be dynamically changed.
 
-#### `menuItem.click`
+#### `menuItem.commandId`
 
-A `Function` that is fired when the MenuItem receives a click event.
+A `Number` indicating an item's sequential unique id.
+
+#### `menuItem.menu`
+
+A `Menu` that the item is a part of.
