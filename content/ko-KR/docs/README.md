@@ -55,10 +55,9 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
   * [DevTools 확장](tutorial/devtools-extension.md)
   * [커스텀 드라이버를 이용한 자동화된 테스팅](tutorial/automated-testing-with-a-custom-driver.md)
-* 패키징 
-  * [코드 사이닝](tutorial/code-signing.md)
 * [배포](tutorial/application-distribution.md) 
-  * [지원](tutorial/support.md)
+  * [지원되는 플랫폼](tutorial/support.md#supported-platforms)
+  * [코드 사이닝](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 스토어](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
