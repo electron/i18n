@@ -94,7 +94,7 @@ Envoie une demande pour obtenir tous les cookies correspondants à `filter`, `ca
 #### `cookies.set(details)`
 
 * `details` Objet 
-  * `url` String - L'url à associer au cookie.
+  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
   * `name` String (facultatif) - Le nom du cookie. Vide par défaut si omis.
   * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
