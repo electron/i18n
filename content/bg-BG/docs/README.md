@@ -55,10 +55,9 @@
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Поддържани платформи](tutorial/support.md#supported-platforms)
+  * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
