@@ -60,7 +60,6 @@ From an elevated PowerShell (run it "as Administrator"), run `electron-windows-s
 electron-windows-store `
     --input-directory C:\myelectronapp `
     --output-directory C:\output\myelectronapp `
-    --flatten true `
     --package-version 1.0.0.0 `
     --package-name myelectronapp
 ```
