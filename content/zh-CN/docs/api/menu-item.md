@@ -13,7 +13,7 @@
     * `menuItem` 菜单项
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
@@ -95,6 +95,46 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 以下为 ` MenuItem ` 实例的可用属性:
 
+#### `menuItem.id`
+
+A `String` indicating the item's unique id, this property can be dynamically changed.
+
+#### `menuItem.label`
+
+A `String` indicating the item's visible label, this property can be dynamically changed.
+
+#### `menuItem.click`
+
+A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `focusedWindow` [BrowserWindow](browser-window.md)
+* `focusedWebContents` [WebContents](web-contents.md)
+
+#### `menuItem.submenu`
+
+A `Menu` (optional) containing the menu item's submenu, if present.
+
+#### `menuItem.type`
+
+A `String` indicating the type of the item.
+
+#### `menuItem.role`
+
+A `String` (optional) indicating the item's role, if set.
+
+#### `menuItem.accelerator`
+
+A `String` (optional) indicating the item's accelerator, if set.
+
+#### `menuItem.icon`
+
+A `NativeImage | String` (optional) indicating the item's icon, if set.
+
+#### `menuItem.sublabel`
+
+A `String` indicating the item's sublabel, this property can be dynamically changed.
+
 #### `menuItem.enabled`
 
 一个 ` Boolean ` 类型的值, 指示是否启用该项, 该属性可以动态改变
@@ -109,14 +149,18 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 ` checkbox ` 菜单项将在选中时切换 ` checked ` 的开关属性。
 
-`radio` (单选) 菜单项被点击时会打开 `checked` 属性，同时，关闭同菜单下其它项的<0>checked</0> 属性。
+`单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
 
 你可以为其他行为添加`click`函数。
 
-#### `menuItem.label`
+#### `menuItem.registerAccelerator`
 
-一个表示菜单项标签的 `String`.
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
 
-#### `menuItem.click`
+#### `menuItem.commandId`
 
-当 MenuItem 接收到 click 事件时激发的`Function`.
+A `Number` indicating an item's sequential unique id.
+
+#### `menuItem.menu`
+
+A `Menu` that the item is a part of.

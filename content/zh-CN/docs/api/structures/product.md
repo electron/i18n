@@ -7,4 +7,4 @@
 * `内容长度` 数字[] - 内容的总大小，以字节为单位。
 * `价格` 数字 - 产品的本地货币化的成本。
 * `格式化价格` 字符串 - 产品的本地格式化价格。
-* `可下载的` 布尔型 - 一个布尔值，指示应用商店是否有该产品的可下载内容。
+* `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.

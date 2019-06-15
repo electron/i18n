@@ -62,7 +62,7 @@ Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 
 #### `cookies.get(filter)`
 
-* `filter` Object 
+* `filtrar` Object 
   * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
   * `name` String (opcional) - Filtra cookies por nome.
   * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
@@ -76,7 +76,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
+* `filtrar` Object 
   * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
   * `name` String (opcional) - Filtra cookies por nome.
   * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
@@ -94,7 +94,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 #### `cookies.set(details)`
 
 * `detalhes` Object 
-  * `url` String - A url que será associada ao cookie.
+  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
   * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
   * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
   * `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios. Vazio por padrão se omitido.

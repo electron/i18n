@@ -94,7 +94,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 #### `cookies.set(details)`
 
 * `details` Object 
-  * ` url `String - 与 cookie 关联的 url。
+  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
   * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
   * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
   * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。未指定时默认为空。

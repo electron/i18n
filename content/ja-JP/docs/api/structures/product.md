@@ -7,4 +7,4 @@
 * `contentLengths` Number[] - コンテンツのバイト単位の総ファイルサイズ。
 * `price` Number - 現地通貨における製品の価格。
 * `formattedPrice` String - 製品の価格形式のロケール。
-* `downloadable` Boolean - この製品が App Store でダウンロード可能かどうかを表す Boolean の値。
+* `isDownloadable` Boolean - この製品が App Store でダウンロード可能かどうかを表す Boolean の値。 少なくとも 1 つのファイルが製品に関連付けられている場合は `true` です。

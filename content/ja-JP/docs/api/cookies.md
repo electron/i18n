@@ -94,7 +94,7 @@ session.defaultSession.cookies.set(cookie)
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` String - クッキーに関連付けられるURL。
+  * `url` String - クッキーに関連付けられるURL。url が無効な場合 promise は拒否されます。
   * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
   * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
   * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。省略した場合、デフォルトは空です。

@@ -94,7 +94,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 #### `cookies.set(details)`
 
 * `ang mga detalye` Bagay 
-  * `url` String - Ang url ay maiuugnay sa cookie.
+  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
   * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
   * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.

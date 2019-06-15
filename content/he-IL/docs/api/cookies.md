@@ -83,7 +83,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
+* `callback` פונקציה 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
@@ -94,7 +94,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with.
+  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
@@ -118,7 +118,7 @@ Sets a cookie with `details`.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Function 
+* `callback` פונקציה 
   * `error` Error
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.

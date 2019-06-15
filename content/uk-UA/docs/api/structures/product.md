@@ -7,4 +7,4 @@
 * `contentLengths` Number[] - Загальний розмір вмісту, в байтах.
 * `price` Number - Вартість продукту в національній валюті.
 * `formattedPrice` String - Ціна, відформатована для місцевості.
-* `downloadable` Boolean - Булеве значення, яке вказує на те, чи має App Store завантажений вміст для цього продукту.
+* `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.

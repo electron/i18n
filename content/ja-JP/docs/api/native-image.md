@@ -152,11 +152,11 @@ console.log(image)
 
 つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+場合によっては、`NSImageName` はその文字列表現と一致しません。 その一例が `NSFolderImageName` で、その文字列表現は実際には `NSFolder` です。 そのため、画像を渡す前に正しい文字列表現を特定する必要があります。 これは以下のようにしてできます。
 
 `echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
-where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+`SYSTEM_IMAGE_NAME` は [このリスト](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) から任意の値に置き換えてください。
 
 ## クラス: NativeImage
 

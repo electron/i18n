@@ -62,6 +62,6 @@ If both commands printed a version number, you are all set! Before you get start
 
 ## 好的編輯器
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+我們推薦兩款熱門的編輯器來開發 Electron: GitHub 的 [Atom](https://atom.io/) 和微軟的 [Visual Studio Code](https://code.visualstudio.com/) Both of them have excellent JavaScript support.
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.

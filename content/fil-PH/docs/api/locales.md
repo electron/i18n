@@ -20,7 +20,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang co             | Ay Corsican                |
 | ang cs             | Ay Czech                   |
 | ang cy             | Ay Welsh                   |
-| 9904ang da         | Ay Danish                  |
+| ang da             | Ay Danish                  |
 | ang de             | Ay German                  |
 | ang de-AT          | Ay German (Austria)        |
 | ang de-CH          | Ay German (Switzerland)    |
@@ -107,7 +107,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang sd             | Ay Sindhi                  |
 | ang sh             | Ay Serbo-Croatian          |
 | ang si             | Ay Sinhalese               |
-| 0415ang sk         | Ay Slovak                  |
+| 4978ang sk         | Ay Slovak                  |
 | ang sl             | Ay Slovenian               |
 | ang sn             | Ay Shona                   |
 | ang so             | Ay Somali                  |

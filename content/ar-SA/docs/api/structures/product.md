@@ -7,4 +7,4 @@
 * `أطوال المحتوى`Number[] - الحجم الإجمالي للمحتوى بالبايت.
 * `السعر` Number - سعر المنتج بالعملة المحلية.
 * `السعر المحدد`String - السعر المحدد المحلي للمنتج.
-* `قابل للتنزيل`Boolean - قيمة منطقية تشير إلى ما إذا كان متجر التطبيقات يحتوي على محتوى قابل للتنزيل لهذا المنتج.
+* `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.

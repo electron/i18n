@@ -46,7 +46,7 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Google の Geocoding ウェブサービスにリクエストを送信するための API キーを指定できます。 これを行うには、ジオコードリクエストを行うブラウザウィンドウを開く前に、メインプロセスファイルに次のコードを配置します。
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'

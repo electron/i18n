@@ -133,12 +133,12 @@ console.log(webContents)
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
   event.preventDefault()
   const win = new BrowserWindow({
-    webContents: options.webContents, // use existing webContents if provided
+    webContents: options.webContents, // 提供されていれば既存の webContents を使う
     show: false
   })
   win.once('ready-to-show', () => win.show())
   if (!options.webContents) {
-    win.loadURL(url) // existing webContents will be navigated automatically
+    win.loadURL(url) // 自動で既存の webContents はナビゲートされる
   }
   event.newGuest = win
 })
@@ -595,7 +595,7 @@ win.loadURL('http://github.com')
 
 関連付けられたウィンドウがコンソールメッセージをロギングしたときに発行されます。 *オフスクリーンレンダリング* が有効になっているウィンドウでは発行されません。
 
-#### Event: 'preload-error'
+#### イベント: 'preload-error'
 
 戻り値:
 
@@ -603,7 +603,7 @@ win.loadURL('http://github.com')
 * `preloadPath` String
 * `error` Error
 
-Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+プリロードスクリプト `preloadPath` がハンドルされていない例外 `error` を投げたときに発行されます。
 
 #### イベント: 'ipc-message'
 
@@ -613,9 +613,9 @@ Emitted when the preload script `preloadPath` throws an unhandled exception `err
 * `channel` String
 * `...args` any[]
 
-Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+レンダラープロセスが ` ipcRenderer.send()` を介して非同期メッセージを送信したときに発生します。
 
-#### Event: 'ipc-message-sync'
+#### イベント: 'ipc-message-sync'
 
 戻り値:
 
@@ -623,7 +623,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 * `channel` String
 * `...args` any[]
 
-Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+レンダラープロセスが ` ipcRenderer.sendSync()` を介して同期メッセージを送信したときに発生します。
 
 #### イベント: 'desktop-capturer-get-sources'
 
@@ -631,7 +631,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 * `event` Event
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+レンダラプロセスで `desktopCapturer.getSources()` が呼び出されたときに発生します。 `event.preventDefault()` を呼び出すと、空のソースが返されます。
 
 #### イベント: 'remote-require'
 
@@ -697,7 +697,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
 ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
 
@@ -1212,7 +1212,7 @@ app.once('ready', () => {
 
 * `options` Object (任意) 
   * `mode` String - 指定したドック状態で開発者向けツールを開く。`right`、`bottom`、`undocked`、`detach` にできる。 省略値は最後に使用したときのドック状態。 `undocked` モードではドックを後ろにやれる。 `detach` モードではできない。
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `activate` Boolean (任意) - 開かれたデベロッパーツールウィンドウを前面に表示するかどうか。省略値は `true` です。
 
 開発者向けツールを開く。
 
@@ -1289,21 +1289,21 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は内部で JSON としてシリアライズされ、関数やプロトタイプチェーンのようなものは含まれません。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+与えられたレンダラーコンテキストの `frameId` を取得したい場合は、`webFrame.routingId` の値を使用しましょう。以下はその例です。
 
 ```js
-// In a renderer process
+// レンダラープロセス内
 console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-You can also read `frameId` from all incoming IPC messages in the main process.
+メインプロセス内の受信した IPC メッセージすべてから `frameId` を読み取ることもできます。
 
 ```js
-// In the main process
+// メインプロセス内
 ipcMain.on('ping', (event) => {
   console.info('Message came from frameId:', event.frameId)
 })
