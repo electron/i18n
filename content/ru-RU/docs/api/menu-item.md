@@ -13,7 +13,7 @@ Process: [Main](../glossary.md#main-process)
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` Строка(опционально) - Может принимать значения `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` или `windowMenu` - Определите действие пункта меню, когда указанное свойство `click` будет проигнорировано. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -97,15 +97,15 @@ The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.id`
 
-A `String` indicating the item's unique id, this property can be dynamically changed.
+`Строка` с указанием уникального id элемента, это свойство может быть динамически изменено.
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label, this property can be dynamically changed.
+`Строка` указывает видимую метку элемента, это свойство может быть динамически изменено.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+`Функция` которая выполняется, когда MenuItem получает событие щелчка. Она может быть вызвана с `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
