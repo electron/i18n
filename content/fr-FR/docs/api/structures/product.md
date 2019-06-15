@@ -7,4 +7,4 @@
 * `contentLengths` Number[] - Taille totale du contenu, en octets.
 * `price` Number - Prix du produit dans la devise locale.
 * `formattedPrice` String - Le prix formaté localement du produit.
-* `downloadable` Boolean - Une valeur booléenne qui indique si l'App Store a du contenu téléchargeable pour ce produit.
+* `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.
