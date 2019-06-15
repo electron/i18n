@@ -84,7 +84,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `options` SaveDialogOptions - ファイル保存ダイアログのオプションを設定します。 このオブジェクトは `options` パラメータ([`dialog.showSaveDialog()`](dialog.md)の)と同じプロパティを持ちます。
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+この API により、ユーザはデフォルトでダウンロードアイテム用に開く保存ダイアログのカスタムオプションを設定できます。 この API はセッションの `will-download` コールバック関数内でのみ使用できます。
 
 #### `downloadItem.getSaveDialogOptions()`
 
