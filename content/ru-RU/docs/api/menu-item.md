@@ -149,9 +149,9 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 `Сheckbox` пункт меню переключит `checked` при выборе.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`Radio` пункт меню включит его свойство `checked` при нажатии, и отключит это свойство для всех смежных пунктов в том же меню.
 
-You can add a `click` function for additional behavior.
+Вы можете добавить функцию `щелчка` для дополнительного поведения.
 
 #### `menuItem.registerAccelerator`
 
