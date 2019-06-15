@@ -1300,10 +1300,10 @@ app.on('ready', () => {
 console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-You can also read `frameId` from all incoming IPC messages in the main process.
+メインプロセス内の受信した IPC メッセージすべてから `frameId` を読み取ることもできます。
 
 ```js
-// In the main process
+// メインプロセス内
 ipcMain.on('ping', (event) => {
   console.info('Message came from frameId:', event.frameId)
 })
