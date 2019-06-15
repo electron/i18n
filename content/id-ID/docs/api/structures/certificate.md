@@ -1,4 +1,4 @@
-# Objek Sertifikat
+# Sertifikat Objek
 
 * `data` String - data PEM yang di-encode
 * `issuer` [SertifikatPokok](certificate-principal.md) - Pokok Emiten
