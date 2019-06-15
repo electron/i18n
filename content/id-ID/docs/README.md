@@ -55,10 +55,9 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Ekstensi DevTools](tutorial/devtools-extension.md)
   * [Pengujian Otomatis dengan Driver Khusus](tutorial/automated-testing-with-a-custom-driver.md)
-* Pengemasan 
-  * [Penandatanganan Kode](tutorial/code-signing.md)
 * [Distribusi](tutorial/application-distribution.md) 
-  * [Dukungan](tutorial/support.md)
+  * [Platform yang Didukung](tutorial/support.md#supported-platforms)
+  * [Penandatanganan Kode](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
