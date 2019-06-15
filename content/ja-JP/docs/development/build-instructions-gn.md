@@ -165,7 +165,7 @@ $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 
 <table>
   
-<tr><th>Host</th><th>Target</th><th>状況</th></tr>
+<tr><th>ホスト</th><th>ターゲット</th><th>状況</th></tr>
   
   <tr>
     <td>
@@ -179,24 +179,24 @@ $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
     <td>
       実験的
     </td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Windows x64</td><td>Windows x86</td><td>自動テスト済み</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>自動テスト済み</td></tr>
 </table> 
     
     <p>
-      If you test other combinations and find them to work, please update this document :)
+      他の組み合わせをテストしてうまく動作することがわかれば、このドキュメントを更新してください :)
     </p>
     
     <p>
-      See the GN reference for allowable values of <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> and <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a>.
+      <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values"><code>target_os</code></a> と <a href="https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values"><code>target_cpu</code></a> の許可されている値については、 GN リファレンスを参照してください。
     </p>
     
     <h4>
-      Windows on Arm (experimental)
+      Arm 上で Windows (実験的)
     </h4>
     
     <p>
-      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+      Arm 上の Windows 用にクロスコンパイルするには、<a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">Chromium のガイドに従って</a> 必要な依存関係、SDK およびライブラリを取得し、<code>gclient sync</code> を実行する前に環境内で <code>ELECTRON_BUILDING_WOA=1</code> でビルドします。
     </p>
     
     <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
@@ -204,7 +204,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Or (if using PowerShell):
+      もしくは (PowerShell を用いる場合) こうします。
     </p>
     
     <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
@@ -212,7 +212,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+      それから、上記のように <code>target_cpu="arm64"</code> で <code>gn gen</code> を実行します。
     </p>
     
     <h2>
