@@ -94,7 +94,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 #### `cookies.set(details)`
 
 * `details` Nesne 
-  * `url` Katar - Çerezin ilişkilendirileceği url.
+  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
