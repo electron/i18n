@@ -22,7 +22,7 @@ Tous les modules intégrés de Node.js sont pris en charge dans les Web Workers,
 
 ## Modules natifs de Node.js
 
-N’importe quel module de Node.js natif peut être chargé directement dans Web Workers, mais il est fortement recommandé de ne pas le faire. La plupart des modules natifs existants ont été écrit en assumant un environnement mono-thread, leur utilisation dans les Web Workers peut entrainer des crash et corruptions de mémoire.
+N’importe quel module de Node.js natif peut être chargé directement dans Web Workers, mais il est fortement recommandé de ne pas le faire. La plupart des modules natifs existants ont été écrit en supposant un environnement mono-thread, leur utilisation dans les Web Workers peut entrainer des crash et corruptions de mémoire.
 
 Notez que même si un module natif de Node.js est thread-safe, il n’est toujours pas sûr de le charger dans un Web Worker car la fonction `process.dlopen` n’est pas thread-safe.
 
