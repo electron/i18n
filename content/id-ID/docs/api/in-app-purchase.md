@@ -54,4 +54,4 @@ Menyelesaikan semua transaksi yang tertunda.
 
 * `date` String - Tanggal transaksi selesai dalam format ISO.
 
-Completes the pending transactions corresponding to the date.
+Selesaikan setiap transaksi tertunda.
