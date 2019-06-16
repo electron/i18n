@@ -55,10 +55,9 @@
   * [हेडलेस सीआई सिस्टम (ट्रेविस, जेनकिंस) पर परिक्षण](tutorial/testing-on-headless-ci.md)
   * [डेवटूल्स एक्सटेंशन](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [समर्थित प्लेटफ़ॉर्म](tutorial/support.md#supported-platforms)
+  * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)

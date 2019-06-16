@@ -55,10 +55,9 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools extensie](tutorial/devtools-extension.md)
   * [Geautomatiseerd testen met een aangepast stuurprogramma](tutorial/automated-testing-with-a-custom-driver.md)
-* Inpakken 
-  * [Code signeren](tutorial/code-signing.md)
 * [Distributie](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Ondersteunde platformen](tutorial/support.md#supported-platforms)
+  * [Code signeren](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)

@@ -55,10 +55,9 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Testen auf Headless CI-Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Erweiterung](tutorial/devtools-extension.md)
   * [Automatisiertes Testen mit einem benutzerdefinierten Treiber](tutorial/automated-testing-with-a-custom-driver.md)
-* Pakete erstellen 
-  * [Codesignatur](tutorial/code-signing.md)
-* [Verteilung](tutorial/application-distribution.md) 
-  * [Unterstützung](tutorial/support.md)
+* [Distribution](tutorial/application-distribution.md) 
+  * [Unterstützte Plattformen](tutorial/support.md#supported-platforms)
+  * [Code Signierung](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)

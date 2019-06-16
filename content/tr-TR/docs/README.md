@@ -55,10 +55,9 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)
   * [Özel Bir Sürücü ile Otomatik Test](tutorial/automated-testing-with-a-custom-driver.md)
-* Paketleme 
-  * [Kod İmzalama](tutorial/code-signing.md)
 * [Yayınlama](tutorial/application-distribution.md) 
-  * [Destek](tutorial/support.md)
+  * [Desteklenen Platformlar](tutorial/support.md#supported-platforms)
+  * [Kod İmzalama](tutorial/code-signing.md)
   * [Mac Uygulama Mağazası](tutorial/mac-app-store-submission-guide.md)
   * [Windows Mağaza](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)

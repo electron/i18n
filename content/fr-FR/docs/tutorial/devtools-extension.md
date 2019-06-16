@@ -34,7 +34,11 @@ En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/r
 
 **Remarque :** L'API `BrowserWindow.addDevToolsExtension` ne peut pas être appelée avant que l’événement ready du module app est émis.
 
-Le nom de l'extension est retourné par `BrowserWindow.addDevToolsExtension`, et vous pouvez donner le nom de l'extension à l'API `BrowserWindow.removeDevToolsExtension` pour le décharger.
+The extension will be remembered so you only need to call this API once per extension. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+
+### How to remove a DevTools Extension
+
+You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
 ## Extensions DevTools prises en charge
 

@@ -1,6 +1,6 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Defineer sneltoetsen.
 
 Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 

@@ -55,10 +55,9 @@
   * [ヘッドレスCIシステムでのテスト (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools エクステンション](tutorial/devtools-extension.md)
   * [カスタムドライバーを使った自動テスト](tutorial/automated-testing-with-a-custom-driver.md)
-* パッケージ化 
-  * [コード署名](tutorial/code-signing.md)
 * [配布方法](tutorial/application-distribution.md) 
-  * [サポート](tutorial/support.md)
+  * [サポートされているプラットフォーム](tutorial/support.md#supported-platforms)
+  * [コード署名](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -105,7 +104,7 @@
 * [環境変数](api/environment-variables.md)
 * [破壊的な API の変更](api/breaking-changes.md)
 
-### カスタム DOM 要素
+### カスタム DOM 要素:
 
 * [`File`オブジェクト](api/file-object.md)
 * [`<webview>`タグ](api/webview-tag.md)

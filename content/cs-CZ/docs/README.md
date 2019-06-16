@@ -55,10 +55,9 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools rozšíření](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
 * [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Podporované platformy](tutorial/support.md#supported-platforms)
+  * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)

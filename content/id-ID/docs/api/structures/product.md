@@ -1,10 +1,10 @@
-# Product Object
+# Objek Produk
 
-* `productIdentifier` String - The string that identifies the product to the Apple App Store.
-* `localizedDescription` String - A description of the product.
-* `localizedTitle` String - The name of the product.
-* `contentVersion` String - A string that identifies the version of the content.
-* `contentLengths` Number[] - The total size of the content, in bytes.
-* `price` Number - The cost of the product in the local currency.
-* `formattedPrice` String - The locale formatted price of the product.
-* `isDownloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product. `true` if at least one file has been associated with the product.
+* `productIdentifier` String - String yang mengidentifikasikan produk untuk Apple App Store.
+* `localizedDescription` String - Deskripsi produk.
+* `localizedTitle` String - Nama produk.
+* `contentVersion` String - String yang mengidentifikasikan versi konten.
+* `contentLengths` Number[] - Besar keseluruhan konten, dalam bytes.
+* `price` Number - Harga produk dalam mata uang lokal.
+* `formattedPrice` String - Harga produk dalam format mata uang lokal.
+* `isDownloadable` Boolean - Nilai boolean yang mengindikasikan apakah App Store sudah mengizinkan untuk mendowload konten produk. `true` jika setidaknya satu file terkait dengan produk.

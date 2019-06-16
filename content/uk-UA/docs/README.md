@@ -55,10 +55,9 @@
   * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Розширення DevTools](tutorial/devtools-extension.md)
   * [Автоматичне тестування за допомогою користувацького драйвера](tutorial/automated-testing-with-a-custom-driver.md)
-* Пакування 
-  * [Підпис коду](tutorial/code-signing.md)
 * [Розповсюдження](tutorial/application-distribution.md) 
-  * [Підтримка](tutorial/support.md)
+  * [Підтримувані Платформи](tutorial/support.md#supported-platforms)
+  * [Підпис коду](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -69,7 +68,7 @@
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
 * [Оновлення](tutorial/updates.md) 
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
-  * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Реалізація Оновлення у Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
 * [Getting Support](tutorial/support.md)
 
