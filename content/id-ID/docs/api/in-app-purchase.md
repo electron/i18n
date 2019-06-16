@@ -1,16 +1,16 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Pembayaran dalam aplikasi di Mac App Store.
 
 Proses: [Main](../glossary.md#main-process)
 
 ## Kejadian
 
-The `inAppPurchase` module emits the following events:
+Modul `inAppPurchase` menghasilkan even sebagai berikut:
 
-### Event: 'transactions-updated'
+### Even: 'transactions-updated'
 
-Emitted when one or more transactions have been updated.
+Dikeluarkan saat ada transaksi yang diupdate.
 
 Pengembalian:
 
@@ -19,13 +19,13 @@ Pengembalian:
 
 ## Metode
 
-The `inAppPurchase` module has the following methods:
+Modul `inAppPurchase` memiliki fungsi sebagai berikut:
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
-* `quantity` Integer (optional) - The number of items the user wants to purchase.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
+* `productID` String - Pengenal produk yang akan dibeli. (Pengenal dari `com.example.app.product1` is `product1`).
+* `quantity` Integer (optional) - Jumlah item yang akan dibeli pengguna.
+* `callback` Function (optional) - Callback yang dipanggil ketika pembayaran ditambahkan ke PaymentQueue. 
     * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
 
 You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
