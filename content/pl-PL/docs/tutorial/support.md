@@ -27,6 +27,10 @@ If you've found a bug in a [supported version](#supported-versions) of Electron,
 
 Trzy ostatnie główne wersje są wpierane przez zespół Electron. Na przykład, jeśli ostatnią wersją jest 5.0.x, to również seria 4.x.y ma wsparcie, tak jak dwa poprzednie wydania - 3.x.y oraz 2.x.y.
 
+The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+
+All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+
 ### Aktualnie wspierane wersje
 
 * 5.x

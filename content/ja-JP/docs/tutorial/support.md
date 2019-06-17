@@ -27,6 +27,10 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 最新の 3 つの主要バージョンは Electron チームによってサポートされています。 たとえば、最新リリースが 5.0.x の場合、4.x.y シリーズがサポートされます。以前の2つのリリースシリーズ 3.x.y と 2.x.y も同様です。
 
+The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+
+All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+
 ### 現在のサポート対象バージョン
 
 * 5.x

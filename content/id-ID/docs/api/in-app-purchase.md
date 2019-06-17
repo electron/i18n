@@ -1,16 +1,16 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Pembayaran dalam aplikasi di Mac App Store.
 
 Proses: [Main](../glossary.md#main-process)
 
 ## Kejadian
 
-The `inAppPurchase` module emits the following events:
+Modul `inAppPurchase` menghasilkan even sebagai berikut:
 
-### Event: 'transactions-updated'
+### Even: 'transactions-updated'
 
-Emitted when one or more transactions have been updated.
+Dikeluarkan saat ada transaksi yang diupdate.
 
 Pengembalian:
 
@@ -19,39 +19,39 @@ Pengembalian:
 
 ## Metode
 
-The `inAppPurchase` module has the following methods:
+Modul `inAppPurchase` memiliki fungsi sebagai berikut:
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
-* `quantity` Integer (optional) - The number of items the user wants to purchase.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
-    * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
+* `productID` String - Pengenal produk yang akan dibeli. (Pengenal dari `com.example.app.product1` is `product1`).
+* `quantity` Integer (optional) - Jumlah item yang akan dibeli pengguna.
+* `callback` Function (optional) - Callback yang dipanggil ketika pembayaran ditambahkan ke PaymentQueue. 
+    * `isProductValid` Boolean - Menunjukan apabila produk tersedia dan telah ditambahkan ke antrian pembayaran.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Anda harus menunggu even `transactions-updated` sesegera mungkin dan tentu saja sebelum memanggil `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - Pengenal produk yang akan didapatkan.
+* `callback` Function - Callback yang dipanggil beserta produk atau array kosong jika produk tidak tersedia. 
+    * `products` Product[] - Array dari objek [`Product`](structures/product.md)
 
-Retrieves the product descriptions.
+Mendapatkan deskripsi produk.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Mengembalikan `Boolean`, apakah pengguna bisa melakukan pembayaran.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Mengembalikan `String`, lokasi untuk menyimpan stuk transaksi.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Menyelesaikan semua transaksi yang tertunda.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - Tanggal transaksi selesai dalam format ISO.
 
-Completes the pending transactions corresponding to the date.
+Selesaikan setiap transaksi tertunda.
