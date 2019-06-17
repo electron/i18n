@@ -22,7 +22,7 @@ Processus : [Main](../glossary.md#main-process)
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Par exemple, nous aurions pu créer la même requête à 'github.com' comme suit:
 
 ```JavaScript
 const request = net.request({
