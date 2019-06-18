@@ -70,7 +70,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Implementando um Servidor de Atualizações](tutorial/updates.md#deploying-an-update-server)
   * [Implementando Atualizações em Seu App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicando Atualizações](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Recebendo suporte](tutorial/support.md)
 
 ## Tutoriais Detalhados
 
@@ -81,9 +81,9 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
   * [Mirrors e Caches Customizados](tutorial/installation.md#custom-mirrors-and-caches)
   * [Solução de Problemas](tutorial/installation.md#troubleshooting)
 * Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
+  * [Politica de versão](tutorial/electron-versioning.md)
+  * [Linha do Tempo de Lançamentos](tutorial/electron-timelines.md)
+  * [Programa de Feedback de Aplicativos](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Gerando Arquivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando Arquivos asar](tutorial/application-packaging.md#using-asar-archives)

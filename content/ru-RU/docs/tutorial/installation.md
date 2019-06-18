@@ -83,7 +83,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 ## Skip binary download
 
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo binario electron.
 
 This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
