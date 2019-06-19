@@ -11,42 +11,42 @@
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// Не підтримується
 win.setMenu(null)
-// Replace with
+// Замініть на
 win.removeMenu()
 ```
 
-## `electron.screen` in renderer process
+## `electron.screen` в процесі рендеру
 
 ```js
-// Deprecated
+// Не підтримується
 require('electron').screen
-// Replace with
+// замініть на
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `require` в рендерензі пісочниці
 
 ```js
-// Deprecated
+// Не підтримується
 require('child_process')
-// Replace with
+// Замініть на
 require('electron').remote.require('child_process')
 
-// Deprecated
+// Не підтримується
 require('fs')
-// Replace with
+// Замініть на
 require('electron').remote.require('fs')
 
-// Deprecated
+// Не підтримується
 require('os')
-// Replace with
+// Замініть на
 require('electron').remote.require('os')
 
-// Deprecated
+// Не підтримується
 require('path')
-// Replace with
+// Замініть на
 require('electron').remote.require('path')
 ```
 
@@ -56,7 +56,7 @@ require('electron').remote.require('path')
 
 The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
 
-| Property           | Deprecated Default                   | New Default |
+| Властивість        | Deprecated Default                   | New Default |
 | ------------------ | ------------------------------------ | ----------- |
 | `contextIsolation` | `false`                              | `true`      |
 | `nodeIntegration`  | `true`                               | `false`     |
