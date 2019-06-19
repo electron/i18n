@@ -33,9 +33,9 @@ docs:
   advanced: Додатково
   detailed: Детальніше
   custom_dom: Користувацькі DOM Елементи
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Модулі головного процесу
+  renderer_proc_modules: Модулі процесу рендерингу
+  both_proc_modules: Модулі для обох процесів
   footer:
     propose_change: Поліпшити цю документацію
     version_history: Історія версій
@@ -43,7 +43,7 @@ docs:
     view_all_docs: Вся документація на одній сторінці
 languages:
   choose_language: Виберіть мову для сайту
-  view_more_details: View More Language Details
+  view_more_details: Переглянути деталей по мові
   translation_progress: Прогрес перекладу
   current: поточний вибір
 community:
@@ -53,8 +53,8 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Почати</b></a> створення додатку читаючи <a href='/docs/tutorial/first-app'>керівництво швидкого старту</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсі</b></a>, слідкуючи за нами <a href='https://twitter.com/electronjs'>@electronjs</a> в Twitter та підпискою на <a href='/blog'>канал блогу</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацію на рідній мові</b></a> відвідавши <a href='/languages'>мовну сторінку</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Допомога та зворотній зв’язок</b></a> у каналі <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, чи дописуючи у <a href='https://discuss.atom.io/c/electron'>Discuss</a>, або на <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Повідомляй про проблеми безпеки на</b></a> на <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Повідомляйте про помилки</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Пропонуйте функції</b></a> відкриваючи питання в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозиторії."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Повідомити порушення Кодексу поведінки</b></a> по електронній пошті <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -71,20 +71,20 @@ community:
   awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
   meetup_notice: Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> зробіть пул реквест</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  show_releases: "Показати релізи:"
+  show_only_releases_from: "Показати релізи від:"
+  all_versions: Всі версії
+  stable_releases: Стабільні релізи
+  stable_desc: Підтримувані релізи
+  beta_releases: Бета релізи
+  beta_desc: Перевірити сумісність із запланованими змінами
+  nightly_releases: Нічні випуски
+  nightly_desc: Експерименти з майбутніми функціями
+  next: Далі
+  next_page: Наступна сторінка
+  previous: Назад
+  previous_page: Попередня сторінка
+  page: Сторінка
   all_releases: Всі релізи
   back_to_index: Назад до змісту
 electron_is_easy:
@@ -113,8 +113,8 @@ get_started:
 explore:
   title: Дослідіть API Electron
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Подивіться можливості Electron з прикладами коду та корисними підказками для створення вашого додатку."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  fiddle_title: Експерименти з Electron Fiddle
+  see_more_info: Детальніше
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
@@ -135,10 +135,10 @@ help_translate: "Допоможіть з перекладами"
 footer:
   see_the_faq: Перегляньте FAQ
 companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  title: Збудовано з Electron
+  description: Початково розроблено для редактора GitHub <a href='https://atom.io' target='_blank'>Atom</a>, та зараз використовується компаніями по цілому світу.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'Перевіряти ідеї чи створювати додатки дуже просто з Electron. Переглянь <a href=''/apps''>деякі додатки збудовані нашою спільнотою</a> чи ж <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">опублікуй свій додаток</a>.'
   view_more: Переглянути більше застосунків
   submit_your_own: надішліть власний
   something_missing: Чогось не вистачає?
@@ -207,7 +207,7 @@ pages:
     description: Spectron - це фреймворк з відкритим кодом для полегшеного написання інтеграційних тестів для вашого застосунку Electron. Цей фреймворк раздробленный на базі ChromeDriver та WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Найпростіший спосіб розпочати з Electron
   '/governance':
     title: Electron Governance
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
@@ -216,8 +216,8 @@ pages:
 landing:
   get_started: Почати зараз
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    lead_desc: Найпростіший спосіб розпочати з Electron
+    create_app: Створи свій додаток
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
@@ -232,7 +232,7 @@ governance:
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
   docstools:
-    title: Docs & Tools
+    title: Документи та інструменти
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
@@ -241,13 +241,13 @@ governance:
     title: Релізи
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: Оновлення
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: Сайт
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: Спільнота та безпека
     description: Oversees removal/bans from community.
   security:
     title: Безпека
@@ -268,7 +268,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: Відповідальність
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
