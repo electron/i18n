@@ -844,9 +844,9 @@ if (!gotTheLock) {
 
 Повертає `Promise`
 
-Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Ось приклад базової відповіді:
+Для `infoType` що дорівнює `basic`: Promise заповнюється `Object`, який містить менше атрибутів ніж виклик з `complete`. Ось приклад базової відповіді:
 
 ```js
 { auxAttributes:
@@ -871,7 +871,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`basic` використовується коли потрібна базова інформація, така як `vendorId` чи `driverId`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -899,7 +899,7 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
   * `path` String (опціонально) *Windows* - Виконуваний шлях для порівняння. За замовчуванням `process.execPath`.
   * `args` String[] (optional) *Windows* - Аргументи командного рядка для порівняння. За замовчуванням пустий масив.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Якщо ви передали параметри `path` та `args` в `app.setLoginItemSettings`, тоді вам потрібно надати такі самі параметри сюди, щоб `openAtLogin` встановились коректно.
 
 Повертає `Object`:
 
@@ -944,9 +944,9 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - Вмикає чи вимикає рендеринг [дерева спеціальних можливостей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Стандартно вимкнено.
+Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. Дивись [Спеціальні можливості Chromium](https://www.chromium.org/developers/design-documents/accessibility) для деталей. Стандартно вимкнено.
 
-This API must be called after the `ready` event is emitted.
+Цей API має викликатися після виклику події `ready`.
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
 
@@ -960,8 +960,8 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (опціонально) - Назва застосунку.
   * `applicationVersion` String (опціонально) - Версія застосунку.
   * `copyright` String (опціонально) - Інформація про авторські права.
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
+  * `version` String (опціонально) - Версія збірки застосунку. *macOS*
+  * `credits` String (опціонально) - Інформація про оплату. *macOS*
   * `website` String (optional) - The app's website. *Linux*
   * `iconPath` String (optional) - Path to the app's icon. *Linux*
 
@@ -1009,7 +1009,7 @@ Returns `Boolean` - Whether the command-line switch is present.
 
 * `switch` String - Перемикач командного рядка
 
-Returns `String` - The command-line switch value.
+Повертає `String` - значення перемикача командного рядка.
 
 **Note:** When the switch is not present, it returns empty string.
 
