@@ -352,7 +352,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Виконується коли викликається `remote.require()` в процесі рендерингу `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликається `remote.require()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає повернення модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 ### Подія: 'remote-get-global'
 
@@ -362,9 +362,9 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликається `remote.getGlobal()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню глобального значення. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### Подія: 'remote-get-builtin'
 
 Повертає:
 
@@ -374,7 +374,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-window'
+### Подія: 'remote-get-current-window'
 
 Повертає:
 
@@ -383,7 +383,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents'
+### Подія: 'remote-get-current-web-contents'
 
 Повертає:
 
@@ -392,7 +392,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### Подія: 'remote-get-guest-web-contents'
 
 Повертає:
 
@@ -573,7 +573,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 **Примітка:** При пощиренні пакету застосунку, ви повинні також надати папку `locales`.
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**Примітка:** На Windows ви маєте викликати його після виконання подій `ready`.
 
 ### `app.getLocaleCountryCode()`
 
