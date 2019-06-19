@@ -333,18 +333,18 @@ app.on('session-created', (event, session) => {
 
 Ця подія гарантовано викличеться після події `ready` модуля `app`.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Примітка:** Додаткові аргументи командного рядку можуть бути додані Chromium, такі як `--original-process-start-time`.
 
-### Event: 'desktop-capturer-get-sources'
+### Подія: 'desktop-capturer-get-sources'
 
 Повертає:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Виконується коли викликається `desktopCapturer.getSources()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` примусить повернути пусті джерела.
 
-### Event: 'remote-require'
+### Подія: 'remote-require'
 
 Повертає:
 
@@ -354,7 +354,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-global'
+### Подія: 'remote-get-global'
 
 Повертає:
 
