@@ -12,3 +12,5 @@ files:
     translation: /content/%locale%/docs/api/%original_file_name%
   - source: /content/en-US/docs/api/structures/*.md
     translation: /content/%locale%/docs/api/structures/%original_file_name%
+  - source: /content/en-US/website/blog/*.md
+    translation: /content/%locale%/website/blog/%original_file_name%
