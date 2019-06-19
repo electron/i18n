@@ -11,6 +11,7 @@ import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
 import * as Octokit from '@octokit/rest'
+import { roggy, IResponse as IRoggyResponse } from 'roggy'
 const electronDocs = require('electron-docs')
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
@@ -44,6 +45,7 @@ async function main() {
   await getMasterBranchCommit()
   await fetchTutorialsFromMasterBranch()
   await fetchWebsiteContent()
+  await fetchWebsiteBlogPosts()
 }
 
 async function fetchRelease() {
@@ -139,6 +141,18 @@ async function fetchWebsiteContent() {
   return Promise.resolve()
 }
 
+async function fetchWebsiteBlogPosts() {
+  console.log('Fetching blog posts from electron/electronjs.org#master')
+
+  const blogs = await roggy('master', {
+    owner: 'electron',
+    repository: 'electronjs.org',
+    downloadMatch: 'data/blog',
+  })
+
+  blogs.forEach(writeBlog)
+}
+
 // Utility functions
 
 function writeDoc(doc: IElectronDocsResponse) {
@@ -146,6 +160,12 @@ function writeDoc(doc: IElectronDocsResponse) {
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
   // console.log('   ' + path.relative(englishBasepath, filename))
+}
+
+function writeBlog(doc: IRoggyResponse) {
+  const filename = path.join(englishBasepath, 'website/blog', doc.filename)
+  mkdir(path.dirname(filename))
+  fs.writeFileSync(filename, doc.markdown_content)
 }
 
 function writeToPackageJSON(key: string, value: string) {
