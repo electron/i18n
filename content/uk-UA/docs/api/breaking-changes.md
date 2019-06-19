@@ -73,11 +73,11 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ## webFrame Isolated World APIs
 
 ```js
-// Deprecated
+// Припиняється підтримка
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Замініть на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -94,11 +94,11 @@ webFrame.setIsolatedWorldInfo(
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// Замініть на
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -118,7 +118,7 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// Тепер поводиться як `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
@@ -133,36 +133,36 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 ## `app`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.getAppMemoryInfo()
-// Replace with
+// Змініть на
 app.getAppMetrics()
 
-// Deprecated
+// Припиняється підтримка
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // Припиняється підтримка властивості
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Замініть на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Припиняється підтримка
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // зробити щось
   }
 })
-// Replace with
+// Замініть на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // зробити щось
   }
 })
 ```
@@ -222,7 +222,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `процес`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 const info = process.getProcessMemoryInfo()
 ```
 
@@ -238,11 +238,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Замініть на
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
