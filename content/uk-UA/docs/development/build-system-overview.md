@@ -1,8 +1,8 @@
 # Огляд Системи Збірки
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron використовує [GN](https://gn.googlesource.com/gn) для створення проектів та [ninja](https://ninja-build.org/) для білду. Конфігурації проекту можна знайти в `.gn` та `.gni` файлах.
 
-## GN Files
+## GN Файли
 
 The following `gn` files contain the main rules for building Electron:
 
@@ -15,9 +15,9 @@ Since Chromium is quite a large project, the final linking stage can take quite 
 
 Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
-## Tests
+## Тести
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** *ця секція застаріла і вміщає інформацію, яка більше не актуальна для GN-built electron.*
 
 Test your changes conform to the project coding style using:
 
