@@ -1,6 +1,6 @@
 # net
 
-> Дати HTTP/HTTPS запит, використовуючи власну мережеву бібліотеку Chromium
+> Відправити HTTP/HTTPS запити, використовуючи власну мережеву бібліотеку Chromium
 
 Процес: [Main](../glossary.md#main-process)
 
