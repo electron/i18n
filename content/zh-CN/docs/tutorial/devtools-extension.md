@@ -38,7 +38,7 @@ The extension will be remembered so you only need to call this API once per exte
 
 ### 如何移除一个 DevTools 扩展程序
 
-You can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to remove it. The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
+您可以传递扩展程序的名称到 `BrowserWindow.remoeDeveToolsExtension` API 移除它。 The name of the extension is returned by `BrowserWindow.addDevToolsExtension` and you can get the names of all installed DevTools Extensions using the `BrowserWindow.getDevToolsExtensions` API.
 
 ## 支持的 DevTools 扩展程序
 
