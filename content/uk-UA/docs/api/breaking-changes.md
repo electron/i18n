@@ -56,11 +56,11 @@ require('electron').remote.require('path')
 
 The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
 
-| Властивість        | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Властивість        | Deprecated Default                                | New Default |
+| ------------------ | ------------------------------------------------- | ----------- |
+| `contextIsolation` | `false`                                           | `true`      |
+| `nodeIntegration`  | `true`                                            | `false`     |
+| `webviewTag`       | `nodeIntegration` якщо встановлено, інакше `true` | `false`     |
 
 ## `nativeWindowOpen`
 
