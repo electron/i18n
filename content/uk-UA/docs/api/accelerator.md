@@ -63,10 +63,10 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` та `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` та `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* Клавіші цифрової клавіатури 
   * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - десяткова клавіша
+  * `numadd` - клавіша `+` на цифровій клавіатурі
+  * `numsub` - клавіша `-` на цифровій клавіатурі
+  * `nummult` - клавіша `*` на цифровій клавіатурі
+  * `numdiv` - numpad `÷` на цифровій клавіатурі

@@ -20,7 +20,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 2. Get the Azure storage account key
     
     - Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor. 
-        - Example, for `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
+        - Example, for `appveyorlibccbuilds` **ディスクストレジアカオウント名前** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
             - Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
 
 3. Get the full virtual machine image URI from Azure
