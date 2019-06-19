@@ -138,7 +138,7 @@ npm uninstall -g electron
 
 Однак, якщо ви використовуєте вбудований модуль, але все одно отримуєте помилки, найімовірніше — ви використовуєте модуль в неправильному процесі. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
 
-## The font looks blurry, what is this and what can i do?
+## Шрифт виглядає розмитим, в чому причина і як я можу допомогти?
 
 If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
 
@@ -146,7 +146,7 @@ If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivate
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Для досягнення цієї цілі, виберіть фон в конструкторі для [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
