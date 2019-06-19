@@ -952,7 +952,7 @@ app.setLoginItemSettings({
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+Показує опції панелі застосунку. Ці опції можуть бути перевизначені за допомогою `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
@@ -962,10 +962,10 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `copyright` String (опціонально) - Інформація про авторські права.
   * `version` String (опціонально) - Версія збірки застосунку. *macOS*
   * `credits` String (опціонально) - Інформація про оплату. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `website` String (опціонально) - Веб сайт застосунку. *Linux*
+  * `iconPath` String (опціонально) - Шлях до піктограми застосунку. *Linux*
 
-Встановлює інформацію про застосунок. Це перевизначить значення, визначені в файлі `.plist` на MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. On Linux, values must be set in order to be shown; there are no defaults.
+Встановлює інформацію про застосунок. Це перевизначить значення, визначені в файлі `.plist` на MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. На Linux, значення мають бути встановлені, щоб їх показувати; значення за замовчуванням відсутні.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -976,7 +976,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Тепер файл доступний поза sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
@@ -1003,7 +1003,7 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 * `switch` String - Перемикач командного рядка
 
-Returns `Boolean` - Whether the command-line switch is present.
+Повертає `Boolean` - Показує чи присутній перемикач командного рядка.
 
 ### `app.commandLine.getSwitchValue(switch)`
 
@@ -1011,7 +1011,7 @@ Returns `Boolean` - Whether the command-line switch is present.
 
 Повертає `String` - значення перемикача командного рядка.
 
-**Note:** When the switch is not present, it returns empty string.
+**Примітка:** Коли перемикач не присутній, повертається пуста стрічка.
 
 ### `app.enableSandbox()` *Експериментальний* *macOS* *Windows*
 
