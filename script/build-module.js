@@ -66,7 +66,7 @@ async function parseBlogs() {
   const markdownFiles = walk
     .entries(contentDir)
     .filter(file => file.relativePath.includes('website/blog'))
-    .filter(file => file.size > 0)
+    .filter(file => file.fullPath.endsWith('.md'))
   console.log(
     `processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`
   )
