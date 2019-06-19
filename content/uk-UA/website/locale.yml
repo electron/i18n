@@ -21,17 +21,17 @@ keyboard_modal:
   focus_search: Сфокусуватися на полі пошуку
   focus_and_clear: Foque na barra de pesquisa e apague o texto
   scroll_down: Select the nhOb
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  scroll_up: Вибрати попередній результат пошуку
+  open: Відкрити вибраний результат пошуку
+  open_new_tab: Відкрити вибраний результат пошуку у новій вкладці
 docs:
   title: Документація Electron
   description: Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Посібники: Початок роботи з Electron"
   api_reference: Довідник API
   api_structures: Структура API
   advanced: Додатково
-  detailed: In Detail
+  detailed: Детальніше
   custom_dom: Користувацькі DOM Елементи
   main_proc_modules: Main Process Modules
   renderer_proc_modules: Renderer Process Modules
