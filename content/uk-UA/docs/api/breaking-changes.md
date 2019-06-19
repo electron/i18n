@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Важливі Зміни
 
 Зміни, які ламають роботу застосунку, будуть документуватися тут, також попередження про припинення підримки по можливості додано в JS код, як мінімум за [одне велике оновлення](../tutorial/electron-versioning.md#semver) до змін.
 
@@ -54,21 +54,21 @@ require('electron').remote.require('path')
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Припиняється підтримка наступних значень за замовчуванням опцій `webPreferences` на користь нових значень.
 
-| Властивість        | Deprecated Default                                | New Default |
-| ------------------ | ------------------------------------------------- | ----------- |
-| `contextIsolation` | `false`                                           | `true`      |
-| `nodeIntegration`  | `true`                                            | `false`     |
-| `webviewTag`       | `nodeIntegration` якщо встановлено, інакше `true` | `false`     |
+| Властивість        | Старе Значення                                    | Нове Значення |
+| ------------------ | ------------------------------------------------- | ------------- |
+| `contextIsolation` | `false`                                           | `true`        |
+| `nodeIntegration`  | `true`                                            | `false`       |
+| `webviewTag`       | `nodeIntegration` якщо встановлено, інакше `true` | `false`       |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Дочірні вікна, які відкриваються з опцією `nativeWindowOpen` завжди будуть мати відключену інтеграцію з Node.js.
 
-## Privileged Schemes Registration
+## Реєстрація Привілейованих Схем
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+Були видалені API процесу рендерингу `webFrame.setRegisterURLSchemeAsPrivileged` і `webFrame.registerURLSchemeAsBypassingCSP` так само як API процесу браузера `protocol.registerStandardSchemes`. Новий API, `protocol.registerSchemesAsPrivileged` були додані і мають використовуватися для реєстрації користувацьких схем з необхідними привілегіями. Custom schemes are required to be registered before app ready.
 
 ## webFrame Isolated World APIs
 
