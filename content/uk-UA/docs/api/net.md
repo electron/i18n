@@ -1,6 +1,6 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Дати HTTP/HTTPS запит, використовуючи власну мережеву бібліотеку Chromium
 
 Процес: [Main](../glossary.md#main-process)
 
@@ -40,7 +40,7 @@ By the way, it is almost identical to how you would normally use the [HTTP](http
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Методиa
+## Методи
 
 The `net` module has the following methods:
 
