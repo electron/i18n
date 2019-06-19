@@ -625,7 +625,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Event: 'desktop-capturer-get-sources'
+#### Подія: 'desktop-capturer-get-sources'
 
 Повертає:
 
@@ -633,7 +633,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### Event: 'remote-require'
+#### Подія: 'remote-require'
 
 Повертає:
 
@@ -642,7 +642,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-global'
+#### Подія: 'remote-get-global'
 
 Повертає:
 
