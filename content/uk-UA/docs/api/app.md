@@ -678,52 +678,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: 'Останні проекти',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // має name тому `type` має бути "custom"
+    name: 'Інструменти',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'Інструмент A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'Запускає Інструмент A'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'Інструмент B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'Запускає інструмент B'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // не має ні name ні type тому `type` має бути "tasks"
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: 'Новий Проект',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: 'Створити новий проект.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'Відновити проект',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'Відновити проект'
       }
     ]
   }
@@ -816,7 +816,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - Результат імпорту.
 
-Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `0` показує успіх, тоді як будь-яке інше позначає невдачу згідно Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
