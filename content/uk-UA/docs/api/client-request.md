@@ -1,4 +1,4 @@
-## Class: ClientRequest
+## Клас: ClientRequest
 
 > Make HTTP/HTTPS requests.
 
