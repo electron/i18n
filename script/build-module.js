@@ -21,6 +21,7 @@ const plaintextFix = require('../lib/remark-plaintext-fix')
 const bashFix = require('../lib/remark-bash-fix')
 const fiddleUrls = require('../lib/remark-fiddle-urls')
 const itsReallyJS = require('../lib/remark-its-really-js')
+const eMarkdown = require('electron-markdown')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -89,7 +90,7 @@ async function parseBlogFile(file) {
 
   // parse markdown to HTML
   const markdown = fs.readFileSync(file.fullPath, 'utf8')
-  const { content } = await hubdown(markdown)
+  const { content } = await eMarkdown(markdown)
   file.content = content
 
   // remove leftover file props from walk-sync

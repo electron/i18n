@@ -96,7 +96,7 @@ describe('i18n.docs', () => {
   })
 })
 
-describe.only('i18n.blogs', () => {
+describe('i18n.blogs', () => {
   it('is an object with locales as keys', () => {
     const locales = Object.keys(i18n.blogs)
     expect(locales).includes('en-US')
