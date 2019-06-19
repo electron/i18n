@@ -514,7 +514,7 @@ app.exit(0)
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
 **[Незабаром застаріє](promisification.md)**
 
@@ -527,7 +527,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не підтримується на *macOS*.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+Повертає `Promise<NativeImage>` - заповнюється піктограмою застосунку, яка є [NativeImage](native-image.md).
 
 Витягує піктограму, що відповідає шляху.
 
@@ -536,7 +536,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
 ### `app.setPath(name, path)`
 
@@ -577,9 +577,9 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Повертає `string` - Двобуквенний код локалі операційної системи користувача по стандарту [ISO 3166](https://www.iso.org/iso-3166-country-codes.html). Значення береться з нативного API ОС.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**Примітка:** Коли неможливо визначити код локалі, повертається пуста стрічка.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -587,7 +587,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 Додає `path` до списку недавніх документів.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Цей список керується ОС. На Windows ви можете перглянути список з панелі завдань, а на macOS ви можете переглянути його з dock меню.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -603,7 +603,7 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 Цей метод встановлює поточний виконуваний файл як обробник за замовчуванням для протоколу (він же URI схема). Це дозволяє глибше інтегрувати ваш застосунок в операційну систему. Після реєстрації, всі посилання з `your-protocol://` будуть відкриватися поточним виконуваним файлом. Повне посилання, включаючи протокол, буде передаватися до вашого застосунку як параметр.
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+На Windows ви можете надати опціональні параметри `path`, шлях до вашого виконуваного файлу, та `args`, масив аргументів для передачі при запуску виконуваного файлу.
 
 **Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
 
@@ -736,11 +736,11 @@ app.setJumpList([
 
 Цей метод робить ваш застосунок "Застосунком Єдиного Екземпляру" - на відміну від дозволу запуску декількох екземплярів вашого застосунку, це буде гарантувати, що запущено тільки один екземпляр, а інші передають інформацію та припиняють роботу.
 
-Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. Якщо не вдалося отримати блокування, ви можете припустити, що інший екземпляр вашої програми вже працює з блокуванням і негайно завершується.
 
 Тобто. Цей метод повертає `true` якщо ваш процес є основним екземпляром вашої програми, і ваш додаток має продовжувати завантаження. Він повертає `false`, якщо ваш процес слід негайно припинити, оскільки він надіслав свої параметри іншому екземпляру, який вже отримав блокування.
 
-On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
+На macOS система застосовує єдиний екземпляр автоматично, коли користувач намагається відкрити інший екземпляр вашого застосунку в Finder, і події `open-file` та `open-url` викличуться для цього. Однак коли користувач запускає ваш застосунок з командного рядка система уникне механізму єдиного екземпляру і вам доведеться використовувати цей метод для його забезпечення.
 
 Приклад активації вікна головного екземпляру коли стартує другий:
 
@@ -840,11 +840,11 @@ if (!gotTheLock) {
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - Значення можуть бути як `basic` для основної інформації чи `complete` для повної інформації.
 
 Повертає `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
 For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Ось приклад базової відповіді:
 
@@ -881,7 +881,7 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
 
 Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `0` приховає бейдж.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+На macOS показує на піктограмі в панелі задач. На Linux працює тільки для Unity.
 
 **Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
 
