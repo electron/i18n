@@ -43,14 +43,14 @@
   * [Представлення Файлу для macOS BrowserWindows](tutorial/represented-file.md)
   * [Нативний Drag & Drop Файлу](tutorial/native-file-drag-drop.md)
   * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Підтримка темної теми macOS](tutorial/mojave-dark-mode-guide.md)
 * [Доступність](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Увімкнення Спеціальних Можливостей](tutorial/accessibility.md#enabling-accessibility)
 * [Тестування та відлагодження](tutorial/application-debugging.md) 
   * [Відлагодження Головного Процесу](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Відладка Головного Процесу з Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Використання Selenium і WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Тестування на віддалених CI системах (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Розширення DevTools](tutorial/devtools-extension.md)
@@ -70,7 +70,7 @@
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
   * [Реалізація Оновлення у Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Підтримка](tutorial/support.md)
 
 ## Докладні Підручники
 
@@ -80,16 +80,16 @@
   * [Проксі](tutorial/installation.md#proxies)
   * [Користувацькі Дзеркала та Кеш](tutorial/installation.md#custom-mirrors-and-caches)
   * [Виправлення Неполадок](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Випуски Electron & відгуки розробників 
+  * [Політика версійності](tutorial/electron-versioning.md)
+  * [Історія та план версій](tutorial/electron-timelines.md)
+  * [Програма зворотнього зв’язку](tutorial/app-feedback-program.md)
+* [Пакування Коду Застосунку з asar](tutorial/application-packaging.md) 
   * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
   * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Додавання Нерозпакованих Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Тестування Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -109,7 +109,7 @@
 * [Об'єкт `File`](api/file-object.md)
 * [Тег `<webview>`](api/webview-tag.md)
 * [Функція `window.open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [Об’єкт `BrowserWindowProxy`](api/browser-window-proxy.md)
 
 ### Модулі для Головного Процесу:
 
