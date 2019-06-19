@@ -68,7 +68,9 @@ async function parseBlogs() {
     .filter(file => file.relativePath.includes('website/blog'))
     .filter(file => file.fullPath.endsWith('.md'))
   console.log(
-    `processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`
+    `processing ${markdownFiles.length} files in ${
+      Object.keys(locales).length
+    } locales`
   )
 
   let blogs = await Promise.all(markdownFiles.map(parseBlogFile))
@@ -267,12 +269,14 @@ async function main() {
 
   const blogs = await parseBlogs()
   const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    console.log(blogs)
     acc[locale] = blogs
       .filter(doc => doc.locale === locale)
       .sort((a, b) => a.slug.localeCompare(b.slug))
+      .reduce((allBlogs, blog) => {
+        allBlogs[blog.href] = blog
+        return allBlogs
+      }, {})
 
-    console.log(acc)
     return acc
   }, {})
 
