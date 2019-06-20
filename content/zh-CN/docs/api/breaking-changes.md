@@ -1,4 +1,4 @@
-# Breaking Chnages
+# 重要变更
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](../tutorial/electron-versioning.md#semver).
 
@@ -11,18 +11,18 @@
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// 不推荐
 win.setMenu(null)
-// Replace with
+// 替换为
 win.removeMenu()
 ```
 
-## `electron.screen` in renderer process
+## 渲染进程中的 `electron.screen`
 
 ```js
-// Deprecated
+// 不推荐
 require('electron').screen
-// Replace with
+// 替换为
 require('electron').remote.screen
 ```
 
