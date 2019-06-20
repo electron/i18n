@@ -10,7 +10,7 @@ See the [Electron versioning doc](./electron-versioning.md) for info on how to m
 
 ## Глобальне встановлення
 
-You can also install the `electron` command globally in your `$PATH`:
+Ви також можете встановити комадну `electron` глобально в `$PATH`:
 
 ```sh
 npm install electron -g
@@ -56,7 +56,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Кеш
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Крім того, можна перевизначити локальний кеш. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` або `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`

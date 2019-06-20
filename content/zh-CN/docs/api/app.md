@@ -154,7 +154,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * ` userInfo `Object-存储的应用程序特定状态。
 
-当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 Otherwise, the operation will fail and `continue-activity-error` will be called.
+当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则，操作会失败，并且触发 `continue-activity-error`
 
 ### 事件: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+默认行为是取消所有身份验证。 To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -335,7 +335,7 @@ This event will be emitted inside the primary instance of your application when 
 
 **Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
 
-### Event: 'desktop-capturer-get-sources'
+### 事件: 'desktop-capturer-get-sources'
 
 返回:
 
@@ -881,7 +881,7 @@ machineModelVersion: '11.5' }
 
 设置当前应用程序的计数器标记. 将计数设置为 ` 0 ` 将隐藏该标记。
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+在macOS系统中，它会展示在dock图标上。在 Linux 系统中，它只会在Unity启动器中展示。
 
 **注意:** 联合启动器需要`.desktop`文件的存在和工作， 获得更多信息请阅读 [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher)。
 

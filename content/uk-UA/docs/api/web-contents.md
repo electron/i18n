@@ -625,7 +625,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Event: 'desktop-capturer-get-sources'
+#### Подія: 'desktop-capturer-get-sources'
 
 Повертає:
 
@@ -633,7 +633,7 @@ Emitted when the renderer process sends a synchronous message via `ipcRenderer.s
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### Event: 'remote-require'
+#### Подія: 'remote-require'
 
 Повертає:
 
@@ -642,7 +642,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-global'
+#### Подія: 'remote-get-global'
 
 Повертає:
 
@@ -651,7 +651,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-builtin'
+#### Подія: 'remote-get-builtin'
 
 Повертає:
 
@@ -660,7 +660,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-current-window'
+#### Подія: 'remote-get-current-window'
 
 Повертає:
 
@@ -668,7 +668,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents'
+#### Подія: 'remote-get-current-web-contents'
 
 Повертає:
 
@@ -676,7 +676,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
+#### Подія: 'remote-get-guest-web-contents'
 
 Повертає:
 

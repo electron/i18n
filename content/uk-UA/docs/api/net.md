@@ -1,10 +1,10 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Відправити HTTP/HTTPS запити, використовуючи власну мережеву бібліотеку Chromium
 
 Процес: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+Модуль `net` це API для запитів клієнта через HTTP(S). Це подібно модулям [HTTP](https://nodejs.org/api/http.html) та [HTTPS](https://nodejs.org/api/https.html) в Node.js, але використовує власну мережеву бібліотеку Chromium в противагу власним реалізаціям від Node.js, обіцяючи кращу підтримку для веб проксі.
 
 The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
 
@@ -40,14 +40,14 @@ By the way, it is almost identical to how you would normally use the [HTTP](http
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Методиa
+## Методи
 
-The `net` module has the following methods:
+Модуль `net` має наступні методи:
 
 ### `net.request(options)`
 
 * `options` (Object | String) - The `ClientRequest` constructor options.
 
-Returns [`ClientRequest`](./client-request.md)
+Повертає [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.

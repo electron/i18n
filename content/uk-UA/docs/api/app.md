@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Відбуваєтся коли `webContents` робить базову автентифікацію.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+За замовчуванням скасовує всі автентифікації. Щоб перевизначити це ви маєте скасувати поведінку за замовчуванням за допомогою `event.preventDefault()` і викликати `callback(username, password)` з обліковими даними.
 
 ```javascript
 const { app } = require('electron')
@@ -327,24 +327,24 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - Масив параметрів командного рядка другого екземпляру
 * `workingDirectory` String - Робоча директорія другого екземпляру
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+Ця подія буде викликана всередині головного інстансу вашого застосунку коли другорядний інстанс працює і викликає `app.requestSingleInstanceLock()`.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
+`argv` це Array аргументів командного рядка другорядного інстансу, `workingDirectory` його поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
 Ця подія гарантовано викличеться після події `ready` модуля `app`.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Примітка:** Додаткові аргументи командного рядку можуть бути додані Chromium, такі як `--original-process-start-time`.
 
-### Event: 'desktop-capturer-get-sources'
+### Подія: 'desktop-capturer-get-sources'
 
 Повертає:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Виконується коли викликається `desktopCapturer.getSources()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` примусить повернути пусті джерела.
 
-### Event: 'remote-require'
+### Подія: 'remote-require'
 
 Повертає:
 
@@ -352,9 +352,9 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликається `remote.require()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає повернення модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
-### Event: 'remote-get-global'
+### Подія: 'remote-get-global'
 
 Повертає:
 
@@ -362,9 +362,9 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликається `remote.getGlobal()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню глобального значення. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### Подія: 'remote-get-builtin'
 
 Повертає:
 
@@ -372,27 +372,27 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликаєтсья `remote.getBuiltin()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
-### Event: 'remote-get-current-window'
-
-Повертає:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents'
+### Подія: 'remote-get-current-window'
 
 Повертає:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликається `remote.getCurrentWindow()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### Подія: 'remote-get-current-web-contents'
+
+Повертає:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Виконується коли викликається `remote.getCurrentWebContents()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
+
+### Подія: 'remote-get-guest-web-contents'
 
 Повертає:
 
@@ -400,7 +400,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process 
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Виконується коли викликається `<webview>.getWebContents()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене встановленням `event.returnValue`.
 
 ## Методи
 
@@ -420,7 +420,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process of `
 
 Негайно виходить з `exitCode`. `exitCode` за замовчуванням 0.
 
-All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
+Всі вікна будуть закриті негайно без перепитування користувача, всі події `before-quit` та `will-quit` не будуть викликатися.
 
 ### `app.relaunch([options])`
 
@@ -430,7 +430,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 Перезавантажує застосуонк, якщо поточний екземпляр існує.
 
-By default, the new instance will use the same working directory and command line arguments with current instance. Якщо визначені `args`, вони будуть передані як аргументи командного рядку замість поточних. Якщо визначений `execPath`, він буде використаний для запуску застосунку.
+За замовчуванням новий екземпляр буде використовувати ті самі робочу директорію і аргументи командного рядку. Якщо визначені `args`, вони будуть передані як аргументи командного рядку замість поточних. Якщо визначений `execPath`, він буде використаний для запуску застосунку.
 
 Зауважте, даний метод не зупиняє застосунок, потрібно викликати `app.quit` чи `app.exit` після виклику `app.relaunch`, щоб застосунок перезапустився.
 
@@ -451,7 +451,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. Може бути використана як зручна альтернатива для перевірки `app.isReady()` і підписки на подію `ready`, якщо застосунок ще не готовий.
+Повертає `Promise<void>` - заповнюється, коли Electron ініціалізовано. Може бути використана як зручна альтернатива для перевірки `app.isReady()` і підписки на подію `ready`, якщо застосунок ще не готовий.
 
 ### `app.focus()`
 
@@ -473,7 +473,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. Може бу�
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Повертає `String` - Шлях до спеціальної директорії чи файлу, що відповідає `name`. При невдачі викидається `Error`.
 
 Ви можете запитувати наступні шляхи по name:
 
@@ -514,9 +514,9 @@ Returns `String` - A path to a special directory or file associated with `name`.
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
-**[Deprecated Soon](promisification.md)**
+**[Незабаром застаріє](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -527,7 +527,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не підтримується на *macOS*.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+Повертає `Promise<NativeImage>` - заповнюється піктограмою застосунку, яка є [NativeImage](native-image.md).
 
 Витягує піктограму, що відповідає шляху.
 
@@ -536,7 +536,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
 ### `app.setPath(name, path)`
 
@@ -573,13 +573,13 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 **Примітка:** При пощиренні пакету застосунку, ви повинні також надати папку `locales`.
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**Примітка:** На Windows ви маєте викликати його після виконання подій `ready`.
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Повертає `string` - Двобуквенний код локалі операційної системи користувача по стандарту [ISO 3166](https://www.iso.org/iso-3166-country-codes.html). Значення береться з нативного API ОС.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**Примітка:** Коли неможливо визначити код локалі, повертається пуста стрічка.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -587,7 +587,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 Додає `path` до списку недавніх документів.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Цей список керується ОС. На Windows ви можете перглянути список з панелі завдань, а на macOS ви можете переглянути його з dock меню.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -603,7 +603,7 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 Цей метод встановлює поточний виконуваний файл як обробник за замовчуванням для протоколу (він же URI схема). Це дозволяє глибше інтегрувати ваш застосунок в операційну систему. Після реєстрації, всі посилання з `your-protocol://` будуть відкриватися поточним виконуваним файлом. Повне посилання, включаючи протокол, буде передаватися до вашого застосунку як параметр.
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+На Windows ви можете надати опціональні параметри `path`, шлях до вашого виконуваного файлу, та `args`, масив аргументів для передачі при запуску виконуваного файлу.
 
 **Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
 
@@ -678,52 +678,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: 'Останні проекти',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // має name тому `type` має бути "custom"
+    name: 'Інструменти',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'Інструмент A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'Запускає Інструмент A'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'Інструмент B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'Запускає інструмент B'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // не має ні name ні type тому `type` має бути "tasks"
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: 'Новий Проект',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: 'Створити новий проект.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'Відновити проект',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'Відновити проект'
       }
     ]
   }
@@ -736,11 +736,11 @@ app.setJumpList([
 
 Цей метод робить ваш застосунок "Застосунком Єдиного Екземпляру" - на відміну від дозволу запуску декількох екземплярів вашого застосунку, це буде гарантувати, що запущено тільки один екземпляр, а інші передають інформацію та припиняють роботу.
 
-Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. Якщо не вдалося отримати блокування, ви можете припустити, що інший екземпляр вашої програми вже працює з блокуванням і негайно завершується.
 
 Тобто. Цей метод повертає `true` якщо ваш процес є основним екземпляром вашої програми, і ваш додаток має продовжувати завантаження. Він повертає `false`, якщо ваш процес слід негайно припинити, оскільки він надіслав свої параметри іншому екземпляру, який вже отримав блокування.
 
-On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
+На macOS система застосовує єдиний екземпляр автоматично, коли користувач намагається відкрити інший екземпляр вашого застосунку в Finder, і події `open-file` та `open-url` викличуться для цього. Однак коли користувач запускає ваш застосунок з командного рядка система уникне механізму єдиного екземпляру і вам доведеться використовувати цей метод для його забезпечення.
 
 Приклад активації вікна головного екземпляру коли стартує другий:
 
@@ -816,7 +816,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - Результат імпорту.
 
-Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `0` показує успіх, тоді як будь-яке інше позначає невдачу згідно Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -840,13 +840,13 @@ if (!gotTheLock) {
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - Значення можуть бути як `basic` для основної інформації чи `complete` для повної інформації.
 
-Returns `Promise`
+Повертає `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+Для `infoType` що дорівнює `basic`: Promise заповнюється `Object`, який містить менше атрибутів ніж виклик з `complete`. Ось приклад базової відповіді:
 
 ```js
 { auxAttributes:
@@ -871,7 +871,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`basic` використовується коли потрібна базова інформація, така як `vendorId` чи `driverId`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -881,7 +881,7 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
 
 Встановлює бейдж лічильника для поточного застосунку. Встановлення count в `0` приховає бейдж.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+На macOS показує на піктограмі в панелі задач. На Linux працює тільки для Unity.
 
 **Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -899,7 +899,7 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
   * `path` String (опціонально) *Windows* - Виконуваний шлях для порівняння. За замовчуванням `process.execPath`.
   * `args` String[] (optional) *Windows* - Аргументи командного рядка для порівняння. За замовчуванням пустий масив.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Якщо ви передали параметри `path` та `args` в `app.setLoginItemSettings`, тоді вам потрібно надати такі самі параметри сюди, щоб `openAtLogin` встановились коректно.
 
 Повертає `Object`:
 
@@ -944,15 +944,15 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - Вмикає чи вимикає рендеринг [дерева спеціальних можливостей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Стандартно вимкнено.
+Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. Дивись [Спеціальні можливості Chromium](https://www.chromium.org/developers/design-documents/accessibility) для деталей. Стандартно вимкнено.
 
-This API must be called after the `ready` event is emitted.
+Цей API має викликатися після виклику події `ready`.
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+Показує опції панелі застосунку. Ці опції можуть бути перевизначені за допомогою `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
@@ -960,12 +960,12 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (опціонально) - Назва застосунку.
   * `applicationVersion` String (опціонально) - Версія застосунку.
   * `copyright` String (опціонально) - Інформація про авторські права.
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `version` String (опціонально) - Версія збірки застосунку. *macOS*
+  * `credits` String (опціонально) - Інформація про оплату. *macOS*
+  * `website` String (опціонально) - Веб сайт застосунку. *Linux*
+  * `iconPath` String (опціонально) - Шлях до піктограми застосунку. *Linux*
 
-Встановлює інформацію про застосунок. This will override the values defined in the app's `.plist` file on MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. On Linux, values must be set in order to be shown; there are no defaults.
+Встановлює інформацію про застосунок. Це перевизначить значення, визначені в файлі `.plist` на MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. На Linux, значення мають бути встановлені, щоб їх показувати; значення за замовчуванням відсутні.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -976,11 +976,11 @@ Show the app's about panel options. These options can be overridden with `app.se
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Тепер файл доступний поза sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
+Start accessing a security scoped resource. За допомогою цієї функції застосунки Electron, що зроблені для Mac App Store, можуть отримувати доступ поза їх пісочницею для доступу до файлів обраних користувачем. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -1003,19 +1003,19 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 * `switch` String - Перемикач командного рядка
 
-Returns `Boolean` - Whether the command-line switch is present.
+Повертає `Boolean` - Показує чи присутній перемикач командного рядка.
 
 ### `app.commandLine.getSwitchValue(switch)`
 
 * `switch` String - Перемикач командного рядка
 
-Returns `String` - The command-line switch value.
+Повертає `String` - значення перемикача командного рядка.
 
-**Note:** When the switch is not present, it returns empty string.
+**Примітка:** Коли перемикач не присутній, повертається пуста стрічка.
 
 ### `app.enableSandbox()` *Експериментальний* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+Вмикає повний режим пісочниці для app.
 
 Цей метод може викликатися лише до готовності застосунку.
 
@@ -1025,11 +1025,11 @@ Enables full sandbox mode on the app.
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+Повертає `Boolean` - Показує чи переміщення було успішним. Буль ласка, майте на увазі, що якщо переміщення було успішним, ваш застосунок зупиниться та перезапуститься.
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+За замовчуванням, діалогу пітвердження не буде показано. Якщо ви хочете дозволити користувачу підтверджувати операцію, потрібно буде використати [`dialog`](dialog.md) API.
 
-**Примітка:** Цей метод викидає помилку, якщо щось окрім користувача спричиняє невдачу переміщення. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Повідомлення в помилці має бути інформативним і точно пояснити, що пішло не так
+**Примітка:** Цей метод викидає помилку, якщо щось окрім користувача спричиняє невдачу переміщення. Якщо користувач скасовує переміщення, метод поверне false. Якщо нам не вдалося копіювання, тоді метод викине помилку. Повідомлення в помилці має бути інформативним і точно пояснити, що пішло не так
 
 ### `app.dock.bounce([type])` *macOS*
 

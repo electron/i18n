@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Важливі Зміни
 
 Зміни, які ламають роботу застосунку, будуть документуватися тут, також попередження про припинення підримки по можливості додано в JS код, як мінімум за [одне велике оновлення](../tutorial/electron-versioning.md#semver) до змін.
 
@@ -11,42 +11,42 @@
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// Не підтримується
 win.setMenu(null)
-// Replace with
+// Замініть на
 win.removeMenu()
 ```
 
-## `electron.screen` in renderer process
+## `electron.screen` в процесі рендеру
 
 ```js
-// Deprecated
+// Не підтримується
 require('electron').screen
-// Replace with
+// замініть на
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `require` в рендерензі пісочниці
 
 ```js
-// Deprecated
+// Не підтримується
 require('child_process')
-// Replace with
+// Замініть на
 require('electron').remote.require('child_process')
 
-// Deprecated
+// Не підтримується
 require('fs')
-// Replace with
+// Замініть на
 require('electron').remote.require('fs')
 
-// Deprecated
+// Не підтримується
 require('os')
-// Replace with
+// Замініть на
 require('electron').remote.require('os')
 
-// Deprecated
+// Не підтримується
 require('path')
-// Replace with
+// Замініть на
 require('electron').remote.require('path')
 ```
 
@@ -54,30 +54,30 @@ require('electron').remote.require('path')
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Припиняється підтримка наступних значень за замовчуванням опцій `webPreferences` на користь нових значень.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Властивість        | Старе Значення                                    | Нове Значення |
+| ------------------ | ------------------------------------------------- | ------------- |
+| `contextIsolation` | `false`                                           | `true`        |
+| `nodeIntegration`  | `true`                                            | `false`       |
+| `webviewTag`       | `nodeIntegration` якщо встановлено, інакше `true` | `false`       |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Дочірні вікна, які відкриваються з опцією `nativeWindowOpen` завжди будуть мати відключену інтеграцію з Node.js.
 
-## Privileged Schemes Registration
+## Реєстрація Привілейованих Схем
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+Були видалені API процесу рендерингу `webFrame.setRegisterURLSchemeAsPrivileged` і `webFrame.registerURLSchemeAsBypassingCSP` так само як API процесу браузера `protocol.registerStandardSchemes`. Новий API, `protocol.registerSchemesAsPrivileged` були додані і мають використовуватися для реєстрації користувацьких схем з необхідними привілегіями. Користувацькі схеми є обов'язковими для реєстрації перед готовністю застосунку.
 
 ## webFrame Isolated World APIs
 
 ```js
-// Deprecated
+// Припиняється підтримка
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Замініть на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -94,11 +94,11 @@ webFrame.setIsolatedWorldInfo(
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// Замініть на
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -118,13 +118,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// Тепер поводиться як `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Коли пишуться нативні модулі для Windows, змінна `win_delay_load_hook` в `binding.gyp` модуля має бути true (значення за замовчуванням). Якщо цей хук не присутній, то нативний модуль не буде завантажуватися на Windows, з повідомленням про помилку вигляду `Cannot find module`. Дивіться [інструкцію про нативні модулі](/docs/tutorial/using-native-node-modules.md) для деталей.
 
 # Зміни API (3.0)
 
@@ -133,36 +133,36 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 ## `app`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.getAppMemoryInfo()
-// Replace with
+// Змініть на
 app.getAppMetrics()
 
-// Deprecated
+// Припиняється підтримка
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // Припиняється підтримка властивості
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Замініть на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Припиняється підтримка
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // зробити щось
   }
 })
-// Replace with
+// Замініть на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // зробити щось
   }
 })
 ```
@@ -222,7 +222,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `процес`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 const info = process.getProcessMemoryInfo()
 ```
 
@@ -238,11 +238,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Замініть на
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })

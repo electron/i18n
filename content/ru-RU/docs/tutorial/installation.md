@@ -45,10 +45,10 @@ npm install --platform=win32 electron
 Можно использовать переменную окружения, чтобы переопределить базовый URL, по которому ищутся бинарники или имена файлов. URL для `electron-download` выглядит таким образом:
 
 ```txt
-url = ссылка + папка + '/' + название файла
+url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-Например, китайское зеркало:
+На примере с зеркалом Китая:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -83,7 +83,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 ## Skip binary download
 
-Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo binario electron.
+When installing the `electron` NPM package, it automatically downloads the electron binary.
 
 This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
 
