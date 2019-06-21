@@ -83,14 +83,14 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 ## Skip binary download
 
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+当您在安装 `electron` NPM 包时, 它会自动下载 electron 的二进制包。
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+当在CI环境中 测试另一个组件的时候，这可能是不必要的。
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+为了防止当您安装所有 npm 依赖关系时下载二进制文件，您可以设置环境变量 `ELECTRON_SKIP_BINARY_DOWNODD`。 E.g.:
 
 ```sh
-ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+ELECRON_SKIP_BINARY_DOWNOAD=1 npm install
 ```
 
 ## 故障排查
