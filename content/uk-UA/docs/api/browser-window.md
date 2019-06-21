@@ -329,14 +329,14 @@ window.onbeforeunload = (e) => {
 
 Викликається коли вікно змінює розмір.
 
-#### Event: 'will-move' *Windows*
+#### Подія: 'will-move' *Windows*
 
 Повертає:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Позиція куди буде пересуното вікно.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Викликається перед тим як вікно буде пересунуто. Виклик `event.preventDefault()` запобігає пересуванню вікна.
 
 Зауважте, що подія викликається тільки тоді коли розмір вікна змінюється вручну. Зміна розміру через `setBounds`/`setSize` не буде викликати цієї події.
 
@@ -366,16 +366,16 @@ Emitted before the window is moved. Calling `event.preventDefault()` will preven
 
 Викликається коли вікно виходить з повноекранного режиму через HTML API.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Подія: 'always-on-top-changed' *macOS*
 
 Повертає:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
 
-Emitted when the window is set or unset to show always on top of other windows.
+Викликається при вмиканні чи вимиканні опції завжди показувати вікно поверх інших вікон.
 
-#### Event: 'app-command' *Windows* *Linux*
+#### Подія: 'app-command' *Windows* *Linux*
 
 Повертає:
 
@@ -397,7 +397,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explictly supported on Linux:
+Наступні команди явно підтримуються на Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -643,7 +643,7 @@ win.loadURL('https://github.com')
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Повертає `Boolean` - Чи вікно в нормальному стані (не максимізоване, не мінімізоване, не в режимі на повний екран).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -654,7 +654,7 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 
 Розглянемо звичайне вікно з HD відеоплеєром та елементами його керування. Нехай є 15 пікселів елементів керування на лівому краї, 25 пікселів на правому та 50 пікселів під плеєром. Щоб підтримувати пропорції 16:9 (стандарт для HD @1920x1080) з самим плеєром, потрібно викликати функцію за параметрами 16/9 та [ 40, 50 ]. Другому параметру не цікаво де додаткові ширина та висота розміщені, важливо, що вони є. Додайте будь-які додаткові ширину та висоту, які ви маєте в межах загального вмісту.
 
-Calling this function with a value of `0` will remove any previously set aspect ratios.
+Виклик цієї функції з значенням `0` видалить всі попередньо встановлені співвідношення.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
