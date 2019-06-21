@@ -327,7 +327,7 @@ window.onbeforeunload = (e) => {
 
 #### Подія: 'resize'
 
-Emitted after the window has been resized.
+Викликається коли вікно змінює розмір.
 
 #### Event: 'will-move' *Windows*
 
