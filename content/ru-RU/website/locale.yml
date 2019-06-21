@@ -27,14 +27,14 @@ keyboard_modal:
 docs:
   title: Документация Electron
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">FAQ</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Руководства: Начало работы с Electron"
   api_reference: Справка по API
   api_structures: Структуры API
   advanced: Расширенный
-  detailed: In Detail
+  detailed: В деталях
   custom_dom: Пользовательские DOM-элементы
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
+  main_proc_modules: Модули основного процесса
+  renderer_proc_modules: Модули процесса визуализации
   both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: Улучшить этот документ
@@ -136,7 +136,7 @@ footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 companies:
   title: Создано на Electron
-  description: Изначально был разработан для <a href='https://atom.io' target='_blank'>редактора Atom</a>, принадлежащий компании GitHub, Electron с тех пор был принят компаниями по всему миру.
+  description: Изначально разработанный для принадлежащего компании GitHub <a href='https://atom.io' target='_blank'>редактора Atom</a>, Electron был принят компаниями по всему миру.
 apps:
   description: 'С помощью Electron, создавать настольные приложения для Вашей компании или идеи стало проще. Проверьте <a href=''/apps''>несколько приложений, созданных сообществом</a>, или <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">добавьте свое собственное</a>.'
   view_more: Просмотреть другие приложения
