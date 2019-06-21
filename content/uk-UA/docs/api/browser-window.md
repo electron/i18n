@@ -684,10 +684,10 @@ Resizes and moves the window to the supplied bounds. Any properties that are not
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-// set all bounds properties
+// встановлює всі властивості
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
 
-// set a single bounds property
+// встановлює одну властивість
 win.setBounds({ width: 100 })
 
 // { x: 440, y: 225, width: 100, height: 600 }
