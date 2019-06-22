@@ -4,4 +4,4 @@
 * ` name `字符串--screen源将被命名为 `Entire Screen ` 或 `Screen<index> `, 而window源的名称将与window标题匹配。
 * `thumbnail`[NativeImage](../native-image.md) - 缩略图图像。 ** 注意: **无法保证缩略图的大小与传递给 ` desktopCapturer. getSources ` 的 ` options ` 中指定的 ` thumbnailSize ` 相同。 实际大小取决于screen或window的比例。
 * `display_id` 字符串类型 - 与对应[ Display ](display.md)的` id `相同的唯一标识，Display由[ Screen API ](../screen.md)返回。 在某些平台中，与`id`域中的`XX`部分相等，其他平台中则不同。 如果不可用，它将是一个空字符串。
-* `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. The size of the icon is not known in advance and depends on what the the application provides.
+* `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. 图标的大小无法事先知道，它取决于提供的应用程序。
