@@ -70,7 +70,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Implementar un servidor de actualización](tutorial/updates.md#deploying-an-update-server)
   * [Implementación de actualizaciones en su aplicación](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicar actualizaciones](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Obteniendo soporte](tutorial/support.md)
 
 ## Tutoriales detallados
 
