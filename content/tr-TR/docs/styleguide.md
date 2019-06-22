@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# Electron Dokümantasyon Stil Rehberi
 
 Electron belgeleri yazmak için rehberler.
 
