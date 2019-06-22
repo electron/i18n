@@ -1,4 +1,4 @@
-# Electron 문서 스타일 안내
+# Electron Documentation Style Guide
 
 Electron 문서 작성 가이드입니다.
 

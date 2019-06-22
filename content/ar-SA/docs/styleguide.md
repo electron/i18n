@@ -1,4 +1,4 @@
-# دليل أسلوب وثائق إلكترون
+# Electron Documentation Style Guide
 
 هذه هي المبادئ التوجيهية لكتابة وثائق إلكترون.
 
@@ -164,7 +164,7 @@
   
   * [`نصوص`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
   * [`الرقم`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-  * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+  * [`الكائنات`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
   * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
   * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
   * Or a custom type like Electron's [`WebContent`](api/web-contents.md)

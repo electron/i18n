@@ -1,4 +1,4 @@
-# סגנון כתיבת התיעוד של Electron
+# Electron Documentation Style Guide
 
 אלו הקווים המנחים לכתיבת תיעוד ל־Electron.
 

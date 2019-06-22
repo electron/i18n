@@ -1,4 +1,4 @@
-# Electron 文档风格指南
+# Electron Documentation Style Guide
 
 这里是一些编写 Electron 文档的指南.
 
@@ -162,7 +162,7 @@ required[, optional]
 
 下面的方法是每个参数更加详细的信息。 参数的类型由常见类型表示:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`字符串`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object - 过滤器对象，包含过滤参数`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)

@@ -1,4 +1,4 @@
-# Electron Documentatie Styleguide
+# Electron Documentation Style Guide
 
 Dit zijn de richtlijnen voor het schrijven van Electron documentatie.
 

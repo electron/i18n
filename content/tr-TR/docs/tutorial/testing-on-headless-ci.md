@@ -6,7 +6,7 @@ Chronium'a dayanan Electron'un, çalışması için bir ekran sürücüsü gerek
 
 Önce  Xvfb'yi </ 0> yükleyin. X11, ekran sunucusu protokolünü uygulayan sanal çerçeve tampon belleğidir - ekran görüntüsü göstermeden bellekteki tüm grafik işlemleri gerçekleştirir; tam da ihtiyacımız olan şey budur.</p> 
 
-Ardından, bir sanal xvfb ekranı oluşturun ve ona işaret eden DISPLAY adlı bir çevre değişkenini verin. Electron'da Chromium otomatik olarak `$DISPLAY` arar, bu nedenle uygulamanıza başka bir yapılandırma gerekli değildir. Bu adım, Paul Betts'in [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe)'si ile otomatik hale getirilebilir: Test komutlarınızı `xvfb-maybe` ile birlikte ekleyin ve küçük araç, mevcut sistem tarafından isteniyorsa, xvfb'yi otomatik olarak yapılandıracaktır. On Windows or macOS, it will do nothing.
+Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Electron'da Chromium otomatik olarak `$DISPLAY` arar, bu nedenle uygulamanıza başka bir yapılandırma gerekli değildir. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
@@ -36,7 +36,7 @@ Jenkins için, bir [Xvfb girişi mevcuttur](https://wiki.jenkins-ci.org/display/
 
 ### CI Döngüsü
 
-Circle CI müthiş ve xvfb'ye sahip ve `$DISPLAY` [zaten kurulu, dolayısıyla başka bir yapılandırmaya gerek yok](https://circleci.com/docs/environment#browsers).
+Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 

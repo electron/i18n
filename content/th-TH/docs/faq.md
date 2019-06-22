@@ -137,7 +137,7 @@ npm uninstall -g electron
 
 อย่างไรก็ตามหากคุณกำลังใช้โมดูลในตัว แต่ยังคงได้รับข้อผิดพลาดนี้อยู่ มีโอกาสมากที่คุณกำลังใช้โมดูลในกระบวนการที่ไม่ถูกต้อง ตัวอย่างเช่น `electron.app` สามารถใช้ได้ในกระบวนการหลักเท่านั้นในขณะที่ </code> ใช้ได้เฉพาะในกระบวนการตัวแสดงภาพเท่านั้น
 
-## The font looks blurry, what is this and what can i do?
+## The font looks blurry, what is this and what can I do?
 
 หาก [ การลบรอยหยักย่อยพิกเซล ](http://alienryderflex.com/sub_pixel/) ถูกปิดการใช้งานตัวอักษรบนหน้าจอ LCD อาจดูไม่ชัด ตัวอย่าง:
 
@@ -154,6 +154,6 @@ let win = new BrowserWindow({
 })
 ```
 
-เอฟเฟกต์สามารถมองเห็นได้เฉพาะบนหน้าจอ LCD (บาง?) แม้ว่าคุณจะไม่เห็นความแตกต่าง แต่ผู้ใช้ของคุณบางคนอาจ เป็นการดีที่สุดที่จะตั้งค่าพื้นหลังด้วยวิธีนี้เสมอเว้นแต่คุณจะมีเหตุผลที่จะไม่ทำเช่นนั้น
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 ขอให้สังเกตว่าเพียงแค่การตั้งค่าพื้นหลังใน CSS ไม่มีผลที่ต้องการ

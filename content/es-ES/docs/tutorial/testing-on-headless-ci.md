@@ -6,7 +6,7 @@ Al estar basado en Chromium, Electron requiere un controlador para funcionar. If
 
 Primero, instala [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Es un framebuffer virtual, implementando el protocolo de servidor de pantalla X11 - realiza todas las operaciones gráficas en la memoria sin mostrar nada en el monitor, que es exactamente lo que necesitamos.
 
-Luego, crea una pantalla xvfb virtual y exporta una variable de entorno llamada PANTALLA que apunta a él. Chromium en electron buscará automáticamente por `$DISPLAY`, así que su aplicación no requerirá más configuraciones. Este paso puede ser automatizado con el [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) de Paul Betts: Anteponga los comandos de su prueba con `xvfb-maybe` y la pequeña herramienta configurará automáticamente xvfb, si es requerido por el sistema. En Windows o macOS, no hará nada.
+Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium en electron buscará automáticamente por `$DISPLAY`, así que su aplicación no requerirá más configuraciones. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. En Windows o macOS, no hará nada.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
@@ -36,7 +36,7 @@ Para Jenkins, un [plugin de Xvfb está disponible](https://wiki.jenkins-ci.org/d
 
 ### Circle CI
 
-Circle CI es impresionante y tiene xvfb and `$DISPLAY` [ya configurados, por lo que no es necesaria ninguna configuración adicional](https://circleci.com/docs/environment#browsers).
+Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 

@@ -1,4 +1,4 @@
-# Elektron Dokumentasi Styleguide
+# Electron Documentation Style Guide
 
 Ini adalah pedoman untuk menulis dokumentasi Elektron.
 

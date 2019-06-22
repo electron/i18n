@@ -1,4 +1,4 @@
-# Poradnik Formatowania Dokumentacji Electrona
+# Electron Documentation Style Guide
 
 Są to wytyczne do pisania dokumentacji Electrona.
 

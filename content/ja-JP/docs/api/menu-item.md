@@ -121,7 +121,7 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 
 #### `menuItem.role`
 
-セットされている場合、アイテムの役割を示す `String` (任意)。
+セットされている場合、アイテムの役割を示す `String` (任意)。 `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `windowMenu` にできます。
 
 #### `menuItem.accelerator`
 

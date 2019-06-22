@@ -1,4 +1,4 @@
-# Стиль документації Electron
+# Electron Documentation Style Guide
 
 Це рекомендації для написання документації Electron.
 
