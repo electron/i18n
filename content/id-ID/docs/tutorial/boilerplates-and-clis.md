@@ -1,6 +1,6 @@
 # Boilerplates dan CLIs
 
-Pengembangan elektron un-dogmatis - tidak ada "satu cara yang benar" untuk mengembangkan, membangun, paket, atau melepaskan sebuah aplikasi elektron. Fitur tambahan untuk Electron, baik untuk build dan run-time, biasanya dapat ditemukan di  npm </ 0> dalam paket individual, yang memungkinkan pengembang untuk membangun aplikasi dan membuat jaringan pipa yang mereka butuhkan.</p> 
+Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. Fitur tambahan untuk Electron, baik untuk build dan run-time, biasanya dapat ditemukan di  npm </ 0> dalam paket individual, yang memungkinkan pengembang untuk membangun aplikasi dan membuat jaringan pipa yang mereka butuhkan.</p> 
 
 Tingkat modularitas dan kemampuan menyerap sedemikian rupa memastikan bahwa semua pengembang yang bekerja dengan Elektron, baik besar maupun kecil dalam ukuran tim, tidak pernah dibatasi dalam apa yang dapat atau tidak dapat mereka lakukan kapan saja selama siklus pengembangan mereka. Namun, bagi banyak pengembang, salah satu boilerplate berbasis komunitas atau alat baris perintah mungkin membuatnya lebih mudah untuk mengkompilasi, mengemas, dan merilis sebuah aplikasi .
 
