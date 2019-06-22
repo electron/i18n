@@ -2,7 +2,7 @@
 
 Para escribir pruebas automatizadas para su aplicación Electron, necesitará una forma de "manejar" su aplicación. Spectron es una solución de uso común que le permite emular acciones de usuario a través de WebDriver. Sin embargo, también es posible escribir su propio controlador personalizado utilizando el IPC-over-STDIO incorporado en el nodo. El beneficio de un controlador personalizado es que tiende a requerir menos gastos generales que Spectron, y le permite exponer métodos personalizados a su conjunto de pruebas.
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. El conjunto de pruebas generará el proceso de Electron, luego establecerá un protocolo de mensajería simple:
+Para crear un controlador personalizado, usaremos la API de Node.js [child_process](https://nodejs.org/api/child_process.html). El conjunto de pruebas generará el proceso de Electron, luego establecerá un protocolo de mensajería simple:
 
 ```js
 var childProcess = require('child_process')
