@@ -1,4 +1,4 @@
-# Electron ドキュメントガイド
+# Electron Documentation Style Guide
 
 Electronのドキュメント（英語）を書くためのガイドラインです。
 
