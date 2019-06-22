@@ -1,4 +1,4 @@
-# Documentația ghidului de stil Electron
+# Electron Documentation Style Guide
 
 Acestea sunt liniile directoare pentru scrierea documentației Electron.
 
