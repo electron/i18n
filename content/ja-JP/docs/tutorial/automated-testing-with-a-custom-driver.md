@@ -2,7 +2,7 @@
 
 Electron アプリの自動テストを作成するには、アプリケーションを「ドライブ」する方法が必要になります。 [Spectron](https://electronjs.org/spectron) は、[WebDriver](http://webdriver.io/) を介してユーザの操作をエミュレートできる、よく使用される解決方法です。 ただし、Node に組み込まれている IPC 越し標準入出力を使用して独自のカスタムドライバを書くことも可能です。 カスタムドライバの利点は、Spectron よりもオーバーヘッドが少なくて済むことです。また、カスタムメソッドをあなたのテストスイートに公開できます。
 
-To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. テストスイートは、以下のように Electron プロセスを spawn してから、簡単なメッセージングプロトコルを確立します。
+カスタムドライバを作成するには、Node.js の [child_process](https://nodejs.org/api/child_process.html) API を使用します。 テストスイートは、以下のように Electron プロセスを spawn してから、簡単なメッセージングプロトコルを確立します。
 
 ```js
 var childProcess = require('child_process')
@@ -22,7 +22,7 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+Electron アプリケーション内からは、Node.js の [process](https://nodejs.org/api/process.html) API を使用して、メッセージをリッスンして返信を送信できます。
 
 ```js
 // テストスイートからの IPC メッセージをリッスンする
