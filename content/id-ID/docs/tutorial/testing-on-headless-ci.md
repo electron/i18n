@@ -6,9 +6,10 @@ Berdasarkan Chromium , Electron mengharuskan penggerak tampilan berfungsi. If Ch
 
 Pertama, instal  Xvfb </ 0> . Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.</p> 
 
-Kemudian, buat layar virtual xvfb dan ekspor variabel lingkungan disebut DISPLAY yang menunjukkan hal itu. Chromium in Electron secara otomatis akan mencari ` $ DISPLAY </ 0> , sehingga tidak diperlukan konfigurasi lebih lanjut dari aplikasi Anda.
-Langkah ini bisa diotomatisasi dengan Paul Betts's
- <a href="https://github.com/paulcbetts/xvfb-maybe"> xvfb-maybe </a> : Tuliskan perintah pengujian Anda dengan <code> xvfb-maybe ` dan alat kecil akan secara otomatis mengkonfigurasi xvfb, jika dibutuhkan oleh sistem saat ini. On Windows or macOS, it will do nothing.
+Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron secara otomatis akan mencari ` $ DISPLAY </ 0> , sehingga tidak diperlukan konfigurasi lebih lanjut dari aplikasi Anda.
+This step can be automated with Paul Betts's
+<a href="https://github.com/paulcbetts/xvfb-maybe">xvfb-maybe</a>: Prepend your test
+commands with <code>xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
@@ -36,7 +37,7 @@ Untuk Jenkins, plugin  Xvfb tersedia </ 0> .</p>
 
 ### Lingkaran CI
 
-Circle CI is awesome dan memiliki xvfb dan ` $ DISPLAY ` [ sudah disiapkan, jadi tidak perlu konfigurasi lebih lanjut ](https://circleci.com/docs/environment#browsers) .
+Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
