@@ -13,7 +13,7 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. Ver [roles](#roles).
+  * `role` String (opcional) - Puede ser `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` o `windowMenu` - Define la acción del elemento del menú, cuando sea especificada la propiedad `clic` será ignorada. Ver [roles](#roles).
   * `type` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `label` String (opcional)
   * `sublabel` String (opcional)
@@ -97,15 +97,15 @@ Las siguientes propiedades están disponibles en instancias del `menú de elemen
 
 #### `menuItem.id`
 
-A `String` indicating the item's unique id, this property can be dynamically changed.
+Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser cambiada dinámicamente.
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label, this property can be dynamically changed.
+Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser cambiada dinámicamente.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+Un `Función` que se activa cuando el MenuItem recibe un evento de clic. Puede ser llamado con `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
@@ -113,11 +113,11 @@ A `Function` that is fired when the MenuItem receives a click event. It can be c
 
 #### `menuItem.submenu`
 
-A `Menu` (optional) containing the menu item's submenu, if present.
+Un `Menú` (opcional) que contiene el submenú del menú elemento, si está presente.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+Un `String` indicando el tipo del elemento.
 
 #### `menuItem.role`
 
@@ -125,15 +125,15 @@ Una `String` (opcional) indicando el rol del elemento, si está establecido. Pue
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+Un `String` (opcional) indicando el rol del elemento, si está establecido.
 
 #### `menuItem.icon`
 
-A `NativeImage | String` (optional) indicating the item's icon, if set.
+Una `NativeImage | String` (opcional) indicando el icono del elemento, si estuviera establecido.
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel, this property can be dynamically changed.
+Una `String` indicando la subetiqueta del artículo, esta propiedad puede ser cambiada dinámicamente.
 
 #### `menuItem.enabled`
 
@@ -155,12 +155,12 @@ Puede añadir la función `click` para comportamientos adicionales.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+Un `Boolean` indicando si el acelerador debe ser registrado con el sistema o simplemente mostrado, esta propiedad puede ser cambiada dinámicamente.
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+Un `Number` indicando el id único secuencial de un elemento.
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+Un `Menu` del cual el elemento es parte.
