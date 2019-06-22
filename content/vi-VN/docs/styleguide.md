@@ -1,4 +1,4 @@
-# Tài liệu về Styleguide của Electron
+# Electron Documentation Style Guide
 
 Đây là những nguyên tắc để viết tài liệu Electron.
 
