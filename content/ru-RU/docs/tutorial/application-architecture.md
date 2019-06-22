@@ -82,7 +82,7 @@ npm install --save aws-sdk
 Затем в вашем приложении Electron, подключите и используйте модуль, так же как в Node.js приложении:
 
 ```javascript
-// A ready-to-use S3 Client
+// Готовый к использованию S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
