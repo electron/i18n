@@ -138,9 +138,9 @@ npm uninstall -g electron
 
 Однак, якщо ви використовуєте вбудований модуль, але все одно отримуєте помилки, найімовірніше — ви використовуєте модуль в неправильному процесі. Наприклад `electron.app` може бути використаний тільки в головному процесі, тоді як `electron.webFrame` доступний тільки в процесі рендерингу.
 
-## Шрифт виглядає розмитим, в чому причина і як я можу допомогти?
+## The font looks blurry, what is this and what can I do?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+Якщо [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) деактивовано, тоді шрифти на LCD екранах можуть виглядати розмитими. Приклад:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Зверніть увагу, що лише налаштування фону в CSS не принесе бажаного результату.
