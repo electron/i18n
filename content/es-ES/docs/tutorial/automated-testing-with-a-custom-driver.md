@@ -22,7 +22,7 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
+Desde dentro de la aplicación Electron, puedes escuchar mensajes y enviar respuestas usando la API de Node.js [process](https://nodejs.org/api/process.html):
 
 ```js
 // listen for IPC messages from the test suite
