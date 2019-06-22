@@ -139,7 +139,7 @@ npm uninstall -g electron
 ومع ذلك ، إذا كنت تستخدم الوحدة المضمنة ولكنك لا تزال تحصل على هذا الخطأ من المحتمل جدًا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
 متاح فقط في renderer processes.</p>
 
-<h2>The font looks blurry, what is this and what can i do?</h2>
+<h2>The font looks blurry, what is this and what can I do?</h2>
 
 <p>If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. Example:</p>
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 `</pre> 
 
-The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Notice that just setting the background in the CSS does not have the desired effect.
