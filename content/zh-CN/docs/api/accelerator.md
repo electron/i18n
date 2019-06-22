@@ -50,8 +50,8 @@ app.on('ready', () => {
 * `Plus`
 * `Space`
 * `Tab`
-* `Capslock`
-* `Numlock`
+* `大写锁定（Capslock）`
+* `数字锁定（Numlock）`
 * `Backspace`
 * `Delete`
 * `Insert`
