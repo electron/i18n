@@ -138,7 +138,7 @@ npm uninstall -g electron
 
 しかし、組み込みモジュールを使用しているのに、まだこのエラーが出る場合、不適切なプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。
 
-## フォントがぼやけます。これはどういうものでどうすればいいのですか?
+## The font looks blurry, what is this and what can I do?
 
 [サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。以下がその例です。
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-この効果は (いくつかの?) 液晶画面上でのみ見られます。あなたに違いが分からなくても、ユーザの何人かにはわかるでしょう。この背景を設定する手段は、そうしてはいけない理由がない限り、最も優れています。
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 CSS で背景を設定するだけでは期待する効果はないことに注意してください。
