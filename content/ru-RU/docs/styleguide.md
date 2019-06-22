@@ -1,4 +1,4 @@
-# Руководство по написанию документации Electron
+# Electron Documentation Style Guide
 
 Это руководство для написания Electron документации.
 
