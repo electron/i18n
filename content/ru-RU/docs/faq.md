@@ -138,7 +138,7 @@ npm uninstall -g electron
 
 Однако, если Вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, Вы используете модуль в неподходящем процессе. Например, `electron.app` может быть использован только в основном процессе, в то время как `electron.webFrame` доступен только в графических процессах.
 
-## Шрифт выглядит размытым, что это и что я могу с этим сделать?
+## The font looks blurry, what is this and what can I do?
 
 Если [анти-алиасинг подпикселя](http://alienryderflex.com/sub_pixel/) отключен, то шрифты на LCD экранах могут выглядеть размытыми. Например:
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-Эффект виден только на (некоторых?) LCD экранах. Даже если Вы не видите разницы, некоторые пользователи могут. Лучше всего настроить фон таким образом, даже если у Вас нет причин так делать.
+The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
 
 Обратите внимание, что только настройка фона в CSS не имеет желаемого эффекта.
