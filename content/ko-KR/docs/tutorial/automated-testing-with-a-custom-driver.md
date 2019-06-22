@@ -2,7 +2,7 @@
 
 Electron 응용 프로그램에 대한 자동화 된 테스트를 작성하려면, 응용 프로그램을 "drive" 하는 방법이 필요합니다. [ Spectron ](https://electronjs.org/spectron)은 [ WebDriver ](http://webdriver.io/)를 통해 사용자 작업을 에뮬레이트 할 수있는 일반적으로 사용되는 솔루션입니다. 그러나 node에 내장된 IPC-over-STDIO를 사용하여 custom driver 를 작성할 수도 있습니다. custom driver 의 이점은 Spectron보다 적은 오버 헤드를 요구하는 경향이 있으며, custom method들을 테스트 suite에 표시 할 수 있다는 것입니다.
 
-custom driver 를 만들기 위해 nodejs 의  child_process </ 0> API를 사용할 것입니다. 아래의 테스트 suite 는 Electron 프로세스를 생성 한 다음 간단한 메시징 프로토콜을 설정합니다</p> 
+To create a custom driver, we'll use Node.js' [child_process](https://nodejs.org/api/child_process.html) API. 아래의 테스트 suite 는 Electron 프로세스를 생성 한 다음 간단한 메시징 프로토콜을 설정합니다
 
 ```js
 var childProcess = require('child_process')
@@ -22,7 +22,7 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
-Electron 어플리케이션에서 nodejs [ 프로세스 ](https://nodejs.org/api/process.html) API를 사용하여 메시지를 수신하고 응답을 보낼 수 있습니다.
+From within the Electron app, you can listen for messages and send replies using the Node.js [process](https://nodejs.org/api/process.html) API:
 
 ```js
 // listen for IPC messages from the test suite
