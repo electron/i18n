@@ -1,4 +1,4 @@
-## Cookies
+## 类：Cookies
 
 > 查询和修改一个会话的cookies
 
@@ -11,7 +11,7 @@
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// 查询所有 cookies。
 session.defaultSession.cookies.get({})
   .then((cookies) => {
     console.log(cookies)
@@ -19,7 +19,7 @@ session.defaultSession.cookies.get({})
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// 查询所有与设置的 URL 相关的所有 cookies.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
@@ -27,8 +27,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
     console.log(error)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// 设置一个 cookie，使用设置的名称；
+// 如果存在，则会覆盖原先 cookie.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
@@ -62,7 +62,7 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.get(filter)`
 
-* `过滤` Object - 过滤器对象，包含过滤参数 
+* `filter` Object - 过滤器对象，包含过滤参数 
   * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
   * ` name `String (可选) - 按名称筛选 cookie。
   * `domain` String (optional) - 检索与域名或者 `domain` 子域名匹配的cookie。
