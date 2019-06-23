@@ -75,10 +75,10 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+1. 所有新的主要和次要的发布线首先使用一个测试系列，通过半排放前标签显示 `beta.N`例如： `2.0.0-beta.1`- 在第一次测试之后，随后的测试版必须符合以下所有条件： 
+    1. 更改是落后的 API 兼容 (允许废弃)
+    2. 实现我们稳定的时间表的危险必须是低的。
+2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. 如果未来错误修复或安全补丁一旦发布稳定，它们将被应用，并且 *补丁* 版本被增量 ，例如 `2.0.1`。
 
