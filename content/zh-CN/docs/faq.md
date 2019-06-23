@@ -144,9 +144,9 @@ npm uninstall -g electron
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
-子像素反锯齿需要一个包含字体光图的图层的非透明背景。 (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+子像素反锯齿需要一个包含字体光图的图层的非透明背景。 （详情请参阅[这个问题](https://github.com/electron/electron/issues/6344#issuecomment-420371918)）
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+为了实现这一目标，在 [BrowserWindow](api/browser-window.md)的构造器中设置背景：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+效果仅在 (有些?) LCD 屏幕上可见。即使您看不到一个差异，您的一些用户也可能显示。最好总是以这种方式设置背景，除非您有理由不这样做。
 
-Notice that just setting the background in the CSS does not have the desired effect.
+注意到，仅设置 CSS 背景并不具有预期的效果。
