@@ -138,7 +138,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 返回 [`BrowserWindow`](browser-window.md) - 此网页所属的窗口
 
-**注意事项：** 请勿在[` BrowserWindow`](browser-window.md)上使用 `removeAllListeners`。 Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**注意事项：** 请勿在[` BrowserWindow`](browser-window.md)上使用 `removeAllListeners`。 使用这个可导致移除 [`blue`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) 监听，禁用点击触控按钮的事件，或者其它意外的后果。
 
 ### `remote.getCurrentWebContents()`
 
