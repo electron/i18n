@@ -138,13 +138,13 @@ npm uninstall -g electron
 
 如果你依然遇到了这个问题，你可能需要检查一下拼写或者是否在错误的进程中调用了这个模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
-## The font looks blurry, what is this and what can I do?
+## 文字看起来很模糊，这是什么原因造成的？怎么解决这个问题呢？
 
 如果 [次级像素反锯齿](http://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如：
 
 ![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
-Для анти-алиасинга подпикселя требуется непрозрачный фон, содержащий глифы шрифта. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+子像素反锯齿需要一个包含字体光图的图层的非透明背景。 (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
