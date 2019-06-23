@@ -22,7 +22,7 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
+或者使用第三方托管的解决办法：
 
 * [Backtrace I/O](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
@@ -36,7 +36,7 @@ Or use a 3rd party hosted solution:
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String
+  * `compannyame` 字符串
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` 字符串(可选) - 默认为 `app.getName()`.
   * `uploadToServer` 布尔型(可选) - 控制是否将崩溃日志发送给服务器，默认为`true`.
@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 返回 [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+返回上次崩溃报告的日期和ID。 只有已上传的崩溃报告将被返回；在磁盘上存在崩溃报告，除非上传，不然不会返回。 如果没有上传的报告，则返回`null`
 
 ### `crashReporter.getUploadedReports()`
 
