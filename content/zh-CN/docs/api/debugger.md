@@ -49,7 +49,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` 字符串 - 方法名称，应该为[远程调试协议](https://chromedevtools.github.io/devtools-protocol/)中定义的方法之一。
 * ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
 * `callback` Function (可选) - 响应方法 
   * `error` Object - 显示命令失败的错误消息。
@@ -64,7 +64,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 * `method` 字符串 - 方法名称，应该为 [远程调试协议](https://chromedevtools.github.io/devtools-protocol/)中定义的方法之一。
 * ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+返回 `Promise<any>` - 一个 promise，远程调试协议中的命令描述的“returns”属性定义的响应，或者显示命令失败的错误消息。
 
 向调试目标发送给定的命令。
 
