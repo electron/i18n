@@ -27,15 +27,15 @@ keyboard_modal:
 docs:
   title: Electron 文档
   description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
-  guides: "Guides: Getting Started with Electron"
+  guides: "指南：开始使用 Electron"
   api_reference: API 参考
   api_structures: API 结构
   advanced: 高级
-  detailed: In Detail
+  detailed: 详细信息
   custom_dom: 自定义 DOM 元素
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Main Process 模块
+  renderer_proc_modules: Renderer Process 模块
+  both_proc_modules: 两种进程都可用的模块
   footer:
     propose_change: 改进此文档
     version_history: 版本历史
@@ -53,7 +53,7 @@ community:
     get_started: "通过阅读<a href='/docs/tutorial/first-app'>快速入门指南</a>来开始构建一个应用。"
     updates: "通过关注Twitter账号<a href='https://twitter.com/electronjs'>@electronjs</a> 和订阅<a href='/blog'>博客Feed</a>来获取最新消息。"
     localized_docs: "通过访问<a href='/languages'>语言页面</a>来阅读你<a href='/languages'><b>本地语言的文档</b></a>。"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "通过加入 <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, 发送 <a href='https://discuss.atom.io/c/electron'>Discuss</a>, 或者访问<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>来<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>获取帮助和反馈</b></a>。"
     security: "发送邮件到<a href='mailto:security@electronjs.org'>security@electronjs.org</a>来<a href='mailto:security@electronjs.org'><b>报告安全问题</b></a> 。"
     bugs: "通过在 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交 issues 来<a href='https://github.com/electron/electron/issues'><b>报告 BUG</b></a>。"
     feature_requests: "通过在<a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交issues来<a href='https://github.com/electron/electron/issues'><b>提交功能申请</b></a>。"
@@ -136,9 +136,9 @@ footer:
   see_the_faq: 查看常见问题
 companies:
   title: 使用Election构建的
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  description: 最初为 GitHub 开发 <a href='https://atom.io' target='_blank'>Atom 编辑器</a>, Electron 此后被世界各地的公司采纳。
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: '使用 Electron，能轻松为您的公司创建桌面应用程序或想法。请查看 <a href=''/apps''>社区创建的一些应用</a> 或 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">添加您自己的应用</a>。'
   view_more: 查看更多应用
   submit_your_own: 提交你的应用
   something_missing: 少了点什么？
@@ -233,28 +233,28 @@ governance:
   wgs: 工作组
   docstools:
     title: 文档与工具
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+    description: 查看注重外部的工具(例如 Fiddle，Forge)、网站上的电子文档、 <code>electron/*</code> 存储库，以及维护者小组的第三方模块。
   outreach:
-    title: Outreach
+    title: 覆盖
     description: 壮大 Electron 社区
   releases:
     title: 版本发布
-    description: Oversees all release branches, and tooling to support releases.
+    description: 覆盖所有发行分支，以及支持发布的工具。
   upgrades:
     title: 升级
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: 覆盖上游依赖关系升级；具体而言，Chromium 和 Node。
   website:
     title: 网站
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: 监督电子网站及相关工具的技术实施、设计和样式。
   cmsf:
     title: 社区与安全
-    description: Oversees removal/bans from community.
+    description: 监督社区的移除/禁令。
   security:
     title: 安全
     description: 积极主动确保 Electron 作为一个项目的安全性，响应发生的事件，并监督协助修复的推出。
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: 管理
+    description: 行政工作组监督整个治理和项目。
   global:
     overview: 概览
     associated_repos: 相关代码仓库
@@ -262,10 +262,10 @@ governance:
   definitions:
     title: 定义
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - <i>维护者</i> 是在治理中发挥积极作用的任何人。
+      - <i>协作者</i> 是活跃在社区的人，但不是管理人员。
+      - <i>参与者</i> 是任何维护者或协作者。
+      - <i>工作组</i> 是一组维护者，他们是为了负责 Electron 项目的某些方面。通常这些小组会定期开会，但在某些情况下只为按需求见面，以满足他们的责任。
       - '一个<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">主席</a>领导一个工作组。'
   responsibilities:
     title: 职责
@@ -278,6 +278,6 @@ governance:
     see_charter: 更多信息详见<a href="https://github.com/electron/governance/tree/master/charter/README.md">总则</a>。
   code_of_conduct: Electron 团队及其所有代码仓库均遵循此<a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">行为准则</a>。
   license: Electron 采用 <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT 许可协议</a>。
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  repository: 查看 <a href="https://github.com/electron/governance">治理仓库</a> 来找到更多关于治理结构的信息。
 _404:
   page_not_found: 页面找不到了。
