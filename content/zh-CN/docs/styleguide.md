@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# Electron 文档风格指南
 
 这里是一些编写 Electron 文档的指南.
 
@@ -106,31 +106,31 @@
 ```markdown
 # session
 
-## Methods
+## 方法
 
 ### session.fromPartition(partition)
 
-## Properties
+## 属性
 
 ### session.defaultSession
 
-## Class: Session
+## 类: Session
 
-### Instance Events
+### 实例事件
 
-#### Event: 'will-download'
+#### 事件: 'will-download'
 
-### Instance Methods
+### 实例方法
 
 #### `ses.getCacheSize()`
 
-### Instance Properties
+### 实例属性
 
 #### `ses.cookies`
 
-## Class: Cookies
+## 类: Cookies
 
-### Instance Methods
+### 实例方法
 
 #### `cookies.get(filter, callback)`
 ```

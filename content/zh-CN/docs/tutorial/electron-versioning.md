@@ -75,17 +75,17 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+1. 所有新的主要和次要的发布线首先使用一个测试系列，通过半排放前标签显示 `beta.N`例如： `2.0.0-beta.1`- 在第一次测试之后，随后的测试版必须符合以下所有条件： 
+    1. 更改是落后的 API 兼容 (允许废弃)
+    2. 实现我们稳定的时间表的危险必须是低的。
+2. 如果允许更改需要在释放测试版之后进行，则使用并增加预放标签，例如`2.0.0-beta.2`。
+3. 如果特定的beta版本*通常被认为*是稳定的，那么它将作为稳定版本被重新发布，只改变版本信息。例如.0。 例如 `2.0.0-beta.1`. 在第一个稳定之后，所有的变化都必须落后兼容的 bug 或安全修复。
 4. 如果未来错误修复或安全补丁一旦发布稳定，它们将被应用，并且 *补丁* 版本被增量 ，例如 `2.0.1`。
 
 特别地，上述步骤意味着：
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+1. 在测试周期的第3周前允许不打破的 API 更改非常好，即使这些变化有可能造成适度的副影响
+2. 保存标记功能更改，否则不改变现有代码路径，在测试周期的大部分点里是可用的。用户可以在其应用中明确启用这些标记。
 3. Admitting features of any sort after Week 3 in the beta cycle is 
 
 对于每个主要和次要的颠覆，你都应该像以下示例一样进行操作：
@@ -124,7 +124,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 - 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
 - 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 * 违反 * 功能标志内容
-- feature flags are eventually removed after the feature is released
+- 在合并功能后, 功能标志最终将被删除
 
 # 提交语义
 
@@ -140,7 +140,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 # 打了版本的 `主分支`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+- The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
 - Release 分支永远不会合并回 master 分支
 - 发布分支 *在* 其`package.json ` 中包含正确的版本
 - 只要一个 release 分支被切出来用于发布 major 版本, 主分支就必须跳到下一个 major 版本. 也就是说`master` 总会被视作下一个理论上要发布的版本的分支。

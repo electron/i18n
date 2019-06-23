@@ -1,4 +1,4 @@
-## Cookies
+## 类：Cookies
 
 > 查询和修改一个会话的cookies
 
@@ -11,7 +11,7 @@
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// 查询所有 cookies。
 session.defaultSession.cookies.get({})
   .then((cookies) => {
     console.log(cookies)
@@ -19,7 +19,7 @@ session.defaultSession.cookies.get({})
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// 查询所有与设置的 URL 相关的所有 cookies.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
@@ -27,8 +27,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
     console.log(error)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// 设置一个 cookie，使用设置的名称；
+// 如果存在，则会覆盖原先 cookie.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
@@ -62,7 +62,7 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.get(filter)`
 
-* `过滤` Object - 过滤器对象，包含过滤参数 
+* `filter` Object - 过滤器对象，包含过滤参数 
   * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
   * ` name `String (可选) - 按名称筛选 cookie。
   * `domain` String (optional) - 检索与域名或者 `domain` 子域名匹配的cookie。
@@ -70,7 +70,7 @@ session.defaultSession.cookies.set(cookie)
   * ` secure `Boolean (可选) - 通过其Secure 属性筛选 cookie。
   * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+返回 `Promise<Cookie[]>` - 一个会解析成数组或者 cookie 对象的 promise。
 
 Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
 
@@ -89,12 +89,12 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 发送一个请求获取所有匹配 `filter` 对象条件的cookie，回调函数将在请求结束后以 `callback(error, cookies)` 的形式被调用。
 
-**[Deprecated Soon](promisification.md)**
+**[马上将弃用](promisification.md)**
 
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
+  * `url` 字符串 - 与 cookie 对应的 url。如果 url 不可用，promise将被拒绝。
   * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
   * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
   * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。未指定时默认为空。
@@ -103,9 +103,9 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
   * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+返回 `Promise<void>` - cookie 设置时解析的一个 promise。
 
-Sets a cookie with `details`.
+用 `details` 去设置一个 cookie。
 
 #### `cookies.set(details, callback)`
 
@@ -123,16 +123,16 @@ Sets a cookie with `details`.
 
 设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
 
-**[Deprecated Soon](promisification.md)**
+**[马上将弃用](promisification.md)**
 
 #### `cookies.remove(url, name)`
 
 * ` url `String - 与 cookie 关联的 URL。
 * ` name `String - cookie 名称。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+返回 `Promise<void>` - cookie 移除时解析的的一个 promise。
 
-Removes the cookies matching `url` and `name`
+移除与`url` 和 `name`匹配的 cookie。
 
 #### `cookies.remove(url, name, callback)`
 
@@ -142,11 +142,11 @@ Removes the cookies matching `url` and `name`
 
 删除与 ` url ` 和 ` name ` 相匹配的 cookie, 回调函数将在执行完成时被调用。
 
-**[Deprecated Soon](promisification.md)**
+**[马上将弃用](promisification.md)**
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+返回 `Promise<void>` - 一个在 cookie 写入时解析的 promise。
 
 写入所有未写入磁盘的 cookie。
 
@@ -156,4 +156,4 @@ Returns `Promise<void>` - A promise which resolves when the cookie store has bee
 
 写入所有未写入磁盘的 cookie。
 
-**[Deprecated Soon](promisification.md)**
+**[马上将弃用](promisification.md)**
