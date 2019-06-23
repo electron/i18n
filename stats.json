@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10627",
-    "translated": "8864",
+    "translated": "9032",
     "approved": "24",
     "words": "97917",
-    "words_translated": "76411",
+    "words_translated": "77675",
     "words_approved": "96",
-    "translated_progress": 78,
+    "translated_progress": 79,
     "approved_progress": 0,
-    "qa_issues": 247
+    "qa_issues": 252
   },
   {
     "name": "Chinese Traditional",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10627",
-    "translated": "9309",
+    "translated": "9342",
     "approved": "251",
     "words": "97917",
-    "words_translated": "77563",
+    "words_translated": "77870",
     "words_approved": "2015",
     "translated_progress": 79,
     "approved_progress": 2,
-    "qa_issues": 3586
+    "qa_issues": 3602
   },
   {
     "name": "Tagalog",
