@@ -43,14 +43,14 @@
   * [针对 macOS系统 BrowserWindows的展示文件](tutorial/represented-file.md)
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [支持 macOS 深色模式](tutorial/mojave-dark-mode-guide.md)
 * [辅助功能](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [启用辅助功能](tutorial/accessibility.md#enabling-accessibility)
 * [测试和调试](tutorial/application-debugging.md) 
   * [调试主进程](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [使用 Vscode 调试主进程](tutorial/debugging-main-process-vscode.md)
   * [使用 Selenium 和 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [开发者工具拓展](tutorial/devtools-extension.md)
@@ -70,7 +70,7 @@
   * [部署更新服务器](tutorial/updates.md#deploying-an-update-server)
   * [在你的应用中实施更新](tutorial/updates.md#implementing-updates-in-your-app)
   * [应用更新](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [获得支持](tutorial/support.md)
 
 ## 详细教程
 
@@ -80,16 +80,16 @@
   * [代理](tutorial/installation.md#proxies)
   * [自定义镜像和缓存](tutorial/installation.md#custom-mirrors-and-caches)
   * [故障排查](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Electron发布 & 开发者反馈 
+  * [版本规则](tutorial/electron-versioning.md)
+  * [发布时间线](tutorial/electron-timelines.md)
+  * [应用反馈项目](tutorial/app-feedback-program.md)
+* [用 asar 打包 App 源代码](tutorial/application-packaging.md) 
   * [生成 asar 档案文件](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
   * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [测试 Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -109,7 +109,7 @@
 * [`File` 对象](api/file-object.md)
 * [`<webview>`标签](api/webview-tag.md)
 * [`window.open` 函数](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [`BrowserWindowProProxy` 对象](api/browser-window-proxy.md)
 
 ### 主进程可用的模块:
 
@@ -132,7 +132,7 @@
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [触控板](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
