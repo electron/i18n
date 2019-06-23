@@ -17,10 +17,10 @@ win.loadURL('https://github.com')
 
 ** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture-callback)。
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**注意事项：** 因为安全原因，remote 模块能在以下几种情况下被禁用：
 
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+* [`BrowserWindow`](browser-window.md) - 通过设置 `enableRemoteModule` 选项为 `false`。
+* [`<webview>`](webview-tag.md) - 通过把 ` enableremotemodule`属性设置成 `false`。
 
 ## 远程对象（Remote Objects）
 
@@ -138,7 +138,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 返回 [`BrowserWindow`](browser-window.md) - 此网页所属的窗口
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**注意事项：** 请勿在[` BrowserWindow`](browser-window.md)上使用 `removeAllListeners`。 Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
 
 ### `remote.getCurrentWebContents()`
 
