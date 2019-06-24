@@ -173,13 +173,13 @@
     "code": "ja",
     "phrases": "10627",
     "translated": "10572",
-    "approved": "289",
+    "approved": "293",
     "words": "97917",
     "words_translated": "97255",
-    "words_approved": "1692",
+    "words_approved": "1716",
     "translated_progress": 99,
     "approved_progress": 1,
-    "qa_issues": 317
+    "qa_issues": 318
   },
   {
     "name": "Korean",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "10627",
-    "translated": "4416",
+    "translated": "4419",
     "approved": "1021",
     "words": "97917",
-    "words_translated": "21692",
+    "words_translated": "21703",
     "words_approved": "6771",
     "translated_progress": 22,
     "approved_progress": 6,
-    "qa_issues": 933
+    "qa_issues": 934
   },
   {
     "name": "Portuguese, Brazilian",
