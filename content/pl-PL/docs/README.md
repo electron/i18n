@@ -50,7 +50,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Włączanie ułatwień dostępu](tutorial/accessibility.md#enabling-accessibility)
 * [Testowania i debugowanie](tutorial/application-debugging.md) 
   * [Debugowanie Głównego Wątku](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugowanie Głównego Wątku przy użyciu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)
@@ -70,7 +70,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Wdrażanie serwera aktualizacji](tutorial/updates.md#deploying-an-update-server)
   * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
   * [Wdrażanie aktualizacji](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Uzyskiwanie wsparcia](tutorial/support.md)
 
 ## Szczegółowe poradniki
 
