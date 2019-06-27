@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -170,25 +180,25 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-/ Tidak berlaku lagi
-clipboard.readRtf ()
-// Ubah dengan
-clipboard.readRTF ()
+// Deprecated
+clipboard.readRtf()
+// Replace with
+clipboard.readRTF()
 
-// Tidak berlaku lagi
-clipboard.writeRtf ()
-// Ubah dengan
-clipboard.writeRTF ()
+// Deprecated
+clipboard.writeRtf()
+// Replace with
+clipboard.writeRTF()
 
-// Tidak berlaku lagi
-clipboard.readHtml ()
-// Ubah dengan
-clipboard.readHTML ()
+// Deprecated
+clipboard.readHtml()
+// Replace with
+clipboard.readHTML()
 
-// Tidak berlaku lagi
-clipboard.writeHtml ()
-// Ubah dengan
-clipboard.writeHTML ()
+// Deprecated
+clipboard.writeHtml()
+// Replace with
+clipboard.writeHTML()
 ```
 
 ## `kerusakanReporter`
@@ -251,18 +261,18 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Nampan`
 
 ```js
-// Tidak berlaku lagi
-tray.setHighlightMode (true)
-// Ubah dengan
-tray.setHighlightMode ('on')
+// Deprecated
+tray.setHighlightMode(true)
+// Replace with
+tray.setHighlightMode('on')
 
-// Tidak berlaku lagi
-tray.setHighlightMode (salah)
-// Ubah dengan
-tray.setHighlightMode ('off')
+// Deprecated
+tray.setHighlightMode(false)
+// Replace with
+tray.setHighlightMode('off')
 ```
 
-## `kontenWeb`
+## `konten web`
 
 ```js
 // Deprecated
@@ -305,13 +315,13 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## URL Node Header
+## Node Headers URL
 
-Ini adalah URL yang ditentukan sebagai `disturl` pada file `.npmrc` atau sebagai `--dist-url` bendera perintah saat membangun modul Node asli.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Tidak berlaku lagi: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Ganti dengan: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -355,7 +365,7 @@ nativeImage.toJPEG()
 
 * `proses.versi.electron` dan `proses.versi.chrome` akan dibuat properti hanya baca untuk konsistensi dengan proses `proses.versi` properti yang ditetapkan oleh Node.
 
-## `kontenWeb`
+## `konten web`
 
 ```js
 // Removed
@@ -382,7 +392,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Aset ARM Duplikat
+## Duplicate ARM Assets
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 

@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -170,42 +180,42 @@ window.on('app-command', (e, cmd) => {
 ## `क्लिपबोर्ड`
 
 ```js
-// निरस्त
+// Deprecated
 clipboard.readRtf()
-// इससे बदलें
+// Replace with
 clipboard.readRTF()
- 
-// निरस्त
-clipboard.writeRtf() 
-// इससे बदलें
-clipboard.writeRTF()
- 
-// निरस्त
-clipboard.readHtml() 
-// इससे बदलें
-clipboard.readHTML() 
 
-// निरस्त
-clipboard.writeHtml() 
-// इससे बदलें
+// Deprecated
+clipboard.writeRtf()
+// Replace with
+clipboard.writeRTF()
+
+// Deprecated
+clipboard.readHtml()
+// Replace with
+clipboard.readHTML()
+
+// Deprecated
+clipboard.writeHtml()
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `क्रेश रिपोर्टर`
 
 ```js
-// निरस्त
+// Deprecated
 crashReporter.start({
-   companyName: 'Crashly',
-   submitURL: 'https://crash.server.com',
-   autoSubmit: true 
-}) 
-// इससे बदलें
+  companyName: 'Crashly',
+  submitURL: 'https://crash.server.com',
+  autoSubmit: true
+})
+// Replace with
 crashReporter.start({
-   companyName: 'Crashly',
-   submitURL: 'https://crash.server.com',
-   uploadToServer: true
- })
+  companyName: 'Crashly',
+  submitURL: 'https://crash.server.com',
+  uploadToServer: true
+})
 ```
 
 ## `मूल छवि`
@@ -251,14 +261,14 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `ट्रे`
 
 ```js
-// निरस्त
+// Deprecated
 tray.setHighlightMode(true)
-// इससे बदलें
+// Replace with
 tray.setHighlightMode('on')
 
-// निरस्त
+// Deprecated
 tray.setHighlightMode(false)
-// इससे बदलें
+// Replace with
 tray.setHighlightMode('off')
 ```
 
@@ -305,13 +315,13 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## नोड हेडर्स युआरएल
+## Node Headers URL
 
-यह युआरएल एक `.npmrc` फाइल में `disturl` की तरह निर्दिष्ट है या मूल नोड मोडयुल्स का निर्माण करने के दौरान `--dist-url` कमांड लाइन फ्लैग की तरह |
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-निरस्त: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-इससे बदलें: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -320,15 +330,15 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `ब्राउज़र विंडो`
 
 ```js
-// निरस्त
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// इससे बदलें
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `मेन्यु`
+## `menu`
 
 ```js
 // Removed
@@ -382,7 +392,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## अतिरिक्त ऐआरएम एसेट्स
+## Duplicate ARM Assets
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 

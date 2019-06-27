@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Критические изменения
 
 Критические изменения будут описаны здесь, а также будут добавлены предупреждения об устаревших функциях в JS код, где это возможно, нужна, по крайней мере, [одна мажорная версия](../tutorial/electron-versioning.md#semver) перед тем, как изменения будут сделаны.
 
@@ -62,7 +62,17 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                                            | `false` |
 | `webviewTag`       | `nodeIntegration`, если установлено, иначе `true` | `false` |
 
-## `nativeWindowOpen`
+Например, повторное включение webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 В дочерних окнах открытых с параметром `nativeWindowOpen` интеграция с Node.js всегда будет отключена.
 
@@ -231,7 +241,7 @@ const info = process.getProcessMemoryInfo()
 ```js
 // Устарело
 screen.getMenuBarHeight()
-// Заменить на
+// Заменено на
 screen.getPrimaryDisplay().workArea
 ```
 

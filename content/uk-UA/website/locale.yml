@@ -20,7 +20,7 @@ keyboard_modal:
   action: Дії
   focus_search: Сфокусуватися на полі пошуку
   focus_and_clear: Foque na barra de pesquisa e apague o texto
-  scroll_down: Select the nhOb
+  scroll_down: Вибрати наступний результат пошуку
   scroll_up: Вибрати попередній результат пошуку
   open: Відкрити вибраний результат пошуку
   open_new_tab: Відкрити вибраний результат пошуку у новій вкладці

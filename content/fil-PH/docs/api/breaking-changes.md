@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -130,7 +140,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-## `app`
+## `ang app`
 
 ```js
 // Deprecated
@@ -143,7 +153,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-## `Ang Browser ng Window`
+## `Kulayan ang bintana`
 
 ```js
 // Deprecated
@@ -170,7 +180,7 @@ window.on('app-command', (e, cmd) => {
 ## `iipit sa tabla`
 
 ```js
-/ Deprecated
+// Deprecated
 clipboard.readRtf()
 // Replace with
 clipboard.readRTF()
@@ -191,7 +201,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `kalabog ng tagapagbalita`
+## `crashReporter`
 
 ```js
 // Deprecated
@@ -305,19 +315,19 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Mga URL ng Node Header 
+## Node Headers URL
 
-Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
 Deprecated: https://atom.io/download/atom-shell
 
-Palitan ng: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-## `Ang Browser ng Window`
+## `Kulayan ang bintana`
 
 ```js
 // Deprecated
@@ -382,7 +392,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Gayahin ang mga ARM Asset
+## Duplicate ARM Assets
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 

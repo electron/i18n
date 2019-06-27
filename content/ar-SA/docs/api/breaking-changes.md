@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -130,7 +140,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-## `تطبيق`
+## `التطبيقات`
 
 ```js
 // Deprecated
@@ -167,7 +177,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `الحافظة`
+## `لوحة القُصاصات`
 
 ```js
 // Deprecated
@@ -219,7 +229,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `عملية`
+## `process`
 
 ```js
 // Deprecated
@@ -328,7 +338,7 @@ let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu (القائمة)`
+## `menu`
 
 ```js
 // Removed
@@ -351,7 +361,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `عملية`
+## `process`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
