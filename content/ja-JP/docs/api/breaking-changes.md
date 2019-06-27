@@ -134,45 +134,45 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 # 破壊的な API の変更 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+以下のリストには Electron 3.0 での破壊的な API の変更が含まれています。
 
 ## `app`
 
 ```js
-// Deprecated
+// 非推奨
 app.getAppMemoryInfo()
-// Replace with
+// こちらに置換
 app.getAppMetrics()
 
-// Deprecated
+// 非推奨
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // 非推奨なプロパティ
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 非推奨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // なにかする
   }
 })
-// Replace with
+// こちらに置換
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // なにかする
   }
 })
 ```
@@ -181,37 +181,37 @@ window.on('app-command', (e, cmd) => {
 `
 
 ```js
-// Deprecated
+// 非推奨
 clipboard.readRtf()
-// Replace with
+// こちらに置換
 clipboard.readRTF()
 
-// Deprecated
+// 非推奨
 clipboard.writeRtf()
-// Replace with
+// こちらに置換
 clipboard.writeRTF()
 
-// Deprecated
+// 非推奨
 clipboard.readHtml()
-// Replace with
+// こちらに置換
 clipboard.readHTML()
 
-// Deprecated
+// 非推奨
 clipboard.writeHtml()
-// Replace with
+// こちらに置換
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 非推奨
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// こちらに置換
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -222,9 +222,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 非推奨
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// こちらに置換
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -233,27 +233,27 @@ nativeImage.createFromBuffer(buffer, {
 ## `プロセス`
 
 ```js
-// Deprecated
+// 非推奨
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// 非推奨
 screen.getMenuBarHeight()
-// Replace with
+// こちらに置換
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Deprecated
+// 非推奨
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// こちらに置換
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -262,79 +262,79 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// Deprecated
+// 非推奨
 tray.setHighlightMode(true)
-// Replace with
+// こちらに置換
 tray.setHighlightMode('on')
 
-// Deprecated
+// 非推奨
 tray.setHighlightMode(false)
-// Replace with
+// こちらに置換
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 非推奨
 webContents.openDevTools({ detach: true })
-// Replace with
+// こちらに置換
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// 削除されました
 webContents.setSize(options)
-// There is no replacement for this API
+// この API は置換できません
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 非推奨
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// こちらに置換
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// 非推奨
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// こちらに置換
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// 削除されました
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// この API は置換できません
 
-// Removed
+// 削除されました
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// この API は置換できません
 
-// Keyboard listeners no longer work on webview tag
+// webview タグ上ではキーボードリスナは動作しなくなります
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## Node ヘッダー URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。
 
-Deprecated: https://atom.io/download/atom-shell
+非推奨: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+こちらに置換: https://atom.io/download/electron
 
 # 破壊的な API の変更 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+以下のリストには Electron 2.0 でなされた破壊的な API の変更が含まれています。
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -342,45 +342,45 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// 削除されました
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// こちらに置換
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// 削除されました
 nativeImage.toPng()
-// Replaced with
+// こちらに置換
 nativeImage.toPNG()
 
-// Removed
+// 削除されました
 nativeImage.toJpeg()
-// Replaced with
+// こちらに置換
 nativeImage.toJPEG()
 ```
 
-## `プロセス`
+## `process`
 
 * `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 
 ## `webContents`
 
 ```js
-// Removed
+// 削除されました
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// こちらに置換
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// 削除されました
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// こちらに置換
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
