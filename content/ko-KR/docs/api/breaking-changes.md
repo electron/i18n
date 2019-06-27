@@ -62,7 +62,17 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                               | `false` |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false` |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -235,7 +245,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+## `세션`
 
 ```js
 // Deprecated
