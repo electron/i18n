@@ -4,7 +4,7 @@
 
 Чтобы добавить эту возможность в свое приложение нужно вызвать `webContents.startDrag(item)` API в ответ на событие `ondragstart`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+В процессе рендера, обрабатывайте событие `ondragstart` и направляйте информацию в ваш основной процесс.
 
 ```html
 <a href="#" id="drag">item</a>
