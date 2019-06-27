@@ -62,22 +62,32 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                                            | `false` |
 | `webviewTag`       | `nodeIntegration`, если установлено, иначе `true` | `false` |
 
-## `nativeWindowOpen`
-
-В дочерних окнах открытых с параметром `nativeWindowOpen` интеграция с Node.js всегда будет отключена.
-
-## Регистрация привилегированных схем
-
-API графического процесса `webFrame.setRegisterURLSchemeAsPrivileged` и `webFrame.registerURLSchemeAsBypassingCSP`, а также API процесса браузера `protocol.registerStandardSchemes` были удалены. Новый API `protocol.registerSchemesAsPrivileged` был добавлен и должен использоваться для регистрации пользовательских схем с необходимыми привилегиями. Пользовательские схемы должны быть зарегистрированы до готовности приложения.
-
-## API webFrame изолированных миров
+E.g. Re-enabling the webviewTag
 
 ```js
-// Устарело
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## Privileged Schemes Registration
+
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+
+## webFrame Isolated World APIs
+
+```js
+// Deprecated
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Заменено на
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -89,16 +99,16 @@ webFrame.setIsolatedWorldInfo(
 
 # Запланированные критические изменения API (4.0)
 
-Следующий список включает в себя критические изменения API, сделанные в Electron 4.0.
+The following list includes the breaking API changes made in Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Устарело
+// Deprecated
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Заменено на
+// Replace with
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -108,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Устарело
+// Deprecated
 app.releaseSingleInstance()
-// Заменено на
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
@@ -118,51 +128,51 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же, как `basic` на macOS
+// Now behaves the same with `basic` on macOS
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # Критические изменения API (3.0)
 
-Следующий список включает в себя критические изменения API, сделанные в Electron 3.0.
+The following list includes the breaking API changes in Electron 3.0.
 
 ## `app`
 
 ```js
-// Устарело
+// Deprecated
 app.getAppMemoryInfo()
-// Заменено на
+// Replace with
 app.getAppMetrics()
 
-// Устарело
+// Deprecated
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Свойство устарело
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Устарело
+// Deprecated
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменено на
+// Replace with
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Устарело
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // делаем что-нибудь
+    // do something
   }
 })
-// Заменено на
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // делаем что-нибудь
+    // do something
   }
 })
 ```
@@ -170,37 +180,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Устарело
+// Deprecated
 clipboard.readRtf()
-// Заменено на
+// Replace with
 clipboard.readRTF()
 
-// Устарело
+// Deprecated
 clipboard.writeRtf()
-// Заменено на
+// Replace with
 clipboard.writeRTF()
 
-// Устарело
+// Deprecated
 clipboard.readHtml()
-// Заменено на
+// Replace with
 clipboard.readHTML()
 
-// Устарело
+// Deprecated
 clipboard.writeHtml()
-// Заменено на
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Устарело
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменено на
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -211,9 +221,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Устарело
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменено на
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -222,27 +232,27 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Устарело
+// Deprecated
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// Устарело
+// Deprecated
 screen.getMenuBarHeight()
-// Заменить на
+// Replace with
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Устарело
+// Deprecated
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Заменено на
+// Replace with
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -251,79 +261,79 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// Устарело
+// Deprecated
 tray.setHighlightMode(true)
-// Заменено на
+// Replace with
 tray.setHighlightMode('on')
 
-// Устарело
+// Deprecated
 tray.setHighlightMode(false)
-// Заменено на
+// Replace with
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Устарело
+// Deprecated
 webContents.openDevTools({ detach: true })
-// Заменено на
+// Replace with
 webContents.openDevTools({ mode: 'detach' })
 
-// Удалено
+// Removed
 webContents.setSize(options)
-// Нет замены для этого API
+// There is no replacement for this API
 ```
 
 ## `webFrame`
 
 ```js
-// Устарело
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// Заменено на
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Устарело
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменено на
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Удалено
+// Removed
 webview.setAttribute('disableguestresize', '')
-// Нет замены для этого API
+// There is no replacement for this API
 
-// Удалено
+// Removed
 webview.setAttribute('guestinstance', instanceId)
-// Нет замены для этого API
+// There is no replacement for this API
 
-// Слушатели клавиатуры больше не работают в теге webview
-webview.onkeydown&nbsp;= () => { /* обработчик */ }
-webview.onkeyup&nbsp;= () => { /* обработчик */ }
+// Keyboard listeners no longer work on webview tag
+webview.onkeydown = () => { /* handler */ }
+webview.onkeyup = () => { /* handler */ }
 ```
 
-## URL заголовков Node
+## Node Headers URL
 
-Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Устарело: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Заменено на: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Критические изменения API (2.0)
 
-Следующий список включает в себя критические изменения API, сделанные в Electron 2.0.
+The following list includes the breaking API changes made in Electron 2.0.
 
 ## `BrowserWindow`
 
 ```js
-// Устарело
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Заменено на
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -331,23 +341,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Удалено
+// Removed
 menu.popup(browserWindow, 100, 200, 2)
-// Заменено на
+// Replaced with
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Удалено
+// Removed
 nativeImage.toPng()
-// Заменено на
+// Replaced with
 nativeImage.toPNG()
 
-// Удалено
+// Removed
 nativeImage.toJpeg()
-// Заменено на
+// Replaced with
 nativeImage.toJPEG()
 ```
 
@@ -358,34 +368,34 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Удалено
+// Removed
 webContents.setZoomLevelLimits(1, 2)
-// Заменено на
+// Replaced with
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Удалено
+// Removed
 webFrame.setZoomLevelLimits(1, 2)
-// Заменено на
+// Replaced with
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Удалено
+// Removed
 webview.setZoomLevelLimits(1, 2)
-// Заменено на
+// Replaced with
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Двойные ресурсы ARM
+## Duplicate ARM Assets
 
-Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
+Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
-Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
+The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
-Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).
+For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
