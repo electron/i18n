@@ -62,7 +62,7 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                            | `false` |
 | `webviewTag`       | `nodeIntegration` を設定しなければ `true` | `false` |
 
-E.g. Re-enabling the webviewTag
+webviewTag を再び有効にする例
 
 ```js
 const w = new BrowserWindow({
@@ -74,20 +74,20 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+`nativeWindowOpen` オプションで開かれる子ウインドウは Node.js integration が無効化されます。
 
-## Privileged Schemes Registration
+## 特権スキームレジストレーション
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+レンダラプロセス API `webFrame.setRegisterURLSchemeAsPrivileged` および `webFrame.registerURLSchemeAsBypassingCSP`、ならびにブラウザプロセス API `protocol.registerStandardSchemes` は削除されました。 新しい API、`protocol.registerSchemesAsPrivileged` が追加されました。これは、必要な権限でカスタムスキームを登録するために使用する必要があります。 カスタムスキームは、app の ready より前に登録する必要があります。
 
-## webFrame Isolated World APIs
+## webFrame Isolated World API
 
 ```js
-// Deprecated
+// 非推奨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// こちらに置換
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -99,16 +99,16 @@ webFrame.setIsolatedWorldInfo(
 
 # 予定されている破壊的なAPIの変更 (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+以下のリストには Electron 4.0 でなされた破壊的な API の変更が含まれています。
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// こちらに置換
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -118,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.releaseSingleInstance()
-// Replace with
+// こちらに置換
 app.releaseSingleInstanceLock()
 ```
 
@@ -128,13 +128,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// macOS 上では `basic` と同様に振る舞う
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # 破壊的な API の変更 (3.0)
 
@@ -387,9 +387,9 @@ webFrame.setVisualZoomLevelLimits(1, 2)
 ## `<webview>`
 
 ```js
-// Removed
+// 削除されました
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// こちらに置換
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
