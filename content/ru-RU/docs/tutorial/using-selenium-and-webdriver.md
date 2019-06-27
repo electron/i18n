@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Простой тест для проверки того, что видимое окно открывается с заголовком
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,32 +24,32 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Check if the window is visible
+    // Проверить, видно ли окно
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
+    // Убедиться что окно видимое
     assert.strictEqual(isVisible, true)
-    // Get the window's title
+    // Получить заголовок окна
     const title = await app.client.getTitle()
-    // Verify the window's title
-    assert.strictEqual(title, 'My App')
+    // Проверить заголовок окна
+    assert.strictEqual(title, 'Мое Приложение')
   } catch (error) {
-    // Log any failures
-    console.error('Test failed', error.message)
+    // Журналировать любые сбои
+    console.error('Тест не пройден', error.message)
   }
-  // Stop the application
+  // Остановить приложение
   await app.stop()
 }
 
 verifyWindowIsVisibleWithTitle(myApp)
 ```
 
-## Setting up with WebDriverJs
+## Настройка с помощью WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) предоставляет пакет узлов для тестирования с веб-драйвером, мы будем использовать его в качестве примера.
 
-### 1. Start ChromeDriver
+### 1. Запуск ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Сначала вам нужно скачать бинарный файл `chromedriver` и запустить его:
 
 ```sh
 $ npm install electron-chromedriver
@@ -58,15 +58,15 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+Запомните номер порта `9515`, который будет использоваться позже
 
-### 2. Install WebDriverJS
+### 2. Установка WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. Подключение к ChromeDriver
 
 The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -101,9 +101,9 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. Запуск ChromeDriver
 
-First you need to download the `chromedriver` binary, and run it:
+Сначала вам нужно скачать бинарный файл `chromedriver` и запустить его:
 
 ```sh
 $ npm install electron-chromedriver
@@ -112,7 +112,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+Запомните номер порта `9515`, который будет использоваться позже
 
 ### 2. Install WebdriverIO
 
