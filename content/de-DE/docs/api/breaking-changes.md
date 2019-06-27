@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -108,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Veraltet
+// Deprecated
 app.releaseSingleInstance()
-// Ersetze mit
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
@@ -118,7 +128,7 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Verhält sich jetzt gleich wie `basic` auf macOS
+// Now behaves the same with `basic` on macOS
 app.getGPUInfo('basic')
 ```
 
@@ -133,33 +143,33 @@ The following list includes the breaking API changes in Electron 3.0.
 ## `app`
 
 ```js
-// Veraltet
+// Deprecated
 app.getAppMemoryInfo()
-// Ersetze mit
+// Replace with
 app.getAppMetrics()
 
-// Veraltet
+// Deprecated
 const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-## `Browserfenster`
+## `BrowserWindow`
 
 ```js
-// Veraltet
+// Deprecated
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Ersetze mit
+// Replace with
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Veraltet
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Ersetze mit
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -167,40 +177,40 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+## `Zwischenablage (clipboard)`
 
 ```js
-// Veraltet
+// Deprecated
 clipboard.readRtf()
-// Ersetze mit
+// Replace with
 clipboard.readRTF()
 
-// Veraltet
+// Deprecated
 clipboard.writeRtf()
-// Ersetze mit
+// Replace with
 clipboard.writeRTF()
 
-// Veraltet
+// Deprecated
 clipboard.readHtml()
-// Ersetze mit
+// Replace with
 clipboard.readHTML()
 
-// Veraltet
+// Deprecated
 clipboard.writeHtml()
-// Ersetze mit
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Veraltet
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Ersetze mit
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -211,9 +221,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Veraltet
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// Ersetze mit
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -222,16 +232,16 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Veraltet
+// Deprecated
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// Veraltet
+// Deprecated
 screen.getMenuBarHeight()
-// Ersetze mit
+// Replace with
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -248,59 +258,59 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-## `Fach`
+## `Tray`
 
 ```js
-// Veraltet
+// Deprecated
 tray.setHighlightMode(true)
-// Ersetze mit
+// Replace with
 tray.setHighlightMode('on')
 
-// Veraltet
+// Deprecated
 tray.setHighlightMode(false)
-// Ersetze mit
+// Replace with
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Veraltet
+// Deprecated
 webContents.openDevTools({ detach: true })
-// Ersetze mit
+// Replace with
 webContents.openDevTools({ mode: 'detach' })
 
-// Entfernt
+// Removed
 webContents.setSize(options)
-// Für diese API gibt es keinen Ersatz
+// There is no replacement for this API
 ```
 
 ## `webFrame`
 
 ```js
-// Veraltet
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// Ersetze mit
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Veraltet
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Ersetze mit
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Entfernt
+// Removed
 webview.setAttribute('disableguestresize', '')
-// Für diese API gibt es keinen Ersatz
+// There is no replacement for this API
 
-// Entfernt
+// Removed
 webview.setAttribute('guestinstance', instanceId)
-// Für diese API gibt es keinen Ersatz
+// There is no replacement for this API
 
-// Keyboard listener funktionieren nicht länger für webview tag
+// Keyboard listeners no longer work on webview tag
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -317,37 +327,37 @@ Replace with: https://atom.io/download/electron
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-## `Browserfenster`
+## `BrowserWindow`
 
 ```js
-// Veraltet
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Ersetze mit
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menü`
+## `menu`
 
 ```js
-// Entfernt
+// Removed
 menu.popup(browserWindow, 100, 200, 2)
-// Ersetze mit
+// Replaced with
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Entfernt
+// Removed
 nativeImage.toPng()
-// Ersetze mit
+// Replaced with
 nativeImage.toPNG()
 
-// Entfernt
+// Removed
 nativeImage.toJpeg()
-// Ersetze mit
+// Replaced with
 nativeImage.toJPEG()
 ```
 
@@ -358,27 +368,27 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Entfernt
+// Removed
 webContents.setZoomLevelLimits(1, 2)
-// Ersetze mit
+// Replaced with
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Entfernt
+// Removed
 webFrame.setZoomLevelLimits(1, 2)
-// Ersetze mit
+// Replaced with
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Entfernt
+// Removed
 webview.setZoomLevelLimits(1, 2)
-// Ersetze mit
+// Replaced with
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
