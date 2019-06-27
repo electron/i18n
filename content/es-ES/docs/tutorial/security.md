@@ -34,9 +34,9 @@ Un problema de seguridad existe siempre que recibes código de un lugar no confi
 
 ## Advertencias de seguridad de Electron
 
-Desde Electron 2.0, los desarrolladores verán advertencias y recomendaciones impresas en la consola de desarrolladores. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Desde Electron 2.0, los desarrolladores verán advertencias y recomendaciones impresas en la consola de desarrolladores. Estos solo se muestran cuando el nombre del binario es Electron, indicando que un desarrollador está mirando la consola.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Usted puede activar o desactivar estas advertencias forzosamente configurando `ELECTRON_ENABLE_SECURITY_WARNINGS` o `ELECTRON_DISABLE_SECURITY_WARNINGS` ya sea en `process.env` o en el objeto `window`.
 
 ## Lista: Recomendaciones de Seguridad
 
