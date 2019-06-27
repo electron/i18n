@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Критические изменения
 
 Критические изменения будут описаны здесь, а также будут добавлены предупреждения об устаревших функциях в JS код, где это возможно, нужна, по крайней мере, [одна мажорная версия](../tutorial/electron-versioning.md#semver) перед тем, как изменения будут сделаны.
 
@@ -315,25 +315,25 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## URL заголовков Node
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 
-Deprecated: https://atom.io/download/atom-shell
+Устарело: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Заменено на: https://atom.io/download/electron
 
 # Критические изменения API (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+Следующий список включает в себя критические изменения API, сделанные в Electron 2.0.
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Заменено на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -341,23 +341,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Заменено на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// Удалено
 nativeImage.toPng()
-// Replaced with
+// Заменено на
 nativeImage.toPNG()
 
-// Removed
+// Удалено
 nativeImage.toJpeg()
-// Replaced with
+// Заменено на
 nativeImage.toJPEG()
 ```
 
@@ -368,34 +368,34 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Removed
+// Удалено
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Заменено на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Заменено на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Удалено
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Заменено на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Двойные ресурсы ARM
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).
