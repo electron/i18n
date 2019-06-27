@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -108,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Przestarzałe
+// Deprecated
 app.releaseSingleInstance()
-// Zamień na
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
@@ -170,24 +180,24 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Przestarzałe
+// Deprecated
 clipboard.readRtf()
-// Zamień na
+// Replace with
 clipboard.readRTF()
 
-// Przestarzałe
+// Deprecated
 clipboard.writeRtf()
-// Zamień na
+// Replace with
 clipboard.writeRTF()
 
-// Przestarzałe
+// Deprecated
 clipboard.readHtml()
-// Zamień na
+// Replace with
 clipboard.readHTML()
 
-// Przestarzałe
+// Deprecated
 clipboard.writeHtml()
-// Zamień na
+// Replace with
 clipboard.writeHTML()
 ```
 
@@ -219,10 +229,10 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `przetwórz`
+## `proces`
 
 ```js
-// Przestarzałe
+// Deprecated
 const info = process.getProcessMemoryInfo()
 ```
 
@@ -351,7 +361,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `przetwórz`
+## `proces`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
