@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `false`     |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -108,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// depreciado
+// Deprecated
 app.releaseSingleInstance()
-// Substituir com
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
@@ -128,7 +138,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 # Alterações na API (3.0)
 
-A lista a seguir inclui as alterações na API do Election 3.0.
+The following list includes the breaking API changes in Electron 3.0.
 
 ## `app`
 
@@ -170,37 +180,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// depreciado
+// Deprecated
 clipboard.readRtf()
-// Substitua com
+// Replace with
 clipboard.readRTF()
 
-// depreciado
+// Deprecated
 clipboard.writeRtf()
-// Substitua com
+// Replace with
 clipboard.writeRTF()
 
-// depreciado
+// Deprecated
 clipboard.readHtml()
-// Substitua com
+// Replace with
 clipboard.readHTML()
 
-// depreciado
+// Deprecated
 clipboard.writeHtml()
-// Substitua com
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// depreciado
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Substitua com
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -211,9 +221,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// depreciado
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// Substitua com
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
