@@ -62,7 +62,7 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                                            | `false` |
 | `webviewTag`       | `nodeIntegration`, если установлено, иначе `true` | `false` |
 
-E.g. Re-enabling the webviewTag
+Например, повторное включение webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -74,20 +74,20 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+В дочерних окнах открытых с параметром `nativeWindowOpen` интеграция с Node.js всегда будет отключена.
 
-## Privileged Schemes Registration
+## Регистрация привилегированных схем
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+API графического процесса `webFrame.setRegisterURLSchemeAsPrivileged` и `webFrame.registerURLSchemeAsBypassingCSP`, а также API процесса браузера `protocol.registerStandardSchemes` были удалены. Новый API `protocol.registerSchemesAsPrivileged` был добавлен и должен использоваться для регистрации пользовательских схем с необходимыми привилегиями. Пользовательские схемы должны быть зарегистрированы до готовности приложения.
 
-## webFrame Isolated World APIs
+## API webFrame изолированных миров
 
 ```js
-// Deprecated
+// Устарело
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Заменено на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -99,16 +99,16 @@ webFrame.setIsolatedWorldInfo(
 
 # Запланированные критические изменения API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+Следующий список включает в себя критические изменения API, сделанные в Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Устарело
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// Заменено на
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -118,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Устарело
 app.releaseSingleInstance()
-// Replace with
+// Заменено на
 app.releaseSingleInstanceLock()
 ```
 
@@ -128,51 +128,51 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// Теперь ведет себя так же, как `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 # Критические изменения API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+Следующий список включает в себя критические изменения API, сделанные в Electron 3.0.
 
 ## `app`
 
 ```js
-// Deprecated
+// Устарело
 app.getAppMemoryInfo()
-// Replace with
+// Заменено на
 app.getAppMetrics()
 
-// Deprecated
+// Устарело
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // Свойство устарело
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Заменено на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Устарело
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // делаем что-нибудь
   }
 })
-// Replace with
+// Заменено на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // делаем что-нибудь
   }
 })
 ```
@@ -180,37 +180,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Устарело
 clipboard.readRtf()
-// Replace with
+// Заменено на
 clipboard.readRTF()
 
-// Deprecated
+// Устарело
 clipboard.writeRtf()
-// Replace with
+// Заменено на
 clipboard.writeRTF()
 
-// Deprecated
+// Устарело
 clipboard.readHtml()
-// Replace with
+// Заменено на
 clipboard.readHTML()
 
-// Deprecated
+// Устарело
 clipboard.writeHtml()
-// Replace with
+// Заменено на
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Устарело
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Заменено на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -221,9 +221,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Заменено на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -232,27 +232,27 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// Устарело
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// Устарело
 screen.getMenuBarHeight()
-// Replace with
+// Заменено на
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Deprecated
+// Устарело
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Заменено на
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -261,58 +261,58 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// Deprecated
+// Устарело
 tray.setHighlightMode(true)
-// Replace with
+// Заменено на
 tray.setHighlightMode('on')
 
-// Deprecated
+// Устарело
 tray.setHighlightMode(false)
-// Replace with
+// Заменено на
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Устарело
 webContents.openDevTools({ detach: true })
-// Replace with
+// Заменено на
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Удалено
 webContents.setSize(options)
-// There is no replacement for this API
+// Нет замены для этого API
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Удалено
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Нет замены для этого API
 
-// Removed
+// Удалено
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Нет замены для этого API
 
-// Keyboard listeners no longer work on webview tag
-webview.onkeydown = () => { /* handler */ }
-webview.onkeyup = () => { /* handler */ }
+// Слушатели клавиатуры больше не работают в теге webview
+webview.onkeydown&nbsp;= () => { /* обработчик */ }
+webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
 ## URL заголовков Node
