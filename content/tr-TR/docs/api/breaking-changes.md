@@ -62,7 +62,17 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                               | `yanlış`    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `yanlış`    |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
+
+### `nativeWindowOpen`
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
@@ -130,7 +140,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-## `app`
+## `uygulama`
 
 ```js
 // Deprecated
@@ -194,13 +204,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Kullanım Dışı
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// İle Değiştirin
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -305,13 +315,13 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Başlıkları URLsi
+## Node Headers URL
 
-Bu, bir `.npmrc` dosyasında `disturl` olarak veya yerel Node modülleri oluştururken `--dist-url` komut satırı işareti olarak belirtilen URL'dir.
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Kullanımdan kaldırıldı: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-Şununla değiştirildi: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -320,10 +330,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `BrowserWindow`
 
 ```js
-// Kullanım Dışı
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// İle Değiştirin
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -382,7 +392,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## ARM Varlıklarını Çoğaltın
+## Duplicate ARM Assets
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
