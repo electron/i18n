@@ -62,22 +62,32 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                            | `false` |
 | `webviewTag`       | `nodeIntegration` を設定しなければ `true` | `false` |
 
-## `nativeWindowOpen`
+E.g. Re-enabling the webviewTag
 
-`nativeWindowOpen` オプションで開かれる子ウインドウは Node.js integration が無効化されます。
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    webviewTag: true
+  }
+})
+```
 
-## 特権スキームレジストレーション
+### `nativeWindowOpen`
 
-レンダラプロセス API `webFrame.setRegisterURLSchemeAsPrivileged` および `webFrame.registerURLSchemeAsBypassingCSP`、ならびにブラウザプロセス API `protocol.registerStandardSchemes` は削除されました 新しい API `protocol.registerSchemesAsPrivileged` が追加されました。これらは、必要な権限でカスタムスキームを登録するために使用する必要があります。 カスタムスキームは、アプリの準備が整う前に登録する必要があります。
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## Privileged Schemes Registration
+
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
 
 ## webFrame Isolated World APIs
 
 ```js
-// 非推奨
+// Deprecated
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// こちらに置換
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -89,16 +99,16 @@ webFrame.setIsolatedWorldInfo(
 
 # 予定されている破壊的なAPIの変更 (4.0)
 
-以下のリストには Electron 4.0 でなされた破壊的な API の変更が含まれています。
+The following list includes the breaking API changes made in Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// 非推奨
+// Deprecated
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// こちらに置換
+// Replace with
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -108,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// 非推奨
+// Deprecated
 app.releaseSingleInstance()
-// こちらに置換
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
@@ -118,51 +128,51 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// macOS 上では `basic` と同様に振る舞う
+// Now behaves the same with `basic` on macOS
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # 破壊的な API の変更 (3.0)
 
-以下のリストには Electron 3.0 での破壊的な API の変更が含まれています。
+The following list includes the breaking API changes in Electron 3.0.
 
 ## `app`
 
 ```js
-// 非推奨
+// Deprecated
 app.getAppMemoryInfo()
-// こちらに置換
+// Replace with
 app.getAppMetrics()
 
-// 非推奨
+// Deprecated
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // 非推奨なプロパティ
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
-// 非推奨
+// Deprecated
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// こちらに置換
+// Replace with
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// 非推奨
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // なにかする
+    // do something
   }
 })
-// こちらに置換
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // なにかする
+    // do something
   }
 })
 ```
@@ -171,37 +181,37 @@ window.on('app-command', (e, cmd) => {
 `
 
 ```js
-// 非推奨
+// Deprecated
 clipboard.readRtf()
-// こちらに置換
+// Replace with
 clipboard.readRTF()
 
-// 非推奨
+// Deprecated
 clipboard.writeRtf()
-// こちらに置換
+// Replace with
 clipboard.writeRTF()
 
-// 非推奨
+// Deprecated
 clipboard.readHtml()
-// こちらに置換
+// Replace with
 clipboard.readHTML()
 
-// 非推奨
+// Deprecated
 clipboard.writeHtml()
-// こちらに置換
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// 非推奨
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// こちらに置換
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -212,9 +222,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// 非推奨
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// こちらに置換
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -223,27 +233,27 @@ nativeImage.createFromBuffer(buffer, {
 ## `プロセス`
 
 ```js
-// 非推奨
+// Deprecated
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// 非推奨
+// Deprecated
 screen.getMenuBarHeight()
-// こちらに置換
+// Replace with
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// 非推奨
+// Deprecated
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// こちらに置換
+// Replace with
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -252,79 +262,79 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// 非推奨
+// Deprecated
 tray.setHighlightMode(true)
-// こちらに置換
+// Replace with
 tray.setHighlightMode('on')
 
-// 非推奨
+// Deprecated
 tray.setHighlightMode(false)
-// こちらに置換
+// Replace with
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// 非推奨
+// Deprecated
 webContents.openDevTools({ detach: true })
-// こちらに置換
+// Replace with
 webContents.openDevTools({ mode: 'detach' })
 
-// 削除されました
+// Removed
 webContents.setSize(options)
-// この API は置換できません
+// There is no replacement for this API
 ```
 
 ## `webFrame`
 
 ```js
-// 非推奨
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// こちらに置換
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// 非推奨
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// こちらに置換
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// 削除されました
+// Removed
 webview.setAttribute('disableguestresize', '')
-// この API は置換できません
+// There is no replacement for this API
 
-// 削除されました
+// Removed
 webview.setAttribute('guestinstance', instanceId)
-// この API は置換できません
+// There is no replacement for this API
 
-// webview タグ上ではキーボードリスナは動作しなくなります
+// Keyboard listeners no longer work on webview tag
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
 ## Node Headers URL
 
-これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。
+This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-非推奨: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-こちらに置換: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # 破壊的な API の変更 (2.0)
 
-以下のリストには Electron 2.0 でなされた破壊的な API の変更が含まれています。
+The following list includes the breaking API changes made in Electron 2.0.
 
 ## `BrowserWindow`
 
 ```js
-// 非推奨
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// こちらに置換
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -332,23 +342,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// 削除されました
+// Removed
 menu.popup(browserWindow, 100, 200, 2)
-// こちらに置換
+// Replaced with
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// 削除されました
+// Removed
 nativeImage.toPng()
-// こちらに置換
+// Replaced with
 nativeImage.toPNG()
 
-// 削除されました
+// Removed
 nativeImage.toJpeg()
-// こちらに置換
+// Replaced with
 nativeImage.toJPEG()
 ```
 
@@ -359,34 +369,34 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// 削除されました
+// Removed
 webContents.setZoomLevelLimits(1, 2)
-// こちらに置換
+// Replaced with
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// 削除されました
+// Removed
 webFrame.setZoomLevelLimits(1, 2)
-// こちらに置換
+// Replaced with
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// 削除されました
+// Removed
 webview.setZoomLevelLimits(1, 2)
-// こちらに置換
+// Replaced with
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## 重複する ARM アセット
+## Duplicate ARM Assets
 
-どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる2つの同一な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
+Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
-*接頭子が付いていない*ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
+The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
-詳細は、[6986](https://github.com/electron/electron/pull/6986) と [7189](https://github.com/electron/electron/pull/7189) を参照してください。
+For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
