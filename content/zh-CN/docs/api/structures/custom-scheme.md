@@ -1,4 +1,4 @@
-# CustomScheme Object
+# 自定义方案 Object
 
 * `scheme` String - Custom schemes to be registered with options.
 * `privileges` Object (可选) 
