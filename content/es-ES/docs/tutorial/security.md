@@ -40,18 +40,18 @@ Usted puede activar o desactivar estas advertencias forzosamente configurando `E
 
 ## Lista: Recomendaciones de Seguridad
 
-You should at least follow these steps to improve the security of your application:
+Al menos debes seguir los siguientes pasos para mejorar la seguridad de su aplicación:
 
 1. [Solo carga contenido seguro](#1-only-load-secure-content)
 2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#3-enable-context-isolation-for-remote-content)
 4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#4-handle-session-permission-requests-from-remote-content)
 5. [No desactives `webSecurity`](#5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+6. [Define un `Content-Security-Policy`](#6-define-a-content-security-policy) y usa reglas estrictas (i.e. `script-src 'self'`)
 7. [No establezca `allowRunningInsecureContent` a `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
 8. [No active ajustes experimentales](#8-do-not-enable-experimental-features)
-9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+9. [No use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: No use`allowpopups`](#10-do-not-use-allowpopups)
 11. [`<webview>`: Verificar opciones y parámetros](#11-verify-webview-options-before-creation)
 12. [Deshabilitar o limitar la navegación](#12-disable-or-limit-navigation)
 13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
@@ -59,7 +59,7 @@ You should at least follow these steps to improve the security of your applicati
 15. [Deshabilitar el módulo `remote`](#15-disable-the-remote-module)
 16. [Filtrar el módulo `remote`](#16-filter-the-remote-module)
 
-To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
+Para automatizar la detección de configuraciones erróneas y de modelos inseguros, es posible usar [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) Only Load Secure Content
 
