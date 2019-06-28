@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "10629",
-    "translated": "479",
+    "translated": "481",
     "approved": "0",
     "words": "97928",
-    "words_translated": "3113",
+    "words_translated": "3156",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 126
+    "qa_issues": 128
   },
   {
     "name": "Hindi",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10629",
-    "translated": "9298",
+    "translated": "9305",
     "approved": "259",
     "words": "97928",
-    "words_translated": "77384",
+    "words_translated": "77477",
     "words_approved": "2023",
     "translated_progress": 79,
     "approved_progress": 2,
-    "qa_issues": 3569
+    "qa_issues": 3574
   },
   {
     "name": "Tagalog",
