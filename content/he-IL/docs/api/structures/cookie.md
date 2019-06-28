@@ -2,8 +2,8 @@
 
 * `name` ‏String - שם העוגייה.
 * `value` ‏String - הערך של העוגייה.
-* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
+* `domain` String (אופציונלי) - הדומיין של העוגייה; הערך יהיה מנורמל עם נקודה מקדימה (.) כך שערכו יהיה תקין גם עבור תתי דומיין.
+* `hostOnly` Boolean (אופציונלי) - אם העוגייה היא לדף של המארח שלה בלבד; הערך יהיה `אמת` אם שום דומיין לא מועבר.
 * `path` ‏String (רשות) - הכתובת של העוגייה.
 * `secure` ‏Boolean (רשות) - האם העוגייה סומנה כמאובטחת.
 * `httpOnly` ‏Boolean (רשות) - האם העוגייה סומנה כ־HTTP בלבד.
