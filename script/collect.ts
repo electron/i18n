@@ -11,7 +11,7 @@ import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
 import * as Octokit from '@octokit/rest'
-const electronDocs = require('electron-docs')
+import { roggy, IResponse as IRoggyResponse } from 'roggy'
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
 const github = new Octokit({
@@ -21,12 +21,6 @@ const github = new Octokit({
 interface IResponse {
   tag_name: string
   assets: Octokit.ReposGetReleaseByTagResponseAssetsItem[]
-}
-
-interface IElectronDocsResponse {
-  slug: string
-  filename: string
-  markdown_content: string
 }
 
 let release: IResponse
@@ -68,10 +62,10 @@ async function fetchAPIDocsFromLatestStableRelease() {
   console.log(`Fetching API docs from electron/electron#${release.tag_name}`)
 
   writeToPackageJSON('electronLatestStableTag', release.tag_name)
-  const docs = await electronDocs(release.tag_name)
+  const docs = await roggy(release.tag_name, { owner: 'electron', repository: 'repository' })
 
   docs
-    .filter((doc: IElectronDocsResponse) => doc.filename.startsWith('api/'))
+    .filter(doc => doc.filename.startsWith('api/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
@@ -115,11 +109,11 @@ async function getMasterBranchCommit() {
 async function fetchTutorialsFromMasterBranch() {
   console.log(`Fetching tutorial docs from electron/electron#master`)
 
-  const docs = await electronDocs('master')
+  const docs = await roggy('master', { owner: 'elecron', repository: 'electron' })
 
   docs
-    .filter((doc: IElectronDocsResponse) => !doc.filename.startsWith('api/'))
-    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('images/'))
+    .filter(doc => !doc.filename.startsWith('api/'))
+    .filter(doc => !doc.filename.includes('images/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
@@ -141,7 +135,7 @@ async function fetchWebsiteContent() {
 
 // Utility functions
 
-function writeDoc(doc: IElectronDocsResponse) {
+function writeDoc(doc: IRoggyResponse) {
   const filename = path.join(englishBasepath, 'docs', doc.filename)
   mkdir(path.dirname(filename))
   fs.writeFileSync(filename, doc.markdown_content)
