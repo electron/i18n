@@ -63,10 +63,10 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` 和 `VolumeMute`
 * ` MediaNextTrack `、` MediaPreviousTrack `、` MediaStop ` 和 ` MediaPlayPause `
 * `PrintScreen`
-* NumPad Keys 
-  * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+* 小键盘按键 
+  * `num1`-`num9` -数字1-数字9
+  * `numdec` - 小数点
+  * `numadd` - 加号
+  * `numsub` - 减号
+  * `nummult` - 乘号
+  * `numdiv` - 除号
