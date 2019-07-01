@@ -1021,7 +1021,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - выполняется ли приложение сейчас из systems Application папки. Используется совместно с `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение в данный момент из системной папки "Приложения". Используется совместно с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
