@@ -1,6 +1,6 @@
 # 自定义方案 Object
 
-* `scheme` String - Custom schemes to be registered with options.
+* `计划` 字符串 - 自定义计划需要使用选项注册。
 * `privileges` Object (可选) 
   * `standard` Boolean (可选) -默认为false
   * `secure` Boolean (可选) - 默认为false
