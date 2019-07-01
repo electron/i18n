@@ -879,7 +879,7 @@ machineModelVersion: '11.5' }
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
+Задает счетчик-значок для текущего приложения. При значении счетчика `0`, значок будет скрыт.
 
 На macOS показывается на иконке в dock. На Linux только работает для лаунчера Unity.
 
@@ -887,7 +887,7 @@ machineModelVersion: '11.5' }
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Возвращает `Integer` - текущее значение, отображаемое в значке счётчика.
+Возвращает `Integer` - текущее значение, отображаемое в значке-счетчике.
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -917,9 +917,9 @@ machineModelVersion: '11.5' }
   * `path` String (опционально) *Windows* - исполняемый файл для запуска при входе в систему. По умолчанию `process.execPath`.
   * `args` String[] (опционально) *Windows* - аргументы командной строки для передачи исполняемому файлу. По умолчанию пустой массив. Позаботьтесь обернуть путь кавычками.
 
-Установите приложению параметры при входе в систему.
+Устанавливает параметры приложения при входе в систему.
 
-Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
+Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), Вы можете задать путь до Update.exe и передать аргументы, которые указывают на имя приложения. Например:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -938,7 +938,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Возвращает `Boolean` - `true` если включена поддержка специальных возможностей Chrome, и `false` в противном случае. Этот API будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возвращает `Boolean` - `true` если включена поддержка специальных возможностей Chrome, иначе `false`. Этот API будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -948,7 +948,7 @@ app.setLoginItemSettings({
 
 Этот API должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Примечание:** Отображение дерева специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
@@ -965,37 +965,37 @@ app.setLoginItemSettings({
   * `website` String (опционально) - веб-сайт приложения. *Linux*
   * `iconPath` String (опционально) - путь до иконки приложения. *Linux*
 
-Установите описание панели опций. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
+Устанавливает параметры панели описания. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [документацию компании Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
 * `bookmarkData` String - закодированные в формате base64 данные защищенных закладок, возвращаемые методами `dialog.showOpenDialog` или `dialog.showSaveDialog`.
 
-Возвращает `Function`. Эта функция **должна** быть вызвана после того как вы have finished accessing the security scoped file. Если Вы забыли, запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
+Возвращает `Function` - эта функция **должна** быть вызвана после того, как Вы завершите получение данных из защищенного файла. Если Вы забыли запретить доступ к закладке, [возможна утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и Ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
 ```js
 // Получение доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Теперь Вы можете получить доступ к файлу вне песочницы 
 stopAccessingSecurityScopedResource()
 ```
 
-Начать доступ в области безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
+Получает доступ к защищенному ресурсу. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить за пределы их песочницы, чтобы получить доступ к файлам, которые выбраны пользователем. Смотрите [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), для описания того, как работает эта система.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
 * `switch` String - переключатель командной строки
 * `value` String (опционально) - значение для данного переключателя
 
-Добавьте переключатель (с опциональным значением `value`) Chromium в командной строке.
+Добавляет переключатель (с опциональным `value`) в командную строку Chromium.
 
-**Примечание:** Это не влияет на `process.argv` и главным образом используется разработчиками для контроля поведения некоторых низкоуровневых поведений Chromium.
+**Примечание:** Это не влияет на `process.argv` и главным образом используется разработчиками для контроля некоторых низкоуровневых поведений Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - аргумент для добавления в командную строку
 
-Добавляет аргумент к Chromium в командной строке. Аргумент будет указан правильно.
+Добавляет аргумент в командную строку Chromium. Аргумент будет указан верно.
 
 **Примечание:** Это не повлияет на `process.argv`.
 
