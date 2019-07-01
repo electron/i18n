@@ -329,7 +329,7 @@ app.on('session-created', (event, session) => {
 
 Это событие произойдет внутри главного экземпляра Вашего приложения, когда второй экземпляр был запущен и вызывает `app.requestSingleInstanceLock()`.
 
-`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущий рабочий каталог. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущий рабочий каталог. Обычно приложения реагируют на это, делая их главное окно сфокусированным и не свернутым.
 
 Это событие гарантировано происходит после события `ready` в `app`.
 
@@ -352,7 +352,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.require()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-global'
 
@@ -362,7 +362,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
@@ -372,7 +372,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getBuiltin()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-window'
 
@@ -381,7 +381,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getCurrentWindow()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
@@ -390,7 +390,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getCurrentWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getCurrentWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-guest-web-contents'
 
@@ -400,7 +400,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `<webview>.remote.getWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ## Методы
 
@@ -410,7 +410,7 @@ app.on('session-created', (event, session) => {
 
 ### `app.quit()`
 
-Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
+Пытается закрыть все окна. Сначала произойдет событие `before-quit`. Если все окна успешно закрыты, произойдет событие `will-quit` и по умолчанию приложение будет завершено.
 
 Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
 
