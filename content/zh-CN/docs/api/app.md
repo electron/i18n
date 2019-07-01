@@ -961,12 +961,12 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `version` String (可选) - 应用程序版本号。*macOS*
+  * `credits` String (可选) - 作者信息。*macOS*
+  * ` website ` String (可选) - 应用网站。*Linux*
+  * ` iconPath ` String (可选) - 应用图标路径。*Linux*
 
-设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on MacOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 On Linux, values must be set in order to be shown; there are no defaults.
+设置 "关于" 面板选项。 这将覆盖应在MacOS系统中应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple docs ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -1004,17 +1004,17 @@ stopAccessingSecurityScopedResource()
 
 * `switch` String - 命令行开关
 
-Returns `Boolean` - Whether the command-line switch is present.
+返回`Boolean` - 命令行开关是否打开。
 
 ### `app.commandLine.getSwitchValue(switch)`
 
 * `switch` String - 命令行开关
 
-Returns `String` - The command-line switch value.
+返回 `String` - 命令行开关值。
 
-**Note:** When the switch is not present, it returns empty string.
+**注意：** 当开关不存时，它返回空字符串。
 
-### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableSandbox()` *试验性* *macOS* *Windows*
 
 在应用程序上启用完全沙盒模式。
 
@@ -1026,11 +1026,11 @@ Returns `String` - The command-line switch value.
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. 错误中的信息应该是信息性的，并告知具体问题。
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是信息性的，并告知具体问题。
 
 ### `app.dock.bounce([type])` *macOS*
 
