@@ -45,7 +45,7 @@ app.on('window-all-closed', () => {
 
 在应用程序开始关闭窗口之前触发。 调用 `event.preventDefault()` 会阻止默认的行为。默认的行为是终结应用程序。
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
 **注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-默认行为是取消所有身份验证。 To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+默认行为是取消所有身份验证。 默认行为是取消所有的验证行为，如果需要重写这个行为，你需要用 `event.preventDefault()` 来阻止默认行为，并且使用 `callback(username, password)` 来验证。
 
 ```javascript
 const { app } = require('electron')
@@ -327,13 +327,13 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - 第二个实例的命令行参数数组
 * `workingDirectory` String - 第二个实例的工作目录
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+当第二个实例被执行并且调用 `app.requestSingleInstanceLock()` 时，这个事件将在你的应用程序的首个实例中触发
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. 通常, 应用程序会激活窗口并且取消最小化来响应。
+` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**注意：** 额外命令行参数可能由 Chromium 添加， ，例如 `--original-process-start-time`。
 
 ### 事件: 'desktop-capturer-get-sources'
 
@@ -342,7 +342,7 @@ This event will be emitted inside the primary instance of your application when 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+当 `desktopCapturer.getSources()` 被 `webContents` 渲染过程中调用时触发。 调用 `event.preventDefault()` 将使它返回空的资源。
 
 ### 事件: 'remote-require'
 
@@ -473,7 +473,7 @@ app.exit(0)
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+返回 `String` - 以 `name` 参数指定的文件夹或文件路径。当失败时抛出 `Error` 。
 
 你可以通过名称请求以下的路径:
 
@@ -514,9 +514,9 @@ Returns `String` - A path to a special directory or file associated with `name`.
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+在 *Linux* 和 *macOS* 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
-**[Deprecated Soon](promisification.md)**
+**[马上将弃用](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -536,7 +536,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+在 *Linux* 和 *macOS* 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
 ### `app.setPath(name, path)`
 
