@@ -327,9 +327,9 @@ app.on('session-created', (event, session) => {
 * `argv` String [] - массив аргументов командной строки второго экземпляра
 * `workingDirectory` String - рабочий каталог второго экземпляра
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+Это событие произойдет внутри главного экземпляра Вашего приложения, когда второй экземпляр был запущен и вызывает `app.requestSingleInstanceLock()`.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущий рабочий каталог. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 Это событие гарантировано происходит после события `ready` в `app`.
 
