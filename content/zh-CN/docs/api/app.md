@@ -43,9 +43,9 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+在应用程序开始关闭窗口之前触发。 调用 `event.preventDefault()` 会阻止默认的行为。默认的行为是终结应用程序。
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**注意：** 如果由 `autoUpdater.quitAndInstal()` 退出应用程序 ，那么在所有窗口触发 `close` *之后* 才会触发 `before-quit` 并关闭所有窗口。
 
 **注:**在 Windows 系统中，如果应用程序因系统关机/重启或用户注销而关闭，那么这个事件不会被触发。
 
@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-默认行为是取消所有身份验证。 To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+默认行为是取消所有身份验证。 默认行为是取消所有的验证行为，如果需要重写这个行为，你需要用 `event.preventDefault()` 来阻止默认行为，并且使用 `callback(username, password)` 来验证。
 
 ```javascript
 const { app } = require('electron')
@@ -327,13 +327,13 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - 第二个实例的命令行参数数组
 * `workingDirectory` String - 第二个实例的工作目录
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+当第二个实例被执行并且调用 `app.requestSingleInstanceLock()` 时，这个事件将在你的应用程序的首个实例中触发
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. 通常, 应用程序会激活窗口并且取消最小化来响应。
+` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 保证在 `app` 的 `ready` 事件发出后发出此事件。
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**注意：** 额外命令行参数可能由 Chromium 添加， ，例如 `--original-process-start-time`。
 
 ### 事件: 'desktop-capturer-get-sources'
 
@@ -342,7 +342,7 @@ This event will be emitted inside the primary instance of your application when 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+当 `desktopCapturer.getSources()` 被 `webContents` 渲染过程中调用时触发。 调用 `event.preventDefault()` 将使它返回空的资源。
 
 ### 事件: 'remote-require'
 
@@ -473,7 +473,7 @@ app.exit(0)
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+返回 `String` - 以 `name` 参数指定的文件夹或文件路径。当失败时抛出 `Error` 。
 
 你可以通过名称请求以下的路径:
 
@@ -514,9 +514,9 @@ Returns `String` - A path to a special directory or file associated with `name`.
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+在 *Linux* 和 *macOS* 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
-**[Deprecated Soon](promisification.md)**
+**[马上将弃用](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -527,7 +527,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
     * `normal` - 32x32
     * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 中无效
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+返回 `Promise<NativeImage>` - 完成后返回当前应用的图标, 类型是 [NativeImage](native-image.md).
 
 读取文件的关联图标。
 
@@ -536,7 +536,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+在 *Linux* 和 *macOS* 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
 ### `app.setPath(name, path)`
 
@@ -573,13 +573,13 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ** 注意: **分发打包的应用程序时, 你必须指定 ` locales ` 文件夹。
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**注意：** 在 Windows 上，你必须得等 `ready` 事件触发之后，才能调用该方法
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+返回 `string` - 用户操作系统的本地双字节 [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国家代码。该值来自本地操作系统API。
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**注意：** 当无法检测本地国家代码时，它返回空字符串。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -587,7 +587,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 将此 `path` 添加到最近打开的文件列表中
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+这个列表由操作系统进行管理。在 Windows 中从任务栏访问列表, 在 macOS 中通过 dock 菜单进行访问。
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -603,7 +603,7 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 此方法将当前可执行文件设置为协议(也称为URI方案) 的默认处理程序。 它允许您将应用程序更深入地集成到操作系统中。 一旦注册成功, 所有 `your-protocol://` 格式的链接都会使用你的程序打开。 整个链接 (包括协议) 将作为参数传递给您的应用程序。
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+在 Windows 系统中，你可以提供可选参数 path（可执行文件的路径）和 args（在启动时传递给可执行文件的参数数组）
 
 ** 注意: **在 macOS 上, 您只能注册已添加到应用程序的 ` info. plist ` 中的协议, 在运行时不能对其进行修改。 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115)
 
@@ -736,11 +736,11 @@ app.setJumpList([
 
 此方法使应用程序成为单个实例应用程序, 而不是允许应用程序的多个实例运行, 这将确保只有一个应用程序的实例正在运行, 其余的实例全部会被终止并退出。
 
-此方法的返回值表示你的应用程序实例是否成功取得了锁。 If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+此方法的返回值表示你的应用程序实例是否成功取得了锁。 如果它取得锁失败，你可以假设另一个应用实例已经取得了锁并且仍旧在运行，并立即退出。
 
 例如：如果你的程序是应用的主要实例并且当这个方法返回 `true`时，你应该继续让你的程序运行。 如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
 
-On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
+在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会通过发出 ` open-file ` 和 ` open-url ` 事件来自动强制执行单个实例,。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须手动调用此方法来确保单实例。
 
 在第二个实例启动时激活主实例窗口的示例:
 
@@ -899,7 +899,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
   * ` path `String (可选) * Windows *-要比较的可执行文件路径。默认为 ` process. execPath `。
   * ` 参数 `String [] (可选) * Windows *-要比较的命令行参数。默认为空数组。
 
-If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置相同的参数已确保正确的设置。
 
 返回 ` Object `:
 
@@ -953,7 +953,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+显示应用程序关于面板选项。这些选项可以被 `app.setAboutOptions(options)`覆盖。
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
@@ -961,12 +961,12 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `version` String (可选) - 应用程序版本号。*macOS*
+  * `credits` String (可选) - 作者信息。*macOS*
+  * ` website ` String (可选) - 应用网站。*Linux*
+  * ` iconPath ` String (可选) - 应用图标路径。*Linux*
 
-设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on MacOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 On Linux, values must be set in order to be shown; there are no defaults.
+设置 "关于" 面板选项。 这将覆盖应在MacOS系统中应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple docs ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -1004,17 +1004,17 @@ stopAccessingSecurityScopedResource()
 
 * `switch` String - 命令行开关
 
-Returns `Boolean` - Whether the command-line switch is present.
+返回`Boolean` - 命令行开关是否打开。
 
 ### `app.commandLine.getSwitchValue(switch)`
 
 * `switch` String - 命令行开关
 
-Returns `String` - The command-line switch value.
+返回 `String` - 命令行开关值。
 
-**Note:** When the switch is not present, it returns empty string.
+**注意：** 当开关不存时，它返回空字符串。
 
-### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableSandbox()` *试验性* *macOS* *Windows*
 
 在应用程序上启用完全沙盒模式。
 
@@ -1026,11 +1026,11 @@ Returns `String` - The command-line switch value.
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. 错误中的信息应该是信息性的，并告知具体问题。
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是信息性的，并告知具体问题。
 
 ### `app.dock.bounce([type])` *macOS*
 
