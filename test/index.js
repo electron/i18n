@@ -109,18 +109,6 @@ describe('i18n.blogs', () => {
     blogs.should.be.an('object')
     blogs['/blog/12-week-cadence'].should.be.an('object')
   })
-
-  it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
-    const html = i18n.blogs['en-US']['/blog/12-week-cadence'].content
-    html.should.be.a('string')
-    html.should.contain('<p>')
-    html.should.not.contain('<html>')
-    html.should.not.contain('</html>')
-    html.should.not.contain('<head>')
-    html.should.not.contain('</head>')
-    html.should.not.contain('<body>')
-    html.should.not.contain('</body>')
-  })
 })
 
 describe('i18n.glossary', () => {
