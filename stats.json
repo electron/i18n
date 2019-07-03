@@ -114,7 +114,7 @@
     "words_approved": "65",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1813
+    "qa_issues": 1808
   },
   {
     "name": "Hebrew",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10629",
-    "translated": "6650",
+    "translated": "6656",
     "approved": "2771",
     "words": "97928",
-    "words_translated": "51883",
+    "words_translated": "51982",
     "words_approved": "24077",
-    "translated_progress": 52,
+    "translated_progress": 53,
     "approved_progress": 24,
-    "qa_issues": 1409
+    "qa_issues": 1412
   },
   {
     "name": "Spanish",
