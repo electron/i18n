@@ -37,8 +37,8 @@ console.log(dialog)
     * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
     * `promptToCreate` *Windows* - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
-    * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и теперь вернут свой путь, а не ее целевой путь.
-    * `treatPackageAsDirectory` *macOS* - Открывает пакеты, такие как папки `.app`, как директорию, а не как файл.
+    * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
+    * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
   * `message` String (опционально) *macOS* - Сообщение, которое будет показан над блоками ввода.
   * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
 * `callback` Function (опционально) 
