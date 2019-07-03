@@ -39,17 +39,17 @@ console.log(dialog)
     * `promptToCreate` *Windows* - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
-  * `message` String (опционально) *macOS* - Сообщение, которое будет показан над блоками ввода.
-  * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
-* `callback` Function (опционально) 
-  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
-  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
+  * `message` String (необязательно) *macOS* - Сообщение, которое будет отображено над полями ввода.
+  * `securityScopedBookmarks` Boolean (необязательно) *masOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
+* `callback` Function (необязательно) 
+  * `filePaths` String[] (необязательно) - Массив путей к файлам, выбранных пользователем. `undefined`, если пользователь отменил выбор.
+  * `bookmarks` String[] (необязательно) *macOS* *mas* - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы.
 
-Возвращает `String[] | undefined`, массив путей к файлам, выбранных пользователем, или `undefined` если передан коллбэк.
+Возвращает `String[] | undefined`, массив путей к файлам, выбранным пользователем, или `undefined` если передана функция обратного вызова.
 
-Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
+Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
-Аргумент `filters` указывает массив типов файлов, которые могут быть показаны или выбраны, если вы хотите ограничить пользователя на определенном типе файла. Например:
+Аргумент `filters` должен содержать массив типов файлов, которые могут будут показаны и смогут быть выбраны, если вы хотите позволить выбор только определённых файлов. Например:
 
 ```javascript
 {
