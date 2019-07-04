@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
-Диалоговое окно открывается из главного потока Electron. Если вы хотите использовать объект диалогового окна из рендер-процесса, помните, что доступ к нему нужно получать через remote:
+Диалоговое окно открывается из основного потока Electron. Если вы хотите использовать объект диалогового окна из графического процесса, не забудьте, что доступ к нему можно получить только через модуль remote:
 
 ```javascript
 const { dialog } = require('electron').remote
@@ -24,32 +24,32 @@ console.log(dialog)
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
+* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
 * `options` Object 
   * `title` String (опционально)
   * `defaultPath` String (опционально)
-  * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
-  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `properties` String[] (опционально) - Свойства, которые будут использованы диалогом. Возможны следующие значения: 
-    * `openFile` - позволяет выбирать файлы.
-    * `openDirectory` - позволяет выбирать папки.
-    * `multiSelections` - позволяет выбрать несколько объектов.
-    * `showHiddenFiles` - отображает в диалоге скрытые файлы.
+  * `buttonLabel` String (необязательно) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
+  * `properties` String[] (необязательно) - Содержит список функций, которые будут доступны в диалоговом окне. Возможны следующие значения: 
+    * `openFile` - Позволяет выбирать файлы.
+    * `openDirectory` - Позволяет выбирать папки.
+    * `multiSelections` - Позволяет выбрать несколько объектов.
+    * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
     * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
-    * `promptToCreate`*Windows* - предупреждает, если путь указанный в диалоге не существует. Это, на самом деле, не приводит к тому, что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
-    * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и теперь вернут свой путь, а не ее целевой путь.
-    * `treatPackageAsDirectory` *macOS* - Открывает пакеты, такие как папки `.app`, как директорию, а не как файл.
-  * `message` String (опционально) *macOS* - Сообщение, которое будет показан над блоками ввода.
-  * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
-* `callback` Function (опционально) 
-  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
-  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
+    * `promptToCreate` *Windows* - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
+    * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
+    * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
+  * `message` String (необязательно) *macOS* - Сообщение, которое будет отображено над полями ввода.
+  * `securityScopedBookmarks` Boolean (необязательно) *masOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
+* `callback` Function (необязательно) 
+  * `filePaths` String[] (необязательно) - Массив путей к файлам, выбранных пользователем. `undefined`, если пользователь отменил выбор.
+  * `bookmarks` String[] (необязательно) *macOS* *mas* - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы.
 
-Возвращает `String[] | undefined`, массив путей к файлам, выбранных пользователем, или `undefined` если передан коллбэк.
+Возвращает `String[] | undefined`, массив путей к файлам, выбранным пользователем, или `undefined` если передана функция обратного вызова.
 
-Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
+Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
-Аргумент `filters` указывает массив типов файлов, которые могут быть показаны или выбраны, если вы хотите ограничить пользователя на определенном типе файла. Например:
+Аргумент `filters` должен содержать массив типов файлов, которые могут будут показаны и смогут быть выбраны, если вы хотите позволить выбор только определённых файлов. Например:
 
 ```javascript
 {
@@ -62,27 +62,27 @@ console.log(dialog)
 }
 ```
 
-Массив `extentions` должен содержать расширения файлов без шаблонов поиска или точек (например, `png` - это верно, а `.png` и `*.png` - неверно). Для того, чтобы показать все фалы, можно использовать шаблон поиска `'*'` (другие шаблоны не поддерживаются).
+Массив `extentions` должен содержать расширения файлов без шаблонов поиска и точек (например, `png` - верно, а `.png` и `*.png` - нет). Для того, чтобы показать все фалы, можно использовать шаблон поиска `'*'` (другие шаблоны не поддерживаются).
 
-Если был передан `callback`, вызов API будет асинхронным и результат будет передан через `callback(filenames)`.
+Если был передан `callback`, то вызов API будет асинхронным и результат будет передан в `callback(filenames)`.
 
-**Заметка:** на Windows и Linux открытый диалог не может одновременно выбирать и файлы и директории, так что, если вы установили `properties` в `['openFile', 'openDirectory']` на этих платформах, то показан будет только выбор директорий.
+**Замечание:** на Windows и Linux в диалоговом окне нельзя дновременно выбирать и файлы, и директории, так что если вы установили `properties` в `['openFile', 'openDirectory']` на этих платформах, то возможно будет выбирать только директории.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
+* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
 * `options` Object 
-  * `title` String (опционально)
-  * `defaultPath` String (опционально) - Абсолютный путь к директории, файлу или имя файла для использования по умолчанию.
-  * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
-  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `message` String (опционально) *macOS* - Сообщение, которое будет показано поверх полей ввода.
-  * `nameFieldLabel` String (опционально) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
-  * `showsTagField` Boolean (опционально) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Если эта опция включена и такого файла не существует, то пустой файл будет создан по выбранному пути.
-* `callback` Function (опционально) 
-  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
-  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `title` String (необязательно)
+  * `defaultPath` String (необязательно) - Абсолютный путь к директории, файлу или имя файла выбранного по умолчанию.
+  * `buttonLabel` String(необязательно) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
+  * `message` String (необязательно) *macOS* - Сообщение, которое будет показано над полями ввода.
+  * `nameFieldLabel` String (необязательно) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
+  * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
+  * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
+* `callback` Function (необязательно) 
+  * `filename` String (необязательно) - Равняется `undefined`, если пользователь отменил сохранение.
+  * `bookmark` String (необязательно) *macOS* *mas* - Строка в кодировке base64, содержащая зкладку с областью безопасности сохранённого файла. `securityScopedBookmarks` должны быть активированы для её использования.
 
 Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
