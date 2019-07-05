@@ -1,4 +1,4 @@
-# autoUpdater
+# ตัวอัพเดทอัตโนมัติ
 
 > Mở ứng dụng để tự động cập nhật.
 
