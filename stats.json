@@ -224,10 +224,10 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10629",
-    "translated": "4659",
+    "translated": "4660",
     "approved": "388",
     "words": "97928",
-    "words_translated": "33214",
+    "words_translated": "33231",
     "words_approved": "2732",
     "translated_progress": 33,
     "approved_progress": 2,
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "10629",
-    "translated": "1993",
+    "translated": "1994",
     "approved": "51",
     "words": "97928",
-    "words_translated": "9291",
+    "words_translated": "9293",
     "words_approved": "125",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 539
+    "qa_issues": 540
   }
 ]
