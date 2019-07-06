@@ -34,7 +34,7 @@ Il processo di aggiornamento delle versioni è dettagliato esplicitamente nel no
 
 Il supporto a lungo termine delle versioni precedenti di Electron attualmente non è disponibile. Se la vostra versione di Electron funziona bene, potete impiegarla per tutto il tempo che desiderate. Se invece volete utilizzare nuove funzionalità, sarà necessario aggiornare a una versione più recente.
 
-Un aggiornamento importante è stata la versione `v1.0.0`. Se non stai utilizzando questa versione, dovresti [leggere di più sulle modifiche della versione `v1.0.0`](https://electronjs.org/blog/electron-1-0).
+Con la versione `v1.0.0` è stato reso disponibile un aggiornamento molto importante. Se non state utilizzando questa versione, dovreste [leggere di più sulle modifiche della versione `v1.0.0`](https://electronjs.org/blog/electron-1-0).
 
 ## Filosofia di base
 
