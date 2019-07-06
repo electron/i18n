@@ -1,16 +1,16 @@
 # Riguardo Electron
 
-[Election](https://electronjs.org) è una libreria open source sviluppata da GitHub per costruire applicazioni desktop cross-platform utilizzando HTML, CSS e Javascript. Electron consente questo combinando [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) in un singolo ambiente di runtime e inoltre le app possono essere impacchettate per Mac, Windows e Linux.
+[Election](https://electronjs.org) è una libreria open source sviluppata da GitHub per costruire applicazioni desktop cross-platform utilizzando HTML, CSS e Javascript. Tutto ciò è possibile combinando [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) in un singolo ambiente di runtime. Inoltre le app possono essere rilasciate per Mac, Windows e Linux.
 
 Electron nasce nel 2013 come framework sul quale è stato costruito [Atom](https://atom.io), l'editor di testo di GitHub. Entrambi furono resi open source nella Primavera del 2014.
 
-Da allora è diventato uno strumento popolare utilizzato da sviluppatori open source, Start-up e società consolidate. [Guarda chi sta contribuendo su Electron](https://electronjs.org/apps).
+Da allora è diventato uno strumento popolare utilizzato da sviluppatori open source, Start-up e società consolidate. [Guarda chi sta contribuendo a Electron](https://electronjs.org/apps).
 
-Continua a leggere per sapere di più sui contributi e i rilasci di Electron o inizia a sviluppare con Electron attraverso la [Guida introduttiva](quick-start.md).
+Continua a leggere per sapere di più sui contributi e le release di Electron o inizia a sviluppare con Electron attraverso la [Guida introduttiva](quick-start.md).
 
 ## Squadra e collaboratori
 
-Electron è mantenuto da un team di GitHub, nonché da un gruppo di [Collaboratori attivi](https://github.com/electron/electron/graphs/contributors) della community. Alcuni dei collaboratori lavorano in proprio, altri fanno parte di grandi aziende che stanno sviluppando soluzioni con Electron. Siamo lieti di aggiungere collaboratori al progetto come manutentori. Leggi altro per poter [contribuire a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron è mantenuto da un team di GitHub, supportato da un gruppo di [Collaboratori attivi](https://github.com/electron/electron/graphs/contributors) della community. Alcuni dei collaboratori lavorano in proprio, altri fanno parte di grandi aziende che stanno sviluppando soluzioni con Electron. Siamo lieti di aggiungere collaboratori al progetto come manutentori. Leggi altro per poter [contribuire a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Versioni
 
