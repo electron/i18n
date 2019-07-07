@@ -75,26 +75,26 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --no-proxy-server
 
-Не использоваться прокси сервер и всегда делать прямое соединение. Перезаписывает все прокси серверы, параметры которых были переданы.
+Не использоваться прокси-сервер и всегда делать прямое соединение. Перезаписывает все прокси-сервера, параметры которых были переданы.
 
-## --host-rules=`rules`
+## --host-rules=`правила`
 
 Список `правил`, разделённых точкой с запятой, которые контролируют как сопоставляются имена хостов.
 
 Например:
 
 * `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
-* `MAP *.google.com proxy` Заставляет все google.com поддомены обращаться к "proxy".
-* `MAP test.com [::1]:77` Заставляет "test.com" обращаться к IPv6 loopback. Конечным портом для адреса сокета будет 77.
+* `MAP *.google.com proxy` Заставляет все поддомены google.com обращаться к "proxy".
+* `MAP test.com [::1]:77` Заставляет "test.com" обращаться к локальному IPv6. Конечным портом для адреса сокета будет 77.
 * `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Эти перенаправления применяются к хосту конечной точки в сетевом запросе (TCP соединения и резолвер хоста в прямых соединениях, `CONNECT` в HTTP прокси-соединениях и хост конечной точки в `SOCKS` прокси-соединений).
 
-## --host-resolver-rules=`rules`
+## --host-resolver-rules=`правила`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Как `--host-rules`, но эти `правила` применяются только к резолверу хоста.
 
-## --auth-server-whitelist=`url`
+## --auth-server-whitelist=`ссылка`
 
 Список серверов (разделенные запятой), для которых разрешена интегрированная аутентификация.
 
