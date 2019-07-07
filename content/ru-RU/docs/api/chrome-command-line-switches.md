@@ -96,7 +96,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 ## --auth-server-whitelist=`ссылка`
 
-Список серверов (разделенные запятой), для которых разрешена интегрированная аутентификация.
+Список серверов, разделенных запятой, для которых разрешена интегрированная аутентификация.
 
 Например:
 
@@ -104,31 +104,31 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+тогда любая `ссылка` заканчивающаяся на `example.com`, `foobar.com` и `baz` будут рассматриваться для интегрированной аутентификации. Без префикса `*`, ссылка будет полностью соответствовать.
 
-## --auth-negotiate-delegate-whitelist=`url`
+## --auth-negotiate-delegate-whitelist=`ссылка`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Список серверов, разделенных запятой, для которых требуется делегирование учетных данных пользователя. Без префикса `*`, ссылка будет полностью соответствовать.
 
 ## --ignore-certificate-errors
 
-Игнорировать ошибки, связанные с сертификатами.
+Игнорирует ошибки, связанные с сертификатами.
 
-## --ppapi-flash-path=`path`
+## --ppapi-flash-path=`путь`
 
-Sets the `path` of the pepper flash plugin.
+Устанавливает `путь` до плагина pepper flash.
 
-## --ppapi-flash-version=`version`
+## --ppapi-flash-version=`версия`
 
-Sets the `version` of the pepper flash plugin.
+Устанавливает `версию` плагина pepper flash.
 
-## --log-net-log=`path`
+## --log-net-log=`путь`
 
-Enables net log events to be saved and writes them to `path`.
+Включает логи сетевых событий для сохранения и записывает их в `путь`.
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Предотвращает Chromium от понижения приоритета для невидимых страниц графических процессов.
 
 This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
