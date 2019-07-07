@@ -130,19 +130,19 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 Предотвращает Chromium от понижения приоритета для невидимых страниц графических процессов.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+Этот параметр глобален для всех графических процессов, если Вы хотите отключить троттлинг в одном окне, Вы может использовать трюк с [проигрыванием беззвучных звуков](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-Prints Chromium's logging into console.
+Выводит логи Chromium в консоль.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Этот параметр не может быть использован в `app.commandLine.appendSwitch`, с тех пор как он парсится раньше, чем приложение пользователя загружается, но Вы можете установить переменную окружения `ELECTRON_ENABLE_LOGGING`, чтобы достичь того же эффекта.
 
-## --v=`log_level`
+## --v=`уровень_логирования`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Дает максимально активный уровень V-логированию по умолчанию; по умолчанию - 0. Обычно используются позитивные значения для уровней V-логирования.
 
-This switch only works when `--enable-logging` is also passed.
+Этот параметр работает только когда `--enable-logging` также указан.
 
 ## --vmodule=`pattern`
 
@@ -150,4 +150,4 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Этот параметр работает только когда `--enable-logging` также указан.
