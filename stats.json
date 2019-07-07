@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "10629",
-    "translated": "486",
+    "translated": "505",
     "approved": "0",
     "words": "97928",
-    "words_translated": "3229",
+    "words_translated": "3401",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 132
+    "qa_issues": 142
   },
   {
     "name": "Hindi",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10629",
-    "translated": "6656",
-    "approved": "2771",
+    "translated": "6689",
+    "approved": "2923",
     "words": "97928",
-    "words_translated": "51982",
-    "words_approved": "24077",
+    "words_translated": "52310",
+    "words_approved": "25493",
     "translated_progress": 53,
-    "approved_progress": 24,
-    "qa_issues": 1412
+    "approved_progress": 26,
+    "qa_issues": 1361
   },
   {
     "name": "Spanish",
