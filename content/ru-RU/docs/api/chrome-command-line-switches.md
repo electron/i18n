@@ -2,7 +2,7 @@
 
 > Параметры командной строки поддерживаемые Electron.
 
-Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для добавления параметров командной строки в основной скрипт вашего приложения, перед появлением [ready](app.md#event-ready) события в [app](app.md) модуле:
+Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value), для добавления параметров командной строки, в основном скрипте Вашего приложения, перед тем как произойдет событие [ready](app.md#event-ready) модуля [app](app.md):
 
 ```javascript
 const { app } = require('electron')
@@ -14,13 +14,13 @@ app.on('ready', () => {
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignore-connections-limit=`домены`
 
-Игнорировать лимит подключения для `списка доменов`, разделённых `,`.
+Игнорировать лимит подключения для списка `доменов`, разделённых `,`.
 
 ## --disable-http-cache
 
-Отключить кеширование на жёсткий диск для HTTP запросов.
+Отключить кэширование на жёсткий диск для HTTP запросов.
 
 ## --disable-http2
 
@@ -28,9 +28,9 @@ app.on('ready', () => {
 
 ## --lang
 
-Set a custom locale.
+Установить пользовательский язык.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --inspect=`port` и --inspect-brk=`port`
 
 Связанные с отладкой флаги, смотрите [Отладка основного процесса](../tutorial/debugging-main-process.md) для деталей.
 
