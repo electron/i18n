@@ -97,11 +97,11 @@ request.on('login', (authInfo, callback) => {
 
 * `error` Error - объект ошибки, содержащий некоторую информацию о неудаче.
 
-Происходит, когда модулю `net` не удается выполнить сетевой запрос. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Происходит, когда модулю `net` не удается выполнить сетевой запрос. Обычно, когда объект `request` генерирует событие `error`, в последствии последует событие `close` и не будет представлен объект ответа.
 
 #### Событие: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Происходит как последнее событие в транзакции HTTP запроса-ответа. Событие `close` указывает, что больше события не будут происходить ни на `request`, ни на `response` объектах.
 
 #### Событие: 'redirect'
 
@@ -112,9 +112,9 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Происходит, когда присутствует перенаправление, а режим `manual`. Вызов [`request.followRedirect`](#requestfollowredirect) продолжит перенаправление.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `request.chunkedEncoding`
 
