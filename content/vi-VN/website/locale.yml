@@ -271,9 +271,9 @@ governance:
     title: Trách nhiệm
     listdescription: "Các nhóm làm việc đều có những trách nhiệm cốt lõi sau:"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - Họ sẽ tự ra quyết định, và công khai bài đăng, những quy định của họ, ví dụ như làm thế nào các quyết định được đưa ra, khi nào thì các cuộc họp được tổ chức, và những ai sẽ tham dự.
+      - 'Họ sẽ <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">chọn ra</a> một chủ tọa để <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>đại diện</a> cho nhóm.'
+      - Họ sẽ giữ lại những ghi chú cuộc họp, bao gồm các mục trong chương trình nghị sự, những quan điểm thảo luận, và các kết quả để mọi người cùng xem xét.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
   code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
