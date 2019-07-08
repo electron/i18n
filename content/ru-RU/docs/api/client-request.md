@@ -18,11 +18,11 @@
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
   * `path` String (опционально) - часть пути запроса URL.
-  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. Когда режим `manual`, перенаправление будет отложено до тех пор, пока [`request.followRedirect`](#requestfollowredirect) не будет вызван. Прослушивайте событие [`redirect`](#event-redirect) в этом режиме, чтобы получить больше информации о перенаправлении запроса.
 
-Используя свойства `options` такие как `protocol`, `host`, `hostname`, `port` и `path` строго следуйте модели Node.js как описано в [URL](https://nodejs.org/api/url.html) модуле.
+Свойства `options`, такие как `protocol`, `host`, `hostname`, `port` и `path`, строго следуют модели Node.js, которая описана в модуле [URL](https://nodejs.org/api/url.html).
 
-Например, мы могли бы создать такой же запрос к 'github.com" следующим образом:
+Например, мы могли бы создать такой же запрос на 'github.com' следующим образом:
 
 ```JavaScript
 const request = net.request({
