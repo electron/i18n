@@ -9,16 +9,16 @@
 ### `new ClientRequest(options)`
 
 * `options` (Object | String) – Если `options` это строка, она интерпретируется как URL-адрес запроса. Если объект, то подразумевается, что он полностью определяет HTTP запрос, используя следующие свойства: 
-  * `method` String (необязательное) – Метод HTTP запроса. По умолчанию GET.
-  * `url` String (необязательное) – URL запроса. Должен быть предоставлен в абсолютной форме, с указаной схемой протокола http или https.
-  * `session` Object (необязательное) – Экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
-  * `partition` String (необязательное) – Название [`partition`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Опция `session` преобладает над опцией `partition`. Поэтому, если `session` указана, то `partition` игнорируется.
-  * `protocol` String (необязательное) – Схема протокола в виде 'scheme:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
-  * `host` String (optional) - Объединенное с номером порта доменное имя сервера 'hostname:port'.
-  * `hostname` String (необязательное) – Доменное имя сервера.
-  * `port` Integer (необязательное) – Номер порта сервера.
-  * `path` String (optional) - Часть пути запроса URL.
-  * `redirect` String (необязательное) - Режим redirect для запроса. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `method` String (опционально) – метод HTTP запроса. По умолчанию GET.
+  * `url` String (опционально) – URL запроса. Должен быть предоставлен в абсолютной форме, с указанной схемой протокола http или https.
+  * `session` Object (опционально) – экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
+  * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Параметр `session` преобладает над параметром `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
+  * `protocol` String (опционально) – схема протокола в виде 'схема:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
+  * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
+  * `hostname` String (опционально) – доменное имя сервера.
+  * `port` Integer (опционально) – номер порта сервера.
+  * `path` String (опционально) - часть пути запроса URL.
+  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 Используя свойства `options` такие как `protocol`, `host`, `hostname`, `port` и `path` строго следуйте модели Node.js как описано в [URL](https://nodejs.org/api/url.html) модуле.
 
