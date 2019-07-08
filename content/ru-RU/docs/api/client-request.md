@@ -151,19 +151,19 @@ request.on('login', (authInfo, callback) => {
 
 `callback` является по существу фиктивной функцией, представленной в целях сохранения схожести с API Node.JS. Вызывается асинхронно в следующем такте, после содержимое `chunk` будет отправлено в сетевой слой Chromium. В отличие от реализации Node.JS, не гарантировано, что содержимое `chunk` будет отправлено до вызова `callback`.
 
-Добавляет часть данных в содержимое запроса. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Добавляет часть данных в содержимое запроса. Первая операция записи может привести тому, что заголовки запроса будут отправлены. После первой операции записи, недопустимо добавлять или удалять пользовательские заголовки.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (опционально)
+* `encoding` String (опционально)
+* `callback` Function (опционально)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Отправляет последнюю часть данных запроса. Последующие операции записи или завершения недопустимы. Событие `finish` произойдет прямо после операции завершения.
 
 #### `request.abort()`
 
-Отменяет текущую транзакцию HTTP. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Отменяет текущую транзакцию HTTP. Если запрос уже сгенерировал событие `close`, операция прерывания не будет иметь эффекта. Иначе текущее событие будет генерировать события `abort` и `close`. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
 
 #### `request.followRedirect()`
 
