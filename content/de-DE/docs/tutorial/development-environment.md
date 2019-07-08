@@ -10,7 +10,7 @@ Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entwede
 
 Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
-Wenn abgeschlossen, dann überprüfe dass alles funktioniert wie gewünscht. Die macOS `Terminal` App findest du in `/Programme/Dienstprogramme` oder mit einer Suche nach dem Wort `Terminal` in Spotlight. Öffne das `Terminal` oder ein anderen Command Line Client deiner wahl und überprüfe das beide, `node` und `npm` verfügbar sind:
+Wenn abgeschlossen ist, dann überprüfe ob alles wie gewünscht funktioniert. Die macOS `Terminal` App findest du in `/Programme/Dienstprogramme` oder mit einer Suche nach dem Wort `Terminal` in Spotlight. Öffne das `Terminal` oder ein anderen Command Line Client deiner wahl und überprüfe das beide, `node` und `npm` verfügbar sind:
 
 ```sh
 # Dieses command gibt die Node.js Version aus
@@ -24,13 +24,13 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 ## Einrichtung auf Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron unterstützt Windows 7 und neuere Versionen – Versuche, Electron Anwendungen auf früheren Versionen von Windows zu entwickeln, werden fehlschlagen. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
 Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entweder die `LTS` oder die `Current` Version zu installieren. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Wenn abgeschlossen, dann überprüfe dass alles funktioniert wie gewünscht. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Wenn abgeschlossen ist, dann überprüfe ob alles wie gewünscht funktioniert. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
 # Dieses command gibt die Node.js Version aus
