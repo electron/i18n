@@ -1,8 +1,8 @@
 ## Class: ClientRequest
 
-> Создание HTTP/HTTPS-запроса.
+> Создает HTTP/HTTPS-запросы.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 `ClientRequest` реализует интерфейс [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) и [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
