@@ -133,19 +133,19 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - укажите имя дополнительного заголовка.
 
-Returns `Object` - The value of a previously set extra header name.
+Возвращает `Object` - значение ранее установленного дополнительного заголовка.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - укажите имя дополнительного заголовка.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Удаляет ранее установленный дополнительный заголовок. Этот метод может быть вызван только до первой записи. Попытка вызвать после первой записи вызовет ошибку.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
+* `chunk` (String | Buffer) - часть данных содержимого запроса. Если это строка, то она будет конвертирована в Buffer, используя определенное шифрование.
 * `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
 * `callback` Function (optional) - Called after the write operation ends.
 
