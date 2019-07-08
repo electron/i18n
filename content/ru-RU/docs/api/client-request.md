@@ -40,7 +40,7 @@ const request = net.request({
 
 Возвращает:
 
-* `response` IncomingMessage - Объект, представляющий ответ HTTP.
+* `response` IncomingMessage - объект, представляющий ответ HTTP.
 
 #### Событие: 'login'
 
@@ -56,9 +56,9 @@ const request = net.request({
   * `username` String
   * `password` String
 
-Создается, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
+Происходит, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
 
-The `callback` ожидается, что функция будет вызвана с учетными данными пользователя:
+Ожидается, что функция `callback` будет вызвана с учетными данными пользователя:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Предоставление пустых учетных данных отменит запрос и сообщит о ошибке проверке подлинности в объекте ответа:
+Предоставление пустых учетных данных отменит запрос и сообщит об ошибке проверки подлинности в объекте ответа:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,19 +85,19 @@ request.on('login', (authInfo, callback) => {
 
 #### Событие: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Происходит сразу после того, как последняя часть данных `запроса` была записана в объект `request`.
 
 #### Событие: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Происходит, когда `запрос` был отменен. Событие `abort` не произойдет, если `запрос` уже закрыт.
 
 #### Событие: 'error'
 
 Возвращает:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - объект ошибки, содержащий некоторую информацию о неудаче.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Происходит, когда модулю `net` не удается выполнить сетевой запрос. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
 #### Событие: 'close'
 
