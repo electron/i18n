@@ -79,12 +79,12 @@ releases:
   beta_releases: Beta Releases
   beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  nightly_desc: Trải nghiệm các tính năng mới nhất
+  next: Tiếp theo
+  next_page: Trang kế tiếp
+  previous: Trước đó
+  previous_page: Trang trước đó
+  page: Trang
   all_releases: Tất cả bản phát hành
   back_to_index: Back to index
 electron_is_easy:
@@ -207,7 +207,7 @@ pages:
     description: Spectron là một bộ khung mã nguồn mở giúp viết các bộ kiểm thử tích hợp cho ứng dụng Electron của bạn một cách dễ dàng. Được xây dựng trên ChromeDriver và WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Cách dễ dàng nhất để bắt đầu với Electron
   '/governance':
     title: Electron Governance
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
@@ -216,8 +216,8 @@ pages:
 landing:
   get_started: Bắt đầu
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    lead_desc: Cách dễ dàng nhất để bắt đầu với Electron
+    create_app: Tạo ứng dụng của bạn
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Khám phá Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
@@ -265,7 +265,7 @@ governance:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
       - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - Một <i>nhóm làm việc</i> là một nhóm gồm những người bảo trì được thành lập để chịu trách nhiệm cho những khía cạnh nhất định của dự án Electron. Thông thường những nhóm này sẽ họp một cách thường xuyên nhưng trong một vài trường hợp sẽ chỉ họp theo yêu cầu để hoàn thành trách nhiệm của họ.
       - 'Một <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chủ tọa</a> lãnh đạo một nhóm làm việc.'
   responsibilities:
     title: Trách nhiệm
