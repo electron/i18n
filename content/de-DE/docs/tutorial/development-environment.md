@@ -24,23 +24,23 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 ## Einrichtung auf Windows
 
-> Electron unterstützt Windows 7 und neuere Versionen – Versuche, Electron Anwendungen auf früheren Versionen von Windows zu entwickeln, werden fehlschlagen. Microsoft stellt kostenlose [virtual machine images](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) mit Windows 10 für Entwickler zur Verfügung.
+> Electron unterstützt Windows 7 und neuere Versionen – Versuche, Electron Anwendungen auf früheren Versionen von Windows zu entwickeln, werden fehlschlagen. Microsoft stellt kostenlose [virtual machine images mit Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) für Entwickler zur Verfügung.
 
 Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entweder die `LTS` oder die `Current` Version zu installieren. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Stellen sicher, dass Sie in dem Fenster, welches Ihnen erlaubt die Installation zu konfigurieren, `Node.js runtime`, `npm package manager`, und `Add to PATH` auswählen.
 
-Wenn abgeschlossen ist, dann überprüfe ob alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
+Wenn abgeschlossen, bestätigen Sie, dass alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
 
 ```powershell
-# Dieses command gibt die Node.js Version aus
+# Dieser Befehl gibt die Node.js Version aus
 node -v
 
-# Dieses command gibt die npm Version aus
+# Dieser Befehl gibt die npm Version aus
 npm -v
 ```
 
-Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
+Wenn beide Befehle eine Versionsnummer ausgeben, dann sind Sie bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
 
 ## Einrichtung auf Linux
 
