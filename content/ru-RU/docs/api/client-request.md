@@ -120,16 +120,16 @@ request.on('login', (authInfo, callback) => {
 
 `Boolean`, определяющий, будет ли запрос использовать в HTTP шифрование передачи частей или нет. По умолчанию - false. Свойство доступно для чтения и записи, в любом случае оно может быть установлено только до первой операции записи, поскольку HHTP-заголовки еще не отправлены. Попытка установить свойство `chunkedEncoding` после первой записи вызовет ошибку.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Использование шифрование частей настоятельно рекомендуется, если Вам необходимо отправить большое содержимое запроса как данные, которые будут передаваться в потоке малыми частями вместо внутренней буферизации в памяти процесса Electron.
 
 ### Методы экземпляра
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - имя дополнительного HTTP-заголовка.
+* `value` Object - значение дополнительного HTTP-заголовка.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Добавляет дополнительный HTTP-заголовок. Название заголовка будет выдано в верхнем регистре. Может быть вызвано только перед первой записи. Вызов этого метода после первой записи вызовет ошибку. Если переданное значение это не `String`, тогда метод `toString()` будет вызван, чтобы получить конечное значение.
 
 #### `request.getHeader(name)`
 
