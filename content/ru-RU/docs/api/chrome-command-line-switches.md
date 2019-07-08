@@ -2,7 +2,7 @@
 
 > Параметры командной строки поддерживаемые Electron.
 
-Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для добавления параметров командной строки в основной скрипт вашего приложения, перед появлением [ready](app.md#event-ready) события в [app](app.md) модуле:
+Вы можете использовать [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value), для добавления параметров командной строки, в основном скрипте Вашего приложения, перед тем как произойдет событие [ready](app.md#event-ready) модуля [app](app.md):
 
 ```javascript
 const { app } = require('electron')
@@ -14,13 +14,13 @@ app.on('ready', () => {
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignore-connections-limit=`домены`
 
-Игнорировать лимит подключения для `списка доменов`, разделённых `,`.
+Игнорировать лимит подключения для списка `доменов`, разделённых `,`.
 
 ## --disable-http-cache
 
-Отключить кеширование на жёсткий диск для HTTP запросов.
+Отключить кэширование на жёсткий диск для HTTP запросов.
 
 ## --disable-http2
 
@@ -28,11 +28,11 @@ app.on('ready', () => {
 
 ## --lang
 
-Set a custom locale.
+Установить пользовательский язык.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --inspect=`порт` и --inspect-brk=`порт`
 
-Связанные с отладкой флаги, смотрите [Отладка основного процесса](../tutorial/debugging-main-process.md) для деталей.
+Связанные с отладкой флаги, смотрите руководство по [отладке основного процесса](../tutorial/debugging-main-process.md) для подробностей.
 
 ## --remote-debugging-port=`порт`
 
@@ -40,25 +40,25 @@ Set a custom locale.
 
 ## --disk-cache-size=`размер`
 
-Максимальный размер кеша на жёстком диске в байтах.
+Максимальный размер кэша на жёстком диске в байтах.
 
 ## --js-flags=`флаги`
 
-Указывает флаги, поданные движку Node JS. Обязателен при запуске Electron если вы хотите задействовать `flags` в основном процессе.
+Указывает флаги, поданные движку Node JS. Обязателен при запуске Electron, если вы хотите задействовать `flags` в основном процессе.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Смотрите [Node документацию](https://nodejs.org/api/cli.html) или запустите `node --help` в командной строке для списка доступных флагов. Дополнительно, запустите `node --v8-options` для просмотра списка флагов которые касаются Node's V8 JavaScript engine.
+Смотрите [документацию Node](https://nodejs.org/api/cli.html) или запустите `node --help` в командной строке для списка доступных флагов. Дополнительно, запустите `node --v8-options` для просмотра списка флагов, которые касаются JavaScript движка V8 в Node.
 
-## --proxy-server=`address:port`
+## --proxy-server=`адрес:порт`
 
-Использовать указанный прокси-сервер, переопределив системные настройки. Этот параметр влияет только на протокол HTTP, включая HTTPS и WebSocket запросы. Примечательно также, что не все proxy серверы поддерживают запросы HTTPS и WebSocket. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Использовать указанный прокси-сервер, переопределив системные настройки. Этот параметр влияет только на запросы протокола HTTP, включая HTTPS и WebSocket запросы. Примечательно также, что не все прокси-сервера поддерживают запросы HTTPS и WebSocket. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
-## --proxy-bypass-list=`hosts`
+## --proxy-bypass-list=`хосты`
 
-Инструктирует Electron не использовать proxy сервер для списка хостов, разделённых точкой с запятой. Данные параметр используется в связке с `--proxy-server`.
+Инструктирует Electron не использовать прокси-сервер для списка хостов, разделённых точкой с запятой. Данный параметр используется в связке с `--proxy-server`.
 
 Например:
 
@@ -67,36 +67,36 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Будет использовать прокси сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т. д.), `google.com` поддоменов, хостов которые содержат `foo.com` и `1.2.3.4:5678`.
+Будет использовать прокси-сервер для всех хостов, за исключением локальных адресов (`localhost`, `127.0.0.1` и т.д.), поддоменов `google.com`, хостов, которые содержат `foo.com` и `1.2.3.4:5678`.
 
-## --proxy-pac-url=`url`
+## --proxy-pac-url=`ссылка`
 
-Использовать PAC скрипт для указанного `url`.
+Использовать PAC скрипт для указанной `ссылки`.
 
 ## --no-proxy-server
 
-Не использоваться прокси сервер и всегда делать прямое соединение. Перезаписывает все прокси серверы, параметры которых были переданы.
+Не использоваться прокси-сервер и всегда делать прямое соединение. Перезаписывает все прокси-сервера, параметры которых были переданы.
 
-## --host-rules=`rules`
+## --host-rules=`правила`
 
 Список `правил`, разделённых точкой с запятой, которые контролируют как сопоставляются имена хостов.
 
 Например:
 
 * `MAP * 127.0.0.1` Все имена хостов будут перенаправлены на 127.0.0.1
-* `MAP *.google.com proxy` Заставляет все google.com поддомены обращаться к "proxy".
-* `MAP test.com [::1]:77` Заставляет "test.com" обращаться к IPv6 loopback. Конечным портом для адреса сокета будет 77.
+* `MAP *.google.com proxy` Заставляет все поддомены google.com обращаться к "proxy".
+* `MAP test.com [::1]:77` Заставляет "test.com" обращаться к локальному IPv6. Конечным портом для адреса сокета будет 77.
 * `MAP * baz, EXCLUDE www.google.com` Перенаправляет всё на "baz", за исключением "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Эти перенаправления применяются к хосту конечной точки в сетевом запросе (TCP соединения и резолвер хоста в прямых соединениях, `CONNECT` в HTTP прокси-соединениях и хост конечной точки в `SOCKS` прокси-соединений).
 
-## --host-resolver-rules=`rules`
+## --host-resolver-rules=`правила`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Как `--host-rules`, но эти `правила` применяются только к резолверу хоста.
 
-## --auth-server-whitelist=`url`
+## --auth-server-whitelist=`ссылка`
 
-Список серверов (разделенные запятой), для которых разрешена интегрированная аутентификация.
+Список серверов, разделенных запятой, для которых разрешена интегрированная аутентификация.
 
 Например:
 
@@ -104,50 +104,50 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+тогда любая `ссылка` заканчивающаяся на `example.com`, `foobar.com` и `baz` будут рассматриваться для интегрированной аутентификации. Без префикса `*`, ссылка будет полностью соответствовать.
 
-## --auth-negotiate-delegate-whitelist=`url`
+## --auth-negotiate-delegate-whitelist=`ссылка`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Список серверов, разделенных запятой, для которых требуется делегирование учетных данных пользователя. Без префикса `*`, ссылка будет полностью соответствовать.
 
 ## --ignore-certificate-errors
 
-Игнорировать ошибки, связанные с сертификатами.
+Игнорирует ошибки, связанные с сертификатами.
 
-## --ppapi-flash-path=`path`
+## --ppapi-flash-path=`путь`
 
-Sets the `path` of the pepper flash plugin.
+Устанавливает `путь` до плагина pepper flash.
 
-## --ppapi-flash-version=`version`
+## --ppapi-flash-version=`версия`
 
-Sets the `version` of the pepper flash plugin.
+Устанавливает `версию` плагина pepper flash.
 
-## --log-net-log=`path`
+## --log-net-log=`путь`
 
-Enables net log events to be saved and writes them to `path`.
+Включает логи сетевых событий для сохранения и записывает их в `путь`.
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Предотвращает Chromium от понижения приоритета для невидимых страниц графических процессов.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+Этот параметр глобален для всех графических процессов, если Вы хотите отключить троттлинг в одном окне, Вы может использовать трюк с [проигрыванием беззвучных звуков](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-Prints Chromium's logging into console.
+Выводит логи Chromium в консоль.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Этот параметр не может быть использован в `app.commandLine.appendSwitch`, с тех пор как он парсится раньше, чем приложение пользователя загружается, но Вы можете установить переменную окружения `ELECTRON_ENABLE_LOGGING`, чтобы достичь того же эффекта.
 
-## --v=`log_level`
+## --v=`уровень_логирования`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Дает максимально активный уровень V-логированию по умолчанию; по умолчанию - 0. Обычно используются позитивные значения для уровней V-логирования.
 
-This switch only works when `--enable-logging` is also passed.
+Этот параметр работает только когда `--enable-logging` также указан.
 
-## --vmodule=`pattern`
+## --vmodule=`шаблон`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Дает на каждый модуль максимальный уровень V-логирования, чтобы переопределить значения, заданное `--v`. Например, `my_module=2,foo*=3` изменит уровень логирования для всего кода в исходных файлах `my_module.*` и`foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Любой шаблон, содержащий переднюю или обратную косую черту, будет протестирован против всего пути, а не только модуля. Например, `*/foo/bar/*=2` изменит уровень логирования для всего кода в исходных файлах под директорией `foo/bar`.
 
-This switch only works when `--enable-logging` is also passed.
+Этот параметр работает только когда `--enable-logging` также указан.

@@ -1,4 +1,4 @@
-## Clase: Menu
+## Clase: Menú
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 

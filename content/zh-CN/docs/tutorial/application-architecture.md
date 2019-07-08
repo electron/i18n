@@ -1,4 +1,4 @@
-# Electron العربية
+# Electron 应用架构
 
 在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同的，因此理解它们非常重要。
 
@@ -8,7 +8,7 @@ Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**�
 
 由于 Electron 使用了 Chromium 来展示 web 页面，所以 Chromium 的多进程架构也被使用到。 每个 Electron 中的 web 页面运行在它自己的**渲染进程**中。
 
-在普通的浏览器中，web页面通常在一个沙盒环境中运行，不被允许去接触原生的资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
+在普通的浏览器中，web页面通常在沙盒环境中运行，并且无法访问操作系统的原生资源。 然而 Electron 的用户在 Node.js 的 API 支持下可以在页面中和操作系统进行一些底层交互。
 
 ### 主进程和渲染进程之间的区别
 
@@ -30,7 +30,7 @@ Electron在主进程和渲染进程中提供了大量API去帮助开发桌面应
 const electron = require('electron')
 ```
 
-所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程中，有些API又只能被用于渲染进程，又有一些主进程和渲染进程中都可以使用。 每一个API的文档都将说明可以在哪种进程中使用该API。
+所有Electron的API都被指派给一种进程类型。 许多API只能被用于主进程或渲染进程中，但其中一些API可以同时在上述两种进程中使用。 每一个API的文档都将声明你可以在哪种进程中使用该API。
 
 Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
