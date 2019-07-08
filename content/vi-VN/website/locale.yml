@@ -156,8 +156,8 @@ apps:
 blog:
   title: Blog Electron
   description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Bạn có ý kiến với bài đăng này? Hãy để <a href="https://twitter.com/electronjs">@electronjs</a> biết điều đó trên Twitter.
+  help: Cần sự giúp đỡ hoặc phát hiện lỗi? <a href="/contact">Liên hệ với chúng tôi</a>.
 clipboard:
   copy: Sao chép
   copy_to_clipboard: Chép vào clipboard
