@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "10629",
-    "translated": "4681",
+    "translated": "4686",
     "approved": "34",
     "words": "97928",
-    "words_translated": "26828",
+    "words_translated": "26916",
     "words_approved": "65",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1807
+    "qa_issues": 1810
   },
   {
     "name": "Hebrew",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10629",
-    "translated": "6689",
-    "approved": "2923",
+    "translated": "6748",
+    "approved": "3043",
     "words": "97928",
-    "words_translated": "52310",
-    "words_approved": "25493",
-    "translated_progress": 53,
-    "approved_progress": 26,
-    "qa_issues": 1361
+    "words_translated": "53019",
+    "words_approved": "26598",
+    "translated_progress": 54,
+    "approved_progress": 27,
+    "qa_issues": 1343
   },
   {
     "name": "Spanish",
