@@ -51,7 +51,7 @@ If you're developing a private Electron application, or if you're not publishing
 **중요 : ** 아래 코드는 패키지 된 앱에서만 실행해야합니다. (개발중이 아니라) [electron-is-dev](https://github.com/sindresorhus/electron-is-dev)를 사용하여 환경을 확인할 수 있습니다.
 
 ```javascript
-onst { app, autoUpdater, dialog } = require('electron')
+const { app, autoUpdater, dialog } = require('electron')
 ```
 
 다음으로 업데이트 서버의 URL을 구성하고 [autoUpdater](../api/auto-updater.md)에 알려주십시오.
