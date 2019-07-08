@@ -163,7 +163,7 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.abort()`
 
-Отменяет текущую транзакцию HTTP. Если запрос уже сгенерировал событие `close`, операция прерывания не будет иметь эффекта. Иначе текущее событие будет генерировать события `abort` и `close`. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Отменяет текущую транзакцию HTTP. Если запрос уже сгенерировал событие `close`, операция прерывания не будет иметь эффекта. Иначе текущее событие будет генерировать события `abort` и `close`. Кроме того, если есть текущий объект ответа, будет сгенерировано событие `aborted`.
 
 #### `request.followRedirect()`
 
@@ -173,9 +173,9 @@ request.on('login', (authInfo, callback) => {
 
 Возвращает `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
+* `active` Boolean - активен ли текущий запрос. Если false, никакое другое свойство не будет установлено
+* `started` Boolean - началась ли загрузка. Если false, оба свойства `current` и `total` будут установлены в значение 0.
+* `current` Integer - количество байтов, которые были загружены
+* `total` Integer - количество байтов, которые будут загружены в этом запросе
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+Вы можете использовать этот метод в сочетании с запросами `POST`, чтобы получить прогресс загрузки файла или другой передачи данных.
