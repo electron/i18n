@@ -64,4 +64,4 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 Wir würden dir zwei freie und beliebte Editoren vorschlagen die beide mit Electron gebaut wurden: GitHub's [Atom](https://atom.io/) und Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Beide haben exzellenten JavaScript Support.
 
-Wenn du einer der Entwickler bist mit einer starken Präferenz für einen, solltest du wissen das im Grunde jeder Code Editor und jede IDE heutzutage JavaScript unterstützt.
+Wenn du einer der Entwickler bist mit einer starken Präferenz für einen, solltest du wissen, dass im Grunde jeder Code Editor und jede IDE heutzutage JavaScript unterstützt.
