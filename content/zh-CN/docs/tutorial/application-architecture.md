@@ -1,4 +1,4 @@
-# Electron العربية
+# Electron 应用架构
 
 在我们深入了解Electron的API之前，我们需要探讨一下在Electron中可能遇到的两种进程类型。 它们是完全不同的，因此理解它们非常重要。
 
