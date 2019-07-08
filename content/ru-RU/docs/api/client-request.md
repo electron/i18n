@@ -146,10 +146,10 @@ request.on('login', (authInfo, callback) => {
 #### `request.write(chunk[, encoding][, callback])`
 
 * `chunk` (String | Buffer) - часть данных содержимого запроса. Если это строка, то она будет конвертирована в Buffer, используя определенное шифрование.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `encoding` String (опционально) - используется для конвертирования строковые части в объект Buffer. По умолчанию - 'utf-8'.
+* `callback` Function (опционально) - вызывается после того, как закончится операция записи.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` является по существу фиктивной функцией, представленной в целях сохранения схожести с API Node.JS. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
 Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
 
