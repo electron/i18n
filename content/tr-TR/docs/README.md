@@ -13,7 +13,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Electron Hakkında](tutorial/about.md)
 * [Geliştirme Ortamını Kurmak](tutorial/development-environment.md) 
   * [MacOS İçin Kurulum](tutorial/development-environment.md#setting-up-macos)
-  * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
+  * [Windows İçin Kurulum](tutorial/development-environment.md#setting-up-windows)
   * [Linux İçin Kurulum](tutorial/development-environment.md#setting-up-linux)
   * [Bir Editör Seçme](tutorial/development-environment.md#a-good-editor)
 * [İlk Uygulamanızı Oluşturma](tutorial/first-app.md) 
