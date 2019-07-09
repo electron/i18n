@@ -4,7 +4,7 @@
 
 Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+В контексте renderer процесса clipboard зависит от [`remote`](remote.md) модуля в Linux, соответственно он не доступен, когда этот модуль отключен.
 
 Следующий пример показывает, как записать строку в буфер обмена:
 
