@@ -43,8 +43,12 @@ Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_
 (lldb) run
 Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
+* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(
+    this=0x0000000108b14f20, name="Electron"
+) + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(
+    this=0x0000000108b14f20, name="Electron"
+) + 20 at browser.cc:118
    115  }
    116
    117  void Browser::SetName(const std::string& name) {
@@ -70,8 +74,12 @@ Process 25244 stopped
 ```sh
 (lldb) step
 Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
-    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 44 at browser.cc:119
+* thread #1: tid = 0x839a4c, 0x0000000100162dcc Electron Framework`atom::Browser::SetName(
+    this=0x0000000108b14f20, name="Electron"
+) + 44 at browser.cc:119, queue = 'com.apple.main-thread', stop reason = step in
+    frame #0: 0x0000000100162dcc Electron Framework`atom::Browser::SetName(
+    this=0x0000000108b14f20, name="Electron"
+) + 44 at browser.cc:119
    116
    117  void Browser::SetName(const std::string& name) {
    118    name_override_ = name;

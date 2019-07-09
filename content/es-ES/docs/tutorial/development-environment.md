@@ -10,37 +10,37 @@ Lo primero, instale una versión reciente de Node.js. Recomendamos que instale b
 
 Una vez descargado, ejecutar el instalador y dejar que el asistente de instalación le guíe durante el proceso.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Una vez instalado, confirme que todo funciona como se espera. Busque el `Terminal` macOS en su carpeta `/Applications/Utilities` (o buscando la palabra `Terminal` en Spotlight). Abra el `Terminal` u otro cliente de línea de comandos de su elección y confirme que tanto el comando `node` como el comando `npm` están disponibles:
 
 ```sh
-# This command should print the version of Node.js
+#Este comando debería imprimir la versión de Node.js
 node -v
 
-# This command should print the version of npm
+# Este comando debería imprimir la versión de npm 
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Si ambos comandos imprimieron un número de versión, ¡Ya está todo listo! Antes de empezar, es posible que desee instalar un [editor de código](#a-good-editor) adecuado para el desarrollo de JavaScript.
 
 ## Configurar Windows
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
-Lo primero, instale una versión reciente de Node.js. Recomendamos que instale bien la `LTS` más actual, bien la `Current` versión disponible. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Una vez descargado, ejecutar el instalador y dejar que el asistente de instalación le guíe durante el proceso.
+Lo primero, instale una versión reciente de Node.js. Recomendamos que instale bien la `LTS` más actual, bien la `Current` versión disponible. Visite [la página de descarga de Node.js](https://nodejs.org/en/download/) y seleccione `Windows Installer`. Una vez descargado, ejecutar el instalador y dejar que el asistente de instalación le guíe durante el proceso.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+En la pantalla que le permite configurar la instalación, asegúrese de seleccionar las opciones `Node.js runtime`, `npm package manager`, y `Add to PATH`.
 
 Una vez instalado, confirme que todo funciona como se esperaba. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+#Este comando debería imprimir la versión de Node.js
 node -v
 
-# This command should print the version of npm
+# Este comando debería imprimir la versión de npm 
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Si ambos comandos imprimieron un número de versión, ¡Ya está todo listo! Antes de empezar, es posible que desee instalar un [editor de código](#a-good-editor) adecuado para el desarrollo de JavaScript.
 
 ## Configurar Linux
 
@@ -51,14 +51,14 @@ Lo primero, instale una versión reciente de Node.js. Depending on your Linux di
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+#Este comando debería imprimir la versión de Node.js
 node -v
 
-# This command should print the version of npm
+# Este comando debería imprimir la versión de npm 
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Si ambos comandos imprimieron un número de versión, ¡Ya está todo listo! Antes de empezar, es posible que desee instalar un [editor de código](#a-good-editor) adecuado para el desarrollo de JavaScript.
 
 ## Un buen editor
 

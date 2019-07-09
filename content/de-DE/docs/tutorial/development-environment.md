@@ -10,7 +10,7 @@ Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entwede
 
 Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
-Wenn abgeschlossen, dann überprüfe dass alles funktioniert wie gewünscht. Die macOS `Terminal` App findest du in `/Programme/Dienstprogramme` oder mit einer Suche nach dem Wort `Terminal` in Spotlight. Öffne das `Terminal` oder ein anderen Command Line Client deiner wahl und überprüfe das beide, `node` und `npm` verfügbar sind:
+Wenn abgeschlossen ist, dann überprüfe ob alles wie gewünscht funktioniert. Die macOS `Terminal` App findest du in `/Programme/Dienstprogramme` oder mit einer Suche nach dem Wort `Terminal` in Spotlight. Öffne das `Terminal` oder ein anderen Command Line Client deiner wahl und überprüfe das beide, `node` und `npm` verfügbar sind:
 
 ```sh
 # Dieses command gibt die Node.js Version aus
@@ -24,23 +24,23 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 ## Einrichtung auf Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron unterstützt Windows 7 und neuere Versionen – Versuche, Electron Anwendungen auf früheren Versionen von Windows zu entwickeln, werden fehlschlagen. Microsoft stellt kostenlose [virtual machine images mit Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) für Entwickler zur Verfügung.
 
 Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entweder die `LTS` oder die `Current` Version zu installieren. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Stellen sicher, dass Sie in dem Fenster, welches Ihnen erlaubt die Installation zu konfigurieren, `Node.js runtime`, `npm package manager`, und `Add to PATH` auswählen.
 
-Wenn abgeschlossen, dann überprüfe dass alles funktioniert wie gewünscht. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Wenn abgeschlossen, bestätigen Sie, dass alles wie gewünscht funktioniert. Finden Sie die Windows PowerShell, indem Sie das Startmenü öffnen und beginnen `PowerShell` einzugeben. Öffnen Sie PowerShell oder einen anderen Command Line Client Ihrer Wahl und bestätigen Sie, dass sowohl `node`, als auch `npm` verfügbar sind:
 
 ```powershell
-# Dieses command gibt die Node.js Version aus
+# Dieser Befehl gibt die Node.js Version aus
 node -v
 
-# Dieses command gibt die npm Version aus
+# Dieser Befehl gibt die npm Version aus
 npm -v
 ```
 
-Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
+Wenn beide Befehle eine Versionsnummer ausgeben, dann sind Sie bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
 
 ## Einrichtung auf Linux
 
@@ -64,4 +64,4 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 Wir würden dir zwei freie und beliebte Editoren vorschlagen die beide mit Electron gebaut wurden: GitHub's [Atom](https://atom.io/) und Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Beide haben exzellenten JavaScript Support.
 
-Wenn du einer der Entwickler bist mit einer starken Präferenz für einen, solltest du wissen das im Grunde jeder Code Editor und jede IDE heutzutage JavaScript unterstützt.
+Wenn du einer der Entwickler bist mit einer starken Präferenz für einen, solltest du wissen, dass im Grunde jeder Code Editor und jede IDE heutzutage JavaScript unterstützt.

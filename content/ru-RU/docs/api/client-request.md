@@ -1,28 +1,28 @@
 ## Class: ClientRequest
 
-> Создание HTTP/HTTPS-запроса.
+> Создает HTTP/HTTPS-запросы.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 `ClientRequest` реализует интерфейс [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) и [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### `new ClientRequest(options)`
 
 * `options` (Object | String) – Если `options` это строка, она интерпретируется как URL-адрес запроса. Если объект, то подразумевается, что он полностью определяет HTTP запрос, используя следующие свойства: 
-  * `method` String (необязательное) – Метод HTTP запроса. По умолчанию GET.
-  * `url` String (необязательное) – URL запроса. Должен быть предоставлен в абсолютной форме, с указаной схемой протокола http или https.
-  * `session` Object (необязательное) – Экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
-  * `partition` String (необязательное) – Название [`partition`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Опция `session` преобладает над опцией `partition`. Поэтому, если `session` указана, то `partition` игнорируется.
-  * `protocol` String (необязательное) – Схема протокола в виде 'scheme:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
-  * `host` String (optional) - Объединенное с номером порта доменное имя сервера 'hostname:port'.
-  * `hostname` String (необязательное) – Доменное имя сервера.
-  * `port` Integer (необязательное) – Номер порта сервера.
-  * `path` String (optional) - Часть пути запроса URL.
-  * `redirect` String (необязательное) - Режим redirect для запроса. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `method` String (опционально) – метод HTTP запроса. По умолчанию GET.
+  * `url` String (опционально) – URL запроса. Должен быть предоставлен в абсолютной форме, с указанной схемой протокола http или https.
+  * `session` Object (опционально) – экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
+  * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Параметр `session` преобладает над параметром `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
+  * `protocol` String (опционально) – схема протокола в виде 'схема:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
+  * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
+  * `hostname` String (опционально) – доменное имя сервера.
+  * `port` Integer (опционально) – номер порта сервера.
+  * `path` String (опционально) - часть пути запроса URL.
+  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. Когда режим `manual`, перенаправление будет отложено до тех пор, пока [`request.followRedirect`](#requestfollowredirect) не будет вызван. Прослушивайте событие [`redirect`](#event-redirect) в этом режиме, чтобы получить больше информации о перенаправлении запроса.
 
-Используя свойства `options` такие как `protocol`, `host`, `hostname`, `port` и `path` строго следуйте модели Node.js как описано в [URL](https://nodejs.org/api/url.html) модуле.
+Свойства `options`, такие как `protocol`, `host`, `hostname`, `port` и `path`, строго следуют модели Node.js, которая описана в модуле [URL](https://nodejs.org/api/url.html).
 
-Например, мы могли бы создать такой же запрос к 'github.com" следующим образом:
+Например, мы могли бы создать такой же запрос на 'github.com' следующим образом:
 
 ```JavaScript
 const request = net.request({
@@ -40,7 +40,7 @@ const request = net.request({
 
 Возвращает:
 
-* `response` IncomingMessage - Объект, представляющий ответ HTTP.
+* `response` IncomingMessage - объект, представляющий ответ HTTP.
 
 #### Событие: 'login'
 
@@ -56,9 +56,9 @@ const request = net.request({
   * `username` String
   * `password` String
 
-Создается, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
+Происходит, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
 
-The `callback` ожидается, что функция будет вызвана с учетными данными пользователя:
+Ожидается, что функция `callback` будет вызвана с учетными данными пользователя:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Предоставление пустых учетных данных отменит запрос и сообщит о ошибке проверке подлинности в объекте ответа:
+Предоставление пустых учетных данных отменит запрос и сообщит об ошибке проверки подлинности в объекте ответа:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,23 +85,23 @@ request.on('login', (authInfo, callback) => {
 
 #### Событие: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Происходит сразу после того, как последняя часть данных `запроса` была записана в объект `request`.
 
 #### Событие: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Происходит, когда `запрос` был отменен. Событие `abort` не произойдет, если `запрос` уже закрыт.
 
 #### Событие: 'error'
 
 Возвращает:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - объект ошибки, содержащий некоторую информацию о неудаче.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Происходит, когда модулю `net` не удается выполнить сетевой запрос. Обычно, когда объект `request` генерирует событие `error`, в последствии последует событие `close` и не будет представлен объект ответа.
 
 #### Событие: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Происходит как последнее событие в транзакции HTTP запроса-ответа. Событие `close` указывает, что больше события не будут происходить ни на `request`, ни на `response` объектах.
 
 #### Событие: 'redirect'
 
@@ -112,58 +112,58 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Происходит, когда присутствует перенаправление, а режим `manual`. Вызов [`request.followRedirect`](#requestfollowredirect) продолжит перенаправление.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+`Boolean`, определяющий, будет ли запрос использовать в HTTP шифрование передачи частей или нет. По умолчанию - false. Свойство доступно для чтения и записи, в любом случае оно может быть установлено только до первой операции записи, поскольку HTTP-заголовки еще не отправлены. Попытка установить свойство `chunkedEncoding` после первой записи вызовет ошибку.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Использование шифрование частей настоятельно рекомендуется, если Вам необходимо отправить большое содержимое запроса как данные, которые будут передаваться в потоке малыми частями вместо внутренней буферизации в памяти процесса Electron.
 
 ### Методы экземпляра
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - имя дополнительного HTTP-заголовка.
+* `value` Object - значение дополнительного HTTP-заголовка.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Добавляет дополнительный HTTP-заголовок. Название заголовка будет выдано в верхнем регистре. Может быть вызвано только перед первой записи. Вызов этого метода после первой записи вызовет ошибку. Если переданное значение это не `String`, тогда метод `toString()` будет вызван, чтобы получить конечное значение.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - укажите имя дополнительного заголовка.
 
-Returns `Object` - The value of a previously set extra header name.
+Возвращает `Object` - значение ранее установленного дополнительного заголовка.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - укажите имя дополнительного заголовка.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Удаляет ранее установленный дополнительный заголовок. Этот метод может быть вызван только до первой записи. Попытка вызвать после первой записи вызовет ошибку.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - часть данных содержимого запроса. Если это строка, то она будет конвертирована в Buffer, используя определенное шифрование.
+* `encoding` String (опционально) - используется для конвертирования строковые части в объект Buffer. По умолчанию - 'utf-8'.
+* `callback` Function (опционально) - вызывается после того, как закончится операция записи.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` является по существу фиктивной функцией, представленной в целях сохранения схожести с API Node.JS. Вызывается асинхронно в следующем такте, после содержимое `chunk` будет отправлено в сетевой слой Chromium. В отличие от реализации Node.JS, не гарантировано, что содержимое `chunk` будет отправлено до вызова `callback`.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Добавляет часть данных в содержимое запроса. Первая операция записи может привести тому, что заголовки запроса будут отправлены. После первой операции записи, недопустимо добавлять или удалять пользовательские заголовки.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (опционально)
+* `encoding` String (опционально)
+* `callback` Function (опционально)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Отправляет последнюю часть данных запроса. Последующие операции записи или завершения недопустимы. Событие `finish` произойдет прямо после операции завершения.
 
 #### `request.abort()`
 
-Отменяет текущую транзакцию HTTP. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Отменяет текущую транзакцию HTTP. Если запрос уже сгенерировал событие `close`, операция прерывания не будет иметь эффекта. Иначе текущее событие будет генерировать события `abort` и `close`. Кроме того, если есть текущий объект ответа, будет сгенерировано событие `aborted`.
 
 #### `request.followRedirect()`
 
@@ -173,9 +173,9 @@ Sends the last chunk of the request data. Subsequent write or end operations wil
 
 Возвращает `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
+* `active` Boolean - активен ли текущий запрос. Если false, никакое другое свойство не будет установлено
+* `started` Boolean - началась ли загрузка. Если false, оба свойства `current` и `total` будут установлены в значение 0.
+* `current` Integer - количество байтов, которые были загружены
+* `total` Integer - количество байтов, которые будут загружены в этом запросе
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+Вы можете использовать этот метод в сочетании с запросами `POST`, чтобы получить прогресс загрузки файла или другой передачи данных.
