@@ -33,7 +33,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 ## Events
 
-### Event: 'loaded'
+### 이벤트: 'loaded'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
