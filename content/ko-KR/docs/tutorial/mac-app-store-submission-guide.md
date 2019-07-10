@@ -86,16 +86,16 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# 앱 이름
 APP="YourApp"
-# The path of your app to sign.
+# 서명할 앱의 경로
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# 서명된 패키지를 저장할 경로
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# 요청한 인증서의 이름
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# plist 파일 경로
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"

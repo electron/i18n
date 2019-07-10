@@ -43,7 +43,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [macOS BrowserWindows에 대한 파일 표현](tutorial/represented-file.md)
   * [기본 파일 드래그 & 드랍](tutorial/native-file-drag-drop.md)
   * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [macOS 다크 모드 지원](tutorial/mojave-dark-mode-guide.md)
 * [접근성](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -80,11 +80,11 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [프록시](tutorial/installation.md#proxies)
   * [커스텀 미러와 캐시](tutorial/installation.md#custom-mirrors-and-caches)
   * [문제 해결](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
+* Electron 릴리즈 & 개발자 피드백 
+  * [버저닝 정책](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [asar로 앱 소스 코드 패키징](tutorial/application-packaging.md) 
   * [asar 아카이브 생성하기](tutorial/application-packaging.md#generating-asar-archives)
   * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)
   * [제한 사항](tutorial/application-packaging.md#limitations-of-the-node-api)

@@ -30,7 +30,7 @@ Node.js의 모든 내장 모듈은 Web Workers에서 지원되며, `asar`아카�
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  throw new Error('native module 로드는 안전하지 않습니다.')
 }
 let worker = new Worker('script.js')
 ```

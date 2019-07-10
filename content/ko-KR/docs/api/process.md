@@ -1,14 +1,14 @@
 # 프로세스
 
-> Extensions to process object.
+> process object의 확장.
 
 프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Electron의 `process` object는 [Node.js `process` object](https://nodejs.org/api/process.html)의 확장입니다. 이것은 다음 이벤트, 속성, 그리고 메서드를 추가합니다.
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+샌드박스 된 렌더러의 `process` object는 API의 일부 집합만 포함합니다.
 
 * `crash()`
 * `hang()`
@@ -33,9 +33,9 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 ## Events
 
-### Event: 'loaded'
+### 이벤트: 'loaded'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Electron이 내부 초기화 스크립트를 로드하고 웹 페이지 또는 메인 스크립트를 로드하려 시작할 때 발생됩니다.
 
 It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 

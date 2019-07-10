@@ -138,11 +138,11 @@ npm uninstall -g electron
 
 그러나 내장 모듈을 사용하고 있지만 여전히 이 오류가 발생하면, 모듈을 잘못 된 프로세스에서 사용하고 있을 가능성이 큽니다. 예를 들어 `electron.app` 는 주 프로세스에서만 사용할 수 있고, `electron.webFrame` 은 렌더러 프로세스에서만 사용 가능합니다.
 
-## The font looks blurry, what is this and what can I do?
+## 서체가 흐릿해 보입니다, 이것은 무엇이고 어떻게 해결할 수 있나요?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+[sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/)이 비활성화되어 있을 경우, LCD 화면의 서체가 흐릿해 보일 수 있습니다. 예를 들어
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![subpixel 렌더링 예시](images/subpixel-rendering-screenshot.gif)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
