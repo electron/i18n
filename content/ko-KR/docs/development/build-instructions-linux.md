@@ -92,7 +92,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ### 다운로드된 `clang` 바이너리 대신 시스템의 `clang` 사용하기
 
-기본적으로 Electron은 Chromium 프로젝트에서 제공하는 미리 빌드된 [`clang`](https://clang.llvm.org/get_started.html) 바이너리를 통해 빌드됩니다. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+기본적으로 Electron은 Chromium 프로젝트에서 제공하는 미리 빌드된 [`clang`](https://clang.llvm.org/get_started.html) 바이너리를 통해 빌드됩니다. 몇 가지 이유로 시스템에 설치된 `clang`으로 빌드하고 싶으시다면, GN 인수에서 `clang_base_path` 인수를 명시할 수 있습니다.
 
 For example if you installed `clang` under `/usr/local/bin/clang`:
 
