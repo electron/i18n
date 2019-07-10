@@ -16,11 +16,11 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 우리의 현재 크로니움 컴포넌트 업그레이드 시스템이 우리가 사용할 수 있는 자원과 프레임 워크 위에 구축 된 대부분의 애플리케이션의 요구 사이에서 적절한 균형을 유지한다는 인상을 받고 있습니다. 우리는 Electron을 기반으로 무엇인가를 개발중인 사람들의 특별한 use case에 관해 더 듣고싶습니다. 이 노력을 지지하는 Pull 요청과 기여는 언제나 환영합니다.
 
-## Security Is Everyone's Responsibility
+## 보안은 모두의 책무
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
+Electron으로 만들어진 애플리케이션의 보안은 프레임워크 기반 (*Chromium*, *Node.js*), Electron 자체, 모든 NPM 의존성, 그리고 당신의 코드의 결과라는 것을 명심하세요. 그에 있어 다음 몇 가지 중요한 사항들을 따르는 것이 여러분의 책무입니다.
 
-* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+* **최신 Electron 프레임워크로 애플리케이션을 최신 버전으로 유지하기.** 제품을 공개하는 것은 Electron, Chromium 공유 라이브러리, 그리고 Node.js로 구성된 묶음도 포함합니다. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
 
 * **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
 
