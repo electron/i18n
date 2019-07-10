@@ -581,7 +581,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     ### 어떻게 하나요?
     
     ```js
-    const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+    const readOnlyFsProxy = require(/* ... */) // 파일 읽기 기능만 드러내기
     
     const allowedModules = new Set(['crypto'])
     const proxiedModules = new Map(['fs', readOnlyFsProxy])
