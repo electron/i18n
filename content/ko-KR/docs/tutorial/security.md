@@ -22,9 +22,9 @@ Electron으로 만들어진 애플리케이션의 보안은 프레임워크 기�
 
 * **최신 Electron 프레임워크로 애플리케이션을 최신 버전으로 유지하기.** 제품을 공개하는 것은 Electron, Chromium 공유 라이브러리, 그리고 Node.js로 구성된 묶음도 포함합니다. 이러한 구성요소들의 취약점은 애플리케이션의 보안에도 영향을 미칠 수 있습니다. Electron을 최신 버전으로 업데이트하는 것으로, 심각한 취약점 (*nodeIntegration 건너뛰기* 등) 들이 이미 패치되어 여러분의 애플리케이션에서 실행될 수 없는 것을 보장할 수 있습니다.
 
-* **의존성 평가하기.** NPM이 50만 가지의 재사용 가능한 패키지를 제공하는 반면, 신뢰 가능한 제3자 라이브러리를 고르는 것은 여러분의 책임입니다. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **의존성 평가하기.** NPM이 50만 가지의 재사용 가능한 패키지를 제공하는 반면, 신뢰 가능한 제3자 라이브러리를 고르는 것은 여러분의 책임입니다. 알려진 취약점이나 엉망으로 관리되는 코드에 의존하는 오래된 버전의 라이브러리를 사용하면, 애플리케이션 보안이 취약할 수 있습니다.
 
-* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+* **안전한 코딩 사례 채택하기.** 애플리케이션 방어의 첫 줄은 여러분의 코드입니다. 교차 사이트 스크립팅 (XSS) 같은 흔한 웹 취약점은 Electron 애플리케이션에 높은 보안 영향을 미칩니다. 그러므로, 안전한 소프트웨어 개발 사례를 채택하고 보안 테스트를 수행하기를 매우 권장합니다.
 
 ## 신뢰할 수 없는 콘텐츠의 격리
 
