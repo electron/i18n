@@ -135,7 +135,7 @@ help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
 companies:
-  title: 使用Election构建的
+  title: 使用 Electron 构建的应用
   description: 最初为 GitHub 开发 <a href='https://atom.io' target='_blank'>Atom 编辑器</a>, Electron 此后被世界各地的公司采纳。
 apps:
   description: '使用 Electron，能轻松为您的公司创建桌面应用程序或想法。请查看 <a href=''/apps''>社区创建的一些应用</a> 或 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">添加您自己的应用</a>。'
