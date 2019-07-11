@@ -8,10 +8,10 @@
 
 * [`electron`](https://discuss.atom.io/c/electron) 各种 Atom 论坛
 * `#atom-shell` Freenode上的频道
-* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* `#electron` [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)上的频道
 * [`electron-ru`](https://telegram.me/electron_ru) *(俄语版)*
 * [`electron-br`](https://electron-br.slack.com) *(巴西葡语版)*
-* <[`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韩语版)*
 * [`electron-jp`](https://electron-jp.slack.com) *(日语版)*
 * [`electron-tr`](https://electron-tr.herokuapp.com) *(土耳其语版)*
 * [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
@@ -25,13 +25,13 @@
 
 ## 支持版
 
-The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+最新的 3 个主版本受 Electron 团队支持。 例如，如果最新的发布是 5.0.x，那么 4.x.y 系列会受支持。对于之前的两个发行系列 3.x.y 和 2.x.y 也是一样。
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
 All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
 
-### Currently supported versions
+### 当前支持的版本
 
 * 5.x
 * 4.x
@@ -51,7 +51,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+对 macOS 仅提供64位版本，并且只支持 macOS 10.10 (Yosemite) 以及更高版本。
 
 ### Windows
 
@@ -63,7 +63,7 @@ Only 64bit binaries are provided for macOS, and the minimum macOS version suppor
 
 Electron 的 `ia32` (`i686`) 和 `x64` (`amd64`) 预编译版本均是在Ubuntu 12.04 下编译的，`arm` 版的二进制文件是在 ARM v7（硬浮点 ABI 与 Debian Wheezy 版本的 NEON）下完成的。
 
-[在Electron 2.0的发布之前](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)，Electron 也会 继续用简单的` arm `后缀释放` armv7l `二进制文件。 Both binaries are identical.
+[在Electron 2.0的发布之前](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)，Electron 也会 继续用简单的` arm `后缀释放` armv7l `二进制文件。 两个二进制文件是相同的。
 
 预编译版本是否能够正常运行，取决于其中是否包含了编译平台的链接库。所以只有 Ubuntu 12.04 是可以保证能正常运行的，并且以下平台也被证实可以正常运行 Electron 的预编译版本：
 
