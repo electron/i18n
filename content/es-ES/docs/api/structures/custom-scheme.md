@@ -1,8 +1,8 @@
-# CustomScheme Object
+# Objeto CustomScheme
 
-* `scheme` String - Custom schemes to be registered with options.
+* `esquema` String - Esquemas personalizados a ser registrados con opciones.
 * `privilegios` Objecto (opcional) 
-  * `standard` Boolean (optional) - Default false.
+  * `estándar` Boolean (opcional) - Predeterminado falso.
   * `secure` Boolean (optional) - Default false.
   * `bypassCSP` Boolean (optional) - Default false.
   * `allowServiceWorkers` Boolean (optional) - Default false.
