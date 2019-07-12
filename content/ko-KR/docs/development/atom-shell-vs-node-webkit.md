@@ -20,7 +20,7 @@ Electron은 Chromium의 모든것을 빌드하는 복잡성을 피하기 위해 
 
 **3. Node 통합**
 
-NW.js는 웹 페이지에서 require를 사용할 수 있도록 Chromium을 패치했습니다. 한편 Electron은 Chromium의 해킹을 방지하기 위해 libuv loop와 각 플랫폼의 메시지 루프에 통합하는 다른 방법을 채택하였습니다. Node_bindings의 코드를 보면 이 부분이 어떻게 구현됬는지 알 수 있습니다.
+NW.js는 웹 페이지에서 require를 사용할 수 있도록 Chromium을 패치했습니다. 한편 Electron은 Chromium의 해킹을 방지하기 위해 libuv loop와 각 플랫폼의 메시지 루프에 통합하는 다른 방법을 채택하였습니다. [`Node_bindings`](https://github.com/electron/electron/tree/master/atom/common)의 코드를 보면 이 부분이 어떻게 구현됐는지 알 수 있습니다.
 
 **4. 다중 컨텍스트**
 
