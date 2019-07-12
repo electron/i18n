@@ -16,11 +16,11 @@ Electron משומר על ידי צוות ב-GitHub וגם על ידי קבוצה
 
 [הפצות של Electron](https://github.com/electron/electron/releases) יוצאות לאור לעיתים קרובות. אנחנו מוציאים לאור הפצות כאשר יש תיקונים של תקלות עקרוניות, APIים חדשים נוצרים או שיש גרסאות חדשות של Chromium או Node.js.
 
-### Updating Dependencies
+### עדכון חבילות
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+גרסת Electron לChromium בדרך כלל מתעדכנת תוך שבוע או שבועיים מרגע שחרור גרסה חדשה יציבה, תלוי בכמות המאמץ הנדרשת לשדרוג.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+כשיוצאת גרסה יציבה חדשה של Node.js, בדרך כלל Electron מחכה שבוע לפני שהוא מעדכן כדי לוודא יציבות.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
