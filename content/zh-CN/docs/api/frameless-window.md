@@ -65,7 +65,7 @@ win.show()
 * `blur ` 筛选器仅适用于网页, 因此无法对位于透明窗口下方的内容应用模糊效果 (例如在用户系统上打开的其他应用程序) 。
 * 在 windows 操作系统上, 当 DWM 被禁用时, 透明窗口将无法工作。
 * 在 linux 上, 用户必须在命令行中设置 `--enable-transparent-visuals --disable-gpu ` 来禁用GPU, 启用 ARGB，用以实现窗体透明。 这是由一个上游的 bug 导致的, 即 [ 在Linux机上，透明度通道（alpha channel ）在一些英伟达的驱动（NVidia drivers）中无法运行](https://code.google.com/p/chromium/issues/detail?id=369209)。
-* 在 Mac 上, 原生窗口阴影不会在透明窗口中显示。
+* 在 Mac 上, 透明窗口无法显示原生窗口的阴影。
 
 ## 点击穿透窗口
 
