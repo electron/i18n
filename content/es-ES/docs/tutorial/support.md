@@ -25,9 +25,9 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
-Las últimas tres ramas mayores cuentan con el soporte del equipo de Electron. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+Las últimas tres ramas mayores cuentan con el soporte del equipo de Electron. Por ejemplo, si la última versión publicada es la 5.0.x, entonces las series 4.x.y es soportada, al igual que las dos versiones anteriores 3.x.y y la 2.x.y.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+La última versión estable recibe unilateralmente todas las correcciones de `master`, y la versión anterior recibe la gran mayoría de esas correcciones como el tiempo y el ancho de banda lo permite. Las versiones más antiguas soportadas solamente van a recibir correcciones de seguridad directamente.
 
 All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
 
