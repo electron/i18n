@@ -29,15 +29,15 @@ Las últimas tres ramas mayores cuentan con el soporte del equipo de Electron. P
 
 La última versión estable recibe unilateralmente todas las correcciones de `master`, y la versión anterior recibe la gran mayoría de esas correcciones como el tiempo y el ancho de banda lo permite. Las versiones más antiguas soportadas solamente van a recibir correcciones de seguridad directamente.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Todas las versiones soportadas aceptarán peticiones de pull requests externas a backport correcciones previamente fusionadas en `master`, aunque esto puede ser caso por caso para algunas versiones mas antiguas. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
 
-### Currently supported versions
+### Versiones soportadas actualmente
 
 * 5.x
 * 4.x
 * 3.x
 
-### End-of-life
+### Fin de vida
 
 Cuando una rama de lanzamiento llega al final de su ciclo de soporte, la serie quedará obsoleta en NPM y se realizará una versión final de fin de soporte. Este lanzamiento agregará una advertencia para informar que una versión no soportada de Electron está en uso.
 
