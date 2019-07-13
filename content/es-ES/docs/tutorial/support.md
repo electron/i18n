@@ -8,7 +8,7 @@ Si busca ayuda con la programación, respuestas a preguntas o conversaciones con
 
 * Categoría [`electron`](https://discuss.atom.io/c/electron) en los foros de Atom
 * Canal `#atom-shell` en Freenode
-* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* `#electron` canal en [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
 * [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
 * [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
@@ -25,7 +25,7 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
-The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+Las últimas tres ramas mayores cuentan con el soporte del equipo de Electron. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
