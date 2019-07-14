@@ -8,7 +8,7 @@ Si busca ayuda con la programación, respuestas a preguntas o conversaciones con
 
 * Categoría [`electron`](https://discuss.atom.io/c/electron) en los foros de Atom
 * Canal `#atom-shell` en Freenode
-* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
+* `#electron` canal en [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
 * [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
 * [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
 * [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
@@ -25,19 +25,19 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
-The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+Las últimas tres ramas mayores cuentan con el soporte del equipo de Electron. Por ejemplo, si la última versión publicada es la 5.0.x, entonces las series 4.x.y es soportada, al igual que las dos versiones anteriores 3.x.y y la 2.x.y.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+La última versión estable recibe unilateralmente todas las correcciones de `master`, y la versión anterior recibe la gran mayoría de esas correcciones como el tiempo y el ancho de banda lo permite. Las versiones más antiguas soportadas solamente van a recibir correcciones de seguridad directamente.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+Todas las versiones soportadas aceptarán peticiones de pull requests externas a backport correcciones previamente fusionadas en `master`, aunque esto puede ser caso por caso para algunas versiones mas antiguas. Todas las decisiones impugnadas entorno a la liberación de la versión de backports serán resueltas por el [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) como un elemento de agenda en su reunión semanal la semana que se levanta el PR backport.
 
-### Currently supported versions
+### Versiones soportadas actualmente
 
 * 5.x
 * 4.x
 * 3.x
 
-### End-of-life
+### Fin de vida
 
 Cuando una rama de lanzamiento llega al final de su ciclo de soporte, la serie quedará obsoleta en NPM y se realizará una versión final de fin de soporte. Este lanzamiento agregará una advertencia para informar que una versión no soportada de Electron está en uso.
 

@@ -4,7 +4,7 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 這並不表示 Electron 是綁定在圖形使用者介面 (GUI) 上的 JavaScript 函式庫。 相反地，Electron 使用網頁作為他的 GUI, 因此你可以把它視為被 JavaScript 所控制的一個精簡版的 Chromium 瀏覽器。
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**注意**：這個範例同時是一個 repo，你可以立即[下載並執行](#trying-this-example)。
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
