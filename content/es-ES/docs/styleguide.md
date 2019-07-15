@@ -110,7 +110,7 @@ Usando las clases `Session` y `Cookies` como ejemplo:
 
 ### session.fromPartition(partition)
 
-## Properties
+## Static Properties
 
 ### session.defaultSession
 
