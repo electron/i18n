@@ -262,7 +262,7 @@ $ ./out/Debug/electron electron/spec
     </p>
     
     <p>
-      This can be set quickly in powershell (ran as administrator):
+      Esto puede establecerse rápidamente en powershell (ejecutado como administrador):
     </p>
     
     <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
