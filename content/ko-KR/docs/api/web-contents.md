@@ -398,7 +398,7 @@ Returns:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+`webContents`가 기본 인증을 필요로 할 때 발생된다.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
