@@ -106,31 +106,31 @@
 ```markdown
 # session
 
-## 方法
+## Methods
 
 ### session.fromPartition(partition)
 
-## 属性
+## Static Properties
 
 ### session.defaultSession
 
-## 类: Session
+## Class: Session
 
-### 实例事件
+### Instance Events
 
-#### 事件: 'will-download'
+#### Event: 'will-download'
 
-### 实例方法
+### Instance Methods
 
 #### `ses.getCacheSize()`
 
-### 实例属性
+### Instance Properties
 
 #### `ses.cookies`
 
-## 类: Cookies
+## Class: Cookies
 
-### 实例方法
+### Instance Methods
 
 #### `cookies.get(filter, callback)`
 ```
