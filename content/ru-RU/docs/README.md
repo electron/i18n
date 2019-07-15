@@ -70,7 +70,7 @@
   * [Развертывание сервера обновлений](tutorial/updates.md#deploying-an-update-server)
   * [Внедрение обновлений в Ваше приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Применение обновлений](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Получение поддержки](tutorial/support.md)
 
 ## Подробное руководство
 
