@@ -110,7 +110,7 @@ Electron 說明文件撰寫指導方針。
 
 ### session.fromPartition(partition)
 
-## Properties
+## Static Properties
 
 ### session.defaultSession
 
