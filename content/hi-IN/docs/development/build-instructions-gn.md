@@ -29,12 +29,6 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # This will use about 16G.
 ```
 
-> **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
-
-```sh
-$ git remote set-url origin https://github.com/electron/electron
-```
-
 ### sccache
 
 Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
@@ -267,6 +261,13 @@ $ ./out/Debug/electron electron/spec
     <p>
       to 0. More information: https://stackoverflow.com/a/9935126
     </p>
+    
+    <p>
+      This can be set quickly in powershell (ran as administrator):
+    </p>
+    
+    <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+</code></pre>
     
     <h2>
       समस्या निवारण
