@@ -28,12 +28,6 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # Это будет использовать примерно 16 гигабайт.
 ```
 
-> **ПРИМ.**: Кэш git устанавливается в `origin` репозитория `src/electron` чтобы указывать на локальный кэш, а не репозиторий апстрима в git. Это нежелательно при запуске `git push` - с большой вероятностью вы захотите пушить на github, а не в свой локальный кеш. Чтобы исправить это, из каталога `src/electron` запустите:
-
-```sh
-$ git remote set-url origin https://github.com/electron/electron
-```
-
 ### sccache
 
 Для сборки Chromium и Electron компилируются тысячи файлов. Вы можете избежать большей части ожидания, повторно используя вывод сборки Electron CI через [sccache](https://github.com/mozilla/sccache). Для этого требуются некоторые необязательные шаги (перечисленные ниже) и эти две переменные среды:
@@ -266,6 +260,13 @@ $ ./out/Debug/electron electron/spec
     <p>
       на 0. Подробнее: https://stackoverflow.com/a/9935126
     </p>
+    
+    <p>
+      This can be set quickly in powershell (ran as administrator):
+    </p>
+    
+    <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+</code></pre>
     
     <h2>
       Устранение проблем
