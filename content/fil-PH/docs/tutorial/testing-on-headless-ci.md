@@ -6,7 +6,7 @@ Dahil nababase ito sa Chromium, ang Electron ay nangangailangan ng isang driver 
 
 Una, i-install ang [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Ito ay isang virtual na framebuffer na naglulunsad ng X11 display server protocol - ginaganap nito ang lahat ng mga grapikal na operasyon sa memorya nang hindi ng kahit ano sa screen, at ito ang ating kinakailangan.
 
-Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Ang Chromium sa Electron ay awtomatikong maghahanap ng `$DISPLAY`, kaya wala nang konpigurasyon sa app na kailangan. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Ang Chromium sa Electron ay awtomatikong maghahanap ng `$DISPLAY`, kaya wala nang konpigurasyon sa app na kailangan. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
