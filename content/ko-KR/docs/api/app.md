@@ -154,7 +154,7 @@ Returns:
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
 * `userInfo` 객체 - 액티비티가 저장한 app-specific 상태를 가지고 있습니다.
 
-[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. Otherwise, the operation will fail and `continue-activity-error` will be called.
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
 
 ### 이벤트: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ Returns:
 
 `webContents`가 기본 인증을 필요로 할 때 발생된다.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+기본 동작은 모든 인증을 취소하는 것이다. 이것을 override 하기 위해서는 `event.preventDefault()`을 이용해 기본 동작이 일어나지 않도록 해야하고 자격정보와 함께`callback(username, password)`을 호출하면 된다.
 
 ```javascript
 const { app } = require('electron')
@@ -292,7 +292,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Gpu 프로세스가 죽었을 때 발생한다.
 
 ### 이벤트: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -301,7 +301,7 @@ Returns:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chrome의 accessibility 가 변경되면 발생한다. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ### Event: 'session-created'
 
