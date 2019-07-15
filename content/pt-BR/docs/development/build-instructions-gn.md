@@ -34,8 +34,8 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
 
 ```sh
-export SCCACHE_BUCKET="electronjs-sccache"
-export SCCACHE_TWO_TIER=true
+Exportar SCCACHE_BUCKET="electronjs-sccache"
+Exportar SCCACHE_TWO_TIER=true
 ```
 
 ## Getting the code
