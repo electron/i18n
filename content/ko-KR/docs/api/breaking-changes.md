@@ -1,6 +1,6 @@
-# Breaking Chnages
+# 주요 변경사항
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+주요 변경사항은 여기에 기록됩니다. and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
 # `FIXME` 주석
 
