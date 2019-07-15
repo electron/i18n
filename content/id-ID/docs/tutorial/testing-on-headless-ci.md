@@ -7,8 +7,8 @@ Berdasarkan Chromium , Electron mengharuskan penggerak tampilan berfungsi. If Ch
 Pertama, instal  Xvfb </ 0> . Ini adalah framebuffer virtual, menerapkan protokol server tampilan X11 - itu melakukan semua operasi grafis di memori tanpa menunjukkan output layar, itulah yang kita butuhkan.</p> 
 
 Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron secara otomatis akan mencari ` $ DISPLAY </ 0> , sehingga tidak diperlukan konfigurasi lebih lanjut dari aplikasi Anda.
-This step can be automated with Paul Betts's
-<a href="https://github.com/paulcbetts/xvfb-maybe">xvfb-maybe</a>: Prepend your test
+This step can be automated with Anaïs Betts'
+<a href="https://github.com/anaisbetts/xvfb-maybe">xvfb-maybe</a>: Prepend your test
 commands with <code>xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
 ```sh
