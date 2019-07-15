@@ -43,11 +43,11 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
     
     - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
     - You will need the credential information available in the AppVeyor build cloud definition. 
-        - This includes: 
-            - Client ID
+        - これには以下も含まれます。 
+            - クライアントID
             - Client Secret
             - Tenant ID
-            - Subscription ID
+            - サブスクリプションID
             - Resource Group
             - Virtual Network
     - You will also need to specify 
@@ -64,8 +64,8 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
     
     - Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
 
-8. Modify the VM as required.
+8. 必要に応じて VM を変更してください。
 
-9. Shut down the VM and then delete it in Azure.
+9. Azure で VM をシャットダウンして削除します。
 
-10. Add the new image to the Appveyor Cloud settings or modify an existing image to point to the new VHD.
+10. Appveyor クラウドの設定に新しいイメージを追加するか、新しい VHD を指すように既存のイメージを変更します。
