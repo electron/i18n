@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10623",
-    "translated": "9054",
+    "translated": "9056",
     "approved": "24",
     "words": "97879",
-    "words_translated": "77864",
+    "words_translated": "77910",
     "words_approved": "96",
     "translated_progress": 79,
     "approved_progress": 0,
-    "qa_issues": 256
+    "qa_issues": 257
   },
   {
     "name": "Chinese Traditional",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "10623",
-    "translated": "5010",
+    "translated": "5011",
     "approved": "465",
     "words": "97879",
-    "words_translated": "42771",
+    "words_translated": "42792",
     "words_approved": "4647",
     "translated_progress": 43,
     "approved_progress": 4,
-    "qa_issues": 2216
+    "qa_issues": 2217
   },
   {
     "name": "Persian",
