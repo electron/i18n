@@ -42,7 +42,7 @@ console.log(dialog)
   * `message` String (optional) *macOS* - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Mac App Store 용으로 패키지 되었을때를 위한 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)를 만듭니다
 * `callback` Function (optional) 
-  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
+  * `filePaths` String[] (optional) - 유저가 선택한 파일의 배열. 만약 dialog를 취소한다면 이 배열은 `undefined가 됩니다`.
   * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. 이 값을 얻기 위해서는 `securityScopedBookmarks`를 반드시 설정해야 합니다.
 
 Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
