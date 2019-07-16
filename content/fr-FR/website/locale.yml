@@ -263,7 +263,7 @@ governance:
     title: Définitions
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
+      - Un <i>collaborateur</i> est actif dans la communauté, mais pas dans la gouvernance.
       - A <i>participant</i> is anyone who is a maintainer or collaborator.
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
