@@ -110,7 +110,7 @@ Het gebruik van de `Session` en `Cookies` klassen in een voorbeeld:
 
 ### session.fromPartition(partition)
 
-## Properties
+## Static Properties
 
 ### session.defaultSession
 

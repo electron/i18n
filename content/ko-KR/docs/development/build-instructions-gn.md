@@ -28,12 +28,6 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # 약 16G의 저장공간을 사용할 것입니다.
 ```
 
-> **주의**: git cache는 로컬 캐시를 지정하기 위해 upstream git 저장소 대신 `src/electron` 저장소를 `origin`으로 설정할 것입니다. 이같은 설정을 유지하면 `git push`를 실행할 때 원하는 결과를 얻지 못하게 될 것입니다—여러분은 로컬 캐시가 아닌 github로 push하고 싶을 것입니다. 이러한 문제를 해결하려면, `src/electron` 디렉토리에서 아래 명령어를 실행하세요:
-
-```sh
-$ git remote set-url origin https://github.com/electron/electron
-```
-
 ### sccache
 
 Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. 이를 위해, 2 개의 환경 변수 설정과 추가적인 절차(하단에 명시됨)가 필요합니다.
@@ -266,6 +260,13 @@ $ ./out/Debug/electron electron/spec
     <p>
       0으로 설정해 비활성화시켜야 합니다. 추가 정보는 이곳에서 확인하세요: https://stackoverflow.com/a/9935126
     </p>
+    
+    <p>
+      This can be set quickly in powershell (ran as administrator):
+    </p>
+    
+    <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+</code></pre>
     
     <h2>
       문제 해결

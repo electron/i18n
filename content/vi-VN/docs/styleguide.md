@@ -110,7 +110,7 @@ Sử dụng tài liệu của các class `Session` và `Cookies` làm ví dụ:
 
 ### session.fromPartition(partition)
 
-## Properties
+## Static Properties
 
 ### session.defaultSession
 

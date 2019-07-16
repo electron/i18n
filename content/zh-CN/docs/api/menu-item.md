@@ -9,7 +9,7 @@
 ### `new MenuItem(可选)`
 
 * `参数` Object 
-  * `单击` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
+  * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
     * `menuItem` 菜单项
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event

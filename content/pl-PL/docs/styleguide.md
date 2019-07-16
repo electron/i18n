@@ -104,33 +104,33 @@ Używając `autoUpdater` jako przykładu:
 Używając klas `Session` i `Cookies` jako przykładu:
 
 ```markdown
-# Sesja
+# session
 
-## Metody
+## Methods
 
 ### session.fromPartition(partition)
 
-## Właściwości
+## Static Properties
 
 ### session.defaultSession
 
-## Klasa: Session
+## Class: Session
 
-### Instancja Events
+### Instance Events
 
 #### Event: 'will-download'
 
-### Instancja Methods
+### Instance Methods
 
 #### `ses.getCacheSize()`
 
-### Instancja Properties
+### Instance Properties
 
 #### `ses.cookies`
 
-## Klasa: Cookies
+## Class: Cookies
 
-### Instancja Methods
+### Instance Methods
 
 #### `cookies.get(filter, callback)`
 ```

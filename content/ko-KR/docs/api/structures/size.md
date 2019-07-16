@@ -1,4 +1,4 @@
-# 객체 크기
+# Size Object
 
 * `width` 숫자
 * `height` 숫자

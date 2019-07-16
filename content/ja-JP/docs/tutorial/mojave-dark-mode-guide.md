@@ -1,27 +1,12 @@
 # Mojave Dark Mode
 
-macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) を全ての macOS コンピュータに導入しました。 デフォルトの Electron アプリケーションは、それが有効になっているときでも UI とネイティブインターフェイスを自動的にダークモード設定に調整しません。 これは主に、あなた自身のアプリがダークモードをサポートしていない場合には、ダークモードネイティブインターフェースを使用**すべきではない**という Apple 自身のガイドラインによるものです。
+macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) を全ての macOS コンピュータに導入しました。 If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
 
-アプリにダークモードが設定されている場合は、Electron アプリにシステム全体のダークモード設定を適用させることができます。
+In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `isDarkMode` and `Tray` APIs to work correctly in this mode on Catalina you need to either have `NSRequiresAquaSystemAppearance` set to `true` in your `Info.plist` file or be on Electron `>=7.0.0`.
 
 ## ネイティブインターフェースを自動的に更新する
 
-"ネイティブインターフェース" にはファイルピッカー、ウインドウの縁、ダイアログ、右クリックメニュー、などの、あなたのアプリではない macOS 由来の基本的な UI が含まれます。 これらのインターフェースを自動的にダークモードに更新するには、アプリの `Info.plist` ファイルの `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 例
-
-```xml
-<plist>
-<dict>
-  ...
-  <key>NSRequiresAquaSystemAppearance</key>
-  <false />
-  ...
-</dict>
-</plist>
-```
-
-[`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) か [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) を使用している場合、[`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) オプションを設定してパッケージするときにセットされるようにできます。
-
-[`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) を使用している場合、[`darkModeSupport`](https://www.electron.build/configuration/mac.html) オプションを設定できます。
+"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. The default behavior as of Electron 7.0.0 is to opt in to this automatic theming from the OS. If you wish to opt out you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `false`. Please note that once Electron starts building against the 10.14 SDK it will not be possible for you to opt out of this theming.
 
 ## 自作のインターフェースを自動的に更新する
 

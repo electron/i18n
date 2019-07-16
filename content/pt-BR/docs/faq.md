@@ -138,13 +138,13 @@ npm uninstall -g electron
 
 No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
 
-## The font looks blurry, what is this and what can I do?
+## A fonte parece borrada, o que é isso e o que eu posso fazer?
 
-Se [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) está desativado, então os textos nas telas LCD podem aparecer embaçadas. Exemplo:
+Se a [anti-aliasing de sub-pixel](http://alienryderflex.com/sub_pixel/) estiver desativada, então os textos nas telas LCD podem aparecer embaçados. Exemplo:
 
 ![Exemplo de renderização do subpixel](images/subpixel-rendering-screenshot.gif)
 
-A anti-aliasing de sub-pixel precisa de um fundo não transparente na camada que contem os glyphs de texto. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+A anti-aliasing de sub-pixel precisa de um fundo não transparente na camada que contem os glyphs de texto. (Veja [esta publicação](https://github.com/electron/electron/issues/6344#issuecomment-420371918) para mais informações).
 
 Para alcançar este objetivo, defina o plano de fundo do construtor para [BrowserWindow](api/browser-window.md):
 

@@ -28,12 +28,6 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # 16G ほどあります。
 ```
 
-> **注**: git キャッシュは上流の git レポジトリの代わりに `src/electron` レポジトリの `origin` をローカルキャッシュに設定します。 これは、`git push` を実行しているときは望ましくありません。ローカルキャッシュではなくGithub にプッシュしたいと思うかもしれません。 これを修正するには、`src/electron` で以下を実行してください。
-
-```sh
-$ git remote set-url origin https://github.com/electron/electron
-```
-
 ### sccache
 
 Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 [sccache](https://github.com/mozilla/sccache) を通して Electron CI のビルド出力を再利用することで待ち時間の多くを回避できます。 これにはいくつかの任意の手順 (下記リスト) と以下の2つの環境変数が必要です。
@@ -81,7 +75,7 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# この次の行は、sccacheでビルドする場合のみ必要
+# this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
@@ -266,6 +260,13 @@ $ ./out/Debug/electron electron/spec
     <p>
       を0に設定して無効にする必要があります。 詳細: https://stackoverflow.com/a/9935126
     </p>
+    
+    <p>
+      This can be set quickly in powershell (ran as administrator):
+    </p>
+    
+    <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
+</code></pre>
     
     <h2>
       トラブルシューティング

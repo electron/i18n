@@ -94,7 +94,7 @@ Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 
 ### session.fromPartition(partition)
 
-## Properties
+## Static Properties
 
 ### session.defaultSession
 

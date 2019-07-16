@@ -1,27 +1,12 @@
 # Mojave黑暗模式
 
-在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)。 在黑暗模式激活的情况下，Electron 应用默认是不会自动调整UI和本地接口来与其匹配的。 这个的主要原因是 Apple 自身的指导方针指出，在您的应用本身的接口不支持黑暗模式的情况下，您就**没有必要**使用黑暗模式的本地接口了。
+在 macOS 10.14 Mojave中， Apple 为所有 macOS 电脑引入了一个全新的 [系统级黑暗模式](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)。 If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
 
-如果您的应用有黑暗模式的话，那么你就可以让您的Electron应用遵循系统级的黑暗模式设置了。
+In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. In order for the `isDarkMode` and `Tray` APIs to work correctly in this mode on Catalina you need to either have `NSRequiresAquaSystemAppearance` set to `true` in your `Info.plist` file or be on Electron `>=7.0.0`.
 
 ## 自动更新本地接口
 
-“本地接口”包含了文件选择器，窗口边框，对话框，内容菜单以及其他；基本上就是任何使用了macOS的UI而不是你的应用UI的地方。为了让这些地方自动更新到黑暗模式，你需要在应用的`info.plist`文件中将`NSRequiresAquaSystemAppearance`键设置为`false`。 如下:
-
-```xml
-<plist>
-<dict>
-  ...
-  <key>NSRequiresAquaSystemAppearance</key>
-  <false />
-  ...
-</dict>
-</plist>
-```
-
-如果你正在使用 [`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) 或者 [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) 那么你可以在打包的时候直接设置 [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 选项，这个选项会自动为你设置黑暗模式。
-
-如果你正在使用 [`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) 那么你可以设置 [`darkModeSupport`](https://www.electron.build/configuration/mac.html) 选项。
+"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. The default behavior as of Electron 7.0.0 is to opt in to this automatic theming from the OS. If you wish to opt out you must set the `NSRequiresAquaSystemAppearance` key in the `Info.plist` file to `false`. Please note that once Electron starts building against the 10.14 SDK it will not be possible for you to opt out of this theming.
 
 ## 自动更新你的接口
 

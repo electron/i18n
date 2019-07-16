@@ -6,7 +6,7 @@ Chronium'a dayanan Electron'un, çalışması için bir ekran sürücüsü gerek
 
 Önce  Xvfb'yi </ 0> yükleyin. X11, ekran sunucusu protokolünü uygulayan sanal çerçeve tampon belleğidir - ekran görüntüsü göstermeden bellekteki tüm grafik işlemleri gerçekleştirir; tam da ihtiyacımız olan şey budur.</p> 
 
-Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Electron'da Chromium otomatik olarak `$DISPLAY` arar, bu nedenle uygulamanıza başka bir yapılandırma gerekli değildir. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Electron'da Chromium otomatik olarak `$DISPLAY` arar, bu nedenle uygulamanıza başka bir yapılandırma gerekli değildir. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. On Windows or macOS, it will do nothing.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha

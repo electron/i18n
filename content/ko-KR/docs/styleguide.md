@@ -111,7 +111,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 ### session.fromPartition(partition)
 
-## Properties
+## Static Properties
 
 ### session.defaultSession
 
