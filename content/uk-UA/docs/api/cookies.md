@@ -40,7 +40,7 @@ session.defaultSession.cookies.set(cookie)
 
 ### Події екземпляру
 
-The following events are available on instances of `Cookies`:
+Наступні події можливі з екземплярах `Cookies`:
 
 #### Event: 'changed'
 
