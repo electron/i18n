@@ -26,27 +26,27 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## 沙盒渲染器中的`require`
 
 ```js
-// Deprecated
+// 不推荐
 require('child_process')
-// Replace with
+// 替换为
 require('electron').remote.require('child_process')
 
-// Deprecated
+// 不推荐
 require('fs')
-// Replace with
+// 替换为
 require('electron').remote.require('fs')
 
-// Deprecated
+// 不推荐
 require('os')
-// Replace with
+// 替换为
 require('electron').remote.require('os')
 
-// Deprecated
+// 不推荐
 require('path')
-// Replace with
+// 替换为
 require('electron').remote.require('path')
 ```
 
@@ -62,7 +62,7 @@ require('electron').remote.require('path')
 | `nodeIntegration`  | `true`                          | `false` |
 | `webviewTag`       | `nodeIntegration` 未设置过则是 `true` | `false` |
 
-E.g. Re-enabling the webviewTag
+例如，重新启用 webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -275,7 +275,7 @@ tray.setHighlightMode('off')
 ## `webContents`
 
 ```js
-// 弃用
+// 废弃的
 webContents.openDevTools({ detach: true })
 // 替换为
 webContents.openDevTools({ mode: 'detach' })
@@ -288,12 +288,12 @@ webContents.setSize(options)
 ## `webFrame`
 
 ```js
-// 弃用
+// 废弃的
 webFrame.registerURLSchemeAsSecure('app')
 // 替换为
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// 弃用
+// 废弃的
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // 替换为
 protocol.registerStandardSchemes(['app'], { secure: true })
@@ -319,7 +319,7 @@ webview.onkeyup = () => { /* handler */ }
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
-过时的: https://atom.io/download/atom-shell
+废弃的: https://atom.io/download/atom-shell
 
 替换为: https://atom.io/download/electron
 
@@ -330,10 +330,10 @@ webview.onkeyup = () => { /* handler */ }
 ## `BrowserWindow`
 
 ```js
-// 过时的
+// 废弃的
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-//替换为
+// 替换为
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
