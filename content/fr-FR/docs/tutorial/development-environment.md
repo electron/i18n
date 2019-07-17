@@ -1,6 +1,6 @@
 # Environnement de développement
 
-Le développement avec Electron est essentiellement du développement Node.js. Pour faire de votre système d'exploitation un environnement capable de construire des applications desktop avec Electron, vous aurez uniquement besoin de Node.js, npm, un éditeur de code de votre choix, et une compréhension rudimentaire du terminal (ligne de commande) de votre système d'exploitation.
+Le développement avec Electron est essentiellement du développement Node.js. Pour faire de votre système d'exploitation un environnement capable de construire des applications desktop avec Electron, vous aurez uniquement besoin de Node.js, npm, un éditeur de code de votre choix, et une compréhension rudimentaire du client de ligne de commande de votre système d'exploitation.
 
 ## Mise en place sur macOS
 
@@ -10,21 +10,21 @@ Premièrement, installez une version récente de Node.js. Nous vous recommandons
 
 Une fois téléchargé, exécutez l'installateur et laissez le guide d'installation vous guider à travers l'installation.
 
-Une fois installé, confirmez que tout fonctionne comme prévu. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Une fois installé, confirmez que tout fonctionne comme prévu. Trouvez l'application macOS `Terminal` dans votre dossier `/Applications/Utilities` (ou en recherchant le mot `Terminal` dans Spotlight). Ouvrez `Terminal` ou un autre client de ligne de commande de votre choix et confirmez que `node` et `npm` sont disponibles :
 
 ```sh
 # Cette commande devrait afficher la version de Node.js
 node -v
 
-1 Cette commande devrait afficher la version de npm
+# Cette commande devrait afficher la version de npm
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Si les deux commandes affichent un numéro de version, vous êtes correctement configuré ! Avant de démarrer, vous voudrez peut-être installer un [éditeur de code](#a-good-editor) adapté pour le développement JavaScript.
 
 ## Mise en place sur Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron supporte Windows 7 et les versions ultérieures – essayer de développer des applications Electron sur des versions antérieures de Windows ne marchera pas. Microsoft fournit gratuitement des [images de machine virtuelle avec Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) pour les développeurs.
 
 Premièrement, installez une version récente de Node.js. Nous vous recommandons d'installer soit la dernière version `LTS` ou `Current` disponible. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Une fois téléchargé, exécutez l'installateur et laissez le guide d'installation vous guider à travers l'installation.
 
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Si les deux commandes affichent un numéro de version, vous êtes correctement configuré ! Avant de démarrer, vous voudrez peut-être installer un [éditeur de code](#a-good-editor) adapté pour le développement JavaScript.
 
 ## Mise en place sur Linux
 
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Si les deux commandes affichent un numéro de version, vous êtes correctement configuré ! Avant de démarrer, vous voudrez peut-être installer un [éditeur de code](#a-good-editor) adapté pour le développement JavaScript.
 
 ## Un bon éditeur
 
