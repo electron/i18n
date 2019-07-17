@@ -107,7 +107,7 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 MenuItem がクリックイベントを受け取ったときに発火される `Function`。`menuItem.click(event, focusedWindow, focusedWebContents)` で呼び出せます。
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `event` Event
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 
