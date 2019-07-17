@@ -33,9 +33,9 @@ docs:
   advanced: Avancé
   detailed: En détail
   custom_dom: Éléments DOM Personnalisé 
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Modules pour le Main Process
+  renderer_proc_modules: Modules pour le Renderer Process
+  both_proc_modules: Modules pour les deux types de processus
   footer:
     propose_change: Améliorer ce document
     version_history: Historique des versions
@@ -53,8 +53,8 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Démarrez</b></a> à construire une application en lisant le <a href='/docs/tutorial/first-app'>tutoriel d'introduction</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Tenez vous au courant des dernières actualités</b></a> en suivant <a href='https://twitter.com/electronjs'>@electronjs</a> sur Twitter et en souscrivant <a href='/blog'>au fil d'actualité du blog</a>."
     localized_docs: "<a href='/languages'><b>Lisez la documentation dans votre langue maternelle</b></a> en visitant la <a href='/languages'>page des langues</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Obtenez de l'aide et donnez des feedback</b></a> en rejoignant <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>le Slack atomio</a>, en postant sur <a href='https://discuss.atom.io/c/electron'>Discuss</a>, ou en visitant <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Signalez des problèmes de sécurités</b></a> par mail à l'adresse <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Signalez un bug</b></a> en ouvrant une issue sur le repertoire git <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Demandez des fonctionalités</b></a> en ouvrant une issue sur le repertoire git <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Signalez une violation du Code de Conduite</b></a> par mai à l'adresse <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -75,11 +75,11 @@ releases:
   show_only_releases_from: "Afficher uniquement les versions :"
   all_versions: Toutes les versions
   stable_releases: Versions stables
-  stable_desc: Regular, supported releases
+  stable_desc: Versions régulières et supportées
   beta_releases: Versions bêta
-  beta_desc: Test your app with upcoming changes
+  beta_desc: Testez votre application avec les changements à venir
   nightly_releases: Versions Nightly
-  nightly_desc: Experiment with the latest features
+  nightly_desc: Expérimenter les dernières fonctionnalités
   next: Suivant
   next_page: Page suivante
   previous: Précédent
@@ -113,7 +113,7 @@ get_started:
 explore:
   title: Découvrir les APIs d'Electron
   description: "L'application <a href='https://github.com/electron/electron-api-demos'>démo de l'API Electron</a> présente de façon interactive les caractéristiques les plus importantes de l'API Electron. Voir ce qui est possible avec Electron avec un exemple de code et des conseils utiles pour construire votre application."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
+  fiddle_title: Essayez des expériences plus puissantes avec Electron Fiddle
   see_more_info: Voir plus d'infos
 download_from_github: Télécharger depuis GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Voir toutes les versions</a> sur GitHub
@@ -247,7 +247,7 @@ governance:
     title: Site web
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: Communauté et sécurité
     description: Oversees removal/bans from community.
   security:
     title: Sécurité
