@@ -248,13 +248,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。
+  * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。 Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function - 回调函数 
     * `permissionGranted` Boolean - 允许或拒绝该权限.
   * `details` Object - 一些属性只有在某些授权状态下可用。 
-    * `externalURL` String - `openExternal`请求的地址。
-    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (Optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
 
@@ -272,12 +274,14 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - 一些属性只有在某些授权状态下可用。 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
@@ -331,7 +335,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - 有效的 UUID.
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `result` Buffer - Blob 数据.
 
 #### `ses.createInterruptedDownload(options)`
