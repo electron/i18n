@@ -10,7 +10,7 @@
     请确保您的系统和Python的版本至少支持TLS 1.2。 您可以运行下面这个脚本来测试：
     
     ```sh
-    $ npm run check-tls
+    $ npx @electron/check-python-tls
     ```
     
     如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问ttps://www.python.org/downloads/，以获取更加详细的指导信息。
