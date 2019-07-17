@@ -54,7 +54,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 
 * `evento` Cadena
 * `userInfo` Objeto
-* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
+* `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
 Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
@@ -79,7 +79,7 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
   * `evento` Cadena
   * `userInfo` Objeto
 
-Returns `Number` - The ID of this subscription
+Devuelve `Number` - El ID de la suscripción
 
 Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
 
@@ -99,7 +99,7 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
   * `evento` Cadena
   * `userInfo` Objeto
 
-Returns `Number` - The ID of this subscription
+Devuelve `Number` - El ID de la suscripción
 
 Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
 
@@ -110,7 +110,7 @@ Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defec
   * `evento` Cadena
   * `userInfo` Objeto
 
-Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
