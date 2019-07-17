@@ -107,7 +107,7 @@ Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser
 
 Un `Función` que se activa cuando el MenuItem recibe un evento de clic. Puede ser llamado con `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `event` Evento
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 

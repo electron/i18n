@@ -2,7 +2,7 @@
 
 > Přidává položky menu do nativního menu aplikace a kontextového menu.
 
-Proces: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Podívejte se na [`Menu`](menu.md) v příkladech.
 
@@ -107,7 +107,7 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `event` Event
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 

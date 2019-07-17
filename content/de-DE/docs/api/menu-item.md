@@ -107,7 +107,7 @@ Ein `String` welcher das sichtbare Label des Menüpunkts enthält, diese Eigensc
 
 Eine `Function` welche aktiviert wird wenn der Menüpunkt geclickt wird. Es kann mit `menuItem.click(event, focusedWindow, focusedWebContents)` aufgerufen werden.
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `event` Event
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 

@@ -2,7 +2,7 @@
 
 遵循下面的步骤，在 Linux 上构建 Electron.
 
-## 基本要求
+## 前提条件
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
@@ -10,7 +10,7 @@
     请确保您的系统和Python的版本至少支持TLS 1.2。 您可以运行下面这个脚本来测试：
     
     ```sh
-    $ npm run check-tls
+    $ npx @electron/check-python-tls
     ```
     
     如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问ttps://www.python.org/downloads/，以获取更加详细的指导信息。

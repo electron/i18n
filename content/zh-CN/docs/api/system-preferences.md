@@ -40,14 +40,6 @@ console.log(systemPreferences.isDarkMode())
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-### 事件: 'appearance-changed' *macOS*
-
-返回:
-
-* `newAppearance` String - 可以为 `dark` 或 `light`
-
-**注意:** 此事件仅在调用了`startAppLevelAppearanceTrackingOS`后触发
-
 ## 方法
 
 ### `systemPreferences.isDarkMode()` *macOS*
@@ -87,7 +79,7 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-返回 `Number` - 此订阅的 ID
+返回 `Number` - 该订阅的 ID
 
 订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
 
@@ -107,7 +99,7 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-返回 `Number` - 此订阅的 ID
+返回 `Number` - 该订阅的 ID
 
 与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对事件` NSUserDefaultsDidChangeNotification `是必需的。
 

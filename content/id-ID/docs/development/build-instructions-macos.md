@@ -14,7 +14,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Ini tergantung pada versi macOS dan Python Anda. Untuk tes cepat, jalankan:
 
 ```sh
-$ npm run check-tls
+$ npx @electron/check-python-tls
 ```
 
 Jika skrip mengembalikan bahwa konfigurasi Anda menggunakan protokol keamanan yang sudah ketinggalan zaman, Anda dapat memperbarui macOS ke High Sierra atau memasang versi terbaru dari Python 2.7.x. Untuk meningkatkan Python, gunakan [Homebrew](https://brew.sh/):

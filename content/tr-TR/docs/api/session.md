@@ -248,13 +248,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `halledici` İşlev | boş 
-  * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
+  * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme.
   * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
-    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (Optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
 
@@ -272,12 +274,14 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `halledici` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Some properties are only available on certain permission types. 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 

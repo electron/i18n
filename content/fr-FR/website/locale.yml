@@ -16,22 +16,22 @@ nav:
   governance: Gouvernance
 keyboard_modal:
   title: Raccourcis clavier
-  key: Key
+  key: Clé
   action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  focus_search: Focus sur la barre de recherche
+  focus_and_clear: Focus sur la barre de recherche et la vide
+  scroll_down: Sélectionne le prochain résultat de recherche
+  scroll_up: Sélectionne le résultat de recherche précédent
+  open: Ouvrir le résultat de recherche sélectionné
+  open_new_tab: Ouvrir le résultat de recherche sélectionné dans un nouvel onglet
 docs:
   title: Documentation d'Electron
   description: Voir toute la <a href="/docs/all">documentation sur une seule page</a> ou consulter la <a href="/docs/faq/">FAQ</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Guides: Premiers pas avec Electron"
   api_reference: Référence des APIs
   api_structures: API Structures
   advanced: Avancé
-  detailed: In Detail
+  detailed: En détail
   custom_dom: Éléments DOM Personnalisé 
   main_proc_modules: Main Process Modules
   renderer_proc_modules: Renderer Process Modules
@@ -230,7 +230,7 @@ landing:
 governance:
   title: Gouvernance Electron
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  wgs: Groupes de travail
   docstools:
     title: Documents & Outils
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
@@ -241,7 +241,7 @@ governance:
     title: Versions
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: Améliorations
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: Site web
@@ -253,17 +253,17 @@ governance:
     title: Sécurité
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: Administratif
+    description: Le groupe de travail administratif supervise l'ensemble de la gouvernance et du projet.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: Vue d'ensemble
+    associated_repos: Dépôts associés
+    notes: Notes de réunion
   definitions:
-    title: Definitions
+    title: Définitions
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
+      - Un <i>collaborateur</i> est actif dans la communauté, mais pas dans la gouvernance.
       - A <i>participant</i> is anyone who is a maintainer or collaborator.
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'

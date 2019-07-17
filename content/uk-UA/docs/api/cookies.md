@@ -42,7 +42,7 @@ session.defaultSession.cookies.set(cookie)
 
 Наступні події можливі з екземплярах `Cookies`:
 
-#### Event: 'changed'
+#### Подія: 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.

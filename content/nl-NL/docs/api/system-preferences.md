@@ -40,14 +40,6 @@ Geeft terug:
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-### Event: 'appearance-changed' *macOS*
-
-Geeft terug:
-
-* `newAppearance` String - Can be `dark` or `light`
-
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
-
 ## Methoden
 
 ### `systemPreferences.isDarkMode()` *macOS*
@@ -103,7 +95,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Functie 
   * `event` String
   * `userInfo` Object
 
@@ -114,7 +106,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Functie 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 

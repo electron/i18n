@@ -42,14 +42,6 @@ Rückgabewert:
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-### Event: 'appearance-changed' *macOS*
-
-Rückgabewert:
-
-* `newAppearance` String - Kann `dark` oder `light` sein
-
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
-
 ## Methoden
 
 ### `systemPreferences.isDarkMode()` *macOS*

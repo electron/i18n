@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `callback` دالة 
   * `size` Integer - Cache size used in bytes.
 
 Callback is invoked with the session's current cache size.
@@ -176,7 +176,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Function 
+* `callback` دالة 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -215,13 +215,13 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` دالة 
   * `request` الكائنات 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
-  * `callback` Function 
+  * `callback` دالة 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indicates failure.
@@ -248,13 +248,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` دالة 
     * `permissionGranted` Boolean - Allow or deny the permission.
   * `التفاصيل` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
-    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (Optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
@@ -271,13 +273,15 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+* `handler` دالة<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `التفاصيل` Object - Some properties are only available on certain permission types. 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
@@ -332,7 +336,7 @@ Returns `String` - The user agent for this session.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `callback` دالة 
   * `result` Buffer - Blob data.
 
 #### `ses.createInterruptedDownload(options)`

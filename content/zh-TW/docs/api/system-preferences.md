@@ -40,14 +40,6 @@ The `systemPreferences` object emits the following events:
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-### Event: 'appearance-changed' *macOS*
-
-回傳:
-
-* `newAppearance` String - Can be `dark` or `light`
-
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
-
 ## 方法
 
 ### `systemPreferences.isDarkMode()` *macOS*

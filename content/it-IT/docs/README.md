@@ -43,7 +43,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [File Rappresentato per le FinestreBrowser macOS](tutorial/represented-file.md)
   * [Trascina & Rilascia File Nativo](tutorial/native-file-drag-drop.md)
   * [Rendering Offscreen](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Supporto per la modalità "Dark" di macOS](tutorial/mojave-dark-mode-guide.md)
 * [Accessibilità](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -81,7 +81,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
   * [Personalizza Specchi e Cache](tutorial/installation.md#custom-mirrors-and-caches)
   * [Risoluzione dei problemi](tutorial/installation.md#troubleshooting)
 * Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Gestione delle versioni](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 

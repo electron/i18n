@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
@@ -118,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// depreciado
 app.releaseSingleInstance()
-// Replace with
+// Substituir com
 app.releaseSingleInstanceLock()
 ```
 
@@ -138,7 +138,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 # Alterações na API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+A lista a seguir inclui as alterações na API do Election 3.0.
 
 ## `app`
 
@@ -180,37 +180,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// depreciado
 clipboard.readRtf()
-// Replace with
+// Substitua com
 clipboard.readRTF()
 
-// Deprecated
+// depreciado
 clipboard.writeRtf()
-// Replace with
+// Substitua com
 clipboard.writeRTF()
 
-// Deprecated
+// depreciado
 clipboard.readHtml()
-// Replace with
+// Substitua com
 clipboard.readHTML()
 
-// Deprecated
+// depreciado
 clipboard.writeHtml()
-// Replace with
+// Substitua com
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// depreciado
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Substitua com
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -221,9 +221,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// depreciado
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Substitua com
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })

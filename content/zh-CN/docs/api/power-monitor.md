@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 `电源监视器` 模块具有以下方法：
 
-#### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
+### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
 * `idleThreshold` Integer
 * `callback` Function 
@@ -63,9 +63,9 @@ app.on('ready', () => {
 
 计算系统空闲状态。 `idleThreshold` is the amount of time (in seconds) before considered idle. `回调函数` 将在一些系统上同步 ，并与 `idleState` 参数相同，描述系统的状态。 `锁定` 是 仅可用于支持的系统。
 
-#### `powerMonitor.querySystemIdleTime(callback)`
+### `powerMonitor.querySystemIdleTime(callback)`
 
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `idleTime` Integer - 空闲秒数
 
 计算系统空闲时间以秒为单位。

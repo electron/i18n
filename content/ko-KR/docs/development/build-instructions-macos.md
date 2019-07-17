@@ -14,7 +14,7 @@
 시스템과 Python 버전이 TLS 1.2를 지원하는지 확인하십시오. 이것은 macOS와 Python 버전에 따라 다릅니다. 빠른 테스트를 위해 다음을 실행하십시오.
 
 ```sh
-$ npm run check-tls
+$ npx @electron/check-python-tls
 ```
 
 If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):

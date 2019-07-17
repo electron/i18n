@@ -23,7 +23,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 ## Building
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Siehe [Build Instruktionen: GN](build-instructions-gn.md)
 
 ## 32-Bit-Build
 

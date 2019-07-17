@@ -40,14 +40,6 @@ Pagbabalik:
 * `kaganapan` kaganapan
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-### Event: 'appearance-changed' *macOS*
-
-Ibinabalik ang:
-
-* `newAppearance` String - Can be `dark` or `light`
-
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
-
 ## Mga Pamamaraan
 
 ### `systemPreferences.isDarkMode()` *macOS*
@@ -64,7 +56,7 @@ Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina a
 * `userInfo` na Object
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
+Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 

@@ -2,7 +2,7 @@
 
 > Get system preferences.
 
-Proces: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -39,14 +39,6 @@ Vrací:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
-
-### Event: 'appearance-changed' *macOS*
-
-Vrací:
-
-* `newAppearance` String - Can be `dark` or `light`
-
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
 
 ## Metody
 

@@ -10,7 +10,7 @@ Follow the guidelines below for building Electron on Linux.
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ npm run check-tls
+    $ npx @electron/check-python-tls
     ```
     
     如果腳本返回了你使用過時的安全協議定義的配置，可以使用系統的包管理器更新python至2.7.x分支的最新版本 或者訪問或者，https://www.python.org/downloads/以獲取詳細說明

@@ -1,4 +1,4 @@
-# 주요 변경사항
+# 중대한 변화
 
 주요 변경사항은 여기에 기록됩니다. and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
@@ -245,7 +245,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `세션`
+## `session`
 
 ```js
 // Deprecated
