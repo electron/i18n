@@ -29,12 +29,12 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10625",
-    "translated": "9091",
+    "translated": "9114",
     "approved": "24",
     "words": "97939",
-    "words_translated": "78351",
+    "words_translated": "78674",
     "words_approved": "96",
-    "translated_progress": 79,
+    "translated_progress": 80,
     "approved_progress": 0,
     "qa_issues": 257
   },
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "10625",
-    "translated": "7465",
+    "translated": "7500",
     "approved": "39",
     "words": "97939",
-    "words_translated": "55609",
+    "words_translated": "56144",
     "words_approved": "142",
-    "translated_progress": 56,
+    "translated_progress": 57,
     "approved_progress": 0,
-    "qa_issues": 2141
+    "qa_issues": 2154
   },
   {
     "name": "German",
@@ -159,27 +159,27 @@
     "name": "Italian",
     "code": "it",
     "phrases": "10625",
-    "translated": "4773",
+    "translated": "4788",
     "approved": "1",
     "words": "97939",
-    "words_translated": "33860",
+    "words_translated": "34058",
     "words_approved": "1",
     "translated_progress": 34,
     "approved_progress": 0,
-    "qa_issues": 1726
+    "qa_issues": 1730
   },
   {
     "name": "Japanese",
     "code": "ja",
     "phrases": "10625",
-    "translated": "10557",
+    "translated": "10609",
     "approved": "293",
     "words": "97939",
-    "words_translated": "97000",
+    "words_translated": "97598",
     "words_approved": "1716",
     "translated_progress": 99,
     "approved_progress": 1,
-    "qa_issues": 318
+    "qa_issues": 320
   },
   {
     "name": "Korean",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10625",
-    "translated": "9381",
+    "translated": "9427",
     "approved": "251",
     "words": "97939",
-    "words_translated": "78461",
+    "words_translated": "78971",
     "words_approved": "2015",
     "translated_progress": 80,
     "approved_progress": 2,
-    "qa_issues": 3619
+    "qa_issues": 3647
   },
   {
     "name": "Tagalog",
@@ -296,7 +296,7 @@
     "words_approved": "20",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 642
+    "qa_issues": 643
   },
   {
     "name": "Turkish",
