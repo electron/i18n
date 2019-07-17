@@ -26,17 +26,17 @@ Si les deux commandes affichent un numéro de version, vous êtes correctement c
 
 > Electron supporte Windows 7 et les versions ultérieures – essayer de développer des applications Electron sur des versions antérieures de Windows ne marchera pas. Microsoft fournit gratuitement des [images de machine virtuelle avec Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) pour les développeurs.
 
-Premièrement, installez une version récente de Node.js. Nous vous recommandons d'installer soit la dernière version `LTS` ou `Current` disponible. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Une fois téléchargé, exécutez l'installateur et laissez le guide d'installation vous guider à travers l'installation.
+Premièrement, installez une version récente de Node.js. Nous vous recommandons d'installer soit la dernière version `LTS` ou `Current` disponible. Visitez [la page de téléchargement de Node.js](https://nodejs.org/en/download/) et sélectionnez `Windows Installer`. Une fois téléchargé, exécutez l'installateur et laissez le guide d'installation vous guider à travers l'installation.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Sur l'écran qui vous permet de configurer l'installation, assurez-vous de sélectionner les options `Node.js runtime`, `npm package manager`, et `Ajouter au PATH`.
 
-Une fois installé, confirmez que tout fonctionne comme prévu. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Une fois installé, confirmez que tout fonctionne comme prévu. Trouvez le PowerShell Windows en ouvrant le menu Démarrer et tapez `PowerShell`. Ouvrez `PowerShell` ou un autre client de ligne de commande de votre choix et confirmez que `node` et `npm` sont disponibles :
 
 ```powershell
 # Cette commande devrait afficher la version de Node.js
 node -v
 
-1 Cette commande devrait afficher la version de npm
+# Cette commande devrait afficher la version de npm
 npm -v
 ```
 
@@ -44,9 +44,9 @@ Si les deux commandes affichent un numéro de version, vous êtes correctement c
 
 ## Mise en place sur Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> De manière générale, Electron supporte Ubuntu 12.04, Fedora 21, Debian 8 et plus.
 
-Premièrement, installez une version récente de Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Premièrement, installez une version récente de Node.js. Les étapes d'installation pourraient différer selon votre distribution Linux. En supposant que vous installez normalement les logiciels en utilisant un gestionnaire de paquets comme `apt` ou `pacman`, utilisez le guide officiel [Guide Node.js pour l'installation sur Linux](https://nodejs.org/en/download/package-manager/).
 
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
