@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
@@ -118,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Przestarzałe
 app.releaseSingleInstance()
-// Replace with
+// Zamień na
 app.releaseSingleInstanceLock()
 ```
 
@@ -180,24 +180,24 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Przestarzałe
 clipboard.readRtf()
-// Replace with
+// Zamień na
 clipboard.readRTF()
 
-// Deprecated
+// Przestarzałe
 clipboard.writeRtf()
-// Replace with
+// Zamień na
 clipboard.writeRTF()
 
-// Deprecated
+// Przestarzałe
 clipboard.readHtml()
-// Replace with
+// Zamień na
 clipboard.readHTML()
 
-// Deprecated
+// Przestarzałe
 clipboard.writeHtml()
-// Replace with
+// Zamień na
 clipboard.writeHTML()
 ```
 
@@ -229,10 +229,10 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `proces`
+## `przetwórz`
 
 ```js
-// Deprecated
+// Przestarzałe
 const info = process.getProcessMemoryInfo()
 ```
 
@@ -361,7 +361,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `proces`
+## `przetwórz`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
