@@ -48,7 +48,7 @@ Si les deux commandes affichent un numéro de version, vous êtes correctement c
 
 Premièrement, installez une version récente de Node.js. Les étapes d'installation pourraient différer selon votre distribution Linux. En supposant que vous installez normalement les logiciels en utilisant un gestionnaire de paquets comme `apt` ou `pacman`, utilisez le guide officiel [Guide Node.js pour l'installation sur Linux](https://nodejs.org/en/download/package-manager/).
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Vous utilisez Linux, vous savez donc probablement déjà comment utiliser un client de ligne de commande. Ouvrez votre terminal préféré et confirmez que `node` et `npm` sont disponibles globalement :
 
 ```sh
 # Cette commande devrait afficher la version de Node.js
@@ -64,4 +64,4 @@ Si les deux commandes affichent un numéro de version, vous êtes correctement c
 
 Nous pourrions suggérer deux éditeurs populaires gratuits construits avec Electron : [Atom](https://atom.io/) de GitHub et [Visual Studio Code](https://code.visualstudio.com/) de Microsoft. Les deux ont un excellent support JavaScript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Si vous êtes l'un des nombreux développeurs ayant une forte préférence, sachez que pratiquement tous les éditeurs de code et IDEs de nos jours supportent JavaScript.
