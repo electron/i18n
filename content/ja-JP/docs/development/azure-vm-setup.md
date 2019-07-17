@@ -33,7 +33,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
     
     - VM をイメージに対して起動する場合、そのイメージを AppVeyor で同時に使用することはできないため、VM をコピーする必要があります。
     - このスクリプトを実行するために、Azure から取得したストレージアカウント名、キー、URI を使用します。 
-        - URI については手順 3 を参照してください。プロンプトが表示されたら、エンターを押してコピー先となるように同じストレージアカウントを使用します。
+        - URI についてはステップ 3 を参照してください。プロンプトが表示されたら、エンターを押してコピー先となるように同じストレージアカウントを使用します。
         - デフォルトのコピーされたコンテナ名 `(images)` を使用します
         - また、コピーの名前を変更するときは、(変更されている場合は) 新しいイメージに含まれる内容と日付スタンプを示す名前を使用します。 
             - 例: `libcc-20core-vs2017-15.9-2019-04-15.vhd`
@@ -43,22 +43,22 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
     
     - PowerShell から、`./create_master_vm_from_vhd.ps1` のような `ps1` ファイルを実行します。
     - AppVeyor ビルドクラウド定義で利用可能な認証情報が必要になります。 
-        - This includes: 
-            - クライアントID
-            - Client Secret
-            - Tenant ID
-            - サブスクリプションID
-            - Resource Group
-            - Virtual Network
-    - You will also need to specify 
-        - Master VM name - just a unique name to identify the temporary VM
-        - Master VM size - use `Standard_F32s_v2`
-        - Master VHD URI - use URI obtained @ end of previous step
-        - Location use `East US`
+        - これは以下のものが含まれます。 
+            - クライアント ID
+            - クライアントの秘密
+            - テナント ID
+            - サブスクリプション ID
+            - リソースグループ
+            - 仮想ネットワーク
+    - 更に以下の指定が必要です 
+        - マスター VM 名 - 一時 VM を識別するための一意な名前です
+        - マスター VM 容量 - `Standard_F32s_v2` を使用します
+        - マスター VHD URI - 前のステップの最後で取得した URI を使用します
+        - 位置情報は `East US` を使用します
 
 6. Azure にログインし直して先ほど作成した VM を探します。ホーム < 仮想マシン < `$YOUR_NEW_VM` を見てください。
     
-    - You can download a RDP (Remote Desktop) file to access the VM.
+    - RDP (Remote Desktop) ファイルをダウンロードして VM にアクセスできます。
 
 7. Microsoft リモート デスクトップを使用して、`接続` をクリックして VM に接続します。
     
