@@ -50,7 +50,7 @@ Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
 Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
+### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `evento` Cadena
 * `userInfo` Objeto
