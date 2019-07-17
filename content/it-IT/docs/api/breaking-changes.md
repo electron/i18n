@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice JavaScript, dove possibile, saranno qui documentati almeno [una versione maggiore](../tutorial/electron-versioning.md#semver) prima che il cambiamento sia implementato.
 
@@ -115,12 +115,12 @@ app.on('second-instance', (event, argv, cwd) => {
 })
 ```
 
-## `app.releaseSingleInstance`
+## `app.rilasciaIstanzaSingola`
 
 ```js
-// Deprecated
+// Deprecato
 app.releaseSingleInstance()
-// Replace with
+// Sostituire con
 app.releaseSingleInstanceLock()
 ```
 
@@ -138,7 +138,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 # Cambiamenti API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+La seguente lista include i cambiamenti delle API in Electron 3.0.
 
 ## `app`
 
@@ -180,37 +180,37 @@ window.on('app-command', (e, cmd) => {
 ## `appunti`
 
 ```js
-// Deprecated
+// Deprecato
 clipboard.readRtf()
-// Replace with
+// Rimpiazza con
 clipboard.readRTF()
 
-// Deprecated
+// Deprecato
 clipboard.writeRtf()
-// Replace with
+// Rimpiazza con
 clipboard.writeRTF()
 
-// Deprecated
+// Deprecato
 clipboard.readHtml()
-// Replace with
+// Rimpiazza con
 clipboard.readHTML()
 
-// Deprecated
+// Deprecato
 clipboard.writeHtml()
-// Replace with
+// Rimpiazza con
 clipboard.writeHTML()
 ```
 
 ## `riportatorecrash`
 
 ```js
-// Deprecated
+// Deprecato
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Rimpiazza con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -218,12 +218,12 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `immagineNativa`
 
 ```js
-// Deprecated
+// Deprecato
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Rimpiazza con
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -239,9 +239,9 @@ const info = process.getProcessMemoryInfo()
 ## `schermo`
 
 ```js
-// Deprecated
+// Deprecato
 screen.getMenuBarHeight()
-// Replace with
+// Rimpiazza con
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -261,67 +261,67 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// Deprecated
+// Deprecato
 tray.setHighlightMode(true)
-// Replace with
+// Rimpiazza con
 tray.setHighlightMode('on')
 
-// Deprecated
+// Deprecato
 tray.setHighlightMode(false)
-// Replace with
+// Rimpiazza con
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `contenutiWeb`
 
 ```js
-// Deprecated
+// Deprecato
 webContents.openDevTools({ detach: true })
-// Replace with
+// Sostituire con
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Rimosso
 webContents.setSize(options)
-// There is no replacement for this API
+// Non c'è sostituzione per questa API
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Deprecato
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Rimpiazza con
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Deprecato
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Rimpiazza con
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Rimosso
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Non c'è sostituzione per questa API
 
-// Removed
+// Rimosso
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Non c'è sostituzione per questa API
 
-// Keyboard listeners no longer work on webview tag
+// I listeners di tastiera non funzionano più sul tag webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Questa è l'URL specificata come `disturl` in un file `.npmrc` o come linea di comando `--dist-url` segnalata costruendo moduli Node nativi.
 
-Deprecated: https://atom.io/download/atom-shell
+Deprecato: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Rimpiazza con: https://atom.io/download/electron
 
 # Cambiamenti API (2.0)
 
@@ -330,10 +330,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Deprecato
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Sostituire con
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -341,23 +341,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Rimosso
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Sostituito con
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+## `immagineNativa`
 
 ```js
-// Removed
+// Rimosso
 nativeImage.toPng()
-// Replaced with
+// Sostituito con
 nativeImage.toPNG()
 
-// Removed
+// Rimosso
 nativeImage.toJpeg()
-// Replaced with
+// Sostituito con
 nativeImage.toJPEG()
 ```
 
@@ -365,37 +365,37 @@ nativeImage.toJPEG()
 
 * `process.versions.electron` e `process.version.chrome` diventeranno delle proprietà di sola lettura coerentemente con le altre proprietà `process.versions` impostate da Node.
 
-## `webContents`
+## `contenutiWeb`
 
 ```js
-// Removed
+// Rimosso
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Sostituito con
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
-webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
-webFrame.setVisualZoomLevelLimits(1, 2)
+// Rimosso
+webContents.setZoomLevelLimits(1, 2)
+// Sostituito con
+webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
-webview.setZoomLevelLimits(1, 2)
-// Replaced with
-webview.setVisualZoomLevelLimits(1, 2)
+// Rimosso
+webContents.setZoomLevelLimits(1, 2)
+// Sostituito con
+webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Asset ARM duplicati
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Ogni rilascio di Electron include due build ARM identiche con filename leggermente differenti, come `electron-v1.7.3-linux-arm.zip` e `electron-v1.7.3-linux-armv7l.zip`. L'asset con il prefisso `v7l` è stato aggiunto per chiarire agli utenti quale versione di ARM esso supporti, e per renderlo disambiguo dai futuri asset armv6l e arm64 che potrebbero essere prodotti.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Il file *senza prefisso* è ancora in fase di pubblicazione per evitare di rompere le configurazioni che lo stanno ancora utilizzando. A partire dalla versione 2.0, il file senza prefisso non sarà più pubblicato.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Per maggiori dettagli, vedere [6986](https://github.com/electron/electron/pull/6986) e [7189](https://github.com/electron/electron/pull/7189).
