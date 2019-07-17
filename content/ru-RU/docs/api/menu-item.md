@@ -107,7 +107,7 @@ The following properties are available on instances of `MenuItem`:
 
 `Функция` которая выполняется, когда MenuItem получает событие щелчка. Она может быть вызвана с `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `event` Event
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 
