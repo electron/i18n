@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
@@ -140,7 +140,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-## `appka`
+## `app`
 
 ```js
 // Deprecated
