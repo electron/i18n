@@ -84,12 +84,12 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Stratégie de versioning](tutorial/electron-versioning.md)
   * [Calendrier de release](tutorial/electron-timelines.md)
   * [Programme de feedback](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* [Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md) 
   * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ajouter des fichiers non empaquetés dans une archive asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Tester le CDM Widevine](tutorial/testing-widevine-cdm.md)
 * [Utilisation du plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
