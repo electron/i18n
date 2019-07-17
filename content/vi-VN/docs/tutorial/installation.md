@@ -97,7 +97,7 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 Khi chạy `npm install electron`, một số người dùng đôi khi gặp phải lỗi cài đặt.
 
-Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề với gói npm của `electron`. Các lỗi như `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, và `ETIMEDOUT` tất cả là biểu hiện của các vấn đề về mạng. The best resolution is to try switching networks, or wait a bit and try installing again.
+Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề với gói npm của `electron`. Các lỗi như `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, và `ETIMEDOUT` tất cả là biểu hiện của các vấn đề về mạng. Giải pháp tốt nhất là thử đổi mạng, hoặc chờ một lát sau đó thử cài lại sau.
 
 Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/releases](https://github.com/electron/electron/releases) nếu quá trình cài đặt `npm` bị lỗi.
 
