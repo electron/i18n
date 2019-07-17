@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Ereignisse
+## Events
 
 The `powerMonitor` module emits the following events:
 
@@ -55,7 +55,7 @@ Emitted as soon as the systems screen is unlocked.
 
 The `powerMonitor` module has the following methods:
 
-#### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
+### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
 * `idleThreshold` Integer
 * `callback` Funktion 
@@ -63,7 +63,7 @@ The `powerMonitor` module has the following methods:
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
 
-#### `powerMonitor.querySystemIdleTime(callback)`
+### `powerMonitor.querySystemIdleTime(callback)`
 
 * `callback` Funktion 
   * `idleTime` Integer - Idle time in seconds
