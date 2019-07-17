@@ -76,9 +76,9 @@ const w = new BrowserWindow({
 
 使用 `nativeWindowOpen` 选项打开的子窗口将始终禁用 Node.js 集成。
 
-## Privileged Schemes Registration
+## 带权限的 Scheme 注册
 
-移除 Renderer process APIs `webFrame.setLSSemeAsPrivieged` 和 `webFrame.registerURLLSQUIseAswersegCSP` 以及浏览器 process API `protocol.registerStardsSchemes`. 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义计划需要在 app 就绪前注册。
+移除 Renderer process APIs `webFrame.setLSSemeAsPrivieged` 和 `webFrame.registerURLLSQUIseAswersegCSP` 以及浏览器 process API `protocol.registerStardsSchemes`. 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义 scheme 需要在 app 触发 ready 事件之前注册。
 
 ## webFrame Isolated World APIs
 
