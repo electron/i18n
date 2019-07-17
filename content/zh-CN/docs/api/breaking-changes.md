@@ -83,11 +83,11 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ## webFrame Isolated World APIs
 
 ```js
-// Deprecated
+// 弃用
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 替换为
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -104,11 +104,11 @@ webFrame.setIsolatedWorldInfo(
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 弃用
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// 替换为
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -156,20 +156,20 @@ const { memory } = metrics[0] // 弃用的属性
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 弃用
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 替换为
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 弃用
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// 替换为
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -204,7 +204,7 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// 过时的
+// 弃用
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -232,7 +232,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// 弃用
 const info = process.getProcessMemoryInfo()
 ```
 
@@ -248,11 +248,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// 弃用
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// 替换为
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -261,12 +261,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// 过时的
+// 弃用
 tray.setHighlightMode(true)
 // 替换为
 tray.setHighlightMode('on')
 
-// 过时的
+// 弃用
 tray.setHighlightMode(false)
 // 替换为
 tray.setHighlightMode('off')
@@ -275,7 +275,7 @@ tray.setHighlightMode('off')
 ## `webContents`
 
 ```js
-// 废弃的
+// 弃用
 webContents.openDevTools({ detach: true })
 // 替换为
 webContents.openDevTools({ mode: 'detach' })
@@ -288,12 +288,12 @@ webContents.setSize(options)
 ## `webFrame`
 
 ```js
-// 废弃的
+// 弃用
 webFrame.registerURLSchemeAsSecure('app')
 // 替换为
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// 废弃的
+// 弃用
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // 替换为
 protocol.registerStandardSchemes(['app'], { secure: true })
@@ -319,7 +319,7 @@ webview.onkeyup = () => { /* handler */ }
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
-废弃的: https://atom.io/download/atom-shell
+弃用: https://atom.io/download/atom-shell
 
 替换为: https://atom.io/download/electron
 
@@ -330,7 +330,7 @@ webview.onkeyup = () => { /* handler */ }
 ## `BrowserWindow`
 
 ```js
-// 废弃的
+// 弃用
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
 // 替换为
