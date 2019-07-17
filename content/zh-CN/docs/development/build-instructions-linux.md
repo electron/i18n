@@ -2,7 +2,7 @@
 
 遵循下面的步骤，在 Linux 上构建 Electron.
 
-## 基本要求
+## 前提条件
 
 * 至少 25GB 硬盘空间 和 8GB 内存.
 * Python 2.7.x. 一些发行版如 CentOS 6.x 仍然使用 Python 2.6.x ，所以或许需要 check 你的 Python 版本，使用 `python -V`.
