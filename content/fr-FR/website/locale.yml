@@ -233,7 +233,7 @@ governance:
   wgs: Groupes de travail
   docstools:
     title: Documents & Outils
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+    description: Supervise l'outillage orienté vers l'extérieur (p. ex., Fiddle, Forge), la documentation d'Electron sur le site Web, les dépôts <code>electron/*</code>, et la sensibilisation des groupes de mainteneurs aux modules tiers.
   outreach:
     title: Sensibilisation
     description: Développement de la communauté Electron
@@ -245,7 +245,7 @@ governance:
     description: Supervise les mises à niveau des dépendances en amont, en particulier Chromium et Node.
   website:
     title: Site web
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: Supervise les implémentations technique, la conception et le design du site Web d'Electron et de l'outillage associé.
   cmsf:
     title: Communauté et sécurité
     description: Supervise le retrait ou le bannissement de la communauté.
