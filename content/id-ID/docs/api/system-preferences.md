@@ -72,24 +72,6 @@ Aksen warna.&lt;/li>
         </li>
       </ul>
       
-      <h3>
-        Event: 'appearance-changed' <em>macOS</em>
-      </h3>
-      
-      <p>
-        Pengembalian:
-      </p>
-      
-      <ul>
-        <li>
-          <code>newAppearance</code> String - Can be <code>dark</code> or <code>light</code>
-        </li>
-      </ul>
-      
-      <p>
-        <strong>NOTE:</strong> This event is only emitted after you have called <code>startAppLevelAppearanceTrackingOS</code>
-      </p>
-      
       <h2>
         Metode
       </h2>
