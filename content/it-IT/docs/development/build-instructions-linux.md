@@ -7,7 +7,7 @@ Segui le seguenti linee guida per compilare Electron su Linux.
 * Almeno 25 GB di spazio su disco e 8 GB di RAM.
 * Python 2.7.x. Alcune distribuzioni, come ad esempio CentOS 6.x, utilizzano ancora Python 2.6.x potresti quindi avere la necessità di controllare la versione di Python installata con `python -V`.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Ti preghiamo inoltre di verificare che il tuo sistema e la versione di Python attualmente installata supportino almeno TLS 1.2. Puoi controllare rapidamente eseguendo questo script:
     
     ```sh
     $ npx @electron/check-python-tls
