@@ -81,7 +81,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
   * [Personalizza Specchi e Cache](tutorial/installation.md#custom-mirrors-and-caches)
   * [Risoluzione dei problemi](tutorial/installation.md#troubleshooting)
 * Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Gestione delle versioni](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
