@@ -12,12 +12,12 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 1. 修正したいイメージを指定します。
     
     - [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml) では、イメージは *image* プロパティで識別されます。 
-        - The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
-    - Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key. 
-        - You will need this URI path to copy into a new image.
-    - You will also need the storage account name which is labeled in AppVeyor as the **Disk Storage Account Name**
+        - 使用される名前は、クラウドを構築するために定義された *"イメージ"*、たとえば [libcc-20 クラウド](https://windows-ci.electronjs.org/build-clouds/8) に対応しています。
+    - ビルドクラウドで変更するイメージを探し、そのイメージの **VHD Blob Path** をメモします。これはキーに対応する値です。 
+        - 新しいイメージにコピーするにはこの URI パスが必要になります。
+    - また、AppVeyor 上で **ディスクストレージアカウント名** とラベル付けされたストレージアカウント名も必要になります。
 
-2. Get the Azure storage account key
+2. Azure ストレージアカウントキーを取得します
     
     - Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor. 
         - Example, for `appveyorlibccbuilds` **ディスクストレジアカオウント名前** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
