@@ -248,13 +248,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `tagahawak` Function | null 
-  * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot.
+  * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
   * `ang mga detalye` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
-    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (Optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
 
@@ -271,13 +273,15 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `tagahawak` Punsyon<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+* `tagahawak` Function<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `ang mga detalye` Object - Some properties are only available on certain permission types. 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
 Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
