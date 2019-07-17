@@ -25,25 +25,25 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 
 3. Azure からフルの仮想マシンイメージ URI を取得します
     
-    - ホーム < ストレージアカウント < `$ACCT_NAME` < Blobs < Images 
-        - In the following list, look for the VHD path name you got from Appveyor and then click on it. 
-            - Copy the whole URL from the top of the subsequent window.
+    - ホーム < ストレージアカウント < `$ACCT_NAME` < ブロブ < イメージ に移動します 
+        - そのリスト内の、Appveyor から入手した VHD パス名を探してクリックします。 
+            - 出てきたウィンドウ上から URL 全体をコピーします。
 
 4. [マスターイメージ PowerShell スクリプトをコピー](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1) を用いてイメージをコピーします。
     
-    - It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
-    - Use the storage account name, key, and URI obtained from Azure to run this script. 
-        - See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        - Use default destination container name `(images)`
-        - Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp. 
-            - Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
-    - Go into Azure and get the URI for the newly created image as described in a previous step
+    - VM をイメージに対して起動する場合、そのイメージを AppVeyor で同時に使用することはできないため、VM をコピーする必要があります。
+    - このスクリプトを実行するために、Azure から取得したストレージアカウント名、キー、URI を使用します。 
+        - URI については手順 3 を参照してください。プロンプトが表示されたら、エンターを押してコピー先となるように同じストレージアカウントを使用します。
+        - デフォルトのコピーされたコンテナ名 `(images)` を使用します
+        - また、コピーの名前を変更するときは、(変更されている場合は) 新しいイメージに含まれる内容と日付スタンプを示す名前を使用します。 
+            - 例: `libcc-20core-vs2017-15.9-2019-04-15.vhd`
+    - 前の手順で説明したように、Azure に行き、新しく作成したイメージの URI を取得します。
 
 5. [VHD PowerShell からマスター VM を作成](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1) を用いて新しい VM を起動します。
     
-    - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
-    - You will need the credential information available in the AppVeyor build cloud definition. 
-        - これには以下も含まれます。 
+    - PowerShell から、`./create_master_vm_from_vhd.ps1` のような `ps1` ファイルを実行します。
+    - AppVeyor ビルドクラウド定義で利用可能な認証情報が必要になります。 
+        - This includes: 
             - クライアントID
             - Client Secret
             - Tenant ID
