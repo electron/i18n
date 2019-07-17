@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
@@ -180,25 +180,25 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
-clipboard.readRtf()
-// Replace with
-clipboard.readRTF()
+/ Tidak berlaku lagi
+clipboard.readRtf ()
+// Ubah dengan
+clipboard.readRTF ()
 
-// Deprecated
-clipboard.writeRtf()
-// Replace with
-clipboard.writeRTF()
+// Tidak berlaku lagi
+clipboard.writeRtf ()
+// Ubah dengan
+clipboard.writeRTF ()
 
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
+// Tidak berlaku lagi
+clipboard.readHtml ()
+// Ubah dengan
+clipboard.readHTML ()
 
-// Deprecated
-clipboard.writeHtml()
-// Replace with
-clipboard.writeHTML()
+// Tidak berlaku lagi
+clipboard.writeHtml ()
+// Ubah dengan
+clipboard.writeHTML ()
 ```
 
 ## `kerusakanReporter`
@@ -261,18 +261,18 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Nampan`
 
 ```js
-// Deprecated
-tray.setHighlightMode(true)
-// Replace with
-tray.setHighlightMode('on')
+// Tidak berlaku lagi
+tray.setHighlightMode (true)
+// Ubah dengan
+tray.setHighlightMode ('on')
 
-// Deprecated
-tray.setHighlightMode(false)
-// Replace with
-tray.setHighlightMode('off')
+// Tidak berlaku lagi
+tray.setHighlightMode (salah)
+// Ubah dengan
+tray.setHighlightMode ('off')
 ```
 
-## `konten web`
+## `kontenWeb`
 
 ```js
 // Deprecated
@@ -315,13 +315,13 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## URL Node Header
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Ini adalah URL yang ditentukan sebagai `disturl` pada file `.npmrc` atau sebagai `--dist-url` bendera perintah saat membangun modul Node asli.
 
-Deprecated: https://atom.io/download/atom-shell
+Tidak berlaku lagi: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Ganti dengan: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -365,7 +365,7 @@ nativeImage.toJPEG()
 
 * `proses.versi.electron` dan `proses.versi.chrome` akan dibuat properti hanya baca untuk konsistensi dengan proses `proses.versi` properti yang ditetapkan oleh Node.
 
-## `konten web`
+## `kontenWeb`
 
 ```js
 // Removed
@@ -392,7 +392,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Aset ARM Duplikat
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
