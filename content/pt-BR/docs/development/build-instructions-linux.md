@@ -10,7 +10,7 @@ Siga as instruções abaixo para configurar o Electron no Linux.
     Por favor verifique se o seu sistema suporta no mínimo a versão do Python TLS 1.2. Para um teste rápido, execute o seguinte script:
     
     ```sh
-    $ npm run check-tls
+    $ npx @electron/check-python-tls
     ```
     
     Se o script retornar que sua configuração está usando um protocolo de segurança desatualizado, use seu gerenciador de pacotes para atualizar o Python para a última versão no ramo 2.7.x. Alternativamente, visite https://www.python.org/downloads/ para instruções mais detalhadas.
