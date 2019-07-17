@@ -19,17 +19,17 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 
 2. Azure ストレージアカウントキーを取得します
     
-    - Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor. 
-        - Example, for `appveyorlibccbuilds` **ディスクストレジアカオウント名前** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
-            - Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
+    - LastPass (Azure Enterprise 傘下) に保存されている資格情報を使用して Azure にログインし、AppVeyor にある名前に対応するストレージアカウントを探します。 
+        - 例えば、`appveyorlibccbuilds` という **ディスクストレージアカウント名** の場合、ホーム < ストレージアカウント にあるストレージアカウントリストで `appveyorlibccbuilds` を探します。 
+            - それをクリックして `アクセスキー` を見つけます。そして、リストにあるキーのうちどれでも使うことができます。
 
-3. Get the full virtual machine image URI from Azure
+3. Azure からフルの仮想マシンイメージ URI を取得します
     
-    - Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images 
+    - ホーム < ストレージアカウント < `$ACCT_NAME` < Blobs < Images 
         - In the following list, look for the VHD path name you got from Appveyor and then click on it. 
             - Copy the whole URL from the top of the subsequent window.
 
-4. Copy the image using the [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
+4. [マスターイメージ PowerShell スクリプトをコピー](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1) を用いてイメージをコピーします。
     
     - It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
     - Use the storage account name, key, and URI obtained from Azure to run this script. 
@@ -39,7 +39,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
             - Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
     - Go into Azure and get the URI for the newly created image as described in a previous step
 
-5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
+5. [VHD PowerShell からマスター VM を作成](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1) を用いて新しい VM を起動します。
     
     - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
     - You will need the credential information available in the AppVeyor build cloud definition. 
@@ -56,11 +56,11 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
         - Master VHD URI - use URI obtained @ end of previous step
         - Location use `East US`
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Azure にログインし直して先ほど作成した VM を探します。ホーム < 仮想マシン < `$YOUR_NEW_VM` を見てください。
     
     - You can download a RDP (Remote Desktop) file to access the VM.
 
-7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
+7. Microsoft リモート デスクトップを使用して、`接続` をクリックして VM に接続します。
     
     - Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
 
