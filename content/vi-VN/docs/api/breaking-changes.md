@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
@@ -236,7 +236,7 @@ nativeImage.createFromBuffer(buffer, {
 const info = process.getProcessMemoryInfo()
 ```
 
-## `màn hình`
+## `screen`
 
 ```js
 // Deprecated
