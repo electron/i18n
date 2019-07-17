@@ -136,7 +136,7 @@ footer:
   see_the_faq: Consulter la foire aux questions
 companies:
   title: Développées avec Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  description: Initialement développé pour l'éditeur de GitHub <a href='https://atom.io' target='_blank'>Atom</a>, Electron a été adopté par des entreprises du monde entier.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Voir plus d'applications
@@ -207,7 +207,7 @@ pages:
     description: Spectron est un framework open source pour écrire facilement des tests d'intégrations pour votre application Electron. Intégré dans ChromeDriver et WebDriverIO.
   '/fiddle':
     title: Fiddle Electron
-    description: The easiest way to get started with Electron
+    description: La méthode la plus simple pour démarrer avec Electron
   '/governance':
     title: Gouvernance Electron
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
@@ -216,7 +216,7 @@ pages:
 landing:
   get_started: Premiers pas
   fiddle:
-    lead_desc: The easiest way to get started with Electron
+    lead_desc: La méthode la plus simple pour démarrer avec Electron
     create_app: Créez votre application
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explorer Electron
@@ -276,8 +276,8 @@ governance:
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  code_of_conduct: L'organisation Electron et tous ses dépôts adhèrent au code de conduite suivant <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">.</a>
+  license: Electron est sous licence MIT <a href="https://github.com/electron/electron/blob/master/LICENSE"></a>.
+  repository: Consultez le dépôt de gouvernance <a href="https://github.com/electron/governance"></a> pour obtenir plus d'informations sur la structure de gouvernance.
 _404:
   page_not_found: Page non trouvée.
