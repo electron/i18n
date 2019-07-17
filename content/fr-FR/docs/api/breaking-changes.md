@@ -1,4 +1,4 @@
-# Breaking Chnages
+# Breaking Changes
 
 Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](../tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
@@ -74,7 +74,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+La fenêtre enfant ouverte avec l'option `nativeWindowOpen` aura toujours l'intégration de Node.js désactivée.
 
 ## Privileged Schemes Registration
 
@@ -99,7 +99,7 @@ webFrame.setIsolatedWorldInfo(
 
 # Changements majeurs prévus de l'API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+La liste suivant inclut les changements majeurs faits dans Electron 4.0.
 
 ## `app.makeSingleInstance`
 
@@ -118,9 +118,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Déprécié
 app.releaseSingleInstance()
-// Replace with
+// Remplacé par
 app.releaseSingleInstanceLock()
 ```
 
@@ -134,11 +134,11 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Quand vous compilez des modules natifs sous Windows, la variable `win_delay_load_hook` dans le fichier `binding.gyp` doit être mise à vrai (qui l'est par défaut). Si cet accroche n'est pas présente, l'exécution du module natif échouera sur Windows, avec un message d'erreur comme `Cannot find module`. Voir le [Guide des modules natifs](/docs/tutorial/using-native-node-modules.md) pour plus d'informations.
 
 # Changements majeurs prévus de l'API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+La liste suivante inclut les changements majeurs pour Electron 3.0.
 
 ## `app`
 
@@ -156,20 +156,20 @@ const { memory } = metrics[0] // Deprecated property
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
 // Replace with
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Déprécié
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Remplacé par
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -180,37 +180,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Déprécié
 clipboard.readRtf()
-// Replace with
+// Remplacé par
 clipboard.readRTF()
 
-// Deprecated
+// Déprécié
 clipboard.writeRtf()
-// Replace with
+// Remplacé par
 clipboard.writeRTF()
 
-// Deprecated
+// Déprécié
 clipboard.readHtml()
-// Replace with
+// Remplacé par
 clipboard.readHTML()
 
-// Deprecated
+// Déprécié
 clipboard.writeHtml()
-// Replace with
+// Remplacé par
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Déprécié
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Remplacé par
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -221,9 +221,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Déprécié
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Remplacé par
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -232,16 +232,16 @@ nativeImage.createFromBuffer(buffer, {
 ## `processus (process)`
 
 ```js
-// Deprecated
+// Déprécié
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// Déprécié
 screen.getMenuBarHeight()
-// Replace with
+// Remplacé par
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -261,79 +261,79 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// Deprecated
+// Déprécié
 tray.setHighlightMode(true)
-// Replace with
+// Remplacé par
 tray.setHighlightMode('on')
 
-// Deprecated
+// Déprécié
 tray.setHighlightMode(false)
-// Replace with
+// Remplacé par
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Déprécié
 webContents.openDevTools({ detach: true })
-// Replace with
+// Remplacé par
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Supprimé
 webContents.setSize(options)
-// There is no replacement for this API
+// Il n'y a pas de remplacement prévu
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Déprécié
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Remplacé par
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Déprécié
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Remplacé par
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Supprimé
 webview.setAttribute('disableguestresize', '')
 // There is no replacement for this API
 
-// Removed
+// Supprimé
 webview.setAttribute('guestinstance', instanceId)
 // There is no replacement for this API
 
-// Keyboard listeners no longer work on webview tag
+// Les écouteurs d'événements ne marchent plus sur les tags webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou le flag `--dist-url` en ligne de commande lors de la compilation des modules natifs de Node.
 
-Deprecated: https://atom.io/download/atom-shell
+Déprécié : https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Remplacé par : https://atom.io/download/electron
 
 # Changements majeurs prévus de l'API (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+La liste suivant inclut les changements majeurs faits dans Electron 2.0.
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Remplacé par
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -341,23 +341,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Supprimé
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Remplacé par
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// Supprimé
 nativeImage.toPng()
-// Replaced with
+// Remplacé par
 nativeImage.toPNG()
 
-// Removed
+// Supprimé
 nativeImage.toJpeg()
-// Replaced with
+// Remplacé par
 nativeImage.toJPEG()
 ```
 
@@ -368,34 +368,34 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Removed
+// Supprimé
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Remplacé par
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Supprimé
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Remplacé par
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Supprimé
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Remplacé par
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Versions ARM dupliquées
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Chaque version d'Electron contient deux versions ARM identiques avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. Celui avec le préfixe `v7l` a été ajouté pour clarifier aux utilisateurs quelle version ARM elle supporte, et supprimer les ambiguïtés des prochains paquets armv6l et arm64 qui pourraient être produites.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Le fichier *sans le préfixe* est toujours publié afin d'éviter de casser les installations qui pourraient l'utiliser. À partir de la 2.0, le fichier sans préfixe ne sera plus publié.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
