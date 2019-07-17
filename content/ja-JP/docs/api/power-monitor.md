@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 `powerMonitor` モジュールには以下のメソッドがあります。
 
-#### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
+### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
 * `idleThreshold` Integer
 * `callback` Function 
@@ -63,7 +63,7 @@ app.on('ready', () => {
 
 システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。 `callback` はいくつかのシステムでは同期的に呼ばれ、`idleState` 引数はシステムの状態を表します。 `locked` はサポートしているシステムでのみ利用可能です。
 
-#### `powerMonitor.querySystemIdleTime(callback)`
+### `powerMonitor.querySystemIdleTime(callback)`
 
 * `callback` Function 
   * `idleTime` Integer - アイドルしている秒
