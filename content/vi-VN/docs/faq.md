@@ -4,7 +4,7 @@
 
 Khi chạy `npm install electron`, một số người dùng đôi khi gặp phải lỗi cài đặt.
 
-Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề với gói npm của `electron`. Các lỗi như `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, và `ETIMEDOUT` tất cả là biểu hiện của các vấn đề về mạng. The best resolution is to try switching networks, or wait a bit and try installing again.
+Trong hầu hết các trường hợp, các lỗi này là kết quả của các vấn đề về mạng và không phải là vấn đề với gói npm của `electron`. Các lỗi như `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, và `ETIMEDOUT` tất cả là biểu hiện của các vấn đề về mạng. Giải pháp tốt nhất là thử đổi mạng, hoặc chờ một lát sau đó thử cài lại sau.
 
 Bạn cũng có thể tải Electron trực tiếp từ [electron/electron/releases](https://github.com/electron/electron/releases) nếu quá trình cài đặt `npm` bị lỗi.
 
@@ -138,13 +138,13 @@ npm uninstall -g electron
 
 Tuy nhiên nếu bạn đang sử dụng các module được xây dựng sẵn nhưng vẫn nhận được lỗi này, rất có thể bạn đang sử dụng module của process khác. Ví dụ `electron.app` chỉ có thể sử dụng trong main process, giống như `electron.webFrame` chỉ có thể sử dụng trong các renderer process.
 
-## The font looks blurry, what is this and what can I do?
+## Các ký tự rất mờ, tại sao và tôi phải làm gì ?
 
 If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (Xem chi tiết tại đây [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) ).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
