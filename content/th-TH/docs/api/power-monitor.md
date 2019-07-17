@@ -1,4 +1,4 @@
-# powerMonitor
+# พลังงานจอภาพ
 
 > Monitor power state changes.
 
