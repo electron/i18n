@@ -43,7 +43,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [File Rappresentato per le FinestreBrowser macOS](tutorial/represented-file.md)
   * [Trascina & Rilascia File Nativo](tutorial/native-file-drag-drop.md)
   * [Rendering Offscreen](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Supporto per la modalità "Dark" di macOS](tutorial/mojave-dark-mode-guide.md)
 * [Accessibilità](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
