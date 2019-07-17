@@ -43,7 +43,7 @@ docs:
     view_all_docs: Toute la documentation sur une seule page
 languages:
   choose_language: Choisissez votre langue pour le site
-  view_more_details: View More Language Details
+  view_more_details: Voir plus de détails sur les langues
   translation_progress: Progrès de la traduction
   current: sélectionné
 community:
