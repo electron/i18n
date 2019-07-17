@@ -40,14 +40,6 @@ console.log(systemPreferences.isDarkMode())
 * `event` Event
 * `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
 
-### イベント: 'appearance-changed' *macOS*
-
-戻り値:
-
-* `newAppearance` String - `dark` か `light`。
-
-**注意:** このイベントはあなたが `startAppLevelAppearanceTrackingOS` を呼び出した後にのみ発生します。
-
 ## メソッド
 
 ### `systemPreferences.isDarkMode()` *macOS*
