@@ -62,7 +62,7 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 
 7. Microsoft リモート デスクトップを使用して、`接続` をクリックして VM に接続します。
     
-    - Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
+    - VM にログインするための認証情報は、LastPass の `AppVeyor Enterprise マスター VM` 認証情報下にあります。
 
 8. 必要に応じて VM を変更してください。
 
