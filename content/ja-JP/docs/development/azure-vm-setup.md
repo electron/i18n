@@ -6,12 +6,12 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 
 ユースケースの例:
 
-    * `VS15.9` が必要で、`VS15.7` がインストールされています。これには Azure イメージを更新する必要があります。
+    * `VS15.9` が必要だが、`VS15.7` がインストールされている場合。これは Azure イメージを更新する必要があります。
     
 
-1. Identify the image you wish to modify.
+1. 修正したいイメージを指定します。
     
-    - In [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), the image is identified by the property *image*. 
+    - [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml) では、イメージは *image* プロパティで識別されます。 
         - The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
     - Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key. 
         - You will need this URI path to copy into a new image.
