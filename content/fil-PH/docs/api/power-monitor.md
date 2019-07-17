@@ -51,11 +51,11 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Mga Method
+## Mga Pamamaraan
 
 The `powerMonitor` module has the following methods:
 
-#### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
+### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
 * `idleThreshold` Integer
 * `callback` Punsyon 
@@ -63,7 +63,7 @@ The `powerMonitor` module has the following methods:
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
 
-#### `powerMonitor.querySystemIdleTime(callback)`
+### `powerMonitor.querySystemIdleTime(callback)`
 
 * `callback` Function 
   * `idleTime` Integer - Idle time in seconds
