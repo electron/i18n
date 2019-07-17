@@ -1,6 +1,6 @@
 # Electron 文档风格指南
 
-这里是一些编写 Electron 文档的指南.
+这里是一些编写 Electron 文档的指南。
 
 ## 标题
 
