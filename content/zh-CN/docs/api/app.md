@@ -420,7 +420,7 @@ app.on('session-created', (event, session) => {
 
 立即退出程序并返回 `exitCode`。`exitCode` 的默认值是 0。
 
-All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
+所有窗口都将立即被关闭，而不询问用户，而且 `before-quit` 和 `will-quit` 事件也不会被触发。
 
 ### `app.relaunch([options])`
 
