@@ -217,11 +217,7 @@ describe('API Docs', () => {
       .should.eq(true)
   })
 
-  /** *********************************** FIXME **************************************
-   ** enable this test when the next stable release (> 1.8.3) of electron comes out **
-   ** see: https://github.com/electron/i18n/pull/274#issuecomment-373003188         **
-   ***********************************************************************************/
-  it.skip('contains no empty links', () => {
+  it('contains no empty links', () => {
     Object.keys(i18n.docs['en-US']).forEach(href => {
       const doc = i18n.docs['en-US'][href]
       doc.sections.forEach(section => {
