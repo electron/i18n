@@ -114,6 +114,6 @@ Si los módulos proporcionan binarios para el uso en Electron, asegúrese de omi
 
 La herramienta [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp) proporciona una forma de implementar módulos de nodo nativos con binarios precompilados, y muchos módulos populares lo están usando.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node and/or there are ABI changes, bad things may happen. So in general, it is recommended to always build native modules from source code. `electron-rebuild` handles this for you automatically.
+Usualmente esos módulos trabajan bien bajo Electron, pero a veces cuando Electron usa una versión mas nueva de V8 que Node y/o hay cambios ABI, cosas malas pueden pasar. Así que en general, siempre es recomendable compilar módulos nativos desde el código fuente. `electron-rebuild` maneja esto por ti de forma automática.
 
 Si está siguiendo la forma `npm` de instalar los módulos, esto se hace de forma predeterminada; si no, tiene que pasar `--build-from-source` a `npm`, o establecer la variable de entorno `npm_config_build_from_source`.
