@@ -21,10 +21,10 @@ To run all unit tests, run `npm run test`. The unit tests are an Electron app (s
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
 
-### Testing on Windows 10 devices
+### Проверка на устройствах Windows 10
 
-[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
+[На некоторых устройства на Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) может быть не установлен шрифт Meriyo, что может привести к провалу fallback теста. Для того чтобы установить шрифт Meiryo:
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+1. Нажмите кнопку Windows и найдите *Управление дополнительными функциями*.
+2. Нажмите *Добавить функцию*.
+3. Выберите *Японские дополнительные шрифты* и нажмите *Установить*.
