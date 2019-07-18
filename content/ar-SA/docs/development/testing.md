@@ -20,3 +20,11 @@ There is not a lot of Python in this repository, but it too is governed by codin
 
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
+
+### Testing on Windows 10 devices
+
+[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
+
+1. Push the Windows key and search for *Manage optional features*.
+2. Click *Add a feature*.
+3. Select *Japanese Supplemental Fonts* and click *Install*.
