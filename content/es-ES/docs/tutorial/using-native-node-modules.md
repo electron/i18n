@@ -1,6 +1,6 @@
 # Uso de Módulos Nativos de Node
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. De lo contrario, obtendrá la siguiente clase de error cuando intente ejecutar su aplicación:
+Los Módulos Nativos de Node son soportados por Electron, pero ya que es muy probable que Electron use una versión diferente de V8 que el de Node instala en tu sistema, los módulos que utilices deberán de ser re compilados para Electron. De lo contrario, obtendrá la siguiente clase de error cuando intente ejecutar su aplicación:
 
 ```sh
 $XYZ$XYZ. Esta versión de Node.js requiere
@@ -10,13 +10,13 @@ el módulo (por ejemplo, usando `npm rebuild` o `npm install`).
 
 ## ¿Cómo instalar módulos nativos?
 
-There are several different ways to install native modules:
+Hay varias formas diferentes de instalar los módulos nativos:
 
 ### Instalación de módulos y reconstrucción para Electron
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+Puedes instalar los módulos como otro proyecto Node, luego reconstruir el modulo para Electron con el paquete [`electron-rebuild`](https://github.com/electron/electron-rebuild). Este módulo puede determinar automáticamente la versión de Electron y manejar los pasos manuales de descargar las cabeceras y reconstruir los módulos nativos para tu app.
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+Por ejemplo, para instalar `electron-rebuild` y luego reconstruir los módulos con el a través de la línea de comando:
 
 ```sh
 instalar npm --save-dev electron-rebuild
@@ -28,29 +28,29 @@ instalar npm --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools, consult the project's README.
+Para mas información de uso e integración con otras herramientas, consulte el README del proyecto.
 
 ### Usando `npm`
 
 Al establecer algunas variables del entorno, puede usar `npm` para instalar módulos directamente.
 
-For example, to install all dependencies for Electron:
+Por ejemplo, para instalar todas las dependencias para Electron:
 
 ```sh
 # Versión de Electron.
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
-exportar npm_config_arch=x64
-exportar npm_config_target_arch=x64
+export npm_config_arch=x64
+export npm_config_target_arch=x64
 # Descargar encabezados para Electron.
-exportar npm_config_disturl=https://electronjs.org/headers
+export npm_config_disturl=https://electronjs.org/headers
 # Informe a node-pre-gyp que estamos construyendo para Electron.
-exportar npm_config_runtime=electron
+export npm_config_runtime=electron
 # Informe a node-pre-gyp que construya el módulo desde el código fuente.
-exportar npm_config_build_from_source=true
+export npm_config_build_from_source=true
 # Instale todas las dependencias y almacene el caché en ~/.electron-gyp.
-HOME=~/.electron-gyp npm instalar
+HOME=~/.electron-gyp npm install
 ```
 
 ### Construcción manual para Electron
@@ -69,7 +69,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 ### Construcción manual para una compilación personalizada de Electron
 
-To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Para compilar Módulos Nativos de Node contra una compilación personalizada de Electron que no coincide con una version pública, indique a `npm` que use la versión de Node que ha incluido en su versión personalizada.
 
 ```sh
 npm rebuild --nodedir=/path/to/electron/vendor/node
@@ -77,14 +77,14 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 ## Problemas
 
-If you installed a native module and found it was not working, you need to check the following things:
+Si ha instalado un módulo nativo y este no funciona, necesitas verificar las siguientes cosas:
 
 - En caso de duda, ejecute `electron-rebuild` primero.
-- Make sure the native module is compatible with the target platform and architecture for your Electron app.
-- Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
+- Asegúrese de que el módulo nativo es compatible con la plataforma de destino y la arquitectura para su aplicación Electron.
+- Asegúrese de que `win_delay_load_hook` no esta configurado como `false` en el módulo `binding.gyp`.
 - Después de actualizar Electron, generalmente necesita reconstruir los módulos.
 
-### A note about `win_delay_load_hook`
+### Una nota acerca de `win_delay_load_hook`
 
 On Windows, by default, `node-gyp` links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
