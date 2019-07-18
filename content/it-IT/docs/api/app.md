@@ -43,9 +43,9 @@ Restituisce:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Emesso prima che l'applicazione inizi a chiudere le proprie finestre. Chiamando `event.preventDefault()` si evita il comportamento di default, che è la terminazione dell'applicazione.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Nota:** Se l'uscita dell'applicazione è stata iniziata da `autoUpdater.quitAndInstall()`, allora `before-quit` viene emesso *dopo* aver emesso l'evento `close` su tutte le finestre e dopo averle chiuse.
 
 **Nota:** In Windows, questo evento non verrà emesso se l'applicazione viene chiusa a causa di a un arresto/riavvio del sistema oppure del logout da parte dell'utente.
 
@@ -154,7 +154,7 @@ Restituisce:
 * `type` String - Una stringa che identifica l'attività. In riferimento a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `Infoutente` Object - Contiene uno stato specifico per l'app archiviato dall'attività.
 
-Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti di aggiornare lo stato da trasferire, devi chiamare subito `event.preventDefault()`, costruisci un nuovo dizionario `userInfo` e chiama tempestivamente `app.updateCurrentActiviy()`. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Emesso quando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sta per essere ripristinato su un altro dispositivo. Se necessiti di aggiornare lo stato da trasferire, devi chiamare subito `event.preventDefault()`, costruisci un nuovo dizionario `userInfo` e chiama tempestivamente `app.updateCurrentActiviy()`. Altrimenti l'operazione fallirà e verrà chiamato `continue-activity-error`.
 
 ### Evento: 'new-window-for-tab' *macOS*
 
@@ -275,7 +275,7 @@ Restituisce:
 
 Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Il comportamento standard è di cancellare tutte le autenticazioni. Per modificarlo dovresti impedire il comportamento standard con `event.preventDefault()` e chiamare `callback(username, password)` con le credenziali.
 
 ```javascript
 const { app } = require('electron')

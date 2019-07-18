@@ -248,15 +248,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `manejador` Function | null 
-  * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso. Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
   * `callback` Function 
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
-    * `externalURL` String (Optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
-    * `requestingUrl` String - The last URL the requesting frame loaded
-    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
+    * `externalURL` String(Opcional) - La ruta de la solicitud `openExternal`.
+    * `mediaTypes` String[] (Opcional) - Los tipos de medios que pueden ser solicitados para el acceso, los elementos pueden ser `video` o `audio`
+    * `requestingUrl` String - La ultima URL que el frame solicitante cargo
+    * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
 Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
 
@@ -274,14 +274,14 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `manejador` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso. Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
-    * `requestingUrl` String - The last URL the requesting frame loaded
-    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
+    * `requestingUrl` String - La ultima URL que el frame solicitante cargo
+    * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
 Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 

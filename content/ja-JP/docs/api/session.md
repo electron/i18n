@@ -248,15 +248,15 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。 Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。 リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
   * `callback` Function 
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
-    * `externalURL` String (Optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
-    * `requestingUrl` String - The last URL the requesting frame loaded
-    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
+    * `externalURL` String (任意) - `openExternal` リクエストの URL。
+    * `mediaTypes` String[] (任意) - 要求されている、複数のメディアアクセスのタイプ。要素は `video` か `audio` にできます
+    * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
+    * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
 `session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
 
@@ -274,14 +274,14 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。 Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。 リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
   * `permission` String - 'media' の列挙。
   * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
     * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
     * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
-    * `requestingUrl` String - The last URL the requesting frame loaded
-    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
+    * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
+    * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
 `session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。 ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
 

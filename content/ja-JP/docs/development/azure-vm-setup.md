@@ -6,63 +6,63 @@ Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イ
 
 ユースケースの例:
 
-    * `VS15.9` が必要で、`VS15.7` がインストールされています。これには Azure イメージを更新する必要があります。
+    * `VS15.9` が必要だが、`VS15.7` がインストールされている場合。これは Azure イメージを更新する必要があります。
     
 
-1. Identify the image you wish to modify.
+1. 修正したいイメージを指定します。
     
-    - In [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), the image is identified by the property *image*. 
-        - The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
-    - Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key. 
-        - You will need this URI path to copy into a new image.
-    - You will also need the storage account name which is labeled in AppVeyor as the **Disk Storage Account Name**
+    - [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml) では、イメージは *image* プロパティで識別されます。 
+        - 使用される名前は、クラウドを構築するために定義された *"イメージ"*、たとえば [libcc-20 クラウド](https://windows-ci.electronjs.org/build-clouds/8) に対応しています。
+    - ビルドクラウドで変更するイメージを探し、そのイメージの **VHD Blob Path** をメモします。これはキーに対応する値です。 
+        - 新しいイメージにコピーするにはこの URI パスが必要になります。
+    - また、AppVeyor 上で **ディスクストレージアカウント名** とラベル付けされたストレージアカウント名も必要になります。
 
-2. Get the Azure storage account key
+2. Azure ストレージアカウントキーを取得します
     
-    - Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor. 
-        - Example, for `appveyorlibccbuilds` **ディスクストレジアカオウント名前** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
-            - Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
+    - LastPass (Azure Enterprise 傘下) に保存されている資格情報を使用して Azure にログインし、AppVeyor にある名前に対応するストレージアカウントを探します。 
+        - 例えば、`appveyorlibccbuilds` という **ディスクストレージアカウント名** の場合、ホーム < ストレージアカウント にあるストレージアカウントリストで `appveyorlibccbuilds` を探します。 
+            - それをクリックして `アクセスキー` を見つけます。そして、リストにあるキーのうちどれでも使うことができます。
 
-3. Get the full virtual machine image URI from Azure
+3. Azure からフルの仮想マシンイメージ URI を取得します
     
-    - Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images 
-        - In the following list, look for the VHD path name you got from Appveyor and then click on it. 
-            - Copy the whole URL from the top of the subsequent window.
+    - ホーム < ストレージアカウント < `$ACCT_NAME` < ブロブ < イメージ に移動します 
+        - そのリスト内の、Appveyor から入手した VHD パス名を探してクリックします。 
+            - 出てきたウィンドウ上から URL 全体をコピーします。
 
-4. Copy the image using the [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
+4. [マスターイメージ PowerShell スクリプトをコピー](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1) を用いてイメージをコピーします。
     
-    - It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
-    - Use the storage account name, key, and URI obtained from Azure to run this script. 
-        - See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        - Use default destination container name `(images)`
-        - Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp. 
-            - Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
-    - Go into Azure and get the URI for the newly created image as described in a previous step
+    - VM をイメージに対して起動する場合、そのイメージを AppVeyor で同時に使用することはできないため、VM をコピーする必要があります。
+    - このスクリプトを実行するために、Azure から取得したストレージアカウント名、キー、URI を使用します。 
+        - URI についてはステップ 3 を参照してください。プロンプトが表示されたら、エンターを押してコピー先となるように同じストレージアカウントを使用します。
+        - デフォルトのコピーされたコンテナ名 `(images)` を使用します
+        - また、コピーの名前を変更するときは、(変更されている場合は) 新しいイメージに含まれる内容と日付スタンプを示す名前を使用します。 
+            - 例: `libcc-20core-vs2017-15.9-2019-04-15.vhd`
+    - 前の手順で説明したように、Azure に行き、新しく作成したイメージの URI を取得します。
 
-5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
+5. [VHD PowerShell からマスター VM を作成](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1) を用いて新しい VM を起動します。
     
-    - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
-    - You will need the credential information available in the AppVeyor build cloud definition. 
-        - これには以下も含まれます。 
-            - クライアントID
-            - Client Secret
-            - Tenant ID
-            - サブスクリプションID
-            - Resource Group
-            - Virtual Network
-    - You will also need to specify 
-        - Master VM name - just a unique name to identify the temporary VM
-        - Master VM size - use `Standard_F32s_v2`
-        - Master VHD URI - use URI obtained @ end of previous step
-        - Location use `East US`
+    - PowerShell から、`./create_master_vm_from_vhd.ps1` のような `ps1` ファイルを実行します。
+    - AppVeyor ビルドクラウド定義で利用可能な認証情報が必要になります。 
+        - これは以下のものが含まれます。 
+            - クライアント ID
+            - クライアントの秘密
+            - テナント ID
+            - サブスクリプション ID
+            - リソースグループ
+            - 仮想ネットワーク
+    - 更に以下の指定が必要です 
+        - マスター VM 名 - 一時 VM を識別するための一意な名前です
+        - マスター VM 容量 - `Standard_F32s_v2` を使用します
+        - マスター VHD URI - 前のステップの最後で取得した URI を使用します
+        - 位置情報は `East US` を使用します
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Azure にログインし直して先ほど作成した VM を探します。ホーム < 仮想マシン < `$YOUR_NEW_VM` を見てください。
     
-    - You can download a RDP (Remote Desktop) file to access the VM.
+    - RDP (Remote Desktop) ファイルをダウンロードして VM にアクセスできます。
 
-7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
+7. Microsoft リモート デスクトップを使用して、`接続` をクリックして VM に接続します。
     
-    - Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
+    - VM にログインするための認証情報は、LastPass の `AppVeyor Enterprise マスター VM` 認証情報下にあります。
 
 8. 必要に応じて VM を変更してください。
 

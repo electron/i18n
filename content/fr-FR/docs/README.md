@@ -43,14 +43,14 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Fichier représenté pour BrowserWindows sur macOS](tutorial/represented-file.md)
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Support du mode sombre sur macOS](tutorial/mojave-dark-mode-guide.md)
 * [Accessibilité](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Activer l'accessibilité](tutorial/accessibility.md#enabling-accessibility)
 * [Test et débogage](tutorial/application-debugging.md) 
   * [Débogguer le Main Process](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Utilisation de Selenium et WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extension DevTools](tutorial/devtools-extension.md)
@@ -70,7 +70,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Déploiement d’un serveur de mise à jour](tutorial/updates.md#deploying-an-update-server)
   * [Implémentation des mises à jour dans votre application](tutorial/updates.md#implementing-updates-in-your-app)
   * [Application des mises à jour](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Obtenir de l'aide](tutorial/support.md)
 
 ## Tutoriels détaillés
 
@@ -80,16 +80,16 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Les proxys](tutorial/installation.md#proxies)
   * [Mirroirs et Caches personnalisés](tutorial/installation.md#custom-mirrors-and-caches)
   * [Résolution de problème](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Releases d'Electron & Feedback 
+  * [Stratégie de versioning](tutorial/electron-versioning.md)
+  * [Calendrier de release](tutorial/electron-timelines.md)
+  * [Programme de feedback](tutorial/app-feedback-program.md)
+* [Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md) 
   * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Lire une archive asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Ajouter des fichiers non empaquetés dans une archive asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Tester le CDM Widevine](tutorial/testing-widevine-cdm.md)
 * [Utilisation du plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *

@@ -50,11 +50,11 @@ Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
 Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 
-### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
+### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `evento` Cadena
 * `userInfo` Objeto
-* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
+* `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
 Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
@@ -79,7 +79,7 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
   * `evento` Cadena
   * `userInfo` Objeto
 
-Returns `Number` - The ID of this subscription
+Devuelve `Number` - El ID de la suscripción
 
 Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
 
@@ -99,7 +99,7 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
   * `evento` Cadena
   * `userInfo` Objeto
 
-Returns `Number` - The ID of this subscription
+Devuelve `Number` - El ID de la suscripción
 
 Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
 
@@ -110,7 +110,7 @@ Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defec
   * `evento` Cadena
   * `userInfo` Objeto
 
-Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
@@ -128,7 +128,7 @@ Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotifica
 
 * `id` Íntegro
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
+Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -156,7 +156,7 @@ Algún `key` y `type`s populares:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `llave` Cadena
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Ver [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` Cadena
 
 Establece el valor de `key` en `NSUserDefaults`.
@@ -213,7 +213,7 @@ const azul = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
 
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
@@ -250,33 +250,33 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-frame` - Cuadro de ventana.
     * `window-text` - Texto en ventanas.
   * Activado **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla.
     * `control-background` - The background of a large interface element, such as a browser or table.
     * `control` - The surface of a control.
     * `control-text` -The text of a control that isn’t disabled.
     * `disabled-control-text` - The text of a control that’s disabled.
-    * `find-highlight` - The color of a find indicator.
+    * `find-highlight` - El color de un indicador de búsqueda.
     * `grid` - The gridlines of an interface element such as a table.
     * `header-text` - The text of a header cell in a table.
     * `highlight` - The virtual light source onscreen.
     * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
     * `label` - The text of a label containing primary content.
-    * `link` - A link to other content.
+    * `link` - Un enlace a otro contenido.
     * `placeholder-text` - A placeholder string in a control or text view.
     * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
     * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
     * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
     * `selected-content-background` - The background for selected content in a key window or view.
     * `selected-control` - The surface of a selected control.
-    * `selected-control-text` - The text of a selected control.
-    * `selected-menu-item` - The text of a selected menu.
+    * `selected-control-text` - El texto un control seleccionado.
+    * `selected-menu-item` - El texto de un menu seleccionado.
     * `selected-text-background` - The background of selected text.
-    * `selected-text` - Selected text.
+    * `selected-text` - Texto seleccionado.
     * `separator` - A separator between different sections of content.
     * `shadow` - The virtual shadow cast by a raised object onscreen.
     * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
-    * `text-background` - Text background.
-    * `text` - The text in a document.
+    * `text-background` - Texto de fondo.
+    * `text` - Texto en un documento.
     * `under-page-background` - The background behind a document's content.
     * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
     * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
