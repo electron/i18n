@@ -16,6 +16,7 @@ const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
+const visit = require('unist-util-visit')
 const parseElectronGlossary = require('../lib/parse-electron-glossary')
 const plaintextFix = require('../lib/remark-plaintext-fix')
 
@@ -28,6 +29,25 @@ const categoryNames = {
   tutorial: 'Guides',
 }
 const IGNORE_PATTERN = '<!-- i18n-ignore -->'
+
+// remark transformer for 'code' blocks to
+// embed fiddle urls as html attributes
+const fiddleUrls = () => (tree) => {
+  const regex = /fiddle='(.*)'/
+  visit(tree, 'code', (node) => {
+    if (node.lang && node.lang.includes('fiddle')) {
+      // retrieve and remove url from language definition
+      const url = node.lang.match(regex)[1]
+      node.lang = node.lang.replace(regex, '').trim()
+
+      // save url in data-fiddle-url html attribute
+      node.data = node.data || {}
+      node.data.hProperties = node.data.hProperties || {}
+      node.data.hProperties.dataFiddleUrl = url
+    }
+  })
+  return tree;
+}
 
 function convertToUrlSlash(filePath) {
   return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
@@ -95,7 +115,7 @@ async function parseFile(file) {
 
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async section => {
-      const parsed = await hubdown(section.body, { runBefore: [plaintextFix] })
+      const parsed = await hubdown(section.body, { runBefore: [plaintextFix, fiddleUrls] })
       const $ = cheerio.load(parsed.content || '')
       file.title =
         file.title ||
