@@ -374,7 +374,7 @@ window.onbeforeunload = (e) => {
 
 设置或取消设置窗口总是在其他窗口的顶部显示时触发。
 
-#### Event: 'app-command' *Windows* *Linux*
+#### 事件： 'app-command' *Windows**Linux*
 
 返回:
 
