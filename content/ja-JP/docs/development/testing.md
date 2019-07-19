@@ -26,4 +26,4 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 1. Windows キーを押して *オプション機能の管理* と検索します。
 2. *機能の追加* をクリックします。
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+3. *日本語追加フォント* を選択して *インストール* をクリックします。
