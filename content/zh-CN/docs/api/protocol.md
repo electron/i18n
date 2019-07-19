@@ -232,7 +232,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 `callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
 
-**[Deprecated Soon](promisification.md)**
+**[即将弃用](promisification.md)**
 
 ### `protocol.isProtocolHandled(scheme)`
 
