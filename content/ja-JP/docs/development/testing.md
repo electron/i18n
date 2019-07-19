@@ -20,10 +20,10 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 パターンに一致する特定のテストだけを実行するには、`npm run test -- -g=PATTERN` で、`PATTERN` を実行したいテストに一致する正規表現に置き換えて実行します。 例として、IPC テストのみを実行したい場合は、`npm run test -g ipc` を実行します。
 
-### Testing on Windows 10 devices
+### Windows 10 デバイス上でテスト
 
-[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
+[一部の Windows 10 デバイス](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) はメイリオフォントがインストールされていない状態で出荷されるため、フォントフォールバックテストが失敗する可能性があります。 メイリオをインストールするには以下のようにします。
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
+1. Windows キーを押して *オプション機能の管理* と検索します。
+2. *機能の追加* をクリックします。
 3. Select *Japanese Supplemental Fonts* and click *Install*.
