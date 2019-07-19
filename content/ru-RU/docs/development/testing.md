@@ -20,3 +20,11 @@ To run all unit tests, run `npm run test`. The unit tests are an Electron app (s
 
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
+
+### Проверка на устройствах Windows 10
+
+[На некоторых устройства на Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) может быть не установлен шрифт Meriyo, что может привести к провалу fallback теста. Для того чтобы установить шрифт Meiryo:
+
+1. Нажмите кнопку Windows и найдите *Управление дополнительными функциями*.
+2. Нажмите *Добавить функцию*.
+3. Выберите *Японские дополнительные шрифты* и нажмите *Установить*.
