@@ -2,7 +2,7 @@
 
 macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) を全ての macOS コンピュータに導入しました。 アプリにダークモードが設定されている場合は、Electron アプリにシステム側のダークモード設定を適用させることができます。
 
-macOS 10.15 Catalina にて、Apple は新しい "自動" ダークモードオプションを全ての macOS コンピュータに導入しました。 In order for the `isDarkMode` and `Tray` APIs to work correctly in this mode on Catalina you need to either have `NSRequiresAquaSystemAppearance` set to `true` in your `Info.plist` file or be on Electron `>=7.0.0`.
+macOS 10.15 Catalina にて、Apple は新しい "自動" ダークモードオプションを全ての macOS コンピュータに導入しました。 Catalina 上のこのモードで `isDarkMode` および `Tray` API を正しく機能させるには、`Info.plist` ファイルで `NSRequiresAquaSystemAppearance` を `true` に設定するか、Electron を `>=7.0.0` にする必要があります。
 
 ## ネイティブインターフェースを自動的に更新する
 
