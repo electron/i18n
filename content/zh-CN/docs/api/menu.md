@@ -18,11 +18,11 @@ menu类有以下静态方法：
 
 当在MacOS、Windows、Linux中使用`menu`设置程序菜单时，会设置在各个程序窗体的顶层。
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+在Windows和Linux中，可以在菜单的顶层标签名前添加`&`以绑定快捷键 例如，使用`&File`后可以使用`Alt-F`呼出File的子选项 The indicated character in the button label gets an underline. `&`并不会在运行时显示
 
 使用`null` 作为参数时将会隐藏默认菜单。在Windows和Linux上还有删除菜单的额外效果。
 
-**Note:** 如果没有在app中设置一个菜单，系统会自动生成一个默认菜单， It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**Note:** 如果没有在app中设置一个菜单，系统会自动生成一个默认菜单， 默认生成的菜单中包含了一些初始选项，例如 `文件`,`编辑`, `视图`,`窗口`,`帮助`。
 
 #### `Menu.getApplicationMenu()`
 
