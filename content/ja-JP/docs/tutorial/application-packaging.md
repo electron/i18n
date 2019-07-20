@@ -2,7 +2,7 @@
 
 Windows上の長いパス名の周りの [問題](https://github.com/joyent/node/issues/6960) を軽減したり、`require` をわずかにスピードアップしたり、ソースコードを簡単な調査から隠したりするために、ソースコードを少し変更することであなたのアプリを [asar](https://github.com/electron/asar) アーカイブにパッケージする選択ができます。
 
-ほとんどのユーザーは、この機能を無料で利用できます。これは、[`electron-packager`](https://github.com/electron-userland/electron-packager)、[`electron-forge`](https://github.com/electron-userland/electron-forge)、[`electron-builder`](https://github.com/electron-userland/electron-builder) でそのままサポートされているためです。 これらのツールを使用していない場合は、以下を読んでください。
+ほとんどのユーザーは、この機能を無料で利用できます。これは、[`electron-packager`](https://github.com/electron/electron-packager)、[`electron-forge`](https://github.com/electron-userland/electron-forge)、[`electron-builder`](https://github.com/electron-userland/electron-builder) でそのままサポートされているためです。 これらのツールを使用していない場合は、以下を読んでください。
 
 ## `asar` アーカイブの生成
 
