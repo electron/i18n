@@ -128,7 +128,7 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-साथ ही यह भी याद रखें कि मूल मोडयुल्स की कुछ मध्यवर्ती फाइल्स भी हो सकती है जिन्हें शामिल नहीं करना (नहीं तो उन पर भी हस्ताक्षर करना पड़ेगा) | अगर आपने 8.1.0 संस्करण से पहले [electron-packager](https://github.com/electron-userland/electron-packager) का इस्तेमाल किया है, तो आप बिल्ड स्टेप में `--ignore=.+\.o$` जोड़ दें ताकि इन फाइल्स को शामिल न किया जायें | Versions 8.1.0 and later ignore those files by default.
+साथ ही यह भी याद रखें कि मूल मोडयुल्स की कुछ मध्यवर्ती फाइल्स भी हो सकती है जिन्हें शामिल नहीं करना (नहीं तो उन पर भी हस्ताक्षर करना पड़ेगा) | अगर आपने 8.1.0 संस्करण से पहले [electron-packager](https://github.com/electron/electron-packager) का इस्तेमाल किया है, तो आप बिल्ड स्टेप में `--ignore=.+\.o$` जोड़ दें ताकि इन फाइल्स को शामिल न किया जायें | Versions 8.1.0 and later ignore those files by default.
 
 ### अपनी एप्प अपलोड करें
 
