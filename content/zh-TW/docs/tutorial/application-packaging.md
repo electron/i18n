@@ -2,7 +2,7 @@
 
 為了避開 Windows 處理長路徑名稱的[問題](https://github.com/joyent/node/issues/6960)，並稍微加快 `require` 效能，防止原始程式碼一眼就被看到。只需要一點點修改，就能把你的應用程式打包進 [asar](https://github.com/electron/asar) 封存檔。
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
 
 ## Generating `asar` Archives
 
