@@ -167,7 +167,7 @@ Metoda poniżej jest bardziej szczegółowa dla każdego argumentu. Typ argument
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Lub niestandardowy typ jak [`WebContent`](api/web-contents.md)
 
 Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Wartościami mogą być `macOS`, `Windows` lub `Linux`.
 
