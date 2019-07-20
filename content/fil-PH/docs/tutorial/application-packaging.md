@@ -2,7 +2,7 @@
 
 Para maiwasan ang [mga isyu](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang mga pangalan ng path sa Windows, bahagyang bilisan ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang pumiling ipakete ang iyong app sa isang [asar](https://github.com/electron/asar) na archive na may maliit na pagbabago sa iyong source code.
 
-Karamihan sa mga tagagamit ay makukuha ang katangiang ito nang libre, dahil sinusuportahan ito sa labas sa pamamagitan ng [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), at [`electron-builder`](https://github.com/electron-userland/electron-builder). Kung hindi mo ginagamit ang kahit alin sa mga kasangkapang ito, magbasa pa.
+Karamihan sa mga tagagamit ay makukuha ang katangiang ito nang libre, dahil sinusuportahan ito sa labas sa pamamagitan ng [`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), at [`electron-builder`](https://github.com/electron-userland/electron-builder). Kung hindi mo ginagamit ang kahit alin sa mga kasangkapang ito, magbasa pa.
 
 ## Pagbubuo ng mga `asar` na Archive
 
