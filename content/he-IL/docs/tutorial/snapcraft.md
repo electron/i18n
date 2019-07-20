@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### שלב 1: אריזת יישומון ה־Electron שלך
 
-עליך לארוז את היישום שלך בעזרת [electron-packager](https://github.com/electron-userland/electron-packager) (או כל כלי דומה). מוטב להסיר מ־`node_modules` רכיבים שאינם נחוצים לתוצר הסופי מאחר שכל מודול שאינו נחוץ יגדיל את נפח היישום שלך.
+עליך לארוז את היישום שלך בעזרת [electron-packager](https://github.com/electron/electron-packager) (או כל כלי דומה). מוטב להסיר מ־`node_modules` רכיבים שאינם נחוצים לתוצר הסופי מאחר שכל מודול שאינו נחוץ יגדיל את נפח היישום שלך.
 
 הפלט אמור להיראות פחות או יותר כך:
 
