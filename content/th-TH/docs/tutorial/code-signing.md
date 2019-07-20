@@ -1,4 +1,4 @@
-# Code Signing
+# การเซ็นรหัส
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
