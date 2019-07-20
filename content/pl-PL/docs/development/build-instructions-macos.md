@@ -6,8 +6,8 @@ Follow the guidelines below for building Electron on macOS.
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
-* [node.js](https://nodejs.org) (external)
-* Python 2.7 with support for TLS 1.2
+* [node.js](https://nodejs.org) (zewnętrznie)
+* Python 2.7 z wsparciem dla TLS 1.2
 
 ## Python
 
@@ -27,7 +27,7 @@ Jeśli używasz wersji Pythona dostarczonego przez Homebrew, potrzebujesz równi
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Możesz wykorzystać `pip` do zainstalowania tego:
 
 ```sh
 $ pip install pyobjc
