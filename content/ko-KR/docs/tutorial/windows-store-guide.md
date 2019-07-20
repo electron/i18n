@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Step 1: Electron 애플리케이션 패키지.
 
-[electron-packager](https://github.com/electron-userland/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. 실제로 필요하지 않은 모듈은 응용 프로그램의 크기를 증가시킬 것이므로 마지막 응용 프로그램에서 필요하지 않은 `node_modules`을 제거하십시오.
+[electron-packager](https://github.com/electron/electron-packager) (또는 이와 유사한 도구)를 사용하여 응용 프로그램을 패키지화합니다. 실제로 필요하지 않은 모듈은 응용 프로그램의 크기를 증가시킬 것이므로 마지막 응용 프로그램에서 필요하지 않은 `node_modules`을 제거하십시오.
 
 결과물은 대략 아래와 같이 보일것 입니다:
 
