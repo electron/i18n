@@ -39,8 +39,8 @@ Por ejemplo, para instalar todas las dependencias para Electron:
 ```sh
 # Versión de Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
-# for supported architectures.
+# La arquitectura de Electron, mire https://electronjs.org/docs/tutorial/support#supported-platforms
+# para arquitecturas soportadas.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Descargar encabezados para Electron.
@@ -62,10 +62,10 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` changes where to find development headers.
-- `--target=1.2.3` is the version of Electron.
-- `--dist-url=...` specifies where to download the headers.
-- `--arch=x64` says the module is built for a 64-bit system.
+- `HOME=~/.electron-gyp` cambie para encontrar las cabeceras de desarrollo.
+- `--target=1.2.3` es la versión de Electron.
+- `--dist-url=...` especifique de donde descargar las cabeceras.
+- `--arch=x64` dice que el modulo es construido para un sistema de 64-bit.
 
 ### Construcción manual para una compilación personalizada de Electron
 
