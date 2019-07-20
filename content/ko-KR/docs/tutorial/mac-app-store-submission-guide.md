@@ -128,7 +128,7 @@ MacOS에서 앱 샌드 박싱을 처음 사용한다면, Apple의 앱 샌드박�
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-또한 주목해야할 점은 네이티브 모듈이 intermediate files을 생성 할 수도 있기 때문에, 생성된 파일들은 포함되지 않아야합니다 (그것들 역시 서명이 필요하기 때문). 8.1.x 이전 버전에서 [electron-packager](https://github.com/electron-userland/electron-packager)를 사용하는 경우 빌드 단계에`--ignore=.+\.o$`를 추가하여이 파일들을 ignore 설정 합니다. Versions 8.1.0 and later ignore those files by default.
+또한 주목해야할 점은 네이티브 모듈이 intermediate files을 생성 할 수도 있기 때문에, 생성된 파일들은 포함되지 않아야합니다 (그것들 역시 서명이 필요하기 때문). 8.1.x 이전 버전에서 [electron-packager](https://github.com/electron/electron-packager)를 사용하는 경우 빌드 단계에`--ignore=.+\.o$`를 추가하여이 파일들을 ignore 설정 합니다. Versions 8.1.0 and later ignore those files by default.
 
 ### 업로드 앱
 
