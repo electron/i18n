@@ -30,7 +30,7 @@ perubahan yang dilakukan oleh pengelola Elektron (seperti Slack) menguntungkan p
 <h2>electron-react-boilerplate</h2>
 
 <p>If you don't want any tools but only a solid boilerplate to build from,
-CT Lin's <a href="https://github.com/chentsulin/electron-react-boilerplate"><code>electron-react-boilerplate`](https://github.com/electron-userland/electron-packager) might be worth a look. Ini cukup populer di masyarakat dan menggunakan  pembangun elektron </ 0> secara 
+CT Lin's <a href="https://github.com/chentsulin/electron-react-boilerplate"><code>electron-react-boilerplate`](https://github.com/electron/electron-packager) might be worth a look. Ini cukup populer di masyarakat dan menggunakan  pembangun elektron </ 0> secara 
 internal.</p>
 
 <h2>Alat dan Boilerplate lainnya</h2>
