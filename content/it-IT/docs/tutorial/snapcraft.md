@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Fase 1: Impacchetta La Tua App Electron
 
-Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron-userland/electron-packager) (o uno strumento simile). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron/electron-packager) (o uno strumento simile). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 L'output dovrebbe sembrare questo:
 
