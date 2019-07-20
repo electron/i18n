@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## 步骤 1: 打包你的 Electron 应用程序
 
-打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
+Package the application using [electron-packager](https://github.com/electron/electron-packager) (or a similar tool). 确保在最终的应用程序中删除不需要的 `node_modules`, 因为这些你不需要模块只会额外增加你的应用程序的大小.
 
 结构输出应该看起来大致像这样:
 
