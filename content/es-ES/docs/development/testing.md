@@ -21,10 +21,10 @@ Para ejecutar todas las pruebas de unidad, ejecute `npm run test`. Las pruebas d
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
 
-### Testing on Windows 10 devices
+### Probando en dispositivos bajo Windows 10
 
-[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
+[Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. Para instalar Meiryo:
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
+1. Presione la tecla Windows y busca *Administrar herramientas opcionales*.
+2. Haga clic en *Añadir una herramienta*.
 3. Select *Japanese Supplemental Fonts* and click *Install*.
