@@ -2,7 +2,7 @@
 
 Para evitar [problemas](https://github.com/joyent/node/issues/6960) por causa de nomes longos de caminhos no Windows, melhorar a velocidade do `require` e ocultar seu código-fonte a partir de uma inspeção superficial, você pode optar por empacotar seu aplicativo em um pacote [asar](https://github.com/electron/asar) com pequenas alterações no seu código-fonte.
 
-Esse recurso é gratuito para a maioria dos usuários, já que ele é compatível com o uso do [`electron-packager`](https://github.com/electron-userland/electron-packager),[`electron-forge`](https://github.com/electron-userland/electron-forge) e [`electron-builder`](https://github.com/electron-userland/electron-builder). Se você não utiliza nenhuma dessas ferramentas, continue lendo.
+Esse recurso é gratuito para a maioria dos usuários, já que ele é compatível com o uso do [`electron-packager`](https://github.com/electron/electron-packager),[`electron-forge`](https://github.com/electron-userland/electron-forge) e [`electron-builder`](https://github.com/electron-userland/electron-builder). Se você não utiliza nenhuma dessas ferramentas, continue lendo.
 
 ## Gerando Arquivos `asar`
 
