@@ -84,7 +84,7 @@ const constraints = {
 
 `sources` 是 [`DesktopCapturerSource`](structures/desktop-capturer-source.md)对象数组, 每个`DesktopCapturerSource` 代表一个屏幕或一个可捕获的独立窗口。
 
-**[Deprecated Soon](promisification.md)**
+**[即将弃用](promisification.md)**
 
 ### `desktopCapturer.getSources(options)`
 
