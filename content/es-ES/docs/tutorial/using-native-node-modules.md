@@ -98,9 +98,9 @@ no se pudo encontrar`, puede significar que el módulo que está intentando usar
 
 En particular, es importante que:
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+- su enlace de `node.lib` desde *Electron* y no desde Node. Si enlazas con un incorrecto `node.lib` obtendras errors en el tiempo-de-carga cuando requieras el módulo en Electron.
+- incluyas la bandera `/DELAYLOAD:node.exe`. Si el enlace a `node.exe` no se retrasa, el delay-load hook no tendra la oportunidad de disparar y el símbolo a node no será resulto correctamente.
+- `win_delay_load_hook.obj` esta enlazada directamente dentro de la DLL final. Si el hook esta configurada en una DLL dependiente, este no sera lanzado en el tiempo correcto.
 
 Mire [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) para un ejemplo de delay-load si estas implementando el tuyo propio.
 
