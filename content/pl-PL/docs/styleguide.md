@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# Poradnik Formatowania Dokumentacji Electrona
 
 Są to wytyczne do pisania dokumentacji Electrona.
 
@@ -94,7 +94,7 @@ Używając `autoUpdater` jako przykładu:
 * Jedna strona może mieć zawierać klas.
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
 * Wszystkie metody które mają wartość zwrotną muszą zaczynać swój opis z "Returns `[TYPE]` - Zwróć opis" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
@@ -104,33 +104,33 @@ Używając `autoUpdater` jako przykładu:
 Używając klas `Session` i `Cookies` jako przykładu:
 
 ```markdown
-# session
+# Sesja
 
-## Methods
+## Metody
 
 ### session.fromPartition(partition)
 
-## Static Properties
+## Właściwości
 
 ### session.defaultSession
 
-## Class: Session
+## Klasa: Session
 
-### Instance Events
+### Instancja Events
 
 #### Event: 'will-download'
 
-### Instance Methods
+### Instancja Methods
 
 #### `ses.getCacheSize()`
 
-### Instance Properties
+### Instancja Properties
 
 #### `ses.cookies`
 
-## Class: Cookies
+## Klasa: Cookies
 
-### Instance Methods
+### Instancja Methods
 
 #### `cookies.get(filter, callback)`
 ```
