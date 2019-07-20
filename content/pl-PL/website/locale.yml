@@ -226,20 +226,20 @@ landing:
     compile_and_package: Kompiluj i spakuj
     compile_and_package_desc: Fiddle potrafi automatycznie zamienić twój projekt w program, którym możesz podzielić się z przyjaciółmi, współpracownikami, czy rodziną. A to wszystko dzięki <a href="https://electronforge.io/">electron-forge</a>, który pakuje twój projekt w aplikację na systemy Windows, macOS oraz Linux.
     easy_start: Rozpocznij z Fiddle, kontynuuj gdziekolwiek
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    easy_start_desc: Fiddle to nie IDE - jest to jednak doskonałe miejsce na rozpoczęcie. Kiedy Twój fiddle urośnie, wyeksportuj go jako projekt albo za pomocą <a href="https://electronforge.io/">electron-forge</a>. Następnie, użyj Twój ulubiony edytor i podbijaj świat!
 governance:
-  title: Zarządzanie Electrona
-  description: System zarządzania Electrona złożony jest z różnych grup, które zajmują się innymi aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty między poszczególnymi grupami.
+  title: Zarządzanie Electronem
+  description: System zarządzania Electrona złożony jest z wielu grup, które zajmują się aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty pomiędzy poszczególnymi grupami.
   wgs: Grupy Robocze
   docstools:
     title: Dokumentacja & Narzędzia
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
-    title: Outreach
+    title: Pomoc
     description: Rozwijanie Społeczności Electron
   releases:
     title: Wydania
-    description: Oversees all release branches, and tooling to support releases.
+    description: Przegląd wszystkich gałęzi i obsługi wydań.
   upgrades:
     title: Aktualizacje
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
