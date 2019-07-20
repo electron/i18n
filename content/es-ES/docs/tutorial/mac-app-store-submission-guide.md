@@ -128,7 +128,7 @@ Módulos nativos utilizados en su aplicación también necesitan la firma. Si us
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si utiliza [electron-packager](https://github.com/electron/electron-packager) antes de la versión 8.1.0, agregue `--ignore=.+\.o$` a sus pasos de estructuración para ignorar estos archivos. Versions 8.1.0 and later ignore those files by default.
+Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si utilizas [electron-packager](https://github.com/electron/electron-packager) antes de la versión 8.1.0, agregué `--ignore=.+\.o$` a su paso de estructuración para ignorar estos archivos. Versions 8.1.0 and later ignore those files by default.
 
 ### Actualice su aplicación
 
