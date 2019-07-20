@@ -242,10 +242,10 @@ governance:
     description: Przegląd wszystkich gałęzi i obsługi wydań.
   upgrades:
     title: Aktualizacje
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: Nadzoruje aktualizacje zależności; konkretnie Chromium i Node.
   website:
     title: Strona
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: Nadzoruje techniczne wdrażanie, projektowanie i styl strony internetowej Electron i powiązanych narzędzi.
   cmsf:
     title: Społeczność & Bezpieczeństwo
     description: Nadzoruje usunięciami/blokowaniem z społeczności.
@@ -264,11 +264,11 @@ governance:
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - <i>Kolaborator</i> udziela się w community, ale nie zajmuje się zarządzaniem.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - <i>Uczestnikiem</i> jest każdy, kto jest opiekunem lub kolabolatorem.
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: Odpowiedzialność
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
