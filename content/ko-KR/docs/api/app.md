@@ -509,9 +509,9 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+*Windows*에는 2종류의 아이콘이 있습니다:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
@@ -531,9 +531,9 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+*Windows*에는 2종류의 아이콘이 있습니다:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
