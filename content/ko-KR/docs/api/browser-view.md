@@ -23,16 +23,16 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *실험적*
 
 * `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` 객체 (optional) - [BrowserWindow](browser-window.md) 참조.
 
 ### 정적 메서드
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+`BrowserView[]` 반환 - 열린 모든 BrowserViews 배열.
 
 #### `BrowserView.fromWebContents(webContents)`
 
@@ -44,7 +44,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+`BrowserView` 반환 - `id`에 해당하는 뷰.
 
 ### Instance Properties (인스턴스 속성)
 
