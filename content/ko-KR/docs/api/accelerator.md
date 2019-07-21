@@ -67,7 +67,7 @@ Linux와 Windows에서는 `Command`키가 없으므로 작동하지 않습니다
 * `PrintScreen`
 * 숫자패드 키 
   * `num0` - `num9`
-  * `numdec` - decimal key
+  * `numdec` - 십진법 키
   * `numadd` - 숫자패드 `+` 키
   * `numsub` - 숫자패드 `-` 키
   * `nummult` - 숫자패드 `*` 키
