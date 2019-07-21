@@ -512,17 +512,17 @@ Fetches a path's associated icon.
 *Windows*에는 2종류의 아이콘이 있습니다:
 
 * `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* `.exe`, `.dll`, `.ico`와 같이 파일 안에 있는 아이콘.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux*와 *macOS*에서 아이콘은 mime type과 관련된 어플리케이션에 따라 다릅니다.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
 * `options` Object (선택) 
-  * `size` String 
+  * `크기` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
@@ -534,9 +534,9 @@ Fetches a path's associated icon.
 *Windows*에는 2종류의 아이콘이 있습니다:
 
 * `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* `.exe`, `.dll`, `.ico`와 같이 파일 안에 있는 아이콘.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux*와 *macOS*에서 아이콘은 mime type과 관련된 어플리케이션에 따라 다릅니다.
 
 ### `app.setPath(name, path)`
 
