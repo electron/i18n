@@ -28,4 +28,4 @@ If you are an experienced NW.js user, you should be familiar with the concept of
 
 By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Nota: NW.js ma opcjonalne wsparcie dla wielokontekstowości od wersji 0.13.

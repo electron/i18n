@@ -20,11 +20,11 @@ Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고 있기 
 
 > #### Aside : 프로세스 간 통신
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 참고하세요.
+> Electron에는 메세지를 전송하기 위한 [`ipcRenderer`](../api/ipc-renderer.md)와 [`ipcMain`](../api/ipc-main.md) 모듈, RPC 방식 통신을 위한[remote](../api/remote.md) 모듈과 같이 메인 프로세스와 렌더러 프로세스가 통신하는 방법이 여러가지 있습니다. FAQ에 [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages)를 참고하세요.
 
 ## Electron API 사용하기
 
-Electron은 메인 프로세스와 렌더러 프로세스에서 데스크톱 응용 프로그램의 개발을 지원하는 Api들을 제공 합니다. 두 프로세스 모두에서 아래와 같이 모듈을 포함함으로 Electron의 Api를 액세스 함 :
+Electron은 메인 프로세스와 렌더러 프로세스에서 데스크톱 응용 프로그램의 개발을 지원하는 여러 API들을 제공 합니다. 두 프로세스 모두에서 아래와 같이 모듈을 포함해서 Electron의 API에 접근할 수 있습니다:
 
 ```javascript
 const electron = require('electron')
@@ -35,8 +35,8 @@ const electron = require('electron')
 예를 들면, Electron 에서 Window는 `BrowserWindow` 클래스를 사용하여 만들어집니다. 그것은 메인 프로세스 에서만 사용할 수 있습니다.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// 이것은 메인 프로세스에서는 작동할 것이지만,
+// 렌더러 프로세스에서는 `undefined`가 될 것입니다:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()

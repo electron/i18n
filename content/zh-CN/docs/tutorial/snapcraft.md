@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### 步骤 1: 打包你的 Electron 应用程序
 
-打包应用程序使用 [electron-packager](https://github.com/electron-userland/electron-packager) (或类似工具)。 Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+打包应用程序使用 [electron-packager](https://github.com/electron/electron-packager) (或类似工具)。 Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 结构输出应该看起来大致像这样:
 

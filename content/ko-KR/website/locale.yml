@@ -31,10 +31,10 @@ docs:
   api_reference: API 참조
   api_structures: API 구조
   advanced: 상급(advanced) 주제
-  detailed: In Detail
+  detailed: 자세히
   custom_dom: 사용자 지정 DOM 요소
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
+  main_proc_modules: 메인 프로세스 모듈
+  renderer_proc_modules: 렌더러 프로세스 모듈
   both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: 문서 개선 작업 참여
@@ -54,7 +54,7 @@ community:
     updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 <a href='/blog'>블로그 피드</a>를 구독해서 <a href='https://twitter.com/electronjs'><b>최근 소식을 확인하세요</b></a>."
     localized_docs: "<a href='/languages'>언어 페이지</a> 설정을 통해 <a href='/languages'><b>모국어로 번역된 문서를 읽어보세요</b></a>."
     help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>도움을 받거나 피드백을 주시려면</b></a> <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>에 참여하거나, <a href='https://discuss.atom.io/c/electron'>토론</a>에 게시하거나, 혹은 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>에 방문해보세요."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>보안 이슈 제보</b></a>는 <a href='mailto:security@electronjs.org'>security@electronjs.org</a>로 해주세요."
     bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
     feature_requests: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>기능을 요청</b></a>해보세요."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>행위규범 위반 신고</b></a>는 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 계정으로 해주세요."
@@ -114,7 +114,7 @@ explore:
   title: Electron API를 탐색하세요
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 데모 앱</a>은 대화식으로 Electron API의 가장 중요한 부분을 설명합니다. 샘플 코드와 유용한 팁으로 앱을 제작하는 데에 무엇이 가능할지 알아보세요."
   fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  see_more_info: 자세히 보기
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
 quick_start:

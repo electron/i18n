@@ -10,7 +10,7 @@ npm install electron --save-dev
 
 ## 전역(Global) 설치
 
-또한 여러분의 `$PATH`:에 전역 명령어로 설치 할 수도 있습니다.
+또한 `electron` 명령어를 여러분의 `$PATH`에 전역 설치를 할 수도 있습니다:
 
 ```sh
 npm install electron -g
@@ -32,7 +32,7 @@ npm install --platform=win32 electron
 
 ## 프록시
 
-HTTP 프록시 사용이 필요하다면 이곳을 확인하세요. [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+HTTP 프록시 사용이 필요하다면 [이 환경 변수들을 설정](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)하면 됩니다.
 
 ## 커스텀 미러와 캐시
 
@@ -40,7 +40,7 @@ HTTP 프록시 사용이 필요하다면 이곳을 확인하세요. [set these e
 
 GitHub에 액세스 할 수 없거나 사용자 정의 빌드를 제공해야하는 경우 미러 또는 기존 캐시 디렉토리를 제공해야합니다.
 
-#### Mirror
+#### 미러(Mirror)
 
 환경 변수를 사용하여 기본 URL, Electron binaries가 위치한 경로, 그 binary의 filename을 대체할 수 있습니다. `electron-download`에 의해 사용되는 url은 다음과 같이 구성됩니다.
 
@@ -54,13 +54,13 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
-#### Cache
+#### 캐시(Cache)
 
 또는, 로컬 캐시를 대체할 수 있습니다. `electron-download`는 다운로드 된 바이너리를 로컬 디렉토리에 캐시하여 네트워크에 스트레스를주지 않습니다. 캐시 폴더를 사용하여 electron의 커스텀 빌드를 제공하거나 일체의 네트워크 접속을 피할 수 있습니다.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` 또는 `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` 또는 `~/AppData/Local/electron/Cache/`
 
 이전 버전의 electron을 사용하는 환경에서는, `~/.electron`에서 캐시를 찾을 수 있습니다.
 

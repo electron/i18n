@@ -39,8 +39,8 @@ Por ejemplo, para instalar todas las dependencias para Electron:
 ```sh
 # Versión de Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
-# for supported architectures.
+# La arquitectura de Electron, mire https://electronjs.org/docs/tutorial/support#supported-platforms
+# para arquitecturas soportadas.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Descargar encabezados para Electron.
@@ -62,10 +62,10 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` changes where to find development headers.
-- `--target=1.2.3` is the version of Electron.
-- `--dist-url=...` specifies where to download the headers.
-- `--arch=x64` says the module is built for a 64-bit system.
+- `HOME=~/.electron-gyp` cambie para encontrar las cabeceras de desarrollo.
+- `--target=1.2.3` es la versión de Electron.
+- `--dist-url=...` especifique de donde descargar las cabeceras.
+- `--arch=x64` dice que el modulo es construido para un sistema de 64-bit.
 
 ### Construcción manual para una compilación personalizada de Electron
 
@@ -89,7 +89,7 @@ Si ha instalado un módulo nativo y este no funciona, necesitas verificar las si
 En Windows, por defecto `node-gyp` enlaza los módulos nativos contra `node.dll`. Sin embargo, en Electron 4.x y superiores, los symbols que necesitan los módulos nativos son exportados por `electron.exe`, y no ahí `node.dll`. Para poder cargar módulos nativos en Windows, `node-gyp` instala un [delay_load_hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) que es lanzado cuando el módulo nativo es cargado, y redirige las referencias de `node.dll` para usar el ejecutable de carga en lugar de buscar por `node.dll` en la ruta de la libreria (el cual no daría nada). Como tal, en Electron 4.x y superiores `'win_delay_load_hook': 'true'` es necesario para cargar módulos nativos.
 
 Si se obtiene un error como `Módulo no se auto-registró`, o `El procedimiento especificado
-no se pudo encontrar`, puede significar que el módulo que está intentando usar no incluyó correctamente el delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+no se pudo encontrar`, puede significar que el módulo que está intentando usar no incluyó correctamente el delay-load hook. Si el módulo esta construido con node-gyp, asegurese de que la variable `win_delay_load_hook` esta configurada a `true` en el archivo `binding.gyp`, y que no esta siendo sobrescrita en ningún lado. Si el módulo esta siendo construido con otro sistema, necesitarás asegurarte que construye con un delay-load hook instalado en el archivo `.node` principal. Su invocación `link.exe` debe parecerce a esto:
 
 ```text
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
@@ -98,9 +98,9 @@ no se pudo encontrar`, puede significar que el módulo que está intentando usar
 
 En particular, es importante que:
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+- su enlace de `node.lib` desde *Electron* y no desde Node. Si enlazas con un incorrecto `node.lib` obtendras errors en el tiempo-de-carga cuando requieras el módulo en Electron.
+- incluyas la bandera `/DELAYLOAD:node.exe`. Si el enlace a `node.exe` no se retrasa, el delay-load hook no tendra la oportunidad de disparar y el símbolo a node no será resulto correctamente.
+- `win_delay_load_hook.obj` esta enlazada directamente dentro de la DLL final. Si el hook esta configurada en una DLL dependiente, este no sera lanzado en el tiempo correcto.
 
 Mire [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) para un ejemplo de delay-load si estas implementando el tuyo propio.
 

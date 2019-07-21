@@ -4,7 +4,7 @@ Untuk mengurangi [ masalah </ 0> di sekitar nama path yang panjang di Windows , 
 arsipkan dengan sedikit perubahan pada kode sumber Anda.</p>
 
 <p>Most users will get this feature for free, since it's supported out of the box
-by <a href="https://github.com/electron-userland/electron-packager"><code>electron-packager`](https://github.com/joyent/node/issues/6960), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+by <a href="https://github.com/electron/electron-packager"><code>electron-packager`](https://github.com/joyent/node/issues/6960), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
 
 ## Generating `asar` Archives
 

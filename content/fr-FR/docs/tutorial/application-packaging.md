@@ -2,7 +2,7 @@
 
 Pour atténuer les [problèmes](https://github.com/joyent/node/issues/6960) autour des noms de chemins longs sous Windows, en accélérant légèrement `require` et en dissimulant votre code source de l'inspection superficielle, vous pouvez empaqueter votre application dans une archive [asar](https://github.com/electron/asar) avec peu de modifications à votre code source.
 
-La plupart des utilisateurs obtiendrons cette fonctionnalité sans devoir s'en occuper, car elle est supporté directement par [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), et [`electron-builder`](https://github.com/electron-userland/electron-builder). Si vous n'utilisez aucun de ces outils, continuez à lire.
+La plupart des utilisateurs obtiendrons cette fonctionnalité sans devoir s'en occuper, car elle est supporté directement par [`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), et [`electron-builder`](https://github.com/electron-userland/electron-builder). Si vous n'utilisez aucun de ces outils, continuez à lire.
 
 ## Créer une archive `asar`
 

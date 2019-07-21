@@ -142,7 +142,7 @@ Jednak jeśli pomimo użycia wbudowanego modułu wciąż występuje ten błąd, 
 
 W przypadku gdy opcja [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) jest wyłączona, czcionki na ekranach LCD mogą wyglądać na rozmazane. Na przykład:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![przykład renderowania subpikseli](images/subpixel-rendering-screenshot.gif)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (Zobacz [ problem ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) by dowiedzieć się więcej).
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Efekt jest widoczny tylko na (niektórych?) ekranach LCD. Nawet jeśli Ty nie widzisz różnicy, niektórzy z użytkowników Twojej aplikacji mogą ją dostrzec. Najlepiej zawsze ustawiać tło w taki sposób, chyba że masz powody, aby tego nie robić.
 
 Zauważ, że sama zmiana tła w CSS nie przyniesie oczekiwanego efektu.

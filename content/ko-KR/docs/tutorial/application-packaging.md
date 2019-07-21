@@ -2,7 +2,7 @@
 
 Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.com/joyent/node/issues/6960)를 완화하고 `require` 속도를 약간 빠르게 하며 애플리케이션의 리소스와 소스 코드를 좋지 않은 사용자로부터 보호하기 위해 애플리케이션을 [asar](https://github.com/electron/asar) 아카이브로 패키징 할 수 있습니다.
 
-[`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder) 에서 지원하기 때문에, 대부분의 사용자들은 무료로 이 기능을 사용할 수 있습니다. 이 도구들을 사용하지 않는다면, 계속 읽어보십시오.
+[`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder) 에서 지원하기 때문에, 대부분의 사용자들은 무료로 이 기능을 사용할 수 있습니다. 이 도구들을 사용하지 않는다면, 계속 읽어보십시오.
 
 ## `asar` 아카이브 생성하기
 

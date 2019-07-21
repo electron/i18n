@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 आउटपुट कुछ इस तरह का दिखना चाहिये:
 

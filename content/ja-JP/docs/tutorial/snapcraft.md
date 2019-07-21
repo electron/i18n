@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### ステップ1: Electronアプリケーションのパッケージ化
 
-[electron-packager](https://github.com/electron-userland/electron-packager)(または似たようなツール) を使ってパッケージ化します。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
+[electron-packager](https://github.com/electron/electron-packager) (または類似ツール) を用いてパッケージします。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
 
 出力はおおよそ以下のようになります:
 

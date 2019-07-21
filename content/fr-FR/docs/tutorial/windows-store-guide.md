@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Étape 1 : Empaqueter votre Application Electron
 
-Empaquetez l’application à l’aide de [electron-packager](https://github.com/electron-userland/electron-packager) (ou un outil similaire). Assurez vous de supprimer `node_modules` que vous n'avez pas besoin dans votre application finale, puisque n'importe quel module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
+Empaquetez l’application à l’aide de [electron-packager](https://github.com/electron/electron-packager) (ou un outil similaire). Assurez vous de supprimer `node_modules` que vous n'avez pas besoin dans votre application finale, puisque n'importe quel module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
 
 La sortie devrait ressembler à peu près à ceci :
 

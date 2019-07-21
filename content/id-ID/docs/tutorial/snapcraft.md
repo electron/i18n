@@ -29,7 +29,7 @@ Sementara * mungkin </ em> untuk menginstal ` snapcraft </ code> di macos menggu
 
 ### Langkah 1: Kemas Aplikasi Elektron Anda
 
-Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userland/electron-packager) (atau alat serupa). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron/electron-packager) (atau alat serupa). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 Outputnya harus terlihat kira-kira seperti ini:
 

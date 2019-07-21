@@ -4,7 +4,7 @@
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
+* [electron-packager](https://github.com/electron/electron-packager)
 
 これらのツールは、配布可能なあなたのElectronアプリケーションに行う必要のある全ての手順をカバーします。その手順には、あなたのアプリケーションのパッケージング、実行ファイルのリブランド、正しいアイコンの設定、インストーラーの作成(オプション)が含まれます。
 

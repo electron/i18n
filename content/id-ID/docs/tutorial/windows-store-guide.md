@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Langkah 1: Kemas Aplikasi Elektron Anda
 
-Kemas aplikasi dengan menggunakan [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Kemas aplikasi dengan menggunakan [electron-packager](https://github.com/electron/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
 Outputnya harus terlihat kira-kira seperti ini:
 

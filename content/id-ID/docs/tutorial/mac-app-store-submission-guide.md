@@ -109,7 +109,7 @@ Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika mengg
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). Jika Anda menggunakan [elektron-packager](https://github.com/electron-userland/electron-packager) sebelum versi 8.1.0, tambahkan `--ignore=.+\.o$` ke langkah membangun Anda untuk mengabaikan berkas-berkas ini. Versions 8.1.0 and later ignore those files by default.
+Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). Jika Anda menggunakan [elektron-packager](https://github.com/electron/electron-packager) sebelum versi 8.1.0, tambahkan `--ignore=.+\.o$` ke langkah membangun Anda untuk mengabaikan berkas-berkas ini. Versions 8.1.0 and later ignore those files by default.
 
 ### Upload Aplikasi Anda
 
