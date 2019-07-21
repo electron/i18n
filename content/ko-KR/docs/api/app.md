@@ -499,10 +499,10 @@ Returns `String` - A path to a special directory or file associated with `name`.
 
 * `path` String
 * `options` Object (선택) 
-  * `size` String 
+  * `크기` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
 * `callback` 함수 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -525,7 +525,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
