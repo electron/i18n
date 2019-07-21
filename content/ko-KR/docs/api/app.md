@@ -490,10 +490,10 @@ Returns `String` - A path to a special directory or file associated with `name`.
 * `documents` User의 "My Documents" 폴더 경로.
 * `downloads` User의 downloads 폴더 경로.
 * `music` User의 music 폴더 경로.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pictures` 사용자의 pictures 폴더 경로.
+* `videos` 사용자의 videos 폴더 경로.
+* `logs` 사용자의 log 폴더 경로.
+* `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
 
 ### `app.getFileIcon(path[, options], callback)`
 
