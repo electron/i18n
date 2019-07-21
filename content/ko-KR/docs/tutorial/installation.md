@@ -10,7 +10,7 @@ npm install electron --save-dev
 
 ## 전역(Global) 설치
 
-또한 여러분의 `$PATH`:에 전역 명령어로 설치 할 수도 있습니다.
+또한 `electron` 명령어를 여러분의 `$PATH`에 전역 설치를 할 수도 있습니다:
 
 ```sh
 npm install electron -g
