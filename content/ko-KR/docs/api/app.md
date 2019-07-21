@@ -301,9 +301,9 @@ Returns:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
 
-Chrome의 accessibility 가 변경되면 발생합니다. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chrome의 accessibility 가 변경되면 발생합니다. 이 이벤트는 스크린리더와 같은 보조기술이 활성화 혹은 비활성화될 때 발생합니다. https://www.chromium.org/developers/design-documents/accessibility 에서 더 자세한 내용을 확인하세요.
 
-### Event: 'session-created'
+### 이벤트: 'session-created'
 
 반환:
 
