@@ -31,10 +31,10 @@ docs:
   api_reference: API 참조
   api_structures: API 구조
   advanced: 상급(advanced) 주제
-  detailed: In Detail
+  detailed: 자세히
   custom_dom: 사용자 지정 DOM 요소
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
+  main_proc_modules: 메인 프로세스 모듈
+  renderer_proc_modules: 렌더러 프로세스 모듈
   both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: 문서 개선 작업 참여
