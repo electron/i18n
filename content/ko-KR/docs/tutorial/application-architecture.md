@@ -35,8 +35,8 @@ const electron = require('electron')
 예를 들면, Electron 에서 Window는 `BrowserWindow` 클래스를 사용하여 만들어집니다. 그것은 메인 프로세스 에서만 사용할 수 있습니다.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// 이것은 메인 프로세스에서는 작동할 것이지만,
+// 렌더러 프로세스에서는 `undefined`가 될 것입니다:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
