@@ -301,9 +301,9 @@ Returns:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
 
-Chrome의 accessibility 가 변경되면 발생합니다. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chrome의 accessibility 가 변경되면 발생합니다. 이 이벤트는 스크린리더와 같은 보조기술이 활성화 혹은 비활성화될 때 발생합니다. https://www.chromium.org/developers/design-documents/accessibility 에서 더 자세한 내용을 확인하세요.
 
-### Event: 'session-created'
+### 이벤트: 'session-created'
 
 반환:
 
@@ -490,53 +490,53 @@ Returns `String` - A path to a special directory or file associated with `name`.
 * `documents` User의 "My Documents" 폴더 경로.
 * `downloads` User의 downloads 폴더 경로.
 * `music` User의 music 폴더 경로.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pictures` 사용자의 pictures 폴더 경로.
+* `videos` 사용자의 videos 폴더 경로.
+* `logs` 사용자의 log 폴더 경로.
+* `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
 * `options` Object (선택) 
-  * `size` String 
+  * `크기` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
 * `callback` 함수 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+*Windows*에는 2종류의 아이콘이 있습니다:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
+* `.exe`, `.dll`, `.ico`와 같이 파일 안에 있는 아이콘.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux*와 *macOS*에서 아이콘은 mime type과 관련된 어플리케이션에 따라 다릅니다.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
 * `options` Object (선택) 
-  * `size` String 
+  * `크기` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+*Windows*에는 2종류의 아이콘이 있습니다:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
+* `.exe`, `.dll`, `.ico`와 같이 파일 안에 있는 아이콘.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux*와 *macOS*에서 아이콘은 mime type과 관련된 어플리케이션에 따라 다릅니다.
 
 ### `app.setPath(name, path)`
 

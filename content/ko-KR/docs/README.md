@@ -50,7 +50,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [접근성 활성화](tutorial/accessibility.md#enabling-accessibility)
 * [테스팅과 디버깅](tutorial/application-debugging.md) 
   * [메인 프로세스 디버깅하기](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Visual Studio Code에서 메인 프로세스 디버깅하기](tutorial/debugging-main-process-vscode.md)
   * [Selenium 과 WebDriver 사용하기](tutorial/using-selenium-and-webdriver.md)
   * [헤드리스 CI 시스템 (트래비스, 젠킨스) 테스트](tutorial/testing-on-headless-ci.md)
   * [DevTools 확장](tutorial/devtools-extension.md)
