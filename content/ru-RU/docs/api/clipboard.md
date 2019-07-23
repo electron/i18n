@@ -86,7 +86,7 @@ console.log(clipboard.readText('selection'))
 * `title` String
 * `url` String
 
-Возвращает объект, содержащий ключи `title` и `url`, представляющие закладки в буфере обмена. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Возвращает объект, содержащий ключи `title` и `url`, представляющие закладку в буфере обмена. Значения `title` и `url` будут пустыми строками, когда закладки недоступны.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -94,14 +94,14 @@ console.log(clipboard.readText('selection'))
 * `url` String
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Записывает `title` и `url` в буфер обмена, как закладку.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Примечание:** Большинство приложений на Windows не поддерживают размещение закладок в них, так что Вы можете использовать `clipboard.write`, чтобы записать и закладку и резервный текст в буфер обмена.
 
 ```js
 clipboard.write({
   text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  bookmark: 'Домашняя страница Electron'
 })
 ```
 
