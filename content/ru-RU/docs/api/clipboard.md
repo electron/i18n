@@ -166,12 +166,12 @@ console.log(clipboard.has('<p>selection</p>'))
   * `html` String (опционально)
   * `image` [NativeImage](native-image.md) (опционально)
   * `rtf` String (опционально)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * `bookmark` String (опционально) - заголовок ссылки на `text`.
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 ```javascript
 const { clipboard } = require('electron')
-clipboard.write({ text: 'test', html: '<b>test</b>' })
+clipboard.write({ text: 'тест', html: '<b>тест</b>' })
 ```
 
 Записывает `data` в буфер обмена.
