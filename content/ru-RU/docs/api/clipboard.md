@@ -13,11 +13,11 @@ const { clipboard } = require('electron')
 clipboard.writeText('Пример строки')
 ```
 
-Также в linux есть `selection` clipboard. Чтобы им воспользоваться, вам нужно указать `selection` в каждом методе:
+На Linux также есть `selection` буфер обмена. Чтобы им воспользоваться, Вам нужно передать `selection` в каждый метод:
 
 ```javascript
 const { clipboard } = require('electron')
-clipboard.writeText('Пример строки', 'selection')
+clipboard.writeText('Пример строки', 'selection)
 console.log(clipboard.readText('selection'))
 ```
 
@@ -25,57 +25,57 @@ console.log(clipboard.readText('selection'))
 
 Модуль `clipboard` имеет следующие методы:
 
-**Примечание:** Экспериментальные API помечены и могут быть удалены в будущем.
+**Примечание:** Экспериментальные API помечены как таковые и могут быть удалены в будущем.
 
 ### `clipboard.readText([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `text` в буфер обмена как обычный текст.
 
 ### `clipboard.readHTML([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Возвращает `String` - содержимое в буфере обмена в виде разметки.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `markup` в буфер обмена.
 
 ### `clipboard.readImage([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `image` в буфер обмена.
 
 ### `clipboard.readRTF([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Возвращает `String` - содержимое в буфере обмена в виде RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `text` в буфер обмена как RTF.
 
@@ -92,7 +92,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -117,20 +117,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Очищает содержимое буфера обмена.
 
 ### `clipboard.availableFormats([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -155,7 +155,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -167,7 +167,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 ```javascript
 const { clipboard } = require('electron')
