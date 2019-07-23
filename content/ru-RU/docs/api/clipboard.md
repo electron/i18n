@@ -31,20 +31,20 @@ console.log(clipboard.readText('selection'))
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
+Возвращает `String` — содержимое буфера обмена в виде обычного текста.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Записывает `text` в буфер обмена как обычный текст.
+Записывает `text` в буфер обмена, как обычный текст.
 
 ### `clipboard.readHTML([type])`
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает `String` - содержимое в буфере обмена в виде разметки.
+Возвращает `String` - содержимое буфера обмена в виде разметки.
 
 ### `clipboard.writeHTML(markup[, type])`
 
@@ -57,7 +57,7 @@ console.log(clipboard.readText('selection'))
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
+Возвращает [`NativeImage`](native-image.md) - содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
@@ -86,7 +86,7 @@ console.log(clipboard.readText('selection'))
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Возвращает объект, содержащий ключи `title` и `url`, представляющие закладки в буфере обмена. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
