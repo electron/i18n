@@ -107,13 +107,13 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Возвращает `String` - текст в буфере обмена. Этот метод использует синхронный IPC, когда вызывается в графическом процессе. Закэшированное значение перечитывается из буфера обмена, всякий раз, когда приложение активировано.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Записывает `text` в буфер обмена, как простой текст. Этот метод использует синхронный IPC, когда вызывается в графическом процессе.
 
 ### `clipboard.clear([type])`
 
