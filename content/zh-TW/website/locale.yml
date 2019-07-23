@@ -93,7 +93,7 @@ electron_is_easy:
   video_link: 觀看影片
 web_technologies:
   title: 網頁技術
-  description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTM、CSS 和 JavaScript 打造自己的應用程式。
+  description: Electron 架構在 Chromium 及 Node.js 上，讓你可以用 HTML、CSS 和 JavaScript 打造自己的應用程式。
 open_source:
   title: 開放原始碼
   description: Electron 開放原始碼專案是由 GitHub 及活躍的貢獻者社群共用維護。
