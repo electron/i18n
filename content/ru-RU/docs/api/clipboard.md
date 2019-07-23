@@ -125,14 +125,14 @@ clipboard.write({
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Возвращает `String[]` - массив поддерживаемых форматов для `type` буфера обмена.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *Экспериментально*
 
 * `format` String
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Возвращает `Boolean` - поддерживает ли буфер обмена указанный `format`.
 
 ```javascript
 const { clipboard } = require('electron')
@@ -143,29 +143,29 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+Возвращает `String` - читает тип `format` из буфера обмена.
 
 ### `clipboard.readBuffer(format)` *Экспериментально*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Возвращает `Buffer` - читает тип `format` из буфера обмена.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *Экспериментально*
 
 * `format` String
 * `buffer` Buffer
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Writes the `buffer` into the clipboard as `format`.
+Записывает `buffer` в буфер обмена, как `format`.
 
 ### `clipboard.write(data[, type])`
 
 * `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
+  * `text` String (опционально)
+  * `html` String (опционально)
+  * `image` [NativeImage](native-image.md) (опционально)
+  * `rtf` String (опционально)
   * `bookmark` String (optional) - The title of the url at `text`.
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
