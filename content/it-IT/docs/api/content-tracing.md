@@ -4,9 +4,9 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Questo modulo non include un'interfaccia web, quindi devi aprire `chrome://tracing/` in un browser Chrome e caricare il file generato per vedere il risultato.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Non dovresti usare questo modulo fino a che l'evento `ready` del modulo app sia stato emesso.
 
 ```javascript
 const { app, contentTracing } = require('electron')
