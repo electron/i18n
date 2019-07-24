@@ -8,7 +8,7 @@ macOS と Linux では、Pepper Flash プラグインの詳細は Chrome ブラ�
 
 ## Electron Switch を追加する
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Electron のコマンドラインに直接 `--ppapi-flash-path` と `--ppapi-flash-version` を追加するか、app の ready イベントより前に `app.commandLine.appendSwitch` メソッドを使用できます。 更に、`BrowserWindow` の `plugins` オプションを有効にしてください。
 
 例:
 
@@ -16,7 +16,7 @@ You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Ele
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// main.js と同じディレクトリにあると仮定して、Flash のパスを指定します。
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -31,7 +31,7 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// 任意: Flash のバージョンを指定します。v17.0.0.169 であればこのようにします。
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.on('ready', () => {
@@ -43,15 +43,15 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // 他のすること
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+プラグインを自分で同梱する代わりに、システム側の Pepper Flash プラグインをロードしてみることもできます。そのパスは、`app.getPath('pepperFlashSystemPlugin')` を呼び出すことで取得できます。
 
 ## `<webview>` タグで Flash プラグインを有効化する
 
-`plugins`属性を `<webview>` tagに加える。
+`plugins` 属性を `<webview>` tagに加えます。
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
@@ -59,10 +59,10 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 
 ## トラブルシューティング
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Pepper Flash プラグインがロードされているかどうかを確認するには、デベロッパー ツールのコンソール内で `navigator.plugins` を調べます (ただしそのプラグインのパスが正しいかどうかはわかりません)。
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+Pepper Flash プラグインのアーキテクチャは、Electron のものと一致する必要があります。Windows でよくあるエラーは、64 ビット版の Electron に対して32ビット版の Flash プラグインを使用することです。
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Windows では、`--ppapi-flash-path` に渡されるパスは、パス区切り文字として `` を使用する必要があります。POSIX スタイルのパスを使用しても機能しません。
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+RTMP を使用したメディアのストリーミングのような、いくつかの操作では、Flash Player の `.swf` ファイルに対してより広範な権限を付与する必要があります。 これを実現する方法の 1 つは、[nw-flash-trust](https://github.com/szwacz/nw-flash-trust) を使用することです。

@@ -2,9 +2,9 @@
 
 > Выполняет копирование и вставку в буфер обмена системы.
 
-Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-В контексте renderer процесса clipboard зависит от [`remote`](remote.md) модуля в Linux, соответственно он не доступен, когда этот модуль отключен.
+На Linux, в контексте графического процесса зависит от модуля [`remote`](remote.md), соответственно не доступен, когда этот модуль отключен.
 
 Следующий пример показывает, как записать строку в буфер обмена:
 
@@ -13,11 +13,11 @@ const { clipboard } = require('electron')
 clipboard.writeText('Пример строки')
 ```
 
-Также в linux есть `selection` clipboard. Чтобы им воспользоваться, вам нужно указать `selection` в каждом методе:
+На Linux также есть `selection` буфер обмена. Чтобы им воспользоваться, Вам нужно передать `selection` в каждый метод:
 
 ```javascript
 const { clipboard } = require('electron')
-clipboard.writeText('Пример строки', 'selection')
+clipboard.writeText('Пример строки', 'selection)
 console.log(clipboard.readText('selection'))
 ```
 
@@ -25,57 +25,57 @@ console.log(clipboard.readText('selection'))
 
 Модуль `clipboard` имеет следующие методы:
 
-**Примечание:** Экспериментальные API помечены и могут быть удалены в будущем.
+**Примечание:** Экспериментальные API помечены как таковые и могут быть удалены в будущем.
 
 ### `clipboard.readText([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
+Возвращает `String` — содержимое буфера обмена в виде обычного текста.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Записывает `text` в буфер обмена как обычный текст.
+Записывает `text` в буфер обмена, как обычный текст.
 
 ### `clipboard.readHTML([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает `String` - содержимое в буфере обмена в виде разметки.
+Возвращает `String` - содержимое буфера обмена в виде разметки.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `markup` в буфер обмена.
 
 ### `clipboard.readImage([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
+Возвращает [`NativeImage`](native-image.md) - содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `image` в буфер обмена.
 
 ### `clipboard.readRTF([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Возвращает `String` - содержимое в буфере обмена в виде RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Записывает `text` в буфер обмена как RTF.
 
@@ -86,53 +86,53 @@ console.log(clipboard.readText('selection'))
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Возвращает объект, содержащий ключи `title` и `url`, представляющие закладку в буфере обмена. Значения `title` и `url` будут пустыми строками, когда закладки недоступны.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
 * `url` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Записывает `title` и `url` в буфер обмена, как закладку.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Примечание:** Большинство приложений на Windows не поддерживают размещение закладок в них, так что Вы можете использовать `clipboard.write`, чтобы записать и закладку и резервный текст в буфер обмена.
 
 ```js
 clipboard.write({
   text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  bookmark: 'Домашняя страница Electron'
 })
 ```
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Возвращает `String` - текст в буфере обмена. Этот метод использует синхронный IPC, когда вызывается в графическом процессе. Закэшированное значение перечитывается из буфера обмена, всякий раз, когда приложение активировано.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Записывает `text` в буфер обмена, как простой текст. Этот метод использует синхронный IPC, когда вызывается в графическом процессе.
 
 ### `clipboard.clear([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 Очищает содержимое буфера обмена.
 
 ### `clipboard.availableFormats([type])`
 
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Возвращает `String[]` - массив поддерживаемых форматов для `type` буфера обмена.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *Экспериментально*
 
 * `format` String
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Возвращает `Boolean` - поддерживает ли буфер обмена указанный `format`.
 
 ```javascript
 const { clipboard } = require('electron')
@@ -143,35 +143,35 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+Возвращает `String` - читает тип `format` из буфера обмена.
 
 ### `clipboard.readBuffer(format)` *Экспериментально*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Возвращает `Buffer` - читает тип `format` из буфера обмена.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *Экспериментально*
 
 * `format` String
 * `buffer` Buffer
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Writes the `buffer` into the clipboard as `format`.
+Записывает `buffer` в буфер обмена, как `format`.
 
 ### `clipboard.write(data[, type])`
 
 * `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
-* `тип` Строка (опционально) - может быть `selection` или `clipboard`. `selection` доступен только в Linux.
+  * `text` String (опционально)
+  * `html` String (опционально)
+  * `image` [NativeImage](native-image.md) (опционально)
+  * `rtf` String (опционально)
+  * `bookmark` String (опционально) - заголовок ссылки на `text`.
+* `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
 ```javascript
 const { clipboard } = require('electron')
-clipboard.write({ text: 'test', html: '<b>test</b>' })
+clipboard.write({ text: 'тест', html: '<b>тест</b>' })
 ```
 
 Записывает `data` в буфер обмена.
