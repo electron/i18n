@@ -8,7 +8,7 @@ macOS と Linux では、Pepper Flash プラグインの詳細は Chrome ブラ�
 
 ## Electron Switch を追加する
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Electron のコマンドラインに直接 `--ppapi-flash-path` と `--ppapi-flash-version` を追加するか、app の ready イベントより前に `app.commandLine.appendSwitch` メソッドを使用できます。 更に、`BrowserWindow` の `plugins` オプションを有効にしてください。
 
 例:
 
