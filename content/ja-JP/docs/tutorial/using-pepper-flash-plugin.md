@@ -59,10 +59,10 @@ app.on('ready', () => {
 
 ## トラブルシューティング
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Pepper Flash プラグインがロードされているかどうかを確認するには、デベロッパー ツールのコンソール内で `navigator.plugins` を調べます (ただしそのプラグインのパスが正しいかどうかはわかりません)。
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+Pepper Flash プラグインのアーキテクチャは、Electron のものと一致する必要があります。Windows でよくあるエラーは、64 ビット版の Electron に対して32ビット版の Flash プラグインを使用することです。
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Windows では、`--ppapi-flash-path` に渡されるパスは、パス区切り文字として `` を使用する必要があります。POSIX スタイルのパスを使用しても機能しません。
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+RTMP を使用したメディアのストリーミングのような、いくつかの操作では、Flash Player の `.swf` ファイルに対してより広範な権限を付与する必要があります。 これを実現する方法の 1 つは、[nw-flash-trust](https://github.com/szwacz/nw-flash-trust) を使用することです。
