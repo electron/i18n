@@ -47,11 +47,11 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+プラグインを自分で同梱する代わりに、システム側の Pepper Flash プラグインをロードしてみることもできます。そのパスは、`app.getPath('pepperFlashSystemPlugin')` を呼び出すことで取得できます。
 
 ## `<webview>` タグで Flash プラグインを有効化する
 
-`plugins`属性を `<webview>` tagに加える。
+`plugins` 属性を `<webview>` tagに加えます。
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
