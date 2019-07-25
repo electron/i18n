@@ -39,7 +39,7 @@ function convertToUrlSlash(filePath: string) {
 
 type $TSFixMe = any
 
-let ids: $TSFixMe = {}
+let ids: Record<string, string> = {}
 
 async function parseDocs(): Promise<$TSFixMe> {
   ids = await getIds('electron')
@@ -189,8 +189,8 @@ function fixMdLinks(md: string): Promise<$TSFixMe> {
 
 function splitMd(md: string): $TSFixMe {
   const slugger = new GithubSlugger()
-  const sections: Array<$TSFixMe> = []
-  let section = { name: null, body: [] as $TSFixMe }
+  const sections: Array<{ name: null, body: Array<string> }> = []
+  let section = { name: null, body: [] as Array<string> }
   let inCodeBlock = false
   const isHeading = (line: string) => !inCodeBlock && line.trim().startsWith('#')
 
@@ -205,7 +205,7 @@ function splitMd(md: string): $TSFixMe {
 
     let next = lines[i + 1]
     if (next === undefined || isHeading(next)) {
-      section.body = section.body.join('\n')
+      section.body = section.body.join('\n') as $TSFixMe
       sections.push(section)
       section = { name: null, body: [] }
     }
