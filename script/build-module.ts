@@ -4,14 +4,14 @@ require('make-promises-safe')
 require('require-yaml')
 
 import * as walk from 'walk-sync'
-const path = require('path')
-const fs = require('fs')
+import * as path from 'path'
+import * as fs from 'fs'
 const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
 import locales from '../lib/locales'
 const hrefType = require('href-type')
-const URL = require('url')
-const packageJSON = require('../package.json')
+import * as URL from 'url'
+import * as packageJSON from '../package.json'
 const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
@@ -24,7 +24,8 @@ const itsReallyJS = require('../lib/remark-its-really-js')
 
 const contentDir = path.join(__dirname, '../content')
 import * as cheerio from 'cheerio'
-const categoryNames: $TSFixMe = {
+
+const categoryNames: Record<string, string> = {
   api: 'API',
   'api/structures': 'API Structures',
   development: 'Development',
@@ -149,6 +150,7 @@ async function parseFile(file: $TSFixMe) {
           : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
 
         const parsed = URL.parse(newSrc)
+        if (!parsed.path) return
         parsed.path = path.normalize(parsed.path)
 
         $(el).attr('src', URL.format(parsed))
