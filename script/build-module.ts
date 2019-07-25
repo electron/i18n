@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
 require('make-promises-safe')
 require('require-yaml')
