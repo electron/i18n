@@ -1,10 +1,15 @@
-const assert = require('assert')
-const fs = require('fs')
-const path = require('path')
-const cheerio = require('cheerio')
+import * as assert from 'assert'
+import * as fs from 'fs'
+import * as path from 'path'
+import * as cheerio from 'cheerio'
 const hubdown = require('hubdown')
 
-async function parseElectronGlossary(locale) {
+interface IParseElectronGlossaryReturn {
+  term: string
+  description: string
+}
+
+export async function parseElectronGlossary(locale: string): Promise<Array<IParseElectronGlossaryReturn>> {
   assert(locale, '`locale` is a required argument to parseGlosssaryDoc()')
 
   const sourceFile = path.join(
@@ -42,5 +47,3 @@ async function parseElectronGlossary(locale) {
       return acc
     }, {})
 }
-
-module.exports = parseElectronGlossary

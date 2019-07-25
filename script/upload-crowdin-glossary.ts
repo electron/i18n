@@ -2,11 +2,11 @@
 
 require('dotenv-safe').config()
 
-const assert = require('assert')
-const globals = require('globals')
+import * as assert from 'assert'
+import * as globals from 'globals/globals.json'
 
-const electronApis = require('../content/en-US/electron-api.json')
-const parseElectronGlossary = require('../lib/parse-electron-glossary')
+import * as electronApis from '../content/en-US/electron-api.json'
+import { parseElectronGlossary } from '../lib/parse-electron-glossary'
 
 main()
 
@@ -35,7 +35,7 @@ async function main() {
     .filter(api => api.type === 'Class')
     .forEach(api => {
       const methods = api.instanceMethods || []
-      methods.forEach(method => {
+      methods.forEach((method: any) => {
         const term = `${api.instanceName}.${method.name}`
         if (Object.keys(glossary.entries).includes(term)) return
         glossary.add(
