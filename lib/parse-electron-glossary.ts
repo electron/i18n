@@ -4,7 +4,7 @@ import * as path from 'path'
 import * as cheerio from 'cheerio'
 const hubdown = require('hubdown')
 
-interface IParseElectronGlossaryReturn {
+export interface IParseElectronGlossaryReturn {
   term: string
   description: string
 }

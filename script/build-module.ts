@@ -3,12 +3,12 @@
 require('make-promises-safe')
 require('require-yaml')
 
-const walk = require('walk-sync')
+import * as walk from 'walk-sync'
 const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
-const locales = require('../lib/locales')
+import locales from '../lib/locales'
 const hrefType = require('href-type')
 const URL = require('url')
 const packageJSON = require('../package.json')
@@ -16,15 +16,15 @@ const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
-const parseElectronGlossary = require('../lib/parse-electron-glossary')
+import { parseElectronGlossary, IParseElectronGlossaryReturn } from '../lib/parse-electron-glossary'
 const plaintextFix = require('../lib/remark-plaintext-fix')
 const bashFix = require('../lib/remark-bash-fix')
 const fiddleUrls = require('../lib/remark-fiddle-urls')
 const itsReallyJS = require('../lib/remark-its-really-js')
 
 const contentDir = path.join(__dirname, '../content')
-const cheerio = require('cheerio')
-const categoryNames = {
+import * as cheerio from 'cheerio'
+const categoryNames: $TSFixMe = {
   api: 'API',
   'api/structures': 'API Structures',
   development: 'Development',
@@ -32,13 +32,15 @@ const categoryNames = {
 }
 const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 
-function convertToUrlSlash(filePath) {
+function convertToUrlSlash(filePath: string) {
   return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
 }
 
-let ids = {}
+type $TSFixMe = any
 
-async function parseDocs() {
+let ids: $TSFixMe = {}
+
+async function parseDocs(): Promise<$TSFixMe> {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
@@ -59,7 +61,7 @@ async function parseDocs() {
   return docs
 }
 
-async function parseFile(file) {
+async function parseFile(file: $TSFixMe) {
   file.fullPath = path.join(file.basePath, file.relativePath)
   file.locale = file.relativePath.split('/')[0]
   file.slug = path.basename(file.relativePath, '.md')
@@ -169,11 +171,11 @@ async function parseFile(file) {
   return cleanDeep(file)
 }
 
-function fixMdLinks(md) {
+function fixMdLinks(md: string): Promise<$TSFixMe> {
   return new Promise((resolve, reject) => {
     remark()
       .use(links)
-      .process(md, (err, file) => {
+      .process(md, (err: Error, file: $TSFixMe) => {
         if (err) {
           reject(err)
         } else {
@@ -183,12 +185,12 @@ function fixMdLinks(md) {
   })
 }
 
-function splitMd(md) {
+function splitMd(md: string): $TSFixMe {
   const slugger = new GithubSlugger()
-  const sections = []
-  let section = { name: null, body: [] }
+  const sections: Array<$TSFixMe> = []
+  let section = { name: null, body: [] as $TSFixMe }
   let inCodeBlock = false
-  const isHeading = line => !inCodeBlock && line.trim().startsWith('#')
+  const isHeading = (line: string) => !inCodeBlock && line.trim().startsWith('#')
 
   md.split('\n').forEach((curr, i, lines) => {
     if (curr.startsWith('```')) {
@@ -214,22 +216,22 @@ async function main() {
   const docs = await parseDocs()
   const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
-      .filter(doc => doc.locale === locale)
-      .sort((a, b) => a.slug.localeCompare(b.slug))
-      .reduce((allDocs, doc) => {
+      .filter((doc: $TSFixMe) => doc.locale === locale)
+      .sort((a: $TSFixMe, b: $TSFixMe) => a.slug.localeCompare(b.slug))
+      .reduce((allDocs: $TSFixMe, doc: $TSFixMe) => {
         allDocs[doc.href] = doc
         return allDocs
-      }, {})
+      }, {} as Record<string, string>)
 
     return acc
-  }, {})
+  }, {} as Record<string, string>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/${locale}/website/locale.yml`)
     return acc
-  }, {})
+  }, {} as Record<string, string>)
 
-  const glossary = {}
+  const glossary: Record<string, IParseElectronGlossaryReturn[]> = {}
   for (let locale in locales) {
     glossary[locale] = await parseElectronGlossary(locale)
   }
