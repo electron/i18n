@@ -54,7 +54,7 @@
     "collect": "ts-node script/collect.ts",
     "build": "npm-run-all build:*",
     "build:stats": "ts-node script/stats.ts",
-    "build:module": "ts-node script/build-module.js",
+    "build:module": "ts-node script/build-module.ts",
     "build:nav": "ts-node script/parse-nav.ts",
     "build:readme": "ts-node script/readme.ts",
     "build:wordcount": "ts-node script/wordcount.ts > wordcount.md",
@@ -66,7 +66,7 @@
     "prepack": "check-for-leaks",
     "pretest": "npm run build",
     "semantic-release": "semantic-release",
-    "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.js",
+    "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
   "electronLatestStableTag": "v7.1.8",
