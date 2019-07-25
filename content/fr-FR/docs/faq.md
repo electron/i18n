@@ -138,11 +138,11 @@ npm uninstall -g electron
 
 Cependant si vous utilisez le module intégré et que vous avez toujours cette erreur, il est très probable que vous utilisiez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
 
-## The font looks blurry, what is this and what can I do?
+## La police semble floue, qu'est-ce et à que puis-je faire?
 
 Si [anti-aliasing sous-pixel](http://alienryderflex.com/sub_pixel/) est désactivé, alors les polices sur les écrans LCD peuvent être floues. Exemple :
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![exemple de rendu de sous-pixel](images/subpixel-rendering-screenshot.gif)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
