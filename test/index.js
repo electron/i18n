@@ -325,8 +325,8 @@ describe('i18n.locales', () => {
       i18n.locales[locale].stats.translated_progress.should.be.a('number')
       i18n.locales[locale].stats.approved_progress.should.be.a('number')
     })
-    i18n.locales['en-US'].stats.translated_progress.should.equal(100)
-    i18n.locales['en-US'].stats.approved_progress.should.equal(100)
+    i18n.locales['en-US'].stats.translated_progress.should.equal(101)
+    i18n.locales['en-US'].stats.approved_progress.should.equal(101)
   })
 
   it('sorts locales by translation progress', () => {
