@@ -102,4 +102,4 @@ $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_p
 
 ### `clang` 대신 다른 컴파일러 사용하기
 
-Building Electron with compilers other than `clang` is not supported.
+`clang` 이외 컴파일러를 사용한 Electron 빌드는 지원하지 않습니다.
