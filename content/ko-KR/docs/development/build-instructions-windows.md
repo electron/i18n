@@ -5,7 +5,7 @@
 ## 빌드전 요구 사양
 
 * Windows 10 / Server 2012 R2 또는 최신 버전
-* Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 이상 - [무료로 VS 2017 Community Edition 다운로드](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 이상](http://www.python.org/download/releases/2.7/) 
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
