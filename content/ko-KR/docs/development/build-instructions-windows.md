@@ -5,7 +5,7 @@
 ## 빌드전 요구 사양
 
 * Windows 10 / Server 2012 R2 또는 최신 버전
-* Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 이상 - [무료로 VS 2017 Community Edition 다운로드](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 이상](http://www.python.org/download/releases/2.7/) 
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
@@ -59,17 +59,17 @@ Visual Studio가 업데이트까지 완벽하게 설치된 최신버전인지 �
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+간단하게 해당 디렉터리를 생성하면 [문제가 해결될 겁니다](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp는 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일이 아닙니다.
 
 Git Bash로 빌드 했을 때 이러한 에러가 발생할 수 있습니다. 반드시 PowerShell이나 VS2015 Command Prompt에서 빌드를 진행해야 합니다.
 
-### cannot create directory at '...': Filename too long
+### '...' 디렉토리를 만들 수 없습니다: 파일이름이 너무 깁니다
 
 node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
 
@@ -83,4 +83,4 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 ### ImportError: No module named win32file
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+`pywin32`이 설치되었는지 `pip install pywin32` 명령으로 확인해 보십시오.
