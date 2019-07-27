@@ -21,7 +21,7 @@ Crie uma nova pasta vazia para seu novo aplicativo em Electron. Abra seu termina
 npm init
 ```
 
-npm vai guiá-lo você para criação de um arquivo básico o `package.json`. O script especificado pelo campo `main` é o script de inicialização do seu app, que irá executar o processo principal. Um exemplo de como seu `package.json` possa parecer:
+npm vai guiá-lo para criação de um arquivo básico o `package.json`. O script especificado pelo campo `main` é o script de inicialização do seu app, que irá executar o processo principal. Um exemplo de como seu `package.json` possa parecer:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm vai guiá-lo você para criação de um arquivo básico o `package.json`. O 
 }
 ```
 
-Transformar esse aplicativo em Node para Electron é bastante simples - nós vamos substituir o termo `node` com para o runtime `electron`.
+Transformar esse aplicativo em Node para Electron é bastante simples - nós vamos substituir o termo `node` para o runtime `electron`.
 
 ```json
 {
@@ -59,7 +59,7 @@ Transformar esse aplicativo em Node para Electron é bastante simples - nós vam
 
 ## Instalando o Electron
 
-Nesse ponto, você precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, que permite você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
+Nesse ponto, você precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, permite que você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
 
 ```sh
 npm install --save-dev electron
@@ -81,7 +81,7 @@ O módulo de `electron` expõe recursos em namespaces. Como exemplos, o ciclo de
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Cria uma janela de navegação.
   let win = new BrowserWindow({
     width: 800,
     height: 600,
