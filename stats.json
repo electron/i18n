@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10592",
-    "translated": "6731",
-    "approved": "3132",
+    "translated": "6776",
+    "approved": "3184",
     "words": "97892",
-    "words_translated": "53369",
-    "words_approved": "27268",
+    "words_translated": "53537",
+    "words_approved": "27788",
     "translated_progress": 54,
-    "approved_progress": 27,
-    "qa_issues": 1331
+    "approved_progress": 28,
+    "qa_issues": 1312
   },
   {
     "name": "Spanish",
@@ -322,7 +322,7 @@
     "words_approved": "665",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1729
+    "qa_issues": 1730
   },
   {
     "name": "Vietnamese",
