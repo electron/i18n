@@ -1,12 +1,12 @@
 # contentTracing
 
-> Получайте данные трассировки из модуля содержимого (content module) Chromium для поиска узких мест производительности и медленных операций.
+> Собирает данные трассировки из содержимого модуля Chromium для поиска узких мест производительности и медленных операций.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 Этот модуль не включает веб-интерфейс, поэтому Вам необходимо открыть `chrome://tracing/` в браузере Chrome и загрузить сгенерированный файл для просмотра результатов.
 
-**Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
+**Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` модуля app не произошло.
 
 ```javascript
 const { app, contentTracing } = require('electron')
@@ -18,11 +18,11 @@ app.on('ready', () => {
   }
 
   contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+    console.log('Трассировка начата')
 
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
+        console.log('Трассирующие данные записаны в ' + path)
       })
     }, 5000)
   })
@@ -38,7 +38,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Получает набор групп категорий. Группы категорий могут меняться по мере достижения новых путей к коду.
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
@@ -48,7 +48,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Получает набор групп категорий. Группы категорий могут меняться по мере достижения новых путей к коду.
 
 ### `contentTracing.startRecording(options, callback)`
 
