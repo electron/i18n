@@ -40,7 +40,7 @@ app.on('ready', () => {
 
 Получает набор групп категорий. Группы категорий могут меняться по мере достижения новых путей к коду.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Как только все дочерние процессы признают запрос `getCategories`, `callback` вызывается с массивом групп категорий.
 
 **[Скоро устареет](promisification.md)**
 
