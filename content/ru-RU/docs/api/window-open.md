@@ -1,6 +1,6 @@
 # Функция `window.open`
 
-> Открыть новое окно и загрузить URL.
+> Открывает новое окно и загружает URL.
 
 When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
@@ -77,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// отрендерить процесс (mainWindow)
+// процесс рендера (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
