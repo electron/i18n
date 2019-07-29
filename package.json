@@ -21,7 +21,7 @@
     "cheerio": "^1.0.0-rc.2",
     "clean-deep": "^3.0.2",
     "crowdin-glossary": "^1.2.0",
-    "del": "^4.0.0",
+    "del": "^5.0.0",
     "dotenv-safe": "^6.0.0",
     "electron-docs": "^3.0.2",
     "get-crowdin-file-ids": "^1.1.1",
@@ -46,7 +46,7 @@
     "prettier": "^1.18.2",
     "ts-node": "^8.1.0",
     "typescript": "^3.5.1",
-    "walk-sync": "^1.1.3"
+    "walk-sync": "^2.0.2"
   },
   "scripts": {
     "collect": "ts-node script/collect.ts",
@@ -69,7 +69,7 @@
     "automerge": "ts-node ./script/automerge.ts"
   },
   "electronLatestStableTag": "v5.0.8",
-  "electronMasterBranchCommit": "bdd626f57ac8555d0e5fddbc1fdb32f170d0557b",
+  "electronMasterBranchCommit": "4e0e6154066f899768052b4e691c326e8224d954",
   "engines": {
     "node": ">=10"
   }
