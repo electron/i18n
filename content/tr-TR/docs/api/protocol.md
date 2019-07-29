@@ -49,8 +49,9 @@ Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğ
 
 Örneğin, özel protokollü aşağıdaki sayfayı yüklediğinizde, standart şema olarak kaydettiğinizde, resim yüklenmeyecektir çünkü standart olmayan şemalar göreceli URL'leri tanımlayamaz:
 
-```html<body>
-  <img src='test. png'>
+```html
+<body>
+  <img src='test.png'>
 </body>
 ```
 
