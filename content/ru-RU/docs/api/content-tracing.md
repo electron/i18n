@@ -1,12 +1,12 @@
 # contentTracing
 
-> Получайте данные трассировки из модуля содержимого (content module) Chromium для поиска узких мест производительности и медленных операций.
+> Собирает данные трассировки из содержимого модуля Chromium для поиска узких мест производительности и медленных операций.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 Этот модуль не включает веб-интерфейс, поэтому Вам необходимо открыть `chrome://tracing/` в браузере Chrome и загрузить сгенерированный файл для просмотра результатов.
 
-**Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
+**Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` модуля app не произошло.
 
 ```javascript
 const { app, contentTracing } = require('electron')
@@ -18,11 +18,11 @@ app.on('ready', () => {
   }
 
   contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+    console.log('Трассировка начата')
 
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
+        console.log('Трассирующие данные записаны в ' + path)
       })
     }, 5000)
   })
@@ -38,17 +38,17 @@ app.on('ready', () => {
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Получает набор групп категорий. Группы категорий могут меняться по мере достижения новых путей к коду.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Как только все дочерние процессы признают запрос `getCategories`, `callback` вызывается с массивом групп категорий.
 
 **[Скоро устареет](promisification.md)**
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+Возвращает `Promise<String[]>` - возвращает массив групп категорий, как только все дочерние процессы признают запрос `getCategories`
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Получает набор групп категорий. Группы категорий могут меняться по мере достижения новых путей к коду.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -57,7 +57,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Начинает запись во всех процессах.
 
-Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording. `callback` будет вызван, как только все дочерние процессы выполнили запрос `startRecording`.
+Запись начинается сразу локально и асинхронно на дочерних процессах как только они получат запрос на запись. `callback` будет вызываться, как только все дочерние процессы признают запрос `startRecording`.
 
 **[Скоро устареет](promisification.md)**
 
@@ -65,11 +65,11 @@ Get a set of category groups. The category groups can change as new code paths a
 
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+Возвращает `Promise<void>` - возвращается, как только все дочерние процессы признают запрос `startRecording`.
 
 Начинает запись во всех процессах.
 
-Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording.
+Запись начинается сразу локально и асинхронно на дочерних процессах как только они получат запрос на запись.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,11 +79,11 @@ Returns `Promise<void>` - resolved once all child processes have acknowledged th
 
 Останавливает запись во всех процессах.
 
-Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
+Дочерние процессы обычно кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в основной процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить у всех дочерних процессов очистить оставшиеся данные трассировки.
 
-Когда все дочерние процессы выполнили запрос `stopRecording`, вызывается `callback` с именем файла, который содержит данные трассировки.
+Когда все дочерние процессы признают запрос `stopRecording`, вызывается `callback` с именем файла, который содержит данные трассировки.
 
-Данные трассировки будут записаны в `resultFilePath` если он не пуст или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
+Данные трассировки будут записаны в `resultFilePath`, если он не пуст, или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
 
 **[Скоро устареет](promisification.md)**
 
@@ -91,13 +91,13 @@ Returns `Promise<void>` - resolved once all child processes have acknowledged th
 
 * `resultFilePath` String
 
-Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Возвращает `Promise<String>` - возвращает файл, который содержит данные трассировки, как только все дочерние процессы признают запрос `stopRecording`
 
 Останавливает запись во всех процессах.
 
-Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
+Дочерние процессы обычно кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в основной процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить у всех дочерних процессов очистить оставшиеся данные трассировки.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
+Данные трассировки будут записаны в `resultFilePath`, если он не пуст, или во временный файл.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
