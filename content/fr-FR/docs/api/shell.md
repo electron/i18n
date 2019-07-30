@@ -22,15 +22,15 @@ Le module `shell` dispose des méthodes suivantes :
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+Affiche le fichier donné dans un gestionnaire de fichier. Si possible, sélectionne le fichier.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Retourne `Boolean` - Si l'élément s'est bien ouvert.
 
-Open the given file in the desktop's default manner.
+Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternalSync(url[, options])`
 
@@ -43,7 +43,7 @@ Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-**Deprecated**
+**Déprécié **
 
 ### `shell.openExternal(url[, options])`
 
