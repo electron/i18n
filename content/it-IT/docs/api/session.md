@@ -289,7 +289,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Oggetto 
+* `options` Object 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -318,7 +318,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function 
   * `richiesta` Oggetto 
     * `hostname` String
-    * `certificate` [Certificato](structures/certificate.md)
+    * `certificato` [Certificato](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
   * `callback` Function 
