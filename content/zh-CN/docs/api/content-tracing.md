@@ -102,7 +102,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function 
-  * Object - 过滤器对象，包含过滤参数 
+  * Object 
     * `value` Number
     * `percentage` Number
 
