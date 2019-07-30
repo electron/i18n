@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Messages 
+Messages
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
