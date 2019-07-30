@@ -862,7 +862,7 @@ if (!gotTheLock) {
 
 戻り値 `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
+`infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
 `infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
 
@@ -991,11 +991,11 @@ Aboutパネルのオプションを設定します。 これは macOSの場合�
 
 ### `app.isEmojiPanelSupported`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+戻り値 `Boolean` - 現在の OS バージョンがネイティブの絵文字ピッカーを許可しているかどうか。
 
 ### `app.showEmojiPanel` *macOS* *Windows*
 
-Show the platform's native emoji picker.
+プラットフォームのネイティブの絵文字ピッカーを表示します。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
