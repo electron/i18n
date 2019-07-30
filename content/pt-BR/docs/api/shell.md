@@ -22,17 +22,15 @@ O módulo `shell` tem os seguintes métodos:
 
 * `fullPath` String
 
-Retorna `Boolean` - Se o item for mostrado com sucesso.
-
-Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, seleciona o arquivo.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Retorna `Boolean` - Se o item foi aberto com êxito.
+Returns `Boolean` - Whether the item was successfully opened.
 
-Abre o arquivo fornecido na maneira padrão da área de trabalho.
+Open the given file in the desktop's default manner.
 
 ### `shell.openExternalSync(url[, options])`
 
@@ -44,6 +42,8 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Deprecated**
 
 ### `shell.openExternal(url[, options])`
 
