@@ -327,7 +327,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 在页面中执行 `code`。 If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -483,7 +483,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 ### `<webview>.printToPDF(options)`
 
@@ -506,7 +506,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
