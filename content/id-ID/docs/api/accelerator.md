@@ -54,6 +54,7 @@ Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Menghapus`
 * `Menghapus`
 * `Memasukkan`
