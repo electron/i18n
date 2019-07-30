@@ -57,7 +57,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 向调试目标发送给定的命令。
 
-**[马上将弃用](promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
