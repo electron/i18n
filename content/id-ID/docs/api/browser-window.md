@@ -174,7 +174,7 @@ Pengenal akan dikelompokkan bersama.</li>
 Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat menggunakan <code> BrowserWindow.webContents.openDevTools () </ 0> untuk membuka DevTools. Defaultnya adalah <code>true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * ` nodeIntegrationInWorker` Boolean (opsional) - Apakah integrasi simpul diaktifkan pada pekerja web. Defaultnya adalah ` false </ 0> . Lebih lanjut tentang ini dapat ditemukan di <a href="../tutorial/multithreading.md">Multithreading</a>.</li>
-<li><code>nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
+<li><code>nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (opsional) - Menentukan skrip yang akan dimuat sebelum skrip lain dijalankan di halaman. Script ini akan selalu memiliki akses ke API simpul tidak peduli apakah integrasi node dinyalakan atau dimatikan. Nilainya harus jadilah path file absolut pada script. Saat integrasi simpul dimatikan, skrip preload dapat diperkenalkan kembali Simbol global node kembali ke lingkup global. Lihat contoh [di sini](process.md#event-loaded).
     * `kotak pasir` Boolean (opsional) - Jika disetel, ini akan menampilkan kotak pasir perender terkait dengan jendela, membuatnya kompatibel dengan Chromium Kotak pasir tingkat OS dan menonaktifkan mesin Node.js. Ini tidak sama dengan opsi `nodeIntegration` dan API tersedia untuk skrip pramuat lebih terbatas. Baca lebih lanjut tentang opsi [di sini](sandbox-option.md). **Catatan:** Pilihan ini saat ini eksperimental dan dapat berubah atau terjadi dihapus di rilis Elektron masa depan.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
@@ -188,39 +188,37 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
     * `gambar` Boolean (opsional) - Mengaktifkan dukungan gambar. Defaultnya adalah `true`.
     * `textAreasAreResizable` Boolean (opsional) - Buat elemen TextArea resizable. Default `true`.
     * `webgl` Boolean (opsional) - Mengaktifkan dukungan WebGL. Defaultnya adalah `true`.
-    * `webaudio` Boolean (opsional) - Mengaktifkan dukungan WebAudio. Defaultnya adalah `true`.
-    * `plugin` Boolean (opsional) - Apakah plugin harus diaktifkan Defaultnya adalah `false`.
-    * `experimentalFeatures` Boolean (opsional) - Mengaktifkan fitur eksperimental Chromium. Defaultnya adalah `false`.
-    * `scrollBounce` Boolean (opsional) - Mengaktifkan efek gulir gips (karet banding) macos Defaultnya adalah `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) mengajukan.
-    * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Menetapkan font default untuk font-family. 
-      * `standar` String (opsional) - Default ke `Times New Roman`.
-      * `serif` String (opsional) - Default ke `Times New Roman`.
-      * `sansSerif` String (opsional) - Default ke `Arial`.
-      * `monospace` String (opsional) - Default ke `Kurir Baru`.
-      * `cursive` String (opsional) - Default ke `Script`.
-      * `fantasy` String (opsional) - Default ke `Impact`.
-    * `defaultFontSize` Integer (opsional) - Default ke `16`.
-    * `defaultMonospaceFontSize` Integer (opsional) - Default ke `13`.
-    * `minimumFontSize` Integer (opsional) - Default ke `0`.
-    * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. This also affects the [Page Visibility API](#page-visibility). Default ke ` true </ 0> .</li>
-<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0>. Lihat
- tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
-<li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
-Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
-Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol.</li>
-<li><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Default ke ` false </ 0>. Child windows will always have node
-integration disabled. <strong>Note:</strong> This option is currently
-experimental.</li>
-<li><code> webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default ke ` false </ 0>. <strong> Catatan: </strong>
- <code> preload ` Script dikonfigurasi untuk `<webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan `<webview>` tag dengan mungkin ` preload ` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
+    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
+    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
+    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
+    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
+      * `standard` String (optional) - Defaults to `Times New Roman`.
+      * `serif` String (optional) - Defaults to `Times New Roman`.
+      * `sansSerif` String (optional) - Defaults to `Arial`.
+      * `monospace` String (optional) - Defaults to `Courier New`.
+      * `cursive` String (optional) - Defaults to `Script`.
+      * `fantasy` String (optional) - Defaults to `Impact`.
+    * `defaultFontSize` Integer (optional) - Defaults to `16`.
+    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
+    * `minimumFontSize` Integer (optional) - Defaults to `0`.
+    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
+    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Default ke ` false </ 0>. See the
+<a href="../tutorial/offscreen-rendering.md">offscreen rendering tutorial</a> for
+more details.</li>
+<li><code>contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Default ke ` false </ 0>. Child windows will always have node
+integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
+    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Default ke ` false </ 0>. <strong>Note:</strong> The
+<code>preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
 
@@ -869,11 +867,11 @@ height areas you have within the overall content view.</p>
                     
                     Kembali `Boolean` - Apakah jendela selalu di atas jendela lainnya.
                     
-                    #### ` win.moveTop () </ 0>  <em> macos </ 1>  <em> Windows </ 1></h4>
-
-<p>Moves window to top(z-order) regardless of focus</p>
-
-<h4><code>win.center()`
+                    #### `win.moveTop()`
+                    
+                    Moves window to top(z-order) regardless of focus
+                    
+                    #### `win.center()`
                     
                     Memindahkan jendela ke bagian tengah layar.
                     
@@ -1005,143 +1003,145 @@ bar will become gray when set to <code>true`.</p>
 </ul>
 
 <p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
-                            **[Deprecated Soon](promisification.md)**
+                            **[Deprecated Soon](modernization/promisification.md)**
                             
                             #### `win.capturePage([rect])`
                             
-                            * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</p></li>
-<li><p>Returns <code>Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
-                            
-                            Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-                            
-                            #### `win.loadURL (url [, options])`
-                            
-                            * `url` String
-                            * `pilihan` Objek (opsional) 
-                              * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-                              * `userAgent` String (opsional) - agen pengguna berasal permintaan.
-                              * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
-                              * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-                              * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
-                            
-                            Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
-                            
-                            Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
-                            
-                            `url` dapat berupa alamat jauh (misalnya `http://`) atau jalur ke lokal File HTML menggunakan protokol `file://`.
-                            
-                            Untuk memastikan bahwa file URL diformat, dianjurkan untuk menggunakan Node ini ` url.format </ 0> 
-Metode:</p>
+                            * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
+</ul>
 
-<pre><code class="javascript">biarkan url = require('url').format({
-  protokol: 'file',
-  garis miring: benar,
-  pathname: require ('path'). join(__ dirname, 'index.html')
-})
-
-win.loadURL(url)
-`</pre> 
-                            
-                            Anda dapat memuat URL menggunakan permintaan ` POST </ 0> dengan data yang dikodekan URL dengan melakukan hal berikut:</p>
-
-<pre><code class="javascript">win.loadURL ('http: // localhost: 8000 / post', {
-   postData: [{
-     type: 'rawData',
-     bytes: Buffer.from ('hello = world')
-   }],
-   extraHeaders: aplikasi 'Content-Type: / x-www-form-urlencoded '})
-`</pre> 
-                            
-                            #### `win.loadFile(filePath[, options])`
-                            
-                            * `fullPath` String
-                            * `pilihan` Objek (opsional) 
-                              * `query` Object (optional) - Passed to `url.format()`.
-                              * `search` String (optional) - Passed to `url.format()`.
-                              * `hash` String (optional) - Passed to `url.format()`.
-                            
-                            Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
-                            
-                            Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
-                            
-                            #### `win.reload ()`
-                            
-                            Sama seperti ` webContents.reload </ 0> .</p>
-
-<h4><code>win.setMenu(menu)` *Linux* *Windows*</h4> 
-                            
-                            * `menu` Menu | batal
-                            
-                            Sets the `menu` as the window's menu bar.
-                            
-                            #### `win.removeMenu()` *Linux* *Windows*
-                            
-                            Remove the window's menu bar.
-                            
-                            #### `win.setProgressBar (kemajuan [, pilihan])`
-                            
-                            * ` kemajuan ` Double
-                            * `pilihan` Objek (opsional) 
-                              * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
-                            
-                            Menetapkan nilai kemajuan di bilah kemajuan. Kisaran valid adalah [0, 1.0].
-                            
-                            Hapus bilah kemajuan saat kemajuan <0; Ubah ke mode tak tentu saat mencapai kemajuan> 1.
-                            
-                            Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` *.desktop ` ke ` desktopName ` di ` package.json `. Secara default, ini akan mengasumsikan ` app.getName (). Desktop </ 0> .</p>
-
-<p>Pada Windows , mode bisa dilewati. Nilai yang diterima adalah <code>none`, `normal`, `tak tentu`, `kesalahan`, dan `dijeda`. Jika Anda memanggil `setProgressBar` tanpa a mode set (tapi dengan nilai dalam kisaran yang valid), `normal` akan diasumsikan.
-                            
-                            #### `win.setOverlayIcon (overlay, deskripsi)` *Windows*
-                            
-                            * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-                            * `deskripsi` String - deskripsi yang akan diberikan pada Aksesibilitas pembaca layar
-                            
-                            Mengatur 16 x 16 piksel overlay ke ikon taskbar saat ini, biasanya digunakan untuk sampaikan semacam status aplikasi atau secara pasif memberitahukan pengguna.
-                            
-                            #### `win.setHasShadow (hasShadow)` *macos*
-                            
-                            * `hasShadow` Boolean
-                            
-                            Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
-                            
-                            #### `win.hasShadow()` *macos *
-                            
-                            Mengembalikan `Boolean` - Apakah jendela memiliki bayangan.
-                            
-                            Pada Windows dan Linux selalu kembali `benar`.
-                            
-                            #### `win.setOpacity(opacity)` *Windows* *macOS*
-                            
-                            * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
-                            
-                            Sets the opacity of the window. On Linux does nothing.
-                            
-                            #### `win.getOpacity()` *Windows* *macOS*
-                            
-                            Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
-                            
-                            #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
-                            
-                            * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
-                            
-                            Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
-                            
-                            #### `win.setThumbarButtons (tombol)` *Windows*
-                            
-                            * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
-                            
-                            Mengembalikan `Boolean` - Apakah tombol berhasil ditambahkan
-                            
-                            Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Mengembalikan objek `Boolean` apakah thumbnail telah berhasil ditambahkan.
-                            
-                            Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
-                            
-                            `Tombol` adalah array dari objek `Button`:
-                            
-                            * `Tombol` Obyek 
-                              * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
-                              * ` klik </ 0> Fungsi</li>
+<p>Returns <code>Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)</p> 
+                              Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+                              
+                              #### `win.loadURL (url [, options])`
+                              
+                              * `url` String
+                              * `pilihan` Objek (opsional) 
+                                * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+                                * `userAgent` String (opsional) - agen pengguna berasal permintaan.
+                                * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
+                                * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+                                * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
+                              
+                              Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+                              
+                              Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+                              
+                              The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+                              
+                              To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+                              
+                              ```javascript
+                              biarkan url = require('url').format({
+                                protokol: 'file',
+                                garis miring: benar,
+                                pathname: require ('path'). join(__ dirname, 'index.html')
+                              })
+                              
+                              win.loadURL(url)
+                              ```
+                              
+                              You can load a URL using a `POST` request with URL-encoded data by doing the following:
+                              
+                              ```javascript
+                              win.loadURL ('http: // localhost: 8000 / post', {
+                                 postData: [{
+                                   type: 'rawData',
+                                   bytes: Buffer.from ('hello = world')
+                                 }],
+                                 extraHeaders: aplikasi 'Content-Type: / x-www-form-urlencoded '})
+                              ```
+                              
+                              #### `win.loadFile(filePath[, options])`
+                              
+                              * `fullPath` String
+                              * `pilihan` Objek (opsional) 
+                                * `query` Object (optional) - Passed to `url.format()`.
+                                * `search` String (optional) - Passed to `url.format()`.
+                                * `hash` String (optional) - Passed to `url.format()`.
+                              
+                              Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+                              
+                              Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+                              
+                              #### `win.reload ()`
+                              
+                              Same as `webContents.reload`.
+                              
+                              #### `win.setMenu(menu)` *Linux* *Windows*
+                              
+                              * `menu` Menu | batal
+                              
+                              Sets the `menu` as the window's menu bar.
+                              
+                              #### `win.removeMenu()` *Linux* *Windows*
+                              
+                              Remove the window's menu bar.
+                              
+                              #### `win.setProgressBar (kemajuan [, pilihan])`
+                              
+                              * ` kemajuan ` Double
+                              * `pilihan` Objek (opsional) 
+                                * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+                              
+                              Sets progress value in progress bar. Valid range is [0, 1.0].
+                              
+                              Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+                              
+                              On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+                              
+                              On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+                              
+                              #### `win.setOverlayIcon (overlay, deskripsi)` *Windows*
+                              
+                              * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
+                              * `deskripsi` String - deskripsi yang akan diberikan pada Aksesibilitas pembaca layar
+                              
+                              Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+                              
+                              #### `win.setHasShadow (hasShadow)` *macos*
+                              
+                              * `hasShadow` Boolean
+                              
+                              Sets whether the window should have a shadow. On Windows and Linux does nothing.
+                              
+                              #### `win.hasShadow()` *macos *
+                              
+                              Returns `Boolean` - Whether the window has a shadow.
+                              
+                              On Windows and Linux always returns `true`.
+                              
+                              #### `win.setOpacity(opacity)` *Windows* *macOS*
+                              
+                              * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+                              
+                              Sets the opacity of the window. On Linux does nothing.
+                              
+                              #### `win.getOpacity()` *Windows* *macOS*
+                              
+                              Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+                              
+                              #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+                              
+                              * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+                              
+                              Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+                              
+                              #### `win.setThumbarButtons (tombol)` *Windows*
+                              
+                              * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
+                              
+                              Returns `Boolean` - Whether the buttons were added successfully
+                              
+                              Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+                              
+                              The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+                              
+                              The `buttons` is an array of `Button` objects:
+                              
+                              * `Tombol` Obyek 
+                                * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
+                                * ` klik </ 0> Fungsi</li>
 <li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
 <li><code> flag </ 0>  String [] (opsional) - Mengontrol keadaan dan perilaku tombol tertentu. Secara default, itu adalah <code> ['enabled'] </ 0> .</li>
 </ul></li>
@@ -1159,130 +1159,130 @@ win.loadURL(url)
 </ul>
 
 <h4><code>win.setThumbnailClip (wilayah)` *Windows*</h4> 
-                                * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
-                                
-                                Mengatur area jendela untuk ditampilkan saat gambar thumbnail ditampilkan saat melayang di atas jendela di taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
-                                
-                                #### `win.setThumbnailToolTip(toolTip)` *Windows*
-                                
-                                * `toolTip` String
-                                
-                                Menetapkan toolTip yang ditampilkan saat melayang di atas thumbnail jendela di taskbar.
-                                
-                                #### `win.setAppDetails(options)` *Windows*
-                                
-                                * `pilihan` Obyek 
-                                  * `appId` String (opsional) - jendela [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Itu harus diatur, jika tidak pilihan lain tidak akan berpengaruh.
-                                  * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-                                  * `appIconIndex` Bulat (opsional) - indeks ikon dalam `appIconPath`. Diabaikan ketika `appIconPath` tidak diatur. Default adalah `0`.
-                                  * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-                                  * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
-                                
-                                Mengatur properti untuk tombol taskbar jendela.
-                                
-                                **Catatan:** `relaunchCommand` dan `relaunchDisplayName` harus selalu diatur bersama-sama. Jika salah satu properti-properti tidak diset, maka tidak akan digunakan.
-                                
-                                #### `win.showDefinitionForSelection()` *macOS*
-                                
-                                Sama seperti `webContents.showDefinitionForSelection()`.
-                                
-                                #### `win.setIcon(icon)` *Windows* *Linux*
-                                
-                                * `ikon` [NativeImage](native-image.md)
-                                
-                                Ubah ikon jendela.
-                                
-                                #### `win.setWindowButtonVisibility(visible)` * macos*
-                                
-                                * `terlihat` Boolean
-                                
-                                Sets whether the window traffic light buttons should be visible.
-                                
-                                This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
-                                
-                                #### `win.setAutoHideMenuBar(hide)`
-                                
-                                * `Sembunyikan` Boolean
-                                
-                                Menetapkan apakah jendela menu bar harus menyembunyikan diri secara otomatis. Pernah mengatur menu bar hanya akan menunjukkan bila pengguna menekan tombol `Alt` tunggal.
-                                
-                                Jika bilah menu sudah terlihat, memanggil `setAutoHideMenuBar(true)` tidak menyembunyikan itu segera.
-                                
-                                #### `win.isMenuBarAutoHide()`
-                                
-                                Kembali `Boolean` - Apakah bilah menu secara otomatis menyembunyikan dirinya sendiri.
-                                
-                                #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
-                                
-                                * `terlihat` Boolean
-                                
-                                Menetapkan apakah menu bar harus terlihat. Jika auto-Sembunyikan menu bar, pengguna dapat masih memunculkan bilah menu dengan menekan tombol `Alt` tunggal.
-                                
-                                #### `win.isMenuBarVisible()`
-                                
-                                Kembali `Boolean` - Apakah menu bar terlihat.
-                                
-                                #### `win.setVisibleOnAllWorkspaces(visible[, options])`
-                                
-                                * `terlihat` Boolean
-                                * `pilihan` Objek (opsional) 
-                                  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
-                                
-                                Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
-                                
-                                **Catatan:** API ini tidak apa-apa pada Windows.
-                                
-                                #### `win.isVisibleOnAllWorkspaces()`
-                                
-                                Kembali `Boolean` - Apakah jendela terlihat pada semua workspace.
-                                
-                                **Catatan:** API ini selalu kembali palsu pada Windows.
-                                
-                                #### `win.setIgnoreMouseEvents(ignore[, options])`
-                                
-                                * `mengabaikan` Boolean
-                                * `pilihan` Objek (opsional) 
-                                  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
-                                
-                                Membuat jendela mengabaikan semua kejadian mouse.
-                                
-                                Semua kejadian mouse yang terjadi di jendela ini akan diteruskan ke jendela di bawah jendela ini, namun jika jendela ini fokus, masih akan ada acara keyboard.
-                                
-                                #### `win.setContentProtection(enable)` *macOS* *Windows*
-                                
-                                * `enable` Boolean
-                                
-                                Mencegah isi jendela ditangkap oleh aplikasi lain.
-                                
-                                On macOS itu set NSWindow sharingType untuk NSWindowSharingNone. Pada Windows itu panggilan SetWindowDisplayAffinity dengan `WDA_MONITOR`.
-                                
-                                #### `win.setFocusable(focusable)` *Windows*
-                                
-                                * `focusable` Boolean
-                                
-                                Perubahan apakah jendela bisa difokuskan.
-                                
-                                #### `win.setParentWindow(parent)`
-                                
-                                * `orang tua` BrowserWindow
-                                
-                                Set `orangtua` sebagai jendela aktif jendela induk, melewati `null` akan mengubah jendela ke jendela di tingkat atas.
-                                
-                                #### `win.getParentWindow()`
-                                
-                                Kembali `[BrowserWindow]` - semua jendela anak.
-                                
-                                #### `win.getChildWindows()`
-                                
-                                Kembali `[BrowserWindow]` - semua jendela anak.
-                                
-                                #### `win.setAutoHideCursor(autoHide)` *macOS*
-                                
-                                * `autoHide` Boolean
-                                
-                                Mengontrol apakah akan menyembunyikan kursor saat mengetik.
-                                
-                                #### ` win.selectPreviousTab () </ 0>  <em> macos </ 1></h4>
+                                  * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
+                                  
+                                  Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+                                  
+                                  #### `win.setThumbnailToolTip(toolTip)` *Windows*
+                                  
+                                  * `toolTip` String
+                                  
+                                  Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+                                  
+                                  #### `win.setAppDetails(options)` *Windows*
+                                  
+                                  * `pilihan` Obyek 
+                                    * `appId` String (opsional) - jendela [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Itu harus diatur, jika tidak pilihan lain tidak akan berpengaruh.
+                                    * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
+                                    * `appIconIndex` Bulat (opsional) - indeks ikon dalam `appIconPath`. Diabaikan ketika `appIconPath` tidak diatur. Default adalah `0`.
+                                    * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
+                                    * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
+                                  
+                                  Sets the properties for the window's taskbar button.
+                                  
+                                  **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+                                  
+                                  #### `win.showDefinitionForSelection()` *macOS*
+                                  
+                                  Same as `webContents.showDefinitionForSelection()`.
+                                  
+                                  #### `win.setIcon(icon)` *Windows* *Linux*
+                                  
+                                  * `ikon` [NativeImage](native-image.md)
+                                  
+                                  Changes window icon.
+                                  
+                                  #### `win.setWindowButtonVisibility(visible)` * macos*
+                                  
+                                  * `terlihat` Boolean
+                                  
+                                  Sets whether the window traffic light buttons should be visible.
+                                  
+                                  This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+                                  
+                                  #### `win.setAutoHideMenuBar(hide)`
+                                  
+                                  * `Sembunyikan` Boolean
+                                  
+                                  Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+                                  
+                                  If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+                                  
+                                  #### `win.isMenuBarAutoHide()`
+                                  
+                                  Returns `Boolean` - Whether menu bar automatically hides itself.
+                                  
+                                  #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+                                  
+                                  * `terlihat` Boolean
+                                  
+                                  Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+                                  
+                                  #### `win.isMenuBarVisible()`
+                                  
+                                  Returns `Boolean` - Whether the menu bar is visible.
+                                  
+                                  #### `win.setVisibleOnAllWorkspaces(visible[, options])`
+                                  
+                                  * `terlihat` Boolean
+                                  * `pilihan` Objek (opsional) 
+                                    * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+                                  
+                                  Sets whether the window should be visible on all workspaces.
+                                  
+                                  **Note:** This API does nothing on Windows.
+                                  
+                                  #### `win.isVisibleOnAllWorkspaces()`
+                                  
+                                  Returns `Boolean` - Whether the window is visible on all workspaces.
+                                  
+                                  **Note:** This API always returns false on Windows.
+                                  
+                                  #### `win.setIgnoreMouseEvents(ignore[, options])`
+                                  
+                                  * `mengabaikan` Boolean
+                                  * `pilihan` Objek (opsional) 
+                                    * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+                                  
+                                  Makes the window ignore all mouse events.
+                                  
+                                  All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+                                  
+                                  #### `win.setContentProtection(enable)` *macOS* *Windows*
+                                  
+                                  * `enable` Boolean
+                                  
+                                  Prevents the window contents from being captured by other apps.
+                                  
+                                  On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+                                  
+                                  #### `win.setFocusable(focusable)` *Windows*
+                                  
+                                  * `focusable` Boolean
+                                  
+                                  Changes whether the window can be focused.
+                                  
+                                  #### `win.setParentWindow(parent)`
+                                  
+                                  * `orang tua` BrowserWindow
+                                  
+                                  Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+                                  
+                                  #### `win.getParentWindow()`
+                                  
+                                  Returns `BrowserWindow` - The parent window.
+                                  
+                                  #### `win.getChildWindows()`
+                                  
+                                  Returns `BrowserWindow[]` - All child windows.
+                                  
+                                  #### `win.setAutoHideCursor(autoHide)` *macOS*
+                                  
+                                  * `autoHide` Boolean
+                                  
+                                  Controls whether to hide cursor when typing.
+                                  
+                                  #### ` win.selectPreviousTab () </ 0>  <em> macos </ 1></h4>
 
 <p>Selects the previous tab when native tabs are enabled and there are other
 tabs in the window.</p>
@@ -1308,43 +1308,64 @@ there is more than one tab in the current window.</p>
 there is only one tab in the current window.</p>
 
 <h4><code>win.addTabbedWindow(browserWindow)` * macos*
-                                
-                                * `browserWindow` BrowserWindow
-                                
-                                Adds a window as a tab on this window, after the tab for the window instance.
-                                
-                                #### `win.setVibrancy(type)` *macOS*
-                                
-                                * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) untuk rincian lebih lanjut.
-                                
-                                Menambahkan efek semangat ke jendela browser. Melewati `null` atau string kosong akan menghapus semangat efek pada jendela.
-                                
-                                #### `win.setTouchBar(touchBar)` *macOS* *Linux*
-                                
-                                * `touchBar` TouchBar
-                                
-                                Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
-                                
-                                **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
-                                
-                                #### `win.setBrowserView (browserView)` *Eksperimental*
-                                
-                                * `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
-                                #### `win.getBrowserView()` *Experimental*
-                                
-                                Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
-                                
-                                #### `win.addBrowserView(browserView)` *Experimental*
-                                
-                                * `browserView` [BrowserView](browser-view.md)
-                                
-                                Replacement API for setBrowserView supporting work with multi browser views.
-                                
-                                #### `win.removeBrowserView(browserView)` *Experimental*
-                                
-                                * `browserView` [BrowserView](browser-view.md)
-                                #### `win.getBrowserViews()` *Experimental*
-                                
-                                Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
-                                
-                                **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
+                                  
+                                  * `browserWindow` BrowserWindow
+                                  
+                                  Adds a window as a tab on this window, after the tab for the window instance.
+                                  
+                                  #### `win.setVibrancy(type)` *macOS*
+                                  
+                                  * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) untuk rincian lebih lanjut.
+                                  
+                                  Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+                                  
+                                  #### `win.setTouchBar(touchBar)` *macOS* *Linux*
+                                  
+                                  * `touchBar` TouchBar
+                                  
+                                  Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+                                  
+                                  **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+                                  
+                                  #### `win.setBrowserView (browserView)` *Eksperimental*
+                                  
+                                  * `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+                                  #### `win.getBrowserView()` *Experimental*
+                                  
+                                  Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+                                  
+                                  #### `win.addBrowserView(browserView)` *Experimental*
+                                  
+                                  * `browserView` [BrowserView](browser-view.md)
+                                  
+                                  Replacement API for setBrowserView supporting work with multi browser views.
+                                  
+                                  #### `win.removeBrowserView(browserView)` *Experimental*
+                                  
+                                  * `browserView` [BrowserView](browser-view.md)
+                                  #### `win.getBrowserViews()` *Experimental*
+                                  
+                                  Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+                                  
+                                  **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+                                  
+                                  ### Properti/peralatan
+                                  
+                                  #### `win.excludedFromShownWindowsMenu` *macOS*
+                                  
+                                  A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+                                  
+                                  ```js
+                                  const win = new BrowserWindow({ height: 600, width: 600 })
+                                  
+                                  const template = [
+                                    {
+                                      role: 'windowmenu'
+                                    }
+                                  ]
+                                  
+                                  win.excludedFromShownWindowsMenu = true
+                                  
+                                  const menu = Menu.buildFromTemplate(template)
+                                  Menu.setApplicationMenu(menu)
+                                  ```
