@@ -90,7 +90,7 @@ Füre das `menuItem` an der `pos` Position im Menü ein.
 
 ### Instanz Events
 
-Objekte welche mit `new Menu` erzeugt wurden emitieren folgende Events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
@@ -119,10 +119,6 @@ Emitiert wenn ein Popup manuell oder mit `menu.closePopup()` geschlossen wird.
 A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-
-### Instanz Events
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Beispiele
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -303,7 +302,7 @@ Template:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- 1
@@ -325,7 +324,7 @@ Template:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- 3
@@ -346,7 +345,7 @@ Template:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- ---
