@@ -170,7 +170,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `devTools` Boolean (opzionale) - Consente di abilitare gli strumenti di sviluppo. Se impostato su `false`, non sarà possibilite usare `BrowserWindow.webContents.openDevTools()` per aprire gli strumenti di sviluppo. Il valore predefinito è `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * `nodeIntegration` Boolean (opzionale) - Abilita le integrazioni con Node. Il valore predefinito è `true`. Il valore predefinito è `false`. Maggiori informazioni possono essere trovate su [Multithreading](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (opzionale) - Specifica uno script che verrà caricato prima che vengano eseguiti gli script della pagina. Questi script avranno sempre accesso alle API di Node, non importa se l'integrazione con Node è attivata o disattivata. Il valore dovrebbe essere il percorso assoluto del file allo script. Quando l'integrazione di Node è disattivata, lo script di `preload` può reintrodurre dei simboli di portata globale. Vedi l'esempio [qua](process.md#event-loaded).
     * `sandbox` Boolean (opzionale) - Se impostato, questo renderà sandbox il renderer associato alla finestra, rendendolo compatibile con Chromium Sandbox a livello di sistema operativo e disabilita il motore di Node.js. Questo non è uguale all'opzione `nodeIntegration` e le API disponibili per lo script di precaricamento sono più limitati. Maggiori informazioni sull'opzione [qui](sandbox-option.md). **Nota:** Questa opzione è attualmente sperimentale e potrebbe cambiare o essere rimossa nelle versioni future di Electron.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
@@ -184,7 +184,6 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `images` Boolean (opzionale) - Abilita il support alle immagini. Il valore predefinito è `true`.
     * ` textAreasAreResizable ` Boolean (opzionale) - Rende ridimensionabili gli elementi TextArea. Il valore predefinito è ` true`.
     * ` webgl ` Boolean (opzionale) - Abilita il supporto WebGL. L'impostazione predefinita è ` true `.
-    * ` webaudio ` Boolean (opzionale) - Abilita il supporto WebAudio. L'impostazione predefinita è ` true `.
     * ` plugins ` Boolean (opzionale) - Se i plug-in devono essere abilitati. Il valore predefinito è ` false`.
     * ` experimentalFeatures ` Boolean (opzionale): abilita le funzionalità sperimentali di Chromium. Il valore predefinito è ` false`.
     * ` scrollBounce ` Boolean (opzionale) - Abilita l'effetto bounce di scorrimento (effetto gomma) su macOS. Il valore predefinito è ` false`.
@@ -204,13 +203,14 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `backgroundThrottling` Boolean (opzionale) - Limita le animazioni e i timer quando la pagina è in background. Questo influenza anche il [ Page Visibility API](#page-visibility). Il valore predefinito è `true`.
     * `offscreen ` Boolean (opzionale): se abilitato permette il rendering fuori schermo per la finestra del browser. Il valore predefinito è `false`. Vedi il[ Tutorial per il rendering offscreen ](../tutorial/offscreen-rendering.md) per maggiori dettagli.
     * ` contextIsolation ` Boolean (opzionale): esegue le API Electron e lo script ` preload` specificato in un contesto JavaScript separato. Il valore predefinito è `false`. Il contesto in cui viene eseguito lo script ` preload ` continuerà ad avere accesso completo ai ` documenti ` e ` finestre `, ma verrà utilizzato il suo insieme di builtin JavaScript (` Array`, ` Object`, ` JSON `, ecc.) e sarà isolato da eventuali modifiche apportate all'ambiente globale dalla pagina caricata. Le API Electron saranno disponibili solo nello script ` preload` e non nella pagina caricata. Questa opzione dovrebbe essere usata quando il caricamento dei contenuti remoti sono potenzialmente non attendibili per garantire il contenuto caricato non può manomettere lo script ` preload` e tutte le API Electron in uso. Questa opzione utilizza la stessa tecnica utilizzata da [ Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). È possibile accedere a questo contesto negli strumenti di sviluppo selezionando La voce "Electron Isolated Context" nella casella combinata nella parte superiore della scheda Console.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Il valore predefinito è `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Il valore predefinito è `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (opzionale) - Abilita il [`<webview>` tag](webview-tag.md). Il valore predefinito è `false`. **Nota:** Lo script di `preload` configurato per la `<webview>` avrà la nodeIntegration abilitata quando viene eseguita, quindi è necessario garantire che il contenuto remoto/non attendibile non sia in grado di creare una `<webview>` con tag di `preload` potenzialmente dannosi. Puoi utilizzare l'evento `will-attach-webview ` su [webContents](web-contents.md) per rimuovere lo script ` preload` e per convalidare o modificare le impostazioni iniziali della `<webview>`.
     * `additionalArguments` String[] (opzionale) - Una lista di stringhe che saranno appese al `process.argv` nel processo di render di questa app. Utile per passare piccole bit di dati agli script di precaricamento del processo di renderer.
     * `safeDialogs` Boolean (opzionale): Se abilitata, attiva la protezione da dialog consecutivi stile browser. Il valore predefinito è `false`.
     * `safeDialogsMessage` String (opzionale) - Setta il messaggio da visualizzare quando viene attivata la protezione da dialog consecutiva. Se non definito verrà usato il messaggio predefinito, notare che il messaggio predefinito è in Inglese e non localizzato.
     * `navigateOnDragDrop` Boolean (opzionale) - Indica se trascinare e rilasciare un file o un collegamento sulla pagina causa una navigazione. Il valore predefinito è `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
 Quando si imposta la dimensione della finestra minima o massima con `minWidth` / `maxWidth ` / `minHeight` / `maxHeight`, limita l'utente. Non ti impedirà di farlo passando una dimensione che non segue vincoli dimensionali a `setBounds ` / ` setSize ` o al costruttore di `BrowserWindow `.
 
@@ -847,7 +847,7 @@ Imposta se la finestra finestra dovrebbe mostrarsi sempre più in alto delle alt
 
 Restituisce `Boolean` - Se la finestra è sempre più in alto delle altre finestre.
 
-#### `win.moveTop()` *macOS* *Windows*
+#### `win.moveTop()`
 
 Muove la finestra verso l'alto (ordine z) indipendentemente dal focus
 
@@ -977,13 +977,13 @@ Restituisce `Boolean` - Se il documento della finestra è stato modificato.
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - Le misure da ottenere
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -1317,3 +1317,24 @@ Replacement API for setBrowserView supporting work with multi browser views.
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
 **Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
+
+### Proprietà
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```
