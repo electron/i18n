@@ -66,11 +66,7 @@ El módulo `Tray` emite los siguientes eventos:
 
 #### Evento: "click"
 
-* `event` Event 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 * `position` [Point](structures/point.md) - La posición del evento.
 
@@ -78,22 +74,14 @@ Emitido cuando se hace clic en el icono de bandeja.
 
 #### Evento: "right-click"*macOS* *Windows*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace clic derecho en el icono de bandeja.
 
 #### Evento: "double-click"*macOS* *Windows*
 
-* `evento` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace doble clic en el icono de bandeja.
@@ -142,33 +130,21 @@ Emitido cuando termina una operación de arrastre en la bandeja o termina en otr
 
 #### Evento: 'mouse-enter' *macOS*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón entra en el icono de la bandeja.
 
 #### Evento: 'mouse-leave' *macOS*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
 #### Evento: 'mouse-move' *macOS*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Se emite cuando el ratón se mueve sobre el icono de la bandeja del sistema.
@@ -203,18 +179,26 @@ Configura la activación de texto para este icono de bandeja.
 
 * `title` Cadena
 
-Establece el título mostrado a un lado del icono de la bandeja en la barra de estado (Soporta colores ANSI).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` Cadena - Modo de resaltado con uno de los siguientes valores: 
-  * `selection` - Resalta el icono de la bandeja cuando se hace clic sobre él y también cuando se abre su menú de contexto. Esta es la opción por defecto.
-  * `always` - Siempre resalta el icono de la bandeja.
-  * `never` - Nunca resalta el icono de la bandeja.
+* `mode` String - Highlight mode with one of the following values: 
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Always highlight the tray icon.
+  * `never` - Never highlight the tray icon.
 
-Establece cuando se resalta (en azul) el fondo del icono de la bandeja.
+Sets when the tray's icon background becomes highlighted (in blue).
 
-**Nota:** Puede utilizarse `highlightMode` con una [`BrowserWindow`](browser-window.md) al alternar entre los modos `'never'` y `'always'` cuando la visibilidad de la ventana cambia.
+**[Deprecated](breaking-changes.md#tray)**
+
+**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -239,7 +223,7 @@ win.on('hide', () => {
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
-Este valor se establece en falso por defecto.
+This value is set to false by default.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
@@ -247,34 +231,34 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opciones` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
-  * `title` Cadena
+* `options` Objeto 
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `title` String
   * `content` String
 
-Muestra un globo de la bandeja.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (opcional)
-* `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-La `position` solo está disponible en Windows, y por defecto es (0, 0).
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Configura el menú de contexto para este icono.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-Los `bounds` de este icono de la bandeja como `Object`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
+Returns `Boolean` - Whether the tray icon is destroyed.
