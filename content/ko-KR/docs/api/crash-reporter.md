@@ -48,73 +48,56 @@ Or use a 3rd party hosted solution:
 
 **참고** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. 위와 똑같은 옵션에 추가로 충돌 보고서를 임시로 저장하는 디렉터리를 가리키는 `crashesDirectory` 값과 함께 전달합니다. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
 
-**참고:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
-
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-```js
-const args = [
-  `--reporter-url=${submitURL}`,
-  `--application-name=${productName}`,
-  `--crashes-directory=${crashesDirectory}`
-]
-const env = {
-  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-}
-spawn(process.execPath, args, {
-  env: env,
-  detached: true
-})
-```
-
-**참고:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. 충돌 보고를 사용 하려면, 주 프로세스에서 `crashReporter.start`를 사용하여, `crashpad`를 초기화 하는것이 어느 프로세스에서 충돌 수집을 하든 필요합니다. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. 아직 `crashReporter.start`를 렌더러나 자식 프로세스에서 호출하는 것이 필요합니다, 그렇지 않으면 `companyName`, `productName` 혹은 어느 `extra` 정보가 포함되지 않은 보고서가 제보될 것입니다.
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
-[`CrashReport`](structures/crash-report.md)를 반환합니다:
+Returns [`CrashReport`](structures/crash-report.md):
 
 Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 
-[`CrashReport[]`](structures/crash-report.md)를 반환합니다:
+Returns [`CrashReport[]`](structures/crash-report.md):
 
-업로드된 모든 충돌 보고서를 반환합니다. 각자의 보고서는 날짜와 업로드 ID를 포함합니다.
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
+### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
+**Note:** This API can only be called from the main process.
 
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+### `crashReporter.setUploadToServer(uploadToServer)`
 
 * `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
 
-주로 유저 설정에 의해 제어됩니다. `start`가 호출 되기 전에는 효과가 없습니다.
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
+**Note:** This API can only be called from the main process.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 * `value` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
-충돌 보고와 함께 보낼 추가 매개 변수를 지정합니다. 여기에 지정된 값은 `start`가 호출 됐을때 `extra` 옵션으로 지정한 값이 추가로 전송됩니다. 이 API는 macOS에서만 사용 가능합니다. `start`를 호출한 뒤에 매개 변수를 Linux 나 Windows에서 추가 및 수정하려면 수정된 `extra` 옵션으로 `start`를 다시 호출할 수 있습니다.
+Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS*
+### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
-현재 매개 변수 집합에서 추가 매개 변수가 제거되고 충돌 보고서와 같이 전송되지 않게 합니다.
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
 
 ### `crashReporter.getParameters()`
 
-충돌 보고서에 넘겨진 모든 매개 변수를 보여줍니다.
+See all of the current parameters being passed to the crash reporter.
 
 ## 충돌 보고서 탑재 내용
 
-충돌 보고서는 데이터를 `submitURL`에 `multipart/form-data` 형식으로 `POST` 방식의 요청을 보냅니다.
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
 * `ver` String - Electron의 버전입니다.
 * `platform` String - 예를 들어 'win32' 같은 값입니다.
