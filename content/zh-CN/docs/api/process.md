@@ -16,6 +16,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getSystemVersion()`
 * `getCPUUsage()`
 * `getIOCounters()`
 * `argv`
@@ -24,7 +25,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `沙盒化`
+* `sandboxed`
 * `type`
 * `version`
 * `versions`
@@ -151,11 +152,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getProcessMemoryInfo()`
 
-返回 ` Object `:
-
-* `residentSet`Integer*Linux*和*Windows* - 当前置顶的以 KB 为单位的物理内存数量。
-* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
-* `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
+Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
@@ -165,12 +162,26 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 返回 ` Object `:
 
-* `total` Integer - 系统可用的物理内存总量(Kb)。
-* `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* `swapTotal` Integer *Windows* *Linux* - 系统交换内存容量（单位：千字节）。
-* `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
+
+### `process.getSystemVersion()`
+
+Returns `String` - The version of the host operating system.
+
+示例：
+
+| Platform | Version             |
+| -------- | ------------------- |
+| macOS    | `10.13.6`           |
+| Windows  | `10.0.17763`        |
+| Linux    | `4.15.0-45-generic` |
+
+**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -182,10 +193,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-导致当前进程挂起的主线程。
+Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-将文件描述符的软限制设置为 ` maxDescriptors ` 或 OS 硬限制, 其中以当前进程较低的值为准。
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
