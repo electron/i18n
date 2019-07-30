@@ -305,7 +305,7 @@ window.webContents.session.enableNetworkEmulation({
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+//W celu symulacji awarii sieci.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
@@ -322,7 +322,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
   * `callback` Funkcja 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
+    * `verificationResult` Integer - Value can be one of certificate error codes from [tutaj](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indicates failure.
       * `-3` - Uses the verification result from chromium.
@@ -352,7 +352,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Funkcja 
     * `permissionGranted` Boolean - Allow or deny the permission.
-  * `details` Object - Some properties are only available on certain permission types. 
+  * `detale` Object - Some properties are only available on certain permission types. 
     * `externalURL` String (Optional) - The url of the `openExternal` request.
     * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -377,7 +377,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
-  * `details` Object - Some properties are only available on certain permission types. 
+  * `detale` Object - Some properties are only available on certain permission types. 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
     * `requestingUrl` String - The last URL the requesting frame loaded
