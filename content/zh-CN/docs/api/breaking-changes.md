@@ -6,6 +6,19 @@
 
 代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
+# 计划重写的 API (7.0)
+
+## `shell.openExternalSync(url[, options])`
+
+```js
+// Deprecated
+shell.openExternalSync(url)
+// Replace with
+async function openThing (url) {
+  await shell.openExternal(url)
+}
+```
+
 # 计划重写的 API (6.0)
 
 ## `win.setMenu(null)`
@@ -15,6 +28,19 @@
 win.setMenu(null)
 // 替换为
 win.removeMenu()
+```
+
+## `contentTracing.getTraceBufferUsage()`
+
+```js
+// Deprecated
+contentTracing.getTraceBufferUsage((percentage, value) => {
+  // do something
+})
+// Replace with
+contentTracing.getTraceBufferUsage().then(infoObject => {
+  // infoObject has percentage and value fields
+})
 ```
 
 ## 渲染进程中的 `electron.screen`
@@ -50,6 +76,34 @@ require('path')
 require('electron').remote.require('path')
 ```
 
+## `powerMonitor.querySystemIdleState`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+## `powerMonitor.querySystemIdleTime`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+## `Tray`
+
+Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+
+```js
+// Deprecated
+tray.setHighlightMode(mode)
+// API will be removed in v7.0 without replacement.
+```
+
 # 计划重写的 API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -74,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-使用 `nativeWindowOpen` 选项打开的子窗口将始终禁用 Node.js 集成。
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
 
 ## 带权限的 Scheme 注册
 
@@ -204,7 +258,7 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// 弃用
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -261,12 +315,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// 弃用
+// 过时的
 tray.setHighlightMode(true)
 // 替换为
 tray.setHighlightMode('on')
 
-// 弃用
+// 过时的
 tray.setHighlightMode(false)
 // 替换为
 tray.setHighlightMode('off')
@@ -319,7 +373,7 @@ webview.onkeyup = () => { /* handler */ }
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
-弃用: https://atom.io/download/atom-shell
+过时的: https://atom.io/download/atom-shell
 
 替换为: https://atom.io/download/electron
 

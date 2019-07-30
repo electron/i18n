@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 `details<code> ile bir çerez ataması yapar, tamamlandığında <code>callback(error)` çağırılır.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 `url` ve `name` ile eşleşen çerezleri siler, işlem tamamlandığında `callback`, `callback()` şeklinde çağırılır.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Yazılmamış çerezlerı disk'e yazar.
 
 Yazılmamış çerezlerı disk'e yazar.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**

@@ -66,11 +66,7 @@ Moduł `Tray` emituje następujące zdarzenia:
 
 #### Zdarzenie: 'click'
 
-* `wydarzenie` Wydarzenie 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
 
@@ -78,22 +74,14 @@ Emitted when the tray icon is clicked.
 
 #### Zdarzenie: 'right-click' *macOS* *Windows*
 
-* `wydarzenie` Wydarzenie 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is right clicked.
 
 #### Zdarzenie: 'double-click' *macOS* *Windows*
 
-* `wydarzenie` Wydarzenie 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is double clicked.
@@ -142,33 +130,21 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Zdarzenie: 'mouse-enter' *macOS*
 
-* `wydarzenie` Wydarzenie 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse enters the tray icon.
 
 #### Zdarzenie: 'mouse-leave' *macOS*
 
-* `wydarzenie` Wydarzenie 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse exits the tray icon.
 
 #### Zdarzenie: 'mouse-move' *macOS*
 
-* `wydarzenie` Wydarzenie 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse moves in the tray icon.
@@ -203,7 +179,13 @@ Ustawia tekst w dymku ikony w zasobniku systemowym.
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
   * `never` - Never highlight the tray icon.
 
 Sets when the tray's icon background becomes highlighted (in blue).
+
+**[Deprecated](breaking-changes.md#tray)**
 
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
@@ -248,7 +232,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (opcjonalne) -
   * `title` String
   * `content` String
 

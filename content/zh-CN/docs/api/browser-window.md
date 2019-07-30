@@ -170,7 +170,7 @@ child.once('ready-to-show', () => {
     * `devTools` Boolean (可选) - 是否开启 DevTools. 如果设置为 ` false `, 则无法使用 ` BrowserWindow.webContents.openDevTools () ` 打开 DevTools。 默认值为 `true`。
     * `nodeIntegration` Boolean (可选) - 是否集成Node，默认为`false`。
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
     * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
     * `enableRemoteModule` Boolean（可选）- 是否启用 [`Remote`](remote.md) 模块。 默认值为 `true`。
@@ -184,7 +184,6 @@ child.once('ready-to-show', () => {
     * `images` Boolean (可选) - 启动图像支持. 默认值为 `true`.
     * `textAreasAreResizable` Boolean (可选) - 让 TextArea 元素可以调整大小. 默认值为 `true`.
     * `webgl` Boolean (可选) - 启用 WebGL 支持. 默认值为 `true`.
-    * `webaudio` Boolean (可选) - 启用 WebAudio 支持. 默认值为 `true`.
     * `plugins` Boolean (可选) - 是否支持插件. 默认值为 `false`.
     * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实验功能. 默认值为 `false`.
     * `scrollBounce` Boolean (可选) - 在 macOS 启用弹力动画 (橡皮筋) 效果. 默认值为 `false`.
@@ -204,13 +203,14 @@ child.once('ready-to-show', () => {
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
-    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. 子窗口总是会禁用node模块 ** 注意: **此选项目前是实验性的。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. ** 注意: **此选项目前是实验性的。
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String\[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
     * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 缺省为`false`。
     * `safeDialogsMessage` String (可选) - 当持续对话框保护被触发时显示的消息。 如果没有定义，那么将使用缺省的消息。注意：当前缺省消息是英文，并没有本地化。
     * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -846,7 +846,7 @@ console.log(win.getBounds())
 
 返回 `Boolean` - 当前窗口是否始终在其它窗口之前.
 
-#### `win.moveTop()` *macOS* *Windows*
+#### `win.moveTop()`
 
 无论焦点如何, 将窗口移至顶端(z轴上的顺序).
 
@@ -976,13 +976,13 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[即将弃用](promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -1316,3 +1316,24 @@ Replacement API for setBrowserView supporting work with multi browser views.
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
+
+### 属性
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```

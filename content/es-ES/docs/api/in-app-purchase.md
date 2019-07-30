@@ -26,7 +26,18 @@ El módulo `inAppPurchase` tiene los siguientes métodos:
 * `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
 * `quantity` Integer (opcional) - El número de objetos que el usuario quiere comprar.
 * `callback` Función (opcional) - El callback llama cuando el pago se añade a la cola de pagos (PaymentQueue). 
-    * `isProductValid` Boleano - Determina si el producto es válido e se añade a la cola de pagos.
+  * `isProductValid` Boleano - Determina si el producto es válido e se añade a la cola de pagos.
+
+You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `inAppPurchase.purchaseProduct(productID, quantity)`
+
+* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `quantity` Integer (opcional) - El número de objetos que el usuario quiere comprar.
+
+Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
 You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
 
@@ -34,7 +45,17 @@ You should listen for the `transactions-updated` event as soon as possible and c
 
 * `productIDs` String[] - The identifiers of the products to get.
 * `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+  * `products` Product[] - Array of [`Product`](structures/product.md) objects
+
+Recupera las descripciones del producto.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `inAppPurchase.getProducts(productIDs)`
+
+* `productIDs` String[] - The identifiers of the products to get.
+
+Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
 Recupera las descripciones del producto.
 

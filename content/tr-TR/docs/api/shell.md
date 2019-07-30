@@ -22,8 +22,6 @@ The `shell` modülünün aşağıdaki yöntemleri vardır:
 
 * `fullPath` Dizgi
 
-`Boolean` Döndürür - Öğenin başarıyla gösterilip gösterilmediği.
-
 Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı seçin.
 
 ### `shell.openItem(fullPath)`
@@ -44,6 +42,8 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Kullanımdan kaldırıldı**
 
 ### `shell.openExternal(url[, options])`
 

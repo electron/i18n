@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Proces: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 

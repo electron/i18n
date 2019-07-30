@@ -6,6 +6,19 @@
 
 Стрічки `FIXME` використовуються в коментарях коду для маркування речей, які мають бути виправлені для майбутній релізів. Дивіться https://github.com/electron/electron/search?q=fixme
 
+# Заплановані Зміни API (7.0)
+
+## `shell.openExternalSync(url[, options])`
+
+```js
+// Deprecated
+shell.openExternalSync(url)
+// Replace with
+async function openThing (url) {
+  await shell.openExternal(url)
+}
+```
+
 # Заплановані Зміни API (6.0)
 
 ## `win.setMenu(null)`
@@ -15,6 +28,19 @@
 win.setMenu(null)
 // Замініть на
 win.removeMenu()
+```
+
+## `contentTracing.getTraceBufferUsage()`
+
+```js
+// Deprecated
+contentTracing.getTraceBufferUsage((percentage, value) => {
+  // do something
+})
+// Replace with
+contentTracing.getTraceBufferUsage().then(infoObject => {
+  // infoObject has percentage and value fields
+})
 ```
 
 ## `electron.screen` в процесі рендеру
@@ -50,6 +76,34 @@ require('path')
 require('electron').remote.require('path')
 ```
 
+## `powerMonitor.querySystemIdleState`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+## `powerMonitor.querySystemIdleTime`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+## `Tray`
+
+Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+
+```js
+// Deprecated
+tray.setHighlightMode(mode)
+// API will be removed in v7.0 without replacement.
+```
+
 # Заплановані Зміни API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -74,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Дочірні вікна, які відкриваються з опцією `nativeWindowOpen` завжди будуть мати відключену інтеграцію з Node.js.
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
 
 ## Реєстрація Привілейованих Схем
 

@@ -120,6 +120,15 @@ Mengembalikan ` gambar asli </ 0></p>
  console.log(gambar)
  ```
  
+ ### `nativeImage.createFromBitmap(buffer, options)`
+ 
+ * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+ * `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+ 
+ Mengembalikan ` gambar asli </ 0></p>
+
+<p>Creates a new <code>NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+ 
  ### `nativeImage.createFromBuffer(buffer[, pilihan])`
  
  * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
@@ -127,7 +136,7 @@ Mengembalikan ` gambar asli </ 0></p>
  
  Mengembalikan ` gambar asli </ 0></p>
 
-<p>Membuat contoh<code>gambar baru` baru dari `penyangga`.
+<p>Creates a new <code>NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
  
  ### `gambar asli.buatdaridataURL(dataURL)`
  

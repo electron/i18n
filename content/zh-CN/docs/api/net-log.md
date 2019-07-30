@@ -7,12 +7,11 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
 
@@ -32,6 +31,14 @@ app.on('ready', function () {
 
 * `callback` Function (可选) 
   * `path` String - 记录网络日志的文件路径。
+
+停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
+
+**[即将弃用](modernization/promisification.md)**
+
+### `netLog.stopLogging()`
+
+Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 

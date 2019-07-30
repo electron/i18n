@@ -26,7 +26,18 @@
 * `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
 * `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 
-    * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
+  * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
+
+`purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
+
+**[非推奨予定](modernization/promisification.md)**
+
+### `inAppPurchase.purchaseProduct(productID, quantity)`
+
+* `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
+* `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
+
+Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
 `purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
 
@@ -34,7 +45,17 @@
 
 * `productIDs` String[] - 取得する製品の識別子。
 * `callback` Function - コールバックは製品のリストで呼ばれます。製品が存在しない場合は空の配列です。 
-    * `products` Product[] - [`Product`](structures/product.md) オブジェクトの配列。
+  * `products` Product[] - [`Product`](structures/product.md) オブジェクトの配列。
+
+製品説明を探します。
+
+**[非推奨予定](modernization/promisification.md)**
+
+### `inAppPurchase.getProducts(productIDs)`
+
+* `productIDs` String[] - 取得する製品の識別子。
+
+Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
 製品説明を探します。
 

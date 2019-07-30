@@ -52,6 +52,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Retroceso`
 * `Delete`
 * `Insert`

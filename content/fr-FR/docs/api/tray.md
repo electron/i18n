@@ -66,11 +66,7 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 * `position` [Point](structures/point.md) - la position de l’événement.
 
@@ -78,22 +74,14 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
 #### Événement : 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur double clique sur l’icône.
@@ -142,33 +130,21 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
 #### Événement : 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris sort de la zone de l’icône.
 
 #### Événement : 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris bouge dans la zone de l’icône.
@@ -203,7 +179,13 @@ Définit le texte au survol pour l'icône.
 
 * `title` String
 
-Définit le titre affiché à côté de l’icône dans la barre d’État (Supporte les couleurs ANSI).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ Définit le titre affiché à côté de l’icône dans la barre d’État (Supp
   * `never` - Jamais mettre en surbrillance l’icône.
 
 Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
+
+**[Déprécié ](breaking-changes.md#tray)**
 
 **Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
 

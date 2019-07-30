@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(error)` na kumpleto.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawag na may `callback()` kung kumpleto.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.
 
 Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**

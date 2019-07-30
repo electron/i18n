@@ -22,8 +22,6 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-戻り値 `Boolean` - アイテムが正常に表示されているかどうか.
-
 指定したファイルをファイルマネージャに表示します。可能であれば、ファイルを選択します。
 
 ### `shell.openItem(fullPath)`
@@ -44,6 +42,8 @@ shell.openExternal('https://github.com')
 戻り値 `Boolean` - URL を開くためにアプリケーションが利用可能かどうか。
 
 デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
+
+**非推奨**
 
 ### `shell.openExternal(url[, options])`
 

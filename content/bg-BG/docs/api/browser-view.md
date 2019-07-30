@@ -75,6 +75,8 @@ view.webContents.loadURL('https://electronjs.org')
 * `опции` Object 
   * `width` Boolean - Ако е `true`, дължината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
   * `height` Boolean - Ако е `true`, ширината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 

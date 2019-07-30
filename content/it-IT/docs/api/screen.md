@@ -2,11 +2,9 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
+Processo: [Main](../glossary.md#main-process)
 
 Non puoi richiedere o usare questo modulo finchè l'evento `pronto` del modulo `app` non è emesso.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -143,6 +141,6 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
 
-Restituisce [`Rectangle`](structures/rectangle.md)
+Ritorna [`Rectangle`](structures/rectangle.md)
 
 Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

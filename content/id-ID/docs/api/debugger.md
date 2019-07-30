@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Metode Instance
+### Методы экземпляра
 
 #### `debugger.melmpirkan ( [protocolVersion] )`
 
@@ -60,7 +60,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 <p>Kirim perintah yang diberikan ke target debugging.</p>
 
-<p><strong><a href="promisification.md">Deprecated Soon</a></strong></p>
+<p><strong><a href="modernization/promisification.md">Deprecated Soon</a></strong></p>
 
 <h4><code>debugger.sendCommand(method[, commandParams])`</h4> 
       * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).

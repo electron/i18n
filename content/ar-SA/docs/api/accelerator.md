@@ -52,6 +52,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `التبويب`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `امسح حرف`
 * `حذف`
 * `إدخال`

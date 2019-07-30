@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### Etkinlik: 'enter-html-full-screen'
+
+Pencere, HTML API'sı tarafından tetiklenen bir tam ekran haline girdiğinde dışarı çıkar.
+
+#### Etkinlik: 'leave-html-full-screen'
+
+Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldığında dışarı çıkar.
+
 #### Olay: devtools açıldı
 
 DevTools açıldığında yayınla.
@@ -850,6 +858,12 @@ Bu sayfa için olan kullanıcı aracını geçersiz kılar.
 
 Yürürlükteki web sayfasına CSS ekler.
 
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
+
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` Dizgi
@@ -863,7 +877,25 @@ Sayfadaki `code`'u ölçer.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
+  })
+```
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `code` Dizgi
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Sayfadaki `code`'u ölçer.
+
+Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1034,29 +1066,15 @@ console.log(requestId)
 
 `rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-
-#### `contents.hasServiceWorker(callback)`
-
-* `geri aramak` Function 
-  * `hasWorker` Boolean
-
-Herhangi bir ServiceWorker kaydı olup olmadığını kontrol eder ve `callback`'e yanıt olarak bir boolean dönütü verir.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `geri aramak` Function 
-  * `success` Boolean
-
-Olan bütün ServiceWorker'ların kaydını siler ve JS promise çözüldüğünde veya reddedildiğinde, `callback`'e cevap olarak bir boolean döner.
 
 #### `contents.getPrinters()`
 
@@ -1094,6 +1112,21 @@ Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stili
 Penceredeki web sayfasını Chromiumun özel yazdırma ayarları önizlemesiyle PDF olarak yazdırır.
 
 İşlem tamamlandığında `callback`, `callback(error, data)` ile birlikte çağrılacaktır. `data` oluşturulan PDF'in verisini içeren bir `Buffer`'dır.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.printToPDF(options)`
+
+* `seçenekler` Nesne 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Penceredeki web sayfasını Chromiumun özel yazdırma ayarları önizlemesiyle PDF olarak yazdırır.
 
 Eğer sayfada `@page` CSS kuralı (CSS at-rule) kullanıldıysa, `landscape` görmezden gelinecektir.
 
@@ -1241,6 +1274,10 @@ Geliştirme araçlarına geçiş yapar.
 
 (`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
 
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
+
 #### `contents.inspectServiceWorker()`
 
 Servis işçisisi bağlamı için geliştirici araçları açar.
@@ -1386,17 +1423,15 @@ End subscribing for frame presentation events.
 
 Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olarak ayarlar; `file` dosyanın sürükleneceği değişmez dosya yoludur ve `icon` sürükleme sırasında imlecin altında gösterilecek olan görüntüdür.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - Tam dosya yolu.
 * `saveType` String - Kayıt türünü belirtir. 
   * `HTMLOnly` - Yalnızca sayfanın HTML'ını kaydeder.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `geri aramak` Function - `(error) => {}`. 
-  * `error` Error
 
-Eğer sayfayı kaydetme işlemi başarıyla gerçekleştirilirse `Boolean` - true döner.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```

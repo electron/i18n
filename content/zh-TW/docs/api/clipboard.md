@@ -4,8 +4,6 @@
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
 下列範例展示如何將字串寫進剪貼簿:
 
 ```javascript

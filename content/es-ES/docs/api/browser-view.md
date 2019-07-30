@@ -75,6 +75,8 @@ Devuelve `Boolean` - Si la vista ha sido destruida.
 * `options` Object 
   * `width` Boolean - Si es `true`, la anchura de la vista se expandirá y se encogerá con la ventana. Por defecto es `false`.
   * `height` Boolean - Si es `true`, la altura de la vista se expandirá y se encogerá junto a la ventana. Por defecto es `false`.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 

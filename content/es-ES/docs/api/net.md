@@ -13,9 +13,9 @@ La siguiente es una lista no completa de por qué debería considerar usar el m�
 * Soportar los proxies de autentificación usando basic, digest, NTLM, Kerberos, o negociar esquemas de autentificación.
 * Soporta proxies para monitoreo de tráfico: Fiddler como proxies usados para el acceso, el control y el monitoreo.
 
-El módulo API `net` ha sido diseñado específicamente para parecerse lo más posible al API familiar al Node.js. Los componentes API incluyen clases, métodos, propiedades y eventos. Nombres son parecidos a esos usados comúnmente en Node.js.
+The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-Por ejemplo, el siguiente ejemplo mostrádo rápidamente muestra como la API `net` debe ser usada:
+Example usage:
 
 ```javascript
 const { app } = require('electron')
@@ -35,8 +35,6 @@ app.on('ready', () => {
   request.end()
 })
 ```
-
-Por cierto, es casi idéntico a como usted usaría normalmente los módulos de Node.js [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html)
 
 La API `net` puede ser usada solo después de que la aplicación emite el evento `ready`. Tratar de usar el módulo antes del evento `ready` arrojará un error.
 

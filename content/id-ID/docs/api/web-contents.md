@@ -325,6 +325,14 @@ win.webContents.on ('before-input-event', (event, input) => { // Sebagai contoh,
 })
 ```
 
+#### Acara : 'enter-html-full-screen'
+
+Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.
+
+#### Acara : 'leave-html-full-screen'
+
+Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
+
 #### Event: 'devtools-dibuka'
 
 Emitted saat DevTools dibuka.
@@ -833,6 +841,12 @@ Pengembalian:
     
     Menyuntikkan CSS ke dalam halaman web saat ini.
     
+    ```js
+    contents.on('did-finish-load', function () {
+      contents.insertCSS('html, body { background-color: #f00; }')
+    })
+    ```
+    
     #### `contents.executeJavaScript(kode[, userGesture, callback])`
     
     * `id` String
@@ -846,7 +860,25 @@ Pengembalian:
     
     Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
     
-    If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+    ```js
+    isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). kemudian (resp => resp.json())', true)
+      .Kemudian ((hasil) => {
+        console.log (result) // Akan menjadi objek JSON dari fetch call
+      })
+    ```
+    
+    **[Deprecated Soon](modernization/promisification.md)**
+    
+    #### `contents.executeJavaScript(code[, userGesture])`
+    
+    * `id` String
+    * `userGesture` Boolean (opsional) - Default adalah `false`.
+    
+    Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+    
+    Evaluasi `kode` di halaman.
+    
+    Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
     
     ```js
     isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). kemudian (resp => resp.json())', true)
@@ -1012,29 +1044,15 @@ Pengembalian:
 </ul>
 
 <p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
-        **[Deprecated Soon](promisification.md)**
+        **[Deprecated Soon](modernization/promisification.md)**
         
         #### `contents.capturePage([rect])`
         
         * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
         
-        * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+        Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
         
         Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-        
-        #### `isi.hasServiceWorker(callback)`
-        
-        * `callback` Fungsi 
-          * `hasWorker` Boolean
-        
-        Memeriksa apakah ada ServiceWorker yang terdaftar dan mengembalikan boolean sebagai respon terhadap `callback`.
-        
-        #### `contents.unregisterServiceWorker(callback)`
-        
-        * `callback` Fungsi 
-          * `sukses` Boolean
-        
-        Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
         
         #### `konten.mendapatkanpercetakan()`
         
@@ -1072,6 +1090,21 @@ Pengembalian:
         Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
         
         The `callback` akan dipanggil dengan `callback(error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
+        
+        **[Deprecated Soon](modernization/promisification.md)**
+        
+        #### `contents.printToPDF(options)`
+        
+        * `pilihan` Obyek 
+          * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+          * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+          * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+          * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+          * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+        
+        Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+        
+        Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
         
         The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
         
@@ -1193,6 +1226,10 @@ Pengembalian:
             * `y` Integer
             
             Mulai memeriksa elemen pada posisi (`x`, `y`).
+            
+            #### `contents.inspectSharedWorker()`
+            
+            Opens the developer tools for the shared worker context.
             
             #### `konten.inspectServiceWorker()`
             
@@ -1339,20 +1376,29 @@ Pengembalian:
                 
                 Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
                 
-                #### `contents.savePage (fullPath, saveType, callback)`
+                #### `contents.savePage(fullPath, saveType)`
                 
                 * `fullPath` String - Jalur file lengkap.
                 * `saveType` String - Specify the save type. 
                   * `HTMLOnly` - Simpan hanya HTML halaman.
                   * `HTMLComplete` - Simpan halaman lengkap-html.
                   * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
-                * `callback` Function - `(error) => {}`. 
-                  * Kesalahan `kesalahan`
                 
-                Mengembalikan `Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.
+                Returns `Promise<void>` - resolves if the page is saved.
                 
                 ```javascript
-                const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
+                const { BrowserWindow } = require('electron')
+                let win = new BrowserWindow()
+                
+                win.loadURL('https://github.com')
+                
+                win.webContents.on('did-finish-load', async () => {
+                  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+                    console.log('Page was saved successfully.')
+                  }).catch(err => {
+                    console.log(err)
+                  })
+                })
                 ```
                 
                 #### `contents.showDefinitionForSelection()` *macos*

@@ -78,14 +78,6 @@ Pag-aatas `src` sa kanyang sariling balyu ay pagreload ng kasalukuyang pahina.
 
 Ang `src` katangian ay maaring ding tumanggap ng mga datos sa URL, tulad ng `datos:text/plain,Hello,world!`.
 
-### `autosize`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-Habang ang katangian na ito ay naroroon sa `webview` kontayner ay magiging awtomatikong magbago ng laki sa loob ng hangganan na tinutukoy sa mga katangian `minwidth`, `minheight`. `maxwidth`, at `maxheight`. Mga limitasong hindi makakaapekto sa `webview` maliban `autosize` ay pinagana. Habang ang `autosize` ay pinagana, ang `webview` kontayner na laki ay hindi maging mababa kaysa sa minimum na balyos o hindi tataas sa pinakamataas.
-
 ### `nodeintegration`
 
 ```html
@@ -108,7 +100,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `plugins`
 
@@ -224,6 +216,8 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+
 Kakargahin ang `url` sa webview, ang `url` ay dapat magkaroon ng protokol na panlapi, e.g ang `http://` or `file://`.
 
 ### `<webview>.downloadURL(url)`
@@ -329,6 +323,19 @@ Paglagay ng CSS sa pahina ng panauhin.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
   * `result` Any
 
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Sinusuri ang mga `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (optional) - Default `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
 Sinusuri ang mga `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
 
 ### `<webview>.openDevTools()`
@@ -353,6 +360,10 @@ Nagbabalik `Boolean` - Kung saan ang bintana ng DevTools ay ang pahina ng panauh
 * `y` Integer
 
 Naguumpisa sa pagsusi sa mga elemnto sa posisyon (`x`, `y`) sa pahina ng panauhin.
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -466,11 +477,26 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
 Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printToPDF(options, callback)`.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `<webview>.printToPDF(options)`
+
+* `options` Bagay 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -480,13 +506,13 @@ Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printTo
 
 Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -550,6 +576,10 @@ Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa pag
 Bumalik sa [`WebContents`](web-contents.md) - Ang laman ng web ay naka-ugnay sa `webview`.
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
 
 ## Mga event ng DOM
 
@@ -684,10 +714,10 @@ Ang mga sumusunod na halimbawa na code ay nagbubukas ng bagong url sa nakadefaul
 const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
-webview.addEventListener('new-window', (e) => {
+webview.addEventListener('new-window', async (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternalSync(e.url)
+    await shell.openExternal(e.url)
   }
 })
 ```

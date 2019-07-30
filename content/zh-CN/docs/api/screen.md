@@ -2,11 +2,9 @@
 
 > 检索有关屏幕大小、显示器、光标位置等的信息。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程：[主进程](../glossary.md#main-process)
 
 在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
-
-在渲染进程中传值取决于[`remote`](remote.md)模块，因此在这个模块禁用时无法使用
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 

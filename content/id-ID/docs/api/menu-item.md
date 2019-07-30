@@ -12,7 +12,7 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `klik` Fungsi (opsional) - akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
-    * `acara` Acara
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `jenis` String (opsional) - dapat `normal`, `pemisah`, `submenu`, `kotak centang` atau `radio`.
   * `label` String (optional)
@@ -20,6 +20,7 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `Accelerator` [Accelerator](accelerator.md) (opsional)
   * `ikon` ([NativeImage](native-image.md) | String) (opsional)
   * `diaktifkan` Boolean (opsional) - jika palsu, menu item akan diklik keluar dan unclickable.
+  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
   * `terlihat` Boolean (opsional) - jika palsu, menu item akan sepenuhnya tersembunyi.
   * `memeriksa` Boolean (opsional) - harus hanya ditentukan untuk `centang` atau `radio` jenis item menu.
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
@@ -29,6 +30,8 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
 
 ### Peran
 
@@ -107,8 +110,8 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event</ 0> Acara</li>
-<li><code>focusedWindow` [BrowserWindow](browser-window.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 
 #### `menuItem.submenu`

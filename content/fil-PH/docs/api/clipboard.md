@@ -4,8 +4,6 @@
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
 Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 
 ```javascript

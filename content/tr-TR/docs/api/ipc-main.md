@@ -8,7 +8,7 @@
 
 ## Mesaj gönderiliyor
 
-Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) komutuna bakınız.
+It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
@@ -48,14 +48,18 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` Fonksyion 
+  * `event` IpcMainEvent
+  * `...args` herhangi[]
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` fonksiyon
+* `listener` Fonksiyon 
+  * `event` IpcMainEvent
+  * `...args` herhangi[]
 
 Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
@@ -74,20 +78,4 @@ Belirtilen `kanalın` dinleyicilerini kaldırır.
 
 ## Etkinlik objesi
 
-`geri çağırma`'ya iletilen `olay` nesnesi aşağıdaki yöntemleri içerir:
-
-### `event.frameId`
-
-An `Integer` representing the ID of the renderer frame that sent this message.
-
-### `event.returnValue`
-
-Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
-
-### `event.sender`
-
-İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)' e bakabilirsiniz.
-
-### `event.reply`
-
-A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.

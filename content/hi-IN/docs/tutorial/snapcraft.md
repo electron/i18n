@@ -99,7 +99,6 @@ parts:
       - desktop-gtk3
     stage-packages:
       - libasound2
-      - libgconf2-4
       - libnotify4
       - libnspr4
       - libnss3
@@ -117,8 +116,8 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # क्रोमियम फ्रेमवर्क/इलेक्ट्रॉन के लिए TMPDIR पथ सही करें ताकि यह सुनिश्चित किया जा सके
-    # libappindicator के पास पढ़े जाने योग्य संसाधन उपलब्ध हो |
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+    # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```

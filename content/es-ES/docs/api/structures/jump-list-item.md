@@ -1,6 +1,6 @@
 # Objeto JumpListItem
 
-* `tipo` String (opcional) - Una de los siguientes: 
+* `type` String (opcional) - Una de los siguientes: 
   * `tarea` - Una tarea lanzará una aplicación con un argumento específico.
   * `separador` - Puede ser usado para separar items en la categoría estándar `Tarea`.
   * `file` - Un link de un archivo abrirá uno usando la aplicación que creó el salto de lista, para que esto funciona la aplicación debe estar registrada como controlador del tipo de archivo (A pesar de que no tiene que ser el controlador por defecto).
@@ -11,3 +11,4 @@
 * `descripción` Cadena (opcional) - Descripción de la tarea (mostrado en un tip de la herramienta). Debe ser configurado solo si `tipo` es `tarea`.
 * `iconPath` Cadena (opcional) - La ruta total a un ícono a ser mostrado en la lista, que puede ser un archivo arbitrario que contenga un ícono (e.g. `.ico`, `.exe`, `.dll`). Puede especificar `process.execPath` Para mostrar el ícono del programa.
 * `iconIndex` Numero (opcional) - El serial del ícono en el archivo de recursos. Si un archivo de recursos contiene múltiples íconos este valor puede ser utilizado para especificar el índice basado en cero que debe ser mostrado en esta tarea. Si un archivo de recurso contiene solamente un ícono, este debe ser puesto en cero.
+* `workingDirectory` String (optional) - The working directory. Default is empty.

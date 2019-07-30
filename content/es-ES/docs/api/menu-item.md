@@ -12,7 +12,7 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `click` Function (opcional) - Será llamada con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
-    * `event` Event
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (opcional) - Puede ser `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` o `windowMenu` - Define la acción del elemento del menú, cuando sea especificada la propiedad `clic` será ignorada. Ver [roles](#roles).
   * `type` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `label` String (opcional)
@@ -20,6 +20,7 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `accelerator` [Accelerator](accelerator.md) (opcional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
+  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
@@ -29,6 +30,8 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
 
 ### Roles
 
@@ -107,7 +110,7 @@ Un `String` indicando la etiqueta visible del elemento, esta propiedad puede ser
 
 Un `Función` que se activa cuando el MenuItem recibe un evento de clic. Puede ser llamado con `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event` Evento
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 

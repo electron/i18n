@@ -2,11 +2,9 @@
 
 > 取得螢幕大小、顯示器、游標位置等的資訊。
 
-處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
+进程: [主进程](../glossary.md#main-process)
 
 在 ` app ` 模組的 ` ready` 事件發出之前, 您不能要求或使用此模組。
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 

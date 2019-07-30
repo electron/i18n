@@ -57,7 +57,7 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 Verilen komutu hata ayıklama hedefine gönderin.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 

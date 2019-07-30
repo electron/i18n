@@ -86,6 +86,12 @@ webFrame.setSpellCheckProvider('en-US', {
 })
 ```
 
+### `webFrame.insertCSS(css)`
+
+* `css` String - CSS source code.
+
+Inserts `css` as a style sheet in the document.
+
 ### `webFrame.insertText(texto)`
 
 * `texto` String
@@ -94,10 +100,23 @@ Inserta `texto` en el elemento enfocado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `codigo` String
+* `code` Cadena de caracteres
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
-* `callback` Función (opcional) - La llamada luego del guión ha sido ejecutada. 
-  * `result` Cuaquiera
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+  * `resultado` Cualquiera
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evalúa el `código` en la página.
+
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `webFrame.executeJavaScript(code[, userGesture])`
+
+* `code` Cadena de caracteres
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
@@ -107,38 +126,52 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Puede aquí suministrar cualquier entero.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede proporcionar aquí cualquier entero.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `información` Object 
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
@@ -148,7 +181,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve el `Objecto`:
+Devuelve `Objeto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)

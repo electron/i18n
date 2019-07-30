@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Próximamente desaprobado](promisification.md)**
+**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Iniciar la grabación en todos los procesos.
 
 La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación. Se llamará al `callback` una vez que todos los procesos secundarios hayan confirmado la solicitud `startRecording`.
 
-**[Próximamente desaprobado](promisification.md)**
+**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ Una vez que todos los procesos secundarios hayan confirmado la solicitud `stopRe
 
 Los datos de rastreo se escribirán en `resultFilePath` si no está vacío o en un archivo temporal. La ruta real del archivo se pasará a `callback` si no es `null`.
 
-**[Próximamente desaprobado](promisification.md)**
+**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -102,7 +102,16 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Function 
-  * `value` Número
-  * `percentage` Número
+  * Object 
+    * `value` Número
+    * `percentage` Número
 
 Obtenga el máximo uso en los procesos de búfer de rastreo como un porcentaje del estado completo. Cuando se determina el valor de TraceBufferUsage, el `callback` es llamado.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.

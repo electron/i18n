@@ -35,14 +35,14 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` פונקציה 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Start recording on all processes.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -74,7 +74,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` פונקציה 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -85,7 +85,7 @@ Once all child processes have acknowledged the `stopRecording` request, `callbac
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -101,8 +101,17 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
-  * `value` Number
-  * `percentage` Number
+* `callback` פונקציה 
+  * Object 
+    * `value` Number
+    * `percentage` Number
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.

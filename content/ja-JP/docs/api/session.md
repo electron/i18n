@@ -88,16 +88,32 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 * `callback` Function 
   * `size` Integer - キャッシュサイズのバイト数。
+  * `error` Integer - The error code corresponding to the failure.
 
 callback はセッションの現在のキャッシュサイズで呼ばれます。
 
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 操作が完了したときに呼ばれる。
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
 セッションの HTTP キャッシュをクリアします。
 
-#### `ses.clearStorageData([options, callback])`
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+セッションの HTTP キャッシュをクリアします。
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `options` Object (任意) 
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
@@ -105,7 +121,18 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
   * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
 * `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
-ウェブストレージのデータをクリアします。
+Clears the storage data for the current session.
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `options` Object (任意) 
+  * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
+  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
+  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
@@ -117,7 +144,72 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
   * `pacScript` String - PAC ファイルに関連付けられたURL。
   * `proxyRules` String - 使用するプロキシを示すルール。
   * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
-* `callback` Function - 操作が完了したときに呼ばれる.
+* `callback` Function - 操作が完了したときに呼ばれる。
+
+プロキシ設定を設定します。
+
+`pacScript` と `proxyRules` が一緒に提供されると、`proxyRules` オプションは無視され、`pacScript` コンフィグが適用されます。
+
+`proxyRules` は以下のルールに従う必要があります。
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+例:
+
+* `http=foopy:80;ftp=foopy2` - `http://` URL には HTTP プロキシ `foopy:80` を、`ftp://` URL には HTTP プロキシ `foopy2:80` を使用する。
+* `foopy:80` - すべての URL に `foopy:80` HTTP プロキシを使用する。
+* `foopy:80,bar,direct://` - すべての URL に `foopy:80` HTTP プロキシを使用する。 `foopy:80` が使用できない場合は `bar` にフェイルオーバーし、その後はプロキシを使用しません。
+* `socks4://foopy` - すべての URL に SOCKS 4 プロキシ `foopy:1080` を使用する。
+* `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合は SOCKS 5 プロキシ `bar.com` にフェイルオーバーします。
+* `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合はプロキシを使用しません。
+* `http=foopy;socks=foopy2` - HTTP の URL には HTTP プロキシ `foopy` を、ほかの URLには `socks4://foopy2` を使用します。
+
+`proxyBypassRules` は以下に説明されているコンマ区切りのルールのリストです。
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
+  
+  例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    特定のドメインサフィックスのマッチ。
+    
+    例: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  IP アドレスリテラルである URL のマッチ。
+  
+  例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  指定された範囲内の IP リテラルに一致する URL のマッチ。IP の範囲は CIDR 表記で指定します。
+  
+  例: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  ローカルアドレスのマッチ。`<local>` の意味は、ホストが "127.0.0.1"、"::1"、"localhost" のいずれかに一致するかどうかです。
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `config` Object 
+  * `pacScript` String - PAC ファイルに関連付けられたURL。
+  * `proxyRules` String - 使用するプロキシを示すルール。
+  * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
 プロキシ設定を設定します。
 
@@ -180,6 +272,14 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   * `proxy` String
 
 `url` のプロキシ情報を解決します。 リクエストが実行されると、`callback` は `callback(proxy)` で呼び出されます。
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -296,9 +396,17 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
 * `callback` Function (任意) - 操作が完了したときに呼ばれる。
+
+ホスト解決のキャッシュをクリアします。
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
 
 ホスト解決のキャッシュをクリアします。
 
@@ -339,6 +447,14 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `callback` Function 
   * `result` Buffer - Blob データ。
 
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` String - 有効な UUID。
+
+Returns `Promise<Buffer>` - resolves with blob data.
+
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
@@ -353,12 +469,24 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (任意) - 操作が完了したときに呼ばれる。
+* `callback` Function - 操作が完了したときに呼ばれる。
 
 セッションの HTTP 認証キャッシュをクリアします。
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
@@ -408,12 +536,11 @@ app.on('ready', function () {
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // いくつかのネットワークイベントのあと
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```

@@ -4,8 +4,6 @@
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
 L'exemple suivant montre comment écrire une chaîne de caractère dans le presse-papiers :
 
 ```javascript

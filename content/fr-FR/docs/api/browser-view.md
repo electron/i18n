@@ -75,6 +75,8 @@ Retourne `Boolean` - Si la vue est détruite.
 * `options` Objet 
   * `width` Boolean - Si `true`, la largeur de la vue va se redimensionner pour être de la même largeur que la fenêtre. `false` par défaut.
   * `height` Boolean - Si `true`, la hauteur de la vue va se redimensionner pour être de la même hauteur que la fenêtre. `false` par défaut.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 

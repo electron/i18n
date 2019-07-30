@@ -52,6 +52,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`

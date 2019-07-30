@@ -2,7 +2,7 @@
 
 > Query and modify a session's cookies.
 
-Proces: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Writes any unwritten cookies data to disk.
 
 Writes any unwritten cookies data to disk.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**

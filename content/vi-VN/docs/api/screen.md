@@ -2,11 +2,9 @@
 
 > Truy xuất thông tin về kích thước màn hình, hiển thị, vị trí con trỏ,.
 
-Tiến trình: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Quá trình: [Main](../glossary.md#main-process)
 
 Bạn không thể yêu cầu hoặc sử dụng module này cho đến khi sự kiện của `ứng dụng` `sẵn sàng` được phát.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 

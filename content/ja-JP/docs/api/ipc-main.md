@@ -8,7 +8,7 @@
 
 ## メッセージ送信
 
-また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
+It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
@@ -48,14 +48,18 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 `channel` に新しいメッセージが来たときに `listener` が `listener(event, args...)` として呼ばれます、
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 一回だけの `listener` イベント関数を追加します。この `listener` は次に `channel` にメッセージが送信された後にのみ呼び出され、その後削除されます。
 
@@ -74,20 +78,4 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## イベントオブジェクト
 
-`callback` に渡される `event` オブジェクトには以下のメソッドがあります。
-
-### `event.frameId`
-
-このメッセージを送信したレンダラーフレームの ID を表す `Integer`。
-
-### `event.returnValue`
-
-同期メッセージでの戻り値をこれにセットします。
-
-### `event.sender`
-
-メッセージを送った `webContents` を返します。`event.sender.send` を呼ぶことで、非同期メッセージに返信できます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
-
-### `event.reply`
-
-現在処理している元のメッセージを送信したレンダリングフレームに IPC メッセージを送信する機能。 返信が正しいプロセスとフレームに行くことを保証するために、このメソッドを使って送信されたメッセージに「返信」するべきです。
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.

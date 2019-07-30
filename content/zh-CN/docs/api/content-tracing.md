@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ Returns `Promise<void>` - resolved once all child processes have acknowledged th
 
 如果`resultFilePath`不为空，则跟踪数据会被写入该路径，否则就被写入一个临时文件。实际的文件路径如果不为`null`的话就被传递给`callback`函数了。
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -102,7 +102,16 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function 
-  * `value` Number
-  * `percentage` Number
+  * Object 
+    * `value` Number
+    * `percentage` Number
 
 获取跟踪缓冲区进程的最大使用率，以百分比表示完整状态。当 TraceBufferUsage 值被确定后, 将调用 ` callback`。
+
+**[即将弃用](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.

@@ -171,7 +171,7 @@ sa macOS. Ang default ay <code>false`.
     * `devTools` Boolean (opsyonal) - Kung pinagana ang mga Dev Tool. Kung ito ay itinakda sa `false`, ay hindi maaaring gamitin ang `BrowserWindow.webContents.openDevTools()` para buksan ang mga Dev Tool. Ng default ay `tama`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * Ang `nodeIntegrationInWorker` Boolean (opsyonal) - Kung ang pagsasama ng node ay pinagana na sa mga tagagawa ng web. Ang default ay `false`. Mas maraming tungkol dito ay maaaring matagpuan sa [Multithreading](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (opsyonal) - Tinutukoy ang isang iskrip na ikakarga bago ang ibang mga iskrip ay dumaan sa mga pahina. Ang iskrip na ito ay laging mayroong access sa mga API ng node hindi mahalaga kung ang pagsasama ng node ay binuksan o isinara. Ang halaga ay ang maaring magiging tungkulin ng path file sa script. Kung naka-patay ang pagsasama ng node, pweding ipakilala ulit ang preload script Ang Node global na sagisag pabalik sa global na sakop. Tignan ang halimbawa [here](process.md#event-loaded).
     * `sandbox` Boolean (opsyonal) - Kung itinakda, ito ay isa-sandbox ang tagasalin na may kaugnayan sa window, gagawin itong katugma sa antas ng sandbox ng Chromium OS at pahihintuin ang makina ng Node.js. Ito ay hindi ang katulad ng ang `nodeIntegration` opsyon at ang mga API na magagamit sa pag-preload ng script ay mas malilimitahan. Basahin ng mabuti ang hingil sa opsyon [here](sandbox-option.md). **Tandaan:** Ang kasalukuyang pagpipilian ng eksperimentong ito at pweding magbago o maging tanggalin sa hinaharap na paglabas ng electron.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
@@ -185,7 +185,6 @@ sa macOS. Ang default ay <code>false`.
     * Ang `images` Boolean (opsyonal) - Pinapagana ang suporta sa imahe. Ang default ay `true`.
     * Ang `textAreasAreResizable` Boolean (opsyonal) - Palakihin ang sukat ng mga elemento ng TextArea. Ang default ay `true`.
     * Ang `webgl` Boolean (opsyonal) - Pinapagana ang suporta sa WebGL. Ang default ay `true`.
-    * Ang `webaudio` Boolean (opsyonal) - Pinapagana ang suporta sa WebAudio. Ang default ay `true`.
     * Ang `plugins` Boolean (opsyonal) - Kung ang mga plugin ay dapat na pinagana. Ang default ay `false`.
     * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
     * Ang `scrollBounce` Boolean (opsyonal) - Pinapagana ang pag-scroll bouce (pagra-rubber band) na epekto sa macOS. Ang default ay `false`.
@@ -205,13 +204,14 @@ sa macOS. Ang default ay <code>false`.
     * `backgroundThrottling` Boolean (opsyonal) - Kapag sinakal ang mga animation at timers kapag ang pahina ay maging background. Ito ay maaring makaapekto sa [Page Visibility API](#page-visibility). Ang default sa `tama`.
     * `offscreen` Boolean (opsyonall) - Kung papaganahin ang pag-render ng offscreen para sa browser ng window. Naka-default sa `false`. Tignan ang [pagtuturo sa pag rerender ng offscreen](../tutorial/offscreen-rendering.md) para sa mas maraming paliwanag.
     * `contextIsolation` Boolean (o[syonal) - Maging ang pagpapatakbo ng Electron APis at Ang pagtukoy `preload` Ang script sa magkakahiwalay na nilalaman ng JavaScript. Ang mga default para sa `false`. Ang nilalaman na iyon ang `preload` Ang script ay mayroong kabuuang access upang tumatakbo sa `dokumento` at `window` globals subalit gagamitin nito sarili nitong hilera ng pag-tatag ng JavaScript (`Array`, `Object`, `JSON`, etc.) at pinag-hihiwalay mula sa alinmang mga pagbabagong ginawa sa pandaigdigang kapaligiran sa paraan ng pag-karga ng pahina. Ang Electron API ay maaaring maging pwedi lamang sa `preload` ang script at hindi ang ikinargang pahina. Ang opsyon na ito ay kailangan magamit kapag Ang pagkakarga ng potensyal na hindi mapag-kakatiwalaan na nilalaman ng remote upang masiguro ang nilalaman ng pag-karga ay hindi pweding galawin ang `preload` Ang script at ang alinmang Electron APIs ay kasalukuyang ginagamit. Ang opsyon sa pag-gamit ng mag-katulad na estilo ay ginagamit ng [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Pwedii mong i-access ang nilalamang ito sa mga tool ng dev sa parang pagpili sa Ang ipinasok na 'Electron Isolated Context' sa kombo kaahon sa itaas ng Tab ng Console.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Naka-default sa `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Naka-default sa `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * Ang `webviewTag` Boolean (opsyonal) - Kung pagaganahin ang [`<webview>` tag](webview-tag.md). Naka-default sa `false`. **Note:** Ang iskrip ng `preload` ay isinaayos para ang `<webview>` ay may pagsasama-sama ng node na pinagana kapag ito ay naisakatuparan kaya dapat mong siguraduhin na ang malayo/hindi mapagkakatiwalaang nilalaman ay hindi makakagawa ng isang tag`<webview>` na may isang posibleng malisyosong iskrip `preload`. Maaari mong gamitin ang kaganapan ng `will-attach-webview` sa [webContents](web-contents.md) para tanggalin ang iskrip ng `preload` at patunayan o pasubalian ang inisyal na mga pagtatakda sa `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
 Kapag nagtatakda ng minimum o maximum na laki ng window `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, pinipigilan lamang nito ang mga gumagamit. Hindi nito mapipigilan ka pagpasa ng isang sukat na hindi sumusunod sa mga hadlang sa laki `setBounds`/`setSize` o sa tagapagbuo ng `BrowserWindow`.
 
@@ -848,7 +848,7 @@ Nagtatakda kung dapat magpakita palagi ang window sa itaas ng iba pang mga binta
 
 Nagbabalik `Boolean` - Kung ang window ay nakikita sa user.
 
-#### `win.moveTop()` *macOS* *Windows*
+#### `win.moveTop()`
 
 Moves window to top(z-order) regardless of focus
 
@@ -978,13 +978,13 @@ Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
 Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -1317,3 +1317,24 @@ Replacement API for setBrowserView supporting work with multi browser views.
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
+
+### Mga Katangian
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```

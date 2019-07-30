@@ -66,11 +66,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
 
@@ -78,22 +74,14 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is double clicked.
@@ -142,33 +130,21 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse moves in the tray icon.
@@ -203,7 +179,13 @@ Sets the hover text for this tray icon.
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
   * `never` - Never highlight the tray icon.
 
 Sets when the tray's icon background becomes highlighted (in blue).
+
+**[निरस्त](breaking-changes.md#tray)**
 
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 

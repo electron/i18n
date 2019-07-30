@@ -66,11 +66,7 @@ app.on('ready', () => {
 
 #### 事件: 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
@@ -78,22 +74,14 @@ app.on('ready', () => {
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被右击时触发。
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被双击时触发。
@@ -142,33 +130,21 @@ app.on('ready', () => {
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标进入该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标离开该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标在该任务栏图标上移动时，触发该事件。
@@ -203,7 +179,13 @@ app.on('ready', () => {
 
 * `title` String
 
-设置显示在状态栏中托盘图标旁边的标题 (支持ANSI色彩)
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ app.on('ready', () => {
   * `never` - 从不高亮托盘图标
 
 设置托盘图标背景 (蓝色) 高亮的时机
+
+**[过时的](breaking-changes.md#tray)**
 
 **Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
 

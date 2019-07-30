@@ -54,6 +54,7 @@ Linux와 Windows에서는 `Command`키가 없으므로 작동하지 않습니다
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`

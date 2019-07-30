@@ -90,7 +90,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### 인스턴스 이벤트
 
-`new Menu`로 작성된 오브젝트에서는 다음의 이벤트가 발생합니다.
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
@@ -119,10 +119,6 @@ Returns:
 menu의 항목을 저장하고 있는 `MenuItem[]` 배열.
 
 각각의 `Menu`는 여러개의 [`MenuItem`](menu-item.md)을 가지며, `MenuItem`은 서브메뉴를 가질 수 있습니다.
-
-### 인스턴스 이벤트
-
-`new Menu`로 작성된 오브젝트 혹은 `Menu.buildFromTemplate`이 반환한 오브젝트는 다음의 이벤트를 발생시킵니다:
 
 ## 예시
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }

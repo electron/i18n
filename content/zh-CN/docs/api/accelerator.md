@@ -52,6 +52,7 @@ app.on('ready', () => {
 * `Tab`
 * `大写锁定（Capslock）`
 * `数字锁定（Numlock）`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`

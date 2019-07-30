@@ -1,6 +1,6 @@
 # `sandbox` Option
 
-> Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API. However, in order to enable the Chromium OS sandbox, Electron must be run with the `--enable-sandbox` command line argument.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Una de las características clave de la seguridad de Chromium es que toda la renderización y el código de JavaScript es ejecutado dentro d una caja de arena. Esta caja de area usa características específicas para cada OS para asegurar que un explosivo en el proceso de renderización no pueda lastimar al sistema.
 
@@ -32,26 +32,17 @@ app.on('ready', () => {
 
 In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
-Es importante notar que esta opción sola no va a habilitar la caja de arena impuesta por el OS. Para activar esta característica, el argumento de linea de comando `--enable-sandbox` debe ser pasado a Electron, que lo forzará `sandbox: true` por todas `BrowserWindow` instancias.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
 
 ```js
 let win
+app.enableSandbox()
 app.on('ready', () => {
-  // no hay necesidad de pasar`sandbox: true` ya que `--enable-sandbox` fue habilitada.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
-
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
-
-```sh
-electron --enable-sandbox app.js
-```
-
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
-
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Precarga
 
@@ -63,7 +54,7 @@ app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
-      preload: 'preload.js'
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
   win.loadURL('http://google.com')
@@ -76,8 +67,8 @@ y preload.js:
 // Este archivo se carga cada vez que se crea un contexto de javascript. It runs in a
 // private scope that can access a subset of Electron renderer APIs. Debemos ser
 // cuidadosos de no dejar salir ningún objeto en el ámbito global!
-const fs = require('fs')
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, remote } = require('electron')
+const fs = remote.require('fs')
 
 // read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
@@ -99,7 +90,7 @@ window.open = customWindowOpen
 Cosas importantes que notar en el script precargado:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`. Así es como `fs` (usado arriba) y otros módulos son implementados: Son proxies de las contrapartes remotas en el proceso principal.
+- El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`.
 - El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
@@ -107,7 +98,6 @@ Para crear un paquete browserify y usarlo como un script precargado, algo como l
 ```sh
   browserify preload/index.js \
     -x electron \
-    -x fs \
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
@@ -115,14 +105,14 @@ La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expues
 
 Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
 
-- `child_process`
 - `electron` 
   - `crashReporter`
-  - `remote`
+  - `desktopCapturer`
   - `ipcRenderer`
+  - `nativeImage`
+  - `remote`
   - `webFrame`
-- `fs`
-- `os`
+- `eventos`
 - `contadores`
 - `url`
 

@@ -66,11 +66,7 @@ El módulo `Tray` emite los siguientes eventos:
 
 #### Evento: "click"
 
-* `event` Event 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 * `position` [Point](structures/point.md) - La posición del evento.
 
@@ -78,22 +74,14 @@ Emitido cuando se hace clic en el icono de bandeja.
 
 #### Evento: "right-click"*macOS* *Windows*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace clic derecho en el icono de bandeja.
 
 #### Evento: "double-click"*macOS* *Windows*
 
-* `evento` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace doble clic en el icono de bandeja.
@@ -142,33 +130,21 @@ Emitido cuando termina una operación de arrastre en la bandeja o termina en otr
 
 #### Evento: 'mouse-enter' *macOS*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón entra en el icono de la bandeja.
 
 #### Evento: 'mouse-leave' *macOS*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
 #### Evento: 'mouse-move' *macOS*
 
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Se emite cuando el ratón se mueve sobre el icono de la bandeja del sistema.
@@ -203,7 +179,13 @@ Configura la activación de texto para este icono de bandeja.
 
 * `title` Cadena
 
-Establece el título mostrado a un lado del icono de la bandeja en la barra de estado (Soporta colores ANSI).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` Cadena
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ Establece el título mostrado a un lado del icono de la bandeja en la barra de e
   * `never` - Nunca resalta el icono de la bandeja.
 
 Establece cuando se resalta (en azul) el fondo del icono de la bandeja.
+
+**[Cambiar](breaking-changes.md#tray)**
 
 **Nota:** Puede utilizarse `highlightMode` con una [`BrowserWindow`](browser-window.md) al alternar entre los modos `'never'` y `'always'` cuando la visibilidad de la ventana cambia.
 

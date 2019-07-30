@@ -90,7 +90,7 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 ### インスタンスイベント
 
-`new Menu` で作成されたオブジェクトでは以下のイベントが発生します。
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
@@ -119,10 +119,6 @@ menu の `pos` の位置に `menuItem` を挿入します。
 menu のアイテムが入った配列 `MenuItem[]`。
 
 それぞれの `Menu` は複数の [`MenuItem`](menu-item.md) で構成され、それぞれの `MenuItem` はサブメニューを持つことができます。
-
-### インスタンスイベント
-
-`new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
 
 ## サンプル
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,7 +232,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### レンダラープロセス
+### レンダープロセス (render process)
 
 以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
 

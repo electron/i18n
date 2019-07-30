@@ -62,14 +62,6 @@ Menetapkan `src` nilainya akan memuat ulang halaman ini.
 
 Atribut `src` juga dapat menerima URL data, seperti data`:teks/polos, Halo, dunia!`.
 
-### `autosize`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-Bila atribut ini hadir, kontainer `webview` akan secara otomatis diubah ukurannya dalam batas yang ditentukan oleh atribut ` minwidth `,`minheight`,`maxwidth`, dan `maxheight`. Kendala ini tidak berdampak pada`webview`kecuali`autosize` diaktifkan. Bila `autosize` diaktifkan, ukuran wadah`webview` tidak boleh kurang dari nilai minimum atau lebih besar dari jumlah maksimum.
-
 ### `nodeintegration`
 
 ```html
@@ -92,7 +84,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `plugins`
 
@@ -207,6 +199,8 @@ webview.addEventListener ('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
 
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+
 Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
 ### `<webview>.downloadURL(url)`
@@ -312,6 +306,19 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
     * `hasil` Ada
   
+  Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+  
+  Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
+  
+  **[Deprecated Soon](modernization/promisification.md)**
+  
+  ### `<webview>.executeJavaScript(code[, userGesture])`
+  
+  * `id` String
+  * `userGesture` Boolean (optional) - Default `false`.
+  
+  Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+  
   Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
   
   ### `<webview>.openDevTools ()`
@@ -336,6 +343,10 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   * `y` Integer
   
   Mulai memeriksa elemen pada posisi (`x`,`y`) dari halaman tamu.
+  
+  ### `<webview>.inspectSharedWorker()`
+  
+  Opens the DevTools for the shared worker context present in the guest page.
   
   ### `<webview>.inspectServiceWorker()`
   
@@ -455,6 +466,21 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
   
+  **[Deprecated Soon](modernization/promisification.md)**
+  
+  ### `<webview>.printToPDF(options)`
+  
+  * `pilihan` Obyek 
+    * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+    * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+    * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+    * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+    * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  
+  Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+  
+  Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+  
   ### `<webview>.capturePage ([rect,] callback)`
   
   * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
@@ -464,13 +490,13 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
 </ul>
 
 <p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
-      **[Deprecated Soon](promisification.md)**
+      **[Deprecated Soon](modernization/promisification.md)**
       
       ### `<webview>.capturePage([rect])`
       
       * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
       
-      * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+      Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
       
       Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
       
@@ -534,6 +560,10 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
         
         It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+        
+        ### `<webview>.getWebContentsId()`
+        
+        Returns `Number` - The WebContents ID of this `webview`.
         
         ## DOM events
         
@@ -658,10 +688,10 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         const { shell } = require('electron')
         const webview = document.querySelector('webview')
         
-        webview.addEventListener('new-window', (e) => {
+        webview.addEventListener('new-window', async (e) => {
           const protocol = require('url').parse(e.url).protocol
           if (protocol === 'http:' || protocol === 'https:') {
-            shell.openExternalSync(e.url)
+            await shell.openExternal(e.url)
           }
         })
         ```

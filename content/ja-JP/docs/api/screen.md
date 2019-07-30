@@ -2,11 +2,9 @@
 
 > 画面サイズ、ディスプレイ、カーソルの位置などについての情報を取得します。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process)
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
-
-レンダラプロセスのコンテキストでは [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
 
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 

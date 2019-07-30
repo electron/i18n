@@ -1,6 +1,6 @@
 # `<webview>`标签
 
-## Warning
+## 警告
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
@@ -78,14 +78,6 @@ Assigning `src` its own value will reload the current page.
 
 ` src ` 属性还可以接受数据 url, 如 ` data:text/plain, Hellp,world! `。
 
-### `autosize`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-当此属性存在时, ` webview ` 容器将在属性指定的范围内自动调整大小, 其范围为 ` minwidth `、` minheight `、` maxwidth ` 和 ` maxheight `。 除非启用 ` autosize `, 否则这些约束不会影响 ` webview `。 当启用 ` autosize ` 时, ` webview ` 容器的大小不能小于最小值或大于最大。
-
 ### `nodeintegration`
 
 ```html
@@ -108,7 +100,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `plugins`
 
@@ -224,6 +216,8 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
 
 ### `<webview>.downloadURL(url)`
@@ -329,6 +323,19 @@ Returns `Boolean` - Whether the renderer process has crashed.
 * `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+在页面中执行 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
+
+**[即将弃用](modernization/promisification.md)**
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (可选) - 默认为 `false`。
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
 在页面中执行 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
 
 ### `<webview>.openDevTools()`
@@ -353,6 +360,10 @@ Returns `Boolean` - Whether DevTools window of guest page is focused.
 * `y` Integer
 
 Starts inspecting element at position (`x`, `y`) of guest page.
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -466,11 +477,26 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+
+**[即将弃用](modernization/promisification.md)**
+
+### `<webview>.printToPDF(options)`
+
+* `options` Object 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -480,13 +506,13 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -550,6 +576,10 @@ Shows pop-up dictionary that searches the selected word on the page.
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
 
 ## DOM 事件
 
@@ -684,10 +714,10 @@ The following example code opens the new url in system's default browser.
 const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
-webview.addEventListener('new-window', (e) => {
+webview.addEventListener('new-window', async (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternalSync(e.url)
+    await shell.openExternal(e.url)
   }
 })
 ```

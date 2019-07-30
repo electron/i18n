@@ -75,16 +75,32 @@ Metode berikut tersedia pada contoh `Sesi`:
 
 * `panggilan balik` Fungsi 
   * `ukuran`Bilangan Bulat - Ukuran cache yang digunakan dalam bytes.
+  * `error` Integer - The error code corresponding to the failure.
 
 Callback dipanggil dengan ukuran cache sesi saat ini.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Fungsi - Disebut saat operasi selesai.
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
 Membersihkan sesi-sesi HTTP cache.
 
-#### `ses.clearStorageData([options, panggilan kembali])`
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+Membersihkan sesi-sesi HTTP cache.
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `pilihan-pilihan` Objek (pilihan) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
@@ -92,7 +108,18 @@ Membersihkan sesi-sesi HTTP cache.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
-Menghapus data penyimpanan web.
+Clears the storage data for the current session.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `pilihan` Objek (opsional) 
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
@@ -104,7 +131,7 @@ Menulis data DOMStorage yang tidak tertulis ke disk.
   * `pacScript` Senar - URL yang terkait dengan file PAC.
   * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
   * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
-* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai.
+* `callback` Fungsi - Disebut saat operasi selesai.
 
 Mengatur pengaturan proxy.
 
@@ -160,7 +187,72 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
 
-#### `ses.resolveProxy(url, panggilan kembali)`
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `konfigurasi` Obyek 
+  * `pacScript` Senar - URL yang terkait dengan file PAC.
+  * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
+  * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+Mengatur pengaturan proxy.
+
+Ketika `pacScript` dan `proxyRules` disediakan bersama, `proxyRules` pilihan diabaikan dan `pacScript` konfigurasi diterapkan.
+
+`proxyRules` harus mengikuti aturan di bawah ini:
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+Sebagai contoh:
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - GunakanHTTP proxy `foopy:80` untuk semua URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` untuk semua URLs, gagal untuk `bar` if `foopy:80` tidak tersedia, dan setelah itu tidak menggunakan proxy.
+* `socks4://foopy` - Gunakan SOCKS v4 proxy `foopy:1080` untuk semua URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+
+The `proxyBypassRules` is a comma separated list of rules described below:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    Cocokkan akhiran domain tertentu.
+    
+    Examples: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  Mencocokkan URL yang literal alamat IP.
+  
+  Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
+  
+  Contoh: "192.168.1.1/16", "fefe:13::abc / 33".
+
+* `<local>`
+  
+  Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
+
+#### `ses.resolveProxy (url, callback)`
 
 * `url` URL
 * `callback` Fungsi 
@@ -168,13 +260,21 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `callback(proxy)` ketika permintaan dilakukan.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
+
 #### `ses.setDownloadPath(path)`
 
 * `jalan` String - lokasi download.
 
 Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
-#### `ses.enableNetworkEmulation(options)`
+#### `ses.enableNetworkEmulation (pilihan)`
 
 * `pilihan` Obyek 
   * `offline` Boolean (opsional) - Apakah untuk meniru jaringan listrik. Default ke false.
@@ -265,9 +365,17 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache ([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
 * `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
+
+Menghapus cache resolver host.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache ()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
 
 Menghapus cache resolver host.
 
@@ -304,6 +412,14 @@ Mengembalikan `String` - user agent untuk sesi ini.
 * `callback` Fungsi 
   * `hasil` Luapan penyangga - gumpalan data.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `pengenal` String - UUID berlaku.
+
+Returns `Promise<Buffer>` - resolves with blob data.
+
 #### `ses.createInterruptedDownload(options)`
 
 * `pilihan` Obyek 
@@ -318,12 +434,24 @@ Mengembalikan `String` - user agent untuk sesi ini.
 
 Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache (pilihan [, callback])`
+#### `ses.clearAuthCache(options, panggilan kembali)`
 
 * `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
+* `callback` Fungsi - Disebut saat operasi selesai.
 
 Membersihkan cache otentikasi HTTP sesi.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
@@ -373,12 +501,11 @@ A [NetLog](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```

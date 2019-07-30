@@ -38,11 +38,7 @@ Modul `Tray` memancarkan peristiwa berikut:
 
 #### Acara : 'klik'
 
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 * `posisi` [Point](structures/point.md) - posisi acara.
 
@@ -50,22 +46,14 @@ Emitted saat ikon baki diklik.
 
 #### Event: klik 'kanan' *macOS* *Windows*
 
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dibunyikan ketika ikon tray benar diklik.
 
 #### Event: 'Klik dua kali' *macOS* *Windows*
 
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dipancarkan saat ikon baki diklik dua kali.
@@ -114,33 +102,21 @@ Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi la
 
 #### Event: 'masuk mouse' *macOS*
 
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Acara: 'pindah' *macOS*
 
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Event: 'mouse-move' *macOS*
 
-* `peristiwa` Peristiwa 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Emitted when the mouse moves in the tray icon.
@@ -176,15 +152,25 @@ Menyetel teks hover untuk ikon baki ini.
 * ` judul</ 0>  String</li>
 </ul>
 
-<p>Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).</p>
+<p>Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).</p>
 
-<h4><code>tray.setHighlightMode(mode)` * macos*</h4> 
+<h4><code> tray.getTitle () </ 0>  <em> macos </ 1></h4>
+
+<ul>
+<li><code> judul </ 0> String</li>
+</ul>
+
+<p>Returns <code>String` - the title displayed next to the tray icon in the status bar</p> 
+  #### `tray.setHighlightMode(mode)` * macos*
+  
   * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
     * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
     * `selalu` - Selalu sorot ikon baki.
     * `tidak pernah` - Jangan menyorot ikon baki.
   
   Menyetel saat latar belakang ikon baki disorot (berwarna biru).
+  
+  **[Tidak berlaku lagi](breaking-changes.md#tray)**
   
   **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
   

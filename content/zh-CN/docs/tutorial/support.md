@@ -25,7 +25,7 @@
 
 ## 支持版
 
-最新的 3 个主版本受 Electron 团队支持。 例如，如果最新的发布是 5.0.x，那么 4.x.y 系列会受支持。对于之前的两个发行系列 3.x.y 和 2.x.y 也是一样。
+The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### 当前支持的版本
 
-* 5.x
-* 4.x
-* 3.x
+* 6.x.y
+* 5.x.y
+* 4.x.y
 
 ### End-of-life
 

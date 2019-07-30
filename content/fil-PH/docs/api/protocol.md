@@ -22,7 +22,38 @@ app.on('ready', () => {
 
 **Note:** Ang lahat ng mga pamamaraan maliban sa mga tinukoy ay maaari lamang gamitin pagkatapos ng paglabas ng event na `ready` ng modyul ng `app`.
 
-## Mga Paraan
+## Using `protocol` with a custom `partition` or `session`
+
+A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+
+To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+
+```javascript
+const { session, app, protocol } = require('electron')
+const path = require('path')
+
+app.on('ready', () => {
+  const partition = 'persist:example'
+  const ses = session.fromPartition(partition)
+
+  ses.protocol.registerFileProtocol('atom', (request, callback) => {
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  }, (error) => {
+    if (error) console.error('Failed to register protocol')
+  })
+
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      partition: partition
+    }
+  })
+})
+```
+
+## Mga Pamamaraan
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
@@ -59,6 +90,27 @@ Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa
 
 Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema.
 
+`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+
+**before (<= v4.x)**
+
+```javascript
+// Main
+protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
+// Renderer
+webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
+webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
+```
+
+**after (>= v5.x)**
+
+```javascript
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'scheme1', privileges: { standard: true, secure: true } },
+  { scheme: 'scheme2', privileges: { standard: true, secure: true } }
+])
+```
+
 ### `protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
 
 * `scheme` na String
@@ -79,7 +131,7 @@ Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa la
 
 Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file:`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong iskema ay itrato bilang isang istandard na iskema.
+By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
 
 ### `protocol.registerBufferProtocol(iskema, tagahawak[, pagkumpleto])`
 
@@ -232,7 +284,7 @@ Unregisters the custom protocol of `scheme`.
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `protocol.isProtocolHandled(scheme)`
 

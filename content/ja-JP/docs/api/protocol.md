@@ -22,6 +22,37 @@ app.on('ready', () => {
 
 **注釈:** 指定されていないすべてのメソッドは、`app` モジュールの `ready` イベントが発生した後にのみ使用できます。
 
+## Using `protocol` with a custom `partition` or `session`
+
+A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+
+To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+
+```javascript
+const { session, app, protocol } = require('electron')
+const path = require('path')
+
+app.on('ready', () => {
+  const partition = 'persist:example'
+  const ses = session.fromPartition(partition)
+
+  ses.protocol.registerFileProtocol('atom', (request, callback) => {
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  }, (error) => {
+    if (error) console.error('Failed to register protocol')
+  })
+
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      partition: partition
+    }
+  })
+})
+```
+
 ## メソッド
 
 `protocol` モジュールには以下のメソッドがあります。
@@ -59,6 +90,27 @@ protocol.registerSchemesAsPrivileged([
 
 デフォルトでは、非標準スキームはウェブストレージ API (localStorage, sessionStorage, webSQL, indexedDB, cookies) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
+`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+
+**before (<= v4.x)**
+
+```javascript
+// Main
+protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
+// Renderer
+webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
+webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
+```
+
+**after (>= v5.x)**
+
+```javascript
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'scheme1', privileges: { standard: true, secure: true } },
+  { scheme: 'scheme2', privileges: { standard: true, secure: true } }
+])
+```
+
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
@@ -79,7 +131,7 @@ protocol.registerSchemesAsPrivileged([
 
 引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
 
-デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違って解析されるため、`protocol.registerStandardSchemes` を呼び出し、あなたのスキームを標準スキームとして扱おうとします。
+By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
@@ -234,7 +286,7 @@ protocol.registerSchemesAsPrivileged([
       
       `scheme` のハンドラがすでにあるかどうかを示す Boolean で `callback` が呼び出されます。
       
-      **[非推奨予定](promisification.md)**
+      **[非推奨予定](modernization/promisification.md)**
       
       ### `protocol.isProtocolHandled(scheme)`
       

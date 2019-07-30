@@ -15,14 +15,18 @@ El módulo `ipcRenderer` tiene los siguientes métodos para escuchar los eventos
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Función
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Función
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 Agrega una función `listener` para el evento. Este `listener` es invocado solo la próxima vez que se envía un mensaje a `channel`, después que se elimina.
 
@@ -78,8 +82,4 @@ Es como `ipcRenderer.send` pero el evento se enviará al `<webview>`elemento en 
 
 ## Objeto de evento
 
-El objeto `event` pasado a la `callback` tiene los siguientes métodos:
-
-### `event.senderId`
-
-Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.

@@ -4,8 +4,6 @@
 
 进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
 下面的示例演示如何将字符串写入剪贴板:
 
 ```javascript

@@ -87,6 +87,12 @@ webFrame.setSpellCheckProvider('en-US', {
 })
 ```
 
+### `webFrame.insertCSS(css)`
+
+* `css` String - CSS source code.
+
+Inserts `css` as a style sheet in the document.
+
 ### `webFrame.insertText(text)`
 
 * `text` String
@@ -106,40 +112,67 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
+**[非推奨予定](modernization/promisification.md)**
+
+### `webFrame.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+ページ内の `code` を評価します。
+
+ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
+
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
+**[非推奨予定](modernization/promisification.md)**
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
 * `csp` String
 
 イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
 * `name` String
 
 イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
 * `securityOrigin` String
 
 イソレートコンテキストのセキュリティオリジンを設定します。
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
 * `info` Object 
   * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
   * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー

@@ -1,5 +1,14 @@
 # ProcessMetric Object
 
 * `pid` Integer - 프로세스의 ID
-* `유형` String - 프로세스 유형 (브라우저 또는 Tab 또는 GPU 기타 등등).
+* `type` String - Process type. One of the following values: 
+  * `Browser`
+  * `Tab`
+  * `Utility`
+  * `Zygote`
+  * `Sandbox helper`
+  * `GPU`
+  * `Pepper Plugin`
+  * `Pepper Plugin Broker`
+  * `Unknown`
 * `cpu` [CPUUsage](cpu-usage.md) - 프로세스의 CPU 사용량

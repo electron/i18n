@@ -2,11 +2,9 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Proses:  Utama </ 0> ,  Renderer </ 1></p> 
+Proses: [Main](../glossary.md#main-process)
 
 Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`aplikasi` modul dipancarkan.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -66,7 +64,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Pengembalian:
+Returns:
 
 * `event` Sinyal
 * `oldDisplay` [Display](structures/display.md)
@@ -75,7 +73,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Pengembalian:
+Mengirimkan:
 
 * `peristiwa` Peristiwa
 * `display` [Display](structures/display.md)

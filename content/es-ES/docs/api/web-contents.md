@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### Evento: "enter-html-full-screen"
+
+Aparece cuando la ventana entra en un estado pantalla completa activado por la API HTML.
+
+#### Evento: "leave-html-full-screen"
+
+Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
+
 #### Evento: 'devtools-opened'
 
 Emitido cuando DevTools es abierto.
@@ -850,6 +858,12 @@ Devuelve `String` - El agente usuario para esta página web.
 
 Inserta CSS en la página web actual.
 
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
+
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` Cadena de caracteres
@@ -863,7 +877,25 @@ Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
-Si el resultado del código ejecutado es una promise, el callback será el valor resuelto de la promise. Recomendamos que utilice la Promise devuelta para manejar el código que da como resultado una Promise.
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Será el objeto JSON de la fetch call
+  })
+```
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `code` Cadena de caracteres
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evalúa el `código` en la página.
+
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1034,29 +1066,15 @@ console.log(requestId)
 
 Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Próximamente desaprobado](promisification.md)**
+**[Próximamente desaprobado](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Function 
-  * `hasWorker` Boolean
-
-Comprueba si cualquier ServiceWorker está registrado y devuelve un valor booleano como respuesta a `callback`.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Function 
-  * `success` Boolean
-
-Anula el registro de cualquier ServiceWorker si presenta y devuelve un valor booleano como respuesta a `callback` cuando el compromiso de JS es cumplido o falso cuando el compromiso de JS es rechazado.
 
 #### `contents.getPrinters()`
 
@@ -1094,6 +1112,21 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 Imprime la página web de la ventana como PDF con la configuración personalizada de impresión previa de Chromium.
 
 El `callback` será llamado con `callback(error, data)` cuando finalice. La `data` es un `Buffer` que contiene la información de PDF generado.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+#### `contents.printToPDF(options)`
+
+* `opciones` Object 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Imprime la página web de la ventana como PDF con la configuración personalizada de impresión previa de Chromium.
 
 El `landscape` se ignorará si `@page` CSS at-rule es utilizado en la página web.
 
@@ -1241,6 +1274,10 @@ Alterna las herramientas de desarrollador.
 
 Empieza a inspeccionar elementos en la posición (`x`, `y`).
 
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
+
 #### `contents.inspectServiceWorker()`
 
 Abre las herramientas de desarrollador para el contexto del trabajador de servicio.
@@ -1386,17 +1423,15 @@ Finalizar suscripción para eventos de presentación de marcos.
 
 Configura el `item` como un elemento arrastrable para la operación drag-drop actual. El `file` es la ruta absoluta del archivo que se va a arrastrar, y `icon` es la imagen que se muestra debajo del cursor cuando se arrastra.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - La ruta completa del archivo.
 * `saveType` String - Especifica el tipo de guardado. 
   * `HTMLOnly` - Guarda solamente el HTML de la página.
   * `HTMLComplete` - Guarda una página html completa.
   * `MHTML` - Guarda una página html completa como MHTML.
-* `callback` Function - `(error) => {}`. 
-  * `error` Error
 
-Devuelve `Boolean` - true si se ha iniciado con éxito el proceso de guardar la página.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Página guardada exitosamente')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```

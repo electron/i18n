@@ -118,6 +118,15 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
+### `nativeImage.createFromBitmap(buffer, options)`
+
+* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+
+戻り値 `NativeImage`
+
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
@@ -125,7 +134,7 @@ console.log(image)
 
 戻り値 `NativeImage`
 
-`buffer` から `NativeImage` の新しいインスタンスを作成します。
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 

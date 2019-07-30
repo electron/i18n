@@ -93,7 +93,7 @@ Sisipkan `menuItem` ke posisi `pos` pada menu.
 
 ### Perihal contoh
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ** Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p> 
 
@@ -122,10 +122,6 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 A `MenuItem[]` array containing the menu's items.
 
 Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
-
-### Contoh peristiwa
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Contoh
 
@@ -226,7 +222,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }

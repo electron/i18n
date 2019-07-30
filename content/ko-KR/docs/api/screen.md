@@ -2,11 +2,9 @@
 
 > 스크린 크기, 디스플레이, 커서위치, 등등 에 대한 정보를 회수한다.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스:[Main](../glossary.md#main-process)
 
 이모듈을 이용 하시려면 `app`의`ready`이벤트가 방사돼기를 기다려야 합니다.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 

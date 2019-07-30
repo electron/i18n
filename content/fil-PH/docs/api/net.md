@@ -13,9 +13,9 @@ Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang
 * Suporta para sa pagpapatunay sa mga proksi gamit ang basic, digest, NTLM, Kerberos o makipag-ayos sa mga pamamaraan ng pagpapatunay.
 * Suporta para sa mga proksi na nagmo-monitor ng trapik: Ang mga proksi na katulad ng fiddler ang ginamit para ma-access ang pagkontrol at pagmo-monitor.
 
-Ang modyul ng API ng `net` ay partikular na dinisenyo para gayahin, ng mas malapit hangga,t maaari, sa API ng pamilyar na Node.js. Ang mga bahagi ng API kabilang ang mga uri, mga pamamaraan, mga katangian at mga pangalan ng event ay kapareho sa mga laging ginagamit sa Node.js.
+The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-Halimbawa, ang mga sumusunod nahalimbawa ay mabilis na nagpapakita kung papaano na ang API ng `net` ay maaaring gamitin:
+Example usage:
 
 ```javascript
 const { app } = require('electron')
@@ -35,8 +35,6 @@ app.on('ready', () => {
   request.end()
 })
 ```
-
-Siyanga pala, ito ay halos magkakatulad kung papaanong normal mong gagamitin ang mga modyul ng [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) ng Node.js
 
 Ang API ng `net` ay maaari lamang gamitin pagkatapos na angaplikasyon ay ilalabas ang event ng `ready`. Kapag sinusubukang gamitin ang modyul bago ang event ng `ready` ay magdudulot ng pagkakamali.
 

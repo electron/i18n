@@ -79,14 +79,6 @@ Asignarle a `src` su propio valor reiniciará la página actual.
 
 El atributo `src` puede aceptar data de URL, como `data:text/plain,Hello, world!`.
 
-### `auto Ajustar`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-Cuando este atributo está presente, el contenedor `webview` se reajustará automáticamente dentro de los límites establecidos por los atributos `minwidth`, `minheight`, `maxwidth`, y `maxheight`. Estas restricciones no impactan el `webview` a menos que `autosize` sea activada. Cuando `autosize` es activada, el tamaño del contenedor `webview` no puede ser menos que los valores mínimos o mayor que el máximo.
-
 ### `no desintegración`
 
 ```html
@@ -109,7 +101,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. El módulo remoto está disponible por defecto.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `complementos`
 
@@ -225,6 +217,8 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+
 Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. el `http://` or `file://`.
 
 ### `<webview>.downloadURL(url)`
@@ -330,6 +324,19 @@ Inyecta CSS en la página de invitado.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
+
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` Cadena de caracteres
+* `userGesture` Boolean (optional) - Default `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
 Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
 ### `<webview>.openDevTools()`
@@ -354,6 +361,10 @@ Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado est
 * `y` Integer
 
 Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -473,6 +484,21 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
 
 Imprime la página web de `webview` como un PDF, al igual que `webContents.printToPDF(options, callback)`.
 
+**[Próximamente desaprobado](modernization/promisification.md)**
+
+### `<webview>.printToPDF(options)`
+
+* `opciones` Object 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
@@ -481,13 +507,13 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 
 Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Próximamente desaprobado](promisification.md)**
+**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -552,6 +578,10 @@ Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con est
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
+
 ## Eventos DOM
 
 Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
@@ -604,7 +634,7 @@ Disparado cuando el documento en el frame dado es cargado.
 
 Devuelve:
 
-* `title` Cadena
+* `title` String
 * `explicitSet` Boolen
 
 Disparado cuando el título de la página es establecido durante la navegación. `explicitSet` es falso cuando el título es sintetizado del archivo url.
@@ -685,10 +715,10 @@ El siguiente código ejemplo abre el nuevo url en el buscador por defecto del si
 const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
-webview.addEventListener('new-window', (e) => {
+webview.addEventListener('new-window', async (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternalSync(e.url)
+    await shell.openExternal(e.url)
   }
 })
 ```

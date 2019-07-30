@@ -1,5 +1,14 @@
 # Mga bagay sa ProcessMetric
 
 * `pid` integer - Ang process id ng proseso.
-* `type` String - Uri ng proseso (Browser o Tab o GPU atbp).
+* `ang uri` String - Process type. One of the following values: 
+  * `Browser`
+  * `Tab`
+  * `Utility`
+  * `Zygote`
+  * `Sandbox helper`
+  * `GPU`
+  * `Pepper Plugin`
+  * `Pepper Plugin Broker`
+  * `Unknown`
 * `cpu` [CPUUsage](cpu-usage.md) - Nagamit na CPU ng proseso.

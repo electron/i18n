@@ -1,6 +1,6 @@
 # Pilihan `sandbox`
 
-> Membuat sebuah peramban dengan perender yang dapat beroperasi di dalam OS sandbox Chromium. Dengan opsi ini diaktifkan, perender harus berkomunikasi melalui IPC ke proses utama untuk mengakses simpul API. However, in order to enable the Chromium OS sandbox, Electron must be run with the `--enable-sandbox` command line argument.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Salah satu fitur keamanan Chromium adalah bahwa semua kode rendering / JavaScript yang berkedip dijalankan di dalam sandbox. Sanbox (Kotak pasir) ini menggunakan fitur khusus OS untuk memastikan bahwa eksploitasi di dalam proses perender tidak dapat membahayakan sistem.
 
@@ -32,26 +32,17 @@ app.on('ready', () => {
 
 In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
-Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. Untuk mengaktifkan fitur ini, argumen baris perintah `--enable-sandbox` harus dilewatkan ke electron, yang akan memaksa `sandbox: true` untuk semua kejadian `BrowserWindow`.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
 
 ```js
 let win
+app.enableSandbox()
 app.on('ready', () => {
-  // tidak perlu untuk melewatkan `sandbox: true` karena `--enable-sandbox` diaktifkan.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
-
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
-
-```sh
-electron --enable-sandbox app.js
-```
-
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
-
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Preload
 
@@ -63,7 +54,7 @@ app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
-      preload: 'preload.js'
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
   win.loadURL('http://google.com')
@@ -75,8 +66,8 @@ dan preload.js:
 ```js
 // File ini dimuat kapanpun sebuah konteks javascript diciptakan. It runs in a
 // private scope that can access a subset of Electron renderer APIs. Kita harus // berhati-hati untuk tidak membocorkan obyek apapun ke dalam lingkup global!
-const fs = require('fs')
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, remote } = require('electron')
+const fs = remote.require('fs')
 
 // read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
@@ -98,7 +89,7 @@ window.open = customWindowOpen
 Hal penting untuk dicatat dalam skrip pramuat:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- Skrip pramuat dapat mengakses secara langsung seluruh API dari proses utama melalui modul `remote` dan `ipcRenderer`. Ini adalah bagaimana `fs` (yang digunakan di atas) dan modul-modul lain diimplementasikan. Mereka adalah proxy-proxy untuk mengendalikan rekanan dalam proses utama.
+- Skrip pramuat dapat mengakses secara langsung seluruh API dari proses utama melalui modul `remote` dan `ipcRenderer`.
 - Skrip pramuat harus dimuat dalam satu skrip tunggal, namun memungkinkan untuk memiliki kode pramuat kompleks yang disusun dengan beberapa modul dengan menggunakan alat seperti browserify, seperti yang dijelaskan di bawah ini. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
 Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuatu seperti berikut ini harus digunakan:
@@ -106,7 +97,6 @@ Untuk membuat bundel browserify dan menggunakannya sebagai skrip pramuat, sesuat
 ```sh
   browserify preload/index.js \
     -x electron \
-    -x fs \
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
@@ -114,14 +104,14 @@ Bendera `-x` harus digunakan bersama modul yang dibutuhkan yang sudah terekspos 
 
 Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul sebagai berikut:
 
-- `child_process`
 - `electron` 
   - `kerusakanReporter`
-  - `remot`
+  - `penangkapDesktop`
   - `ipcRenderer`
+  - `gambarasli`
+  - `remot`
   - `webBingkai`
-- `fs`
-- `os`
+- `acara`
 - `timer`
 - `url`
 

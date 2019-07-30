@@ -75,6 +75,8 @@ view.webContents.loadURL('https://electronjs.org')
 * `options` Object 
   * `width` Boolean - Якщо `true`, ширина вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
   * `width` Boolean - Якщо `true`, висота вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Експериментальний*
 

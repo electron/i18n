@@ -295,12 +295,22 @@ Restituisce:
 
 Emesso quando i processi gpu crashano o soni uccisi.
 
-### Evento: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'renderer-process-crashed'
 
 Restituisce:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `ucciso` Booleano
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
+### Evento: 'accessibilità-supporto-cambiata' *macOS* *Windows*
+
+Restituisce:
+
+* `event` Event
+* `SupportoAccessibilitàAbilitato` Booleano - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
 
 Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
@@ -466,6 +476,14 @@ Nasconde tutte le finestre dell'applicazione senza minimizzarle.
 
 Mostra le finestre dell'applicazione dopo che sono state nascoste. Non le focalizza automaticamente.
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.ottieniAppPercorso()`
 
 Restituisce `Stringa` - La directory dell'app corrente.
@@ -512,14 +530,14 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Recupera un'icona associata al percorso.
     
-    Su *Windows* esistono 2 tipi di icone:
+    On *Windows*, there are 2 kinds of icons:
     
     * Icone associate con certe estensioni di file come `.mp3`, `.png`, etc.
     * Icone interne allo stesso file come `.exe`, `.dll`, `.ico`.
     
     On *Linux* and *macOS*, icons depend on the application associated with file mime type.
     
-    **[Deprecated Soon](promisification.md)**
+    **[Deprecated Soon](modernization/promisification.md)**
     
     ### `app.getFileIcon(path[, options])`
     
@@ -548,7 +566,7 @@ Puoi richiedere i seguenti percorsi dal nome:
           * `name` Stringa
           * `path` String
           
-          Sostituisce il `percorso` ad una directory speciale o ad un file associato con `nome`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Errore`.
+          Sostituisce il `percorso` ad una directory speciale o ad un file associato con `nome`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
           
           Si possono sostituire solo i percorsi di un `nome` definiti in `app.ottieniPercorso`.
           
@@ -611,6 +629,8 @@ Puoi richiedere i seguenti percorsi dal nome:
           On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
           
           **Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
+          
+          **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
           
           L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL internamente.
           
@@ -738,8 +758,6 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           Restituisci `Booleano`
           
-          Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
-          
           Il valore restituito da questo metodo indica se o meno questa istanza della tua applicazione ha ottenuto con successo il blocco. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
           
           Es. Questo metodo restituisce `true` se il tuo processo è la prima istanza della tua applicazione e la tua app dovrebbe continuare il caricamento. Se restituisce `false`, se il tuo processo deve immediatamente chiudere come se avesse mandato i parametri ad un altra istanza che ha già acquisito il blocco.
@@ -851,7 +869,7 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           Returns `Promise`
           
-          For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+          For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
           
           For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
           
@@ -946,6 +964,8 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
           
+          **[Deprecated Soon](modernization/property-updates.md)**
+          
           ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
           
           * `enabled` Boolean - Abilita o disabilita il rendering dell'[albero accessibilità](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
@@ -955,6 +975,8 @@ Puoi richiedere i seguenti percorsi dal nome:
           This API must be called after the `ready` event is emitted.
           
           **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
+          
+          **[Deprecated Soon](modernization/property-updates.md)**
           
           ### `app.showAboutPanel` *macOS* *Linux*
           
@@ -973,6 +995,14 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on MacOS. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli. On Linux, values must be set in order to be shown; there are no defaults.
           
+          ### `app.isEmojiPanelSupported`
+          
+          Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+          
+          ### `app.showEmojiPanel` *macOS* *Windows*
+          
+          Show the platform's native emoji picker.
+          
           ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
           
           * `bookmarkData` Stringa - Sicurezza codificata in base64 mirata ai dati dei segnalibri restituiti dai metodi `dialog.showOpenDialog` o `dialog.showSaveDialog`.
@@ -990,20 +1020,22 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           ### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
           
-          * `interruttore` Stringa - Un interruttore della linea di comando
+          * `switch` String - A command-line switch, without the leading `--`
           * `valore` Stringa (opziomale) - Un valore per l'interruttore dato
           
           Aggiungi un interruttore (con `valore` opzionale) alla linea di comando di Chromium.
           
-          **Nota:** Non colpirà `processo.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
+          **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
           
           ### `app.Lineacomando.aggiungiArgomento(valore)`
           
           * `valore` Stringa - L'argomento da aggiungere alla linea di comando
           
-          Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
+          Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
           
-          **Nota:** Non colpirà `processo.argv`.
+          If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+          
+          **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
           
           ### `app.commandLine.hasSwitch(switch)`
           
@@ -1017,9 +1049,9 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           Returns `String` - The command-line switch value.
           
-          **Note:** When the switch is not present, it returns empty string.
+          **Note:** When the switch is not present or has no value, it returns empty string.
           
-          ### `app.enableSandbox()` *Sperimentale* *macOS* *Windows*
+          ### `app.enableSandbox()` *Experimental*
           
           Enables full sandbox mode on the app.
           
@@ -1075,17 +1107,21 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           ### `app.dock.mostra()` *macOS*
           
-          Mostra l'icona del dock.
+          Returns `Promise<void>` - Resolves when the dock icon is shown.
           
           ### `app.dock.èvisibile()` *macOS*
           
-          Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
+          Returns `Boolean` - Whether the dock icon is visible.
           
           ### `app.dock.impostaMenu(menu)` *macOS*
           
           * `menu` [Menu](menu.md)
           
           Imposta il [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) nell'applicazione.
+          
+          ### `app.dock.getMenu()` *macOS*
+          
+          Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
           
           ### `app.dock.impostaImmagine(immagine)` *macOS*
           
@@ -1095,6 +1131,32 @@ Puoi richiedere i seguenti percorsi dal nome:
           
           ## Proprietà
           
+          ### `app.applicationMenu`
+          
+          A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+          
+          ### `app.accessibilitySupportEnabled` *macOS* *Windows*
+          
+          A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+          
+          See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+          
+          This API must be called after the `ready` event is emitted.
+          
+          **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
+          
+          ### `app.userAgentFallback`
+          
+          A `String` which is the user agent string Electron will use as a global fallback.
+          
+          This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+          
           ### `app.isPackaged`
           
           Una proprietà `Booleana` che restituisce `true` se l'applicazione è impacchettata, `false` vice versa. Per molte applicazioni, questa proprietà può essere usata per distinguere ambiente di sviluppo da quello di produzione.
+          
+          ### `app.allowRendererProcessReuse`
+          
+          A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+          
+          The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

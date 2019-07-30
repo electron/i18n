@@ -74,7 +74,7 @@ O módulo `desktopCapturer` tem os seguintes métodos:
 
 * `opções` Object 
   * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
-  * `thumbnailSize` [Tamanho](structures/size.md) (opcional) - O tamanho que a miniatura da fonte de mídia deve ser dimensionada. O padrão é `150` x `150`.
+  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 * `callback` Function 
   * `error` Error
@@ -84,13 +84,13 @@ Inicia a coleta de informações sobre todas as fontes de mídia de desktop disp
 
 `sources` é um array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa uma tela ou uma janela individual que pode ser capturada.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `desktopCapturer.getSources(options)`
 
 * `options` Object 
   * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
-  * `thumbnailSize` [Tamanho](structures/size.md) (opcional) - O tamanho que a miniatura da fonte de mídia deve ser dimensionada. O padrão é `150` x `150`.
+  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.

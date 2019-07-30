@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 `filter`, `callback`이 매칭되는 모든 cookies를 얻기 위한 요청이 완료되면, `callback(error, cookies)`이 호출된다.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Writes any unwritten cookies data to disk.
 
 Writes any unwritten cookies data to disk.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](modernization/promisification.md)**

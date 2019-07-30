@@ -2,7 +2,7 @@
 
 > Create and control views.
 
-Proces: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
@@ -75,6 +75,8 @@ Returns `Boolean` - Whether the view is destroyed.
 * `nastavení` Objekt 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 

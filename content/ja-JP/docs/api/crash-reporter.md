@@ -48,26 +48,9 @@ crashReporter.start({
 
 **注:** `child_process` モジュール経由で作成された子プロセスは、Electronモジュールにアクセスすることはできません。 それ故、それらからクラッシュレポートを収集するため、代わりに `process.crashReporter.start` を使用してください。 クラッシュレポートを一時的に保存するディレクトリを指す `crashesDirectory` と呼ばれる追加のオプションと一緒に上記と同じオプションを渡してください。 子プロセスをクラッシュさせる `process.crash()` を呼び出すことで、これをテストすることができます。
 
-**注:** Windowsで子プロセスからクラッシュレポートを収集するためには、同様にこの追加のコードを付け加える必要があります。 これで監視してクラッシュレポートを送信するプロセスが開始されます。 `submitURL`、`productName`、`crashesDirectory`を適切な値に置換してください。
-
 **注釈:** 最初の `start` の呼び出しの後、追加/更新した `extra` パラメーターを送信する必要がある場合、macOS では、`addExtraParameter` を呼び出してください。Linux と Windows では、追加/更新した `extra` パラメーターとともに `start` を再度、呼び出してください。
 
-```js
-const args = [
-  `--reporter-url=${submitURL}`,
-  `--application-name=${productName}`,
-  `--crashes-directory=${crashesDirectory}`
-]
-const env = {
-  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-}
-spawn(process.execPath, args, {
-  env: env,
-  detached: true
-})
-```
-
-**注:** macOSでは、Electronはクラッシュの収集とレポートに新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされます。
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされます。
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -81,13 +64,13 @@ spawn(process.execPath, args, {
 
 すべてのアップロードされたクラッシュレポートを返します。各レポートには日付とアップロードされたIDを含まれます。
 
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
+### `crashReporter.getUploadToServer()`
 
 戻り値 `Boolean` - レポートがサーバーに送信されるかどうか。`start` メソッドまたは `setUploadToServer` を通じて設定してください。
 
 **注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+### `crashReporter.setUploadToServer(uploadToServer)`
 
 * `uploadToServer` Boolean *macOS* - レポートがサーバーに送信されるかどうか.
 
@@ -95,14 +78,14 @@ spawn(process.execPath, args, {
 
 **注:** このAPIは、メインプロセスからしか呼び出すことができません。
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
 * `key` String - パラメータキー。長さは、64文字未満でなければなりません。
 * `value` String - パラメータの値。長さは、64文字未満でなければなりません。
 
-クラッシュレポートで送信される追加のパラメータを設定します。 ここで指定された値は、`start` が呼び出されたときに `extra` オプション経由で設定された値と一緒に送信されます。 このAPIはmacOSでのみ利用可能です。LinuxとWindowsで最初の `start` の呼び出しの後、追加/更新した追加のパラメーターを送信する必要がある場合、更新した `extra` オプションと一緒に `start` を再度、呼び出してください。
+クラッシュレポートで送信される追加のパラメータを設定します。 ここで指定された値は、`start` が呼び出されたときに `extra` オプション経由で設定された値と一緒に送信されます。 This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS*
+### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
 * `key` String - パラメータキー。長さは、64文字未満でなければなりません。
 

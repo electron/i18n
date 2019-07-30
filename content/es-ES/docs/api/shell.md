@@ -22,8 +22,6 @@ El módulo `shell` tiene los siguientes métodos:
 
 * `fullPath` Cadena
 
-Devuelve `Boolean` - Si el elemento se mostró o no con éxito.
-
 Muestra el archivo determinado en un administrador de archivo. Si es posible, selecciona el archivo.
 
 ### `shell.openItem(fullPath)`
@@ -44,6 +42,8 @@ Abre el archivo determinado en el escritorio por defecto.
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Cambiar**
 
 ### `shell.openExternal(url[, options])`
 

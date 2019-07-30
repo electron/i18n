@@ -11,3 +11,4 @@
 * ` description ` String (optioneel) - Beschrijving van de taak (weergegeven in een tooltip). Moet alleen worden ingesteld als `type` is `task`.
 * `iconPath` String (optioneel) - Het absolute pad naar een pictogram dat getoond moet worden in een Jump List, dit kan een willekeurig bronbestand zijn dat een icoon bevat (bijv. `.ico`, `.exe`, `.dll`). Je kunt normaal gesproken `process.execPath` specificeren om het programmapictogram weer te geven.
 * `iconIndex` Nummer (optioneel) - De index van het pictogram in het bronbestand. Als een bronbestand meerdere pictogrammen bevat, kan deze waarde worden gebruikt om de nulindex van het pictogram op te geven die voor deze taak moet worden weergegeven. Als een bronbestand slechts één pictogram bevat, moet deze eigenschap op nul gezet worden.
+* `workingDirectory` String (optional) - The working directory. Default is empty.

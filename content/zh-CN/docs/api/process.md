@@ -16,6 +16,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getSystemVersion()`
 * `getCPUUsage()`
 * `getIOCounters()`
 * `argv`
@@ -151,11 +152,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getProcessMemoryInfo()`
 
-返回 ` Object `:
-
-* `residentSet`Integer*Linux*和*Windows* - 当前置顶的以 KB 为单位的物理内存数量。
-* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
-* `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
+Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
@@ -171,6 +168,20 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 * `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
+
+### `process.getSystemVersion()`
+
+Returns `String` - The version of the host operating system.
+
+示例
+
+| 平台      | Version             |
+| ------- | ------------------- |
+| macOS   | `10.13.6`           |
+| Windows | `10.0.17763`        |
+| Linux   | `4.15.0-45-generic` |
+
+**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 

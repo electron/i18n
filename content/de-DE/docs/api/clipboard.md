@@ -4,8 +4,6 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
 Das folgende Beispiel zeigt, wie Zeichenfolgen in die Zwischenablage geschrieben werden:
 
 ```javascript

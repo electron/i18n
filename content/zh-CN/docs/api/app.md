@@ -294,6 +294,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 当 gpu 进程崩溃或被杀时触发。
 
+### Event: 'renderer-process-crashed'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `killed` Boolean
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
 ### 事件: "accessibility-support-changed" * macOS * * Windows *
 
 返回:
@@ -465,6 +475,14 @@ app.exit(0)
 
 显示所有被隐藏的应用窗口。需要注意的是，这些窗口不会自动获取焦点。
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.getAppPath()`
 
 返回 `String` 类型 - 当前应用程序所在目录
@@ -509,14 +527,14 @@ app.exit(0)
 
 读取文件的关联图标。
 
-在 *Windows* 上, 会有两种图标：
+On *Windows*, there are 2 kinds of icons:
 
 * 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
 * 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
 
 在 *Linux* 和 *macOS* 系统中，图标取决于和应用程序绑定的 文件 mime 类型
 
-**[马上将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,7 +561,7 @@ app.exit(0)
 * `name` String
 * `path` String
 
-重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 如果路径指定的目录不存在, 则该目录将由此方法创建。 如果发生错误会抛出 `Error`
+重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 `name` 参数只能使用 `app.getPath` 定义过的 name
 
@@ -606,6 +624,8 @@ app.exit(0)
 在 Windows 系统中，你可以提供可选参数 path（可执行文件的路径）和 args（在启动时传递给可执行文件的参数数组）
 
 ** 注意: **在 macOS 上, 您只能注册已添加到应用程序的 ` info. plist ` 中的协议, 在运行时不能对其进行修改。 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115)
+
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
@@ -734,8 +754,6 @@ app.setJumpList([
 
 返回 `Boolean`
 
-此方法使应用程序成为单个实例应用程序, 而不是允许应用程序的多个实例运行, 这将确保只有一个应用程序的实例正在运行, 其余的实例全部会被终止并退出。
-
 此方法的返回值表示你的应用程序实例是否成功取得了锁。 如果它取得锁失败，你可以假设另一个应用实例已经取得了锁并且仍旧在运行，并立即退出。
 
 例如：如果你的程序是应用的主要实例并且当这个方法返回 `true`时，你应该继续让你的程序运行。 如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
@@ -844,7 +862,7 @@ if (!gotTheLock) {
 
 返回 ` Promise`
 
-对于` infoType `等于` complete `： Promise 将包含所有GPU信息的` Object `正如 [ chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc)。 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
 
 对于` infoType `等于` basic `： Promise 至少包含当请求`complete`时的属性`Object`。 下面是一个基础响应示例：
 
@@ -941,6 +959,8 @@ app.setLoginItemSettings({
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
+<p><strong><a href="modernization/property-updates.md">即将弃用</a></strong></p>
+
 <h3><code>app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*</h3> 
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
@@ -950,6 +970,8 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 此 API 必须在 `ready` 事件触发后调用
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
+
+**[即将弃用](modernization/property-updates.md)**
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
@@ -966,7 +988,15 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * ` website ` String (可选) - 应用网站。*Linux*
   * ` iconPath ` String (可选) - 应用图标路径。*Linux*
 
-设置 "关于" 面板选项。 这将覆盖应在MacOS系统中应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple docs ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 这将覆盖应在MacOS系统中应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+
+### `app.isEmojiPanelSupported`
+
+Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+
+### `app.showEmojiPanel` *macOS* *Windows*
+
+Show the platform's native emoji picker.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -985,20 +1015,22 @@ stopAccessingSecurityScopedResource()
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - 命令行开关
+* `switch` String - A command-line switch, without the leading `--`
 * `value` String (optional) - 给开关设置的值
 
 通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
 
-** 注意: **该方法不会影响 ` process. argv `, 我们通常用这个方法控制一些底层的 Chromium 行为。
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.appendArgument(value)`
 
 * ` value `String - 要追加到命令行的参数
 
-给 Chromium 中直接添加一个命令行参数，该参数的引号和格式必须正确。
+Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
 
-** 注意: **该方法不会影响 ` process. argv `
+If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1012,9 +1044,9 @@ stopAccessingSecurityScopedResource()
 
 返回 `String` - 命令行开关值。
 
-**注意：** 当开关不存时，它返回空字符串。
+**Note:** When the switch is not present or has no value, it returns empty string.
 
-### `app.enableSandbox()` *试验性* *macOS* *Windows*
+### `app.enableSandbox()` *实验功能*
 
 在应用程序上启用完全沙盒模式。
 
@@ -1070,17 +1102,21 @@ stopAccessingSecurityScopedResource()
 
 ### `app.dock.show()` *macOS*
 
-显示 dock 图标
+Returns `Promise<void>` - Resolves when the dock icon is shown.
 
 ### `app.dock.isVisible()` *macOS*
 
-返回 ` Boolean `-表示 dock 图标当前是否可见。` app.dock.show () ` 是异步调用的，因此此方法可能无法在调用之后立即返回true.
+Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
 设置应用程序的[Dock 菜单](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)。
+
+### `app.dock.getMenu()` *macOS*
+
+Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1090,6 +1126,32 @@ stopAccessingSecurityScopedResource()
 
 ## 属性
 
+### `app.applicationMenu`
+
+A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.accessibilitySupportEnabled` *macOS* *Windows*
+
+A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+
+See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+此 API 必须在 `ready` 事件触发后调用
+
+**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
+
+### `app.userAgentFallback`
+
+A `String` which is the user agent string Electron will use as a global fallback.
+
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+
 ### `app.isPackaged`
 
 返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
+
+### `app.allowRendererProcessReuse`
+
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+
+The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

@@ -4,8 +4,6 @@
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-レンダラプロセスのコンテキストでは Linux 上の [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
-
 以下の例では、クリップボードに文字列を書き込む方法を示します。
 
 ```javascript

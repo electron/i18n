@@ -16,6 +16,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getSystemVersion()`
 * `getCPUUsage()`
 * `getIOCounters()`
 * `argv`
@@ -73,7 +74,7 @@ process.once('loaded', () => {
 
 ### `process.enablePromiseAPIs`
 
-非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 これを `true` に設定すると非推奨警告が有効になります。
+非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
@@ -151,15 +152,11 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 
 ### `process.getProcessMemoryInfo()`
 
-戻り値 `Object`:
-
-* `residentSet` Integer *Linux* と *Windows* - 現在、実際の物理 RAM に確保されているキロバイト単位のメモリ量。
-* `private` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないキロバイト単位のメモリ量。
-* `shared` Integer - プロセス間で共有されるメモリ量で、通常、 Electron のコード自体が使っているキロバイト単位のメモリ量。
+Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
 
 現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。この API は app の ready の後に呼び出さなければなりません。
 
-Chromium は macOS には `residentSet` の値を提供しません。 これは直近の使用されていないページを macOS がメモリ内で圧縮するためです。 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
+Chromium は macOS には `residentSet` の値を提供しません。 This is because macOS performs in-memory compression of pages that haven't been recently used. 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
 
 ### `process.getSystemMemoryInfo()`
 
@@ -171,6 +168,20 @@ Chromium は macOS には `residentSet` の値を提供しません。 これは
 * `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
 
 システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
+
+### `process.getSystemVersion()`
+
+Returns `String` - The version of the host operating system.
+
+例:
+
+| プラットフォーム | バージョン               |
+| -------- | ------------------- |
+| macOS    | `10.13.6`           |
+| Windows  | `10.0.17763`        |
+| Linux    | `4.15.0-45-generic` |
+
+**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 

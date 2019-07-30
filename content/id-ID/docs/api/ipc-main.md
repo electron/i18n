@@ -9,7 +9,8 @@ Proses: [Main](../glossary.md#main-process)
 
 <h2>Mengirim Pesan</h2>
 
-<p>Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isi web.kirim</ 0> untuk informasi lebih lanjut.</p>
+<p>It is also possible to send messages from the main process to the renderer
+process, see [webContents.send][web-contents-send] for more information.</p>
 
 <ul>
 <li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
@@ -51,7 +52,10 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 <h3><code>ipcMain.di (saluran, pendengar)`</h3> 
 
 * `channel` String
-* ` pendengar </ 0> Fungsi</li>
+* `pendengar` Fungsi 
+  * `event` IpcMainEvent
+  * ` ... args </ 0> ada []</li>
+</ul></li>
 </ul>
 
 <p>Mendengarkan <code> saluran </ 0> , ketika sebuah pesan baru tiba <code> pendengar </ 0> akan dipanggil dengan
@@ -59,7 +63,10 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
 <h3><code>ipcMain.sekali (saluran, pendengar)`</h3> 
     * `channel` String
-    * ` pendengar </ 0> Fungsi</li>
+    * `pendengar` Fungsi 
+      * `event` IpcMainEvent
+      * ` ... args </ 0> ada []</li>
+</ul></li>
 </ul>
 
 <p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
@@ -72,28 +79,10 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
 <h3><code>ipcMain.pendengar menghapus semua( [channel] )`</h3> 
-            * `channel` String
-            
-            Menghapus pendengar yang ditentukan ` saluran </ 0> .</p>
+          * `channel` String
+          
+          Menghapus pendengar yang ditentukan ` saluran </ 0> .</p>
 
 <h2>Objek acara</h2>
 
-<p><code> acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
-
-<h3><code>event.frameId`</h3> 
-            
-            An `Integer` representing the ID of the renderer frame that sent this message.
-            
-            ### `acara.kembali di nilai`
-            
-            Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
-            
-            ### `acara.pengirim`
-            
-            Mengembalikan `isi web </ 0> yang mengirim pesan, Anda dapat memanggil
- <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
- <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>
-
-<h3><code>event.reply`</h3> 
-            
-            A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+<p>The documentation for the <code>event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.

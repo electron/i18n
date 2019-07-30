@@ -66,7 +66,7 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
-注意：严格来说不需要处理此事件。即时成功下载之后，下一次应用程序启动时，仍将继续下载更新文件。
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Event: 'before-quit-for-update'
 
@@ -101,4 +101,4 @@
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**Note:** 严格来讲，执行一次自动更新不一定要调用此方法。因为下载更新文件成功之后，下次应用启动的时候会强制更新。
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.

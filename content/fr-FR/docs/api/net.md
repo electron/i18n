@@ -13,9 +13,9 @@ Voici une liste non exhaustive de pourquoi vous devriez utiliser le module `net`
 * Prise en charge de l'authentification proxy en utilisant basic, digest, NTLM, Kerberos ou en négociant des schémas d'authentification.
 * Prise en charge des proxy de surveillance du trafic: Proxy de type Fiddler utilisés pour le contrôle et la surveillance des accès.
 
-L'API du module `net` a été spécifiquement conçu pour imiter, autant que possible, l'API de Node.js. Les composants de l'API, y compris les classes, les méthodes, les propriétés et les noms d'événement sont similaires à ceux généralement utilisés dans Node.js.
+The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-Par exemple, l'exemple suivant montre rapidement comment utiliser l'API `net` :
+Example usage:
 
 ```javascript
 const { app } = require('electron')
@@ -35,8 +35,6 @@ app.on('ready', () => {
   request.end()
 })
 ```
-
-Par ailleurs, cela est presque identique à la façon dont vous utiliseriez normalement le module [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) de Node.js
 
 L'API `net` peut être utilisé seulement une fois que l'application ait émis l'événement `ready`. Essayer d'utiliser le module avant l'événement `ready` soulèvera une erreur.
 

@@ -25,7 +25,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *실험적*
 
-* `options` Object (optional) 
+* `options` 객체 (선택) 
   * `webPreferences` 객체 (optional) - [BrowserWindow](browser-window.md) 참조.
 
 ### 정적 메서드
@@ -75,6 +75,8 @@ Returns `Boolean` - Whether the view is destroyed.
 * `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *실험적*
 

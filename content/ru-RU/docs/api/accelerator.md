@@ -52,6 +52,7 @@ app.on('ready', () => {
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`

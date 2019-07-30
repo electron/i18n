@@ -78,14 +78,6 @@ Görünür URL'yi döndürür. Bu özelliğe yazmak, üst düzey gezinimi başla
 
 `src` özelliği ayrıca `data:text/plain,Merhaba dünya!` gibi veri URL'lerini de kabul eder.
 
-### `otomatik boyutlandır`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-Bu özellik varsa, `webview` `minwidth`, `minheight`, özellikleri tarafından belirtilen sınırlar içinde, kapsayıcısı otomatik olarak yeniden boyutlandırır `maxwidth` ve `maxheight`.</0>. Bu kısıtlamalar, `webview` `autosize` etkinleştirilmemişse. `autosize` etkinleştirildiğinde, `webview` dosya boyutu minimum değerlerden az veya maksimum değerden fazla olamaz.
-
 ### `düğüm entegrasyonu`
 
 ```html
@@ -108,7 +100,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `eklentiler`
 
@@ -224,6 +216,8 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
 
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+
 Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
 
 ### `<webview>.downloadURL(url)`
@@ -329,6 +323,19 @@ CSS'i misafir sayfasının içine yerleştirir.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` Dizgi
+* `userGesture` Boolean (optional) - Default `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
 Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
 
 ### `<webview>.openDevTools()`
@@ -353,6 +360,10 @@ Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığın
 * `x` Integer
 
 Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -416,7 +427,7 @@ Sayfada düzenleme komutu olan `replace`'i yerine getirir.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
@@ -472,6 +483,21 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 `webview`'ün web sayfasını PDF olarak yazdırır, tıpkı `webContents.printToPDF(options, callback)` gibi.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `<webview>.printToPDF(options)`
+
+* `ayarlar` Nesne 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
@@ -480,13 +506,13 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 `rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -550,6 +576,10 @@ Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
 
 ## DOM etkinlikleri
 
@@ -684,10 +714,10 @@ Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar
 const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
-webview.addEventListener('new-window', (e) => {
+webview.addEventListener('new-window', async (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternalSync(e.url)
+    await shell.openExternal(e.url)
   }
 })
 ```

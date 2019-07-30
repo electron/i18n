@@ -66,11 +66,7 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 #### Olay: 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
@@ -78,22 +74,14 @@ Tray simgesi tıklandığında çıkar.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında ortaya çıkar.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında tetiklenir.
@@ -142,33 +130,21 @@ Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde or
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
 #### Olay: 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
@@ -203,7 +179,13 @@ Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ Sets the title displayed aside of the tray icon in the status bar (Support ANSI 
   * `never` - Asla tepsi simgesini vurgulamayın.
 
 Tepsinin simge arka planı vurgulandığında (mavi renkte) ayarlar.
+
+**[Kullanımdan kaldırıldı](breaking-changes.md#tray)**
 
 **Note:** pencere görünürlüğü değiştiğinde `'never'` ve `'always'` modları arasında geçiş yaparak [`BrowserWindow`](browser-window.md) ile `highlightMode` kullanabilirsiniz.
 

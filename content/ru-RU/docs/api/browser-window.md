@@ -170,7 +170,7 @@ child.once('ready-to-show', () = > {
     * `devTools` Boolean (опционально) - включает инструменты разработчика. Если значение `false`, нельзя будет использовать `BrowserWindow.webContents.openDevTools()`, чтобы открыть инструменты разработчика. По умолчанию - `true`.
     * `nodeIntegration` Boolean (опционально) - включает интеграцию NodeJS. По умолчанию - `false`.
     * `nodeIntegrationInWorker` Boolean (опционально) - включает интеграцию NodeJS в веб-воркерах. По умолчанию - `false`. Больше об этом можно найти в [многопоточности](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (опционально) - экспериментальная опция для включения поддержки NodeJS в подфреймах, таких как iframes. Все Ваши предварительные загрузки будут загружены для каждого iframe, Вы можете использовать `process.isMainFrame`, чтобы определить в главном фрейме Вы или нет.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. Все Ваши предварительные загрузки будут загружены для каждого iframe, Вы можете использовать `process.isMainFrame`, чтобы определить в главном фрейме Вы или нет.
     * `preload` String (опционально) - определяет скрипт, который будет загружен до того, как остальные скрипты запустятся на странице. Этот скрипт будет всегда иметь доступ к API NodeJS, вне зависимости включена или выключена интеграция NodeJS. Значение должно быть абсолютным путем к файлу скрипта. Когда интеграция NodeJS отключена, предварительно загруженный скрипт может повторно ввести глобальные символы NodeJS в глобальную область. Смотрите пример [здесь](process.md#event-loaded).
     * `sandbox` Boolean (опционально) - если установлено true, то в окне будет запущена песочница, что делает ее совместимой с песочницей Chromium на уровне операционной системы, и отключает движок NodeJS. Это не тоже самое, что параметр `nodeIntegration`, доступные API для предзагруженных скриптов более ограничены. Узнать больше об этой опции можно [здесь](sandbox-option.md). **Примечание:** Эта опция в настоящее время экспериментальная и может поменяться или быть удалена в будущих Electron релизах.
     * `enableRemoteModule` Boolean (опционально) - включает модуль [`remote`](remote.md). По умолчанию - `true`.
@@ -184,33 +184,33 @@ child.once('ready-to-show', () = > {
     * `images` Boolean (опционально) - включает поддержку изображений. По умолчанию `true`.
     * `textAreasAreResizable` Boolean (опционально) - позволяет изменять размер у элементов TextArea. По умолчанию `true`.
     * `webgl` Boolean (опционально) - включает поддержку WebGL. По умолчанию `true`.
-    * `webaudio` Boolean (optional) - включает поддержку WebAudio. По умолчанию `true`.
-    * `plugins` Boolean (опционально) - включает поддержку плагинов. По умолчанию `false`.
-    * `experimentalFeatures` Boolean (опционально) - включает экспериментальные возможности Chromium. По умолчанию `false`.
-    * `scrollBounce` Boolean (опционально) - включает эффект отскока при прокрутке на macOS. По умолчанию `false`.
-    * `enableBlinkFeatures` String (optional) - список возможностей, разделенных `запятой`, которые нужно включить, например `CSSVariables,KeyboardEventKey`. Полный список поддерживаемых возможностей можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `disableBlinkFeatures` String (опционально) - список возможностей, разделенных `запятой`, которые нужно выключить, например `CSSVariables,KeyboardEventKey`. Полный список поддерживаемых возможностей можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `defaultFontFamily` Object (опционально) - устанавливает шрифт по умолчанию для семейства шрифтов. 
-      * `standard` String (опционально) - по умолчанию `Times New Roman`.
-      * `serif` String (опционально) - по умолчанию `Times New Roman`.
-      * `sansSerif` String (опционально) - по умолчанию `Arial`.
-      * `monospace` String (опционально) - по умолчанию `Courier New`.
-      * `cursive` String (опционально) - по умолчанию `Script`.
-      * `fantasy` String (опционально) - по умолчанию `Impact`.
-    * `defaultFontSize` Integer (опционально) - по умолчанию `16`.
-    * `defaultMonospaceFontSize` Integer (опционально) - по умолчанию `13`.
-    * `minimumFontSize` Integer (опционально) - по умолчанию `0`.
-    * `defaultEncoding` String (опционально) - по умолчанию `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (опционально) - предотвратить анимации и таймеры, когда страница становится фоновой. Это также влияет на [API видимости страницы](#page-visibility). По умолчанию `true`.
-    * `offscreen` Boolean (опционально) - включает отрисовку окна браузера вне экрана. По умолчанию `false`. Смотрите [руководство отрисовки вне экрана](../tutorial/offscreen-rendering.md) для подробной информации.
-    * `contextIsolation` Boolean (опционально) - запускать или нет API Electron и определенный скрипт `предварительной загрузки` в отдельном JavaScript-контексте. По умолчанию `false`. Контекст, в котором скрипт `предварительной загрузки` будет запускаться, имеет полный доступ к глобальным объектам `document` и `window`, но будет использовать собственный набор JavaScript-типов (`Array`, `Object`, `JSON`, и т.д.) и будет изолирован от любых изменений, сделанных в глобальной среде, загруженной страницы. API Electron будет доступен только в скрипте `предварительной загрузки` и не будет доступен загруженной странице. Эта опция должна быть использована, когда загружается потенциально ненадежный удаленный контент, чтобы убедиться, что загруженный контент не сможет изменить скрипт `предварительной загрузки` и любой API Electron, который используется. Эта опция использует ту же самую технику, что используется в [контенте скриптов Chrome](https://developer.chrome.com/extensions/content_scripts#execution-environment). Вы можете получить доступ к этому контексту в инструментах разработчика, при выборе пункта 'Изолированный Контекст Elctron' в списке на верхней части консольной вкладки.
-    * `nativeWindowOpen` Boolean (опционально) - использовать нативную функцию `window.open()`. По умолчанию `false`. У дочерних окон всегда будет отключена интеграция NodeJS. **Примечание:** Эта опция в настоящее время экспериментальная.
-    * `webviewTag` Boolean (опционально) - включает [`<webview>`-тег](webview-tag.md). По умолчанию `false`. **Примечание:** Cкрипт `предварительной загрузки`, настроенный для `<webview>`, будет иметь интеграцию NodeJS, когда будет запущен, так что Вы должны убедиться, что удаленный/непроверенный контент не может создавать тег `<webview>` с возможно вредоносным скриптом `предварительной загрузки`. Вы можете использовать событие `will-attach-webview` на [webContents](web-contents.md), чтобы снять скрипт `предварительной загрузки` и проверить или изменить начальные настройки `<webview>`.
-    * `additionalArguments` String[] (опционально) - список строк, которые будут добавлены в `process.argv` в графическом процессе этого приложения. Полезно, для передачи небольших битов данных в скрипты предварительной загрузки графического процесса.
-    * `safeDialogs` Boolean (опционально) - включает режим последовательной защиты диалогов. По умолчанию - `false`.
-    * `safeDialogsMessage` String (опционально) - сообщение, которое будет отображено, когда сработает последовательная защита диалогов. Если не определено, будет использовано сообщение по умолчанию, обратите внимание, что текущее сообщение по умолчанию на английском и не переведено.
-    * `navigateOnDragDrop` Boolean (опционально) - вызывает навигацию, когда файл или ссылка перетаскивается на страницу. По умолчанию - `false`.
+    * `plugins` Boolean (опционально) - Включает поддержку плагинов. По умолчанию `false`.
+    * `experimentalFeatures` Boolean (опционально) - Включает экспериментальные возможности Chromium. По умолчанию `false`.
+    * `scrollBounce` Boolean (опционально) - Включает эффект отскока при прокрутке в macOS. По умолчанию `false`.
+    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Полный список поддерживаемых возможностей можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `disableBlinkFeatures` String (опционально) - Список функциональных возможностей для выключения, разделяются `','`, например `CSSVariables,KeyboardEventKey`. Полный список поддерживаемых возможностей можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `defaultFontFamily` Object (опционально) - Устанавливает шрифт по умолчанию для семейства шрифтов. 
+      * `standard` String (опционально) - По умолчанию `Times New Roman`.
+      * `serif` String (опционально) - По умолчанию `Times New Roman`.
+      * `sansSerif` String (опционально) - По умолчанию `Arial`.
+      * `monospace` String (опционально) - По умолчанию `Courier New`.
+      * `cursive` String (optional) - Defaults to `Script`.
+      * `fantasy` String (optional) - Defaults to `Impact`.
+    * `defaultFontSize` Integer (optional) - Defaults to `16`.
+    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
+    * `minimumFontSize` Integer (optional) - Defaults to `0`.
+    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
+    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
+    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Примечание:** Эта опция в настоящее время экспериментальная.
+    * `webviewTag` Boolean (optional) - Whether to enable the [`&lt;webview&gt;` tag](webview-tag.md). По умолчанию `false`. **Note:** The `preload` script configured for the `&lt;webview&gt;` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `&lt;webview&gt;` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `&lt;webview&gt;`'s initial settings.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
+    * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
+    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (опционально) - политика автовоспроизведения для применения к содержимому в окне, может быть `no-user-gesture-required`, `user-gesture-required` или `document-user-activation-required`. По умолчанию `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
 Когда установлен минимальный или максимальный размер окна, при помощи `minWidth`/`maxWidth`/`minHeight`/`maxHeight`, это ограничивает только пользователей. Это не позволит Вам установить размер, который не будет следовать ограничениям размера, в `setBounds`/`setSize` или в конструкторе `BrowserWindow`.
 
@@ -847,7 +847,7 @@ console.log(win.getBounds())
 
 Возвращает `Boolean` - всегда ли окно поверх остальных окон.
 
-#### `win.moveTop()` *macOS* *Windows*
+#### `win.moveTop()`
 
 Перемещает окно на верх(z-order) независимо от фокуса
 
@@ -977,13 +977,13 @@ win.setSheetOffset(toolbarRect.height)
 
 Захватывает снимок страницы в границах `rect`. По завершению, `callback` будет вызван с `callback(image)`. `image` это экземпляр объекта [NativeImage](native-image.md), который хранит данные захвата страницы. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
-**[Скоро устареет](promisification.md)**
+**[Скоро устареет](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (опционально) - границы захвата
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 
-* Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
+Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
 Захватывает снимок страницы в границах `rect`. Пропустив `rect`, будет сделан захват всей видимой страницы.
 
@@ -1001,9 +1001,9 @@ win.setSheetOffset(toolbarRect.height)
 
 Тоже, что и [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-`url` может быть удаленным адресом (например, `http://`) или путем до локального HTML-файла, используя протокол `file://`.
+The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
-Для обеспечения правильного форматирования URL файла рекомендуется использовать метод NodeJS [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject):
+To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
 ```javascript
 let url = require('url').format({
@@ -1015,7 +1015,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-Вы можете загрузить URL, используя `POST`-запрос с зашифрованными URL данными, сделав следующее:
+You can load a URL using a `POST` request with URL-encoded data by doing the following:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1037,11 +1037,11 @@ win.loadURL('http://localhost:8000/post', {
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Тоже, что и `webContents.loadFile`, `filePath` должно быть путем до HTML-файла, относительно корня приложения. Смотрите документацию `webContents` для подробностей.
+Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
 
 #### `win.reload()`
 
-Тоже, что и `webContents.reload`.
+Same as `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
@@ -1082,9 +1082,9 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.hasShadow()` *macOS*
 
-Возвращает `Boolean` - есть ли у окна тень.
+Возвращает `Boolean` - был ли вызов успешным.
 
-На Windows и Linux всегда возвращает `true`.
+В Windows и Linux всегда возвращает `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
@@ -1176,23 +1176,23 @@ win.loadURL('http://localhost:8000/post', {
 
 * `hide` Boolean
 
-Устанавливает, должна ли панель меню автоматически прятать себя. После установки панель меню будет показываться, только когда пользователи нажмут на клавишу `Alt`.
+Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
-Если панель меню уже видна, вызов `setAutoHideMenuBar(true)` не спрячет ее немедленно.
+If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
 #### `win.isMenuBarAutoHide()`
 
-Возвращает `Boolean` - прячет ли меню себя автоматически.
+Returns `Boolean` - Whether menu bar automatically hides itself.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Устанавливает видимость панели меню. Если панель меню прячется автоматически, пользователи все еще могут открыть панель меню нажатием на клавишу `Alt`.
+Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
-Возвращает `Boolean` - видна ли панель меню.
+Returns `Boolean` - Whether the menu bar is visible.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
@@ -1200,15 +1200,15 @@ win.loadURL('http://localhost:8000/post', {
 * `options` Object (опционально) 
   * `visibleOnFullScreen` Boolean (опционально) *macOS* - устанавливает видимость панели меню в полноэкранном режиме окна
 
-Устанавливает видимость окна на всех рабочих местах.
+Sets whether the window should be visible on all workspaces.
 
-**Примечание:** Этот метод ничего не делает Windows.
+**Note:** This API does nothing on Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Возвращает `Boolean` - видно ли окно на всех рабочих местах.
+Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Примечание:** Этот метод всегда возвращает false на Windows.
+**Примечание:** Данный API всегда возвращает false в Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1216,9 +1216,9 @@ win.loadURL('http://localhost:8000/post', {
 * `options` Object (опционально) 
   * `forward` Boolean (опционально) *macOS* *Windows* - Если true, перенаправляет сообщения о передвижение мыши в Chromium, включая события мыши, такие как `mouseleave`. Используется, только когда `ignore` - true. Если `ignore` - false, перенаправление всегда будет отключено, независимо от этого значения.
 
-Заставляет окно игнорировать все события мыши.
+Включает для окна игнорирование событий от мыши.
 
-Все события мыши, произошедшие в этом окне, будут переданы окну позади этого окна, но, если это окно сфокусировано, оно все еще будет получать события клавиатуры.
+All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
@@ -1226,19 +1226,19 @@ win.loadURL('http://localhost:8000/post', {
 
 Предотвращает захват содержимого окна другими приложениями.
 
-На macOS это устанавливает NSWindow sharingType в NSWindowSharingNone. На Windows это вызывает SetWindowDisplayAffinity с `WDA_MONITOR`.
+On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Меняет, может ли окно быть сфокусировано.
+Changes whether the window can be focused.
 
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
-Устанавливает `parent` как родителя текущего окна, передав `null` превратит текущее окно в окно верхнего уровня.
+Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
 #### `win.getParentWindow()`
 
@@ -1252,45 +1252,45 @@ win.loadURL('http://localhost:8000/post', {
 
 * `autoHide` Boolean
 
-Контролирует скрытие курсора, во время печатания.
+Controls whether to hide cursor when typing.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Выбирает предыдущую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
+Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.selectNextTab()` *macOS*
 
-Выбирает следующую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
+Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Объединяет все окна в одно окно с множественными вкладками, когда нативные вкладки включены и в присутствуют открытые окна больше, чем 1.
+Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Перемещает текущую вкладку в новое окно, если нативные вкладки включены и присутствует больше, чем одна вкладка, в текущем окне.
+Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
 #### `win.toggleTabBar()` *macOS*
 
-Переключает видимость вкладки, если включены нативные вкладки и присутствует только одна вкладка в текущем окне.
+Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Добавляет окно, как вкладку, в это окно, после вкладки экземпляра окна.
+Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` или `ultra-dark`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для подробностей.
 
-Добавляет эффект вибрации окну браузера. Передав `null` или пустой массив строк, эффект вибрации окна будет убран.
+Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Экспериментально*
 
 * `touchBar` TouchBar
 
-Устанавливает слой сенсорной панели для текущего окна. Указав `null` или `undefined` очистит сенсорную панель. Этот метод имеет эффект только, если машина имеет сенсорную панель и запускается на macOS 10.12.1+.
+Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
 **Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
@@ -1317,3 +1317,24 @@ win.loadURL('http://localhost:8000/post', {
 Возвращает массив объектов `BrowserView`, которые были прикреплены с помощью addBrowserView или setBrowserView.
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
+
+### Свойства
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```

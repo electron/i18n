@@ -8,7 +8,7 @@
 
 ## 메시지 보내기
 
-main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 가능한데 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)를 보세요.
+It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
 
 * 메시지를 보낼 때 이벤트 이름은 `channel`입니다.
 * 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
@@ -48,14 +48,18 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` 함수 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 `channel`을 수신하고, 새로운 메시지가 도착하면 `listener`는 `listener(event, args...)`로 호출됩니다.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` 함수 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 이벤트에 일회성 `listener` 함수를 추가합니다. 이 `listener` 는 다음 메시지가 `channel`에 보내지면 한번 동작하고 이후에 제거됩니다.
 
@@ -74,20 +78,4 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## Event 객체
 
-`callback`으로 전달되는 `event`객체는 다음과 같은 메소드를 가진다:
-
-### `event.frameId`
-
-An `Integer` representing the ID of the renderer frame that sent this message.
-
-### `event.returnValue`
-
-동기 메시지에 반환 되는 값을 설정합니다.
-
-### `event.sender`
-
-메시지를 보낸 `webContents`를 반환합니다. 비동기 메시지에 응답하기 위해 `event.sender.send`를 호출할 수 있습니다. 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 를 참조하세요.
-
-### `event.reply`
-
-A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.

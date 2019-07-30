@@ -91,7 +91,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
     
     Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
     
-    **[Deprecated Soon](promisification.md)**
+    **[Deprecated Soon](modernization/promisification.md)**
     
     #### `cookies.set(details)`
     
@@ -128,7 +128,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
           Menetapkan cookie dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
 lengkap.</p>
 
-<p><strong><a href="promisification.md">Deprecated Soon</a></strong></p>
+<p><strong><a href="modernization/promisification.md">Deprecated Soon</a></strong></p>
 
 <h4><code>cookies.remove(url, name)`</h4> 
           
@@ -147,7 +147,7 @@ lengkap.</p>
           
           Menghapus cookie yang cocok dengan `url` dan `nama`, `callback` akan dipanggil dengan `callback()` selesai.
           
-          **[Deprecated Soon](promisification.md)**
+          **[Deprecated Soon](modernization/promisification.md)**
           
           #### `cookies.flushStore()`
           
@@ -161,4 +161,4 @@ lengkap.</p>
           
           Tulis data cookie yang tidak tertulis ke disk.
           
-          **[Deprecated Soon](promisification.md)**
+          **[Deprecated Soon](modernization/promisification.md)**

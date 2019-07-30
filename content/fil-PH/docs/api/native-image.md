@@ -118,6 +118,15 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
+### `nativeImage.createFromBitmap(buffer, options)`
+
+* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+
+Nagbabalik ng `NativeImage`
+
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+
 ### `ativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
@@ -125,7 +134,7 @@ console.log(image)
 
 Nagbabalik ng `NativeImage`
 
-Gumagawa ng bagong `NativeImage` na instance mula sa `buffer`.
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 

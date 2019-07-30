@@ -4,13 +4,12 @@
 
 العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
-في سياق معالج العرض يعتمد ذلك على الوحدة النمطية ` البعيدة </ 0> على لينكس ، ولذلك لا يكون متاحًا عند تعطيل هذه الوحدة.</p>
+يوضح المثال التالي كيفية كتابة على سلسلة من الحافظة :
 
-<p>يوضح المثال التالي كيفية كتابة على  سلسلة من الحافظة :</p>
-
-<pre><code class="javascript">const { clipboard } = require('electron')
+```javascript
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
-`</pre> 
+```
 
 On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 

@@ -2,11 +2,9 @@
 
 > Kunin ang impormasyon tungkol sa laki ng screen, display, cursor posisyon, at iba pa.
 
-Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -39,7 +37,7 @@ Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Pagbabalik ng:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -48,7 +46,7 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Magbabalik ng:
+Ibinabalik ang:
 
 * `event` na Pangyayari
 * `display` [Display](structures/display.md)

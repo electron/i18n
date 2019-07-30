@@ -74,7 +74,7 @@ const constraints = {
 
 * `options` 对象 
   * ` types `String[]-列出要捕获的桌面源类型的字符串数组, 可用类型为 ` screen ` 和 ` window `。
-  * ` thumbnailSize `[ Size ](structures/size.md)(可选)-媒体源缩略图应缩放到的大小。默认值为 ` 150 ` x ` 150 `。
+  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 * `callback` Function - 回调函数 
   * `error` Error
@@ -84,13 +84,13 @@ const constraints = {
 
 `sources` 是 [`DesktopCapturerSource`](structures/desktop-capturer-source.md)对象数组, 每个`DesktopCapturerSource` 代表一个屏幕或一个可捕获的独立窗口。
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `desktopCapturer.getSources(options)`
 
 * `options` Object - 过滤器对象，包含过滤参数 
   * ` types `String[]-列出要捕获的桌面源类型的字符串数组, 可用类型为 ` screen ` 和 ` window `。
-  * ` thumbnailSize `[ Size ](structures/size.md)(可选)-媒体源缩略图应缩放到的大小。默认值为 ` 150 ` x ` 150 `。
+  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.

@@ -2,11 +2,9 @@
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -75,7 +73,7 @@ Dönüşler:
 
 ### Etkinlik: 'display-metrics-changed'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `display` [Display](structures/display.md)

@@ -2,11 +2,9 @@
 
 > Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
-Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Process: [Main](../glossary.md#main-process)
 
 No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 

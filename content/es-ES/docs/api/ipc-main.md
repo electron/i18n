@@ -8,7 +8,7 @@ El módulo `ipcMain` es una instancia de la clase [EventEmitter](https://nodejs.
 
 ## Enviando mensajes
 
-También es posible enviar mensajes desde el proceso principal al proceso de renderizado, ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para más información.
+It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
 
 * Cuando se envía un mensaje, el nombre del evento es el`channel`.
 * Para responder a un mensaje sincrónico, es necesario establecer `event.returnValue`.
@@ -48,14 +48,18 @@ El módulo `ipcMain` tiene el siguiente método para escuchar los eventos:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Función
+* `listener` Function 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Función
+* `listener` Function 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 Agrega una función `listener` para el evento. Este `listener` es invocado solo la próxima vez que se envía un mensaje a `channel`, después que se elimina.
 
@@ -74,20 +78,4 @@ Elimina los oyentes del `channel` especificado.
 
 ## Objeto de evento
 
-El objeto `event` pasado a la `callback` tiene los siguientes métodos:
-
-### `event.frameId`
-
-An `Integer` representing the ID of the renderer frame that sent this message.
-
-### `event.returnValue`
-
-Lo configura al valor que será devuelto en un mensaje sincrónico.
-
-### `event.sender`
-
-Devuelve el `webContents` que envió el mensaje. Puede llamar a `event.sender.send` para responder al mensaje asincrónico. Consulte [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para obtener más información.
-
-### `event.reply`
-
-A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.

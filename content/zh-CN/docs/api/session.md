@@ -88,16 +88,32 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 * `callback` Function - 回调函数 
   * `size` Integer 缓存大小（单位：bytes）
+  * `error` Integer - The error code corresponding to the failure.
 
 Callback会被调用，参数是session的当前缓存大小。
 
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 会在操作完成之后被调用。
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
 清除session的HTTP缓存。
 
-#### `ses.clearStorageData([options, callback])`
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+清除session的HTTP缓存。
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `选项` Object (可选) 
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
@@ -105,7 +121,18 @@ Callback会被调用，参数是session的当前缓存大小。
   * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。
 * `callback` Function (可选) - 会在操作完成后被调用.
 
-清除Web storage的数据。
+Clears the storage data for the current session.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `options` Object (可选) 
+  * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
@@ -173,13 +200,86 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   匹配本地地址。local 的含义是，是否匹配其中一个: "127.0.0.1", "::1", "localhost".
 
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `config` Object 
+  * `pacScript` String - 与 PAC 文件关联的 URL。
+  * `proxyRules` String - 表明要使用的代理规则。
+  * `proxyBypassRules` String - 表明哪些 url 应绕过代理设置的规则。
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+代理设置
+
+当`pacScript`和`proxyRules`一起提供时, `proxyRules` 选项会被忽略, 会使用`pacScript`配置。
+
+`proxyRules` 要遵循以下规则:
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+例如：
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - 对于http URL，用`foopy`作为HTTP协议代理，而其它所有URL则用` socks4://foopy2` 协议。
+
+`proxyBypassRules`是一个用逗号分隔的规则列表, 如下所述:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  与 HOSTNAME_PATTERN 模式匹配的所有主机名。
+  
+  例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    匹配特定域名后缀。
+    
+    例如： ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  匹配 IP 地址文本的 url。
+  
+  例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  匹配位于给定范围之间的 IP 文本的任何 URL。IP 范围是使用 CIDR 表示法指定的。
+  
+  例如: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  匹配本地地址。local 的含义是，是否匹配其中一个: "127.0.0.1", "::1", "localhost".
+
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `proxy` String
 
 解析 `url` 的代理信息。执行被请求时, 将使用 `callback(proxy)` 来调用 `callback`。
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -189,7 +289,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `选项` Object 
+* `options` Object 
   * `offline` Boolean (可选) - 是否模拟网络中断、离线。默认 否。
   * `latency` Double (可选) - RTT时延毫秒值. 默认为0将禁用时延调节。
   * `downloadThroughput ` Double (可选) - 指定下载Bps速率。默认为0将禁用下载限速。
@@ -215,13 +315,13 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function - 回调函数 
+* `proc` Function 
   * `request` Object 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `certificate` [证书](structures/certificate.md)
     * `verificationResult` String - chromium证书验证结果
     * `errorCode` Integer - 错误代码
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `verificationResult` Integer - 证书错误代码之一，来自 [这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。 除了证书错误代码外，还可以使用以下特殊代码。 
       * `-0` - 表示成功并禁用证书透明度验证
       * `-2` - 表示失败
@@ -250,7 +350,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。 Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `permissionGranted` Boolean - 允许或拒绝该权限.
   * `details` Object - 一些属性只有在某些授权状态下可用。 
     * `externalURL` String (Optional) - The url of the `openExternal` request.
@@ -296,9 +396,17 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
 * `callback` Function (optional) - 会在操作完成后被调用.
+
+清除主机解析程序的缓存。
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
 
 清除主机解析程序的缓存。
 
@@ -338,6 +446,14 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `callback` Function 
   * `result` Buffer - Blob 数据.
 
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` String - 有效的 UUID.
+
+Returns `Promise<Buffer>` - resolves with blob data.
+
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
@@ -352,12 +468,24 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function - 会在操作完成之后被调用。
 
 清除会话的 HTTP 身份验证缓存。
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
@@ -407,12 +535,11 @@ A [NetLog](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```

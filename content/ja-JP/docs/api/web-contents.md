@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### イベント: 'enter-html-full-screen'
+
+ウインドウがHTML APIによってフルスクリーン状態に入るときに発生します。
+
+#### イベント: 'leave-html-full-screen'
+
+ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
+
 #### イベント: 'devtools-opened'
 
 開発者向けツールが開かれたときに発行されます。
@@ -850,6 +858,12 @@ console.log(currentURL)
 
 現在のウェブページへ CSS を注入します。
 
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
+
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
@@ -863,7 +877,25 @@ console.log(currentURL)
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-実行されたコードの結果が Promise の場合、コールバックの結果は Promise の解決された値になります。返された Promise を使用して、Promise を生成するコードを処理することを推奨します。
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // フェッチ呼び出しの JSON オブジェクトになります
+  })
+```
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+ページ内の `code` を評価します。
+
+ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1034,29 +1066,15 @@ console.log(requestId)
 
 `rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
 
-* 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
+戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
 `rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
-
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Function 
-  * `hasWorker` Boolean
-
-何らかの ServiceWorker が登録されれいる場合、応答として Boolean を `callback` に返します。
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Function 
-  * `success` Boolean
-
-存在すれば、ServiceWorker の登録を解除し、JS の Promise が成功した (fulfilled) ならば応答として `callback` へ Boolean を返し、JS の Promise が失敗した (rejected) ならば false を返します。
 
 #### `contents.getPrinters()`
 
@@ -1094,6 +1112,21 @@ console.log(requestId)
 Chromium の印刷のカスタム設定のプレビューで、PDF としてウインドウのウェブページを出力します。
 
 完了すると、`callback` が `callback(error, data)` で呼ばれます。`data` は生成された PDF データを含む `Buffer` です。
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `contents.printToPDF(options)`
+
+* `options` Object 
+  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
+  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Chromium の印刷のカスタム設定のプレビューで、PDF としてウインドウのウェブページを出力します。
 
 `@page` CSS ルールがウェブページ内で使われている場合、`landscape` は無視されます。
 
@@ -1241,6 +1274,10 @@ app.once('ready', () => {
 
 (`x`, `y`) の位置の要素の検査を開始します。
 
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
+
 #### `contents.inspectServiceWorker()`
 
 サービスワーカコンテキストの開発者向けツールを開きます。
@@ -1386,17 +1423,15 @@ ipcMain.on('ping', (event) => {
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - 完全なファイルパス。
 * `saveType` String - 保存タイプの指定。 
   * `HTMLOnly` - ページの HTML だけを保存する。
   * `HTMLComplete` - 完全な HTML ページを保存する。
   * `MHTML` - MHTML として完全な HTML ページを保存する。
-* `callback` Function - `(error) => {}`. 
-  * `error` Error
 
-戻り値 `Boolean` - ページ保存のプロセスが正常に開始された場合に true。
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('ページ保存成功')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```

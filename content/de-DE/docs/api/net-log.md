@@ -7,12 +7,11 @@ Prozess: [Haupt](../glossary.md#main-process)
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   netLog.startLogging('/path/to/net-log')
-  // Nach einigen Netzwerk Events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
 
@@ -32,6 +31,14 @@ Beginnt die Aufzeichnung von Netzwerk Events in `path`.
 
 * `callback` Function (optional) 
   * `path` String - Pfad zur Datei in welche die Netzwerk Events geschrieben wurden.
+
+Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beendet net die Aufzeichnung automatisch wenn die App beendet wird.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `netLog.stopLogging()`
+
+Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
 
 Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beendet net die Aufzeichnung automatisch wenn die App beendet wird.
 

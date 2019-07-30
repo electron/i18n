@@ -11,3 +11,4 @@
 * `description` Stringa (opzionale) - Descrizione del task (mostrata in un tooltip). Dovrebbe essere impostata solo se il `type` è `task`.
 * `iconPath` Stringa (opzionale) - il percorso assoluto all'icona da mostrare in una Jump List, che può essere un file di risorsa arbitrario che contiene un icona (es. `.ico`, `.exe`, `.dll`). Puoi specificare il `process.execPath` per mostrare l'icona del programma.
 * `iconIndex` Numero (opzionale) - L'indice dell'icona nel file di risorsa. Se un file di risorsa contiene icone multiple questo valore può essere usato per specificare l'indice basato sullo zero dell'icona che potrebbe essere mostrata per questa task. Se un file di risorsa contiene solo un'icona, questa proprietà dovrebbe essere impostata a zero.
+* `workingDirectory` String (optional) - The working directory. Default is empty.

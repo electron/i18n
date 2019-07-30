@@ -78,14 +78,6 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 `src` 属性は、`data:text/plain,Hello, world!` などのデータ URL を受け取ることもできます。
 
-### `autosize`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-この属性が存在すると、`webview` コンテナは `minwidth`、`minheight`、`maxwidth`、`maxheight` 属性によって指定された境界内で自動的にリサイズされます。 `autosize` が有効になっていない限り、これらの制約は `webview` に影響しません。 `atutosize` が有効になっている場合、`webview` コンテナのサイズは最小値よりも小さくすることも、最大値より大きくすることもできません。
-
 ### `nodeintegration`
 
 ```html
@@ -108,7 +100,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
+この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 The remote module is available by default.
 
 ### `plugins`
 
@@ -224,6 +216,8 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+
 `url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
 
 ### `<webview>.downloadURL(url)`
@@ -329,6 +323,19 @@ webview.addEventListener('dom-ready', () => {
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 `requestFullScreen` のようなユーザの操作を必要とする HTML API は、このオプションを自動化に利用できます。
+
+**[非推奨予定](modernization/promisification.md)**
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
 ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 `requestFullScreen` のようなユーザの操作を必要とする HTML API は、このオプションを自動化に利用できます。
 
 ### `<webview>.openDevTools()`
@@ -353,6 +360,10 @@ webview.addEventListener('dom-ready', () => {
 * `y` Integer
 
 ゲストページの (`x`, `y`) の位置の要素の検査を開始します。
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -472,6 +483,21 @@ webview.addEventListener('dom-ready', () => {
 
 `webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options, callback)` と同じです。
 
+**[非推奨予定](modernization/promisification.md)**
+
+### `<webview>.printToPDF(options)`
+
+* `options` Object 
+  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
+  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
+  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
@@ -480,13 +506,13 @@ webview.addEventListener('dom-ready', () => {
 
 `rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
 
-* 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
+戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
 `rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
@@ -550,6 +576,10 @@ webview.addEventListener('dom-ready', () => {
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
 これは [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
+
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
 
 ## DOM イベント
 
@@ -684,10 +714,10 @@ console.log(requestId)
 const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
-webview.addEventListener('new-window', (e) => {
+webview.addEventListener('new-window', async (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternalSync(e.url)
+    await shell.openExternal(e.url)
   }
 })
 ```

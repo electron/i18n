@@ -22,8 +22,6 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-返回 `Boolean` - 文件是否成功显示.
-
 在文件管理器中显示给定的文件。如果可以, 选中该文件。
 
 ### `shell.openItem(fullPath)`
@@ -44,6 +42,8 @@ shell.openExternal('https://github.com')
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**过时的**
 
 ### `shell.openExternal(url[, options])`
 

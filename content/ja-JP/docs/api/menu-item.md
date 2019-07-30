@@ -9,10 +9,10 @@
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (任意) - メニューアイテムがクリックされると、 `click(menuItem, browserWindow, event)` と呼ばれる。 
+  * `クリック` Function (任意) - メニューアイテムがクリックされると、 `click(menuItem, browserWindow, event)` と呼ばれる。 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
-    * `event` Event
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (任意) - `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `windowMenu` にできます。- メニューアイテムの挙動を指定します。`click` プロパティが指定されたときは無視されます。 [役割 (roles)](#roles) を参照してください。
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
@@ -20,6 +20,7 @@
   * `accelerator` [Accelerator](accelerator.md) (任意)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
+  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
   * `registerAccelerator` Boolean (任意) - false の場合、アクセラレータはシステムに登録されませんが、それでも表示はされます。 省略値は true です。
@@ -29,6 +30,8 @@
   * `after` String[] (任意) - このアイテムをIDが指すアイテムの後に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
   * `beforeGroupContaining` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの前に、そのグループの配置を宣言する手段を提供します。
   * ` afterGroupContaining ` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの後に、そのグループの配置を宣言する手段を提供します。
+
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
 
 ### 役割 (roles)
 
@@ -107,7 +110,7 @@ macOS の `role` を指定するとき、`label` と `accelerator` がメニュ�
 
 MenuItem がクリックイベントを受け取ったときに発火される `Function`。`menuItem.click(event, focusedWindow, focusedWebContents)` で呼び出せます。
 
-* `event` Event
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 

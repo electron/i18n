@@ -88,16 +88,32 @@ Les méthodes suivantes sont disponibles pour les instances de `Session` :
 
 * `callback` Function 
   * `taille` Integer - Taille du cache utilisé en octets.
+  * `error` Integer - The error code corresponding to the failure.
 
 Le callback est appelé avec la taille de cache actuelle de la session.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Appelée lorsque l’opération est effectuée.
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
 Efface le cache HTTP de la session.
 
-#### `ses.clearStorageData([options, callback])`
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+Efface le cache HTTP de la session.
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `options` Object (facultatif) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
@@ -105,7 +121,18 @@ Efface le cache HTTP de la session.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
-Efface les données de stockage du web.
+Clears the storage data for the current session.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `options` Object (facultatif) 
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
@@ -173,6 +200,71 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
   
   Correspond aux adresses locales. Le sens de `<local>` indique si l'hôte correspond à une des valeurs suivantes: "127.0.0.1", "::1", "localhost".
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `config` Objet 
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+Indique les paramètres de proxy.
+
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+
+Les `proxyRules` doivent suivre les règles ci-dessous :
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+Par exemple :
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+
+Le `proxyBypassRules` est une liste de règles séparées par des virgules, comme décrites ci-dessous :
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
+  
+  Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    Correspond à un suffixe de domaine particulier.
+    
+    Exemples: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  Correspond aux URLs qui sont des adresses IP littérales.
+  
+  Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  Correspond à n'importe quelle URL qui est une IP littérale, comprise dans la fourchette d'adresse donnée. La portée IP est spécifiée avec la notation CIDR.
+  
+  Exemples: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  Correspond aux adresses locales. Le sens de `<local>` indique si l'hôte correspond à une des valeurs suivantes: "127.0.0.1", "::1", "localhost".
+
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
@@ -180,6 +272,14 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
   * `proxy` String
 
 Résout les informations du proxy pour l'`url`. Le `callback` sera appelé avec `callback(proxy)` lorsque la requête est effectuée.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -296,9 +396,17 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
 * `callback` Function (optionnel) - Appelée quand l'opération est terminée.
+
+Vide le cache de résolution de l'hôte.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
 
 Vide le cache de résolution de l'hôte.
 
@@ -339,6 +447,14 @@ Renvoie `String` - L'utilisateur de cette session.
 * `callback` Function 
   * `result` Buffer - données Blob.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` String - UUID valide.
+
+Returns `Promise<Buffer>` - resolves with blob data.
+
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Objet 
@@ -353,12 +469,24 @@ Renvoie `String` - L'utilisateur de cette session.
 
 Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
+* `callback` Function - Appelée lorsque l’opération est effectuée.
 
 Vide le cache d'authentification HTTP de la session.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
@@ -408,12 +536,11 @@ A [NetLog](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```

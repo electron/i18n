@@ -52,6 +52,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`

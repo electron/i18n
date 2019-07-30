@@ -90,7 +90,7 @@ Insere o `menuItem` na posição `pos` do menu.
 
 ### Eventos de instância
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
@@ -119,10 +119,6 @@ Objetos `menu` também possuem as seguintes propriedades:
 Um array `MenuItem[]` contendo os itens do menu.
 
 Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
-
-### Eventos de instância
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Exemplos
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }

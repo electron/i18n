@@ -66,11 +66,7 @@ app.on('ready', () => {
 
 #### イベント: 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 * `position` [Point](structures/point.md) - イベントの位置。
 
@@ -78,22 +74,14 @@ tray アイコンがクリックされたときに発行されます。
 
 #### イベント: 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
 tray アイコンが右クリックされたときに発行されます。
 
 #### イベント: 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
 tray アイコンがダブルクリックされたときに発行されます。
@@ -142,33 +130,21 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 #### イベント: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内に入ったときに発行されます。
 
 #### イベント: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内から出たときに発行されます。
 
 #### イベント: 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内で動いたときに発行されます。
@@ -203,7 +179,13 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 * `title` String
 
-ステータスバー内の tray アイコンの脇に表示されるタイトル (ANSI カラーサポート) を設定します。
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -213,6 +195,8 @@ macOS において、この tray アイコンが押されたときの関連付�
   * `never` - tray アイコンを強調表示することはありません。
 
 tray のアイコンの背景を、いつ青く強調表示するかを設定します。
+
+**[非推奨](breaking-changes.md#tray)**
 
 **注釈:** ウインドウの見た目が変更されたときは、`'never'` と `'always'` 間をトグル切り替えすることで、`highlightMode` を [`BrowserWindow`](browser-window.md) で使用できます。
 

@@ -132,7 +132,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列 
+* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列
 
 アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
 
@@ -282,7 +282,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `unemphasized-selected-text-background` - 非キーウィンドウまたはビューで選択されているテキストの背景。
     * `unemphasized-selected-text` - 非キーウィンドウまたはビューで選択されているテキスト。
     * `window-background` - ウィンドウの背景
-    * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。 
+    * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
 戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
@@ -329,6 +329,32 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
 
+### `systemPreferences.canPromptTouchID()` *macOS*
+
+Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+
+**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+
+### `systemPreferences.promptTouchID(reason)` *macOS*
+
+* `reason` String - The reason you are asking for Touch ID authentication
+
+Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+
+```javascript
+const { systemPreferences } = require('electron')
+
+systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
+  console.log('You have successfully authenticated with Touch ID!')
+}).catch(err => {
+  console.log(err)
+})
+```
+
+This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+
+**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
 * `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
@@ -352,3 +378,13 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 **重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
 
 このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
+
+### `systemPreferences.getAnimationSettings()`
+
+戻り値 `Object`:
+
+* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
+* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+
+Returns an object with system animation settings.

@@ -294,6 +294,16 @@ Dönüşler:
 
 Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
 
+### Event: 'renderer-process-crashed'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+* `killed` Boolean
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
 ### Etkinlik: 'erişilebilir-destek-değişti' *macOS* *Windows*
 
 Dönüşler:
@@ -323,7 +333,7 @@ app.on('session-created', (event, session) => {
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `argv` Dizi[] - İkinci aşamanın komuta satırı argümanları sırası
 * `workingDirectory` Dizi - İkinci aşamanın çalışma dizini
 
@@ -339,7 +349,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
@@ -348,7 +358,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `moduleName` String
 
@@ -465,6 +475,14 @@ Tüm uygulama pencerelerini simge durumuna küçültmeden gizler.
 
 Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak odaklanmaz.
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.getAppPath()`
 
 `String` - olarak yürürlükteki uygulama dizini dönütünü verir.
@@ -509,14 +527,14 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 
 Bir dosya yolunun ilişkili ikonunu çeker.
 
-*Windows*'ta 2 tip ikon bulunur:
+On *Windows*, there are 2 kinds of icons:
 
 * `.mp3`, `.png` v.b. gibi belirli dosya uzantıları ile ilişkilendirilmiş ikonlar
 * `.exe`, `.dll`, `.ico` gibi, dosyanın kendi içindeki ikonlar
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,7 +561,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 * `name` Dizi
 * dizi `yolu`
 
-`name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. Eğer dosya yolu varolmayan bir dizine yönlendirilirse, belirtilen dizin bu metodla oluşturulur. Hata durumunda bir `Error` dönütü verir.
+`name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 Sadece `app.getPath`'da tanımlanmış olan `name`'lere ait dosya yollarını baştan tanımlayabilirsiniz.
 
@@ -607,6 +625,8 @@ Bu yöntem, geçerli yürütülebilir dosyayı bir protokol için varsayılan i�
 On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Not**: MacOS üzerinde sadece senin app `info.plist`. eklenen protokolleri kaydedebilirsiniz. Uygulamanız çalışma zamanında değiştirilemez. Bununla birlikte oluşturma süresi boyunca dosyayı basit bir metin düzenleyicisi veya komut dosyası ile değiştirin. Ayrıntılar için [Apple'ın belgelerine](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) bakın.
+
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kullanır.
 
@@ -735,8 +755,6 @@ app.setJumpList([
 
 `Boole Değeri` döndürür
 
-Bu yöntem uygulamanızı bir Tek Örnek Uygulaması yapar - bunun yerine uygulamanızı çalıştırmak için birden çok örneğine izin vermek, bu uygulamanızın sadece tek bir örneğinin çalışmasını sağlayacaktır, ve diğer örnekler bu örneği işaret eder ve çıkar.
-
 The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
@@ -848,7 +866,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   
   Returns `Promise`
   
-  For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+  For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
   
   For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
   
@@ -945,6 +963,8 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 <p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. Daha detaylar bilgi görmek için https://www.chromium.org/developers/design-documents/accessibility.</p> 
       
+      **[Deprecated Soon](modernization/property-updates.md)**
+      
       ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
       
       * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
@@ -954,6 +974,8 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       This API must be called after the `ready` event is emitted.
       
       **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
+      
+      **[Deprecated Soon](modernization/property-updates.md)**
       
       ### `app.showAboutPanel` *macOS* *Linux*
       
@@ -972,6 +994,14 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file on MacOS. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için. On Linux, values must be set in order to be shown; there are no defaults.
       
+      ### `app.isEmojiPanelSupported`
+      
+      Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+      
+      ### `app.showEmojiPanel` *macOS* *Windows*
+      
+      Show the platform's native emoji picker.
+      
       ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
       
       * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
@@ -989,20 +1019,22 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       ### `app.commandLine.appendSwitch(switch[, value])`
       
-      * `switch` String - Bir komut satırı anahtarı
+      * `switch` String - A command-line switch, without the leading `--`
       * `value` String (optional) - Verilen anahtarda bir değer
       
       Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
       
-      **Note:** `process.argv`'ı etkilemez ve esas geliştiriciler tarafından düşük seviyeli bazı Krom hareketlerini kontrol etmek için kullanılır.
+      **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
       
       ### `app.commandLine.appendArgument(value)`
       
       * `value` String - Komut satırına eklenecek argüman
       
-      Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
+      Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
       
-      **Note:** bu etkilenmeyecek `process.argv`.
+      If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+      
+      **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
       
       ### `app.commandLine.hasSwitch(switch)`
       
@@ -1016,9 +1048,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       Returns `String` - The command-line switch value.
       
-      **Note:** When the switch is not present, it returns empty string.
+      **Note:** When the switch is not present or has no value, it returns empty string.
       
-      ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+      ### `app.enableSandbox()` *Experimental*
       
       Enables full sandbox mode on the app.
       
@@ -1074,17 +1106,21 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       ### `app.dock.show()` *macOS*
       
-      Dock simgesini gösterir.
+      Returns `Promise<void>` - Resolves when the dock icon is shown.
       
       ### `app.dock.isVisible()` *macOS*
       
-      `Boolean` 'ı geri getirir - dock işareti görünür olduğunda. `app.dock.show()` araması eş zamanlı değil bu sebeple bu yöntem aramadan sonra hemen doğruya döndürmeyebilir.
+      Returns `Boolean` - Whether the dock icon is visible.
       
       ### `app.dock.setMenu(menu)` *macOS*
       
       * `menu` [Menü](menu.md)
       
       Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+      
+      ### `app.dock.getMenu()` *macOS*
+      
+      Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
       
       ### `app.dock.setIcon(image)` *macOS*
       
@@ -1094,6 +1130,32 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       ## Özellikler
       
+      ### `app.applicationMenu`
+      
+      A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+      
+      ### `app.accessibilitySupportEnabled` *macOS* *Windows*
+      
+      A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+      
+      See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+      
+      This API must be called after the `ready` event is emitted.
+      
+      **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
+      
+      ### `app.userAgentFallback`
+      
+      A `String` which is the user agent string Electron will use as a global fallback.
+      
+      This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+      
       ### `app.isPackaged`
       
       A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+      
+      ### `app.allowRendererProcessReuse`
+      
+      A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+      
+      The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

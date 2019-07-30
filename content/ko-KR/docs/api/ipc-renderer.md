@@ -15,14 +15,18 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` 함수 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 `channel`을 수신하고, 새로운 메시지가 도착하면 `listener`는 `listener(event, args...)`로 호출됩니다.
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` 함수 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 이벤트에 일회성 `listener` 함수를 추가합니다. 이 `listener` 는 다음 메시지가 `channel`에 보내지면 한번 동작하고 이후에 제거됩니다.
 
@@ -78,8 +82,4 @@ Sends a message to a window with `webContentsId` via `channel`.
 
 ## Event 객체
 
-`callback`으로 전달되는 `event`객체는 다음과 같은 메소드를 가진다:
-
-### `event.senderId`
-
-Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.

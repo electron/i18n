@@ -90,7 +90,7 @@ Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
 ### Halimbawa ng Mga Kaganapan
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
@@ -119,10 +119,6 @@ Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
 Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
 Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
-
-### Halimbawa ng mga Event
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Mga Halimbawa
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }

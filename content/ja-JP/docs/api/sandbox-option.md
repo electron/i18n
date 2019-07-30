@@ -1,6 +1,6 @@
 # `sandbox` オプション
 
-> Chromium OS のサンドボックス内で実行できるレンダラを備えたブラウザウィンドウを作成します。 このオプションを有効にすると、レンダラーは Node API にアクセスするために IPC 経由でメインプロセスと通信する必要があります。 しかし、Chromium OS サンドボックスを有効にするには、Electron を `--enable-sandbox` コマンドライン引数で実行する必要があります。
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Chromium の主なセキュリティ機能の1つは、すべての Blink レンダリング / JavaScript コードがサンドボックス内で実行されることです。 このサンドボックスは、OS 固有の機能を使用して、レンダラープロセスの悪用がシステムに悪影響を及ぼすことがないようにします。
 
@@ -32,26 +32,17 @@ app.on('ready', () => {
 
 上記のコードでは、作成された [`BrowserWindow`](browser-window.md) では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 また、この新しいウィンドウ内では、`window.open` はネイティブの動作に従います (デフォルトで Electron は [`BrowserWindow`](browser-window.md) を作成し、`window.open` を介してこれへプロキシを返します)。
 
-このオプションだけでは OS が施行するサンドボックスが有効にならないことに注意することが重要です。 この機能を有効にするには、`--enable-sandbox` コマンドライン引数を電子に渡す必要があります。これにより、すべての `BrowserWindow` インスタンスに対して `sandbox: true` が強制されます。
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
 
 ```js
 let win
+app.enableSandbox()
 app.on('ready', () => {
-  // `--enable-sandbox` を有効にしてからは `sandbox: true` を渡す必要はない
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
-
-Chromium サンドボックスの設定を変更した後に Electron / Node のスタートアップコードが実行されるため、`app.commandLine.appendSwitch('--enable-sandbox')` を呼び出すだけでは不十分であることに注意して下さい。 変化させるには、コマンドライン上で Electon に渡さなければなりません。
-
-```sh
-electron --enable-sandbox app.js
-```
-
-`--enable-sandbox` が有効の場合、通常の Electron ウィンドウを作成できず、一部のレンダラーに対してのみ OS サンドボックスをアクティブにすることはできません。
-
-サンドボックスレンダラーと非サンドボックスレンダラーを1つのアプリケーションで混在させる必要がある場合は、`--enable-sandbox` 引数を省略します。 この引数がなければ、`sandbox: true` で作成されたウインドウは Node.js を無効にし、IPC 経由でのみ通信します。それ自体で既にセキュリティ POV における利得です。
 
 ## Preload
 
@@ -63,7 +54,7 @@ app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
-      preload: 'preload.js'
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
   win.loadURL('http://google.com')
@@ -76,10 +67,10 @@ app.on('ready', () => {
 // Javascript のコンテキストを作成するときにこのファイルが読み込まれます。 
 // Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 
 // グローバルスコープにオブジェクトをリークしないように注意する必要があります。
-const fs = require('fs')
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, remote } = require('electron')
+const fs = remote.require('fs')
 
-// `fs` モジュールを使用してコンフィグファイルを読む
+// read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -99,7 +90,7 @@ window.open = customWindowOpen
 以下はプリロードスクリプトで注意すべき重要な点です。
 
 - サンドボックス化されたレンダラーには Node.js が実行されていませんが、`Buffer`、`process`、`setImmediate`、および `require` が利用可能な、制限された Node ライクな環境にはまだアクセスできます。
-- プリロードスクリプトは、`remote` および `ipcRenderer` モジュールを介してメインプロセスからすべての API に間接的にアクセスできます。 これは `fs` (上記で使用された) と他のモジュールがどのように実装されるか――メインプロセスのリモート相手へのプロキシ――です。
+- プリロードスクリプトは、`remote` および `ipcRenderer` モジュールを介してメインプロセスからすべての API に間接的にアクセスできます。
 - プリロードスクリプトは単一のスクリプトに含まれていなければなりませんが、以下で説明するように browserify のようなツールを使用すると複雑なプリロードコードを複数のモジュールで構成することができます。 実際に、browserify はプリロードスクリプトに Node ライクな環境を提供するために Electron で既に使用されています。
 
 browserify バンドルを作成してプリロードスクリプトとして使用するには、以下のようなものを使用する必要があります。
@@ -107,7 +98,6 @@ browserify バンドルを作成してプリロードスクリプトとして使
 ```sh
   browserify preload/index.js \
     -x electron \
-    -x fs \
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
@@ -115,14 +105,14 @@ browserify バンドルを作成してプリロードスクリプトとして使
 
 現在、プリロードスコープで提供されている `require` 関数は、以下のモジュールを公開しています。
 
-- `child_process`
 - `electron` 
   - `crashReporter`
-  - `remote`
+  - `desktopCapturer`
   - `ipcRenderer`
+  - `nativeImage`
+  - `remote`
   - `webFrame`
-- `fs`
-- `os`
+- `イベント`
 - `timers`
 - `url`
 

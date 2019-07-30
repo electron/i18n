@@ -294,7 +294,17 @@ Retorna:
 
 Emitido quando o processo da GPU para de funcionar ou é interrompido.
 
-### Evento: 'accessibility-support-changed' no *macOS* e no *Windows*
+### Event: 'renderer-process-crashed'
+
+Retorna:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `killed` Boolean
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
+### Event: 'accessibility-support-changed' no *macOS* e no *Windows*
 
 Retorna:
 
@@ -465,6 +475,14 @@ Oculta todas as janelas do aplicativo sem minimizar-las.
 
 Mostra as janelas da aplicação após elas terem sido escondidas. Não foca nelas automaticamente.
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.getAppPath()`
 
 Retorna `String` - O diretório da aplicação atual.
@@ -509,14 +527,14 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 
 Obtém o ícone associado a um caminho.
 
-No *Windows*, há 2 tipos de ícones:
+On *Windows*, there are 2 kinds of icons:
 
 * Ícones associados a certas extensões de arquivo, como `.mp3`, `.png`, etc.
 * Ícones contidos no próprio arquivo, como `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,7 +561,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 * `name` String
 * `path` String
 
-Muda o `path` à um diretório especial ou arquivo relacionado ao `name`. Se o caminho aponta um diretório inexistente, o diretório será criado por esse método. Caso falhe, um `Error` é gerado.
+Muda o `path` à um diretório especial ou arquivo relacionado ao `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 Você pode modificar apenas caminhos de um `name` definidos no `app.getPath`.
 
@@ -606,6 +624,8 @@ Este método define o executável atual como o manipulador padrão de um protoco
 On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Nota:** No macOS, você só pode registrar protocolos que foram adicionados à `info.plist` da sua aplicação, a qual não pode ser modificada em tempo de execução. No entanto, você pode alterar esse arquivo com um editor de texto simples ou um script durante o tempo de compilação. Caso precise de mais detalhes, consulte a [documentação da Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
+
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 A API usa internamente o Registro do Windows e o LSSetDefaultHandlerForURLScheme.
 
@@ -734,8 +754,6 @@ app.setJumpList([
 
 Retorna `Boolean`
 
-Este método transforma sua aplicação em uma aplicação de instância única - em vez de permitir várias instâncias do seu app rodando ao mesmo tempo, isso irá garantir que apenas uma única instância do seu app seja executada. Quaisquer outras instâncias irão apontar para esta instância e, então, serão finalizadas.
-
 The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
@@ -844,7 +862,7 @@ Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de re
 
 Returns `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
 For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
 
@@ -940,6 +958,8 @@ app.setLoginItemSettings({
 
 Retorna `Boolean` - `true` se o suporte à acessibilidade do Chrome estiver ativado, `false` caso contrário. Essa API retornará `true` se o uso de tecnologias assistivas, tais como leitores de tela, foi detectado. Consulte https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
+**[Deprecated Soon](modernization/property-updates.md)**
+
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - Ativa ou desativa a renderização da [árvore de acessibilidade](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
@@ -949,6 +969,8 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 This API must be called after the `ready` event is emitted.
 
 **Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
+
+**[Deprecated Soon](modernization/property-updates.md)**
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
@@ -967,6 +989,14 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 Define as opções do painel sobre. This will override the values defined in the app's `.plist` file on MacOS. Consulte a [documentação da Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para mais detalhes. On Linux, values must be set in order to be shown; there are no defaults.
 
+### `app.isEmojiPanelSupported`
+
+Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+
+### `app.showEmojiPanel` *macOS* *Windows*
+
+Show the platform's native emoji picker.
+
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
@@ -984,20 +1014,22 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Uma opção de linha de comando
+* `switch` String - A command-line switch, without the leading `--`
 * `value` String - (opcional) - Um valor para a opção desejada
 
 Insere uma opção (com um `value` opcional) à linha de comando do Chromium.
 
-**Nota:** Isso não afetará o `process.argv`, e é principalmente usado por desenvolvedores para controlar alguns comportamentos de baixo nível do Chromium.
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - The argument to append to the command line
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
 
-**Note:** This will not affect `process.argv`.
+If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1011,9 +1043,9 @@ Returns `Boolean` - Whether the command-line switch is present.
 
 Returns `String` - The command-line switch value.
 
-**Note:** When the switch is not present, it returns empty string.
+**Note:** When the switch is not present or has no value, it returns empty string.
 
-### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableSandbox()` *Experimental*
 
 Enables full sandbox mode on the app.
 
@@ -1069,17 +1101,21 @@ Esconde o ícone na Dock.
 
 ### `app.dock.show()` no *macOS*
 
-Mostra o ícone na Dock.
+Returns `Promise<void>` - Resolves when the dock icon is shown.
 
 ### `app.dock.isVisible()` no *macOS*
 
-Retorna `Boolean` - Se o ícone do dock está visível. O `app.dock.show()` A chamada é assíncrona, portanto, esse método pode não retornar true imediatamente após a chamada.
+Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
 Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+
+### `app.dock.getMenu()` no *macOS*
+
+Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1089,6 +1125,32 @@ Define a `imagem` associada com o ícone do dock.
 
 ## Propriedades
 
+### `app.applicationMenu`
+
+A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.accessibilitySupportEnabled` *macOS* *Windows*
+
+A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+
+See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+This API must be called after the `ready` event is emitted.
+
+**Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
+
+### `app.userAgentFallback`
+
+A `String` which is the user agent string Electron will use as a global fallback.
+
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+
 ### `app.isPackaged`
 
 A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+
+### `app.allowRendererProcessReuse`
+
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+
+The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).

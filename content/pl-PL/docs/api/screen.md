@@ -2,11 +2,9 @@
 
 > Zwraca informację o wielkości ekranu, wyświetlaczach, pozycji kursora itd.
 
-Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proces: [Main](../glossary.md#main-process)
 
 Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` jest klasą [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 

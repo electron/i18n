@@ -4,8 +4,6 @@
 
 Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
 Nell'esempio seguente viene illustrato come scrivere una stringa negli Appunti:
 
 ```javascript

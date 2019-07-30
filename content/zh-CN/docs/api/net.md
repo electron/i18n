@@ -13,9 +13,9 @@
 * 支持使用basic、digest、NTLM、Kerberos 或协商身份验证方案对代理进行身份验证。
 * 支持传输监控代理: 类似于Fiddler代理，用于访问控制和监视。
 
-` net ` 模块 api 被专门设计为尽可能地模仿的Node. js api。 API 组件 (包括classes、methods、properties和event names) 与Nodejs中常用的类似。
+The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-例如, 下面的示例快速显示如何使用 ` net ` API:
+Example usage:
 
 ```javascript
 const { app } = require('electron')
@@ -35,8 +35,6 @@ app.on('ready', () => {
   request.end()
 })
 ```
-
-顺便一提, 它几乎与你经常使用的Node.js的 [ HTTP ](https://nodejs.org/api/http.html)/[ HTTPS ](https://nodejs.org/api/https.html) 模块完全相同。
 
 只有在应用程序发出 ` ready ` 事件之后, 才能使用 ` net ` API。尝试在 ` ready ` 事件之前使用该模块将抛出一个错误。
 

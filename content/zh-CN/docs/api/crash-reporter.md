@@ -48,26 +48,9 @@ crashReporter.start({
 
 ** 注意 **由 ` child_process ` 模块创建的子进程将无法访问 Electron 模块。 因此, 要收集它们的故障报告, 请用 ` process.crashReporter.start `代替。 传递与上面相同的选项以及一个名为 ` crashesDirectory ` 的附加项, 它应指向一个目录, 以便临时存储崩溃报告。 你可以调用 ` process.crash()` 使子进程崩溃，来测试结果。
 
-** 注意: **要从 Windows 中的子进程收集崩溃报告, 您也需要添加这样额外的代码。 这将启动一个进程来监视和发送崩溃报告。 用适当的值去替换 ` submitURL `、` productName ` 和 ` crashesDirectory `。
-
 ** 注意: **，如果您在第一次调用 ` start ` 后需要发送 附加的/更新的 ` extra ` 参数, 在 macOS 上，你可以调用 ` addExtraParameter `。而在 Linux 和 Windows 上，则使用 新的/更新的 ` extra ` 参数，再次调用 `start `即可。
 
-```js
-const args = [
-  `--reporter-url=${submitURL}`,
-  `--application-name=${productName}`,
-  `--crashes-directory=${crashesDirectory}`
-]
-const env = {
-  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-}
-spawn(process.execPath, args, {
-  env: env,
-  detached: true
-})
-```
-
-**注意：**在macOS上，Electron使用一个`crashpad`客户端来收集并报告崩溃信息。 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 你仍然需要从渲染器进程或子进程中调用`crashReporter.start` ，否则崩溃报告将不包含`companyName`, `productName`和任何`extra`信息。
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 你仍然需要从渲染器进程或子进程中调用`crashReporter.start` ，否则崩溃报告将不包含`companyName`, `productName`和任何`extra`信息。
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -81,13 +64,13 @@ spawn(process.execPath, args, {
 
 返回所有上传的崩溃报告。每个报告都包含日期和上传ID。
 
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
+### `crashReporter.getUploadToServer()`
 
 返回 `Boolean` - 是否已将报告提交到服务器。通过`start` 方法或 `setUploadToServer`设置。
 
 **注意：** 这个API仅可从主进程调用。
 
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+### `crashReporter.setUploadToServer(uploadToServer)`
 
 * `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器.
 
@@ -95,14 +78,14 @@ spawn(process.execPath, args, {
 
 **注意：** 这个API仅可从主进程调用。
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
 * `key` String - 参数键，长度必须小于64个字符
 * `value` String - 参数值, 长度必须小于64个字符
 
-设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 此 API 仅在 macOS 上可用, `start` 首次调用后, 如果您希望在在 Linux 和 Windows 上添加或更新额外参数, 您可以更新 `extra` 选项并再次调用 `start` 。
+设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS*
+### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
 * `key` String - 参数键，长度必须小于64个字符
 

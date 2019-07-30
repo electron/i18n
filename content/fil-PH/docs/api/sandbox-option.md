@@ -1,6 +1,6 @@
 # `sandbox` Ang opsyon
 
-> Lumikha ng isang browser window kasama ang tagabigay na maaaring gumana sa loob ng sandbox ng Chromium OS. Kasama ang pinaganang opsyon, ang tagabigay ay dapat makipag-ugnayan sa pamamagitan ng IPC sa mga pangunahing proseso nang sa gayon ay ma-access ang mga node ng API. However, in order to enable the Chromium OS sandbox, Electron must be run with the `--enable-sandbox` command line argument.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo ng blink rendering/JavaScript ay isinagawa sa loob ng isang sandbox. Ang sandbox na ito ay gumagamit ng partikular na mga katangian ng OS para matiyak na ang pagsasamantala sa mga prosesong tagasalin ay hindi makakasira sa sistema.
 
@@ -32,24 +32,17 @@ app.on('ready', () => {
 
 In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
-Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
 
 ```js
-hayaan manalo ang app.on('ready',() => { // hindi kailangan na maipasa 'sandbox: tama 'sapagkat ' --enable-sandbox' ay gumagana.
-win = newBrowerWindow()
-win.loadURL('http://google.com')
+let win
+app.enableSandbox()
+app.on('ready', () => {
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  win = new BrowserWindow()
+  win.loadURL('http://google.com')
 })
 ```
-
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
-
-```sh
-elektron --enable-sandbox app.js
-```
-
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
-
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Preload
 
@@ -58,13 +51,13 @@ Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang pre
 ```js
 let win
 app.on('ready', () => {
-win = new BrowserWindow({
-   webPreferences: { 
-     sandbox: true, 
-     preload: 'preload.js'
- }
-})
-win.loadURL('http://google.com')
+  win = new BrowserWindow({
+    webPreferences: {
+      sandbox: true,
+      preload: path.join(app.getAppPath(), 'preload.js')
+    }
+  })
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -73,8 +66,8 @@ at preload.js:
 ```js
 // Ang file na ito ay isinasakay tuwing ang isang javascript na konteksto ay nilikha. It runs in a
 // private scope that can access a subset of Electron renderer APIs. Dapat tayong maging // maingat para hindi tumagas ang anumang bagay sa mga pandaigdigang saklaw!
-const fs = require('fs')
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, remote } = require('electron')
+const fs = remote.require('fs')
 
 // read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
@@ -96,7 +89,7 @@ window.open = customWindowOpen
 Mahahalagang bagay na mapapansin sa preload script:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- Ang preload script ay maaaring ma-akses na hindi direkta ang lahat na APIs na mula sa pangunahing proseso sa pamamagitan ng `remote` at `ipcRenderer` na mga modyul. Ito ay kung paano ang `fs` (na ginagamit sa itaas) at ang ibang modyul ay ipinatupad: Ang mga proxy na katapat sa pangunahing proseso.
+- Ang preload script ay maaaring ma-akses na hindi direkta ang lahat na APIs na mula sa pangunahing proseso sa pamamagitan ng `remote` at `ipcRenderer` na mga modyul.
 - Ang preload script ay dapat nakapaloob sa isang iskrip, pero ito din ay posible na magkaroon ng mga kumplikado na preload na kodigo na binubuo ng maramihang mga modyul sa parang kasangkapan na browserify, na naipaliwanag sa ibaba. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
 Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
@@ -104,7 +97,6 @@ Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload n
 ```sh
   browserify preload/index.js \
     -x electron \
-    -x fs \
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
@@ -112,14 +104,14 @@ Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspo
 
 Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
-- `child_process`
 - `electron` 
   - `kalabog ng tagapagbalita`
-  - `kamuntik`
+  - `pagkakahuli sa tuktok ng desk`
   - `ipcrenderer`
+  - `gupitin ng maikli ang mga litrato`
+  - `kamuntik`
   - `lumikha ng bahay-alalawa`
-- `fs`
-- `os`
+- `pangyayari`
 - `mga timers`
 - `url`
 

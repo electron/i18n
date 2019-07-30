@@ -1,6 +1,6 @@
 # `sandbox` 沙盒选项
 
-> 创建一个可在Chromiun OS 沙盒中运行的浏览器窗口。 在该模式可用情况下，渲染器为了使用node APIs必须通过IPC与主进程通讯。 但是，为了开启Chromiun OS的沙盒，Electron必须在启动的时候，附上命令行参数`--enable=sandbox`。
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代码都在sandbox内运行。 该sandbox使用OS特定特征来保障运行在渲染器内的进程不会损害系统。
 
@@ -32,26 +32,17 @@ app.on('ready', () => {
 
 以上代码中被创建的[`BrowserWindow`](browser-window.md)禁用了node.js，并且只能使用IPC通信。 这个选项的设置阻止electron在渲染器中创建一个node.js运行环境。 同时，在这个新窗口内`window.open`将按原生方式工作（默认情况下electron会创建一个[`BrowserWindow`](browser-window.md)并通过`window.open`向它返回一个代理）
 
-需要注意的是，这个选项本身不会启用操作系统强制的沙箱。 要启用此功能，必须在命令行参数里加上 `--enable-sandbox` 传递给 electron, 这将会使所有的 `BrowserWindow` 实例强制使用 `sandbox: true`.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
 
 ```js
 let win
+app.enableSandbox()
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
-
-请注意, 只调用 ` app.commandLine.appendSwitch('--enable-sandbox')` 是不够的, 因为 electron/node 只会在能改变 chromium 沙箱设置后运行代码。 这个改变只能在命令行里传递给 electron:
-
-```sh
-electron --enable-sandbox app.js
-```
-
-如果启用了 `--enable-sandbox`, 则无法创建正常的Electron窗口, 因此不能只为某些渲染而去激活 OS 沙盒。
-
-如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 如果没有此参数, 使用 ` sandbox: true ` 创建的窗口仍将禁用 node. js 并仅能通过 IPC 进行通信, 从安全视角看这本身已经获得了好处。
 
 ## 预加载
 
@@ -63,7 +54,7 @@ app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
-      preload: 'preload.js'
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
   win.loadURL('http://google.com')
@@ -76,10 +67,10 @@ app.on('ready', () => {
 // 一旦javascript上下文创建，这个文件就会被自动加载 它在一个
 //私有环境内运行, 可以访问 electron 渲染器的 api的子集 。 我们必须小心, 
 //不要泄漏任何对象到全局范围!
-const fs = require('fs')
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, remote } = require('electron')
+const fs = remote.require('fs')
 
-// 使用 `fs` 模块读取配置文件
+// read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -99,7 +90,7 @@ window.open = customWindowOpen
 在预加载脚本中要注意的重要事项:
 
 - 尽管沙盒渲染器没有运行 node. js, 但它仍然可以访问受限制的类似于节点的环境: ` Buffer `、` process `、` setImmediate ` 和 ` require ` 这些依然可用可用。
-- 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。 这是 ` fs ` (上面使用的) 和其他模块的实现方式: 它们是主进程中的 remote 对象的代理。
+- 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。
 - 预加载脚本必须包含在单个脚本中, 但可以使用像 browserify 这样的工具, 将多个模块组成复杂的预加载代码, 如下所述。 事实上, electron用browserify来提供一个类Node环境以便于预加载脚本。
 
 要创建 browserify 包并将其用作预加载脚本, 应使用类似下面的内容:
@@ -107,7 +98,6 @@ window.open = customWindowOpen
 ```sh
   browserify preload/index.js \
     -x electron \
-    -x fs \
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
@@ -115,14 +105,14 @@ window.open = customWindowOpen
 
 当前预加载作用域中提供的 ` require ` 函数公开了以下模块:
 
-- `child_process`
 - `electron` 
   - `crashReporter`
-  - `remote`
+  - `desktopCapturer`
   - `ipcRenderer`
+  - `nativeImage`
+  - `remote`
   - `webFrame`
-- `fs`
-- `os`
+- `事件`
 - `timers`
 - `url`
 

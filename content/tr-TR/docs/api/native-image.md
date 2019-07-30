@@ -118,6 +118,15 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
+### `nativeImage.createFromBitmap(buffer, options)`
+
+* `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+
+`NativeImage` döndürür
+
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
@@ -125,13 +134,13 @@ console.log(image)
 
 `NativeImage` döndürür
 
-`buffer`'dan yeni bir `NativeImage` örneği oluşturur.
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL`Dizesi
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
 `dataURL`'den yeni bir `NativeImage` örneği oluşturur.
 
@@ -140,7 +149,7 @@ console.log(image)
 * `imageName` Dizge
 * `hslShift` Number[]
 
-`NativeImage` Çevir
+`NativeImage` döndürür
 
 NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. Olası değerlerin bir listesi için [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) bölümüne bakın.
 

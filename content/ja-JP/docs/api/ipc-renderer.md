@@ -15,14 +15,18 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 `channel` に新しいメッセージが来たときに `listener` が `listener(event, args...)` として呼ばれます、
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 一回だけの `listener` イベント関数を追加します。この `listener` は次に `channel` にメッセージが送信された後にのみ呼び出され、その後削除されます。
 
@@ -78,8 +82,4 @@
 
 ## イベントオブジェクト
 
-`callback` に渡される `event` オブジェクトには以下のメソッドがあります。
-
-### `event.senderId`
-
-メッセージを送った `webContents.id` を返します。`event.sender.sendTo(event.senderId, ...)` を呼ぶことで、メッセージに返信できます。より詳しくは [webContents.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) を参照して下さい。 これは異なるレンダラーからのメッセージ送信にのみ適用します。 メインプロセスから直接メッセージ送信するには `event.senderId` を `0` にしてください。
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.

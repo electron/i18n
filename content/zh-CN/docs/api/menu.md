@@ -127,7 +127,7 @@ You can also attach other fields to the element of the `template` and they will 
 </h3>
 
 <p>
-  用 <code>new Menu</code> 创建的对象触发以下事件：
+  Objects created with <code>new Menu</code> or returned by <code>Menu.buildFromTemplate</code> emit the following events:
 </p>
 
 <p>
@@ -188,14 +188,6 @@ You can also attach other fields to the element of the `template` and they will 
 
 <p>
   每个 <code> 菜单 </code> 由多个 <a href="menu-item.md"><code> MenuItem </code></a> 组成, 每个 <code> MenuItem </code>可以有子菜单。
-</p>
-
-<h3>
-  实例事件
-</h3>
-
-<p>
-  使用 <code>new Menu</code>方法创建的对象，或者<code>Menu.buildFromTemplate</code>返回的对象都会触发以下事件：
 </p>
 
 <h2>
@@ -304,7 +296,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () =&gt; {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }

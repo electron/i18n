@@ -52,6 +52,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `<code>Backspace` (倒退)</code>
 * `Delete (刪除)`
 * `Insert (插入)`

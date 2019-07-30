@@ -17,9 +17,10 @@ modul <code> net </ 0> daripada modul Node.js asli:</p>
 <li>Dukungan untuk proxy pemantauan lalu lintas: Proxy seperti fiddler yang digunakan untuk kontrol akses dan pemantauan.</li>
 </ul>
 
-<p>The <code> net </ 0> modul API telah secara khusus dirancang untuk meniru, sedekat mungkin, akrab Node.js API . Komponen API termasuk kelas, metode, dan nama-nama acara yang mirip dengan yang sering digunakan dalam Node.js.</p>
+<p>The API components (including classes, methods, properties and event names) are similar to those used in
+Node.js.</p>
 
-<p>Misalnya, contoh berikut dengan cepat menunjukkan bagaimana <code> net </ 0>  API dapat digunakan:</p>
+<p>Example usage:</p>
 
 <pre><code class="javascript">const { app } = require('electron')
 app.on('ready', () => {
@@ -38,8 +39,6 @@ app.on('ready', () => {
   request.end()
 })
 ``</pre> 
-
-Omong-omong, hampir sama dengan bagaimana Anda biasa menggunakan modul  HTTP </ 0> /  HTTPS </ 1> dari Node.js</p> 
 
 Itu` net </ 0>  API hanya dapat digunakan setelah aplikasi memancarkan <code> siap </ 0>  acara . Mencoba untuk menggunakan modul sebelum <code> siap </ 0>  acara akan melemparkan kesalahan.</p>
 
