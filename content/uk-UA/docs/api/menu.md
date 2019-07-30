@@ -90,7 +90,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Події екземпляру
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Примітка:** Деякі події доступні тільки на певних операційних системах і відповідно позначені як такі.
 
@@ -119,10 +119,6 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-
-### Події екземпляру
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Приклади
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
