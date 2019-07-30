@@ -22,15 +22,15 @@ O módulo `shell` tem os seguintes métodos:
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+Mostra o arquivo especificado em um gerenciador de arquivos. Se possível, seleciona o arquivo.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Retorna `Boolean` - Se o item foi aberto com êxito.
 
-Open the given file in the desktop's default manner.
+Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
 ### `shell.openExternalSync(url[, options])`
 
