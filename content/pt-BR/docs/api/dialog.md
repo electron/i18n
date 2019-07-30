@@ -42,9 +42,9 @@ O módulo `dialog` possúi os seguintes métodos:
   * `message` String (opcional) *macOS* - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Os `filters` designam um array dos tipos que podem ser apresentados ou selecionados quando você quer que o usuário veja apenas um tipo específico. Como por exemplo:
 
 ```javascript
 {
@@ -57,9 +57,9 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+As array de `extensions` devem conter extensões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -94,9 +94,9 @@ Returns `Promise<Object>` - Resolve wih an object containing the following:
 * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Os `filters` designam um array dos tipos que podem ser apresentados ou selecionados quando você quer que o usuário veja apenas um tipo específico. Como por exemplo:
 
 ```javascript
 {
@@ -109,9 +109,9 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+As array de `extensions` devem conter extensões sem caracteres-curinga ou pontos. (`'png'` é bom mas, `'.png'` e `'*.png'` são ruins). Para mostrar todos os arquivos use o caracter-curinga `*` (nenhum ouro caracter-curinga é suportado).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota.:** No Windows e Linux um diálogo aberto não pode ser usado ao mesmo tempo para selecionar arquivos e diretórios, portanto se você estabelecer `properties` para `['openFile', 'openDirectory']` nessas plataformas, um seletor de diretório será mostrado.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -129,31 +129,31 @@ dialog.showOpenDialog(mainWindow, {
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
   * `title` String (opcional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `message` String (opcional) *macOS* - Mensagem a ser exibida acima de campos de texto.
+  * `nameFieldLabel` String (opcional) *macOS* - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
+  * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, veja `dialog.ShowOpenDialog` para exemplos.
 
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
   * `title` String (opcional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (opcional) - Caminho absoluto do diretório, caminho absoluto do arquivo, ou o nome do arquivo a ser usado como padrão.
   * `buttonLabel` String (opcional) - Rótulo personalizado para o botão de confirmação, quando deixado em branco o label padrão será usado.
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `message` String (opcional) *macOS* - Mensagem a ser exibida acima de campos de texto.
+  * `nameFieldLabel` String (opcional) *macOS* - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
+  * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
@@ -163,9 +163,9 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
     * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
     
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, veja `dialog.ShowOpenDialog` para exemplos.
 
 **Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
 
@@ -173,41 +173,41 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Por padrão é `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
+  * `buttons` String[] (opcional) - Array de textos para botões. No Windows, uma array vazia resultará em um botão rotulado "OK".
+  * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
+  * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
+  * `message` String - Conteúdo da caixa de mensagem.
+  * `detail` String (opcional) - Informações adicionais da mensagem.
+  * `checkboxLabel` String (opcional) - Se fornecida, a caixa de mensagem incluirá uma caixa de seleção com o devido rótulo. O estado da caixa de seleção poderá ser verificada apenas quando `callback` estiver sendo usado.
+  * `checkboxChecked` Boolean (opcional) - Estado inicial da caixa de seleção designada como ativa. `false` por padrão.
+  * `icon` [NativeImage](native-image.md) (opcional)
+  * `cancelId` Integer (opcional) - O indicador do botão será usado para cancelar o diálogo, por via da tecla `Esc`. Por padrão é atribuído ao primeiro botão como "cancelar" ou "não" como rótulos. Se botões desse tipo não existem e essa opção não é atribuída, `0` será usado como valor de retorno ou resposta do callback.
+  * `noLink` Boolean (opcional) - No Windows, o Electron tentará identificar qual dos `buttons` são botões comuns (como "cancelar" ou "sim"), e exibir os outros como links de comandos no diálogo. Ele pode fazer o diálogo ser apresentado com o estilo dos aplicativos modernos do Windows. Se você não deseja esse comportamento, você pode definir `noLink` para `true`.
+  * `normalizeAccessKeys` Boolean (opcional) - Normaliza o acesso às teclas do teclado entre as plataformas. Por padrão é `false`. Ativando-o assume-se que `&` é usado nos rótulos dos botões para atribuir a tecla de atalho de acesso do teclado assim os rótulos serão convertidos para que funcionem corretamente em cada plataforma, os caracteres `&` são removidos no macOS, convertidos para `_` no Linux, e deixados intactos no Windows. Por exemplo, um rótulo de botão `Vie&w` será convertido para `Vie_w` no Linux e `View` no macOS e pode ser selecionado através de `Alt-W` no Windows e Linux.
 
 Returns `Integer` - the index of the clicked button.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Exibe uma caixa de mensagem, esse método bloqueará o processo até que a caixa de mensagem seja fechada. Ele retorna o indicador do botão clicado.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Por padrão é `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `type` String (opcional) - Pode ser `"none"`, `"info"`, `"error"`, `"question"` ou `"warning"`. No Windows, `"question"` exibe o mesmo ícone que `"info"`, a menos que você especifique um ícone usando a opção `"icon"`. No macOS, tanto `"warning"` como `"error"` exibirão o mesmo ícone de alerta.
+  * `buttons` String[] (opcional) - Array de textos para botões. No Windows, uma array vazia resultará em um botão rotulado "OK".
+  * `defaultId` Integer (opcional) - Indicador do botão na array de botões que será selecionado como padrão quando a caixa de mensagem abrir.
+  * `title` String (opcional) - Título da caixa de mensagem, algumas plataformas não o exibirão.
+  * `message` String - Conteúdo da caixa de mensagem.
+  * `detail` String (opcional) - Informações adicionais da mensagem.
+  * `checkboxLabel` String (opcional) - Se fornecida, a caixa de mensagem incluirá uma caixa de seleção com o devido rótulo. O estado da caixa de seleção poderá ser verificada apenas quando `callback` estiver sendo usado.
+  * `checkboxChecked` Boolean (opcional) - Estado inicial da caixa de seleção designada como ativa. `false` por padrão.
+  * `icon` [NativeImage](native-image.md) (opcional)
+  * `cancelId` Integer (opcional) - O indicador do botão será usado para cancelar o diálogo, por via da tecla `Esc`. Por padrão é atribuído ao primeiro botão como "cancelar" ou "não" como rótulos. Se botões desse tipo não existem e essa opção não é atribuída, `0` será usado como valor de retorno ou resposta do callback.
+  * `noLink` Boolean (opcional) - No Windows, o Electron tentará identificar qual dos `buttons` são botões comuns (como "cancelar" ou "sim"), e exibir os outros como links de comandos no diálogo. Ele pode fazer o diálogo ser apresentado com o estilo dos aplicativos modernos do Windows. Se você não deseja esse comportamento, você pode definir `noLink` para `true`.
+  * `normalizeAccessKeys` Boolean (opcional) - Normaliza o acesso às teclas do teclado entre as plataformas. Por padrão é `false`. Ativando-o assume-se que `&` é usado nos rótulos dos botões para atribuir a tecla de atalho de acesso do teclado assim os rótulos serão convertidos para que funcionem corretamente em cada plataforma, os caracteres `&` são removidos no macOS, convertidos para `_` no Linux, e deixados intactos no Windows. Por exemplo, um rótulo de botão `Vie&w` será convertido para `Vie_w` no Linux e `View` no macOS e pode ser selecionado através de `Alt-W` no Windows e Linux.
 
 Returns `Promise<Object>` - resolves with a promise containing the following properties:
 
@@ -218,31 +218,31 @@ Returns `Promise<Object>` - resolves with a promise containing the following pro
 
 Shows a message box, it will block the process until the message box is closed.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - O título a ser exibido na caixa de erro.
+* `content` String - O conteúdo a ser exibido na caixa de erro.
 
-Displays a modal dialog that shows an error message.
+Exibe um dialog modal que apresenta uma mensagem de erro.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Esse API pode ser chamado com segurança antes de que o evento `ready` que é emitido pelo `app`, é usado para reportar erros nos estágios iniciais da execução do aplicativo. Se chamado antes do evento `ready` do aplicativo no Linux, a mensagem será emitida para stderr, e o GUI do dialog não será mostrado.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+  * `certificate` [Certificate](structures/certificate.md) - O certificado para trust/import.
+  * `message` String - A mensagem a ser exibida para o usuário.
 * `callback` Function
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+No macOS, esse método exibe um dialog modal que apresenta uma mensagem e informação de certificado, dando ao usuário a opção de confiar/importar o certificado. Se você fornecer um argumento `browserWindow` o dialog será acoplado à janela parent, fazendo-a modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Como o macOS fornece o seu próprio diálogo de confirmação o argumento `message` não é usado.
+* O argumento `browserWindow` é ignorado já que não é possível fazer essa confirmação um diálogo modal.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
@@ -250,20 +250,20 @@ On Windows the options are more limited, due to the Win32 APIs used:
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+  * `certificate` [Certificate](structures/certificate.md) - O certificado para trust/import.
+  * `message` String - A mensagem a ser exibida para o usuário.
 
 Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+No macOS, esse método exibe um dialog modal que apresenta uma mensagem e informação de certificado, dando ao usuário a opção de confiar/importar o certificado. Se você fornecer um argumento `browserWindow` o dialog será acoplado à janela parent, fazendo-a modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Como o macOS fornece o seu próprio diálogo de confirmação o argumento `message` não é usado.
+* O argumento `browserWindow` é ignorado já que não é possível fazer essa confirmação um diálogo modal.
 
 ## Sheets
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Você pode chamar `BrowserWindow.getCurrentWindow().setSheetOffset (offset)`para mudar o offset da janela aonde os diálogos (sheets) estão acoplados.
