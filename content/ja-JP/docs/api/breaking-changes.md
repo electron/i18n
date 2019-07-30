@@ -11,9 +11,9 @@
 ## `shell.openExternalSync(url[, options])`
 
 ```js
-// Deprecated
+// 非推奨
 shell.openExternalSync(url)
-// Replace with
+// こちらに置換
 async function openThing (url) {
   await shell.openExternal(url)
 }
@@ -33,13 +33,13 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
+// 非推奨
 contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+  // なにかする
 })
-// Replace with
+// こちらに置換
 contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+  // infoObject に percentage と value のフィールドがあります
 })
 ```
 
@@ -79,24 +79,24 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// 非推奨
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// こちらの非同期 API に置換
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// 非推奨
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// こちらの非同期 API に置換
 const idleTime = getSystemIdleTime()
 ```
 
 ## `Tray`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+macOS Catalina 下では、以前の Tray 実装は破壊されています。 Apple's native substitute doesn't support changing the highlighting behavior.
 
 ```js
 // Deprecated
