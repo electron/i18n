@@ -648,6 +648,40 @@ const alpha = color.substr(6, 2) // "dd"
                                     Sets the appearance setting for your application, this should override the system default and override the value of <code>getEffectiveAppearance</code>.
                                   </p>
                                   <h3>
+                                    <code>systemPreferences.canPromptTouchID()</code> <em>macOS</em>
+                                  </h3>
+                                  <p>
+                                    Returns <code>Boolean</code> - whether or not this device has the ability to use Touch ID.
+                                  </p>
+                                  <p>
+                                    <strong>NOTE:</strong> This API will return <code>false</code> on macOS systems older than Sierra 10.12.2.
+                                  </p>
+                                  <h3>
+                                    <code>systemPreferences.promptTouchID(reason)</code> <em>macOS</em>
+                                  </h3>
+                                  <ul>
+                                    <li>
+                                      <code>reason</code> String - The reason you are asking for Touch ID authentication
+                                    </li>
+                                  </ul>
+                                  <p>
+                                    Returns <code>Promise&lt;void&gt;</code> - resolves if the user has successfully authenticated with Touch ID.
+                                  </p>
+                                  <pre><code class="javascript">const { systemPreferences } = require('electron')
+
+systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success =&gt; {
+  console.log('You have successfully authenticated with Touch ID!')
+}).catch(err =&gt; {
+  console.log(err)
+})
+</code></pre>
+                                  <p>
+                                    This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set <a href="https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc">Access Control Constants</a> like <a href="https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc"><code>kSecAccessControlUserPresence</code></a> on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with <a href="https://github.com/atom/node-keytar"><code>node-keytar</code></a>, such that one would store an encryption key with <code>node-keytar</code> and only fetch it if <code>promptTouchID()</code> resolves.
+                                  </p>
+                                  <p>
+                                    <strong>NOTE:</strong> This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+                                  </p>
+                                  <h3>
                                     <code>systemPreferences.isTrustedAccessibilityClient(prompt)</code> <em>macOS</em>
                                   </h3>
                                   <ul>
@@ -688,4 +722,24 @@ const alpha = color.substr(6, 2) // "dd"
                                   </p>
                                   <p>
                                     This user consent was not required until macOS 10.14 Mojave, so this method will always return <code>true</code> if your system is running 10.13 High Sierra or lower.
+                                  </p>
+                                  <h3>
+                                    <code>systemPreferences.getAnimationSettings()</code>
+                                  </h3>
+                                  <p>
+                                    Mengembalikan <code>Objek</code>:
+                                  </p>
+                                  <ul>
+                                    <li>
+                                      <code>shouldRenderRichAnimation</code> Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+                                    </li>
+                                    <li>
+                                      <code>scrollAnimationsEnabledBySystem</code> Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
+                                    </li>
+                                    <li>
+                                      <code>prefersReducedMotion</code> Boolean - Determines whether the user desires reduced motion based on platform APIs.
+                                    </li>
+                                  </ul>
+                                  <p>
+                                    Returns an object with system animation settings.
                                   </p>
