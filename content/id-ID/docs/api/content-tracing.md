@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Mulai rekaman pada semua proses.
 
 Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman. The `callback ` akan menjadi dipanggil sekali semua proses anak telah mengakui permintaan ` startRecording `.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ Setelah semua proses anak mengakui permintaan `stopRecording` `callback ` akan d
 
 Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sementara Path file yang sebenarnya akan dilewatkan ke `callback` jika tidak `null`.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -102,7 +102,16 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Fungsi 
-  * `nilai` Nomor
-  * `persentase` Nomor
+  * Sasaran 
+    * `value` Number
+    * `percentage` Number
 
 Dapatkan penggunaan maksimum di seluruh proses buffer jejak sebagai persentase dari penuh negara. Bila nilai TraceBufferUsage ditentukan, maka `callback` adalah bernama.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
