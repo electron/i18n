@@ -48,26 +48,9 @@ Es necesario llamar este método antes de utilizar cualquier otra API `crashRepo
 
 **Nota** Los procesos secundarios creados mediante el módulo `child_process` no tendrá acceso a los módulos de Electron. Por lo tanto, para recopilar los informes de fallos de ellos, se utiliza en su lugar `process.crashReporter.start`. Pasar las mismas opciones anteriormente mencionadas con otro adicional llamado `crashesDirectory` que debe apuntar a un directorio para almacenar los informes de fallos temporalmente. Se puede probar esto llamando `process.crash()` para hacer fallar el proceso secundario.
 
-**Nota:** para recopilar los informes de fallos de los procesos secundarios en Windows, es necesario añadir este código extra. Esto iniciará el proceso que monitoreará y enviará los informes de fallos. Reemplazar `submitURL`, `productName` y `crashesDirectory` con los valores adecuados.
-
 **Nota:** Si necesita enviar parámetros adicionales o actualizados `extra` después de la primera llamada a `start` puede llamar a `addExtraParameter`, en macOS, o llamar a `start` otra vez con los parámetros nuevos o actualizados `extra`, en Linux y Windows.
 
-```js
-const args = [
-  `--reporter-url=${submitURL}`,
-  `--application-name=${productName}`,
-  `--crashes-directory=${crashesDirectory}`
-]
-const env = {
-  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-}
-spawn(process.execPath, args, {
-  env: env,
-  detached: true
-})
-```
-
-**Nota:** En macOS, Electron utiliza un nuevo cliente `crashpad` para recopilar e informar fallos. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -81,13 +64,13 @@ Devuelve [`CrashReport []`](structures/crash-report.md):
 
 Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y el ID subido.
 
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
+### `crashReporter.getUploadToServer()`
 
 Devuelve `Boolean` - Si los informes deben enviarse o no al servidor. Establecer a través del método `start` o `setUploadToServer`.
 
 **Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+### `crashReporter.setUploadToServer(uploadToServer)`
 
 * `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor.
 
@@ -95,14 +78,14 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 
 **Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 * `value` String - Valor del parámetro, debe tener menos de 64 caracteres.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. Esta API solo está disponible en macOS, si necesita añadir/actualizar parámetros extra en Linux y Windows después de la primera llamada a `start`, puede llamar otra vez a `start` con las opciones `extra` actualizadas.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` *macOS*
+### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 
