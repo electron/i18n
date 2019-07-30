@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-**[Deprecated Soon](promisification.md)**
+**[Незабаром застаріє](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
