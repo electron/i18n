@@ -42,7 +42,7 @@ app.on('ready', () => {
 
 Как только все дочерние процессы признают запрос `getCategories`, `callback` вызывается с массивом групп категорий.
 
-**[Скоро устареет](promisification.md)**
+**[Скоро устареет](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ app.on('ready', () => {
 
 Запись начинается сразу локально и асинхронно на дочерних процессах как только они получат запрос на запись. `callback` будет вызываться, как только все дочерние процессы признают запрос `startRecording`.
 
-**[Скоро устареет](promisification.md)**
+**[Скоро устареет](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ app.on('ready', () => {
 
 Данные трассировки будут записаны в `resultFilePath`, если он не пуст, или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
 
-**[Скоро устареет](promisification.md)**
+**[Скоро устареет](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -102,7 +102,16 @@ app.on('ready', () => {
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Function 
-  * `value` Number
-  * `percentage` Number
+  * Object 
+    * `value` Number
+    * `percentage` Number
 
 Получает максимальное использование буфера трассировки в процентах среди всех процессов. Когда значение TraceBufferUsage определено, `callback` будет вызван.
+
+**[Скоро устареет](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
