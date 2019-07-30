@@ -16,6 +16,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getSystemVersion()`
 * `getCPUUsage()`
 * `getIOCounters()`
 * `argv`
@@ -25,7 +26,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `arch`
 * `platform`
 * `sandboxed`
-* `type`
+* `mengetik`
 * `version`
 * `versions`
 * `mas`
@@ -151,11 +152,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getProcessMemoryInfo()`
 
-Mengembalikan `Objek`:
-
-* `residentSet` Integer *Linux* and *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
-* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
-* `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
+Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
@@ -165,12 +162,26 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Mengembalikan `Objek`:
 
-* `total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.
-* `gratis` Integer - Jumlah total memori yang tidak digunakan oleh aplikasi atau disk cache.
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
 * `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang keseluruhan sistem. Catatan bahwa semua statistik dilaporkan di Kilobytes.
+
+### `process.getSystemVersion()`
+
+Returns `String` - The version of the host operating system.
+
+Contoh:
+
+| Platform | Version             |
+| -------- | ------------------- |
+| macOS    | `10.13.6`           |
+| Windows  | `10.0.17763`        |
+| Linux    | `4.15.0-45-generic` |
+
+**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -182,10 +193,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-Penyebab benang utama dari proses saat ini hang.
+Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Menetapkan file descriptor soft limit ke `maxDescriptors`atau OS yang keras batas, mana yang lebih rendah untuk proses saat ini.
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
