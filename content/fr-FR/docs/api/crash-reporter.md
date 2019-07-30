@@ -54,13 +54,13 @@ You are required to call this method before using any other `crashReporter` APIs
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+Retourne [`CrashReport`](structures/crash-report.md) :
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+Renvoi la date et l'identifiant du dernier crash. Seuls les rapports de plantages qui ont étés téléchargés seront renvoyés ; même si un rapport de plantages est présent sur le disque, il ne sera pas renvoyé avant qu'il soit téléchargé. Dans le cas où il n'y a pas de rapports téléchargés, `null` est retourné.
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+Retourne [`CrashReport[]`](structures/crash-report.md) :
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
@@ -97,7 +97,7 @@ See all of the current parameters being passed to the crash reporter.
 
 ## Payload du Crash Report
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un `POST` en `multipart/form-data` :
 
 * `ver` String - La version d'Electron.
 * `platform` String - Par exemple 'win32'.
