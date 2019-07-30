@@ -52,6 +52,7 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `Tab`
 * `CapsLock`
 * `NumLock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`
