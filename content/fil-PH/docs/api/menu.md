@@ -90,7 +90,7 @@ Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
 ### Halimbawa ng Mga Kaganapan
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
@@ -120,17 +120,13 @@ Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
 Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
 
-### Halimbawa ng mga Event
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
-
 ## Mga Halimbawa
 
-Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Pangunahing proseso
+### Main process
 
-Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,9 +232,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Prosesong Render
+### Render process
 
-Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul ng [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -257,27 +256,27 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Ang mga tala sa Menu ng Aplikasyon ng macOS
 
-ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Mga Istandard na Menu
+### Standard Menus
 
-On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. Para gawin ang iyong menu na standard na menu, dapat mong i-set ang iyong menu sa `role` sa isa sa mga sumusunod at ang Electron ay makikilala sila at gagawin silang mga standard na menu:
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `ang window`
 * `tulong`
 * `mga serbisyo`
 
-### Mga Aytem na Aksyon ng Istandard na Menu
+### Standard Menu Item Actions
 
-ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Pangalan ng Pangunahing Menu
+### Main Menu's Name
 
-Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
 ## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
 
-Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
+The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
 ## Posisyon ng Item ng Menu
 
@@ -290,9 +289,9 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Halimbawa
+### Mga Halimbawa
 
-Ang Template:
+Template:
 
 ```javascript
 [
@@ -303,7 +302,7 @@ Ang Template:
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- 1
@@ -312,7 +311,7 @@ Ang Menu:
 - 4
 ```
 
-Ang Template:
+Template:
 
 ```javascript
 [
@@ -325,7 +324,7 @@ Ang Template:
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- 3
@@ -336,7 +335,7 @@ Ang Menu:
 - 2
 ```
 
-Ang Template:
+Template:
 
 ```javascript
 [
@@ -346,7 +345,7 @@ Ang Template:
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- ---
