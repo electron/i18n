@@ -95,11 +95,11 @@ Using `autoUpdater` as an example:
 * Constructors must be listed with `###`-level titles.
 * [Métodos estáticos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) devem ser listados sob um capítulo `### Métodos estáticos`.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* All methods that have a return value must start their description with "Returns `[TYPE]` - Descrição da devolução" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Propriedades da Instância` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Los Eventos de Instancia deben aparecer listados bajo un capítulo de `### Eventos de Instancia`.
+* Propriedades da instância devem ser listadas em um `### Propriedades da Instância` capítulo. 
+  * Propriedades da instância devem começar com "A [Tipo de Propriedade]..."
 
 Using the `Session` and `Cookies` classes as an example:
 
