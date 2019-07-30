@@ -294,6 +294,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 GPUプロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
+### Event: 'renderer-process-crashed'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `killed` Boolean
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
 ### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
 戻り値:
@@ -465,6 +475,14 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 非表示にされたアプリケーションのウインドウを表示します。自動的にフォーカスは当たりません。
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.getAppPath()`
 
 戻り値 `String` - 現在のアプリケーションのディレクトリ。
@@ -509,14 +527,14 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 パスに関連付けられているアイコンを取得します。
 
-*Windows* の場合、2種類のアイコンがあります。
+On *Windows*, there are 2 kinds of icons:
 
 * `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
 * `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
 
 *Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,7 +561,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 * `name` String
 * `path` String
 
-`name` に関連付けられた特別なディレクトリもしくはファイルの `path` を上書きします。 パスとして存在しないディレクトリが指定された場合、このメソッドによってディレクトリが作成されます。 失敗した場合、`Error` がスローされます。
+`name` に関連付けられた特別なディレクトリもしくはファイルの `path` を上書きします。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 `app.getPath` で定義されている `name` のパスだけを上書きすることができます。
 
@@ -606,6 +624,8 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 Windowsの場合、オプションのパラメータを指定することができます。path には実行可能ファイルへのパス、args には実行可能ファイルが起動する際に引き渡される引数の配列を指定してください。
 
 **注:** macOSの場合、アプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更することもできません。 しかしながら、単純なテキストエディターもしくはスクリプトでビルド時にファイルを変更することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
+
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 このAPIは内部的にWindowsのレジストリやLSSetDefaultHandlerForURLSchemeを使用します。
 
@@ -734,8 +754,6 @@ app.setJumpList([
 
 戻り値 `Boolean`
 
-このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
-
 このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
 またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
@@ -844,7 +862,7 @@ if (!gotTheLock) {
 
 戻り値 `Promise`
 
-`infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
 `infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
 
@@ -940,6 +958,8 @@ app.setLoginItemSettings({
 
 戻り値 `Boolean` - Chromeのユーザ補助機能が有効な場合、`true`、そうでない場合、`false`。 このAPIは、スクリーンリーダーなどの支援技術を使っていることが検出された場合、`true` を返します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
+**[非推奨予定](modernization/property-updates.md)**
+
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
@@ -949,6 +969,8 @@ app.setLoginItemSettings({
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
+
+**[非推奨予定](modernization/property-updates.md)**
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
@@ -967,6 +989,14 @@ app.setLoginItemSettings({
 
 Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
+### `app.isEmojiPanelSupported`
+
+Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+
+### `app.showEmojiPanel` *macOS* *Windows*
+
+Show the platform's native emoji picker.
+
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
 * `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
@@ -984,20 +1014,22 @@ stopAccessingSecurityScopedResource()
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - コマンドラインスイッチ
+* `switch` String - A command-line switch, without the leading `--`
 * `value` String (任意) - 与えられたスイッチの値
 
 Chromiumのコマンドラインに (オプションの `value` と一緒に) スイッチを追加します。
 
-**注:** これは`process.argv` に影響を与えません。また、いくつかの低レベルのChromiumの振る舞いを制御するために主に開発者によって使われます。
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - コマンドラインに追加された引数
 
-Chromiumのコマンドラインに引数を追加します。引数は正しく引用符で囲ってください。
+Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
 
-**注:** これは`process.argv` に影響を与えません。
+If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1011,9 +1043,9 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 戻り値 `String` - コマンドラインスイッチの値
 
-**注意:** スイッチのない場合、これは空文字列を返す。
+**Note:** When the switch is not present or has no value, it returns empty string.
 
-### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableSandbox()` *実験的*
 
 アプリで完全サンドボックスモードを有効にします。
 
@@ -1069,17 +1101,21 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示する
+Returns `Promise<void>` - Resolves when the dock icon is shown.
 
 ### `app.dock.isVisible()` *macOS*
 
-戻り値 `Boolean` - ドックアイコンが表示されているかどうか。 `app.dock.show()` の呼出は非同期のため、その呼出の直後は、このメソッドから true が返却されない可能性があります。
+Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
 アプリケーションの [Dock メニュー](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) を設定します。
+
+### `app.dock.getMenu()` *macOS*
+
+Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1089,6 +1125,32 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ## プロパティ
 
+### `app.applicationMenu`
+
+A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.accessibilitySupportEnabled` *macOS* *Windows*
+
+A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+
+See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+この API は `ready` イベントが発生した後で呼ばなければいけません。
+
+**注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
+
+### `app.userAgentFallback`
+
+A `String` which is the user agent string Electron will use as a global fallback.
+
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+
 ### `app.isPackaged`
 
 アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。
+
+### `app.allowRendererProcessReuse`
+
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+
+The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
