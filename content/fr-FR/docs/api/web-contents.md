@@ -369,9 +369,9 @@ Retourne :
 * `callback` Function 
   * `isTrusted` Boolean - Indique si le certificat peut être considéré comme fiable.
 
-Emitted when failed to verify the `certificate` for `url`.
+Émis lorsqu'il n'a pas pu vérifier le `certificat` de l'`url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+L'utilisation est pareil que [l'événement `certificate-error` de `app`](app.md#event-certificate-error).
 
 #### Événement : 'select-client-certificate'
 
@@ -385,7 +385,7 @@ Retourne :
 
 Émis lorsqu'un certificat client est demandé.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+L'utilisation est pareil que [l'événement `select-client-certificate` de `app`](app.md#event-select-client-certificate).
 
 #### Événement : 'login'
 
@@ -408,7 +408,7 @@ Retourne :
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+L'utilisation est pareil que [l'événement `login` de `app`](app.md#event-login).
 
 #### Événement : 'found-in-page'
 
@@ -422,7 +422,7 @@ Retourne :
   * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
 
 #### Événement : 'media-started-playing'
 
@@ -434,7 +434,7 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Événement : 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -454,7 +454,7 @@ Retourne :
 
 Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
 
-#### Event: 'cursor-changed'
+#### Événement : 'cursor-changed'
 
 Retourne :
 
@@ -465,11 +465,11 @@ Retourne :
 * `size` [Size](structures/size.md) (facultatif) - La taille de l'`image`.
 * `hotspot` [Point](structures/point.md) (facultatif) - Coordonnées du point actif du curseur personnalisé.
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Émis lorsque le type du curseur change. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Événement : 'context-menu'
 
 Retourne :
 
@@ -509,9 +509,9 @@ Retourne :
     * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
     * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
 
-Emitted when there is a new context menu that needs to be handled.
+Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
 
-#### Event: 'select-bluetooth-device'
+#### Événement : 'select-bluetooth-device'
 
 Retourne :
 
@@ -520,7 +520,7 @@ Retourne :
 * `callback` Function 
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Émis lorsque le périphérique bluetooth a besoin d'être selectionné lors de l'appel de `navigator.bluetooth.requestDevice`. Pour utiliser l'api `navigator.bluetooth`, `webBluethooth` doit être activé. Si `event.preventDefault` n'est pas appelé, le premier périphérique disponible sera sélectionné. `callback` doit être appelé avec `deviceId` à sélectionner, en passant une chaîne de caractère vide au `callback` annulera la requête.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -544,7 +544,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Événement : 'paint'
 
 Retourne :
 
@@ -552,7 +552,7 @@ Retourne :
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Émis quand une nouvelle fenêtre est générée. Seule la zone salie est passée dans le buffer.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -564,11 +564,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Événement : 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Émis quand la fenêtre des outils développeur demande aux webContents de se recharger
 
-#### Event: 'will-attach-webview'
+#### Événement : 'will-attach-webview'
 
 Retourne :
 
@@ -582,14 +582,14 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Event: 'did-attach-webview'
+#### Événement : 'will-attach-webview'
 
 Retourne :
 
 * `event` Événement
 * `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+Émis quand un `<webview>` a été rattaché à ce contenu web.
 
 #### Événement : 'console-message'
 
@@ -601,7 +601,7 @@ Retourne :
 * `line` Integer
 * `sourceId` String
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
 
 #### Event: 'preload-error'
 
@@ -749,7 +749,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Retourne `String` - l'URL de la page web courante.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -762,23 +762,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Retourne `String` - le titre de la page web courante.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Retourne `Boolean` - si la page web est détruite.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Met au premier plan la page web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Retourne `Boolean` - si la page web est au premier plan.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -786,7 +786,7 @@ Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frame
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
 
 #### `contents.stop()`
 
@@ -794,11 +794,11 @@ Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recharge la page web courante.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recharge la page courante et ignore le cache.
 
 #### `contents.canGoBack()`
 
@@ -856,7 +856,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Injecte du CSS dans la page web actuelle.
 
 ```js
 contents.on('did-finish-load', function () {
@@ -1078,7 +1078,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md).
 
@@ -1247,25 +1247,25 @@ app.once('ready', () => {
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-Opens the devtools.
+Ouvre les devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Ferme les devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retourne `Boolean` - Si les devtools sont ouvert.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retourne `Boolean` - Si les devtools ont le focus.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Active/désactive les outils développeur.
 
 #### `contents.inspectElement(x, y)`
 
