@@ -43,7 +43,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -60,7 +60,7 @@ Simulan ang pagtatala ng lahat ng mga proseso.
 
 Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. Ang `callback` ay tatawagan kapag kinilala ng lahat ng child processes ang kahilingan ng`startRecording`. 
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -86,7 +86,7 @@ Kapag kinilala ng child processes ang `stopRecording` request, `callback` ay tat
 
 Ang trace data ay maaaring isulat sa `resultFilePath` kung hindi ito walang laman o sa isang pansamantalang talakasan. Ang talagang file path ay ipasa sa `callback` kung hindi sa `null` .
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -103,7 +103,16 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Function 
-  * `value` Number
-  * `percentage` Number
+  * Bagay 
+    * `value` Number
+    * `percentage` Number
 
 Kunin ang pinakamataas na paggamit ng proseso ng trace buffer bilang bahagdan ng buon estado. Kung ang TraceBufferUsage value ay makilala ang `callback` ay tatawagan.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
