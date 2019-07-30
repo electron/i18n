@@ -453,7 +453,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### 事件: 'cursor-changed'
 
 回傳:
 
@@ -468,7 +468,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### 事件: 'context-menu'
 
 回傳:
 
@@ -510,7 +510,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### 事件: 'select-bluetooth-device'
 
 回傳:
 
@@ -543,7 +543,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### 事件: 'paint'
 
 回傳:
 
@@ -563,11 +563,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### 事件: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### 事件: 'will-attach-webview'
 
 回傳:
 
@@ -879,7 +879,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // 會是 fetch 執行結果的 JSON 物件
   })
 ```
 
@@ -899,11 +899,11 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // 會是 fetch 執行結果的 JSON 物件
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *試驗中*
 
 * `ignore` Boolean
 
@@ -1027,7 +1027,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1079,11 +1079,11 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+回傳 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1157,7 +1157,7 @@ win.webContents.on('did-finish-load', () => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('PDF 寫入成功。')
     })
   })
 })
@@ -1293,7 +1293,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// 在主處理序中.
+// 在主處理序裡。
 const { app, BrowserWindow } = require('electron')
 let win = null
 
