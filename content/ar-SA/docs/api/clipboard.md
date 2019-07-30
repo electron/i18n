@@ -4,7 +4,7 @@
 
 العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
-The following example shows how to write a string to the clipboard:
+يوضح المثال التالي كيفية كتابة على سلسلة من الحافظة :
 
 ```javascript
 const { clipboard } = require('electron')
@@ -21,28 +21,28 @@ console.log(clipboard.readText('selection'))
 
 ## Methods
 
-The `clipboard` module has the following methods:
+و ` الحافظة </ 0> وحدة لديها الطرق التالية:</p>
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+<p><strong>Note:</strong> Experimental APIs are marked as such and could be removed in future.</p>
 
-### `clipboard.readText ([نوع])`
+<h3><code>clipboard.readText ([نوع])`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+إرجاع ` String </ 0> - المحتوى الموجود في الحافظة كنص عادي.</p>
 
-### `clipboard.writeText(text[, type])`
+<h3><code>clipboard.writeText(text[, type])`</h3> 
 
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+يكتب النص ` </ 0> في الحافظة كنص عادي.</p>
 
-### `clipboard.readHTML ( [نوع] )`
+<h3><code>clipboard.readHTML ( [نوع] )`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+<<> سلسلة </ 0> - المحتوى الموجود في الحافظة كنص عادي.
 
 ### `clipboard.writeHTML(markup[, type])`
 
