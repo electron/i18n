@@ -22,17 +22,15 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita.
-
-Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
+Returns `Boolean` - Whether the item was successfully opened.
 
-Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
+Open the given file in the desktop's default manner.
 
 ### `shell.openExternalSync(url[, mga pagpipilian])`
 
@@ -44,6 +42,8 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Deprecated**
 
 ### `shell.openExternal(url[, mga pagpipilian])`
 
