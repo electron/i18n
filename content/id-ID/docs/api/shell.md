@@ -20,17 +20,15 @@ The `shell` modul memiliki metode berikut:
 
 * `fullPath` String
 
-Mengembalikan `Boolean` - Apakah item berhasil ditampilkan.
-
-Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Mengembalikan `Boolean` - Apakah item berhasil dibuka.
+Returns `Boolean` - Whether the item was successfully opened.
 
-Buka file yang diberikan dengan cara default desktop.
+Open the given file in the desktop's default manner.
 
 ### `shell.openExternalSync(url[, options])`
 
@@ -42,6 +40,8 @@ Buka file yang diberikan dengan cara default desktop.
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Deprecated**
 
 ### `shell.openExternal(url[, options])`
 
