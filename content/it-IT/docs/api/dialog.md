@@ -57,9 +57,9 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+L'array `extensions` deve contenere estensioni di file senza caratteri wildcard o punti (es. `'png'` va bene `'.png'` ma `'*.png'` no). Per mostrare tutti i file, usare il carattere wildcard `'*'` (non sono supportati altri caratteri wildcard).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota:** Su Windows e Linux un dialogo aperto non può essere sia un selettore di file che uno di cartelle, quindi se imposti `properties` a `['openFile', 'openDirectory']` su questi sistemi, verrà mostrato un selettore di cartelle.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -109,9 +109,9 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+L'array `extensions` deve contenere estensioni di file senza caratteri wildcard o punti (es. `'png'` va bene `'.png'` ma `'*.png'` no). Per mostrare tutti i file, usare il carattere wildcard `'*'` (non sono supportati altri caratteri wildcard).
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota:** Su Windows e Linux un dialogo aperto non può essere sia un selettore di file che uno di cartelle, quindi se imposti `properties` a `['openFile', 'openDirectory']` su questi sistemi, verrà mostrato un selettore di cartelle.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -129,11 +129,11 @@ dialog.showOpenDialog(mainWindow, {
 * `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
   * `title` String (opzionale)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (opzionale) - Indirizzo assoluto a cartella, indirizzo assoluto a file, o nome di file da usare di default.
   * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
   * `filters` [FileFilter[]](structures/file-filter.md) (opzionale)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
+  * `message` String (opzionale) *macOS* - Messaggio da mostrare sopra ai campi di testo.
+  * `nameFieldLabel` String (opzionale) *macOS* - Etichetta personalizzata per il testo mostrato sopra al campo di testo del nome file.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
@@ -148,11 +148,11 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 * `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
   * `title` String (opzionale)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (opzionale) - Indirizzo assoluto a cartella, indirizzo assoluto a file, o nome di file da usare di default.
   * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
   * `filters` [FileFilter[]](structures/file-filter.md) (opzionale)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
+  * `message` String (opzionale) *macOS* - Messaggio da mostrare sopra ai campi di testo.
+  * `nameFieldLabel` String (opzionale) *macOS* - Etichetta personalizzata per il testo mostrato sopra al campo di testo del nome file.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
