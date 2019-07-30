@@ -189,16 +189,16 @@ Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String - 以下の値のうちの一つの、強調表示モード。 
+  * `selection` - tray アイコンがクリックされ、コンテキストメニューも開かれたとき、それを強調表示します。これはデフォルトです。
+  * `always` - tray アイコンを常に強調表示します。
+  * `never` - tray アイコンを強調表示することはありません。
 
-Sets when the tray's icon background becomes highlighted (in blue).
+tray のアイコンの背景を、いつ青く強調表示するかを設定します。
 
-**[Deprecated](breaking-changes.md#tray)**
+**[非推奨](breaking-changes.md#tray)**
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**注釈:** ウインドウの見た目が変更されたときは、`'never'` と `'always'` 間をトグル切り替えすることで、`highlightMode` を [`BrowserWindow`](browser-window.md) で使用できます。
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -221,44 +221,44 @@ win.on('hide', () => {
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+ダブルクリックイベントを無視するよう設定します。これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
 
-This value is set to false by default.
+この値はデフォルトで false にセットされます。
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+戻り値 `Boolean` - ダブルクリックイベントが無視されているかどうか。
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (任意) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+tray のバルーンを表示します。
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (任意)
+* `position` [Point](structures/point.md) (任意) - ポップアップ位置。
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+tray アイコンのコンテキストメニューをポップアップします。`menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` は Windows でのみ有効で、省略値は (0, 0) です。
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+このアイコンのコンテキストメニューを設定します。
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+`Object` としてのこの tray アイコンの `bounds`。
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+戻り値 `Boolean` - tray アイコンが破棄されたかどうか。
