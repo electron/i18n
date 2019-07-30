@@ -26,7 +26,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `arch`
 * `platform`
 * `sandboxed`
-* `uri`
+* `ang uri`
 * `version`
 * `versions`
 * `mas`
@@ -162,8 +162,8 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Nagbabalik ng mga `bagay`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
+* `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
 * `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
@@ -191,12 +191,12 @@ Returns `Boolean` - Indicates whether the snapshot has been created successfully
 
 Takes a V8 heap snapshot and saves it to `filePath`.
 
-### `process.hang()`
+### `proseso.hang()`
 
-Causes the main thread of the current process hang.
+Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `proseso.setFdLimit(maxDescriptors)`macOS</em>*Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Itakda ang file na tagapaglarawan sa mahinang limitasyon sa `maxDescriptors` o sa OS malakas na limitasyon, alinman ang mas mababa sa kasalukuyang proseso.
