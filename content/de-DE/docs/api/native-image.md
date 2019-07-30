@@ -173,7 +173,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instance Methods
+### Instanz Methoden
 
 The following methods are available on instances of the `NativeImage` class:
 
@@ -185,7 +185,7 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Integer (**required**) - Zwischen 0 - 100.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
