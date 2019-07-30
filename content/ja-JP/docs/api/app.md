@@ -1014,12 +1014,12 @@ stopAccessingSecurityScopedResource()
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
+* `switch` String - 主要なものを除くコマンドラインスイッチ `--`
 * `value` String (任意) - 与えられたスイッチの値
 
 Chromiumのコマンドラインに (オプションの `value` と一緒に) スイッチを追加します。
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**注:** これは `process.argv` に影響を与えません。この関数は主に Chromium の振る舞いを制御するために使われます。
 
 ### `app.commandLine.appendArgument(value)`
 
@@ -1029,7 +1029,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**注:** これは `process.argv` に影響を与えません。この関数は主に Chromium の振る舞いを制御するために使われます。
 
 ### `app.commandLine.hasSwitch(switch)`
 
