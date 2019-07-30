@@ -2,17 +2,15 @@
 
 > Zwraca informację o wielkości ekranu, wyświetlaczach, pozycji kursora itd.
 
-Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proces: [Main](../glossary.md#main-process)
 
 Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
 
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-`screen` jest klasą [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
-**Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{ screen } = require('electron')` nie będzie działać.
-
-Przykład tworzenia okna, które wypełnia cały ekran:
+An example of creating a window that fills the whole screen:
 
 ```javascript
 const electron = require('electron')
@@ -27,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Inny przykład utworzenia okna na ekranie zewnętrznym:
+Another example of creating a window in the external display:
 
 ```javascript
 const electron = require('electron')
@@ -53,7 +51,7 @@ app.on('ready', () => {
 
 ## Zdarzenia
 
-Moduł `screen` emituje następujące zdarzenia:
+The `screen` module emits the following events:
 
 ### Zdarzenie: 'display-added'
 
@@ -62,7 +60,7 @@ Zwraca:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitowane, gdy `newDisplay` został dodany.
+Emitted when `newDisplay` has been added.
 
 ### Zdarzenie: 'display-removed'
 
@@ -71,7 +69,7 @@ Zwraca:
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitowane, gdy `oldDisplay` został usunięty.
+Emitted when `oldDisplay` has been removed.
 
 ### Zdarzenie: 'display-metrics-changed'
 
@@ -85,21 +83,21 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ## Metody
 
-Moduł `screen` posiada następujące metody:
+The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Zwraca [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
-Bieżącą pozycję bezwzględną wskaźnika myszy.
+The current absolute position of the mouse pointer.
 
 ### `screen.getPrimaryDisplay()`
 
-Zwraca [`Display`](structures/display.md) - ekran główny.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Zwraca [`Display[]`](structures/display.md) - tablicę obiektów Display, które są obecnie dostępne.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
@@ -117,7 +115,7 @@ Returns [`Display`](structures/display.md) - The display that most closely inter
 
 * `point` [Point](structures/point.md)
 
-Zwraca [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -125,7 +123,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Zwraca [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
