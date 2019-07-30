@@ -101,7 +101,7 @@ Füge `text` in das fokusierte Element ein.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -116,7 +116,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -198,7 +198,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Dies generiert:
 
 ```javascript
 {
@@ -222,7 +222,7 @@ Note that blindly calling this method probably makes Electron slower since it wi
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - CSS selector für ein frame Element.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
