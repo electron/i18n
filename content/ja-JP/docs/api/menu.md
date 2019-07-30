@@ -90,7 +90,7 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 ### インスタンスイベント
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+`new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
