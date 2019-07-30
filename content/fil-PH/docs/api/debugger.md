@@ -57,7 +57,7 @@ Pagtanggal ng "debugger" galing sa `webContents`.
 
 Ipadala ang binigay na "command" sa "debugging target".
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
