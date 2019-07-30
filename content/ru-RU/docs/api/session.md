@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Получает и устанавливает свойства сессии.
 
-Process: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
