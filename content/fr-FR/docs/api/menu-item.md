@@ -35,7 +35,7 @@ Voir [`Menu`](menu.md) pour des exemples.
 
 ### Rôles
 
-Roles allow menu items to have predefined behaviors.
+Les rôles permettent à des éléments du menu d'avoir des comportements prédéfinis.
 
 It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 
@@ -43,7 +43,7 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+La propriété `role` peut avoir les valeurs suivantes :
 
 * `undo`
 * `redo`
@@ -96,7 +96,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Instance Properties
 
-The following properties are available on instances of `MenuItem`:
+Les propriétés suivantes sont disponibles pour les instances de `MenuItem` :
 
 #### `menuItem.id`
 
