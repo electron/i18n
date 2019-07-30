@@ -47,6 +47,7 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 * `Sekme`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Geri silme`
 * `Sil`
 * `Ekleme`
