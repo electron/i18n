@@ -14,3 +14,4 @@ kategori.</li>
 <li><code> deskripsi </ 0>  String (opsional) - Uraian tugas (ditampilkan dalam keterangan alat). Sebaiknya disetel jika <code> ketik </ 0> adalah <code> tugas </ 0> .</li>
 <li><code>iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). Anda biasanya dapat menentukan ` process.execPath </ 0> untuk menampilkan ikon program.</li>
 <li><code>iconIndex` Number (optional) - The index of the icon in the resource file. Jika file sumber daya berisi beberapa ikon, nilai ini dapat digunakan untuk menentukan indeks berbasis nol dari ikon yang harus ditampilkan untuk tugas ini. Jika file sumber hanya berisi satu ikon, properti ini harus diset ke nol.
+  * `workingDirectory` String (optional) - The working directory. Default is empty.
