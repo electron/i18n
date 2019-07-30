@@ -24,9 +24,9 @@ app.on('ready', () => {
 
 ## `protocol` をカスタムの `partition` や `session` で使用する
 
-プロトコルは特定の Electron [`session`](./session.md) オブジェクトに登録されます。 セッションを指定しない場合は、Electron が使用するデフォルトセッションに `protocol` が適用されます。 However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+プロトコルは特定の Electron [`session`](./session.md) オブジェクトに登録されます。 セッションを指定しない場合は、Electron が使用するデフォルトセッションに `protocol` が適用されます。 ただし、`browserWindow` の `webPreferences` に `partition` または `session` を定義すると、そのウィンドウに `electron.protocol.XXX` を使用しただけでは別のセッションやカスタムプロトコルは機能しません。
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+カスタムプロトコルをカスタムセッションと組み合わせて機能させるには、それを明示的にそのセッションに登録する必要があります。
 
 ```javascript
 const { session, app, protocol } = require('electron')
