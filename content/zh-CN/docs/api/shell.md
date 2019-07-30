@@ -22,17 +22,15 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-返回 `Boolean` - 文件是否成功显示.
-
-在文件管理器中显示给定的文件。如果可以, 选中该文件。
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-返回 `Boolean` - 文件是否成功打开
+Returns `Boolean` - Whether the item was successfully opened.
 
-以桌面的默认方式打开给定的文件。
+Open the given file in the desktop's default manner.
 
 ### `shell.openExternalSync(url[, options])`
 
@@ -44,6 +42,8 @@ shell.openExternal('https://github.com')
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Deprecated**
 
 ### `shell.openExternal(url[, options])`
 
