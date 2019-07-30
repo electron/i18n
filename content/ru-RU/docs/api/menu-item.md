@@ -12,7 +12,7 @@ Process: [Main](../glossary.md#main-process)
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
-    * `event` Event
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` Строка(опционально) - Может принимать значения `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` или `windowMenu` - Определите действие пункта меню, когда указанное свойство `click` будет проигнорировано. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String (optional)
@@ -20,6 +20,7 @@ Process: [Main](../glossary.md#main-process)
   * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
+  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
@@ -29,6 +30,8 @@ Process: [Main](../glossary.md#main-process)
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
 
 ### Роли
 
@@ -107,7 +110,7 @@ The following properties are available on instances of `MenuItem`:
 
 `Функция` которая выполняется, когда MenuItem получает событие щелчка. Она может быть вызвана с `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event` Event
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 
@@ -121,7 +124,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.role`
 
-`String` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu`
+`Строка` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu`
 
 #### `menuItem.accelerator`
 
@@ -137,21 +140,21 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.enabled`
 
-`Boolean` указывает, включен ли элемент, это свойство может быть динамически изменено.
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `menuItem.visible`
 
-`Boolean` указывает, видим ли элемент, это свойство может быть динамически изменено.
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `menuItem.checked`
 
-`Boolean` указывает, помечен ли элемент флажком, это свойство может быть динамически изменено.
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-`Сheckbox` пункт меню переключит `checked` при выборе.
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-`Radio` пункт меню включит его свойство `checked` при нажатии, и отключит это свойство для всех смежных пунктов в том же меню.
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-Вы можете добавить функцию `щелчка` для дополнительного поведения.
+You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
