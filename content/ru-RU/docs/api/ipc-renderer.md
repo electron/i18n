@@ -15,14 +15,18 @@ See [ipcMain](ipc-main.md) for code examples.
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function (Функция)
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 Слушает `channel`, когда приходит новое сообщение `listener` вызовется с `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function (Функция)
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
@@ -78,8 +82,4 @@ Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in
 
 ## Объект события
 
-Объект события (`event`) переданный, в функцию обратного вызова (`callback`) обладает следующими методами:
-
-### `event.senderId`
-
-Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
