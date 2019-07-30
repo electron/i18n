@@ -92,7 +92,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Callback会被调用，参数是session的当前缓存大小。
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.getCacheSize()`
 
@@ -105,7 +105,7 @@ Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 Clears the session’s HTTP cache.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.clearCache()`
 
@@ -123,7 +123,7 @@ Clears the session’s HTTP cache.
 
 Clears the storage data for the current session.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.clearStorageData([options])`
 
@@ -200,7 +200,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.setProxy(config)`
 
@@ -273,7 +273,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.resolveProxy(url)`
 
@@ -402,7 +402,7 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 Clears the host resolver cache.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.clearHostResolverCache()`
 
@@ -447,7 +447,7 @@ Returns `String` - The user agent for this session.
 * `callback` Function - 回调函数 
   * `result` Buffer - Blob data.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.getBlobData(identifier)`
 
@@ -476,7 +476,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `ses.clearAuthCache(options)` *(deprecated)*
 
