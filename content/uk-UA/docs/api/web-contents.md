@@ -648,7 +648,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 * `event` Event
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню модуля. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 #### Подія: 'remote-get-global'
 
@@ -657,7 +657,7 @@ Emitted when `remote.require()` is called in the renderer process. Виклик 
 * `event` Event
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню глобального значення. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню глобального значення. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 #### Подія: 'remote-get-builtin'
 
@@ -666,7 +666,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Викли�
 * `event` Event
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню модуля. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 #### Подія: 'remote-get-current-window'
 
@@ -674,7 +674,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Викли
 
 * `event` Event
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 #### Подія: 'remote-get-current-web-contents'
 
@@ -682,7 +682,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 * `event` Event
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 #### Подія: 'remote-get-guest-web-contents'
 
@@ -691,7 +691,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 * `event` Event
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 ### Методи Екземпляра
 
@@ -904,7 +904,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Експериментальний*
 
 * `ignore` Boolean
 
@@ -1099,7 +1099,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Об'єкт 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
