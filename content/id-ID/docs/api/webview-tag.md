@@ -68,7 +68,7 @@ Atribut `src` juga dapat menerima URL data, seperti data`:teks/polos, Halo, duni
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi simpul dan dapat menggunakan API simpul seperti` memerlukan ` dan `proses` untuk mengakses sumber daya sistem tingkat rendah. Node integrasi dinonaktifkan secara default pada semua halaman.
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ When this attribute is `false` the guest page in `webview` will not have access 
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Bila atribut ini menampilkan halaman tamu di `webview` akan dapat menggunakan plugin browser. Plugin dinonaktifkan secara default.
 
 ### `preload`
 
@@ -100,11 +100,11 @@ When this attribute is present the guest page in `webview` will be able to use b
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+Menentukan sebuah skrip yang akan dimuat sebelum menjalankan skrip lainnya di halaman tamu. Protokol script URL harus berupa `berkas:` atau `asar:`, karena itu akan dimuat oleh `memerlukan` di semua halaman di bawah tenda.
 
-When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+Ketika halaman tamu tidak memiliki integrasi node script ini masih akan memiliki akses ke semua Node api, tetapi benda-benda global yang disuntikkan oleh Node akan dihapus setelah script ini selesai mengeksekusi.
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**Catatan:** Opsi ini akan muncul sebagai `preloadURL` (bukan `preload`) di `webPreferences` yang ditentukan ke` akan-melampirkan-webview` event.
 
 ### `httpreferrer`
 
@@ -112,7 +112,7 @@ When the guest page doesn't have node integration this script will still have ac
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+Menetapkan URL pengarah untuk semua halaman.
 
 ### `useragent`
 
@@ -120,7 +120,7 @@ Sets the referrer URL for the guest page.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+Menetapkan agen pengguna untuk halaman tamu sebelum halaman dinavigasi. Setelah halaman dimuat, gunakan metode `setUserAgent` untuk mengubah agen pengguna.
 
 ### `disablewebsecurity`
 
@@ -128,18 +128,17 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+Ketika atribut ini hadir semua halaman akan memiliki web keamanan dinonaktifkan. Keamanan web diaktifkan secara default.
 
-### `partition`
+### `partisi`
 
 ```html
-<webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electronjs.org" partition="electron"></webview>
+<webview src="https://github.com" partition="persist:github"></webview> <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. If the `partition` is unset then default session of the app will be used.
+Menetapkan sesi yang digunakan oleh halaman. Jika `partisi` diawali dengan `bertahan:`, halaman akan menggunakan sesi terus-menerus tersedia untuk semua halaman di app dengan `partisi` yang sama. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi di memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Jika `partisi` disetel maka sesi app default akan digunakan.
 
-This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
+Nilai ini hanya dapat diubah sebelum navigasi pertama, sejak sidang proses aktif renderer tidak mengubah. Upaya berikutnya untuk mengubah nilai akan gagal dengan pengecualian DOM.
 
 ### `allowpopups`
 
@@ -147,7 +146,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+Ketika atribut ini hadir semua halaman akan diizinkan untuk membuka jendela baru. Popup dinonaktifkan secara default.
 
 ### `webpreferences`
 
@@ -155,9 +154,9 @@ When this attribute is present the guest page will be allowed to open new window
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung preferensi string dapat ditemukan di [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
+String mengikuti format yang sama sebagai string fitur dalam `window.open`. Nama itu sendiri diberikan nilai boolean `benar`. Preferensi dapat diatur untuk nilai lain termasuk `=`, diikuti oleh nilai. Nilai-nilai khusus `ya` dan `1` ditafsirkan sebagai `benar`, sementara `tidak ada` dan `0` ditafsirkan sebagai `palsu`.
 
 ### `enableblinkfeatures`
 
@@ -165,32 +164,32 @@ The string follows the same format as the features string in `window.open`. A na
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be enabled separated by `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
 
-### `disableblinkfeatures`
+### `nonaktifkanfiturblink`
 
 ```html
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be disabled separated by `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
 
 ## Metode
 
-The `webview` tag has the following methods:
+Tag ` webview ` memiliki metode berikut:
 
-**Note:** The webview element must be loaded before using the methods.
+**Catatan:** Elemen webview harus dimuat sebelum menggunakan metode.
 
 **Contoh**
 
 ```javascript
 const webview = document.querySelector('webview')
-webview.addEventListener('dom-ready', () => {
-  webview.openDevTools()
+webview.addEventListener ('dom-ready', () => {
+   webview.openDevTools()
 })
 ```
 
-### `<webview>.loadURL(url[, options])`
+### `<webview>.muatURL(url[, pilihan])`
 
 * `url` URL
 * `pilihan` Objek (opsional) 
@@ -210,11 +209,11 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
 </ul>
 
 <p>Initiates a download of the resource at <code>url` without navigating.</p> 
-  ### `<webview>.getURL()`
+  ### `<webview>.dapatkanURL()`
   
   Mengembalikan ` String ` - URL halaman tamu.
   
-  ### `<webview>.getTitle()`
+  ### `<webview>.dapatkanTitle()`
   
   Mengembalikan `String` - Judul halaman tamu.
   
@@ -226,7 +225,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai di dalamnya) masih sedang loading.
   
-  ### `<webview>.isWaitingForResponse()`
+  ### `<webview>.isWaitingForResponse ()`
   
   Mengembalikan ` Boolean ` - Apakah halaman tamu menunggu tanggapan pertama untuk sumber utama halaman.
   
@@ -309,26 +308,26 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
   
-  Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+  Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
   
   **[Deprecated Soon](modernization/promisification.md)**
   
   ### `<webview>.executeJavaScript(code[, userGesture])`
   
-  * `code` String
+  * `id` String
   * `userGesture` Boolean (optional) - Default `false`.
   
   Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
   
-  Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+  Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
   
   ### `<webview>.openDevTools ()`
   
-  Opens a DevTools window for guest page.
+  Membuka jendela DevTools untuk halaman tamu.
   
   ### `<webview>.tutupDevTools()`
   
-  Closes the DevTools window of guest page.
+  Menutup jendela tamu DevTools.
   
   ### `<webview>.isDevToolsOpened()`
   
@@ -336,14 +335,14 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.isDevToolsFocused()`
   
-  Returns `Boolean` - Whether DevTools window of guest page is focused.
+  Returns `Boolean` - Whether DevTools window of guest page is dedicated.
   
   ### `<webview>.inspectElement(x, y)`
   
   * `x` Integer
   * `y` Integer
   
-  Starts inspecting element at position (`x`, `y`) of guest page.
+  Mulai memeriksa elemen pada posisi (`x`,`y`) dari halaman tamu.
   
   ### `<webview>.inspectSharedWorker()`
   
@@ -351,13 +350,13 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.inspectServiceWorker()`
   
-  Opens the DevTools for the service worker context present in the guest page.
+  Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
   
   ### `<webview>.setAudioMuted(muted)`
   
   * `dibungkam` Boolean
   
-  Set guest page muted.
+  Tetapkan halaman tamu yang dibungkam.
   
   ### `<webview>.isAudioMuted()`
   
@@ -369,7 +368,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.undo()`
   
-  Executes editing command `undo` in page.
+  Jalankan perintah pengeditan `undo` di halaman.
   
   ### `<webview>.redo()`
   
@@ -401,19 +400,19 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.unselect()`
   
-  Executes editing command `unselect` in page.
+  Jalankan perintah pengeditan `batalkan pilihan` di halaman.
   
   ### `<webview>.replace(text)`
   
   * `teks` String
   
-  Executes editing command `replace` in page.
+  Jalankan perintah pengeditan `ganti` di halaman.
   
   ### `<webview>.replaceMisspelling(text)`
   
   * `teks` String
   
-  Executes editing command `replaceMisspelling` in page.
+  Jalankan perintah pengeditan `replaceMisspelling` di halaman.
   
   ### `<webview>.insertText(text)`
   
@@ -424,7 +423,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   ### `<webview>.findInPage(text[, options])`
   
   * `text` String - Konten yang akan dicari, tidak boleh kosong.
-  * `pilihan` Objek (pilihan) 
+  * `pilihan` Objek (opsional) 
     * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
     * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
     * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -437,25 +436,25 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.stopFindInPage(action)`
   
-  * `tindakan` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+  * `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](#webviewfindinpagetext-options) permintaan. 
     * `clearSelection` - jelas pilihan.
     * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
     * `activateSelection` - fokus dan klik seleksi simpul.
   
-  Stops any `findInPage` request for the `webview` with the provided `action`.
+  Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
   
   ### `<webview>.print([options])`
   
-  * `pilihan` Objek (pilihan) 
+  * `pilihan` Objek (opsional) 
     * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
     * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
     * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
   
-  Prints `webview`'s web page. Same as `webContents.print([options])`.
+  Prints `webview` 's web page. Same as `webContents.print ([options])`.
   
   ### `<webview>.printToPDF(options, callback)`
   
-  * `pilihan` Sasaran 
+  * `pilihan` Obyek 
     * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
     * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
     * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -465,13 +464,13 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     * Kesalahan `kesalahan`
     * `data` nomor
   
-  Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+  Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
   
   **[Deprecated Soon](modernization/promisification.md)**
   
   ### `<webview>.printToPDF(options)`
   
-  * `pilihan` Sasaran 
+  * `pilihan` Obyek 
     * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
     * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
     * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -482,7 +481,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
   
-  ### `<webview>.capturePage([rect, ]callback)`
+  ### `<webview>.capturePage ([rect,] callback)`
   
   * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
 <li><code>callback` Fungsi 
@@ -501,18 +500,18 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
       
       Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
       
-      ### `<webview>.send(channel[, arg1][, arg2][, ...])`
+      ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
       
-      * `channel` String
-      * ` ... args </ 0> ada []</li>
+      * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.</p> 
-        See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+        Melihat [](web-contents.md#contentssendchannel-arg1-arg2-)Menu untuk contoh.
         
         ### `<webview>.sendInputEvent(event)`
         
-        * `event` Object
+        * `event` Objek
         
         Mengirim masukan `event` ke halaman.
         
@@ -558,7 +557,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         ### `<webview>.getWebContents()`
         
-        Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+        Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
         
         It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
         
@@ -568,123 +567,113 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         ## DOM events
         
-        The following DOM events are available to the `webview` tag:
+        Peristiwa DOM berikut tersedia untuk tag `webview`:
         
         ### Event: 'load-commit'
         
         Pengembalian:
         
-        * ` url </ 0> String</li>
-<li><code>adalah Bingkai Utama` Boolean
+        * `url` String
+        * `adalah Bingkai Utama` Boolean
         
-        Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+        Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
         
         ### Event: 'Apakah-selesai-load'
         
-        Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+        Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
         
         ### Peristiwa: 'Apakah-gagal-beban'
         
-        Mengembalikan:
+        Pengembalian:
         
         * `kode kesalahan` Bilangan bulat
         * `Deskripsi kesalahan` Tali
         * `memvalidasi URL` Tali
         * `adalah Bingkai Utama` Boolean
         
-        This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+        Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
         
         ### Peristiwa: 'Apakah-frame-selesai-beban'
         
-        Mengembalikan:
+        Pengembalian:
         
         * `adalah Bingkai Utama` Boolean
         
-        Fired when a frame has done navigation.
+        Dibunyikan apabila bingkai telah melakukan navigasi.
         
         ### Peristiwa: 'Apakah-mulai-pemuatan'
         
-        Corresponds to the points in time when the spinner of the tab starts spinning.
+        Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
         
         ### Peristiwa: 'Apakah-stop-pemuatan'
         
-        Corresponds to the points in time when the spinner of the tab stops spinning.
+        Sesuai dengan poin pada saat pemintal tab berhenti berputar.
         
         ### Peristiwa: 'lokal-siap'
         
-        Fired when document in the given frame is loaded.
+        Emitted saat dokumen dalam bingkai yang diberikan dimuat.
         
         ### Acara : 'halaman-judul-diperbarui'
         
-        Mengembalikan:
+        Pengembalian:
         
-        * ` judul</ 0>  String</li>
+        * ` judul </ 0> String</li>
 <li><code>explicitSet` Boolean
         
         Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
         
         ### Peristiwa: 'halaman-favicon-diperbarui '
         
-        Mengembalikan:
+        Pengembalian:
         
         * `FAVICONS` String [] - serangkaian URL.
         
-        Fired when page receives favicon urls.
+        Dibunyikan saat halaman menerima url favicon.
         
         ### Acara : 'enter-html-full-screen'
         
-        Fired when page enters fullscreen triggered by HTML API.
+        Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
         
         ### Acara : 'leave-html-full-screen'
         
-        Fired when page leaves fullscreen triggered by HTML API.
+        Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
         
         ### Event: 'console-message'
         
-        Mengembalikan:
+        Pengembalian:
         
         * `level` Integer
-        * `message` String
+        * `pesan` String
         * `line` Integer
         * `sourceId` String
         
-        Fired when the guest window logs a console message.
+        Dipecat saat jendela tamu membuka pesan konsol.
         
-        The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+        Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
         
         ```javascript
-        const webview = document.querySelector('webview')
-        webview.addEventListener('console-message', (e) => {
-          console.log('Guest page logged a message:', e.message)
-        })
+        const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
         ```
         
         ### Event: 'ditemukan-di-halaman'
         
         Pengembalian:
         
-        * `hasil` Sasaran 
+        * `hasil` Obyek 
           * `requestId` Bilangan bulat
           * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
           * `pertandingan` Bulat - jumlah pertandingan.
           * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
           * `finalUpdate` Boolean
         
-        Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
-        
-        ```javascript
-        const webview = document.querySelector('webview')
-        webview.addEventListener('found-in-page', (e) => {
-          webview.stopFindInPage('keepSelection')
-        })
-        
-        const requestId = webview.findInPage('test')
-        console.log(requestId)
-        ```
+        Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
+
+<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
+`</pre> 
         
         ### Peristiwa: 'baru-jendela'
         
-        Mengembalikan:
+        Pengembalian:
         
         * `url` String
         * `nama bingkai` tali
@@ -693,7 +682,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         Fired when the guest page attempts to open a new browser window.
         
-        The following example code opens the new url in system's default browser.
+        Contoh kode berikut membuka url baru di browser default sistem.
         
         ```javascript
         const { shell } = require('electron')
@@ -709,139 +698,123 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         ### Peristiwa: 'akan navigasi'
         
-        Mengembalikan:
+        Pengembalian:
         
-        * ` url </ 0> String</li>
-</ul>
-
-<p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+        * `url` String
+        
+        dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
 </p>
 
-<p>This event will not emit when the navigation is started programmatically with
-APIs like <code><webview>.loadURL` and `<webview>.back`.</p> 
-          It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-          
-          Calling `event.preventDefault()` does **NOT** have any effect.
-          
-          ### Peristiwa: 'akan navigasi'
-          
-          Mengembalikan:
-          
-          * ` url </ 0> String</li>
-</ul>
-
-<p>Emitted when a navigation is done.</p>
-
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
-            ### peristiwa: 'Apakah-menavigasi-di halaman'
-            
-            Mengembalikan:
-            
-            * `adalah Bingkai Utama` Boolean
-            * ` url </ 0> String</li>
-</ul>
-
-<p>Emitted when an in-page navigation happened.</p>
-
-<p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
-navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
-diklik atau saat peristiwa hash <code>perubahan hash` dipicu.</p> 
-              ### Acara : 'dekat'
-              
-              Fired when the guest page attempts to close itself.
-              
-              The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
-              
-              ```javascript
-              const webview = document.querySelector('webview')
-              webview.addEventListener('close', () => {
-                webview.src = 'about:blank'
-              })
-              ```
-              
-              ### Event: 'ipc-message'
-              
-              Mengembalikan:
-              
-              * `channel` String
-              * `args` Array
-              
-              Fired when the guest page has sent an asynchronous message to embedder page.
-              
-              With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
-              
-              ```javascript
-              // In embedder page.
-              const webview = document.querySelector('webview')
-              webview.addEventListener('ipc-message', (event) => {
-                console.log(event.channel)
-                // Prints "pong"
-              })
-              webview.send('ping')
-              ```
-              
-              ```javascript
-              // In guest page.
-              const { ipcRenderer } = require('electron')
-              ipcRenderer.on('ping', () => {
-                ipcRenderer.sendToHost('pong')
-              })
-              ```
-              
-              ### Peristiwa: 'jatuh'
-              
-              Fired when the renderer process is crashed.
-              
-              ### Peristiwa: 'plugin-jatuh'
-              
-              Mengembalikan:
-              
-              * ` nama </ 0>  Deretan</li>
+<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>webContents.loadURL` dan `webContents.back`.
+        
+        Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+        
+        Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
+        
+        ### Peristiwa: 'akan navigasi'
+        
+        Pengembalian:
+        
+        * `url` String
+        
+        Dibunyikan apabila navigasi dilakukan.
+        
+        Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+        
+        ### peristiwa: 'Apakah-menavigasi-di halaman'
+        
+        Pengembalian:
+        
+        * `adalah Bingkai Utama` Boolean
+        * `url` String
+        
+        Dibunyikan saat navigasi dalam halaman terjadi.
+        
+        Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+        
+        ### Acara : 'dekat'
+        
+        Dipecat saat halaman tamu mencoba menutup diri.
+        
+        The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+        
+        ```javascript
+        const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
+        ```
+        
+        ### Event: 'ipc-message'
+        
+        Pengembalian:
+        
+        * ` saluran </ 0>  String</li>
+<li><code>args` Array
+        
+        Fired when the guest page has sent an asynchronous message to the embedder page.
+        
+        With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+        
+        ```javascript
+        // In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
+        ```
+        
+        ```javascript
+        // In guest page. const { ipcRenderer } = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
+        ```
+        
+        ### Peristiwa: 'jatuh'
+        
+        Dipecat saat proses renderer jatuh.
+        
+        ### Peristiwa: 'plugin-jatuh'
+        
+        Pengembalian:
+        
+        * ` nama </ 0>  String</li>
 <li><code>Versi` String
-              
-              Fired when a plugin process is crashed.
-              
-              ### Event: 'menghancurkan'
-              
-              Fired when the WebContents is destroyed.
-              
-              ### Event: 'media-mulai-bermain''
-              
-              Emitted saat media mulai diputar.
-              
-              ### Event: 'media-berhenti'
-              
-              Emitted saat media dijeda atau dilakukan bermain.
-              
-              ### Event: 'apakah-ganti-tema-warna'
-              
-              Mengembalikan:
-              
-              * `themeColor` String
-              
-              Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
-              
-              ```html
-              <meta name='theme-color' content='#ff0000'>
-              ```
-              
-              ### Event: 'update-target-url'
-              
-              Mengembalikan:
-              
-              *  url </ 0> String</li>
-</ul>
-
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
-
-<h3>Event: 'devtools-dibuka'</h3>
-
-<p>Emitted saat DevTools dibuka.</p>
-
-<h3>Event: 'devtools-ditutup'</h3>
-
-<p>Emitted saat DevTools ditutup.</p>
-
-<h3>Event: 'fokus devtools'</h3>
-
-<p>Emitted saat DevTools difokuskan / dibuka.</p>
+        
+        Dibunyikan ketika proses plugin telah jatuh.
+        
+        ### Event: 'menghancurkan'
+        
+        Dipecat saat WebContents hancur.
+        
+        ### Event: 'media-mulai-bermain''
+        
+        Emitted saat media mulai diputar.
+        
+        ### Event: 'media-berhenti'
+        
+        Emitted saat media dijeda atau dilakukan bermain.
+        
+        ### Event: 'apakah-ganti-tema-warna'
+        
+        Pengembalian:
+        
+        * `themeColor` String
+        
+        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+        
+        ```html
+        <meta name='theme-color' content='#ff0000'>
+        ```
+        
+        ### Event: 'update-target-url'
+        
+        Pengembalian:
+        
+        * `url` String
+        
+        Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+        
+        ### Event: 'devtools-dibuka'
+        
+        Emitted saat DevTools dibuka.
+        
+        ### Event: 'devtools-ditutup'
+        
+        Emitted saat DevTools ditutup.
+        
+        ### Event: 'fokus devtools'
+        
+        Emitted saat DevTools difokuskan / dibuka.
