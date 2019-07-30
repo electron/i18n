@@ -90,7 +90,7 @@ Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 
 ### Örnek Events
 
-`new Menu` ile oluşturulan nesneler aşağıdaki olayları yayar:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
 
@@ -119,10 +119,6 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 `MenuItem[]` Menünün Öğelerini içeren bir dizidir.
 
 Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem` bir alt menüye sahip olabilir.
-
-### Örnek Events
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Örnekler
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
