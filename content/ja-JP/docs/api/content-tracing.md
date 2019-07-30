@@ -42,7 +42,7 @@ app.on('ready', () => {
 
 一度、すべての子プロセスが `getCategories` リクエストを受諾したら、カテゴリグループの配列で `callback` が呼び出されます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ app.on('ready', () => {
 
 EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 空でない場合は `resultFilePath`、そうでない場合、一時ファイルにトレースデータは書き込まれます。実際のファイルパスは `null` でない場合、`callback` に渡されます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -102,7 +102,16 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Function 
-  * `value` Number
-  * `percentage` Number
+  * Object 
+    * `value` Number
+    * `percentage` Number
 
 完全な形式のパーセンテージとして、トレースバッファーのプロセス間の最大使用率を取得します。TraceBufferUsageの値が確定したとき、`callback` が呼び出されます。
+
+**[非推奨予定](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
