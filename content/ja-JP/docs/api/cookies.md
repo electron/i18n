@@ -89,7 +89,7 @@ session.defaultSession.cookies.set(cookie)
 
 `filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ cookie を `details` で設定します。
 
 `details` でクッキーを設定します。完了時に `callback(error)` で `callback` が呼び出されます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ cookie を `details` で設定します。
 
 `url` と `name` に一致するクッキーを削除します。完了時に `callback()` で `callback` が呼び出されます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ cookie を `details` で設定します。
 
 未書き込みのクッキーのデータをディスクに書き込みます。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
