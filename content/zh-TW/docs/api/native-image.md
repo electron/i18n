@@ -118,14 +118,23 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
-### `nativeImage.createFromBuffer(buffer[, options])`
+### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (選用) - 預設值為 1.0。
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 回傳 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+
+### `nativeImage.createFromBuffer(buffer[, options])`
+
+* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+
+回傳 `NativeImage`
+
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -212,7 +221,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-回傳 [`Size`](structures/size.md)
+Returns [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
