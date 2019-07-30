@@ -209,7 +209,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   * `proxyRules` String - 使用するプロキシを示すルール。
   * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
 
-Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+戻り値 `Promise<void>` - プロキシ設定処理が完了すると実行されます。
 
 プロキシ設定を設定します。
 
