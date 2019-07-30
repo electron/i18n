@@ -57,7 +57,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 指定したコマンドをデバッグ対象に送信します。
 
-**[非推奨予定](promisification.md)**
+**[非推奨予定](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
