@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### Événement : 'enter-html-full-screen'
+
+Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
+
+#### Événement : 'leave-html-full-screen'
+
+Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
+
 #### Événement : 'devtools-opened'
 
 Émis lorsque la DevTools est ouverte.
@@ -361,9 +369,9 @@ Retourne :
 * `callback` Function 
   * `isTrusted` Boolean - Indique si le certificat peut être considéré comme fiable.
 
-Émis lorsqu'il n'a pas pu vérifier le `certificat` de l'`url`.
+Emitted when failed to verify the `certificate` for `url`.
 
-L'utilisation est pareil que [l'événement `certificate-error` de `app`](app.md#event-certificate-error).
+The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### Événement : 'select-client-certificate'
 
@@ -377,7 +385,7 @@ Retourne :
 
 Émis lorsqu'un certificat client est demandé.
 
-L'utilisation est pareil que [l'événement `select-client-certificate` de `app`](app.md#event-select-client-certificate).
+The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### Événement : 'login'
 
@@ -400,7 +408,7 @@ Retourne :
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
-L'utilisation est pareil que [l'événement `login` de `app`](app.md#event-login).
+The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Événement : 'found-in-page'
 
@@ -414,7 +422,7 @@ Retourne :
   * `selectionArea` Object - Coordonnées de la région du premier résultat.
   * `finalUpdate` Boolean
 
-Émis lorsqu'un résultat est disponible pour la requête [`webContents.findInPage`].
+Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Événement : 'media-started-playing'
 
@@ -426,7 +434,7 @@ Retourne :
 
 #### Événement : 'did-change-theme-color'
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -446,7 +454,7 @@ Retourne :
 
 Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
 
-#### Événement : 'cursor-changed'
+#### Event: 'cursor-changed'
 
 Retourne :
 
@@ -457,11 +465,11 @@ Retourne :
 * `size` [Size](structures/size.md) (facultatif) - La taille de l'`image`.
 * `hotspot` [Point](structures/point.md) (facultatif) - Coordonnées du point actif du curseur personnalisé.
 
-Émis lorsque le type du curseur change. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Événement : 'context-menu'
+#### Event: 'context-menu'
 
 Retourne :
 
@@ -501,9 +509,9 @@ Retourne :
     * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
     * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
 
-Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
+Emitted when there is a new context menu that needs to be handled.
 
-#### Événement : 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 Retourne :
 
@@ -512,7 +520,7 @@ Retourne :
 * `callback` Function 
   * `deviceId` String
 
-Émis lorsque le périphérique bluetooth a besoin d'être selectionné lors de l'appel de `navigator.bluetooth.requestDevice`. Pour utiliser l'api `navigator.bluetooth`, `webBluethooth` doit être activé. Si `event.preventDefault` n'est pas appelé, le premier périphérique disponible sera sélectionné. `callback` doit être appelé avec `deviceId` à sélectionner, en passant une chaîne de caractère vide au `callback` annulera la requête.
+Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -536,7 +544,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Événement : 'paint'
+#### Event: 'paint'
 
 Retourne :
 
@@ -544,7 +552,7 @@ Retourne :
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
-Émis quand une nouvelle fenêtre est générée. Seule la zone salie est passée dans le buffer.
+Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -556,11 +564,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Événement : 'devtools-reload-page'
+#### Event: 'devtools-reload-page'
 
-Émis quand la fenêtre des outils développeur demande aux webContents de se recharger
+Emitted when the devtools window instructs the webContents to reload
 
-#### Événement : 'will-attach-webview'
+#### Event: 'will-attach-webview'
 
 Retourne :
 
@@ -574,14 +582,14 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Événement : 'will-attach-webview'
+#### Event: 'did-attach-webview'
 
 Retourne :
 
 * `event` Événement
 * `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
-Émis quand un `<webview>` a été rattaché à ce contenu web.
+Emitted when a `<webview>` has been attached to this web contents.
 
 #### Événement : 'console-message'
 
@@ -593,7 +601,7 @@ Retourne :
 * `line` Integer
 * `sourceId` String
 
-Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
 #### Event: 'preload-error'
 
@@ -741,7 +749,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Retourne `String` - l'URL de la page web courante.
+Returns `String` - The URL of the current web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -754,23 +762,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Retourne `String` - le titre de la page web courante.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-Retourne `Boolean` - si la page web est détruite.
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-Met au premier plan la page web.
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-Retourne `Boolean` - si la page web est au premier plan.
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -778,7 +786,7 @@ Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frame
 
 #### `contents.isWaitingForResponse()`
 
-Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
@@ -786,11 +794,11 @@ Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Recharge la page web courante.
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Recharge la page courante et ignore le cache.
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
@@ -848,7 +856,13 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injecte du CSS dans la page web actuelle.
+Injects CSS into the current web page.
+
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -863,7 +877,25 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
+  })
+```
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (facultatif) - `false` par défaut.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Évalue le `code` dans la page.
+
+Dans la fenêtre du navigateur, certaines APIs HTML comme `requestFullScreen` peut être invoqué seulement par un geste de l'utilisateur. Définir `userGesture` à `true` supprimera cette limitation.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1034,33 +1066,19 @@ console.log(requestId)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Function 
-  * `hasWorker` Boolean
-
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Function 
-  * `success` Boolean
-
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
-
 #### `contents.getPrinters()`
 
-Récupère la liste des imprimantes système.
+Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md).
 
@@ -1094,6 +1112,21 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 Prints window's web page as PDF with Chromium's preview printing custom settings.
 
 The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.printToPDF(options)`
+
+* `options` Objet 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
 The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
@@ -1214,25 +1247,25 @@ app.once('ready', () => {
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-Ouvre les devtools.
+Opens the devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Ferme les devtools.
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Retourne `Boolean` - Si les devtools sont ouvert.
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-Retourne `Boolean` - Si les devtools ont le focus.
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-Active/désactive les outils développeur.
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
@@ -1240,6 +1273,10 @@ Active/désactive les outils développeur.
 * `y` Integer
 
 Starts inspecting element at position (`x`, `y`).
+
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1386,17 +1423,15 @@ End subscribing for frame presentation events.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - The full file path.
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
-  * `error` Error
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Page sauvegardée correctement')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```
