@@ -42,9 +42,9 @@ console.log(dialog)
   * `message` String (optional) *macOS* - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Mac App Store 용으로 패키지 되었을때를 위한 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)를 만듭니다
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+`filters` 값으로 표시하거나 선택할 수 있는 파일의 종류를 설정할 수 있습니다. 예를 들어,
 
 ```javascript
 {
@@ -57,7 +57,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+`extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
 **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
@@ -92,11 +92,11 @@ Returns `Promise<Object>` - Resolve wih an object containing the following:
 
 * `canceled` - Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. 이 값을 얻기 위해서는 `securityScopedBookmarks`를 반드시 설정해야 합니다.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+`filters` 값으로 표시하거나 선택할 수 있는 파일의 종류를 설정할 수 있습니다. 예를 들어,
 
 ```javascript
 {
@@ -109,7 +109,7 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+`extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
 **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
@@ -139,7 +139,7 @@ dialog.showOpenDialog(mainWindow, {
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -163,7 +163,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
     * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
     
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -190,7 +190,7 @@ Returns `Integer` - the index of the clicked button.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
@@ -218,7 +218,7 @@ Returns `Promise<Object>` - resolves with a promise containing the following pro
 
 Shows a message box, it will block the process until the message box is closed.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 ### `dialog.showErrorBox(title, content)`
 
