@@ -360,7 +360,7 @@ Emitted when DevTools is focused / opened.
 
 #### 이벤트: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -375,7 +375,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### 이벤트: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` URL
@@ -389,7 +389,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-반환:
+Returns:
 
 * `event` Event
 * `request` Object 
@@ -412,7 +412,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `result` Object 
@@ -440,7 +440,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-반환:
+Returns:
 
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
@@ -456,7 +456,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String
@@ -546,7 +546,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-반환:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -570,7 +570,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -686,7 +686,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 #### Event: 'remote-get-guest-web-contents'
 
-반환:
+Returns:
 
 * `event` Event
 * `guestWebContents` [WebContents](web-contents.md)
@@ -1028,7 +1028,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1041,7 +1041,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `동작` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `사용내역` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1084,7 +1084,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
