@@ -1,7 +1,7 @@
 # ProcessMetric オブジェクト
 
 * `pid` Integer - プロセスのプロセス ID。
-* `type` String - Process type. One of the following values: 
+* `type` String - プロセスの種類。以下の値の一つ。 
   * `Browser`
   * `Tab`
   * `Utility`
