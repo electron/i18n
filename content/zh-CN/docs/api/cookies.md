@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 发送一个请求获取所有匹配 `filter` 对象条件的cookie，回调函数将在请求结束后以 `callback(error, cookies)` 的形式被调用。
 
-**[马上将弃用](promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
 
-**[马上将弃用](promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 删除与 ` url ` 和 ` name ` 相匹配的 cookie, 回调函数将在执行完成时被调用。
 
-**[马上将弃用](promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 写入所有未写入磁盘的 cookie。
 
-**[马上将弃用](promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
