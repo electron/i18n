@@ -61,7 +61,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+及 preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
@@ -112,7 +112,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `nativeImage`
   - `remote`
   - `webFrame`
-- `events`
+- `事件`
 - `timers`
 - `url`
 
