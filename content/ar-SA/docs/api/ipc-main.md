@@ -48,7 +48,7 @@ The `ipcMain` module has the following method to listen for events:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` دالة 
   * `event` IpcMainEvent
   * `...args` any[]
 
@@ -57,7 +57,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` دالة 
   * `event` IpcMainEvent
   * `...args` any[]
 
