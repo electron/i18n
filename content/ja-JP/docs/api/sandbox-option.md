@@ -1,6 +1,6 @@
 # `sandbox` オプション
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> ブラウザーウインドウをサンドボックス化されたレンダラーで作成します。このオプションを有効にすると、レンダラーは Node API にアクセスするために IPC 経由でメインプロセスと通信する必要があります。
 
 Chromium の主なセキュリティ機能の1つは、すべての Blink レンダリング / JavaScript コードがサンドボックス内で実行されることです。 このサンドボックスは、OS 固有の機能を使用して、レンダラープロセスの悪用がシステムに悪影響を及ぼすことがないようにします。
 
@@ -32,13 +32,13 @@ app.on('ready', () => {
 
 上記のコードでは、作成された [`BrowserWindow`](browser-window.md) では Node.js が無効になっており、IPC 経由でのみ通信できます。 このオプションを使用すると、Electron がレンダラー内の Node.js ランタイムを作成しなくなります。 また、この新しいウィンドウ内では、`window.open` はネイティブの動作に従います (デフォルトで Electron は [`BrowserWindow`](browser-window.md) を作成し、`window.open` を介してこれへプロキシを返します)。
 
-[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) を使用すると、すべての `BrowserWindow` インスタンスに対して `sandbox:true` を強制することができます。
 
 ```js
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // `app.enableSandbox()` が呼ばれたので `sandbox: true` を渡さなくてよい
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -68,9 +68,9 @@ app.on('ready', () => {
 // Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 
 // グローバルスコープにオブジェクトをリークしないように注意する必要があります。
 const { ipcRenderer, remote } = require('electron')
-const fs = remote.require('fs')
+const fs = require('fs')
 
-// read a configuration file using the `fs` module
+// `fs` モジュールを使用してコンフィグファイルを読む
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
