@@ -4,13 +4,12 @@
 
 العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
-في سياق معالج العرض يعتمد ذلك على الوحدة النمطية ` البعيدة </ 0> على لينكس ، ولذلك لا يكون متاحًا عند تعطيل هذه الوحدة.</p>
+The following example shows how to write a string to the clipboard:
 
-<p>يوضح المثال التالي كيفية كتابة على  سلسلة من الحافظة :</p>
-
-<pre><code class="javascript">const { clipboard } = require('electron')
+```javascript
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
-`</pre> 
+```
 
 On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
@@ -22,28 +21,28 @@ console.log(clipboard.readText('selection'))
 
 ## Methods
 
-و ` الحافظة </ 0> وحدة لديها الطرق التالية:</p>
+The `clipboard` module has the following methods:
 
-<p><strong>Note:</strong> Experimental APIs are marked as such and could be removed in future.</p>
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
-<h3><code>clipboard.readText ([نوع])`</h3> 
+### `clipboard.readText ([نوع])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-إرجاع ` String </ 0> - المحتوى الموجود في الحافظة كنص عادي.</p>
+Returns `String` - The content in the clipboard as plain text.
 
-<h3><code>clipboard.writeText(text[, type])`</h3> 
+### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-يكتب النص ` </ 0> في الحافظة كنص عادي.</p>
+Writes the `text` into the clipboard as plain text.
 
-<h3><code>clipboard.readHTML ( [نوع] )`</h3> 
+### `clipboard.readHTML ( [نوع] )`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-<<> سلسلة </ 0> - المحتوى الموجود في الحافظة كنص عادي.
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
