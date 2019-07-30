@@ -88,16 +88,32 @@ Les méthodes suivantes sont disponibles pour les instances de `Session` :
 
 * `callback` Function 
   * `taille` Integer - Taille du cache utilisé en octets.
+  * `error` Integer - The error code corresponding to the failure.
 
 Le callback est appelé avec la taille de cache actuelle de la session.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Appelée lorsque l’opération est effectuée.
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
-Efface le cache HTTP de la session.
+Clears the session’s HTTP cache.
 
-#### `ses.clearStorageData([options, callback])`
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+Clears the session’s HTTP cache.
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `options` Object (facultatif) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
@@ -105,7 +121,18 @@ Efface le cache HTTP de la session.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
-Efface les données de stockage du web.
+Clears the storage data for the current session.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `options` Object (facultatif) 
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
@@ -117,13 +144,13 @@ Writes any unwritten DOMStorage data to disk.
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Appelée lorsque l’opération est effectuée.
+* `callback` Function - Called when operation is done.
 
-Indique les paramètres de proxy.
+Sets the proxy settings.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-Les `proxyRules` doivent suivre les règles ci-dessous :
+The `proxyRules` has to follow the rules below:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -143,35 +170,100 @@ Par exemple :
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-Le `proxyBypassRules` est une liste de règles séparées par des virgules, comme décrites ci-dessous :
+The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Correspond à un suffixe de domaine particulier.
+    Match a particular domain suffix.
     
-    Exemples: ".google.com", ".com", "http://.google.com"
+    Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Correspond aux URLs qui sont des adresses IP littérales.
+  Match URLs which are IP address literals.
   
-  Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  Correspond à n'importe quelle URL qui est une IP littérale, comprise dans la fourchette d'adresse donnée. La portée IP est spécifiée avec la notation CIDR.
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  Exemples: "192.168.1.1/16", "fefe:13::abc/33".
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Correspond aux adresses locales. Le sens de `<local>` indique si l'hôte correspond à une des valeurs suivantes: "127.0.0.1", "::1", "localhost".
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `config` Objet 
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+Sets the proxy settings.
+
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+
+The `proxyRules` has to follow the rules below:
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+Par exemple :
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+
+The `proxyBypassRules` is a comma separated list of rules described below:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    Match a particular domain suffix.
+    
+    Examples: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  Match URLs which are IP address literals.
+  
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
@@ -179,39 +271,47 @@ Le `proxyBypassRules` est une liste de règles séparées par des virgules, comm
 * `callback` Function 
   * `proxy` String
 
-Résout les informations du proxy pour l'`url`. Le `callback` sera appelé avec `callback(proxy)` lorsque la requête est effectuée.
+Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - Emplacement de téléchargement.
+* `path` String - The download location.
 
-Paramètre le répertoire de sauvegarde des téléchargements. Par défaut, le répertoire des téléchargements sera `Downloads` dans le dossier de l'application respective.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Objet 
-  * `offline` Boolean (optionnel) - S'il faut simuler une extinction du réseau ou non. Est positionné sur False par défaut.
-  * `latency` Double (optional) - RTT en ms. Par défaut à 0, ce qui désactive la limitation de latence.
-  * `downloadThroughput` Double (optionnel) - Taux de téléchargement en Bps. Par défaut à 0, ce qui désactive la limitation de téléchargement.
-  * `uploadThroughput` Double (optionnel) - Taux d'émission en Bps. Par défaut à 0, ce qui désactive la limitation d'émission.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-Emule le réseau avec la configuration donnée pour la `session`.
+Emulates network with the given configuration for the `session`.
 
 ```javascript
-// Pour émuler une connexion GPRS avec un débit de 50kbps et une latence de 500 ms.
+// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// Pour simuler une panne réseau.
+// To emulate a network outage.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
 
-Désactive toute émulation de réseau déjà active pour la `session`. Réinitialise vers la configuration réseau originale.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -219,13 +319,13 @@ Désactive toute émulation de réseau déjà active pour la `session`. Réiniti
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Résultat de la vérification par Chromium.
-    * `errorCode` Integer - Code d'erreur.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function 
-    * `verificationResult` Integer - La valeur peut être un des codes d'erreur de certificat trouvés [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Mis à part les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés. 
-      * `0` - Indique la réussite et désactive la vérification de transparence de certificat.
-      * `-2` - Indique l'échec.
-      * `-3` - Utilise le résultat de la vérification de Chromium.
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
+      * `0` - Indicates success and disables Certificate Transparency verification.
+      * `-2` - Indicates failure.
+      * `-3` - Uses the verification result from chromium.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
@@ -248,7 +348,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Allow or deny the permission.
@@ -264,7 +364,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // interdit.
+    return callback(false) // denied.
   }
 
   callback(true)
@@ -296,11 +396,19 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
-* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
+* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
 
-Vide le cache de résolution de l'hôte.
+Clears the host resolver cache.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
+
+Clears the host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
@@ -321,7 +429,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (facultatif)
+* `acceptLanguages` String (optional)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -331,34 +439,54 @@ This doesn't affect existing `WebContents`, and each `WebContents` can use `webC
 
 #### `ses.getUserAgent()`
 
-Renvoie `String` - L'utilisateur de cette session.
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - UUID valide.
+* `identifier` String - Valid UUID.
 * `callback` Function 
-  * `result` Buffer - données Blob.
+  * `result` Buffer - Blob data.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` String - Valid UUID.
+
+Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Objet 
-  * `path` String - Chemin d'accès absolu pour le téléchargement.
-  * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
-  * `type` String (facultatif)
-  * `offset` Integer - Portée de départ pour le téléchargement.
-  * `length` Integer - Longueur totale du le téléchargement.
-  * `lastModified` String - Valeur Last-Modified du header.
-  * `eTag` String - Valeur du ETag dans le header.
-  * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
 Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
+* `callback` Function - Called when operation is done.
 
-Vide le cache d'authentification HTTP de la session.
+Clears the session’s HTTP authentication cache.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
@@ -372,19 +500,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Instance Properties
 
-Les propriétés suivantes sont disponibles pour les instances de `Session` :
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Un objet [Cookies](cookies.md) pour cette session.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Un objet [WebRequest](web-request.md) pour cette session.
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-Un objet [Protocol](protocol.md) pour cette session.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -408,12 +536,11 @@ A [NetLog](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
