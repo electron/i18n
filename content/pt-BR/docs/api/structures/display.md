@@ -10,7 +10,7 @@
 * `colorDepth` Number - The number of bits per pixel.
 * `depthPerComponent` Number - The number of bits per color component.
 * `bounds` [Rectangle](rectangle.md)
-* `size` [Size](size.md)
+* `size` [Tamanho](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 * `internal` Boolean - `true` for an internal display and `false` for an external display
