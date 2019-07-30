@@ -294,6 +294,16 @@ Ibinabalik ang:
 
 Lalabas kapag ang proseso na gpu ay nasira o pinatay.
 
+### Event: 'renderer-process-crashed'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
+* `killed` Ang Boolean
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
 Ibinabalik ang:
@@ -323,7 +333,7 @@ app.on('session-created', (event, session) => {
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan`Kaganapan
 * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
 * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
@@ -339,7 +349,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 Ibinabalik ang:
 
-* `kaganapan`Kaganapan
+* `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
@@ -465,6 +475,14 @@ Itinatago ang lahat ng mga window ng aplikasyon nang hindi ito pinapaliit.
 
 Ipinapakita ang mga window ng aplikasyon pagkatapos na sila ay itago. Ay hindi kusang tumutok sa kanila.
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.getAppPath()`
 
 Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
@@ -509,14 +527,14 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 
 Kukunin ang kaugnay na icon ng isang landas.
 
-Sa *Windows*, may 2 uri ng mga icon:
+On *Windows*, there are 2 kinds of icons:
 
 * Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, atbp.
 * Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,7 +561,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 * `name` String
 * `path` String
 
-Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi umiiral, ang direktoryo ay lilikhain sa pamamagitan ng paraan na ito. Ang isang `Error` ay itatapon kapag nabigo.
+Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 Maaari mo lang i-override ang mga landas ng isang `name` na tinukoy sa `app.getPath`.
 
@@ -606,6 +624,8 @@ Ang paraan na ito ay nagtatakda sa kasalukuyang maipapatupad bilang ang default 
 On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Note:** Sa macOS, maaari mo lamang irehistro ang mga protocol na naging karagdagan sa iyong mga app `info.plist`, kung saan ay hindi na mababago habang nasa oras ng paggana. Kahit papaano ay maaari mong baguhin ang file sa pamamagitan ng isang simpleng editor ng teksto o script habang nasa oras ng pagbuo. Pakiusap sumangguni sa [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para sa mga detalye.
+
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 Ang API ay ginagamit ang Windows Registry at ang LSSetDefaultHandlerForURLScheme sa loob nito.
 
@@ -734,8 +754,6 @@ app.setJumpList([
 
 Returns `Boolean`
 
-Sa method na ito, ang ang iyong application ay magiging isang Single Instance Application - sa halip na pinapayagan ang maraming mga instance ng iyong app na mag-run, sinisiguro nito na isang instance lang ng iyong app ang mag-rurun, at ang ibang mga instance ay sisignal sa instance na ito at mag-eexit.
-
 The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
@@ -844,7 +862,7 @@ Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga 
 
 Returns `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
 For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
 
@@ -895,7 +913,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Na Bagay (opsyonal) 
+* `opsyon` Na Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
@@ -942,6 +960,8 @@ Context | Request Context
 
 Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
+**[Deprecated Soon](modernization/property-updates.md)**
+
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -951,6 +971,8 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
+**[Deprecated Soon](modernization/property-updates.md)**
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
@@ -969,6 +991,14 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 I-set ang mga pagpipilian tungkol sa panel. This will override the values defined in the app's `.plist` file on MacOS. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye. On Linux, values must be set in order to be shown; there are no defaults.
 
+### `app.isEmojiPanelSupported`
+
+Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+
+### `app.showEmojiPanel` *macOS* *Windows*
+
+Show the platform's native emoji picker.
+
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
@@ -986,20 +1016,22 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Ang swits ng command-line
+* `switch` String - A command-line switch, without the leading `--`
 * `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
 
 Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
 
-**Note:** Ito ay hindi makaka-apekto sa `process.argv`, at ito ay pangunahing ginagamit ng mga developer para kontrolin ang ilang mabababang mga katangian ng Chromium.
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.appendArgument(halaga)`
 
 * `value` String - Ang argumento ay ilakip sa linya ng command
 
-Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
+Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
 
-**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
+If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1013,9 +1045,9 @@ Returns `Boolean` - Whether the command-line switch is present.
 
 Returns `String` - The command-line switch value.
 
-**Note:** When the switch is not present, it returns empty string.
+**Note:** When the switch is not present or has no value, it returns empty string.
 
-### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableSandbox()` *Experimental*
 
 Enables full sandbox mode on the app.
 
@@ -1071,17 +1103,21 @@ Itinatago ang icon ng dock.
 
 ### `app.dock.show()` *macOS*
 
-Ipinapakita ang icon ng dock.
+Returns `Promise<void>` - Resolves when the dock icon is shown.
 
 ### `app.dock.isVisible()` *macOS*
 
-Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `app.dock.show()` ay asynchronous kaya ang pamamaraan na ito ay hindi babalik na totoo agad-agad matapos ang tawag na iyon.
+Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
 Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+
+### `app.dock.getMenu()` *macOS* 
+
+Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1091,6 +1127,32 @@ I-set ang `image` na may kaugnayan sa dock icon na ito.
 
 ## Mga Katangian
 
+### `app.applicationMenu`
+
+A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.accessibilitySupportEnabled` *macOS* *Windows*
+
+A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+
+See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+This API must be called after the `ready` event is emitted.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
+### `app.userAgentFallback`
+
+A `String` which is the user agent string Electron will use as a global fallback.
+
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+
 ### `app.isPackaged`
 
 A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+
+### `app.allowRendererProcessReuse`
+
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+
+The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
