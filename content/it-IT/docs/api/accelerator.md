@@ -53,6 +53,7 @@ La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` s
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Cancella`
 * `Inserisci`
