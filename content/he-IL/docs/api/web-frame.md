@@ -62,9 +62,9 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `provider` Object 
-  * `spellCheck` Function. 
+  * `spellCheck` פונקציה. 
     * `words` String[]
-    * `callback` Function 
+    * `callback` פונקציה 
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
