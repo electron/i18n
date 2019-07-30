@@ -2,11 +2,9 @@
 
 > 取得螢幕大小、顯示器、游標位置等的資訊。
 
-處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 在 ` app ` 模組的 ` ready` 事件發出之前, 您不能要求或使用此模組。
-
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -89,7 +87,7 @@ The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-回傳 [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
@@ -117,7 +115,7 @@ Returns [`Display`](structures/display.md) - The display that most closely inter
 
 * `point` [Point](structures/point.md)
 
-回傳 [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -125,7 +123,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-回傳 [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
