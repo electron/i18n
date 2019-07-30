@@ -11,3 +11,4 @@
 * `description` String (opsyonal) - Paglalarawan ng task (nakalitaw sa tooltip). Dapat lamang itakda kung `type` ay `task`.
 * `iconPath` String (opsyonal) - Ang tiyak na landas patungo sa icon na ipinapakita sa isang Jump List, kung saan ay puwedeng maging isang makatuwirang sanggunian ng file na naglalaman ng isang icon (hal. `.ico`, `.exe`, `.dll`). Karaniwang maaari mong tukuyin `process.execPath` para ipakita ang icon ng programa.
 * `iconIndex` Number (opsyonal) - Ang index ng icon sa sanggunian ng file. Kung ang sanggunian ng file ay naglalaman ng maraming mga icon ang halaga nito ay maaaring magamit para tukuyin ang zero-based icon na dapat ipapakita sa task na ito. Kung ang sangguniang file ay naglalaman ng isang icon lamang, ang uri na ito ay dapat ilagay sa zero.
+* `workingDirectory` String (optional) - The working directory. Default is empty.
