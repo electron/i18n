@@ -26,7 +26,7 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 * `arch`
 * `platform`
 * `sandboxed`
-* `tipo`
+* `type`
 * `version`
 * `versions`
 * `mas`
@@ -162,10 +162,10 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 Devuelve `Objeto`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
+* `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
+* `swapTotal` Integer *Windows* *Linux* - La cantidad total de memoria de swap en Kilobytes disponible para el sistema.
+* `swapFree` Integer *Windows* *Linux* - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
 
 Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
 
@@ -193,10 +193,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Hace que el hilo principal del proceso actual se caiga.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
-* `maxDescriptors` Integer
+* `maxDescriptors` Entero
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Ajusta el limite suave del descriptor del documento a `maxDescriptors` o el límite duro OS, cual sea menor para el proceso actual.
