@@ -387,7 +387,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
@@ -1061,7 +1061,7 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `обратно повикване` Функция 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -1088,7 +1088,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
-* `callback` Function (optional) 
+* `обратно повикване` Function (optional) 
   * `success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
@@ -1105,7 +1105,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `обратно повикване` Function 
+* `обратно повикване` Функция 
   * `error` Error
   * `data` Buffer
 
