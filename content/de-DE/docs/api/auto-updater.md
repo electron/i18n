@@ -77,7 +77,7 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <p>Unter Windows ist nur <code> releaseName </ 0> verfügbar.</p>
 
-<p><strong>Note:</strong> It is not strictly necessary to handle this event. A successfully 
+<p><strong>Note:</strong> It is not strictly necessary to handle this event. A successfully
 downloaded update will still be applied the next time the application starts.</p>
 
 <h3>Event: 'before-quit-for-update'</h3>
