@@ -66,11 +66,7 @@ app.on('ready', () => {
 
 #### 事件: 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
@@ -78,22 +74,14 @@ app.on('ready', () => {
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被右击时触发。
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被双击时触发。
@@ -142,33 +130,21 @@ app.on('ready', () => {
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标进入该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标离开该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标在该任务栏图标上移动时，触发该事件。
@@ -203,18 +179,26 @@ app.on('ready', () => {
 
 * `title` String
 
-设置显示在状态栏中托盘图标旁边的标题 (支持ANSI色彩)
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - 高亮模式选项，以下为可选值 
-  * `selection` - 当托盘图标本点击或托盘的上下文菜单打开时高亮显示托盘图标，这是mode的默认值
-  * `always` - 总是高亮托盘图标
-  * `never` - 从不高亮托盘图标
+* `mode` String - Highlight mode with one of the following values: 
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Always highlight the tray icon.
+  * `never` - Never highlight the tray icon.
 
-设置托盘图标背景 (蓝色) 高亮的时机
+Sets when the tray's icon background becomes highlighted (in blue).
 
-**Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
+**[Deprecated](breaking-changes.md#tray)**
+
+**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -247,34 +231,34 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (可选) -
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-显示一个托盘气球通知.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (可选)
-* `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-设置这个图标的内容菜单
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-以`Object`类型返回托盘图标的`bounds`
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-返回 `Boolean` -判断托盘图标是否被销毁
+Returns `Boolean` - Whether the tray icon is destroyed.
