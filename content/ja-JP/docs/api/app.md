@@ -294,7 +294,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 GPUプロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
-### Event: 'renderer-process-crashed'
+### イベント: 'renderer-process-crashed'
 
 戻り値:
 
@@ -302,7 +302,7 @@ GPUプロセスがクラッシュしたり、強制終了されたりしたと�
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+`webContents` のレンダラープロセスがクラッシュ、または強制終了されたときに発行されます。
 
 ### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
