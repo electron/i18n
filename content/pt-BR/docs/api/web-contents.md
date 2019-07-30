@@ -1041,7 +1041,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `ação` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `Ação` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1448,7 +1448,7 @@ win.webContents.on('did-finish-load', async () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` no *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
