@@ -4,9 +4,7 @@
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
-Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
+The following example shows how to write a string to the clipboard:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -26,9 +24,9 @@ console.log(clipboard.readText('selection'))
 
 ## Mga Paraan
 
-Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
+The `clipboard` module has the following methods:
 
-**Note:** Eksperimental na APIs ay minarkahan bilang tulad at pwedeng maalis sa hinaharap. 
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([i-type])
 
@@ -36,7 +34,7 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
+Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[ ,i-type])
 
@@ -45,13 +43,13 @@ Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format.
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Pagsulat ng `text` as klipboard bilang tekstong walang format.
+Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([i-type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[ ,i-type])
 
@@ -60,7 +58,7 @@ Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format.
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Pagsulat ng `markup` sa klipboard. 
+Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([i-type])
 
@@ -68,7 +66,7 @@ Pagsulat ng `markup` sa klipboard.
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
+Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[ ,i-type])
 
@@ -77,7 +75,7 @@ Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klip
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Pagsulat `image` sa klipboard.
+Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([i-type])
 
@@ -85,23 +83,23 @@ Pagsulat `image` sa klipboard.
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `String` - Ang nilalaman ng klipboard bilang RTF.
+Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Pagsulat ng `text` sa klipboard bilang RTF.
+Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `title` String
 * `url` Tali
 
-Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa bookmark sa klipbord. Ang `title` and `url` values ay walang laman na string kapag ang bookmark ay hindi magagamit. 
+Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -109,9 +107,9 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 * `url` Tali
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
+Writes the `title` and `url` into the clipboard as a bookmark.
 
-**Note:** Karamihan ng apps sa Windows ay hindi sumusuporta sa pasting bookmarks para sa kanila kaya pwede kang gumamit ng `clipboard.write` para sumulat ng kapwa bookmark at fallback na texsto sa klipboard.
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 clipboard.write({
@@ -122,13 +120,13 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagamit ng mga kasabay na IPC kapag tinawag mula sa proseso ng tagasalin. Ang cached value ay muling babasahin mula sa find pasteboard tuwing ang application na ito ay isinaaktibo.
+Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan na ito ay gumagamit ng mga kasabay ng IPC kapag tinawag mula sa proseso ng tagasalin. 
+Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([i-type])
 
@@ -136,7 +134,7 @@ Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan 
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Nililimas ang mga nilalaman ng klipboard. 
+Clears the clipboard content.
 
 ### `clipboard.availableFormats([i-type])
 
@@ -144,14 +142,14 @@ Nililimas ang mga nilalaman ng klipboard.
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `String[]` - isang array ng mga supportadong pormat para sa klipboard `uri`.
+Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Returns `Boolean` - maski ang clipboard ay sumusuporta sa tinukoy na`format`.
+Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
 const { clipboard } = require('electron')
@@ -162,13 +160,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` uri mula sa klipboard. 
+Returns `String` - Reads `format` type from the clipboard.
 
 ### `clipboard.readBuffer(format)` *Experimental*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` uri mula sa klipboard. 
+Returns `Buffer` - Reads `format` type from the clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
@@ -176,7 +174,7 @@ Returns `Buffer` - Reads `format` uri mula sa klipboard.
 * `buffer` Buffer
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Pagsulat ng `buffer` sa klipboard bilang `format`.
+Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[ ,i-type])
 
@@ -195,4 +193,4 @@ const { clipboard } = require('electron')
 clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
-Pagsulat ng `data` sa klipboard.
+Writes `data` to the clipboard.
