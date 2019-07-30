@@ -15,7 +15,7 @@ Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makin
 ### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Punsyon 
+* `listener` Function 
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
@@ -24,7 +24,7 @@ Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinaw
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Punsyon 
+* `listener` Function 
   * `event` IpcRendererEvent
   * `...args` anuman[]
 
