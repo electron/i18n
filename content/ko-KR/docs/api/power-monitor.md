@@ -55,7 +55,7 @@ Emitted as soon as the systems screen is unlocked.
 
 The `powerMonitor` module has the following methods:
 
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
+### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(Deprecated)*
 
 * `idleThreshold` Integer
 * `callback` 함수 
@@ -63,9 +63,23 @@ The `powerMonitor` module has the following methods:
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
 
-### `powerMonitor.querySystemIdleTime(callback)`
+### `powerMonitor.querySystemIdleTime(callback)` *(Deprecated)*
 
 * `callback` 함수 
   * `idleTime` Integer - Idle time in seconds
+
+Calculate system idle time in seconds.
+
+### `powerMonitor.getSystemIdleState(idleThreshold)`
+
+* `idleThreshold` Integer
+
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+
+### `powerMonitor.getSystemIdleTime()`
+
+Returns `Integer` - Idle time in seconds
 
 Calculate system idle time in seconds.
