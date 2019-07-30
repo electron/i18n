@@ -88,16 +88,32 @@ Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 
 * `geri aramak` Function 
   * `boyut` Integer - Önbellek boyutu bayt cinsinden kullanılır.
+  * `error` Integer - The error code corresponding to the failure.
 
 Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
+* `geri aramak` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
 Oturumun HTTP önbelleğini temizler.
 
-#### `ses.clearStorageData([options, callback])`
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+Oturumun HTTP önbelleğini temizler.
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `seçenekler` Obje (opsiyonel) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
@@ -105,7 +121,18 @@ Oturumun HTTP önbelleğini temizler.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Web depolama alanları verilerini siler.
+Clears the storage data for the current session.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `seçenekler` Obje (opsiyonel) 
+  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
@@ -173,6 +200,71 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `konfigurasyon` Nesne 
+  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
+  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
+  * `proxyBypassRules` Dizesi - Hangi URL'lerin proxy ayarlarını atlaması gerektiğini belirten kurallar.
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+Proxy ayarlarını yap.
+
+`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
+
+`proxyRules` aşağıdaki kurallara uymak zorundadır:
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+Örneğin:
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, ve HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Tüm URL'ler için HTTP proxy `foopy:80`'yi kullanın.
+* `foopy:80,bar,direct://` - tüm URL'ler için HTTP proxy `foopy:80` kullanın, `foopy:80` kullanılamıyorsa `bar`'e kadar başarısız olur ve bundan sonra proxy kullanamaz.
+* `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
+* `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
+* `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+
+`proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
+  
+  Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    Belirli bir alanın son ekiyle eşleşir.
+    
+    Örnekler: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  IP adresi değişmez olan URL'leri eşleştirin.
+  
+  Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
+  
+  Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
@@ -180,6 +272,14 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   * `proxy` Dizgi
 
 `url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -296,9 +396,17 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
+
+Ana çözümleyici önbelleğini temizler.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
 
 Ana çözümleyici önbelleğini temizler.
 
@@ -339,6 +447,14 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 * `geri aramak` Function 
   * `result` Tampon - Blob verileri.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` Dizgi - Valid UUID.
+
+Returns `Promise<Buffer>` - resolves with blob data.
+
 #### `ses.createInterruptedDownload(options)`
 
 * `seçenekler` Nesne 
@@ -353,12 +469,24 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
 
 Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
@@ -408,12 +536,11 @@ A [NetLog](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
