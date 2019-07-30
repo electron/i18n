@@ -9,10 +9,10 @@
 * `colorSpace` String - represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
 * `colorDepth` Number - The number of bits per pixel.
 * `depthPerComponent` Number - The number of bits per color component.
-* `bounds` [Rectangle](rectangle.md)
-* `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
-* `workAreaSize` [Size](size.md)
+* `bounds` ‏[Rectangle (מרובע)](rectangle.md)
+* `size` ‏[Size (גודל)](size.md)
+* `workArea`‏ [Rectangle (מרובע)](rectangle.md)
+* `workAreaSize`‏ [Size (גודל)](size.md)
 * `internal` Boolean - `true` for an internal display and `false` for an external display
 
 הרכיב `Display` מייצג צג פיזי שמחובר למערכת. יכול להיות שיהיה `Display` מזויף במערכת ללא תצוגה, או `Display` שמקושר לתצוגה מרוחקת, מדומה.
