@@ -209,14 +209,13 @@ dialog.showOpenDialog(mainWindow, {
   * `noLink` Boolean (任意) - WindowsでElectronはどの `buttons` が ("Cancel" や "Yes" のような) 一般的なボタンかを把握し、その他をダイアログでコマンドリンクとして表示しようとします。 これにより、モダンなWindowsアプリのスタイルでダイアログを表示させることができます。 この動作が気に入らない場合、`noLink` を `true` に設定することができます。
   * `normalizeAccessKeys` Boolean (任意) - プラットフォーム間でキーボードのアクセスキーを正規化します。 省略値は、`false` です。 これを有効にすると、`&` が、ボタンのラベルでキーボードショートカットアクセスキーの位置として使用されているとみなされ、各プラットフォームで正常に動作するようにラベルが変換されます。macOSでは、`&` の文字は削除され、Linuxでは、`_` に変換され、Windowsでは、そのままにされます。 例えば、`Vie&w` というボタンラベルは、Linuxでは、`Vie_w`、macOSでは、`View` に変換され、WindowsとLinuxでは、`Alt-W` 経由で選択できます。
 
-Returns `Promise<Object>` - resolves with a promise containing the following properties:
+戻り値 `Promise<Object>` - 以下のプロパティを含む Promise で解決されます。
 
-    * `response` Number - The index of the clicked button.
-    * `checkboxChecked` Boolean - The checked state of the checkbox if
-    `checkboxLabel` was set. Otherwise `false`.
+    * `response` Number - クリックされたボタンのインデックス。
+    * `checkboxChecked` Boolean - `checkboxLabel` が設定されている場合のチェックボックスのチェック状態。チェックされていなければ `false`。
     
 
-Shows a message box, it will block the process until the message box is closed.
+メッセージボックスを表示し、メッセージボックスが閉じられるまでプロセスをブロックします。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -253,7 +252,7 @@ Windowsでは、使用されているWin32 APIのため、オプションはよ�
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
   * `message` String - ユーザーに表示するメッセージ。
 
-Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+戻り値 `Promise<void>` - 証明書信頼ダイアログが表示されると実行されます。
 
 macOSでは、これはメッセージと証明書情報を表示するモーダルダイアログを表示し、ユーザーに証明書を信頼/インポートする選択肢を提供します。 `browserWindow` の引数を指定すると、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
