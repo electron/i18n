@@ -6,6 +6,19 @@ Breaking changes will be documented here, and deprecation warnings added to JS c
 
 The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
 
+# Planned Breaking API Changes (7.0)
+
+## `shell.openExternalSync(url[, options])`
+
+```js
+// Deprecated
+shell.openExternalSync(url)
+// Replace with
+async function openThing (url) {
+  await shell.openExternal(url)
+}
+```
+
 # Planned Breaking API Changes (6.0)
 
 ## `win.setMenu(null)`
@@ -15,6 +28,19 @@ The `FIXME` string is used in code comments to denote things that should be fixe
 win.setMenu(null)
 // Replace with
 win.removeMenu()
+```
+
+## `contentTracing.getTraceBufferUsage()`
+
+```js
+// Deprecated
+contentTracing.getTraceBufferUsage((percentage, value) => {
+  // do something
+})
+// Replace with
+contentTracing.getTraceBufferUsage().then(infoObject => {
+  // infoObject has percentage and value fields
+})
 ```
 
 ## `electron.screen` in renderer process
@@ -50,6 +76,34 @@ require('path')
 require('electron').remote.require('path')
 ```
 
+## `powerMonitor.querySystemIdleState`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+## `powerMonitor.querySystemIdleTime`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+## `Tray`
+
+Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+
+```js
+// Deprecated
+tray.setHighlightMode(mode)
+// API will be removed in v7.0 without replacement.
+```
+
 # Planned Breaking API Changes (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -74,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
 
 ## Privileged Schemes Registration
 
@@ -180,37 +234,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// 已被取代
+// Deprecated
 clipboard.readRtf()
-// 請寫成
+// Replace with
 clipboard.readRTF()
 
-// 已被取代
+// Deprecated
 clipboard.writeRtf()
-// 請寫成
+// Replace with
 clipboard.writeRTF()
 
-// 已被取代
+// Deprecated
 clipboard.readHtml()
-// 請寫成
+// Replace with
 clipboard.readHTML()
 
-// 已被取代
+// Deprecated
 clipboard.writeHtml()
-// 請寫成
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// 已被取代
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// 請寫成
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -229,7 +283,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `處理序`
+## `process`
 
 ```js
 // Deprecated
@@ -261,14 +315,14 @@ ses.setCertificateVerifyProc((request, callback) => {
 ## `Tray`
 
 ```js
-// 已被取代
+// Deprecated
 tray.setHighlightMode(true)
-// 請寫成
+// Replace with
 tray.setHighlightMode('on')
 
-// 已被取代
+// Deprecated
 tray.setHighlightMode(false)
-// 請寫成
+// Replace with
 tray.setHighlightMode('off')
 ```
 
@@ -319,9 +373,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-已被取代: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-請改用: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -330,10 +384,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `BrowserWindow`
 
 ```js
-// 已被取代
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// 請寫成
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -361,7 +415,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `處理序`
+## `process`
 
 * `process.versions.electron` 及 `process.version.chrome` 將變為唯讀的屬性，與其他由 Node 設定的 `process.versions` 一致。
 
