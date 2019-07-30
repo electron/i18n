@@ -4,9 +4,7 @@
 
 Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
-
-Nell'esempio seguente viene illustrato come scrivere una stringa negli Appunti:
+The following example shows how to write a string to the clipboard:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -23,70 +21,70 @@ console.log(clipboard.readText('selection'))
 
 ## Metodi
 
-Il modulo di `Appunti` ha i seguenti metodi:
+The `clipboard` module has the following methods:
 
-**Nota:** Le API sperimentali sono contrassegnate come tali e potrebbero essere rimosse in futuro.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([tipo])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Restituisce la `stringa` - il contenuto degli Appunti come testo normale.
+Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, tipo])`
 
 * `testo` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Scrive il `testo` negli Appunti come testo normale.
+Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([tipo])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Restituisce la `stringa` - il contenuto negli Appunti come markup.
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, tipo])`
 
 * `markup` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Scrive il `markup` negli appunti.
+Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([tipo])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Restituisce [`NativeImage`](native-image.md) - l'immagine contenuta negli appunti.
+Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, tipo])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Scrive la `image` negli appunti.
+Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([tipo])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Restituisce la `stringa` - il contenuto negli Appunti come RTF.
+Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, tipo])`
 
 * `testo` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Scrive il `testo` negli Appunti come RTF.
+Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `Titolo` Stringa
 * `url` Stringa
 
-Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del segnaposto negli appunti. I valori di `titolo` e `url` saranno vuoti quando i bookmark non sono disponibili.
+Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, tipo])` *macOS* *Windows*
 
@@ -94,7 +92,7 @@ Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del se
 * `url` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Scrivere il `titolo` e `url` negli appunti come un segnaposto.
+Writes the `title` and `url` into the clipboard as a bookmark.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
@@ -125,14 +123,14 @@ Clears the clipboard content.
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Restituisce `String[]` - Un array di formati supportati per la clipboard `type`.
+Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Restituisce `Boolean` - Vero se la clipboard supporta il formato specificato `format`, falso altrimenti.
+Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
 const { clipboard } = require('electron')
@@ -149,7 +147,7 @@ Returns `String` - Reads `format` type from the clipboard.
 
 * `format` Stringa
 
-Restituisce `Buffer` - Legge il tipo di `format` dalla clipboard.
+Returns `Buffer` - Reads `format` type from the clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
@@ -157,7 +155,7 @@ Restituisce `Buffer` - Legge il tipo di `format` dalla clipboard.
 * `buffer` Buffer
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-Scrive il `buffer` nella clipboard come `format`.
+Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, tipo])`
 
@@ -174,4 +172,4 @@ const { clipboard } = require('electron')
 clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
-Scrive `data` sulla clipboard.
+Writes `data` to the clipboard.
