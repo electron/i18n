@@ -22,17 +22,15 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-戻り値 `Boolean` - アイテムが正常に表示されているかどうか.
-
-指定したファイルをファイルマネージャに表示します。可能であれば、ファイルを選択します。
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-戻り値 `Boolean` - アイテムが正常に開かれているかどうか.
+Returns `Boolean` - Whether the item was successfully opened.
 
-指定したファイルをデスクトップの既定の方法で開きます。
+Open the given file in the desktop's default manner.
 
 ### `shell.openExternalSync(url[, options])`
 
@@ -41,9 +39,11 @@ shell.openExternal('https://github.com')
   * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
   * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
 
-戻り値 `Boolean` - URL を開くためにアプリケーションが利用可能かどうか。
+Returns `Boolean` - Whether an application was available to open the URL.
 
 デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
+
+**Deprecated**
 
 ### `shell.openExternal(url[, options])`
 
