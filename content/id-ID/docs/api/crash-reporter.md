@@ -51,88 +51,65 @@ Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai <
 <p><strong> Catatan </ 0> Proses anak yang dibuat melalui modul <code> child_process </ 1> tidak akan memiliki akses ke modul Elektron .
 Oleh karena itu, untuk mengumpulkan laporan kerusakan dari mereka, gunakan <code> process.crashReporter.start </ 0> . Lewati pilihan yang sama seperti di atas dan yang tambahan yang disebut <code> crash Direktori</ 0> yang seharusnya mengarah ke direktori untuk menyimpan laporan kerusakan sementara. Anda bisa menguji ini dengan memanggil <code> process.crash () </ 0> untuk menabrak proses anak.</p>
 
-<p><strong> Catatan: </ 0> Untuk mengumpulkan laporan kerusakan dari proses anak di Windows , Anda perlu menambahkan kode tambahan ini juga.
-Ini akan memulai proses yang akan memantau dan mengirim laporan kecelakaan. Ganti <code> submit Url </ 0> , <code> nama produk</ 0> 
-dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
-
 <p><strong>Note:</strong> If you need send additional/updated <code>extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-```js
-const args = [
-  `--reporter-url=${submitURL}`,
-  `--application-name=${productName}`,
-  `--crashes-directory=${crashesDirectory}`
-]
-const env = {
-  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-}
-spawn(process.execPath, args, {
-  env: env,
-  detached: true
-})
-```
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
-** Catatan: </ 0> Pada macos , Electron menggunakan klien ` crashpad </ 1> baru untuk pengumpulan dan pelaporan kecelakaan.
-Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi <code> crashpad </ 0> dari proses utama menggunakan <code> crashReporter.start </ 0> diperlukan terlepas dari proses mana yang ingin Anda kumpulkan. Setelah diinisialisasi dengan cara ini, pengendara crashpad mengumpulkan crash dari semua proses. Anda masih harus menghubungi <code> crashReporter.start </ 0> dari proses renderer atau child, jika tidak crash dari mereka akan dilaporkan tanpa <code> companyName </ 0> , <code> productName </ 0> atau salah satu dari informasi <code> ekstra </ 0> .</p>
+### `kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`
 
-<h3><code>kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`</h3> 
+Returns [`CrashReport`](structures/crash-report.md):
 
-Mengembalikan ` kecelakaan Report </ 0> :</p>
-
-<p>Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, <code>null` is returned.</p> 
+Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 ### `kecelakaan reporter.dapatkan unggahan repoter ()`
 
-Mengembalikan ` kecelakaan Report [] </ 0> :</p>
+Returns [`CrashReport[]`](structures/crash-report.md):
 
-<p>Mengembalikan semua laporan kerusakan yang diupload. Setiap laporan berisi tanggal dan upload ID.</p>
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-<h3><code>kecelakaan Reporter.dapatkan unggahan ke Server () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
+### `crashReporter.getUploadToServer()`
 
-<p>Returns <code>Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.</p> 
+Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
+**Note:** This API can only be called from the main process.
 
-### ` kecelakaan Reporter.dapatkan unggahan ke Server () </ 0> <em> Linux </ 1> <em> macos </ 1></h3>
+### `crashReporter.setUploadToServer(uploadToServer)`
 
-<ul>
-<li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server.</li>
+* ` unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server.</li>
 </ul>
 
-<p>Ini biasanya dikendalikan oleh preferensi pengguna. Ini tidak berpengaruh jika dipanggil sebelum <code> mulai </ 0> dipanggil.</p>
-
-<p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
-
-<h3><code>crashReporter.addExtraParameter(key, value)` *macOS*
-
-* ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
+<p>This would normally be controlled by user preferences. This has no effect if
+called before <code>start` is called.</p> 
+  **Note:** This API can only be called from the main process.
+  
+  ### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
+  
+  * ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
 <li><code>value` String - Parameter value, must be less than 64 characters long.
-
-Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
-
-### `crashReporter.removeExtraParameter(key)` *macOS*
-
-* ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
+  
+  Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+  
+  ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
+  
+  * ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
 </ul>
 
 <p>Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.</p>
 
 <h3><code>crashReporter.getParameters()`</h3> 
-  See all of the current parameters being passed to the crash reporter.
-  
-  ## Laporan Kecelakaan Payload
-  
-  Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>
-
-<ul>
-<li><code> ver </ 0>  String - Versi Elektron .</li>
+    See all of the current parameters being passed to the crash reporter.
+    
+    ## Laporan Kecelakaan Payload
+    
+    The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+    
+    * ` ver </ 0>  String - Versi Elektron .</li>
 <li><code> platform </ 0>  String - misal 'win32'.</li>
 <li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
 <li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
 <li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
-<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
-  
-  * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
-  * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
-  * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
-  * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.</ul>
+<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok
+    * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
+    * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
+    * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
+    * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.
