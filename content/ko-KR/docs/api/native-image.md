@@ -118,6 +118,15 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
+### `nativeImage.createFromBitmap(buffer, options)`
+
+* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+
+Returns `NativeImage`
+
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
@@ -125,7 +134,7 @@ console.log(image)
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -162,9 +171,9 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Natively wrap images such as tray, dock, and application icons.
 
-프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-### 인스턴스 메서드
+### Instance Methods (인스턴스 메소드)
 
 The following methods are available on instances of the `NativeImage` class:
 
