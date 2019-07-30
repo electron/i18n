@@ -11,9 +11,9 @@
 ## `shell.openExternalSync(url[, options])`
 
 ```js
-// Deprecated
+// Устаревшее
 shell.openExternalSync(url)
-// Replace with
+// Заменено на
 async function openThing (url) {
   await shell.openExternal(url)
 }
