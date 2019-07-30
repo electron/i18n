@@ -86,6 +86,12 @@ webFrame.setSpellCheckProvider('en-US', {
 })
 ```
 
+### `webFrame.insertCSS(css)`
+
+* `css` String - CSS source code.
+
+Inserts `css` as a style sheet in the document.
+
 ### `webFrame.insertText(text)`
 
 * `text` String
@@ -105,41 +111,68 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
+**[即将弃用](modernization/promisification.md)**
+
+### `webFrame.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (optional) - Default is `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+在页面中执行 `code`。
+
+在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
+
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
-Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
+**[即将弃用](modernization/promisification.md)**
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (optional) - Default is `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-* `info` Object 
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
+* `info` Object - 过滤器对象，包含过滤参数 
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
   * `name` String (optional) - Name for isolated world. Useful in devtools.
@@ -182,9 +215,9 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-尝试释放不再使用的内存 (如以前导航中的图像)。
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-请注意, 盲目调用此方法可能使Electron较慢, 因为它将不得不重新填充这些清空的缓存。你应该只在这种情况下调用它, 就是当你的应用程序发生的一个事件, 使你认为你的网页实际只使用了较少的内存 (例如你从一个超级重页跳转到一个基本为空的页面, 并打算留在那)。
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
