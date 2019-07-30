@@ -1318,7 +1318,7 @@ Returns array of `BrowserView` what was an attached with addBrowserView or setBr
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
-### الخصائص
+### Properties
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
