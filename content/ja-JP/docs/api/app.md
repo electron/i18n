@@ -477,11 +477,11 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (任意) - ログのカスタムパス。絶対パスでなければなりません。
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+アプリがロギングするディレクトリを設定または作成します。これは `app.getPath()` や `app.setPath(pathName, newPath)` で操作できます。
 
-On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+*macOS*では、このディレクトリはデフォルトで `/Library/Logs/YourAppName` にセットされており、*Linux* と *Windows* では `userData` ディレクトリ内に配置されます。
 
 ### `app.getAppPath()`
 
@@ -527,7 +527,7 @@ On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName
 
 パスに関連付けられているアイコンを取得します。
 
-On *Windows*, there are 2 kinds of icons:
+*Windows* の場合、2 種類のアイコンがあります。
 
 * `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
 * `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
@@ -561,7 +561,7 @@ On *Windows*, there are 2 kinds of icons:
 * `name` String
 * `path` String
 
-`name` に関連付けられた特別なディレクトリもしくはファイルの `path` を上書きします。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+`name` に関連付けられた特別なディレクトリもしくはファイルの `path` を上書きします。 パスとして存在しないディレクトリが指定された場合、`Error` が投げられます。 その場合、そのディレクトリを `fs.mkdirSync` や類似のもので作成するべきです。
 
 `app.getPath` で定義されている `name` のパスだけを上書きすることができます。
 
@@ -625,7 +625,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 **注:** macOSの場合、アプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更することもできません。 しかしながら、単純なテキストエディターもしくはスクリプトでビルド時にファイルを変更することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
 
-**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
+**注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。 Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
 
 このAPIは内部的にWindowsのレジストリやLSSetDefaultHandlerForURLSchemeを使用します。
 
