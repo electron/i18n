@@ -196,7 +196,7 @@ Returns `String` - the title displayed next to the tray icon in the status bar
 
 Sets when the tray's icon background becomes highlighted (in blue).
 
-**[Deprecated](breaking-changes.md#tray)**
+**[Устарело](breaking-changes.md#tray)**
 
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
@@ -219,7 +219,7 @@ win.on('hide', () => {
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
