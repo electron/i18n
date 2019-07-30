@@ -4,8 +4,6 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-На Linux, в контексте графического процесса зависит от модуля [`remote`](remote.md), соответственно не доступен, когда этот модуль отключен.
-
 Следующий пример показывает, как записать строку в буфер обмена:
 
 ```javascript
@@ -25,26 +23,26 @@ console.log(clipboard.readText('selection'))
 
 Модуль `clipboard` имеет следующие методы:
 
-**Примечание:** Экспериментальные API помечены как таковые и могут быть удалены в будущем.
+**Примечание:** Экспериментальные API помечены и могут быть удалены в будущем.
 
 ### `clipboard.readText([type])`
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает `String` — содержимое буфера обмена в виде обычного текста.
+Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Записывает `text` в буфер обмена, как обычный текст.
+Записывает `text` в буфер обмена как обычный текст.
 
 ### `clipboard.readHTML([type])`
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает `String` - содержимое буфера обмена в виде разметки.
+Возвращает `String` - содержимое в буфере обмена в виде разметки.
 
 ### `clipboard.writeHTML(markup[, type])`
 
@@ -57,7 +55,7 @@ console.log(clipboard.readText('selection'))
 
 * `type` String (опционально) - может быть `selection` или `clipboard`. `selection` доступен только на Linux.
 
-Возвращает [`NativeImage`](native-image.md) - содержимое изображения в буфере обмена.
+Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
