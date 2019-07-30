@@ -294,6 +294,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Відбувається коли процес gpu ламається або припиняється примусово.
 
+### Event: 'renderer-process-crashed'
+
+Повертає:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `killed` Boolean
+
+Emitted when the renderer process of `webContents` crashes or is killed.
+
 ### Подія: 'accessibility-support-changed' *macOS* *Windows*
 
 Повертає:
@@ -352,7 +362,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Виконується коли викликається `remote.require()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає повернення модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
+Виконується коли викликається `remote.require()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню модуля. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 ### Подія: 'remote-get-global'
 
@@ -400,7 +410,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Виконується коли викликається `<webview>.getWebContents()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене встановленням `event.returnValue`.
+Виконується коли викликається `<webview>.getWebContents()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
 
 ## Методи
 
@@ -465,6 +475,14 @@ app.exit(0)
 
 Показує всі вікна застосунку після того як вони були сховані. Не фокусується на них автоматично.
 
+### `app.setAppLogsPath(path)`
+
+* `path` String (optional) - A custom path for your logs. Must be absolute.
+
+Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+
+On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+
 ### `app.getAppPath()`
 
 Повертає `String` - Поточна директорія застосунку.
@@ -509,14 +527,14 @@ app.exit(0)
 
 Витягує піктограму, що відповідає шляху.
 
-На *Windows*, є 2 види піктограм:
+On *Windows*, there are 2 kinds of icons:
 
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
 
 На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
 
-**[Незабаром застаріє](promisification.md)**
+**[Незабаром застаріє](modernization/promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,7 +561,7 @@ app.exit(0)
 * `name` String
 * `path` String
 
-Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. Якщо шлях визначає директорію, яка не існує, то метод її створить. При невдачі викидається `Error`.
+Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
 Ви можете перевизначати шляхи `name` визначені в `app.getPath`.
 
@@ -606,6 +624,8 @@ app.exit(0)
 На Windows ви можете надати опціональні параметри `path`, шлях до вашого виконуваного файлу, та `args`, масив аргументів для передачі при запуску виконуваного файлу.
 
 **Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
+
+**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 API всередині використовує реєстр Windows та LSSetDefaultHandlerForURLScheme.
 
@@ -734,8 +754,6 @@ app.setJumpList([
 
 Повертає `Boolean`
 
-Цей метод робить ваш застосунок "Застосунком Єдиного Екземпляру" - на відміну від дозволу запуску декількох екземплярів вашого застосунку, це буде гарантувати, що запущено тільки один екземпляр, а інші передають інформацію та припиняють роботу.
-
 Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. Якщо не вдалося отримати блокування, ви можете припустити, що інший екземпляр вашої програми вже працює з блокуванням і негайно завершується.
 
 Тобто. Цей метод повертає `true` якщо ваш процес є основним екземпляром вашої програми, і ваш додаток має продовжувати завантаження. Він повертає `false`, якщо ваш процес слід негайно припинити, оскільки він надіслав свої параметри іншому екземпляру, який вже отримав блокування.
@@ -844,7 +862,7 @@ if (!gotTheLock) {
 
 Повертає `Promise`
 
-Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
 
 Для `infoType` що дорівнює `basic`: Promise заповнюється `Object`, який містить менше атрибутів ніж виклик з `complete`. Ось приклад базової відповіді:
 
@@ -940,6 +958,8 @@ app.setLoginItemSettings({
 
 Повертає `Boolean` - `true` якщо спеціальні можливості Chrome увімкнені, `false` в іншому випадку. Це API поверне `true` якщо було виялено використання спеціальних можливостей, наприклад, читач екрану. Дивись https://www.chromium.org/developers/design-documents/accessibility для детвльної інформації.
 
+**[Незабаром застаріє](modernization/property-updates.md)**
+
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - Вмикає чи вимикає рендеринг [дерева спеціальних можливостей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
@@ -949,6 +969,8 @@ app.setLoginItemSettings({
 Цей API має викликатися після виклику події `ready`.
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
+
+**[Незабаром застаріє](modernization/property-updates.md)**
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
@@ -967,6 +989,14 @@ app.setLoginItemSettings({
 
 Встановлює інформацію про застосунок. Це перевизначить значення, визначені в файлі `.plist` на MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. На Linux, значення мають бути встановлені, щоб їх показувати; значення за замовчуванням відсутні.
 
+### `app.isEmojiPanelSupported`
+
+Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+
+### `app.showEmojiPanel` *macOS* *Windows*
+
+Show the platform's native emoji picker.
+
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
 * `bookmarkData` String - Декодована в форматі base64 захищеній bookmark data що повернена методами `dialog.showOpenDialog` або `dialog.showSaveDialog`.
@@ -976,7 +1006,7 @@ app.setLoginItemSettings({
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// Тепер файл доступний поза sandbox 
+// You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
@@ -984,20 +1014,22 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Перемикач командного рядка
+* `switch` String - A command-line switch, without the leading `--`
 * `value` String (опціонально) - Значення для перемикача
 
 Додає перемикач (з опціональним `value`) до командного рядка Chromium.
 
-**Примітка:** Це не вплине на `process.argv`, і використовується для контролю розробником деяких низькорівневих поведінок Chromium.
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - Аргумент для додання до командного рядку
 
-Додає аргумент до командного рядка Chromium. Аргумент буде правильно заекрановано.
+Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
 
-**Примітка:** Це не впливає на `process.argv`.
+If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+
+**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1011,9 +1043,9 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 Повертає `String` - значення перемикача командного рядка.
 
-**Примітка:** Коли перемикач не присутній, повертається пуста стрічка.
+**Note:** When the switch is not present or has no value, it returns empty string.
 
-### `app.enableSandbox()` *Експериментальний* *macOS* *Windows*
+### `app.enableSandbox()` *Експериментальний*
 
 Вмикає повний режим пісочниці для app.
 
@@ -1069,17 +1101,21 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 ### `app.dock.show()` *macOS*
 
-Показує піктограму на панелі задач.
+Returns `Promise<void>` - Resolves when the dock icon is shown.
 
 ### `app.dock.isVisible()` *macOS*
 
-Повертає `Boolean` - Показує чи видимий значок на панелі завдань. Запит `app.dock.show()` є асинхронним, тому метод може не повертати true негайно після виклику.
+Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
 Встановлює [dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) застосунку.
+
+### `app.dock.getMenu()` *macOS*
+
+Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1089,6 +1125,32 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 ## Властивості (Properties)
 
+### `app.applicationMenu`
+
+A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.accessibilitySupportEnabled` *macOS* *Windows*
+
+A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+
+See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+Цей API має викликатися після виклику події `ready`.
+
+**Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
+
+### `app.userAgentFallback`
+
+A `String` which is the user agent string Electron will use as a global fallback.
+
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+
 ### `app.isPackaged`
 
 `Boolean` властивість повертає `true` якщо застосунок запаковано, та `false` в іншому випадку. Для багатьох застосунків ця властивість може бути використана щоб відрізняти середовище розробки від виробничого.
+
+### `app.allowRendererProcessReuse`
+
+A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+
+The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
