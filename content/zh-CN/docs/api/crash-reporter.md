@@ -48,56 +48,56 @@ crashReporter.start({
 
 ** 注意 **由 ` child_process ` 模块创建的子进程将无法访问 Electron 模块。 因此, 要收集它们的故障报告, 请用 ` process.crashReporter.start `代替。 传递与上面相同的选项以及一个名为 ` crashesDirectory ` 的附加项, 它应指向一个目录, 以便临时存储崩溃报告。 你可以调用 ` process.crash()` 使子进程崩溃，来测试结果。
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+** 注意: **，如果您在第一次调用 ` start ` 后需要发送 附加的/更新的 ` extra ` 参数, 在 macOS 上，你可以调用 ` addExtraParameter `。而在 Linux 和 Windows 上，则使用 新的/更新的 ` extra ` 参数，再次调用 `start `即可。
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 你仍然需要从渲染器进程或子进程中调用`crashReporter.start` ，否则崩溃报告将不包含`companyName`, `productName`和任何`extra`信息。
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+返回 [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+返回上次崩溃报告的日期和ID。 只有已上传的崩溃报告将被返回；在磁盘上存在崩溃报告，除非上传，不然不会返回。 如果没有上传的报告，则返回`null`
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+返回 [`CrashReport[]`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+返回所有上传的崩溃报告。每个报告都包含日期和上传ID。
 
 ### `crashReporter.getUploadToServer()`
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+返回 `Boolean` - 是否已将报告提交到服务器。通过`start` 方法或 `setUploadToServer`设置。
 
-**Note:** This API can only be called from the main process.
+**注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
 * `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+通常, 是否提交是由用户对系统进行偏好设置而决定的。不能在 `start` 之前调用该方法，否则无效.
 
-**Note:** This API can only be called from the main process.
+**注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
 * `key` String - 参数键，长度必须小于64个字符
 * `value` String - 参数值, 长度必须小于64个字符
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
 * `key` String - 参数键，长度必须小于64个字符
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+从当前设定的参数中移除一个额外的参数, 以便它不会与崩溃报告一起发送。
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+查看传递给崩溃报告的所有当前参数。
 
 ## 崩溃报告内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
 
 * `ver` String - Electron 的版本.
 * `platform` String - 例如 'win32'.
