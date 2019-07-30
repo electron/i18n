@@ -40,7 +40,7 @@ Der Main-Prozess, gewöhnlich in einer Datei namens `main.js`, ist der Einstiegs
 
 Die Hauptprozessdatei jeder App ist in der `main`-Eigenschaft in der `package.json` spezifiziert. Nur so weiß `Electron`, welche Datei beim Start ausgeführt werden muss.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. Er wurde in Electron umbenannt, um Verwechslung mit dem Renderer-Prozess zu vermeiden.
 
 Siehe auch: [process](#process), [renderer process](#renderer-process)
 
@@ -50,7 +50,7 @@ Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner A
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Ein IPC-System zur Kommunikation innerhalb und zwischen Prozessen. Das ist wichtig, da Chrome seine Arbeit in verschiedene Prozesse teilen möchte, oder auch nicht, abhängig von der RAM-Nutzung, usw.
 
 Siehe https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
