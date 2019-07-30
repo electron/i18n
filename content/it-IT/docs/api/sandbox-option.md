@@ -109,10 +109,10 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `riportatorecrash`
   - `Catturadesktop`
   - `ipcRenderer`
-  - `nativeImage`
-  - `remote`
+  - `immagineNativa`
+  - `remoto`
   - `webFrame`
-- `events`
+- `eventi`
 - `timers`
 - `url`
 
