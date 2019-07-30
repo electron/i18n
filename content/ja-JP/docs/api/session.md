@@ -88,16 +88,32 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 * `callback` Function 
   * `size` Integer - キャッシュサイズのバイト数。
+  * `error` Integer - The error code corresponding to the failure.
 
 callback はセッションの現在のキャッシュサイズで呼ばれます。
 
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 操作が完了したときに呼ばれる。
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
-セッションの HTTP キャッシュをクリアします。
+Clears the session’s HTTP cache.
 
-#### `ses.clearStorageData([options, callback])`
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+Clears the session’s HTTP cache.
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `options` Object (任意) 
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
@@ -105,25 +121,36 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
   * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
 * `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
-ウェブストレージのデータをクリアします。
+Clears the storage data for the current session.
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `options` Object (任意) 
+  * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
+  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
+  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-未書き込みの DOM ストレージのデータをディスクに書き込みます。
+Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config, callback)`
 
 * `config` Object 
-  * `pacScript` String - PAC ファイルに関連付けられたURL。
-  * `proxyRules` String - 使用するプロキシを示すルール。
-  * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
-* `callback` Function - 操作が完了したときに呼ばれる.
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+* `callback` Function - Called when operation is done.
 
-プロキシ設定を設定します。
+Sets the proxy settings.
 
-`pacScript` と `proxyRules` が一緒に提供されると、`proxyRules` オプションは無視され、`pacScript` コンフィグが適用されます。
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-`proxyRules` は以下のルールに従う必要があります。
+The `proxyRules` has to follow the rules below:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -135,43 +162,108 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 例:
 
-* `http=foopy:80;ftp=foopy2` - `http://` URL には HTTP プロキシ `foopy:80` を、`ftp://` URL には HTTP プロキシ `foopy2:80` を使用する。
-* `foopy:80` - すべての URL に `foopy:80` HTTP プロキシを使用する。
-* `foopy:80,bar,direct://` - すべての URL に `foopy:80` HTTP プロキシを使用する。 `foopy:80` が使用できない場合は `bar` にフェイルオーバーし、その後はプロキシを使用しません。
-* `socks4://foopy` - すべての URL に SOCKS 4 プロキシ `foopy:1080` を使用する。
-* `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合は SOCKS 5 プロキシ `bar.com` にフェイルオーバーします。
-* `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合はプロキシを使用しません。
-* `http=foopy;socks=foopy2` - HTTP の URL には HTTP プロキシ `foopy` を、ほかの URLには `socks4://foopy2` を使用します。
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-`proxyBypassRules` は以下に説明されているコンマ区切りのルールのリストです。
+The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    特定のドメインサフィックスのマッチ。
+    Match a particular domain suffix.
     
-    例: ".google.com", ".com", "http://.google.com"
+    Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  IP アドレスリテラルである URL のマッチ。
+  Match URLs which are IP address literals.
   
-  例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  指定された範囲内の IP リテラルに一致する URL のマッチ。IP の範囲は CIDR 表記で指定します。
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  例: "192.168.1.1/16", "fefe:13::abc/33".
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  ローカルアドレスのマッチ。`<local>` の意味は、ホストが "127.0.0.1"、"::1"、"localhost" のいずれかに一致するかどうかです。
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `config` Object 
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+Sets the proxy settings.
+
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+
+The `proxyRules` has to follow the rules below:
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+例:
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+
+The `proxyBypassRules` is a comma separated list of rules described below:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    Match a particular domain suffix.
+    
+    Examples: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  Match URLs which are IP address literals.
+  
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
@@ -179,39 +271,47 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `callback` Function 
   * `proxy` String
 
-`url` のプロキシ情報を解決します。 リクエストが実行されると、`callback` は `callback(proxy)` で呼び出されます。
+Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - ダウンロード位置.
+* `path` String - The download location.
 
-ダウンロード保存ディレクトリを設定します。 デフォルトでは、ダウンロードディレクトリはそれぞれのアプリフォルダの下の `ダウンロード(Downloads)` になります。
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object 
-  * `offline` Boolean (任意) - ネットワークの停止をエミュレートするかどうか。デフォルトは false。
-  * `latency` Double (任意) - RTT 毎 ms。デフォルトは0で、これだとレイテンシの抑制が無効になります。
-  * `downloadThroughput` Double (任意) - 下りレート (Bps)。デフォルトは0で、これにより、ダウンロードの抑制が無効になります。
-  * `downloadThroughput` Double (任意) - 上りレート (Bps)。デフォルトは0で、これにより、アップロードの抑制が無効になります。
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-`session` の指定された構成でネットワークをエミュレートします。
+Emulates network with the given configuration for the `session`.
 
 ```javascript
-// 50kbps のスループットと 500ms の待ち時間で GPRS 接続をエミュレートする。
+// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// ネットワークの停止をエミュレートする。
+// To emulate a network outage.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
 
-`session` に対して既にアクティブなネットワークエミュレーションを無効にします。元のネットワーク構成にリセットします。
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -219,17 +319,17 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Chromium からの認証結果。
-    * `errorCode` Integer - エラーコード。
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function 
-    * `verificationResult` Integer - 値は [ここ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)の証明書エラーコードの1つです。 証明書エラーコードの他に、以下の特別なコードを使用することができます。 
-      * `0` - 成功を示し、証明書の透明性の検証を無効にします。
-      * `-2` - 失敗を示します。
-      * `-3` - Chromium からの認証結果を使用します。
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
+      * `0` - Indicates success and disables Certificate Transparency verification.
+      * `-2` - Indicates failure.
+      * `-3` - Uses the verification result from chromium.
 
-`session` の証明書検証プロセスを設定し、サーバー証明書の検証が要求されるたびに`proc` を `proc(request, callback)` で呼びます。 `callback(0)` を呼ぶと証明書を承認し、`callback(-2)` を呼ぶとそれを拒否します。
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
-`setCertificateVerifyProc(null)` を呼び出すと、デフォルトの証明書検証プロシージャに戻ります。
+Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -248,23 +348,23 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - 権限を要求している WebContents。 リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
-  * `permission` String - 'media'、'geolocation'、'notifications'、'midiSysex'、'pointerLock'、'fullscreen'、'openExternal' のいずれか。
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
-    * `permissionGranted` Boolean - 権限の許可か拒否.
-  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
-    * `externalURL` String (任意) - `openExternal` リクエストの URL。
-    * `mediaTypes` String[] (任意) - 要求されている、複数のメディアアクセスのタイプ。要素は `video` か `audio` にできます
-    * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
-    * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `externalURL` String (Optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-`session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // 拒否。
+    return callback(false) // denied.
   }
 
   callback(true)
@@ -274,117 +374,145 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。 リクエストがサブフレームからのものである場合、リクエストのオリジンを確認するためには `requestingUrl` を使用する必要があることに注意してください。
-  * `permission` String - 'media' の列挙。
-  * `requestingOrigin` String - 権限チェックのオリジン URL
-  * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
-    * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
-    * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
-    * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
-    * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - Enum of 'media'.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `securityOrigin` String - The security orign of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `requestingUrl` String - The last URL the requesting frame loaded
+    * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-`session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。 ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // 拒否
+    return false // denied
   }
 
   return true
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
-* `callback` Function (任意) - 操作が完了したときに呼ばれる。
+* `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
-ホスト解決のキャッシュをクリアします。
+Clears the host resolver cache.
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
+
+Clears the host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - 統合認証が有効であるサーバーのコンマ区切りのリスト。
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-HTTP NTLM またはネゴシエート認証の資格情報を常に送信するかどうかを動的に設定します。
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
 const { session } = require('electron')
-// 統合認証に、`example.com`、`foobar.com`、`baz`
-// で終わる URL を考えます。
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// 統合認証に、すべての URL を考えます。
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (任意)
+* `acceptLanguages` String (optional)
 
-このセッションの `userAgent` と `acceptLanguages` をオーバーライドします。
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-`acceptLanguages` は、言語コードのカンマ区切りリスト (例: `"en-US, fr, de, ko, zh-CN, ja"`) でなければなりません。
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-これは既存の `WebContents` には影響しません。それぞれの `WebContents` は `webContents.setUserAgent` を使用してセッション全体のユーザーエージェントをオーバーライドできます。
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-戻り値 `String` - このセッションのユーザエージェント。
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - 有効な UUID。
+* `identifier` String - Valid UUID.
 * `callback` Function 
-  * `result` Buffer - Blob データ。
+  * `result` Buffer - Blob data.
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` String - Valid UUID.
+
+Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
-  * `path` String - ダウンロードの絶対パス。
-  * `urlChain` String[] - ダウンロードの完全な URL チェーン。
-  * `mimeType` String (任意)
-  * `offset` Integer - ダウンロードの範囲の始端。
-  * `length` Integer - ダウンロードの長さ。
-  * `lastModified` String - ヘッダの最終更新日の値。
-  * `eTag` String - ヘッダの ETag の値。
-  * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (任意) - 操作が完了したときに呼ばれる。
+* `callback` Function - Called when operation is done.
 
-セッションの HTTP 認証キャッシュをクリアします。
+Clears the session’s HTTP authentication cache.
+
+**[非推奨予定](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
+* `preloads` String[] - An array of absolute path to preload scripts
 
-通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### インスタンスプロパティ
 
-`Session` のインスタンスには以下のプロパティがあります。
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-このセッションの [Cookies](cookies.md) オブジェクト。
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-このセッションの [WebRequest](web-request.md) オブジェクト。
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-このセッションの [Protocol](protocol.md) オブジェクト。
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -403,17 +531,16 @@ app.on('ready', function () {
 
 #### `ses.netLog`
 
-このセッションの [NetLog](net-log.md) オブジェクト。
+A [NetLog](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // いくつかのネットワークイベントのあと
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
