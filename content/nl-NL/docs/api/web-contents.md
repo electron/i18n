@@ -904,7 +904,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimenteel*
 
 * `ignore` Boolean
 
@@ -1041,7 +1041,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `actie` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
