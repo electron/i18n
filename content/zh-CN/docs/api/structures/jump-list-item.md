@@ -11,3 +11,4 @@
 * `description` String (optional) - 任务描述 (会以浮动提示的方式显示). 只应在`type` 为 `task`时设置.
 * `图标路径` 字符串 (可选项) - 在跳转列表中会显示一个使用绝对路径的图标，它可以是一个包含图标的任意资源文件 (e.g. `.ico`, `.exe`, `.dll`). 通常可以指定`process.execPath`值显示程序图标。
 * `iconIndex` Number (可选) - 图标在资源文件中的索引值。 如果资源文件包含多个图标，则可以使用此值指示从零开始的图标索引，用于此任务的显示。 如果资源文件只包含一个图标，则iconIndex必须设为0。
+* `workingDirectory` String (optional) - The working directory. Default is empty.
