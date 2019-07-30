@@ -304,7 +304,7 @@ Emitted when the gpu process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### 事件: 'accessibility-support-changed' *macOS* *Windows*
 
 回傳:
 
@@ -426,7 +426,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (選用)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -434,9 +434,9 @@ All windows will be closed immediately without asking the user, and the `before-
 
 ### `app.relaunch([options])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `args` String[] (optional)
-  * `execPath` String (optional)
+  * `execPath` String (選用)
 
 Relaunches the app when current instance exits.
 
@@ -469,7 +469,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 
 ### `app.show()` *macOS*
 
@@ -493,7 +493,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-You can request the following paths by the name:
+您可以通過名稱請求以下路徑：
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -539,7 +539,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -581,7 +581,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+重寫當前應用程式的名稱。
 
 ### `app.getLocale()`
 
@@ -607,9 +607,9 @@ Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` *macOS* *Windows*
+### `app.addRecentDocument(path)` *macOS* *Windows*
 
-Clears the recent documents list.
+清除最近使用的文件清單。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
@@ -913,7 +913,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
