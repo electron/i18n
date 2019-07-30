@@ -89,9 +89,9 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ### `webFrame.insertCSS(css)`
 
-* `css` String - CSS source code.
+* `css` String - CSS ソースコード。
 
-Inserts `css` as a style sheet in the document.
+`css` をスタイルシートとしてドキュメント内に挿入します。
 
 ### `webFrame.insertText(text)`
 
@@ -127,7 +127,7 @@ Inserts `css` as a style sheet in the document.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
@@ -135,7 +135,7 @@ Inserts `css` as a style sheet in the document.
 
 戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
 **[非推奨予定](modernization/promisification.md)**
 
@@ -147,32 +147,32 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
 * `csp` String
 
 イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
 * `name` String
 
 イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
 * `securityOrigin` String
 
 イソレートコンテキストのセキュリティオリジンを設定します。
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
 * `info` Object 
   * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
   * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
