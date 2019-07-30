@@ -132,7 +132,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列 
+* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列
 
 アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
 
@@ -282,7 +282,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `unemphasized-selected-text-background` - 非キーウィンドウまたはビューで選択されているテキストの背景。
     * `unemphasized-selected-text` - 非キーウィンドウまたはビューで選択されているテキスト。
     * `window-background` - ウィンドウの背景
-    * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。 
+    * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。
 
 戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
@@ -329,26 +329,62 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
 
+### `systemPreferences.canPromptTouchID()` *macOS*
+
+Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+
+**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+
+### `systemPreferences.promptTouchID(reason)` *macOS*
+
+* `reason` String - The reason you are asking for Touch ID authentication
+
+Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+
+```javascript
+const { systemPreferences } = require('electron')
+
+systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
+  console.log('You have successfully authenticated with Touch ID!')
+}).catch(err => {
+  console.log(err)
+})
+```
+
+This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+
+**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
-* `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
+* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 
-戻り値 `Boolean` -現在のプロセスが信頼されたアクセシビリティクライアントである場合 `true` で、そうでない場合は `false` です。
+Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` か `camera`。
+* `mediaType` String - `microphone` or `camera`.
 
-戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
+Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
-このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `granted` を返します。
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
-* `mediaType` String - 要求されるメディアのタイプで、`microphone`、`camera` にできます。
+* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
 
-戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更*しなければなりません*。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
+Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
 
-このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
+
+### `systemPreferences.getAnimationSettings()`
+
+戻り値 `Object`:
+
+* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
+* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+
+Returns an object with system animation settings.
