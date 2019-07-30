@@ -15,7 +15,7 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数 
+* `listener` Function 
   * `event` IpcRendererEvent
   * `...args` any[]
 
