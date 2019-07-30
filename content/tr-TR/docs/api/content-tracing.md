@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Tüm işlemler kaydetmeye başlayın.
 
 Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar. Bütün alt süreçler `startRecording` isteğini onayladıktan sonra `callback` çağırılır.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ Bütün alt süreçler, `stopRecording` isteğini onayladıktan sonra, `callback
 
 Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFilePath` içerisine yazılır. Eğer gerçek dosya yolu `null` değil ise `callback`'e geçirilir.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
@@ -102,7 +102,16 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `geri aramak` Function 
-  * `value` numara
-  * `percentage` numara
+  * Nesne 
+    * `value` numara
+    * `percentage` numara
 
 İzleme arabelleği işlemlerindeki maksimum kullanımı tam durum yüzdesi olarak alın. TraceBufferUsage değeri belirlendiğinde `callback` çağırılır.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `contentTracing.getTraceBufferUsage()`
+
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
