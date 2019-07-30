@@ -263,7 +263,7 @@ $ ./out/Debug/electron electron/spec
     </p>
     
     <p>
-      This can be set quickly in powershell (ran as administrator):
+      Questo può essere impostato rapidamente con powershell (eseguito con i diritti di amministratore):
     </p>
     
     <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force
@@ -278,7 +278,7 @@ $ ./out/Debug/electron electron/spec
     </h3>
     
     <p>
-      If <code>gclient sync</code> is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the <code>--break_repo_locks</code> argument to <code>gclient sync</code>.
+      If <code>gclient sync</code> is interrupted while using the git cache, it will leave the cache locked. Per rimuovere il blocco, passare il valore <code>--break_repo_lock</code> a <code>gclient sync</code>.
     </p>
     
     <h3>
@@ -286,5 +286,5 @@ $ ./out/Debug/electron electron/spec
     </h3>
     
     <p>
-      If you see a prompt for <code>Username for 'https://chrome-internal.googlesource.com':</code> when running <code>gclient sync</code> on Windows, it's probably because the <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> environment variable is not set to 0. Open <code>Control Panel</code> → <code>System and Security</code> → <code>System</code> → <code>Advanced system settings</code> and add a system variable <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> with value <code>0</code>. This tells <code>depot_tools</code> to use your locally installed version of Visual Studio (by default, <code>depot_tools</code> will try to download a Google-internal version that only Googlers have access to).
+      Se venisse visualizzata la richiesta di <code>Nome utente per 'https://chrome-internal.googlesource.com':</code> quando si esegue <code>gclient sync</code> su Windows, probabilmente è perché la variabile di ambiente <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> non è stata impostata a 0. Aprire <code>Pannello di Controllo</code> → <code>Sistema e Sicurezza</code> → <code>Sistema</code> → <code>Impostazioni avanzate di sistema</code> e aggiungre una variabile di sistema <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> impostando il valore a <code>0</code>. This tells <code>depot_tools</code> to use your locally installed version of Visual Studio (by default, <code>depot_tools</code> will try to download a Google-internal version that only Googlers have access to).
     </p>
