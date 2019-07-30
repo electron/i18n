@@ -90,7 +90,7 @@ menu の `pos` の位置に `menuItem` を挿入します。
 
 ### インスタンスイベント
 
-`new Menu` で作成されたオブジェクトでは以下のイベントが発生します。
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
@@ -120,17 +120,13 @@ menu のアイテムが入った配列 `MenuItem[]`。
 
 それぞれの `Menu` は複数の [`MenuItem`](menu-item.md) で構成され、それぞれの `MenuItem` はサブメニューを持つことができます。
 
-### インスタンスイベント
-
-`new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
-
 ## サンプル
 
-`Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### メインプロセス
+### Main process
 
-シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,9 +232,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### レンダラープロセス
+### Render process
 
-以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -257,42 +256,42 @@ window.addEventListener('contextmenu', (e) => {
 
 ## macOS アプリケーションメニューについて
 
-macOS は、Windows や Linux とは全く異なるスタイルのアプリケーションメニューです。ここにはあなたのアプリのメニューをよりネイティブにするための注意事項があります。
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### 標準メニュー
+### Standard Menus
 
-macOS ではシステムが定義する標準メニューがいくつかある。例えば、[`サービス`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) や`ウインドウ` メニューが該当する。 メニューを標準メニューにするには、メニューの `role` を次のいずれかに設定する必要があります。Electron はそれらを認識して標準メニューにします。
+On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `window`
 * `help`
 * `services`
 
-### 標準メニューアイテムアクション
+### Standard Menu Item Actions
 
-macOS はいくつかのメニューアイテムに、`About xxx` や `Hide xxx`、`Hide Others` といった標準アクションを提供しています。 メニューアイテムのアクションを標準アクションに設定するには、メニューアイテムの `role` 属性を設定する必要があります。
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### メインメニュー名
+### Main Menu's Name
 
-macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[情報プロパティリストファイルについて](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) を参照して下さい。
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
 ## 特定のブラウザウインドウのメニューの設定 (*Linux* *Windows*)
 
-ブラウザウインドウの [`setMenu` メソッド](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) は、特定のブラウザウインドウのメニューを設定できます。
+The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
 ## メニューアイテムの位置
 
-`Menu.buildFromTemplate` でメニューを構築するとき、アイテムをどのように配置するかを制御するのに、`before`, `after`, `beforeGroupContaining`, `afterGroupContaining`, `id` が使用できます。
+You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
 * `before` - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
 * `after` - 指定したラベルの後にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
 * `beforeGroupContaining` - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの前に、そのグループの配置を宣言する手段を提供します。
 * ` afterGroupContaining ` - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの後に、そのグループの配置を宣言する手段を提供します。
 
-デフォルトでは、指定された位置指定キーワードのうち1つも使用されていない限り、アイテムはテンプレートに存在する順序で挿入されます。
+By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
 ### サンプル
 
-テンプレート:
+Template:
 
 ```javascript
 [
@@ -312,7 +311,7 @@ Menu:
 - 4
 ```
 
-テンプレート:
+Template:
 
 ```javascript
 [
@@ -336,7 +335,7 @@ Menu:
 - 2
 ```
 
-テンプレート:
+Template:
 
 ```javascript
 [
