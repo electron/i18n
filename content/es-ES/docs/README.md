@@ -39,7 +39,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Barra de tareas de Windows personalizado](tutorial/windows-taskbar.md)
   * [Acciones de escritorio Linux personalizado](tutorial/linux-desktop-actions.md)
   * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
-  * [Detección de eventos Offline/Online](tutorial/online-offline-events.md)
+  * [Detección Offline y Online](tutorial/online-offline-events.md)
   * [Archivo representado por macOS BrowserWindows](tutorial/represented-file.md)
   * [Función nativa de arrastrar & soltar de archivos](tutorial/native-file-drag-drop.md)
   * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
