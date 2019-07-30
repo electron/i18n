@@ -149,7 +149,7 @@ Emitted when the mouse exits the tray icon.
 
 Emitted when the mouse moves in the tray icon.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 The `Tray` class has the following methods:
 
