@@ -52,6 +52,7 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`
