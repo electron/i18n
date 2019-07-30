@@ -1,4 +1,4 @@
-# IpcMainEvent Object extends `Event`
+# IpcMainEvent オブジェクト extends `Event`
 
 * `frameId` Integer - このメッセージを送信したレンダラーフレームのID
 * `returnValue` any - 同期メッセージで返された値がこれにセットされます
