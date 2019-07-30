@@ -25,7 +25,7 @@ If you've found a bug in a [supported version](#supported-versions) of Electron,
 
 ## Wspierane wersje
 
-Trzy ostatnie główne wersje są wpierane przez zespół Electron. Na przykład, jeśli ostatnią wersją jest 5.0.x, to również seria 4.x.y ma wsparcie, tak jak dwa poprzednie wydania - 3.x.y oraz 2.x.y.
+The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### Aktualnie wspierane wersje
 
-* 5.x
-* 4.x
-* 3.x
+* 6.x.y
+* 5.x.y
+* 4.x.y
 
 ### EOL
 
