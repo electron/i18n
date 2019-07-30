@@ -61,7 +61,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+et preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
@@ -87,7 +87,7 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Choses importantes à remarquer dans le script de préchargement :
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
@@ -112,7 +112,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `nativeImage`
   - `remote`
   - `webFrame`
-- `events`
+- `événements`
 - `timers`
 - `url`
 
