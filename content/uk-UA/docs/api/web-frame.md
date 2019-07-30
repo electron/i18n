@@ -173,7 +173,7 @@ Set the security origin of the isolated world.
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
-* `info` Об'єкт 
+* `info` Object 
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
   * `name` String (optional) - Name for isolated world. Useful in devtools.
