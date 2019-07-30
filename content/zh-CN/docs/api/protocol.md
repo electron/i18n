@@ -22,9 +22,40 @@ app.on('ready', () => {
 
 ** 注意: **除了指定的方法, 其他方法只能在 ` app ` 模块的 ` ready ` 事件被触发后使用。
 
+## Using `protocol` with a custom `partition` or `session`
+
+A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+
+To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+
+```javascript
+const { session, app, protocol } = require('electron')
+const path = require('path')
+
+app.on('ready', () => {
+  const partition = 'persist:example'
+  const ses = session.fromPartition(partition)
+
+  ses.protocol.registerFileProtocol('atom', (request, callback) => {
+    const url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  }, (error) => {
+    if (error) console.error('Failed to register protocol')
+  })
+
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      partition: partition
+    }
+  })
+})
+```
+
 ## 方法
 
-`protocol` 模块具有以下方法：
+The `protocol` module has the following methods:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
@@ -43,11 +74,11 @@ protocol.registerSchemesAsPrivileged([
 ])
 ```
 
-标准scheme遵循 RFC 3986 所设定的 [URI泛型语法 ](https://tools.ietf.org/html/rfc3986#section-3)。 例如, ` http ` 和 ` https ` 是标准协议, 而 ` file ` 不是。
+A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
-将一个scheme注册为标准scheme, 将保证相对和绝对资源在使用时能够得到正确的解析。 否则, 该协议将表现为 ` file ` 协议, 而且，这种文件协议将不能解析相对路径。
+Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
-例如, 当您使用自定义协议加载以下内容时，如果你不将其注册为标准scheme, 图片将不会被加载, 因为非标准scheme无法识别相对 路径:
+For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
 ```html
 <body>
@@ -55,9 +86,30 @@ protocol.registerSchemesAsPrivileged([
 </body>
 ```
 
-注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
+Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
 
-默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+
+`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+
+**before (<= v4.x)**
+
+```javascript
+// Main
+protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
+// Renderer
+webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
+webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
+```
+
+**after (>= v5.x)**
+
+```javascript
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'scheme1', privileges: { standard: true, secure: true } },
+  { scheme: 'scheme2', privileges: { standard: true, secure: true } }
+])
+```
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
@@ -73,13 +125,13 @@ protocol.registerSchemesAsPrivileged([
 * `completion` Function (可选) 
   * `error` Error
 
-注册一个 `scheme` 协议, 将该文件作为响应发送 当要使用 `scheme` 创建 `request` 时, 将使用 `handler(request, callback)` 来调用 `handler` 。 `completion` 将在 `scheme` 注册成功时通过`completion(null)` 调用，失败时通过`completion(error)` 调用。
+Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
-要处理 `request`, 应当使用文件的路径或具有 `path` 属性的对象来调用 `callback`。例如:`callback(filePath)`或 `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
+To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
-当 `callback` 被调用后，并且没有带着数字或 `error` 属性的对象时, `request`将会失败, 并且带有你指定的 `error`错误号。 更多的错误号信息，您可以查阅[网络错误列表](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-默认情况下, `scheme` 与 `http:`,类似, 它的分析方式不同于遵循 "generic URI syntax" 的协议(例如 `file:`), 所以您可能需要调用`protocol.registerStandardSchemes` 以使您的方案作为标准方案处理。
+By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
@@ -95,9 +147,9 @@ protocol.registerSchemesAsPrivileged([
 * `completion` Function (可选) 
   * `error` Error
 
-注册一个 `scheme` 协议, 将 `Buffer`作为响应发送
+Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
-该用法与 `registerFileProtocol` 相同, 只是`callback` 会被`Buffer`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
 示例:
 
@@ -125,9 +177,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-注册一个 `scheme` 协议, 将 `String` 作为响应发送
+Registers a protocol of `scheme` that will send a `String` as a response.
 
-该用法与 ` registerFileProtocol ` 相同, 只是`callback` 会被`String`对象或者带有`data`，`mimeType`和 `charset`属性的对象调用。
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -150,13 +202,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-注册一个 `scheme` 协议, 将 HTTP 请求作为响应发送
+Registers a protocol of `scheme` that will send an HTTP request as a response.
 
-该用法与 `registerFileProtocol` 相同, 只是`callback` 会被` redirectRequest `对象或者带有`url`, `method`, `referrer`, `uploadData` 和 `session` 属性的对象调用。
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
 
-默认情况下, HTTP 请求会重复使用当前的 session。如果希望请求具有不同的session, 则应将 `session`设置为 `null`.
+By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
-对于 POST 请求, 必须提供 ` uploadData ` 对象。
+For POST requests the `uploadData` object must be provided.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
@@ -173,9 +225,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-注册一个 `scheme` 协议, 将 ` Readable `作为响应发送
+Registers a protocol of `scheme` that will send a `Readable` as a response.
 
-该用法类似于 `register{Any}Protocol` ，只是`callback` 会被` Readable `对象或者带有`data`, `statusCode` 和 `headers` 属性的对象调用。
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
 示例:
 
@@ -203,7 +255,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-可以传递任何可读取流 API 的对象(`data`/`end`/`error` 事件)。以下是如何返回文件的方法示例:
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
 const { protocol } = require('electron')
@@ -222,7 +274,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (可选) 
   * `error` Error
 
-取消对自定义`scheme`的注册
+Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -230,9 +282,9 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `callback` Function 
   * `handled` Boolean
 
-`callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
+The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `protocol.isProtocolHandled(scheme)`
 
@@ -254,7 +306,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (可选) 
   * `error` Error
 
-终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个file。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -270,7 +322,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (可选) 
   * `error` Error
 
-终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`String`。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -286,7 +338,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (可选) 
   * `error` Error
 
-终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个`Buffer`。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -309,7 +361,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (可选) 
   * `error` Error
 
-终止 ` scheme ` 协议, 并将 ` handler ` 作为该protocol新的处理方式，即返回一个新 HTTP 请求。
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -326,7 +378,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (可选) 
   * `error` Error
 
-它与 ` registerStreamProtocol `方法相同, 不过它是用来替换现有的protocol处理方式。
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -334,4 +386,4 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (可选) 
   * `error` Error
 
-移除为 ` scheme ` 安装的拦截器，并还原其原始处理方式。
+Remove the interceptor installed for `scheme` and restore its original handler.
