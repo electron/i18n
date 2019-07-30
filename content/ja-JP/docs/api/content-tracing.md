@@ -112,6 +112,6 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+戻り値 `Promise<Object>` - トレースバッファの最大使用率の `value` と `percentage` を含むオブジェクトで実行されます。
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+完全な形式のパーセンテージとして、トレースバッファのプロセス間の最大使用率を取得します。
