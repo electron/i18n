@@ -57,7 +57,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `聆聽者` 函式 
   * `event` IpcMainEvent
   * `...args` any[]
 
