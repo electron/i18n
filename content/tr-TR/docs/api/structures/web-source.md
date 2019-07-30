@@ -1,5 +1,5 @@
 # WebSource Object
 
-* `code` String
+* `code` Dizgi
 * `url` String (optional)
 * `startLine` Integer (optional) - Default is 1.
