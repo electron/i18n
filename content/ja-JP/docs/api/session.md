@@ -88,7 +88,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 * `callback` Function 
   * `size` Integer - キャッシュサイズのバイト数。
-  * `error` Integer - The error code corresponding to the failure.
+  * `error` Integer - 失敗に対応するエラーコード。
 
 callback はセッションの現在のキャッシュサイズで呼ばれます。
 
@@ -96,12 +96,12 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+戻り値 `Promise<Integer>` - バイト単位の、session の現在のキャッシュサイズ。
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done. 
-  * `error` Integer - The error code corresponding to the failure.
+* `callback` Function - 操作が完了したときに呼ばれます。 
+  * `error` Integer - 失敗に対応するエラーコード。
 
 セッションの HTTP キャッシュをクリアします。
 
@@ -109,7 +109,7 @@ Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+戻り値 `Promise<void>` - キャッシュクリア操作が完了すると実行されます。
 
 セッションの HTTP キャッシュをクリアします。
 
@@ -121,7 +121,7 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
   * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
 * `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
-Clears the storage data for the current session.
+現在の session のストレージデータを消去します。
 
 **[非推奨予定](modernization/promisification.md)**
 
@@ -132,7 +132,7 @@ Clears the storage data for the current session.
   * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
   * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
 
-Returns `Promise<void>` - resolves when the storage data has been cleared.
+戻り値 `Promise<void>` - ストレージデータがクリアされると実行されます。
 
 #### `ses.flushStorageData()`
 
@@ -279,7 +279,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `url` URL
 
-Returns `Promise<string>` - Resolves with the proxy information for `url`.
+戻り値 `Promise<string>` - `url` のプロキシ情報で実行されます。
 
 #### `ses.setDownloadPath(path)`
 
@@ -406,7 +406,7 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 #### `ses.clearHostResolverCache()`
 
-Returns `Promise<void>` - Resolves when the operation is complete.
+戻り値 `Promise<void>` - 操作が完了すると実行されます。
 
 ホスト解決のキャッシュをクリアします。
 
@@ -453,7 +453,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `identifier` String - 有効な UUID。
 
-Returns `Promise<Buffer>` - resolves with blob data.
+戻り値 `Promise<Buffer>` - blob データで実行されます。
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -478,15 +478,15 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 **[非推奨予定](modernization/promisification.md)**
 
-#### `ses.clearAuthCache(options)` *(deprecated)*
+#### `ses.clearAuthCache(options)` *(非推奨)*
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+戻り値 `Promise<void>` - session の HTTP 認証キャッシュがクリアされると実行されます。
 
 #### `ses.clearAuthCache()`
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+戻り値 `Promise<void>` - session の HTTP 認証キャッシュがクリアされると実行されます。
 
 #### `ses.setPreloads(preloads)`
 
@@ -539,7 +539,7 @@ const { app, session } = require('electron')
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // いくつかのネットワークイベントのあと
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
