@@ -579,7 +579,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.getWebContentsId()`
 
-Returns `Number` - The WebContents ID of this `webview`.
+戻り値 `Number` - この `webview` の WebContents ID。
 
 ## DOM イベント
 
