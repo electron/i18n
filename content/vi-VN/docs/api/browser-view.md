@@ -75,6 +75,8 @@ Returns `Boolean` - Whether the view is destroyed.
 * `options` Object 
   * `width` Boolean - Nếu `true`, chiều ngang của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
   * `height` Boolean - Nếu `true`, chiều dọc của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Đang thử nghiệm*
 
