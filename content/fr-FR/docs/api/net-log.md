@@ -7,12 +7,11 @@ Processus : [Main](../glossary.md#main-process)
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   netLog.startLogging('/path/to/net-log')
-  // Après quelques évènements réseau
-  netLog.stopLogging(path => {
-    console.log('Net-logs écrits dans', path)
-  })
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
 
@@ -35,12 +34,20 @@ Commence d'enregistrer les évènements de réseau dans `path` .
 
 Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle sera automatiquement arrêtée quand l'application s'arrêtera.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `netLog.stopLogging()`
+
+Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+
+Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle sera automatiquement arrêtée quand l'application s'arrêtera.
+
 ## Propriétés
 
 ### `netLog.currentlyLogging`
 
-Une propriété `Boolean` qui indique si des logs réseau sont actuellement enregistrés.
+A `Boolean` property that indicates whether network logs are recorded.
 
 ### `netLog.currentlyLoggingPath`
 
-Une propriété `String` qui renvoie le chemin vers le log actuel.
+A `String` property that returns the path to the current log file.
