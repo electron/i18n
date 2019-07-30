@@ -112,7 +112,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `मूल छवि`
   - `दूरस्थ`
   - `वेबफ्रेम`
-- `events`
+- `इवेंट्स`
 - `timers`
 - `url`
 
