@@ -1,6 +1,6 @@
 # Objek JumpListItem
 
-* `mengetik` String (opsional) - Salah satu dari berikut ini: 
+* `type` String (opsional) - Salah satu dari berikut ini: 
   * ` tugas </ 0> - Tugas akan meluncurkan sebuah aplikasi dengan argumen tertentu.</li>
 <li><code> separator </ 0> - Dapat digunakan untuk memisahkan item dalam kategori <code> Tugas </ 0> 
 kategori.</li>
