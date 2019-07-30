@@ -185,27 +185,27 @@ sa macOS. Ang default ay <code>false`.
     * Ang `images` Boolean (opsyonal) - Pinapagana ang suporta sa imahe. Ang default ay `true`.
     * Ang `textAreasAreResizable` Boolean (opsyonal) - Palakihin ang sukat ng mga elemento ng TextArea. Ang default ay `true`.
     * Ang `webgl` Boolean (opsyonal) - Pinapagana ang suporta sa WebGL. Ang default ay `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
-    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Naka-default sa `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
+    * Ang `plugins` Boolean (opsyonal) - Kung ang mga plugin ay dapat na pinagana. Ang default ay `false`.
+    * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
+    * Ang `scrollBounce` Boolean (opsyonal) - Pinapagana ang pag-scroll bouce (pagra-rubber band) na epekto sa macOS. Ang default ay `false`.
+    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Ang buong listahan ng sinuportahang mga katangian ng string na maaaring matagpuan sa mga file ng [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `disableBlinkFeatures` String (opsyonal) - Ang talaan ng mga tampok ng strings ay pinag-hiwalay ng `,`, katulad ng `CSSVariables,KeyboardEventKey` upang hindi mapagana. Ang kabuoang listahan ng mga sinusuportahang tampok ng strings ay mahahanap sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) sa file.
+    * `ang defaultFontFamily` Bagay (opsyonal) - Itinatakda ang default na font para sa pamilya ng font. 
+      * Ang `standard` String (opsyonal) - Ang mga default para sa `Times New Roman`.
+      * Ang `serif` String (opsyonal) - Ang mga default para sa `Times New Roman`.
+      * Ang `sansSerif` String (opsyonal) - Ang mga default para sa `Arial`.
+      * Ang `monospace` String (opsyonal) - Ang mga default para sa `Courier New`.
+      * Ang `cursive` String (opsyonal) - Ang mga default para sa `Script`.
+      * Ang `fantasy` String (opsyonal) - Angmga default para sa `Impact`.
+    * Ang `defaultFontSize` Integer (opsyonal) - Ang mga default para sa `16`.
+    * Ang `defaultMonospaceFontSize` Integer (opsyonal) - Ang mga default para sa `13`.
+    * Ang `minimumFontSize` Integer (opsyonal) - Ang mga default para sa `0`.
+    * Ang `defaultEncoding` String (opsyonal) - Ang mga default para sa `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (opsyonal) - Kapag sinakal ang mga animation at timers kapag ang pahina ay maging background. Ito ay maaring makaapekto sa [Page Visibility API](#page-visibility). Ang default sa `tama`.
+    * `offscreen` Boolean (opsyonall) - Kung papaganahin ang pag-render ng offscreen para sa browser ng window. Naka-default sa `false`. Tignan ang [pagtuturo sa pag rerender ng offscreen](../tutorial/offscreen-rendering.md) para sa mas maraming paliwanag.
+    * `contextIsolation` Boolean (o[syonal) - Maging ang pagpapatakbo ng Electron APis at Ang pagtukoy `preload` Ang script sa magkakahiwalay na nilalaman ng JavaScript. Ang mga default para sa `false`. Ang nilalaman na iyon ang `preload` Ang script ay mayroong kabuuang access upang tumatakbo sa `dokumento` at `window` globals subalit gagamitin nito sarili nitong hilera ng pag-tatag ng JavaScript (`Array`, `Object`, `JSON`, etc.) at pinag-hihiwalay mula sa alinmang mga pagbabagong ginawa sa pandaigdigang kapaligiran sa paraan ng pag-karga ng pahina. Ang Electron API ay maaaring maging pwedi lamang sa `preload` ang script at hindi ang ikinargang pahina. Ang opsyon na ito ay kailangan magamit kapag Ang pagkakarga ng potensyal na hindi mapag-kakatiwalaan na nilalaman ng remote upang masiguro ang nilalaman ng pag-karga ay hindi pweding galawin ang `preload` Ang script at ang alinmang Electron APIs ay kasalukuyang ginagamit. Ang opsyon sa pag-gamit ng mag-katulad na estilo ay ginagamit ng [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Pwedii mong i-access ang nilalamang ito sa mga tool ng dev sa parang pagpili sa Ang ipinasok na 'Electron Isolated Context' sa kombo kaahon sa itaas ng Tab ng Console.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Naka-default sa `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Naka-default sa `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
+    * Ang `webviewTag` Boolean (opsyonal) - Kung pagaganahin ang [`<webview>` tag](webview-tag.md). Naka-default sa `false`. **Note:** Ang iskrip ng `preload` ay isinaayos para ang `<webview>` ay may pagsasama-sama ng node na pinagana kapag ito ay naisakatuparan kaya dapat mong siguraduhin na ang malayo/hindi mapagkakatiwalaang nilalaman ay hindi makakagawa ng isang tag`<webview>` na may isang posibleng malisyosong iskrip `preload`. Maaari mong gamitin ang kaganapan ng `will-attach-webview` sa [webContents](web-contents.md) para tanggalin ang iskrip ng `preload` at patunayan o pasubalian ang inisyal na mga pagtatakda sa `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
@@ -1002,9 +1002,9 @@ Returns `Promise<void>` - the promise will resolve when the page has finished lo
 
 Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+Ang ` url ` ay maaaring maging isang remote address (hal. ` http: // `) o isang path sa isang lokal na HTML file gamit ang protocol na ` file: // `.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Upang matiyak na ang mga URL ng file ay maayos na nai-format, inirerekomendang gamitin ito Node's [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) na paraan:
 
 ```javascript
 let url = require('url').format({
@@ -1015,7 +1015,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Maaari kang mag-load ng isang URL gamit ang isang ` POST ` na kahilingan gamit ang URL-naka-encode na data sa pamamagitan ng paggawa ang mga sumusunod:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1041,7 +1041,7 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Tulad ng `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
@@ -1059,42 +1059,42 @@ Remove the window's menu bar.
 * `options` Na Bagay (opsyonal) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Nagtatakda ng halaga ng pag-unlad sa progress bar. Ang wastong saklaw ay [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Alisin ang progress bar kapag umuunlad<0; Baguhin sa indeterminate mode kapag umuunlad> 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Sa platform ng Linux, sinusuportahan lamang ng Unity desktop na environment, kailangan mong tukuyin ang pangalan ng `*.desktop` file name to `desktopName ` sa ` package.json `. Bilang default, ito ay ipinapalagay `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Sa windows, ang mode ay maaring makapasa. Tinatanggap na mga balyu ay `none`, `normal`, `indeterminate`, `error`, and `paused`. Kung tumawag ka ng ` setProgressBar ` nang walang isang mode set (ngunit may halaga sa loob ng wastong hanay), ipagpalagay na ` normal `.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
 * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 * `description` String - Ang deskripsyon na dapat maibigay pasa sa Accessibility screen readers
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskbar, kadalasang ginagamit sa ihatid ang ilang mga uri ng katayuan ng application o upang pasabihan ipagbigay-alam sa gumagamit.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
 #### `win.hasShadow()` *macOS* 
 
-Returns `Boolean` - Whether the window has a shadow.
+Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
-On Windows and Linux always returns `true`.
+Palaging nagbabalik ang Windows at Linux `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
 * `opacity` Number - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Nagtatakda ng opacity ng window. Sa Linux walang ginagawa.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Ibinabalik ang `Number` - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
@@ -1106,13 +1106,13 @@ Setting a window shape determines the area within the window where the system pe
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Ibinibalik ang `Boolean` - Kung saan ang mga buttons ay naidagdag ng matagumpay
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Ibinibalik ang ` Boolean ` kung ang thumbnail ay matagumpay na naidagdag.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki kaysa sa 7 dahil sa ang limitadong kuwarto. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. Ngunit maaari mong tawagan ang API na walang laman na array upang linisin ang mga pindutan.
 
-The `buttons` is an array of `Button` objects:
+Ang `buttons` ay isang array ng `Button` objects:
 
 * `Button` Bagay 
   * `icon` [NativeImage](native-image.md) - Ang icon na ipinapakita sa thumbnail ng toolbar.
@@ -1133,13 +1133,13 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 * `region` [Rectangle](structures/rectangle.md) - Rehiyon ng window
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnail sa taskbar.
 
 #### `win.setAppDetails(options)` *Windows*
 
@@ -1150,19 +1150,19 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+Itakda ang ari-arian para sa window's taskbar na button.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
 
 #### `win.showDefinitionForSelection()` *macOS* 
 
-Same as `webContents.showDefinitionForSelection()`.
+Tulad nang`webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Pinagbabago ang window icon.
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
@@ -1176,23 +1176,23 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Itakda kung ang window menu bar ay dapat itago ang sarili na awtomatiko. Kapag naitakda na ang menu bar ay ipapakita lamang kung ang gumagamit ay pipindutin ang single na `Alt` key.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Kpag ang menu bar ay kasalukuyang makikita, ang pag-tawag `setAutoHideMenuBar(true)` hindi ito kayang itago agad.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Ang mga pagbalik `Boolean` - kung ito ay awtomatikong itinatago ng menu bar.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+I-takda kung saan ang menu bar ay maaring makita. kapag ang menu bar ay kusang nagtatago sa taga-gamit pwedi pa ring ilabas ang menu bar sa paraan ng solong pagpindut `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
@@ -1200,15 +1200,15 @@ Returns `Boolean` - Whether the menu bar is visible.
 * `options` Na Bagay (opsyonal) 
   * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
-Sets whether the window should be visible on all workspaces.
+Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
 
-**Note:** This API does nothing on Windows.
+**Tandaan:** Ang API ay walang magagawa para sa windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng workspaces.
 
-**Note:** This API always returns false on Windows.
+**Tandaan:** Itong API ay palaging ibinabalik na huwad para sa windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1216,81 +1216,81 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 * `options` Na Bagay (opsyonal) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
-Makes the window ignore all mouse events.
+Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Lahat ng mouse na kaganapan dito sa window ay maaring dumaan para sa window sa ibaba ng window, pero kung ang window ay may focus, ito ay makakatanggap parin ng keyboard na kaganapan.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Ang pag-pigil sa mga nilalaman ng window mula sa kumkuha ng iba pang apps.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+Sa macOS itinatakda nito ang pagbabahagi ng NSWindow sa NSWindowSharingNone. Sa Windows tinatawagan nito ang SetWindowDisplayAffinity sa `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Binabago kung ang window ay maaaring nakatuon.
 
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Ang mga pagtatakda`peyrent`bilang isang peyrent ng window, na dumadaan sa `null` babalik sa kasalukuyang window sa isang mataas na antas ng window.
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Ibinabalik kung `BrowserWindow` - Ang magulang na window.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Kinokontrol kung ang cursor ay itatago kapag nag-type.
 
 #### `win.selectPreviousTab()` *macOS* 
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa mga tab sa window.
 
 #### `win.selectNextTab()` *macOS* 
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong iba pa mga tab sa window.
 
 #### `win.mergeAllWindows()` *macOS* 
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang mga native na tab ay gumagana at mayroong higit sa isang bukas na window.
 
 #### `win.moveTabToNewWindow()` *macOS* 
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Inililipat ang kasalukuyang tab sa isang bagong window kung pinagana ang mga native na tab at mayroong higit sa isang tab sa kasalukuyang window.
 
 #### `win.toggleTabBar()` *macOS* 
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Tina-toggle ang kakayahang makita ng tab na bar kung pinagana ang mga native na tab at mayroon lamang isang tab sa kasalukuyang window.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` ang BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Nagdagdag ng window na isang tab sa window, pagkatapos ng tab para sa window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Tignan ang[macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) para sa ibang detalye.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Nadagdagan ng isang epekto sa pagkalantad sa window ng browser. Pagpasa `null` o ang isang walang laman na string ay tatangalin ang epekto ng pagkalantad sa window.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` or `undefined` Nililinis ang touch bar. Ang paraan na ito lamang ang may epekto sa Ang makina ay merong nahahawakang bar at napapatakbo ito sa macOS 10.12.1+.
 
 **Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron. 
 
@@ -1316,7 +1316,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
 ### Mga Katangian
 
