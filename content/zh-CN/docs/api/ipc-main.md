@@ -57,7 +57,7 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数 
+* `listener` Function 
   * `event` IpcMainEvent
   * `...args` any[]
 
