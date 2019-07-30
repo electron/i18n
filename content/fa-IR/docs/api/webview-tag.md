@@ -331,7 +331,7 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `code` String
+* `متن`
 * `userGesture` Boolean (optional) - Default `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
