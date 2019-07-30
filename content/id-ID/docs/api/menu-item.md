@@ -12,7 +12,7 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `klik` Fungsi (opsional) - akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
-    * `acara` Acara
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `jenis` String (opsional) - dapat `normal`, `pemisah`, `submenu`, `kotak centang` atau `radio`.
   * `label` String (optional)
@@ -20,27 +20,30 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `Accelerator` [Accelerator](accelerator.md) (opsional)
   * `ikon` ([NativeImage](native-image.md) | String) (opsional)
   * `diaktifkan` Boolean (opsional) - jika palsu, menu item akan diklik keluar dan unclickable.
-  * `terlihat` Boolean (opsional) - jika palsu, menu item akan sepenuhnya tersembunyi.
-  * `memeriksa` Boolean (opsional) - harus hanya ditentukan untuk `centang` atau `radio` jenis item menu.
+  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
+  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
+  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (opsional) - unik dalam menu tunggal. Jika ditentukan kemudian dapat digunakan sebagai referensi untuk item ini oleh posisi atribut.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
+
 ### Peran
 
-Peran memungkinkan item menu untuk memiliki standar perilaku.
+Roles allow menu items to have predefined behaviors.
 
-Terbaik untuk menetapkan `peran` untuk setiap item menu yang sesuai peran standar, daripada berusaha untuk secara manual menerapkan perilaku dalam fungsi `Klik`. Perilaku internal `peran` akan memberikan pengalaman asli terbaik.
+It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 
-Nilai-nilai `label` dan `akselerator` opsional ketika menggunakan `peran` dan akan default ke nilai-nilai yang sesuai untuk setiap platform.
+The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-Properti `peran` dapat memiliki nilai-nilai berikut:
+The `role` property can have following values:
 
 * `membatalkan`
 * `mengulang`
@@ -93,7 +96,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh-contoh dari `MenuItem`:
+The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.id`
 
@@ -107,8 +110,8 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
-* `event</ 0> Acara</li>
-<li><code>focusedWindow` [BrowserWindow](browser-window.md)
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `focusedWindow` [BrowserWindow](browser-window.md)
 * `focusedWebContents` [WebContents](web-contents.md)
 
 #### `menuItem.submenu`
@@ -137,21 +140,21 @@ A `String` indicating the item's sublabel, this property can be dynamically chan
 
 #### `menuItem.enabled`
 
-`Boolean` menunjukkan apakah item diaktifkan, properti ini dapat secara dinamis berubah.
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `menuItem.visible`
 
-`Boolean` menunjukkan item Apakah terlihat, properti ini dapat secara dinamis berubah.
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `menuItem.checked`
 
-`Boolean` menunjukkan apakah item dicentang, properti ini dapat secara dinamis berubah.
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-Item menu `kotak centang` akan beralih `memeriksa` properti on dan off ketika dipilih.
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-`Radio` menu item akan menyala `memeriksa` properti ketika diklik, dan akan menonaktifkan properti itu untuk semua item yang berdekatan di menu yang sama.
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
+You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
