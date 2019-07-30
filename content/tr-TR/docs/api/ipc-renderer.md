@@ -15,21 +15,25 @@ Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 ### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` Function 
+  * `event` IpcRendererEvent
+  * `...args` herhangi[]
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcRenderer.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` Fonksyion 
+  * `event` IpcRendererEvent
+  * `...args` herhangi[]
 
 Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
 ### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` fonksiyon
 
 Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
@@ -78,8 +82,4 @@ Sends a message to a window with `webContentsId` via `channel`.
 
 ## Etkinlik objesi
 
-`geri çağırma`'ya iletilen `olay` nesnesi aşağıdaki yöntemleri içerir:
-
-### `event.senderId`
-
-Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
