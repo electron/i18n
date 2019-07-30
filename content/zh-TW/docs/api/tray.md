@@ -196,7 +196,7 @@ Returns `String` - the title displayed next to the tray icon in the status bar
 
 Sets when the tray's icon background becomes highlighted (in blue).
 
-**[Deprecated](breaking-changes.md#tray)**
+**[已被取代](breaking-changes.md#tray)**
 
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
@@ -232,7 +232,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (選用) -
   * `title` String
   * `content` String
 
@@ -240,7 +240,7 @@ Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
+* `menu` Menu (選用)
 * `position` [Point](structures/point.md) (optional) - The pop up position.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
