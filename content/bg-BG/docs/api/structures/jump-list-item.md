@@ -11,3 +11,4 @@
 * `description` String (по избор) - Описание на задачата (показва се в подсказка). Трябва да се зададе само ако `type` е `task`.
 * `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). Обикновено можете да укажете `process.execPath` да покаже иконата на програмата.
 * `iconIndex` Number (по избор) - Индексът на иконата в ресурсния файл. Ако ресурсен файл съдържа няколко икони, тази стойност може да се използват за указване на 0-баиран индекс на иконата, която трябва да се показва за тази задача. Ако ресурсен файл съдържа само една икона, това свойство трябва да бъде равно на нула.
+* `workingDirectory` String (optional) - The working directory. Default is empty.
