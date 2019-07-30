@@ -55,17 +55,17 @@ app.on('ready', () => {
 
 ## メソッド
 
-The `protocol` module has the following methods:
+`protocol` モジュールには以下のメソッドがあります。
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API をサポートします。
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+この機能を有効にするには、値を `true` で指定します。 コンテンツセキュリティポリシーを迂回して特権スキームを登録する例：
 
 ```javascript
 const { protocol } = require('electron')
@@ -74,11 +74,11 @@ protocol.registerSchemesAsPrivileged([
 ])
 ```
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+標準スキームは、RFC 3986 で [Generic URI Syntax](https://tools.ietf.org/html/rfc3986#section-3) と呼ぶものに準拠しています。 例えば `http` と `https` は標準スキームですが、`file` はそうではありません。
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+スキームを標準として登録することにより、サービスが提供されるときに相対的および絶対的なリソースが正しく解決されます。 そうでないと、スキームは `file` プロトコルのように動作しますが、相対 URL を解決することはできません。
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+たとえば、標準スキームとして登録せずにカスタムプロトコルで以下のページをロードすると、非標準スキームが相対URLを認識できないため、イメージはロードされません。
 
 ```html
 <body>
@@ -86,9 +86,9 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+スキームを標準で登録すると、[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+デフォルトでは、非標準スキームはウェブストレージ API (localStorage, sessionStorage, webSQL, indexedDB, cookies) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
 `protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
 
@@ -125,11 +125,11 @@ protocol.registerSchemesAsPrivileged([
 * `completion` Function (任意) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
+ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `request` が `scheme` で作成されると、`handler` が `handler(request, callback)` で呼び出されます。 `completion` は、`scheme` が正常に登録された場合は `completion(null)`、失敗した場合は `completion(error)` で呼び出されます。
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
+`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 オブジェクトは、レスポンスヘッダの値にヘッダのマップを与える `headers` プロパティ - 例えば `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})` - を持つこともできます。
 
-When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
 
 By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
 
@@ -149,9 +149,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error</ul> 
       
-      Registers a protocol of `scheme` that will send a `Buffer` as a response.
+      `Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
       
-      The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+      使用法は `registerFileProtocol` と同じですが、 `callback` を `Buffer` オブジェクト、または `data`、`mimeType` 、`charset` プロパティを持つオブジェクトで呼び出す必要があります。
       
       サンプル:
       
@@ -179,9 +179,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Registers a protocol of `scheme` that will send a `String` as a response.
+      `String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
       
-      The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+      使用法は `registerFileProtocol` と同じですが、 `callback` を `String` オブジェクト、または `data`、`mimeType` 、`charset` プロパティを持つオブジェクトで呼び出す必要があります。
       
       ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
       
@@ -204,13 +204,13 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Registers a protocol of `scheme` that will send an HTTP request as a response.
+      HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
       
-      The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+      使用法は `registerFileProtocol` と同じですが、 `callback` を `redirectRequest` オブジェクト、または `url`、`method` 、`referrer`、`uploadData`、`session` プロパティを持つオブジェクトで呼び出す必要があります。
       
-      By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+      デフォルトでは、HTTP リクエストは現在のセッションを再利用します。リクエストが別のセッションであるようにするには、`session` を `null` に設定する必要があります。
       
-      For POST requests the `uploadData` object must be provided.
+      POST リクエストの場合、`uploadData` オブジェクトを提供する必要があります。
       
       ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
       
@@ -227,9 +227,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Registers a protocol of `scheme` that will send a `Readable` as a response.
+      `Readable` をレスポンスとして送信する `scheme` のプロトコルを登録します。
       
-      The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+      使用法は `register{Any}Protocol` と同じですが、 `callback` を `Readable` オブジェクト、または `data`、`statusCode` 、`headers` プロパティを持つオブジェクトで呼び出す必要があります。
       
       サンプル:
       
@@ -238,7 +238,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       const { PassThrough } = require('stream')
       
       function createStream (text) {
-        const rv = new PassThrough() // PassThrough is also a Readable stream
+        const rv = new PassThrough() // PassThrough は Readable ストリームでもある
         rv.push(text)
         rv.push(null)
         return rv
@@ -257,7 +257,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       })
       ```
       
-      It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+      Readable ストリーム API (`data` / `end` / `error` イベントが発生する) を実装するオブジェクトを渡すことは可能です。例として、ファイルを返す方法を以下に示します。
       
       ```javascript
       const { protocol } = require('electron')
@@ -266,7 +266,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       protocol.registerStreamProtocol('atom', (request, callback) => {
         callback(fs.createReadStream('index.html'))
       }, (error) => {
-        if (error) console.error('Failed to register protocol')
+        if (error) console.error('プロトコルの登録に失敗しました')
       })
       ```
       
@@ -276,7 +276,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Unregisters the custom protocol of `scheme`.
+      `scheme` のカスタムプロトコルを登録解除します。
       
       ### `protocol.isProtocolHandled(scheme, callback)`
       
@@ -284,7 +284,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `callback` Function 
         * `handled` Boolean
       
-      The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+      `scheme` のハンドラがすでにあるかどうかを示す Boolean で `callback` が呼び出されます。
       
       **[非推奨予定](modernization/promisification.md)**
       
@@ -292,7 +292,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       
       * `scheme` String
       
-      Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
+      戻り値 `Promise<Boolean>` - `scheme` のハンドラがすでに存在するかどうかを示すブール値が入ります。
       
       ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
       
@@ -308,7 +308,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+      `scheme` プロトコルを傍受し、ファイルをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
       
       ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
       
@@ -324,7 +324,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+      `scheme` プロトコルを傍受し、`String` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
       
       ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
       
@@ -340,7 +340,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+      `scheme` プロトコルを傍受し、`Buffer` をレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
       
       ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
       
@@ -363,7 +363,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+      `scheme` プロトコルを傍受し、新しい HTTP リクエストをレスポンスとして送信するプロトコルの新しいハンドラとして `handler` を使用します。
       
       ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
       
@@ -380,7 +380,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+      `protocol.registerStreamProtocol` と同じですが、既存のプロトコルハンドラを置き換える点が異なります。
       
       ### `protocol.uninterceptProtocol(scheme[, completion])`
       
@@ -388,4 +388,4 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
       * `completion` Function (任意) 
         * `error` Error
       
-      Remove the interceptor installed for `scheme` and restore its original handler.
+      `scheme` のためにインストールされた傍受するハンドラを削除し、元のハンドラを復元します。
