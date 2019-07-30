@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Precarga
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Una aplicación puede hacer personalizaciones a los renderizadores de las cajas de arena usando un script precargado. Aquí hay un ejemplo:
 
 ```js
 let win
@@ -61,12 +61,12 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+y preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of Electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// Este archivo se carga cada vez que se crea un contexto de javascript. It runs in a
+// private scope that can access a subset of Electron renderer APIs. Debemos ser
+// cuidadosos de no dejar salir ningún objeto en el ámbito global!
 const { ipcRenderer, remote } = require('electron')
 const fs = remote.require('fs')
 
@@ -87,13 +87,13 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Cosas importantes que notar en el script precargado:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
+- El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`.
 - El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
 ```sh
   browserify preload/index.js \
@@ -101,30 +101,30 @@ To create a browserify bundle and use it as a preload script, something like the
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` Asegurará que `process`, `Buffer` y `setImmediate` también sean llevado para el ambiente cerrado (normalmente browsefiry inyecta códigos para ellos).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
 
 - `electron` 
   - `crashReporter`
   - `desktopCapturer`
   - `ipcRenderer`
-  - `NativeImage`
+  - `nativeImage`
   - `remote`
   - `webFrame`
-- `events`
-- `timers`
+- `eventos`
+- `contadores`
 - `url`
 
 More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
 ## Estado
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
 
 Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Una mejora planificada que debería incrementar mucho la seguridad es bloquear los mensajes IPC de los renderizadores de la caja de arena por defecto, permitiendo al proceso principal definir un grupo de mensajes que el renderizador está autorizado para enviar.
