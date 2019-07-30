@@ -48,7 +48,7 @@ Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Punsyon 
+* `listener` Function 
   * `event` IpcMainEvent
   * `...args` anuman[]
 
@@ -57,7 +57,7 @@ Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Punsyon 
+* `listener` Function 
   * `event` IpcMainEvent
   * `...args` anuman[]
 
