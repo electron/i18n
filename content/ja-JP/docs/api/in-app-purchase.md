@@ -43,36 +43,36 @@ Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-  * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - 取得する製品の識別子。
+* `callback` Function - コールバックは製品のリストで呼ばれます。製品が存在しない場合は空の配列です。 
+  * `products` Product[] - [`Product`](structures/product.md) オブジェクトの配列。
 
-Retrieves the product descriptions.
+製品説明を探します。
 
 **[非推奨予定](modernization/promisification.md)**
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - 取得する製品の識別子。
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retrieves the product descriptions.
+製品説明を探します。
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+戻り値 `Boolean` - ユーザが支払いできるかどうか。
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+戻り値 `String` - 領収書へのパス。
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+すべての保留中の取引を完了させます。
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - 取引を終える ISO 形式の日付。
 
-Completes the pending transactions corresponding to the date.
+日付に対応するすべての保留中の取引を完了させます。
