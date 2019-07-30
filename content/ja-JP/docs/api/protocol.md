@@ -22,9 +22,9 @@ app.on('ready', () => {
 
 **注釈:** 指定されていないすべてのメソッドは、`app` モジュールの `ready` イベントが発生した後にのみ使用できます。
 
-## Using `protocol` with a custom `partition` or `session`
+## `protocol` をカスタムの `partition` や `session` で使用する
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+プロトコルは特定の Electron [`session`](./session.md) オブジェクトに登録されます。 セッションを指定しない場合は、Electron が使用するデフォルトセッションに `protocol` が適用されます。 However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
 
 To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
 
