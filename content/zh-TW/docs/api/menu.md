@@ -90,7 +90,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 ### 物件事件
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
@@ -120,15 +120,11 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-### 物件事件
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
-
 ## 範例
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### 主處理序
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,7 +232,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### 畫面轉譯處理序
+### Render process
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -303,7 +302,7 @@ Template:
 ]
 ```
 
-選單:
+Menu:
 
 ```sh
 <br />- 1
@@ -325,7 +324,7 @@ Template:
 ]
 ```
 
-選單:
+Menu:
 
 ```sh
 <br />- 3
@@ -346,7 +345,7 @@ Template:
 ]
 ```
 
-選單:
+Menu:
 
 ```sh
 <br />- ---
