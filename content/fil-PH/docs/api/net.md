@@ -36,16 +36,16 @@ app.on('ready', () => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+Ang API ng `net` ay maaari lamang gamitin pagkatapos na angaplikasyon ay ilalabas ang event ng `ready`. Kapag sinusubukang gamitin ang modyul bago ang event ng `ready` ay magdudulot ng pagkakamali.
 
 ## Mga Paraan
 
-The `net` module has the following methods:
+Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
 ### `net.request(options)`
 
 * `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
 
-Returns [`ClientRequest`](./client-request.md)
+Ang nagbabalik na [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Lumilikha ng isang instansya sa [`ClientRequest`](./client-request.md) na ginagamit ang ibinigay na `options` kung saan ay direktang ipapasa sa tagapagbuo ng `ClientRequest`. Ang pamamaraan ng `net.request` ay maaaring gamitin para mag-isyu ng kapwa ligtas at hindi ligtas na mga kahilingan ng HTTP ayon sa tinukoy na pamamaraan ng protocol sa mga bagay ng `options`.
