@@ -78,4 +78,4 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## イベントオブジェクト
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+`callback` に渡された `event` オブジェクトに関するドキュメントは、[`ipc-main-event`](structures/ipc-main-event.md) 構造体ドキュメントにあります。
