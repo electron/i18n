@@ -101,7 +101,7 @@ Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -116,7 +116,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -182,7 +182,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
