@@ -501,7 +501,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `обратно повикване` Функция 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -807,7 +807,7 @@ Fired when the renderer process is crashed.
 
 Връща:
 
-* `name` String
+* `name` String - Име
 * `version` String
 
 Fired when a plugin process is crashed.
