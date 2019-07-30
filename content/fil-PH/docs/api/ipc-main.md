@@ -8,7 +8,7 @@ Ang `ipcMain` modyul ay isang halimbawa ng [EventEmitter](https://nodejs.org/api
 
 ## Ipinadalang mga mensahe
 
-Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
+It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
 
 * Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.
@@ -48,14 +48,18 @@ Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Punsyon
+* `listener` Punsyon 
+  * `event` IpcMainEvent
+  * `...args` anuman[]
 
 Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Punsyon
+* `listener` Punsyon 
+  * `event` IpcMainEvent
+  * `...args` anuman[]
 
 Nagdadagdag ng isang beses na punsyon ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
 
@@ -74,20 +78,4 @@ Tinatanggal ang mga tagapakinig ng tinukoy na `channel`.
 
 ## Ang bagay ng event
 
-Ang bagay `event` na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
-
-### `event.frameId`
-
-An `Integer` representing the ID of the renderer frame that sent this message.
-
-### `event.returnValue`
-
-Itakda ang mga ito sa halaga na ibabalik sa isang mensahe ng synchronous.
-
-### `event.sender`
-
-Nagbabalik ang `webContents` na nagpadala ng mensahe, maaari mong tawagan ang `event.sender.send` upang tumugon sa mensahe ng asynchronous, tingnan ang [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
-
-### `event.reply`
-
-A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
