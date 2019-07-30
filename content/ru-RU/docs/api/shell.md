@@ -22,15 +22,13 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Возвращает `Boolean` - Успешно ли был показан объект.
-
-Показывает данный файл в файловом менеджере. Если возможно, выбирает файл.
+Show the given file in a file manager. If possible, select the file.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Возвращает `Boolean` - Успешно ли был открыт объект.
+Returns `Boolean` - Whether the item was successfully opened.
 
 Open the given file in the desktop's default manner.
 
@@ -44,6 +42,8 @@ Open the given file in the desktop's default manner.
 Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+**Deprecated**
 
 ### `shell.openExternal(url[, options])`
 
