@@ -198,7 +198,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+To wygeneruje:
 
 ```javascript
 {
