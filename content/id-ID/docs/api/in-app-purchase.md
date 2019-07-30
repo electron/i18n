@@ -43,36 +43,36 @@ Anda harus menunggu even `transactions-updated` sesegera mungkin dan tentu saja 
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-  * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - Pengenal produk yang akan didapatkan.
+* `callback` Function - Callback yang dipanggil beserta produk atau array kosong jika produk tidak tersedia. 
+  * `products` Product[] - Array dari objek [`Product`](structures/product.md)
 
-Retrieves the product descriptions.
+Mendapatkan deskripsi produk.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - Pengenal produk yang akan didapatkan.
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retrieves the product descriptions.
+Mendapatkan deskripsi produk.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Mengembalikan `Boolean`, apakah pengguna bisa melakukan pembayaran.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Mengembalikan `String`, lokasi untuk menyimpan stuk transaksi.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Menyelesaikan semua transaksi yang tertunda.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - Tanggal transaksi selesai dalam format ISO.
 
-Completes the pending transactions corresponding to the date.
+Selesaikan setiap transaksi tertunda.
