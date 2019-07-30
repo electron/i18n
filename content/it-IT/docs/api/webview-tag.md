@@ -153,7 +153,7 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Assegnando la stessa `partition`, è possibile condividere per più pagine la stessa sessione. If the `partition` is unset then default session of the app will be used.
+Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. se non c'è un prefisso `persist: `, la pagina userà una sessione in memoria. Assegnando la stessa `partition`, è possibile condividere per più pagine la stessa sessione. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -331,7 +331,7 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -478,10 +478,10 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
-  * `error` Error
+  * `errore` Errore
   * `data` Buffer - contiene il pdf generato
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Stampa la pagina web del `webview` in formato PDF, questo metodo è identico a `webContents.printToPDF(options, callback)`.
 
 **[Deprecated Soon](modernization/promisification.md)**
 
