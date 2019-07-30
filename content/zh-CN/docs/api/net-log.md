@@ -34,7 +34,7 @@ app.on('ready', async function () {
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
-**[马上将弃用](modernization/promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 ### `netLog.stopLogging()`
 
@@ -46,8 +46,8 @@ Returns `Promise<String>` - resolves with a file path to which network logs were
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+`Boolean` 类型的属性，指示网络日志是否被记录。
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+`String` 类型的属性，返回当前的日志文件路径。
