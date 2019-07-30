@@ -90,7 +90,7 @@ Insere o `menuItem` na posição `pos` do menu.
 
 ### Eventos de instância
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
@@ -120,17 +120,13 @@ Um array `MenuItem[]` contendo os itens do menu.
 
 Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
 
-### Eventos de instância
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
-
 ## Exemplos
 
-A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Processo principal
+### Main process
 
-Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,9 +232,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Processo de renderização
+### Render process
 
-Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -259,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Menus Padrão
+### Standard Menus
 
 On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -267,11 +266,11 @@ On macOS there are many system-defined standard menus, like the [`Services`](htt
 * `help`
 * `services`
 
-### Ações padronizadas para Item de Menu
+### Standard Menu Item Actions
 
-O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Nome do Menu Principal
+### Main Menu's Name
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -292,7 +291,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Exemplos
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -312,7 +311,7 @@ Menu:
 - 4
 ```
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -336,7 +335,7 @@ Menu:
 - 2
 ```
 
-Modelo:
+Template:
 
 ```javascript
 [
