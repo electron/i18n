@@ -66,11 +66,7 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'click'
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 * `position` [Point](structures/point.md) - la position de l’événement.
 
@@ -78,22 +74,14 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'right-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
 #### Événement : 'double-click' *macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur double clique sur l’icône.
@@ -142,33 +130,21 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris entre dans la zone de l’icône.
 
 #### Événement : 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris sort de la zone de l’icône.
 
 #### Événement : 'mouse-move' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris bouge dans la zone de l’icône.
@@ -203,18 +179,26 @@ Définit le texte au survol pour l'icône.
 
 * `title` String
 
-Définit le titre affiché à côté de l’icône dans la barre d’État (Supporte les couleurs ANSI).
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+
+#### `tray.getTitle()` *macOS*
+
+* `title` String
+
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - mode de surbrillance avec l'une des valeurs suivante : 
-  * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
-  * `always` - Toujours mettre en surbrillance l’icône.
-  * `never` - Jamais mettre en surbrillance l’icône.
+* `mode` String - Highlight mode with one of the following values: 
+  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
+  * `always` - Always highlight the tray icon.
+  * `never` - Never highlight the tray icon.
 
-Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
+Sets when the tray's icon background becomes highlighted (in blue).
 
-**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
+**[Deprecated](breaking-changes.md#tray)**
+
+**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -237,44 +221,44 @@ win.on('hide', () => {
 
 * `ignore` Boolean
 
-Définie l'option pour ignorer les événements de double clic. Ignorer ces évènements vous permet de détecter chaque simple clic sur l’icône dans la barre des tâches.
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
-Cette valeur est définie à <0>false</0> par défaut.
+This value is set to false by default.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Retourne un `Boolean` - Si oui ou non les événènements de double clic seront ignorés.
+Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | String) (optionnel)
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-Affiche une bulle dans la barre d'État.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (facultatif)
-* `position` [Point](structures/point.md) (facultatif) - Position du menu.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Définit le menu contextuel de l'icône.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Retourne `Boolean` - si l’icône est détruite.
+Returns `Boolean` - Whether the tray icon is destroyed.
