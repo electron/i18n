@@ -90,7 +90,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Zdarzenia instancji
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
@@ -120,15 +120,11 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-### Zdarzenia instancji
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
-
 ## Przykłady
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Główny proces
+### Main process
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,7 +232,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Proces renderowania
+### Render process
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -259,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
-### Menu standardowe
+### Standard Menus
 
 On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -271,7 +270,7 @@ On macOS there are many system-defined standard menus, like the [`Services`](htt
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-### Nazwa głównego Menu
+### Main Menu's Name
 
 On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
@@ -292,7 +291,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Przykłady
 
-Szablon:
+Template:
 
 ```javascript
 [
@@ -312,7 +311,7 @@ Menu:
 - 4
 ```
 
-Szablon:
+Template:
 
 ```javascript
 [
@@ -336,7 +335,7 @@ Menu:
 - 2
 ```
 
-Szablon:
+Template:
 
 ```javascript
 [
