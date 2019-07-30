@@ -43,7 +43,7 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+La proprietà `role` può avere i seguenti valori:
 
 * `undo`
 * `redo`
@@ -68,7 +68,7 @@ The `role` property can have following values:
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
-The following additional roles are available on *macOS*:
+I seguenti valori sono disponibili per *macOS*:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - Mappa l'azione `orderFrontStandardAboutPanel`.
@@ -96,7 +96,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Proprietà Istanze
 
-The following properties are available on instances of `MenuItem`:
+Le seguenti proprietà sono disponibili quando si istanzia la classe `MenuItem`:
 
 #### `menuItem.id`
 
