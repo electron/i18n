@@ -78,14 +78,6 @@ Assigning `src` its own value will reload the current page.
 
 The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
-### `autosize`
-
-```html
-<webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
-```
-
-When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
-
 ### `nodeintegration`
 
 ```html
@@ -108,7 +100,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `plugins`
 
@@ -205,7 +197,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**예시**
+**Example**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -223,6 +215,8 @@ webview.addEventListener('dom-ready', () => {
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+
+Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
@@ -329,6 +323,19 @@ Injects CSS into the guest page.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+
+**[곧 중단 예정](modernization/promisification.md)**
+
+### `<webview>.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (optional) - Default `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
 Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
@@ -353,6 +360,10 @@ Returns `Boolean` - Whether DevTools window of guest page is focused.
 * `y` Integer
 
 Starts inspecting element at position (`x`, `y`) of guest page.
+
+### `<webview>.inspectSharedWorker()`
+
+Opens the DevTools for the shared worker context present in the guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -429,7 +440,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (선택) 
+* `options` 객체 (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -451,7 +462,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (선택) 
+* `options` 객체 (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -472,6 +483,21 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
+**[곧 중단 예정](modernization/promisification.md)**
+
+### `<webview>.printToPDF(options)`
+
+* `options` Object 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
@@ -480,13 +506,13 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -551,6 +577,10 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
+### `<webview>.getWebContentsId()`
+
+Returns `Number` - The WebContents ID of this `webview`.
+
 ## DOM events
 
 The following DOM events are available to the `webview` tag:
@@ -570,7 +600,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+반환:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -581,7 +611,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+반환:
 
 * `isMainFrame` Boolean
 
@@ -601,7 +631,7 @@ Fired when document in the given frame is loaded.
 
 ### 이벤트: 'page-title-updated'
 
-Returns:
+반환:
 
 * `title` String
 * `explicitSet` Boolean
@@ -610,7 +640,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+반환:
 
 * `favicons` String[] - Array of URLs.
 
@@ -626,7 +656,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+반환:
 
 * `level` Integer
 * `message` String
@@ -669,7 +699,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+반환:
 
 * `url` String
 * `frameName` String
@@ -684,17 +714,17 @@ The following example code opens the new url in system's default browser.
 const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
-webview.addEventListener('new-window', (e) => {
+webview.addEventListener('new-window', async (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternalSync(e.url)
+    await shell.openExternal(e.url)
   }
 })
 ```
 
 ### Event: 'will-navigate'
 
-Returns:
+반환:
 
 * `url` String
 
@@ -708,7 +738,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+반환:
 
 * `url` String
 
@@ -718,7 +748,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+반환:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -742,7 +772,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+반환:
 
 * `channel` String
 * `args` Array
@@ -775,9 +805,9 @@ Fired when the renderer process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+반환:
 
-* PrinterInfo Object
+* `name` String
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -796,7 +826,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+반환:
 
 * `themeColor` String
 
@@ -808,7 +838,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+반환:
 
 * `url` String
 
