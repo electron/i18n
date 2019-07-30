@@ -1,4 +1,4 @@
-# KeyboardEvent Object extends `Event`
+# KeyboardEvent オブジェクト extends `Event`
 
 * `ctrlKey` Boolean (任意) - イベントをトリガーするためにアクセラレータでコントロールキーが使用されたかどうか
 * `metaKey` Boolean (任意) - イベントをトリガーするためにアクセラレータでメタキーが使用されたかどうか
