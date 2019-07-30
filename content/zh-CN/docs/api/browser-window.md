@@ -184,31 +184,31 @@ child.once('ready-to-show', () => {
     * `images` Boolean (可选) - 启动图像支持. 默认值为 `true`.
     * `textAreasAreResizable` Boolean (可选) - 让 TextArea 元素可以调整大小. 默认值为 `true`.
     * `webgl` Boolean (可选) - 启用 WebGL 支持. 默认值为 `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
-    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. 默认值为 `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). 默认值为 `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
-    * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `plugins` Boolean (可选) - 是否支持插件. 默认值为 `false`.
+    * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实验功能. 默认值为 `false`.
+    * `scrollBounce` Boolean (可选) - 在 macOS 启用弹力动画 (橡皮筋) 效果. 默认值为 `false`.
+    * `enableBlinkFeatures`String(可选) - 以`逗号`分隔的需要启用的特性列表，譬如`CSSVariables,KeyboardEventKey` 在 [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70)文件中查看被支持的所有特性.
+    * `disableBlinkFeatures` String (可选) - 以 `,`分隔的禁用特性列表, 如 `CSSVariables,KeyboardEventKey`. 在[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) 文件中查看被支持的所有特性.
+    * `defaultFontFamily` Object (可选) - 设置 font-family 的默认字体. 
+      * `standard` String (可选) - 默认值为 `Times New Roman`.
+      * `serif` String (可选) - 默认值为 `Times New Roman`.
+      * ` sansSerif ` String (可选) - 默认值为 `Arial`.
+      * ` monospace ` String (可选) - 默认值为 `Courier New`.
+      * ` cursive ` String (可选) - 默认值为 ` Script `.
+      * ` fantasy ` String (可选) - 默认值为 ` Impact `.
+    * `defaultFontSize` Integer (可选) - 默认值为 `16`.
+    * `defaultMonospaceFontSize` Integer (可选) - 默认值为 `13`.
+    * ` minimumFontSize ` Integer (可选) - 默认值为 `0`.
+    * ` defaultEncoding ` String (可选) - 默认值为 `ISO-8859-1`.
+    * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
+    * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
+    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. ** 注意: **此选项目前是实验性的。
+    * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
+    * `additionalArguments` String\[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
+    * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 缺省为`false`。
+    * `safeDialogsMessage` String (可选) - 当持续对话框保护被触发时显示的消息。 如果没有定义，那么将使用缺省的消息。注意：当前缺省消息是英文，并没有本地化。
+    * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
@@ -976,7 +976,7 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
@@ -1000,9 +1000,9 @@ Returns `Promise<void>` - the promise will resolve when the page has finished lo
 
 Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+`url` 可以是远程地址 (例如 `http://`),也可以是 `file://` 协议的本地HTML文件的路径.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+为了确保文件网址格式正确, 建议使用Node的 [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) 方法:
 
 ```javascript
 let url = require('url').format({
@@ -1014,7 +1014,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+您可以通过执行以下操作, 使用带有网址编码数据的 `POST`请求​​加载网址:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1036,11 +1036,11 @@ win.loadURL('http://localhost:8000/post', {
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+类似于`webContents.loadFile`，`filePath`是一个HTML页相对的应用根目录的相对路径。更多信息，可参阅`webContents`文档。
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+与 `webContents.reload` 相同.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
@@ -1058,60 +1058,60 @@ Remove the window's menu bar.
 * `options` Object (可选) 
   * `mode` String *Windows* - 进度条的模式. 可以为 `none`, `normal`, `indeterminate`, `error`, 或 `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+设置进度栏中的进度值。有效范围是 [0, 1.0]。
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+当进度小于0时不显示进度; 当进度大于0时显示结果不确定.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. 默认值为 `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+在 Windows 上, 可以传递模式。 可以接受的值为`none`, `normal`, `indeterminate`, `error`和 `paused`. 如果没有设置模式 (但值在有效范围内) 的情况下调用 ` setProgressBar `, 默认值为` normal `。
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
 * `overlay` [NativeImage](native-image.md) | null - 右下角任务栏的显示图标。 如果此参数是 `null`，覆盖层层会被清除。
 * `description` String -提供给屏幕阅读器的描述文字
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+在当前任务栏图标上设置一个 16 x 16 像素的图标, 通常用于传达某种应用程序状态或被动地通知用户。
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+设置窗口是否应该有阴影. 在 Windows 和 Linux 系统无效
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+返回 `Boolean` - 判断窗口是否有阴影.
 
-On Windows and Linux always returns `true`.
+在 Windows 和 Linux 上总是返回 `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
 * `opacity` Number - 介于0.0 ( 完全透明 ) 和1.0 ( 完全不透明 ) 之间
 
-Sets the opacity of the window. On Linux does nothing.
+设置窗口的不透明度，在Linux系统上无效
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
 
 #### `win.setShape(rects)` *Windows* *Linux* *实验性*
 
 * `rects` [Rectangle[]](structures/rectangle.md) - 设置窗口的形状. 传入空列表会使窗口恢复至矩形.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+对窗口形状的设置决定了窗口内系统允许绘制与用户交互的区域. 在给定的区域外, 没有像素会被绘制, 且没有鼠标事件会被登记. 在该区域外的鼠标事件将不会被该窗口接收, 而是落至该窗口后方的任意窗口.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+返回 `Boolean` - 按钮是否成功添加
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+将指定的一组按钮添加到菜单栏的缩图工具栏上。 返回一个 `Boolean` 对象表示是否成功地添加了缩略图.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+由于空间有限, 缩图工具栏中的按钮数量不要超过7个。 一旦设置了缩略图工具栏，则无法删除。 但你可以通过调用 API 传递一个空数组来清除按钮.
 
-The `buttons` is an array of `Button` objects:
+`buttons` 是一个 `Button` 对象的数组:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - 在缩图工具栏上显示的图标.
@@ -1132,13 +1132,13 @@ The `buttons` is an array of `Button` objects:
 
 * `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 通过指定空区域：`{ x: 0, y: 0, width: 0, height: 0 }`，可以重置整个窗口的缩略图。
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+设置在任务栏中悬停在窗口缩略图上时显示的工具提示。
 
 #### `win.setAppDetails(options)` *Windows*
 
@@ -1149,49 +1149,49 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
   * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+设置窗口任务栏按钮的属性。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注意:** `relaunchCommand` 和 `relaunchDisplayName` 必须一起设置. 如果这些属性中的一个没有设置, 那么两者都不会被使用.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+和 `webContents.showDefinitionForSelection()` 相同.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+设置窗口图标
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+设置是否窗口交通灯需要显示。
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+当`titleBarStyle` 是 `customButtonsOnHover`的时候，不可调用。
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+设置窗口的菜单栏是否自动隐藏。设置后只有当用户按下 `Alt` 键时才显示菜单栏.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+返回 `Boolean` - 判断窗口的菜单栏是否自动隐藏.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+设置窗口的菜单栏是否可见. 如果设为可见, 菜单栏自动隐藏时, 用户仍然可以按下 `Alt` 键来显示.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+返回 `Boolean` - 判断窗口的菜单栏是否可见.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
@@ -1199,15 +1199,15 @@ Returns `Boolean` - Whether the menu bar is visible.
 * `options` Object (可选) 
   * `visibleOnFullScreen` Boolean (可选) *macOS* - 设置是否窗口可以在全屏窗口之上显示。
 
-Sets whether the window should be visible on all workspaces.
+设置窗口是否在所有工作空间上可见
 
-**Note:** This API does nothing on Windows.
+**注意:** 该 API 在 Windows 上无效.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+返回 `Boolean` - 判断窗口是否在所有工作空间上可见.
 
-**Note:** This API always returns false on Windows.
+**注意:** 该 API 在 Windows 上始终返回 false.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1215,81 +1215,81 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 * `options` Object (可选) 
   * `forward` Boolean (可选) *macOS* *Windows* - 如果为 true, 传递鼠标移动消息给 Chromium，鼠标相关事件将可用，如 `mouseleave`。 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
-Makes the window ignore all mouse events.
+忽略窗口内的所有鼠标事件
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+在此窗口中发生的所有鼠标事件将被传递到此窗口下面的窗口, 但如果此窗口具有焦点, 它仍然会接收键盘事件
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+防止窗口内容被其他应用捕获
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+在macOS中, 它设置 NSWindow的 sharingType为 NSWindowSharingNone. 在Windows中, 它设置 `WDA_MONITOR`调用 SetWindowDisplayAffinity.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+设置窗口是否可聚焦
 
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+设置 `parent` 为当前窗口的父窗口. 为`null`时表示将当前窗口转为顶级窗口
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+返回 `BrowserWindow` - 父窗口.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+返回 `BrowserWindow[]` - 首页的子窗口.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+设置输入时是否隐藏光标
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择上一个选项卡。
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择下一个选项卡。
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+当启用本地选项卡并且存在多个打开窗口时，将所有窗口合并到一个带有多个选项卡的窗口中。
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+如果启用了本机选项卡并且当前窗口中有多个选项卡，则将当前选项卡移动到新窗口中。
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+如果启用了本机选项卡并且当前窗口中只有一个选项卡，则切换选项卡栏是否可见。
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+在该窗口中添加一个窗口作为选项卡，位于窗口实例的选项卡之后。
 
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - 可以为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` 或 `ultra-dark`. 更多详细信息，请查阅 [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc)
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+在浏览器窗口中添加一个动态效果. 设置为`null`或空字符串将移除窗口的动态效果。
 
 #### `win.setTouchBar(touchBar)` *macOS* *实验*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
 **注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
@@ -1315,9 +1315,9 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
 
-### Properties
+### 属性
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
