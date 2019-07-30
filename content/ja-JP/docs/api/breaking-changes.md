@@ -96,12 +96,12 @@ const idleTime = getSystemIdleTime()
 
 ## `Tray`
 
-macOS Catalina 下では、以前の Tray 実装は破壊されています。 Apple's native substitute doesn't support changing the highlighting behavior.
+macOS Catalina 下では、以前の Tray 実装は破壊されています。 Apple のネイティブの代替実装は、強調表示動作の変更をサポートしていません。
 
 ```js
-// Deprecated
+// 非推奨
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// API は v7.0 で削除され、置換はできません
 ```
 
 # 予定されている破壊的なAPIの変更 (5.0)
@@ -128,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
+`nativeWindowOpen` オプションで開かれる子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ Node.js integration が無効化されます。
 
 ## 特権スキームレジストレーション
 
