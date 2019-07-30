@@ -81,11 +81,11 @@ Le cache contient l’archive zip de la version officielle, ainsi qu'un checksum
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Skip binary download
+## Désactiver le téléchargement des binaires
 
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+Lorsque vous installer le packet `electron` via npm, npm va automatiquement télécharger le fichier binaire associé.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Ceci peut poser problème lors de l'utilisation d'une CI par exemple.
 
 To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
 
