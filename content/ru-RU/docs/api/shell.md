@@ -2,7 +2,7 @@
 
 > Управление файлами и URL-ами, используя стандартные приложения для их открытия.
 
-Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
 Модуль `shell` предоставляет функции, относящиеся к десктопной интеграции.
 
@@ -22,13 +22,13 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+Показывает данный файл в файловом менеджере. Если возможно, выбирает файл.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Возвращает `Boolean` - Успешно ли был открыт объект.
 
 Open the given file in the desktop's default manner.
 
@@ -43,7 +43,7 @@ Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-**Deprecated**
+**Устарело**
 
 ### `shell.openExternal(url[, options])`
 
