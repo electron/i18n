@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### Evento: 'enter-html-full-screen'
+
+Emesso quando la finestra entra in uno stato full-screen attivata da un API HTML.
+
+#### Evento: 'leave-html-full-screen'
+
+Emesso quando la finestra esce da uno stato full-screen attivata da un API HTML.
+
 #### Event: 'devtools-opened'
 
 Emitted when DevTools is opened.
@@ -350,7 +358,7 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificato-errore'
+#### Evento: 'certificate-error'
 
 Restituisce:
 
@@ -365,7 +373,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'selezione-certificato-client'
+#### Evento: 'select-client-certificate'
 
 Restituisce:
 
@@ -687,7 +695,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 
 ### Metodi Istanza
 
-#### `contents.loadURL(url[, opzioni])`
+#### `contents.loadURL(url[, options])`
 
 * `url` Stringa
 * `options` Object (opzionale) 
@@ -707,7 +715,7 @@ const options = { extraHeaders: 'pragma: no-cache\n' }
 webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath[, opzioni])`
+#### `contents.loadFile(filePath[, options])`
 
 * `Percorsofile` Stringa
 * `options` Object (opzionale) 
@@ -850,6 +858,12 @@ Returns `String` - The user agent for this web page.
 
 Injects CSS into the current web page.
 
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
+
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` Stringa
@@ -863,7 +877,25 @@ Evaluates `code` in page.
 
 In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
+  })
+```
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `codice` Stringa
+* `userGesture` Boolean (optional) - Default is `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evaluates `code` in page.
+
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -872,7 +904,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -1034,29 +1066,15 @@ console.log(requestId)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Function 
-  * `hasWorker` Boolean
-
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Function 
-  * `success` Boolean
-
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
 
 #### `contents.getPrinters()`
 
@@ -1077,7 +1095,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({ silent: false, printBackground: false, deviceName: '' })`.
 
-Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -1088,16 +1106,31 @@ Usa la regola CSS `page-break-before: always;` per forzare per stampare su una n
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
-  * `errore` Errore
+  * `error` Error
   * `data` Buffer - contiene il pdf generato
 
-Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
+The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
 
-Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
+**[Deprecated Soon](modernization/promisification.md)**
 
-Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
+#### `contents.printToPDF(options)`
+
+* `options` Oggetto 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints window's web page as PDF with Chromium's preview printing custom settings.
+
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+
+By default, an empty `options` will be regarded as:
 
 ```javascript
 {
@@ -1108,9 +1141,9 @@ Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato 
 }
 ```
 
-Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Un esempio di `webContents.printToPDF`:
+An example of `webContents.printToPDF`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1120,7 +1153,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // vengono utilizzate le impostazioni predefinite decritte sopra
+  // Use default printing options
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
@@ -1240,6 +1273,10 @@ Toggles the developer tools.
 * `y` Integer
 
 Starts inspecting element at position (`x`, `y`).
+
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1386,17 +1423,15 @@ End subscribing for frame presentation events.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - The full file path.
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
-  * `errore` Errore
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```
