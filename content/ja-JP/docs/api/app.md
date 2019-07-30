@@ -1025,9 +1025,9 @@ Chromiumのコマンドラインに (オプションの `value` と一緒に) �
 
 * `value` String - コマンドラインに追加された引数
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Chromium のコマンドラインに引数を追加します。引数は正常に動作するため引用符で囲われます。スイッチは追加した順序に関係なく引数の前に置かれます。
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+`--switch=value` のような引数を追加している場合は、代わりに `appendSwitch('switch', 'value')` を使用することを検討してください。
 
 **注:** これは `process.argv` に影響を与えません。この関数は主に Chromium の振る舞いを制御するために使われます。
 
@@ -1043,7 +1043,7 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 戻り値 `String` - コマンドラインスイッチの値
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**注意:** スイッチが存在しないか値がない場合、これは空文字列を返します。
 
 ### `app.enableSandbox()` *実験的*
 
@@ -1101,11 +1101,11 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 ### `app.dock.show()` *macOS*
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+戻り値 `Promise<void>` - Dock のアイコンが表示されたときに実行されます。
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible.
+Returns `Boolean` - Dock のアイコンが表示されているかどうか。
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -1115,7 +1115,7 @@ Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.getMenu()` *macOS*
 
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+戻り値 `Menu | null` - アプリケーションの [Dock メニュー](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)。
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1127,13 +1127,13 @@ Returns `Menu | null` - The application's [dock menu](https://developer.apple.co
 
 ### `app.applicationMenu`
 
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+この `Menu` プロパティは、設定されている場合は [`Menu`](menu.md) を返し、それ以外の場合は `null` を返します。ユーザーはこのプロパティに [Menu](menu.md) を渡してセットできます。
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+この `Boolean` プロパティは、Chrome のアクセシビリティサポートが有効になっている場合は `true`、それ以外の場合は `false` になります。 このプロパティは、テキスト読み上げなどのアシスト技術を使っていることが検出された場合、`true` を返します。 手動でこのプロパティを `true` にセットして Chrome のアクセシビリティサポートを有効にすると、開発者はアプリケーション設定内でユーザにアクセシビリティスイッチを出すことができます。
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+詳細については [Chromium のアクセシビリティドキュメント](https://www.chromium.org/developers/design-documents/accessibility) を参照してください。これはデフォルトで無効化されています。
 
 この API は `ready` イベントが発生した後で呼ばなければいけません。
 
@@ -1141,9 +1141,9 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 ### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+この `String` は Electron がグローバルフォールバックとして使用するユーザーエージェント文字列です。
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。 アプリ全体で同じユーザーエージェントを使用するのに役立ちます。 オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
 ### `app.isPackaged`
 
