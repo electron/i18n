@@ -9,7 +9,7 @@ const { netLog } = require('electron')
 
 app.on('ready', async function () {
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // いくつかのネットワークイベントのあと
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
@@ -38,7 +38,7 @@ app.on('ready', async function () {
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+戻り値 `Promise<String>` - ネットワークログが記録されたファイルパスで実行されます。
 
 ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
 
