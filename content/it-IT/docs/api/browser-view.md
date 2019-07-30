@@ -75,6 +75,8 @@ Restituisce `Boolean` - Se la vista viene distrutta.
 * `options` Oggetto 
   * `width` Boolean - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
   * `height` Boolean - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
+  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
+  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Sperimentale*
 
