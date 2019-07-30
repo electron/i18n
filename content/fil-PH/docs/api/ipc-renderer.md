@@ -15,14 +15,18 @@ Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makin
 ### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon 
+  * `event` IpcRendererEvent
+  * `...args` anuman[]
 
 Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinawag pati ang `listener(event, args...)`.
 
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon 
+  * `event` IpcRendererEvent
+  * `...args` anuman[]
 
 Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
 
@@ -78,8 +82,4 @@ Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahag
 
 ## Ang bagay ng event
 
-Ang bagay `event` na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
-
-### `event.senderId`
-
-Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
