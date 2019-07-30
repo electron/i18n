@@ -1,6 +1,6 @@
 # `sandbox` Option
 
-> Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API. However, in order to enable the Chromium OS sandbox, Electron must be run with the `--enable-sandbox` command line argument.
+> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
 
 Una de las características clave de la seguridad de Chromium es que toda la renderización y el código de JavaScript es ejecutado dentro d una caja de arena. Esta caja de area usa características específicas para cada OS para asegurar que un explosivo en el proceso de renderización no pueda lastimar al sistema.
 
@@ -32,30 +32,21 @@ app.on('ready', () => {
 
 In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
-Es importante notar que esta opción sola no va a habilitar la caja de arena impuesta por el OS. Para activar esta característica, el argumento de linea de comando `--enable-sandbox` debe ser pasado a Electron, que lo forzará `sandbox: true` por todas `BrowserWindow` instancias.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
 
 ```js
 let win
+app.enableSandbox()
 app.on('ready', () => {
-  // no hay necesidad de pasar`sandbox: true` ya que `--enable-sandbox` fue habilitada.
+  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
-
-```sh
-electron --enable-sandbox app.js
-```
-
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
-
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
-
 ## Precarga
 
-Una aplicación puede hacer personalizaciones a los renderizadores de las cajas de arena usando un script precargado. Aquí hay un ejemplo:
+An app can make customizations to sandboxed renderers using a preload script. Here's an example:
 
 ```js
 let win
@@ -63,21 +54,21 @@ app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
       sandbox: true,
-      preload: 'preload.js'
+      preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
   win.loadURL('http://google.com')
 })
 ```
 
-y preload.js:
+and preload.js:
 
 ```js
-// Este archivo se carga cada vez que se crea un contexto de javascript. It runs in a
-// private scope that can access a subset of Electron renderer APIs. Debemos ser
-// cuidadosos de no dejar salir ningún objeto en el ámbito global!
-const fs = require('fs')
-const { ipcRenderer } = require('electron')
+// This file is loaded whenever a javascript context is created. It runs in a
+// private scope that can access a subset of Electron renderer APIs. We must be
+// careful to not leak any objects into the global scope!
+const { ipcRenderer, remote } = require('electron')
+const fs = remote.require('fs')
 
 // read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
@@ -96,45 +87,44 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Cosas importantes que notar en el script precargado:
+Important things to notice in the preload script:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`. Así es como `fs` (usado arriba) y otros módulos son implementados: Son proxies de las contrapartes remotas en el proceso principal.
+- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
 - El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
-Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
+To create a browserify bundle and use it as a preload script, something like the following should be used:
 
 ```sh
   browserify preload/index.js \
     -x electron \
-    -x fs \
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` Asegurará que `process`, `Buffer` y `setImmediate` también sean llevado para el ambiente cerrado (normalmente browsefiry inyecta códigos para ellos).
+The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
 
-Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
+Currently the `require` function provided in the preload scope exposes the following modules:
 
-- `child_process`
 - `electron` 
   - `crashReporter`
-  - `remote`
+  - `desktopCapturer`
   - `ipcRenderer`
+  - `NativeImage`
+  - `remote`
   - `webFrame`
-- `fs`
-- `os`
-- `contadores`
+- `events`
+- `timers`
 - `url`
 
 More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
 ## Estado
 
-Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
 
 Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
 
-Una mejora planificada que debería incrementar mucho la seguridad es bloquear los mensajes IPC de los renderizadores de la caja de arena por defecto, permitiendo al proceso principal definir un grupo de mensajes que el renderizador está autorizado para enviar.
+One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
