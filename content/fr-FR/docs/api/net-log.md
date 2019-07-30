@@ -46,8 +46,8 @@ Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+Une propriété `Boolean` qui indique si des logs réseau sont actuellement enregistrés.
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+Une propriété `String` qui renvoie le chemin vers le log actuel.
