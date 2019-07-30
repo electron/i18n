@@ -57,7 +57,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Отправьте заданную команду на цель отладки.
 
-**[Скоро устареет](promisification.md)**
+**[Скоро устареет](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
