@@ -353,7 +353,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 この API 自体はあなたのユーザーデータを保護しません。むしろ、あなたがそうしてもよいようにするメカニズムです。 ネイティブアプリでは、キーチェーンエントリに [アクセスコントロール定数](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) を、[`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) のように設定する必要があります。これを読み取ると、Touch ID の生体認証に自動的に同意するようになります。 これは `node-keytar` で暗号化キーを保存し、`promptTouchID()` の場合にのみそれを取得するように、[`node-keytar`](https://github.com/atom/node-keytar) を使用して実行されます。
 
-**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+**注意:** この API は Sierra 10.12.2 より古い macOS システムでは拒否された Promise になります。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
@@ -383,8 +383,8 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 戻り値 `Object`:
 
-* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
-* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
-* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+* `shouldRenderRichAnimation` Boolean - リッチアニメーションをレンダリングする必要がある場合は true を返します。 セッションの種類 (例えばリモートデスクトップ) とアクセシビリティの設定を調べて、重いアニメーションのガイダンスを提供します。
+* `scrollAnimationsEnabledBySystem` Boolean - スクロールアニメーション (例えばホームキーやエンドキーで生成されるもの) を有効にするかどうかがプラットフォームごとに決定されます。
+* `prefersReducedMotion` Boolean - ユーザーがプラットフォーム API に基づいてモーションの削減を望むかどうかが決定されます。
 
-Returns an object with system animation settings.
+システムアニメーション設定を持つオブジェクトを返します。
