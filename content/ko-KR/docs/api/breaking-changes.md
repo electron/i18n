@@ -6,6 +6,19 @@
 
 코드 주석으로 `FIXME` 문자는 미래의 릴리즈에서 수정되어야 함을 표시합니다. https://github.com/electron/electron/search?q=fixme 를 참조하세요.
 
+# 중단될 예정 API (7.0)
+
+## `shell.openExternalSync(url[, options])`
+
+```js
+// Deprecated
+shell.openExternalSync(url)
+// Replace with
+async function openThing (url) {
+  await shell.openExternal(url)
+}
+```
+
 # 중단될 예정 API (6.0)
 
 ## `win.setMenu(null)`
@@ -15,6 +28,19 @@
 win.setMenu(null)
 // Replace with
 win.removeMenu()
+```
+
+## `contentTracing.getTraceBufferUsage()`
+
+```js
+// Deprecated
+contentTracing.getTraceBufferUsage((percentage, value) => {
+  // do something
+})
+// Replace with
+contentTracing.getTraceBufferUsage().then(infoObject => {
+  // infoObject has percentage and value fields
+})
 ```
 
 ## `electron.screen` in renderer process
@@ -50,6 +76,34 @@ require('path')
 require('electron').remote.require('path')
 ```
 
+## `powerMonitor.querySystemIdleState`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+## `powerMonitor.querySystemIdleTime`
+
+```js
+// Deprecated
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+## `Tray`
+
+Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+
+```js
+// Deprecated
+tray.setHighlightMode(mode)
+// API will be removed in v7.0 without replacement.
+```
+
 # 중단될 예정 API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -74,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
 
 ## Privileged Schemes Registration
 
