@@ -48,26 +48,9 @@ Or use a 3rd party hosted solution:
 
 **Not** `child_process` tarafından yaratılmış çocuk süreçlerin Electron modüllerine erişimi olmaz. Bu yüzden, çocuk süreçlere ait raporları toplamak için `process.crashReporter.start` kullanın. Çökme raporlarını geçici olarak tutan dizini işaret eden `crashesDirectory` ile birlikte aynı opsiyonları geçin. `process.crash()` ile çocuk süreci çökerterek bunu test edebilirsiniz.
 
-**Not:** Çocuk süreçlerden çökme raporlarını toplamak için, bu ek kodu da eklemelisiniz. Bu çökmeleri dinleyen ve yollayan süreci başlatır. `submitURL`'i, `productName` ve `crashesDirectory`'i uygun değerlerle değiştirin.
-
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
-```js
-const args = [
-  `--reporter-url=${submitURL}`,
-  `--application-name=${productName}`,
-  `--crashes-directory=${crashesDirectory}`
-]
-const env = {
-  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-}
-spawn(process.execPath, args, {
-  env: env,
-  detached: true
-})
-```
-
-**Not:** macOS üzerinde Electron, çökme raporu toplama ve raporlama için `crashpad` istemcisi kullanır. Çökme raporlamayı aktif hale getirmek için, `crashpad<code>'i ana süreç içerisinden -hangi süreçten çökmeleri toplayacağınızdan bağımsız olarak-
+**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Çökme raporlamayı aktif hale getirmek için, `crashpad<code>'i ana süreç içerisinden -hangi süreçten çökmeleri toplayacağınızdan bağımsız olarak-
  <0>crashReporter.start` ile başlatmanız gerekir. Bu şekilde başlatıldıktan sonra crashpad denetimcisi tüm süreçlerden çökmeleri toplar. Yine de `crashReporter.start`'ı renderer veya çoçuk süreçlerden çağırmanız gerekir, aksi halde çokmeler `companyName`, `productName` veya `ekstra` bilgiler olmadan toplanır.
 
 ### `crashReporter.getLastCrashReport()`
@@ -82,13 +65,13 @@ Returns the date and ID of the last crash report. Only crash reports that have b
 
 Tüm yüklenmiş çökme raporlarını döndürür. Her rapor ilgili tarih ve numarayı da içerir.
 
-### `crashReporter.getUploadToServer()` *Linux* *macOS*
+### `crashReporter.getUploadToServer()`
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
 **Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
-### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
+### `crashReporter.setUploadToServer(uploadToServer)`
 
 * `uploadToServer` Boolean *macOS* - Raporlar sunucuya gönderilsin mi.
 
@@ -96,14 +79,14 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 
 **Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
-### `crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 * `key` Dizge - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
-Çökme raporu ile birlikte gönderilmesi için bir ek parametre girin. Burada belirtilen değerler, `start` çağrıldığında `extra` seçeneği ile belirlenen değerlere ek olarak gönderilir. Bu API yalnızca macOS'ta bulunur; `start`'e ilk kez telefon açtıktan sonra Linux ve Windows'ta ek parametrelerin eklenmesi / güncellenmesi gerekiyorsa `start`'yi güncellenmiş `extra` seçenekleri ile tekrar arayabilirsiniz.
+Çökme raporu ile birlikte gönderilmesi için bir ek parametre girin. Burada belirtilen değerler, `start` çağrıldığında `extra` seçeneği ile belirlenen değerlere ek olarak gönderilir. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
 
-### `crashReporter.removeExtraParameter(key)` Linux *macOS*
+### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
