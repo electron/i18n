@@ -34,7 +34,7 @@ app.on('ready', async function () {
 
 停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 ### `netLog.stopLogging()`
 
