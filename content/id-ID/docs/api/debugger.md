@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Metode Instance
+### Методы экземпляра
 
 #### `debugger.melmpirkan ( [protocolVersion] )`
 
