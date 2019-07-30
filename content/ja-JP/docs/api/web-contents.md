@@ -1124,7 +1124,7 @@ Chromium の印刷のカスタム設定のプレビューで、PDF としてウ�
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+戻り値 `Promise<Buffer>` - 生成された PDF データで実行されます。
 
 Chromium の印刷のカスタム設定のプレビューで、PDF としてウインドウのウェブページを出力します。
 
@@ -1276,7 +1276,7 @@ app.once('ready', () => {
 
 #### `contents.inspectSharedWorker()`
 
-Opens the developer tools for the shared worker context.
+共有ワーカーコンテキストの開発者向けツールを開きます。
 
 #### `contents.inspectServiceWorker()`
 
@@ -1431,7 +1431,7 @@ ipcMain.on('ping', (event) => {
   * `HTMLComplete` - 完全な HTML ページを保存する。
   * `MHTML` - MHTML として完全な HTML ページを保存する。
 
-Returns `Promise<void>` - resolves if the page is saved.
+戻り値 `Promise<void>` - ページが保存された場合に実行されます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
