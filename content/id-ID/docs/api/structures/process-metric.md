@@ -1,7 +1,7 @@
 # Objek ProcessMetric
 
 * ` pid </ 0>  Integer - Proses id proses.</li>
-<li><code>mengetik` String - Process type. One of the following values: 
+<li><code>type` String - Process type. One of the following values: 
   * `Browser`
   * `Tab`
   * `Utility`
