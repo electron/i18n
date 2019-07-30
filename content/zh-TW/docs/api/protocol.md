@@ -264,7 +264,7 @@ const fs = require('fs')
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('通訊協定註冊失敗')
 })
 ```
 
