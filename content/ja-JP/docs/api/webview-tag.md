@@ -100,7 +100,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 The remote module is available by default.
+この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
 
 ### `plugins`
 
@@ -216,7 +216,7 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+戻り値 `Promise<void>` - この promise は、ページ読み込みが完了した時 ([`did-finish-load`](webview-tag.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](webview-tag.md#event-did-fail-load) を参照) に拒否されます。
 
 `url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
 
@@ -363,7 +363,7 @@ Returns `Promise<void>` - The promise will resolve when the page has finished lo
 
 ### `<webview>.inspectSharedWorker()`
 
-Opens the DevTools for the shared worker context present in the guest page.
+ゲストページに表示されている共有ワーカーコンテキストの開発者向けツールを開きます。
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -494,9 +494,9 @@ Opens the DevTools for the shared worker context present in the guest page.
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+戻り値 `Promise<Buffer>` - 生成された PDF データで実行されます。
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+`webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options)` と同じです。
 
 ### `<webview>.capturePage([rect, ]callback)`
 
