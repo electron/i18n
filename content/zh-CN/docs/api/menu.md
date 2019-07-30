@@ -195,15 +195,15 @@ You can also attach other fields to the element of the `template` and they will 
 </h2>
 
 <p>
-  The <code>Menu</code> class is only available in the main process, but you can also use it in the render process via the <a href="remote.md"><code>remote</code></a> module.
+  <code> Menu </code> 仅在主进程（ main process）中可用, 但您也可以在渲染进程（render process）中通过 <a href="remote.md"><code> remote </code></a> 模块使用它。
 </p>
 
 <h3>
-  Main process
+  主进程
 </h3>
 
 <p>
-  An example of creating the application menu in the main process with the simple template API:
+  在主进程中创建程序菜单的简单API模版示例:
 </p>
 
 <pre><code class="javascript">const { app, Menu } = require('electron')
@@ -310,11 +310,11 @@ Menu.setApplicationMenu(menu)
 </code></pre>
 
 <h3>
-  Render process
+  渲染进程
 </h3>
 
 <p>
-  Below is an example of creating a menu dynamically in a web page (render process) by using the <a href="remote.md"><code>remote</code></a> module, and showing it when the user right clicks the page:
+  下面是通过 <a href="remote.md"><code> remote </code></a> 模块在网页（render process）中动态创建右击菜单的示例:
 </p>
 
 <pre><code class="html">&lt;!-- index.html --&gt;
@@ -339,15 +339,15 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p>
-  macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+  MacOS中的应用程序有着和windows，linux完全不同风格的菜单样式。这里有一些说明，可以让你的程序菜单看起来更贴合原生系统。
 </p>
 
 <h3>
-  Standard Menus
+  标准菜单
 </h3>
 
 <p>
-  On macOS there are many system-defined standard menus, like the <a href="https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc"><code>Services</code></a> and <code>Windows</code> menus. To make your menu a standard menu, you should set your menu's <code>role</code> to one of the following and Electron will recognize them and make them become standard menus:
+  MacOS有一些系统预定义的菜单，像是<a href="https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc"><code>Services</code></a> and <code>Windows</code>。 让你的菜单更像MacOS标准菜单，只需设置菜单<code>role</code>值为如下示之一，Electron便会自动认出并设置成标准菜单，：
 </p>
 
 <ul>
@@ -363,19 +363,19 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </ul>
 
 <h3>
-  Standard Menu Item Actions
+  标准菜单项操作
 </h3>
 
 <p>
-  macOS has provided standard actions for some menu items, like <code>About xxx</code>, <code>Hide xxx</code>, and <code>Hide Others</code>. To set the action of a menu item to a standard action, you should set the <code>role</code> attribute of the menu item.
+  macOS 已经为某些菜单项提供了标准操作, 如 <code> about xxx </code>、<code> Hide xxx </code> 和 <code> Hide Others </code>。 若要将菜单项的操作设置为标准操作, 应设置菜单项的 <code>  role</code> 属性。
 </p>
 
 <h3>
-  Main Menu's Name
+  主菜单的名称
 </h3>
 
 <p>
-  On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's <code>Info.plist</code> file. See <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html">About Information Property List Files</a> for more information.
+  在 macOS 中应用程序菜单的第一个项目的标签总是你的应用程序的名字, 无论你设置什么标签。 如要更改它, 请修改应用程序包的 <code> Info. plist </code> 文件。 有关详细信息, 请参阅 <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </a>。
 </p>
 
 <h2>
@@ -383,7 +383,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p>
-  The <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code>setMenu</code> method</a> of browser windows can set the menu of certain browser windows.
+  浏览器窗口的 <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"> <code> setMenu </code> 方法 </a> 可以设置特定浏览器窗口的菜单。
 </p>
 
 <h2>
@@ -391,7 +391,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p>
-  You can make use of <code>before</code>, <code>after</code>, <code>beforeGroupContaining</code>, <code>afterGroupContaining</code> and <code>id</code> to control how the item will be placed when building a menu with <code>Menu.buildFromTemplate</code>.
+  你可以使用 <code>before</code>, <code>after</code>, <code>beforeGroupContaining</code>, <code>afterGroupContaining</code> 和 <code>id</code> 来控制由 <code>Menu.buildFromTemplate</code> 生成的菜单项的位置.
 </p>
 
 <ul>
@@ -410,7 +410,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </ul>
 
 <p>
-  By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+  默认情况下，除非有位置相关的属性，所有的菜单项会按照模板中的顺序排放。
 </p>
 
 <h3>
@@ -418,7 +418,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h3>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -430,7 +430,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- 1
@@ -440,7 +440,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -454,7 +454,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- 3
@@ -466,7 +466,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -477,7 +477,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- ---
