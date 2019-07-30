@@ -9,10 +9,10 @@
 * `colorSpace` String - represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
 * `colorDepth` Number - The number of bits per pixel.
 * `depthPerComponent` Number - The number of bits per color component.
-* `bounds` [Rectangle](rectangle.md)
-* `size` [Size](size.md)
-* `workArea` [Rectangle](rectangle.md)
-* `workAreaSize` [Size](size.md)
+* ` bounds`[ 矩形 ](rectangle.md)
+* ` size `[ 尺寸](size.md)
+* ` workArea `[ 矩形 ](rectangle.md)
+* ` workAreaSize `[尺寸 ](size.md)
 * `internal` Boolean - `true` for an internal display and `false` for an external display
 
 ` Display ` 对象表示一个连接到系统的物理显示。 一个伪 ` Display ` 可能存在于无图形界面（Gui）系统上, 或者 一个` Display ` 可能与一个远程的虚拟显示相对应。
