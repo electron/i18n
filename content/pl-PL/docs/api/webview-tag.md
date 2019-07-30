@@ -102,7 +102,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 
 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
-### `plugins`
+### `wtyczki`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -340,11 +340,11 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Otwiera okno DevTools dla strony gościa.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Zamyka okno DevTools strony gościa.
 
 ### `<webview>.isDevToolsOpened()`
 
@@ -453,7 +453,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) żądanie. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
