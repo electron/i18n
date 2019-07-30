@@ -121,11 +121,11 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (任意) - 省略値は 1.0。
 
 戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+`buffer` から新しい `NativeImage` インスタンスを作成します。これには`toBitmap()` によって返された生のビットマップピクセルデータが含まれます。フォーマットはプラットフォームに依存します。
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
@@ -134,7 +134,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 
 戻り値 `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+`buffer` から `NativeImage` の新しいインスタンスを作成します。最初に PNG または JPEG としてデコードしようとします。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
