@@ -15,7 +15,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` פונקציה 
   * `event` IpcRendererEvent
   * `...args` any[]
 
@@ -24,7 +24,7 @@ Listens to `channel`, when a new message arrives `listener` would be called with
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function 
+* `listener` פונקציה 
   * `event` IpcRendererEvent
   * `...args` any[]
 
