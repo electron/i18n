@@ -52,6 +52,7 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`
