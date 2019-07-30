@@ -440,7 +440,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -462,7 +462,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -585,7 +585,7 @@ Returns `Number` - The WebContents ID of this `webview`.
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### 事件: 'load-commit'
 
 回傳:
 
@@ -670,7 +670,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('訪客頁記了一筆訊息:', e.message)
 })
 ```
 
@@ -786,7 +786,7 @@ With `sendToHost` method and `ipc-message` event you can communicate between gue
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // 列出 "pong"
 })
 webview.send('ping')
 ```
