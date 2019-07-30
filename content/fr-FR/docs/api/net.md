@@ -13,9 +13,9 @@ Voici une liste non exhaustive de pourquoi vous devriez utiliser le module `net`
 * Prise en charge de l'authentification proxy en utilisant basic, digest, NTLM, Kerberos ou en négociant des schémas d'authentification.
 * Prise en charge des proxy de surveillance du trafic: Proxy de type Fiddler utilisés pour le contrôle et la surveillance des accès.
 
-L'API du module `net` a été spécifiquement conçu pour imiter, autant que possible, l'API de Node.js. Les composants de l'API, y compris les classes, les méthodes, les propriétés et les noms d'événement sont similaires à ceux généralement utilisés dans Node.js.
+The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-Par exemple, l'exemple suivant montre rapidement comment utiliser l'API `net` :
+Example usage:
 
 ```javascript
 const { app } = require('electron')
@@ -36,18 +36,16 @@ app.on('ready', () => {
 })
 ```
 
-Par ailleurs, cela est presque identique à la façon dont vous utiliseriez normalement le module [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) de Node.js
-
-L'API `net` peut être utilisé seulement une fois que l'application ait émis l'événement `ready`. Essayer d'utiliser le module avant l'événement `ready` soulèvera une erreur.
+The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
 ## Méthodes
 
-Le module `net` dispose des méthodes suivantes :
+The `net` module has the following methods:
 
 ### `net.request(options)`
 
 * `options` (Object | String) - Les options constructor de `ClientRequest`.
 
-Retourne [`ClientRequest`](./client-request.md)
+Returns [`ClientRequest`](./client-request.md)
 
-Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.
+Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
