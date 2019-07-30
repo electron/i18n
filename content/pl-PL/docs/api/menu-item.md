@@ -21,8 +21,8 @@ See [`Menu`](menu.md) for examples.
   * `icon` ([NativeImage](native-image.md) | String) (opcjonalne)
   * `enabled` Boolean (opcjonalne) - Jeżeli false, element menu stanie się nieaktywny.
   * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
+  * `visible` Boolean (opcjonalne) - Jeżeli false, element menu zostanie całkowicie ukryty.
+  * `checked` Boolean (opcjonalne) - Powinien być tylko podany dla elementów menu typu `checkbox` lub `radio`.
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
@@ -43,7 +43,7 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+Wartość `role` może mieć następujące wartości:
 
 * `undo`
 * `redo`
@@ -68,7 +68,7 @@ The `role` property can have following values:
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
-The following additional roles are available on *macOS*:
+Następujące dodatkowe role są dostępne na systemie *macOS*:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - Map to the `orderFrontStandardAboutPanel` action.
@@ -90,13 +90,13 @@ The following additional roles are available on *macOS*:
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+Podając parametr `role` na systemie macOS, tylko opcje `label` i `accelerator` wpłyną na element menu. Wszystkie inne parametry zostaną zignorowane. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### Właściwości instancji
 
-The following properties are available on instances of `MenuItem`:
+Następujące właściwości są dostępne w instancjach klasy `MenuItem`:
 
 #### `menuItem.id`
 
@@ -140,21 +140,21 @@ A `String` indicating the item's sublabel, this property can be dynamically chan
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Wartość typu `Boolean` definiująca czy element jest włączony, ta wartość może być zmieniana dynamicznie.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Wartość typu `Boolean` definiująca czy element jest widoczny, ta wartość może być zmieniana dynamicznie.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Wartość typu `Boolean` definiująca czy element jest zaznaczony, ta wartość może być zmieniana dynamicznie.
 
 A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Element menu typu `radio` ustawi wartość `checked` na true kiedy zostanie wciśnięty, natomiast kiedy zostanie wciśnięty inny sąsiadujący element w tym samym menu zmieni wartość na false.
 
-You can add a `click` function for additional behavior.
+Możesz dodać funkcję `click` dla dodatkowej akcji.
 
 #### `menuItem.registerAccelerator`
 
