@@ -46,8 +46,8 @@ Returns `Promise<String>` - resolves with a file path to which network logs were
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+現在のログファイルへのパスを返す `String` プロパティ。
