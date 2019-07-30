@@ -1,7 +1,7 @@
 # Mga bagay sa ProcessMetric
 
 * `pid` integer - Ang process id ng proseso.
-* `uri` String - Process type. One of the following values: 
+* `ang uri` String - Process type. One of the following values: 
   * `Browser`
   * `Tab`
   * `Utility`
