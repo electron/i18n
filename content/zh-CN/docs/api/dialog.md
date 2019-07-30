@@ -22,7 +22,7 @@ console.log(dialog)
 
 ` dialog ` 模块具有以下方法:
 
-### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
+### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` Object 
@@ -41,15 +41,10 @@ console.log(dialog)
     * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
   * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
-* `callback` Function (可选) 
-  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
-  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` 必须启用才能捕获数据。
 
-Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
-` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
-
-` filters ` 指定一个文件类型数组，用于规定用户可见或可选的特定类型范围。例如:
+The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
 
 ```javascript
 {
@@ -62,90 +57,213 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
 }
 ```
 
-` extensions ` 数组应为没有通配符或点的扩展名 (例如, ` "png" ` 是正确的, 而 ` ".png" ` 和 ` *. png "` 就是错误的)。 若要显示所有文件, 请使用 ` "*" ` 通配符 (不支持其他通配符)。
+The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
 
-如果定义了 ` callback `, 则 API 调用将是异步的, 结果将通过 ` callback(filenames)`返回.
+**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
-** 注意: **在 Windows 和 Linux 上, 打开对话框不能同时是文件选择器和目录选择器, 因此如果在这些平台上将 ` properties ` 设置为`["openFile"、"openDirectory"]`, 则将显示为目录选择器。
+```js
+dialog.showOpenDialogSync(mainWindow, {
+  properties: ['openFile', 'openDirectory']
+})
+```
 
-### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
+### `dialog.showOpenDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` Object 
   * `title` String (可选)
-  * `defaultPath` String (可选) - 默认情况下使用的绝对目录路径、绝对文件路径或文件名。
+  * `defaultPath` String (可选)
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
-  * `message` String (可选) * macOS *-显示在对话框上的消息。
-  * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
-  * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
-* `callback` Function (可选) 
-  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
-  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` 必须启用才有效。
+  * `properties` String[] (可选) -包含对话框应用的功能。支持以下值: 
+    * `openFile` - 允许选择文件
+    * `openDirectory` - 允许选择文件夹
+    * ` multiSelections `-允许多选。
+    * ` showHiddenFiles `-显示对话框中的隐藏文件。
+    * `createDirectory` *macOS* -允许你通过对话框的形式创建新的目录。
+    * ` promptToCreate ` *Windows*-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
+    * ` noResolveAliases `* macOS *-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。
+    * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+  * `message` String (可选) * macOS *-显示在输入框上方的消息。
+  * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+* `callback` Function (可选)
 
-Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
+Returns `Promise<Object>` - Resolve wih an object containing the following:
 
-` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
+* `canceled` - Boolean - whether or not the dialog was canceled.
+* `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-`filters` 可以指定可显示文件的数组类型，详见 `dialog.showOpenDialog` 事例
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
-如果传递了 `callback `, 则 API 调用将是异步的, 结果将通过 ` callback (filename)`传递.
+The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
 
-### `dialog.showMessageBox([browserWindow, ]options[, callback])`
+```javascript
+{
+  filters: [
+    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Custom File Type', extensions: ['as'] },
+    { name: 'All Files', extensions: ['*'] }
+  ]
+}
+```
+
+The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+
+**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+
+```js
+dialog.showOpenDialog(mainWindow, {
+  properties: ['openFile', 'openDirectory']
+}).then(result => {
+  console.log(result.canceled)
+  console.log(result.filePaths)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+### `dialog.showSaveDialogSync([browserWindow, ]options)`
+
+* `browserWindow` [BrowserWindow](browser-window.md) (可选)
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `title` String (可选)
+  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
+  * `filters` [FileFilter[]](structures/file-filter.md) (可选)
+  * `message` String (optional) *macOS* - Message to display above text fields.
+  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+
+Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
+
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+
+The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+
+### `dialog.showSaveDialog([browserWindow, ]options)`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
 * `选项` Object 
-  * `type` String (可选) - 可以为 `"none"`, `"info"`, `"error"`, `"question"` 或者 `"warning"`. 在 Windows 上, `"question"` 与`"info"`显示相同的图标, 除非你使用了 `"icon"` 选项设置图标。 在 macOS 上, `"warning"` 和 `"error"` 显示相同的警告图标
-  * `buttons` String[] (可选) - 按钮的文本数组。在 Windows 上, 空数组在按钮上会显示 "OK".
-  * `defaultId` Integer (可选) - 在 message box 对话框打开的时候，设置默认选中的按钮，值为在 buttons 数组中的索引.
-  * `title` String (可选) - message box 的标题，一些平台不显示.
-  * `message` String - message box 的内容.
-  * `detail` String (可选) - 额外信息.
-  * `checkboxLabel` String (可选) - 如果提供了If provided, 消息框将包含带有给定标签的复选框。 只有使用 `callback` 时，才能检查复选框的状态。
-  * `checkboxChecked` Boolean (可选) - checkbox 的初始值，默认值为 `false`.
-  * `icon` [NativeImage](native-image.md) (可选)
-  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 如果不存在这样的标记按钮，并且该选项没有设置，那么 `0` 将用作返回值或回调响应。
-  * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
-  * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
-* `callback` Function (可选) 
-  * `response` Number - 被点击按钮的索引.
-  * `checkboxChecked` Boolean - 如果设置了 `checkboxLabel`，返回复选框是否被选中的状态。否则为`false`.
+  * `title` String (可选)
+  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
+  * `filters` [FileFilter[]](structures/file-filter.md) (可选)
+  * `message` String (optional) *macOS* - Message to display above text fields.
+  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
-返回 `Integer`, 即被点击按钮的索引, 如果提供回调方法, 它返回 undefined
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
-显示消息框时，它将阻止进程直到消息框被关闭。返回点击按钮的索引。
+    * `canceled` Boolean - whether or not the dialog was canceled.
+    * `filePath` String (optional) If the dialog is canceled this will be `undefined`.
+    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+    
 
-` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
-If the `callback` and `browserWindow` arguments are passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+
+**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+
+### `dialog.showMessageBoxSync([browserWindow, ]options)`
+
+* `browserWindow` [BrowserWindow](browser-window.md) (可选)
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
+  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
+  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `message` String - Content of the message box.
+  * `detail` String (optional) - Extra information of the message.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `icon` [NativeImage](native-image.md) (optional)
+  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
+  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 默认值为 `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+
+Returns `Integer` - the index of the clicked button.
+
+Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+
+### `dialog.showMessageBox([browserWindow, ]options)`
+
+* `browserWindow` [BrowserWindow](browser-window.md) (可选)
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
+  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
+  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `message` String - Content of the message box.
+  * `detail` String (optional) - Extra information of the message.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
+  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
+  * `icon` [NativeImage](native-image.md) (optional)
+  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value or callback response.
+  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
+  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 默认值为 `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+
+Returns `Promise<Object>` - resolves with a promise containing the following properties:
+
+    * `response` Number - The index of the clicked button.
+    * `checkboxChecked` Boolean - The checked state of the checkbox if
+    `checkboxLabel` was set. Otherwise `false`.
+    
+
+Shows a message box, it will block the process until the message box is closed.
+
+The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - 显示在错误框中的标题.
-* `content` String - 显示在错误框中的文本内容.
+* `title` String - The title to display in the error box.
+* `content` String - The text content to display in the error box.
 
-显示一个显示错误消息的模态对话框。
+Displays a modal dialog that shows an error message.
 
-这个API可以在 `app` 模块触发 `ready` 事件之前被安全地调用，它通常用在启动时报告错误。 在 Linux 上, `ready` 事件之前调用这个API, 消息将被发送到stderr, 并且不会出现GUI对话框。
+This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `选项` Object 
-  * `certificate` [Certificate](structures/certificate.md) - 信任/导入的证书
-  * `message` String - 要向用户显示的消息
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
+  * `message` String - The message to display to the user.
 * `callback` Function
 
-在macOS中, 将弹出一个用于展示消息与证书信息并向用户提供信任/导入证书的选项的模态对话框。 如果提供 ` browserWindow ` 参数, 则该对话框将附加到父窗口, 使其成模态框。
+On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 
-在Windows中, 受限于Win32 API，可选项变得更为有限:
+On Windows the options are more limited, due to the Win32 APIs used:
 
-* `message` 参数无效，因为操作系统提供了自身的确认对话框。
-* `browserWindow` 参数被忽略，因此无法成为模态对话框。
+* The `message` argument is not used, as the OS provides its own confirmation dialog.
+* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+
+**[即将弃用](modernization/promisification.md)**
+
+### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
+
+* `browserWindow` [BrowserWindow](browser-window.md) (可选)
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
+  * `message` String - The message to display to the user.
+
+Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+
+On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+
+On Windows the options are more limited, due to the Win32 APIs used:
+
+* The `message` argument is not used, as the OS provides its own confirmation dialog.
+* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
 
 ## 工作表
 
-在[`MaCOS`](browser-window.md)中，如果在<0>browserWindow</0>的参数中提供<0>BrowerWindow</0>这一参数，或者在非<0>browserWindow</0>中未提供<0>modals</0>参数，则将对附加到<0>window</0>中的<0>sheet</0>的形式呈现。
+On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
-您可以调用 `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` 来更改附加工作表的窗口框架的偏移量。
+You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
