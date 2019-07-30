@@ -8,7 +8,7 @@ ipcMain模块是EventEmitter类的一个实例。 当在主进程中使用时，
 
 ## 发送消息
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。
@@ -48,14 +48,18 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function - 回调函数 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 监听 `channel`，当接收到新的消息时 `listener` 会以 `listener(event, args...)` 的形式被调用。
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function - 回调函数 
+  * `event` IpcMainEvent
+  * `...args` any[]
 
 添加一次性的 `listener`。当且仅当下一个消息发送到 `channel` 时 `listener` 才会被调用，随后 <0>listener</0> 会被移除。
 
@@ -74,20 +78,4 @@ IpcMain模块有以下方法来侦听事件：
 
 ## 事件对象
 
-传递给 callback 的 event 对象有如下方法:
-
-### `event.frameId`
-
-An `Integer` representing the ID of the renderer frame that sent this message.
-
-### `event.returnValue`
-
-将此设置为在一个同步消息中返回的值.
-
-### `event.sender`
-
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
-
-### `event.reply`
-
-A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
