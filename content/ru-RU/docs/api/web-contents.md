@@ -43,7 +43,7 @@ console.log(webContents)
 
 > Рендерит и управляет контент экземпляра BrowserWindow.
 
-Process: [Основной](../glossary.md#main-process)
+Процесс: [Главный](../glossary.md#main-process)
 
 ### События экземпляра
 
@@ -287,11 +287,11 @@ Emitted when the renderer process crashes or is killed.
 
 #### Событие: 'unresponsive'
 
-Вызывается, когда страница "не отвечает".
+Происходит, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
-Вызывается, когда неотвечавшая страница снова реагирует.
+Происходит, когда страница, которая "не отвечала", снова реагирует.
 
 #### Событие: 'plugin-crashed'
 
@@ -383,7 +383,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Происходит, когда запрошен сертификат клиента.
+Возникает при запросе сертификата клиента.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -406,7 +406,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String
   * `password` String
 
-Происходит, когда `webContents` выполняет базовую аутентификацию.
+Возникает `webContents`, когда делается базовый auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -454,7 +454,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Событие: 'cursor-changed'
 
 Возвращает:
 
@@ -469,7 +469,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Событие: 'context-menu'
 
 Возвращает:
 
@@ -511,7 +511,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Событие: 'select-bluetooth-device'
 
 Возвращает:
 
@@ -544,7 +544,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Событие: 'paint'
 
 Возвращает:
 
@@ -564,11 +564,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Событие: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Событие: 'will-attach-webview'
 
 Возвращает:
 
@@ -880,7 +880,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // должен быть объект JSON  из запрашиваемого вызова
   })
 ```
 
@@ -900,13 +900,13 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // должен быть объект JSON  из запрашиваемого вызова
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Ignore application menu shortcuts while this web contents is focused.
 
@@ -1060,7 +1060,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (опционально) - границы захвата
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -1546,4 +1546,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Экземпляр [Отладчика](debugger.md) для webContents.
