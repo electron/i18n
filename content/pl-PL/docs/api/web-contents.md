@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### Zdarzenie: 'enter-html-full-screen'
+
+Emitted when the window enters a full-screen state triggered by HTML API.
+
+#### Zdarzenie: 'leave-html-full-screen'
+
+Emitted when the window leaves a full-screen state triggered by HTML API.
+
 #### Zdarzenie: 'devtools-opened'
 
 Emitted when DevTools is opened.
@@ -446,7 +454,7 @@ Zwraca:
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Zdarzenie: 'cursor-changed'
+#### Event: 'cursor-changed'
 
 Zwraca:
 
@@ -461,7 +469,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Zdarzenie: 'context-menu'
+#### Event: 'context-menu'
 
 Zwraca:
 
@@ -503,7 +511,7 @@ Zwraca:
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Zdarzenie: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 Zwraca:
 
@@ -536,7 +544,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Zdarzenie: 'paint'
+#### Event: 'paint'
 
 Zwraca:
 
@@ -556,11 +564,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Zdarzenie: 'devtools-reload-page'
+#### Event: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Zdarzenie: 'will-attach-webview'
+#### Event: 'will-attach-webview'
 
 Zwraca:
 
@@ -574,7 +582,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Zdarzenie: 'did-attach-webview'
+#### Event: 'did-attach-webview'
 
 Zwraca:
 
@@ -790,7 +798,7 @@ Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Przeładowuje obecną stronę i ignoruje cache.
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
@@ -850,6 +858,12 @@ Returns `String` - The user agent for this web page.
 
 Injects CSS into the current web page.
 
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
+
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
@@ -863,7 +877,25 @@ Evaluates `code` in page.
 
 In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
+  })
+```
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (optional) - Default is `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evaluates `code` in page.
+
+In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -872,7 +904,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Eksperymentalne*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -882,7 +914,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Wycisza audio na obecnej stronie internetowej.
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
@@ -1009,7 +1041,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`webContents.findInPage`] żądanie. 
+* `czynność` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1034,29 +1066,15 @@ console.log(requestId)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
-
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Funkcja 
-  * `hasWorker` Boolean
-
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Funkcja 
-  * `success` Boolean
-
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
 
 #### `contents.getPrinters()`
 
@@ -1094,6 +1112,21 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 Prints window's web page as PDF with Chromium's preview printing custom settings.
 
 The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+#### `contents.printToPDF(options)`
+
+* `options` Object 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
 The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
@@ -1241,6 +1274,10 @@ Toggles the developer tools.
 
 Starts inspecting element at position (`x`, `y`).
 
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
+
 #### `contents.inspectServiceWorker()`
 
 Opens the developer tools for the service worker context.
@@ -1257,7 +1294,7 @@ The renderer process can handle the message by listening to `channel` with the [
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-//W głównym procesie.
+// W procesie głównym.
 const { app, BrowserWindow } = require('electron')
 let win = null
 
@@ -1386,17 +1423,15 @@ End subscribing for frame presentation events.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - The full file path.
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Funkcja - `(error) => {}`. 
-  * `error` Error
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```
