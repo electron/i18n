@@ -331,9 +331,9 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
-Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+戻り値 `Boolean` - このデバイスが Touch ID を使用できるかどうか。
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+**注意:** この API は Sierra 10.12.2 より古い macOS システムでは `false` を返します。
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
