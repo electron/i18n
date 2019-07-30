@@ -168,7 +168,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * ` devAraçlar` Boole (isteğe bağlı) - Dev Araçlar etkinleştirip desteklemeyeceğini belirtir. `yanlış` olarak ayarlanırsa DevTools'u açmak için ` BrowserWindow.webContents.openDevTools ()` kullanamazsınız. Varsayılanı `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * ` nodeIntegrationInWorker` Boolean (isteğe bağlı) - Düğümün tümleştirilip web çalışanlarında etkinleştirildi. Varsayılan `false`'dur. Bununla ilgili daha fazla bilgi bulabilirsiniz [ Multithreading'de](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * ` preload` Sicim (isteğe bağlı) - Diğerinden önce yüklenecek bir betiği belirtir sayfalarda komut dosyaları çalıştırın. Bu komut dosyasında, düğüm entegrasyonunun açık veya kapalı olmasına bakılmaksızın düğüm API'lerine her zaman erişilebilmektedir. Değer, komut dosyasının salt dosya yolu olmalıdır. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. Örneği [gör](process.md#event-loaded).
     * ` sandbox` Boole (isteğe bağlı) - Ayarlanırsa, oluşturucuyu gizlenecektir pencere ile ilişkilendirilerek Krom ile uyumlu hale getirilir OS düzeyinde sanal alan ve Node.js motorunu devre. Bu aynı şey değil ` düğüm Entegrasyon` seçeneği ve önyükleme komut dosyasında kullanılabilen API'ler daha sınırlıdır. Seçenek hakkında daha fazla detaya [buradan ](sandbox-option.md) ulaşabilirsiniz. ** Not**: Bu seçenek şu anda deneme amaçlı olup değişebilir veya değişebilir gelecekteki Electron sürümlerinde kaldırıldı.
     * `enableRemoteModule` Boolean (isteğe bağlı) - [`remote`](remote.md) modulü'nün aktif olup, olmamasıdır. Varsayılan değeri `true`.
@@ -182,7 +182,6 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `görüntüleri` Boolean (isteğe bağlı) - Görüntü desteğini etkinleştirir. Varsayılan `doğrudur`.
     * `textAreasAreResizable` Boolean (isteğe bağlı) - TextArea öğelerini yeniden boyutlandırılabilir yapın. Varsayılan `doğru` ise.
     * `webgl` Boolean (isteğe bağlı) - WebGL desteğini etkinleştirir. Varsayılan `doğrudur`.
-    * ` webaudio` Boolean (isteğe bağlı) - Web Ses desteğini etkinleştirir. Varsayılan `doğrudur`.
     * `eklentileri` Boolean (isteğe bağlı) - Eklentilerin etkinleştirilip etkinleştirilmeyeceği. Varsayılan değer `yanlış`.
     * `experimentalFeatures` Boolean (isteğe bağlı) - Chromium'un deneysel özelliklerini etkinleştirir. Varsayılan değer `yanlış`.
     * ` scrollBounce` Boolean (isteğe bağlı) - Üzerinde kaydırma sıçrama (lastik bantlama) efekti sağlar Mac os işletim sistemi. Varsayılan değer `yanlış`.
@@ -202,13 +201,14 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `backgroundThrottling` Bağlaç (isteğe bağlı) - Sayfa arka plandayken animasyonların ve zamanlayıcıların kısıtlanması. Bu da [Page Visibility API](#page-visibility) etkiler. Varsayılanı `true` olarak belirler.
     * `offScreen` Boolean (isteğe bağlı) - Tarayıcı için ekran dışı görüntülemeyi etkinleştirip destekleyip desteklemeyeceğini belirtir penceresi. Varsayılan değer `false`. Bak [için ekran dışı işleme öğretici](../tutorial/offscreen-rendering.md) daha fazla detay.
     * ` contextIsolation` Boolean (isteğe bağlı) - Elektron API'lerini çalıştırıp çalıştırmamak Ayrı bir JavaScript bağlamında belirtilen `önyükleme` komut dosyası. Varsayılanı `false` olarak belirler. `önceden yükleme` Komut Dosyasının Çalıştığı İçerik Olmayacaktır `belge` ve `pencere` dünyasına tam erişime sahip olmakla birlikte kendi JavaScript yerleşikleri kümesi (`Array`, `Objec`, `JSON`, vb.) ve küresel çevreye yapılan herhangi bir değişiklikten izole edilecek yüklenen sayfaya göre. Elektron API'sı yalnızca ` yüklenen` sayfa değil önyükleme komut dosyası. Yüklenen içeriğin `önyükleme` komut dosyasına ve kullanılan herhangi bir Elektron API'sine kurcalamamasını sağlamak için potansiyel olarak güvenilmeyen uzak içeriği yüklerken bu seçenek kullanılmalıdır. Bu seçenek[Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) tarafından kullanılan yöntemi kullanır. Konsol sekmesinin üst kısmındaki birleşik giriş kutusunda 'Electron Yalıtılmış Ortam' girişini seçerek dev araçlarındaki bu içeriğe ulaşabilirsiniz.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Varsayılan değer `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Varsayılan değer `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (opsiyonel) - Aktifleştirmek için [`<webview>` etiket](webview-tag.md). Varsayılan değer `false`. **Note:**`<webview>`için yapılandırılmış `preload` komut dosyası, çalıştırıldığında düğüm entegrasyonunun etkinleştirilmesini sağlar bu nedenle uzak/güvenilir olmayan içeriğin muhtemel kötü amaçlı `preload` komut dosyası içeren bir `<webview>` etiketi oluşturamayacağından emin olmanız gerekir. ` webview ekleyecek` etkinliğini [ webSatıcıları'nda](web-contents.md) kullanabilirsiniz. `önyükleme` komut dosyasını kaldırmak ve belgeyi doğrulamak veya değiştirmek için `<webview>` 'nin başlangıç ​​ayarları.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
 Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks Genişlik` / ` min Yükseklik` / ` maxHeight`, yalnızca kullanıcıları sınırlandırır. Sizi engellemeyecektir boyut sınırlamalarını takip etmeyen bir boyutu ` setBounds`/ ` Boyut ayarla` veya `Tarayıcı penceresi yapıcısına`.
 
@@ -848,7 +848,7 @@ Linux üzerinde her zaman `true` döndürür.
   
   Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
   
-  #### `win.moveTop()` *macOS* *Windows*
+  #### `win.moveTop()`
   
   Moves window to top(z-order) regardless of focus
   
@@ -978,13 +978,13 @@ Linux üzerinde her zaman `true` döndürür.
   
   `rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
   
-  **[Deprecated Soon](promisification.md)**
+  **[Deprecated Soon](modernization/promisification.md)**
   
   #### `win.capturePage([rect])`
   
   * `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
   
-  * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+  Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
   
   Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
   
@@ -1318,3 +1318,24 @@ Linux üzerinde her zaman `true` döndürür.
   Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
   
   **Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
+  
+  ### Özellikler
+  
+  #### `win.excludedFromShownWindowsMenu` *macOS*
+  
+  A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+  
+  ```js
+  const win = new BrowserWindow({ height: 600, width: 600 })
+  
+  const template = [
+    {
+      role: 'windowmenu'
+    }
+  ]
+  
+  win.excludedFromShownWindowsMenu = true
+  
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+  ```
