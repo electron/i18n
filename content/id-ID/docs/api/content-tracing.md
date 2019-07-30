@@ -102,9 +102,9 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Fungsi 
-  * Sasaran 
-    * `value` Number
-    * `percentage` Number
+  * Obyek 
+    * `nilai` Nomor
+    * `persentase` Nomor
 
 Dapatkan penggunaan maksimum di seluruh proses buffer jejak sebagai persentase dari penuh negara. Bila nilai TraceBufferUsage ditentukan, maka `callback` adalah bernama.
 
