@@ -36,16 +36,16 @@ app.on('ready', () => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+`net` API は、アプリケーションが `ready` イベントを発行した後にのみ使用できます。 `ready` イベントの前にモジュールを使用しようとすると、エラーが発生します。
 
 ## メソッド
 
-The `net` module has the following methods:
+`net` モジュールには以下のメソッドがあります。
 
 ### `net.request(options)`
 
 * `options` (Object | String) - `ClientRequest` のコンストラクタのオプション。
 
-Returns [`ClientRequest`](./client-request.md)
+戻り値 [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+`ClientRequest` コンストラクタに直接転送される `options` を使用して[`ClientRequest`](./client-request.md) インスタンスを作成します。 `net.request` メソッドは、`options` オブジェクト内の指定されたプロトコルにしたがって、セキュアとインセキュア両方の HTTP リクエストを発行するために使用されます。
