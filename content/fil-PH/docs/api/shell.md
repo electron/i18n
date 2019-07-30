@@ -22,15 +22,15 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Show the given file in a file manager. If possible, select the file.
+Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
-Open the given file in the desktop's default manner.
+Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
 ### `shell.openExternalSync(url[, mga pagpipilian])`
 
