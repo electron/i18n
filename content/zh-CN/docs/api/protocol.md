@@ -284,7 +284,7 @@ Unregisters the custom protocol of `scheme`.
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 ### `protocol.isProtocolHandled(scheme)`
 
