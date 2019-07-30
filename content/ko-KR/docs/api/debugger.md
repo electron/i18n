@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 명령을 디버깅 대상으로 전송합니다.
 
-**[Deprecated Soon](promisification.md)**
+**[곧 중단 예정](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
