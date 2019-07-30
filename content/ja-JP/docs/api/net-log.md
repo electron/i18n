@@ -7,12 +7,11 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   netLog.startLogging('/path/to/net-log')
-  // いくつかのネットワークイベントのあと
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
 
@@ -35,12 +34,20 @@ app.on('ready', function () {
 
 ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
 
+**[非推奨予定](modernization/promisification.md)**
+
+### `netLog.stopLogging()`
+
+Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+
+ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
+
 ## プロパティ
 
 ### `netLog.currentlyLogging`
 
-ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
+A `Boolean` property that indicates whether network logs are recorded.
 
 ### `netLog.currentlyLoggingPath`
 
-現在のログファイルへのパスを返す `String` プロパティ。
+A `String` property that returns the path to the current log file.
