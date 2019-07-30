@@ -467,7 +467,7 @@ Rückgabewert:
 * `size` [Size](structures/size.md) (optional) - Die Größe des `Bildes`.
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Emittiert wenn der Cursor Typ sich ändert. Der `type` Parameter kann folgenden Werte haben `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
@@ -737,7 +737,7 @@ Rückgabewert:
   |   - index.html
   ```
   
-  Would require code like this
+  Würde Code wie diesen benötigen
   
   ```js
   win.loadFile('src/index.html')
@@ -751,7 +751,7 @@ Rückgabewert:
   
   #### `contents.getURL()`
   
-  Returns `String` - The URL of the current web page.
+  Gibt einen `String` zurück - Die URL der aktuellen web page.
   
   ```javascript
   const { BrowserWindow } = require('electron')
@@ -796,11 +796,11 @@ Rückgabewert:
   
   #### `contents.reload()`
   
-  Reloads the current web page.
+  Lädt die aktuelle web page neu.
   
   #### `contents.reloadIgnoringCache()`
   
-  Reloads current page and ignores cache.
+  Lädt die aktuelle web page neu und ignoriert dabei die Caches.
   
   #### `contents.canGoBack()`
   
@@ -890,7 +890,7 @@ Rückgabewert:
   
   #### `contents.executeJavaScript(code[, userGesture])`
   
-  * `code` String
+  * `code` Zeichenkette
   * `userGesture` Boolean (optional) - Default is `false`.
   
   Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -906,7 +906,7 @@ Rückgabewert:
     })
   ```
   
-  #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+  #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
   
   * `ignore` Boolean
   
@@ -928,7 +928,7 @@ Rückgabewert:
   
   #### `contents.setZoomFactor(factor)`
   
-  * `factor` Number - Zoom Faktor.
+  * `factor` Number - Zoom faktor.
   
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
   
@@ -938,7 +938,7 @@ Rückgabewert:
   
   #### `contents.setZoomLevel(level)`
   
-  * `level` Number - Zoom level.
+  * `level` Number - Zoom Level.
   
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
   
@@ -1145,7 +1145,7 @@ Rückgabewert:
   
   Use `page-break-before: always;` CSS style to force to print to a new page.
   
-  An example of `webContents.printToPDF`:
+  Ein Beispiel für `webContents.printToPDF`:
   
   ```javascript
   const { BrowserWindow } = require('electron')
@@ -1226,7 +1226,7 @@ Rückgabewert:
   </html>
   ```
   
-  An example of showing devtools in a `BrowserWindow`:
+  Ein Beispiel zum zeigen der DevTools in einem `BrowserWindow`:
   
   ```js
   const { app, BrowserWindow } = require('electron')
@@ -1255,7 +1255,7 @@ Rückgabewert:
   
   #### `contents.closeDevTools()`
   
-  Closes the devtools.
+  Schließt die DevTools.
   
   #### `contents.isDevToolsOpened()`
   
