@@ -15,14 +15,18 @@
 ### `ipcRenderer.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function - 回调函数 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 监听 channel, 当新消息到达，将通过 listener(event, args...) 调用 listener。
 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function - 回调函数 
+  * `event` IpcRendererEvent
+  * `...args` any[]
 
 为事件添加一个一次性用的listener 函数.这个 listener 只有在下次的消息到达 channel 时被请求调用，之后就被删除了.
 
@@ -119,13 +123,5 @@
 </h2>
 
 <p>
-  传递给 callback 的 event 对象有如下方法:
-</p>
-
-<h3>
-  <code>event.senderId</code>
-</h3>
-
-<p>
-  Returns the <code>webContents.id</code> that sent the message, you can call <code>event.sender.sendTo(event.senderId, ...)</code> to reply to the message, see <a href="#ipcrenderersendtowindowid-channel--arg1-arg2-">ipcRenderer.sendTo</a> for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set <code>event.senderId</code> to <code>0</code>.
+  The documentation for the <code>event</code> object passed to the <code>callback</code> can be found in the <a href="structures/ipc-renderer-event.md"><code>ipc-renderer-event</code></a> structure docs.
 </p>
