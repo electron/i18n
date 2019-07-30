@@ -1,10 +1,10 @@
-# In-App-Käufe
+# inAppPurchase
 
 > In-app purchases on Mac App Store.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-## Ereignisse
+## Events
 
 The `inAppPurchase` module emits the following events:
 
