@@ -112,7 +112,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `nativeImage`
   - `remote`
   - `webFrame`
-- `events`
+- `ereignisse`
 - `timers`
 - `url`
 
