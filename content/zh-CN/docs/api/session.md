@@ -88,16 +88,32 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 * `callback` Function - 回调函数 
   * `size` Integer 缓存大小（单位：bytes）
+  * `error` Integer - The error code corresponding to the failure.
 
 Callback会被调用，参数是session的当前缓存大小。
 
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.getCacheSize()`
+
+Returns `Promise<Integer>` - the session's current cache size, in bytes.
+
 #### `ses.clearCache(callback)`
 
-* `callback` Function - 会在操作完成之后被调用。
+* `callback` Function - Called when operation is done. 
+  * `error` Integer - The error code corresponding to the failure.
 
-清除session的HTTP缓存。
+Clears the session’s HTTP cache.
 
-#### `ses.clearStorageData([options, callback])`
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearCache()`
+
+Returns `Promise<void>` - resolves when the cache clear operation is complete.
+
+Clears the session’s HTTP cache.
+
+#### `ses.clearStorageData([options,] callback)`
 
 * `选项` Object (可选) 
   * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
@@ -105,25 +121,36 @@ Callback会被调用，参数是session的当前缓存大小。
   * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。
 * `callback` Function (可选) - 会在操作完成后被调用.
 
-清除Web storage的数据。
+Clears the storage data for the current session.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearStorageData([options])`
+
+* `参数` Object (可选) 
+  * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`方式设置。
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] - (可选项) 要清除的配额类型, 包含: `temporary`, `persistent`, `syncable`。
+
+Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-写入任何未写入DOMStorage数据到磁盘.
+Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Object 
-  * `pacScript` String - 与 PAC 文件关联的 URL。
-  * `proxyRules` String - 表明要使用的代理规则。
-  * `proxyBypassRules` String - 表明哪些 url 应绕过代理设置的规则。
-* `callback` Function - 会在操作完成之后被调用。
+* `config` Object - 过滤器对象，包含过滤参数 
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+* `callback` Function - Called when operation is done.
 
-代理设置
+Sets the proxy settings.
 
-当`pacScript`和`proxyRules`一起提供时, `proxyRules` 选项会被忽略, 会使用`pacScript`配置。
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-`proxyRules` 要遵循以下规则:
+The `proxyRules` has to follow the rules below:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -141,37 +168,102 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
 * `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - 对于http URL，用`foopy`作为HTTP协议代理，而其它所有URL则用` socks4://foopy2` 协议。
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-`proxyBypassRules`是一个用逗号分隔的规则列表, 如下所述:
+The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  与 HOSTNAME_PATTERN 模式匹配的所有主机名。
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  例如: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    匹配特定域名后缀。
+    Match a particular domain suffix.
     
-    例如： ".google.com", ".com", "http://.google.com"
+    Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  匹配 IP 地址文本的 url。
+  Match URLs which are IP address literals.
   
-  例如: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  匹配位于给定范围之间的 IP 文本的任何 URL。IP 范围是使用 CIDR 表示法指定的。
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  例如: "192.168.1.1/16", "fefe:13::abc/33".
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  匹配本地地址。local 的含义是，是否匹配其中一个: "127.0.0.1", "::1", "localhost".
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.setProxy(config)`
+
+* `config` Object - 过滤器对象，包含过滤参数 
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+
+Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+
+Sets the proxy settings.
+
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+
+The `proxyRules` has to follow the rules below:
+
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
+
+例如：
+
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
+* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+
+The `proxyBypassRules` is a comma separated list of rules described below:
+
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+  
+  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  
+  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+    
+    Match a particular domain suffix.
+    
+    Examples: ".google.com", ".com", "http://.google.com"
+
+* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+  
+  Match URLs which are IP address literals.
+  
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+
+* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
+  
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+
+* `<local>`
+  
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
@@ -179,23 +271,31 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `callback` Function - 回调函数 
   * `proxy` String
 
-解析 `url` 的代理信息。执行被请求时, 将使用 `callback(proxy)` 来调用 `callback`。
+Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.resolveProxy(url)`
+
+* `url` URL
+
+Returns `Promise<string>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - 下载地址.
+* `path` String - The download location.
 
-设置下载保存目录。默认情况下, 下载目录将是相应应用程序文件夹下的 `Downloads`。
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `选项` Object 
-  * `offline` Boolean (可选) - 是否模拟网络中断、离线。默认 否。
-  * `latency` Double (可选) - RTT时延毫秒值. 默认为0将禁用时延调节。
-  * `downloadThroughput ` Double (可选) - 指定下载Bps速率。默认为0将禁用下载限速。
-  * `uploadThroughput` Double (可选) - 指定上传Bps速率. 默认0将禁用上传速率限制。
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-通过指定的配置为 `session` 模拟网络。
+Emulates network with the given configuration for the `session`.
 
 ```javascript
 // To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
@@ -211,25 +311,25 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.disableNetworkEmulation()`
 
-禁用所有为 `session` 模拟的已激活网络。重置为原始网络配置。
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function - 回调函数 
-  * `request` Object 
+  * `request` Object - 过滤器对象，包含过滤参数 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - chromium证书验证结果
-    * `errorCode` Integer - 错误代码
+    * `certificate` [证书](structures/certificate.md)
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function - 回调函数 
-    * `verificationResult` Integer - 证书错误代码之一，来自 [这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。 除了证书错误代码外，还可以使用以下特殊代码。 
-      * `-0` - 表示成功并禁用证书透明度验证
-      * `-2` - 表示失败
-      * `-3` - 使用chromium的验证结果
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
+      * `0` - Indicates success and disables Certificate Transparency verification.
+      * `-2` - Indicates failure.
+      * `-3` - Uses the verification result from chromium.
 
-每当一个服务器证书请求验证，`proc` 将被这样 `proc(request, callback)` 调用，为 `session` 设置证书验证过程。 回调函数 `callback(0)` 接受证书，`callback(-2)` 驳回证书。
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
-调用 ` setCertificateVerifyProc（null）`将恢复为默认证书验证过程。
+Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -248,17 +348,17 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - 请求权限的WebContents。 Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
-  * `permission` String - 枚举 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function - 回调函数 
-    * `permissionGranted` Boolean - 允许或拒绝该权限.
-  * `details` Object - 一些属性只有在某些授权状态下可用。 
+    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String (Optional) - The url of the `openExternal` request.
     * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
@@ -273,11 +373,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<boolean> | null 
+* `handler` Function - 回调函数<boolean> | null 
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
-  * `details` Object - 一些属性只有在某些授权状态下可用。 
+  * `details` Object - Some properties are only available on certain permission types. 
     * `securityOrigin` String - The security orign of the `media` check.
     * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
     * `requestingUrl` String - The last URL the requesting frame loaded
@@ -296,94 +396,123 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache(callback)`
 
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function (可选) - 会在操作完成后被调用.
 
-清除主机解析程序的缓存。
+Clears the host resolver cache.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearHostResolverCache()`
+
+Returns `Promise<void>` - Resolves when the operation is complete.
+
+Clears the host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - 一个逗号分隔的服务器列表, 用于收集已经启用身份验证的服务器。
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
 const { session } = require('electron')
-// 以 "example.com"、"foobar.com"、"baz" 结尾的 url 用于身份验证。
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// 所有的 url 都可以用作身份验证
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (可选)
+* `acceptLanguages` String (optional)
 
-覆盖当前会话的 `userAgent` 和 `acceptLanguages`.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-`acceptLanguages` 必须是用逗号分隔的语言代码列表，例如 `"en-US,fr,de,ko,zh-CN,ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-这不会影响现有的`WebContents`, 并且每个`WebContents`都可以使用 `webContents.setUserAgent`重写会话范围的user agent。
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-返回 `String` - 当前会话的 user agent.
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - 有效的 UUID.
-* `callback` Function 
-  * `result` Buffer - Blob 数据.
+* `identifier` String - Valid UUID.
+* `callback` Function - 回调函数 
+  * `result` Buffer - Blob data.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.getBlobData(identifier)`
+
+* `identifier` String - Valid UUID.
+
+Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
-  * `path` String - 下载的绝对路径.
-  * `urlChain` String[] - 完整的 url 下载地址.
-  * `mimeType` String (可选)
-  * `offset` Integer - 下载的开始范围.
-  * `length` Integer - 下载的总长度。
-  * `lastModified` String - 上次修改的标头值。
-  * `eTag` String - ETag 标头值。
-  * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache(options, callback)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function - Called when operation is done.
 
-清除会话的 HTTP 身份验证缓存。
+Clears the session’s HTTP authentication cache.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `ses.clearAuthCache(options)` *(deprecated)*
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.clearAuthCache()`
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - 数组，该数组由所有需要进行预加载的脚本的绝对路径组成。
+* `preloads` String[] - An array of absolute path to preload scripts
 
 Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-返回 `String[]` 返回一个数组，这个数组由已经注册过的预加载脚本的路径组成。
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### 实例属性
 
-以下属性在` Session </ 0>实例上可用：</p>
+The following properties are available on instances of `Session`:
 
-<h4><code>ses.cookies`</h4> 
+#### `ses.cookies`
 
-此会话的 [ cookie ](cookies.md) 对象。
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-此会话的 [WebRequest](web-request.md) 对象。
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-此会话的 [ 协议 ](protocol.md) 对象。
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -407,12 +536,11 @@ A [NetLog](net-log.md) object for this session.
 ```javascript
 const { app, session } = require('electron')
 
-app.on('ready', function () {
+app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
   // After some network events
-  netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
-  })
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
 })
 ```
