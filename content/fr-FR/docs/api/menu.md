@@ -90,7 +90,7 @@ Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Événements d’instance
 
-Objects created with `new Menu` emit the following events:
+Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 **Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
@@ -119,10 +119,6 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
-
-### Événements d’instance
-
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
 ## Exemples
 
@@ -223,7 +219,10 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
       }
     ]
   }
@@ -233,7 +232,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Processus de rendu
+### Render process
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -292,7 +291,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Exemples
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -303,7 +302,7 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
 ```sh
 <br />- 1
@@ -312,7 +311,7 @@ Menu :
 - 4
 ```
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -325,7 +324,7 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
 ```sh
 <br />- 3
@@ -336,7 +335,7 @@ Menu :
 - 2
 ```
 
-Modèle :
+Template:
 
 ```javascript
 [
@@ -346,7 +345,7 @@ Modèle :
 ]
 ```
 
-Menu :
+Menu:
 
 ```sh
 <br />- ---
