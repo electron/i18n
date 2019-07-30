@@ -154,83 +154,85 @@ Menyetel teks hover untuk ikon baki ini.
 
 <p>Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).</p>
 
-<h4><code>tray.getTitle()` *macOS*</h4> 
-  * ` judul</ 0>  String</li>
+<h4><code> tray.getTitle () </ 0>  <em> macos </ 1></h4>
+
+<ul>
+<li><code> judul </ 0> String</li>
 </ul>
 
 <p>Returns <code>String` - the title displayed next to the tray icon in the status bar</p> 
-    #### `tray.setHighlightMode(mode)` *macOS*
-    
-    * `modus` String - Highlight mode with one of the following values: 
-      * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-      * `always` - Always highlight the tray icon.
-      * `never` - Never highlight the tray icon.
-    
-    Sets when the tray's icon background becomes highlighted (in blue).
-    
-    **[Deprecated](breaking-changes.md#tray)**
-    
-    **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-    
-    ```javascript
-    const { BrowserWindow, Tray } = require ('electron')
-    
-    const win = new BrowserWindow ({ width: 800, height: 600 })
-    const tray = new Tray ('/ path / to / my / icon')
-    
-    tray.on ('klik', () = > {
-      win.isVisible ()? win.hide (): win.show ()
-    })
-    win.on ('show', () = > {
-      tray.setHighlightMode ('selalu')
-    })
-    win.on ('hide', () = > {
-      tray.setHighlightMode ('tidak pernah')
-    })
-    ```
-    
-    #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
-    
-    * `mengabaikan` Boolean
-    
-    Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
-    
-    This value is set to false by default.
-    
-    #### `tray.getIgnoreDoubleClickEvents()` *macOS*
-    
-    Returns `Boolean` - Whether double click events will be ignored.
-    
-    #### `tray.displayBalloon(options)` *Windows*
-    
-    * `pilihan` Sasaran 
-      * `icon` ([NativeImage](native-image.md) | String) (optional) -
-      * ` judul</ 0>  String</li>
+  #### `tray.setHighlightMode(mode)` * macos*
+  
+  * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
+    * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
+    * `selalu` - Selalu sorot ikon baki.
+    * `tidak pernah` - Jangan menyorot ikon baki.
+  
+  Menyetel saat latar belakang ikon baki disorot (berwarna biru).
+  
+  **[Tidak berlaku lagi](breaking-changes.md#tray)**
+  
+  **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
+  
+  ```javascript
+  const { BrowserWindow, Tray } = require ('electron')
+  
+  const win = new BrowserWindow ({ width: 800, height: 600 })
+  const tray = new Tray ('/ path / to / my / icon')
+  
+  tray.on ('klik', () = > {
+    win.isVisible ()? win.hide (): win.show ()
+  })
+  win.on ('show', () = > {
+    tray.setHighlightMode ('selalu')
+  })
+  win.on ('hide', () = > {
+    tray.setHighlightMode ('tidak pernah')
+  })
+  ```
+  
+  #### `tray.setIgnoreDoubleClickEvents(ignore)` * macos*
+  
+  * `mengabaikan` Boolean
+  
+  Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+  
+  This value is set to false by default.
+  
+  #### ` tray.getIgnoreDoubleClickEvents () </ 0>  <em> macos </ 1></h4>
+
+<p>Returns <code>Boolean` - Whether double click events will be ignored.</p> 
+  
+  #### `tray.displayBalloon(options)` *Windows*
+  
+  * `pilihan` Obyek 
+    * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
+    * ` judul </ 0> String</li>
 <li><code>content` String
-    
-    Displays a tray balloon.
-    
-    #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-    
-    * `menu` Menu (optional)
-    * `position` [Point](structures/point.md) (optional) - The pop up position.
-    
-    Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
-    
-    The `position` is only available on Windows, and it is (0, 0) by default.
-    
-    #### `tray.setContextMenu(menu)`
-    
-    * `menu` Menu | null
-    
-    Sets the context menu for this icon.
-    
-    #### `tray.getBounds()` *macOS* *Windows*
-    
-    Kembali [`Rectangle`](structures/rectangle.md)
-    
-    The `bounds` of this tray icon as `Object`.
-    
-    #### `tray.isDestroyed()`
-    
-    Returns `Boolean` - Whether the tray icon is destroyed.
+  
+  Menampilkan balon baki.
+  
+  #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+  
+  * ` teks ` String (opsional)
+  * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
+  
+  Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
+  
+  Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
+  
+  #### `tray.setContextMenu (menu)`
+  
+  * `menu` Menu | batal
+  
+  Menetapkan menu konteks untuk ikon ini.
+  
+  #### `tray.getBounds()` *macOS * * Windows*
+  
+  Kembali [`Rectangle`](structures/rectangle.md)
+  
+  `Batas` dari ikon baki ini sebagai `Objek`.
+  
+  #### `tray.isDestroyed()`
+  
+  Mengembalikan `Boolean` - Apakah ikon baki rusak.
