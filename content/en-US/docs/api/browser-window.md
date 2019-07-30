@@ -256,7 +256,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
       enabled in web workers. Default is `false`. More about this can be found
       in [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for
-      enabling NodeJS support in sub-frames such as iframes. All your preloads will load for
+      enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for
       every iframe, you can use `process.isMainFrame` to determine if you are
       in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other
@@ -306,7 +306,6 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default
       is `true`.
     * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
     * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features.
       Default is `false`.
@@ -354,7 +353,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
       Console tab.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native
       `window.open()`. Defaults to `false`. Child windows will always have node
-      integration disabled. **Note:** This option is currently
+      integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently
       experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md).
       Defaults to `false`. **Note:** The
@@ -379,6 +378,9 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
       content in the window, can be `no-user-gesture-required`,
       `user-gesture-required`, `document-user-activation-required`. Defaults to
       `no-user-gesture-required`.
+    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to
+      prevent the window from resizing when entering HTML Fullscreen. Default
+      is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/
 `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from
@@ -1090,7 +1092,7 @@ can not be focused on.
 
 Returns `Boolean` - Whether the window is always on top of other windows.
 
-#### `win.moveTop()` _macOS_ _Windows_
+#### `win.moveTop()`
 
 Moves window to top(z-order) regardless of focus
 
@@ -1229,13 +1231,13 @@ Captures a snapshot of the page within `rect`. Upon completion `callback` will
 be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md)
 that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
@@ -1647,3 +1649,24 @@ removed in future Electron releases.
 [vibrancy-docs]: https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc
 [window-levels]: https://developer.apple.com/documentation/appkit/nswindow/level
 [chrome-content-scripts]: https://developer.chrome.com/extensions/content_scripts#execution-environment
+
+### Properties
+
+#### `win.excludedFromShownWindowsMenu` _macOS_
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```

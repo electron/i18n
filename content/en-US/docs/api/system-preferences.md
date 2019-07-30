@@ -82,7 +82,7 @@ that contains the user information dictionary sent along with the notification.
 * `callback` Function
   * `event` String
   * `userInfo` Object
-  
+
 Returns `Number` - The ID of this subscription
 
 Subscribes to native notifications of macOS, `callback` will be called with
@@ -107,7 +107,7 @@ example values of `event` are:
 * `callback` Function
   * `event` String
   * `userInfo` Object
-  
+
 Returns `Number` - The ID of this subscription
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults.
@@ -141,9 +141,9 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificati
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
-### `systemPreferences.registerDefaults(defaults)` _macOS_		
+### `systemPreferences.registerDefaults(defaults)` _macOS_
 
-* `defaults` Object - a dictionary of (`key: value`) user defaults			
+* `defaults` Object - a dictionary of (`key: value`) user defaults
 
 Add the specified defaults to your application's `NSUserDefaults`.
 
@@ -311,7 +311,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
     * `unemphasized-selected-text` - Selected text in a non-key window or view.
     * `window-background` - The background of a window.
-    * `window-frame-text` - The text in the window's titlebar area.	
+    * `window-frame-text` - The text in the window's titlebar area.
 
 Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`).
 See the [Windows docs][windows-colors] and the [MacOS docs][macos-colors] for more details.
@@ -372,6 +372,32 @@ You can use the `setAppLevelAppearance` API to set this value.
 Sets the appearance setting for your application, this should override the
 system default and override the value of `getEffectiveAppearance`.
 
+### `systemPreferences.canPromptTouchID()` _macOS_
+
+Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+
+**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+
+### `systemPreferences.promptTouchID(reason)` _macOS_
+
+* `reason` String - The reason you are asking for Touch ID authentication
+
+Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+
+```javascript
+const { systemPreferences } = require('electron')
+
+systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
+  console.log('You have successfully authenticated with Touch ID!')
+}).catch(err => {
+  console.log(err)
+})
+```
+
+This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+
+**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` _macOS_
 
 * `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
@@ -395,3 +421,13 @@ Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was 
 **Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
 
 This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
+
+### `systemPreferences.getAnimationSettings()`
+
+Returns `Object`:
+
+* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
+* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+
+Returns an object with system animation settings.
