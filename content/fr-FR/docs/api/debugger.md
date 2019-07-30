@@ -57,7 +57,7 @@ Détache le débogueur depuis le `webContents`.
 
 Envoi une commande au débogueur.
 
-**[Deprecated Soon](promisification.md)**
+**[Deprecated Soon](modernization/promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
