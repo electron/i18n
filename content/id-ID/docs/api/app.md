@@ -303,6 +303,16 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Emitted saat proses gpu macet atau terbunuh.
     
+    ### Event: 'renderer-process-crashed'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    * `terbunuh` Boolean
+    
+    Emitted when the renderer process of `webContents` crashes or is killed.
+    
     ### Event: 'aksesibilitas-support-changed' *macOS* *Windows*
     
     Pengembalian:
@@ -474,6 +484,14 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Menunjukkan jendela aplikasi setelah disembunyikan. Tidak secara otomatis memfokuskannya.
     
+    ### `app.setAppLogsPath(path)`
+    
+    * `path` String (optional) - A custom path for your logs. Must be absolute.
+    
+    Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+    
+    On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+    
     ### `app.getAppPath()`
     
     Mengembalikan `String` - Direktori aplikasi saat ini.
@@ -517,14 +535,14 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
       
       Mengambil ikon terkait jalur.
       
-      Pada *Windows*, ada 2 macam ikon:
+      On *Windows*, there are 2 kinds of icons:
       
       * Ikon terkait dengan ekstensi file tertentu, seperti `.mp3`, `.png`, dll.
       * Ikon di dalam file itu sendiri, seperti `.exe`, `.dll`, `.ico`.
       
       On *Linux* and *macOS*, icons depend on the application associated with file mime type.
       
-      **[Deprecated Soon](promisification.md)**
+      **[Deprecated Soon](modernization/promisification.md)**
       
       ### `app.getFileIcon(path[, options])`
       
@@ -552,7 +570,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
 <li><code> path </ 0>  String</li>
 </ul>
 
-<p>Menimpa <code>path` ke direktori khusus atau file yang terkait dengan `nama`. Jika path menentukan direktori yang tidak ada, direktori akan dibuat dengan metode ini. Pada kegagalan sebuah `Error` dilempar.</p> 
+<p>Menimpa <code>path` ke direktori khusus atau file yang terkait dengan `nama`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.</p> 
         Anda hanya dapat menimpa jalur dari `nama` didefinisikan dalam `app.getPath`.
         
         Secara default, cookie dan cache halaman web akan disimpan di bawah direktori `userData`. Jika Anda ingin mengubah lokasi ini, Anda harus mengganti path `userData` sebelum event `ready` dari modul `app` dipancarkan.
@@ -614,6 +632,8 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
             On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
             
             **Catatan:** Pada macOS, Anda hanya dapat mendaftarkan protokol yang telah ditambahkan ke aplikasi `info.plist`, yang tidak dapat diubah saat runtime. Namun Anda dapat mengubah file dengan editor teks sederhana atau skrip selama waktu pembuatan. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
+            
+            **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
             
             The API menggunakan Windows Registry dan LSSetDefaultHandlerForURLScheme internal.
             
@@ -742,8 +762,6 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Mengembalikan `Boolean`
             
-            Metode ini membuat aplikasi Anda menjadi Aplikasi Instan Tunggal - alih-alih membiarkan beberapa contoh aplikasi Anda berjalan, ini akan memastikan bahwa hanya satu contoh aplikasi Anda yang berjalan, dan contoh lainnya memberi isyarat contoh ini dan keluar.
-            
             The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
             
             I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
@@ -853,7 +871,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Returns `Promise`
             
-            For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+            For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
             
             For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
             
@@ -944,6 +962,8 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Mengembalikan `Boolean` - `true` jika dukungan aksesibilitas Chrome diaktifkan, `salah` sebaliknya. API ini akan mengembalikan `true` jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.
             
+            **[Deprecated Soon](modernization/property-updates.md)**
+            
             ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
             
             * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
@@ -953,6 +973,8 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             This API must be called after the `ready` event is emitted.
             
             **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+            
+            **[Deprecated Soon](modernization/property-updates.md)**
             
             ### `app.showAboutPanel` *macOS* *Linux*
             
@@ -971,6 +993,14 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on MacOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
             
+            ### `app.isEmojiPanelSupported`
+            
+            Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+            
+            ### `app.showEmojiPanel` *macOS* *Windows*
+            
+            Show the platform's native emoji picker.
+            
             ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
             
             * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
@@ -988,20 +1018,22 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             ### `app.commandLine.appendSwitch(beralih [, nilai])`
             
-            * `switch` String - Sakelar baris perintah
+            * `switch` String - A command-line switch, without the leading `--`
             * `value` String (opsional) - Nilai untuk saklar yang diberikan
             
             Tambahkan peralihan (dengan `nilai opsional`) ke baris perintah Chromium.
             
-            **Catatan:** Ini tidak akan mempengaruhi `process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.
+            **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
             
             ### `app.commandLine.appendArgument(nilai)`
             
             * `nilai` String - argumen untuk menambahkan ke baris perintah
             
-            Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
+            Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
             
-            **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
+            If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+            
+            **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
             
             ### `app.commandLine.hasSwitch(switch)`
             
@@ -1015,9 +1047,9 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Returns `String` - The command-line switch value.
             
-            **Note:** When the switch is not present, it returns empty string.
+            **Note:** When the switch is not present or has no value, it returns empty string.
             
-            ### `app.enableSandbox()` *macOS* *Windows*
+            ### `app.enableSandbox()` *Experimental*
             
             Enables full sandbox mode on the app.
             
@@ -1073,17 +1105,21 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             ### `app.dock.show()` *macos*
             
-            Tampilkan ikon dok.
+            Returns `Promise<void>` - Resolves when the dock icon is shown.
             
             ### `app.dock.isVisible()` *macos*
             
-            Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
+            Returns `Boolean` - Whether the dock icon is visible.
             
             ### `app.dock.setMenu(menu)` *macos*
             
             * `menu` [Menu](menu.md)
             
             Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+            
+            ### ` app.dock.getMenu () </ 0>  <em> macos </ 1></h3>
+
+<p>Returns <code>Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).</p> 
             
             ### `app.dock.setIcon(gambar)` *macOS*
             
@@ -1093,6 +1129,32 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             ## properti
             
+            ### `app.applicationMenu`
+            
+            A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+            
+            ### `app.accessibilitySupportEnabled` *macOS* *Windows*
+            
+            A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+            
+            See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+            
+            This API must be called after the `ready` event is emitted.
+            
+            **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+            
+            ### `app.userAgentFallback`
+            
+            A `String` which is the user agent string Electron will use as a global fallback.
+            
+            This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+            
             ### `app.isPackaged`
             
             A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+            
+            ### `app.allowRendererProcessReuse`
+            
+            A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+            
+            The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
