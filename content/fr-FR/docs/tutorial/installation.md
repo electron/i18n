@@ -83,9 +83,9 @@ Le cache contient l’archive zip de la version officielle, ainsi qu'un checksum
 
 ## Désactiver le téléchargement des binaires
 
-Lorsque vous installer le packet `electron` via npm, npm va automatiquement télécharger le fichier binaire associé.
+Lorsque vous installer le packet `electron`, npm va automatiquement télécharger le fichier binaire associé.
 
-Ceci peut poser problème lors de l'utilisation d'une CI par exemple, où on ne veut pas télécharger les binaires à chaque fois que la CI lance un build.
+Ceci peut poser problème avec l'utilisation d'une CI par exemple, où on voudrait éviter de télécharger les binaires à chaque fois que la CI lance un build.
 
 Pour désactiver le téléchargement des binaires, utilisez la variable d'environnement `ELECTRON_SKIP_BINARY_DOWNLOAD` avant `npm install`, exemple :
 
