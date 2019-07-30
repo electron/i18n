@@ -52,6 +52,7 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `Tab`
 * `Capslock`
 * `Numlock`
+* `Scrolllock`
 * `Backspace`
 * `Delete`
 * `Insert`
