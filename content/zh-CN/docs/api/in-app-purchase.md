@@ -43,36 +43,36 @@ Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-  * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - 预购商品ID
+* `callback` Function - 当商品不存在时，被商品对象或空数组调用的回调 
+  * `products` Product[] - [`Product`](structures/product.md) 对象的数据
 
-Retrieves the product descriptions.
+检索商品的描述
 
 **[即将弃用](modernization/promisification.md)**
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - 预购商品ID
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retrieves the product descriptions.
+检索商品的描述
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+返回 `Boolean`, 用来判断用户是否可以发起支付.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+返回 `String`, 指收据路径.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+完成所有待处理的交易
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - 待完成交易的ISO标准日期格式
 
-Completes the pending transactions corresponding to the date.
+完成与日期对应的待处理事务
