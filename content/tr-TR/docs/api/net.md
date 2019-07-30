@@ -13,9 +13,9 @@ Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı
 * Temel, Özet, NTLM, Kerberos yada kimlik doğrulama düzenleri şeması kullanan kimlik doğrulama proxy sunucuları için destek.
 * Trafik izleme Proxy' leri için destek: Fiddler - erişim kontrolü ve izleme için kullanılan proxylere benzer.
 
-`net` API modulü Node.js API modülünü birebir taklit edebilmek için özel olarak tasarlanmıştır. Sınıflar, yöntemler, özellikler ve olay adlarını içeren API bileşenleri genellikle Node.Js' dekilerle benzer özelliklere sahiptir.
+The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
 
-Mesela, sıradaki örnek `ağ` API kullanımı hakkında hızlıca bilgi verir:
+Example usage:
 
 ```javascript
 const { app } = require('electron')
@@ -35,8 +35,6 @@ app.on('ready', () => {
   request.end()
 })
 ```
-
-Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) neredeyse Node.js modüllerinin kullanım şekli ile neredeyse aynı
 
 `net` API uygulaması sadece `ready` yayınlandıktan sonra kullanılabilir. `ready` yayınlanmadan kullanmaya çalışmak hata verir.
 
