@@ -338,6 +338,14 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
+#### 事件: 'enter-html-full-screen'
+
+窗口进入由HTML API 触发的全屏状态时触发
+
+#### 事件: 'leave-html-full-screen'
+
+窗口离开由HTML API触发的全屏状态时触发
+
 #### Event: 'devtools-opened'
 
 当开发者工具被打开时，触发该事件。
@@ -361,9 +369,9 @@ win.webContents.on('before-input-event', (event, input) => {
 * `callback` Function 
   * `isTrusted` Boolean - 用于显示证书是否可信。
 
-`证书`的`链接`验证失败时，触发该事件。
+Emitted when failed to verify the `certificate` for `url`.
 
-使用方式与[`app`的`certificate-error`](app.md#event-certificate-error)的事件相同。
+The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### 事件: 'select-client-certificate'
 
@@ -377,7 +385,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 当一个客户证书被请求的时候发出。
 
-使用方式与[`app`的`select-client-certificate`](app.md#event-select-client-certificate)的事件相同。
+The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### 事件: "login"
 
@@ -400,7 +408,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-使用方式与[`app`的`login`](app.md#event-login)的事件相同。
+The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
@@ -414,7 +422,7 @@ win.webContents.on('before-input-event', (event, input) => {
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-如果调用[`webContents.findInPage`]有返回时，会触发这一事件。
+Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
@@ -457,7 +465,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 * `size` [Size](structures/size.md) (可选) - `image`大小。
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-当鼠标指针改变的时候触发。 Type参数值包含：`default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` 或 `custom`.
+Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
@@ -503,7 +511,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### 事件: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 返回:
 
@@ -558,7 +566,7 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-当在开发者工具中命令webContents重新加载时，触发该事件。
+Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
@@ -581,7 +589,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-当`<webview>`被挂载到页面内容中时，触发该事件。
+Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
@@ -727,7 +735,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-需要运行以下代码：
+Would require code like this
 
 ```js
 win.loadFile('src/index.html')
@@ -741,7 +749,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - 当前页面的URL.
+Returns `String` - The URL of the current web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -754,23 +762,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-返回 `String` - 当前页面的标题.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-返回 `Boolean` -判断页面是否被销毁
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-页面聚焦
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-返回 `Boolean` - 判断页面是否聚焦
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-返回 `Boolean` - 判断页面是否正在加载资源
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -786,19 +794,19 @@ Stops any pending navigation.
 
 #### `contents.reload()`
 
-刷新当前页面
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-忽略缓存强制刷新页面
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
-返回`Boolean`，是否可以返回到上一个页面
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-返回`Boolean` ，是否可以进入下一个页面
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
@@ -812,11 +820,11 @@ Clears the navigation history.
 
 #### `contents.goBack()`
 
-使浏览器回退到上一个页面。
+Makes the browser go back a web page.
 
 #### `contents.goForward()`
 
-使浏览器前进到下一个页面。
+Makes the browser go forward a web page.
 
 #### `contents.goToIndex(index)`
 
@@ -838,17 +846,23 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-重写该页面的user agent
+Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-返回 `String` - 当前页面的user agent.
+Returns `String` - The user agent for this web page.
 
 #### `contents.insertCSS(css)`
 
 * `css` String
 
-为当前页面注入样式
+Injects CSS into the current web page.
+
+```js
+contents.on('did-finish-load', function () {
+  contents.insertCSS('html, body { background-color: #f00; }')
+})
+```
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -863,7 +877,25 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+```js
+contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
+  .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
+  })
+```
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `contents.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (optional) - Default is `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+在页面中执行 `code`。
+
+在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -872,7 +904,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *实验功能*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -882,11 +914,11 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-使当前页面音频静音
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
-返回 `Boolean` -判断页面是否被静音
+Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.isCurrentlyAudible()`
 
@@ -934,19 +966,19 @@ contents.setVisualZoomLevelLimits(1, 3)
 
 #### `contents.undo()`
 
-在页面中执行`undo`编辑命令。
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-在页面中执行` redo `编辑命令。
+Executes the editing command `redo` in web page.
 
 #### `contents.cut()`
 
-在页面中执行` cut `编辑命令。
+Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-在页面中执行` copy `编辑命令。
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
@@ -957,35 +989,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-在页面中执行` paste `编辑命令。
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-在页面中执行` pasteAndMatchStyle `编辑命令。
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `contents.delete()`
 
-在页面中执行` delete `编辑命令。
+Executes the editing command `delete` in web page.
 
 #### `contents.selectAll()`
 
-在页面中执行` selectAll `编辑命令。
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-在页面中执行` unselect `编辑命令。
+Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
 * `text` String
 
-在页面中执行` replace `编辑命令。
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-在页面中执行` replaceMisspelling `编辑命令。
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
@@ -996,7 +1028,7 @@ Copy the image at the given position to the clipboard.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1029,44 +1061,30 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[即将弃用](promisification.md)**
+**[即将弃用](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
-#### `contents.hasServiceWorker(callback)`
-
-* `callback` Function 
-  * `hasWorker` Boolean
-
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
-
-#### `contents.unregisterServiceWorker(callback)`
-
-* `callback` Function 
-  * `success` Boolean
-
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
-
 #### `contents.getPrinters()`
 
-获取系统打印机列表
+Get the system printer list.
 
-返回 [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1081,19 +1099,34 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Object - 过滤器对象，包含过滤参数 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
   * `data` Buffer
 
 Prints window's web page as PDF with Chromium's preview printing custom settings.
 
 The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+
+**[即将弃用](modernization/promisification.md)**
+
+#### `contents.printToPDF(options)`
+
+* `options` Object 
+  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+
+Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
 The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
@@ -1220,26 +1253,30 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-关闭开发者工具。
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-返回`Boolean` - 开发者工具是否处于开启状态。
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-返回`Boolean` - 开发者工具是否处于当前执行状态。
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-切换开发工具
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-开始检查位于(`x`, `y`) 的元素。
+Starts inspecting element at position (`x`, `y`).
+
+#### `contents.inspectSharedWorker()`
+
+Opens the developer tools for the shared worker context.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1321,11 +1358,11 @@ ipcMain.on('ping', (event) => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-允许设备模拟给定参数。
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-禁止`webContents.enableDeviceEmulation`允许的模拟设备
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
@@ -1350,7 +1387,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-`mouseWheel`事件的`event`对象还有下列属性：
+For the `mouseWheel` event, the `event` object also have following properties:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1386,17 +1423,15 @@ End subscribing for frame presentation events.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage(fullPath, saveType)`
 
 * `fullPath` String - The full file path.
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
-  * `error` Error
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Returns `Promise<void>` - resolves if the page is saved.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1404,9 +1439,11 @@ let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+win.webContents.on('did-finish-load', async () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete').then(() => {
+    console.log('Page was saved successfully.')
+  }).catch(err => {
+    console.log(err)
   })
 })
 ```
@@ -1491,7 +1528,7 @@ Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`
 
 #### `contents.id`
 
-`Integer`类型，代表WebContents的唯一标识（unique ID）。
+A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session`
 
@@ -1509,4 +1546,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-WebContents的 [Debugger](debugger.md)实例。
+A [Debugger](debugger.md) instance for this webContents.
