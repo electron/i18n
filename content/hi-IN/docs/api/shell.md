@@ -43,7 +43,7 @@ Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-**Deprecated**
+**निरस्त**
 
 ### `shell.openExternal(url[, options])`
 
