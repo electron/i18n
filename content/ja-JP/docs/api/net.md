@@ -13,9 +13,9 @@
 * Basic、Digest、NTLM、Kerberosを使用したプロキシの認証、またはネゴシエート認証スキームをサポート。
 * アクセス制御および監視に使用される、Fiddler のようなトラフィック監視プロキシのサポート。
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+API コンポーネント (クラス、メソッド、プロパティ、イベント名など) は、Node.js で使用されているものと同様です。
 
-Example usage:
+使用例:
 
 ```javascript
 const { app } = require('electron')
