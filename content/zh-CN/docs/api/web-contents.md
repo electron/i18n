@@ -884,7 +884,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
@@ -1066,7 +1066,7 @@ console.log(requestId)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `contents.capturePage([rect])`
 
@@ -1113,7 +1113,7 @@ Prints window's web page as PDF with Chromium's preview printing custom settings
 
 The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
 
-**[即将弃用](modernization/promisification.md)**
+**[马上将弃用](modernization/promisification.md)**
 
 #### `contents.printToPDF(options)`
 
