@@ -87,6 +87,12 @@ webFrame.setSpellCheckProvider('en-US', {
 })
 ```
 
+### `webFrame.insertCSS(css)`
+
+* `css` String - CSS source code.
+
+Inserts `css` as a style sheet in the document.
+
 ### `webFrame.insertText(text)`
 
 * `teks` String
@@ -95,7 +101,7 @@ Sisipan `teks` ke elemen yang terfokus.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `id` String
+* `code` String
 * `userGesture` Boolean (opsional) - Default adalah `false`.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
@@ -106,41 +112,68 @@ Evaluasi `kode` di halaman.
 
 Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
 
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `webFrame.executeJavaScript(code[, userGesture])`
+
+* `code` String
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evaluasi `kode` di halaman.
+
+Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
+
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opsional) - Default adalah `false`.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
 
-Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
+**[Deprecated Soon](modernization/promisification.md)**
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-* ` nama </ 0>  String</li>
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p>Set the name of the isolated world. Useful in devtools.</p>
 
 <h3><code>webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*</h3> 
-  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
   * `securityOrigin` String
   
   Set the security origin of the isolated world.
   
   ### `webFrame.setIsolatedWorldInfo(worldId, info)`
   
-  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-  * `info` Obyek 
+  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
+  * `info` Sasaran 
     * `securityOrigin` String (optional) - Security origin for the isolated world.
     * `csp` String (optional) - Content Security Policy for the isolated world.
     * `name` String (optional) - Name for isolated world. Useful in devtools.
@@ -149,23 +182,23 @@ Set the content security policy of the isolated world.
   
   ### `webFrame.getResourceUsage()`
   
-  Mengembalikan `Boolean`:
+  Mengembalikan `Objek`:
   
-  * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
   * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
-  * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-  * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-  * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
-  * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
   
-  Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+  Returns an object describing usage information of Blink's internal memory caches.
   
   ```javascript
   const { webFrame } = require('electron')
   console.log(webFrame.getResourceUsage())
   ```
   
-  Ini akan menghasilkan:
+  This will generate:
   
   ```javascript
   {
@@ -183,9 +216,9 @@ Set the content security policy of the isolated world.
   
   ### `webFrame.clearCache()`
   
-  Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
+  Attempts to free memory that is no longer being used (like images from a previous navigation).
   
-  Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
+  Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
   
   ### `webFrame.getFrameForSelector(selector)`
   
@@ -195,7 +228,7 @@ Set the content security policy of the isolated world.
   
   ### `webFrame.findFrameByName(name)`
   
-  * ` nama </ 0>  String</li>
+  * ` nama </ 0>  Deretan</li>
 </ul>
 
 <p>Returns <code>WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.</p> 
