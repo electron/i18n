@@ -2,7 +2,7 @@
 
 > Создает иконки приложения, в том числе для системного лотка (Windows), дока (macOS), используя файлы PNG и JPG.
 
-Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -118,6 +118,15 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
+### `nativeImage.createFromBitmap(buffer, options)`
+
+* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+
+Возвращает `NativeImage`
+
+Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
@@ -125,7 +134,7 @@ console.log(image)
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -162,7 +171,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
 ### Методы экземпляра
 
