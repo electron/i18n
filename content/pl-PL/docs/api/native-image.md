@@ -221,7 +221,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Zwraca [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
