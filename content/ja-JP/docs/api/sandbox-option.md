@@ -46,7 +46,7 @@ app.on('ready', () => {
 
 ## Preload
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+アプリは、プリロードスクリプトを使用してサンドボックス化されたレンダラーをカスタマイズすることができます。以下はサンプルです。
 
 ```js
 let win
@@ -61,12 +61,12 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+そして preload.js は、
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of Electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// Javascript のコンテキストを作成するときにこのファイルが読み込まれます。 
+// Electron レンダラー API のサブセットにアクセスできるプライベートスコープで動作します。 
+// グローバルスコープにオブジェクトをリークしないように注意する必要があります。
 const { ipcRenderer, remote } = require('electron')
 const fs = remote.require('fs')
 
@@ -87,13 +87,13 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+以下はプリロードスクリプトで注意すべき重要な点です。
 
 - サンドボックス化されたレンダラーには Node.js が実行されていませんが、`Buffer`、`process`、`setImmediate`、および `require` が利用可能な、制限された Node ライクな環境にはまだアクセスできます。
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
+- プリロードスクリプトは、`remote` および `ipcRenderer` モジュールを介してメインプロセスからすべての API に間接的にアクセスできます。
 - プリロードスクリプトは単一のスクリプトに含まれていなければなりませんが、以下で説明するように browserify のようなツールを使用すると複雑なプリロードコードを複数のモジュールで構成することができます。 実際に、browserify はプリロードスクリプトに Node ライクな環境を提供するために Electron で既に使用されています。
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+browserify バンドルを作成してプリロードスクリプトとして使用するには、以下のようなものを使用する必要があります。
 
 ```sh
   browserify preload/index.js \
@@ -101,9 +101,9 @@ To create a browserify bundle and use it as a preload script, something like the
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+`-x` フラグは、プリロードスコープで既に公開されている require したモジュールに使用する必要があります。また、`require` 関数を使用するように browserify に指示します。 `--insert-global-vars` は、`process`、`Buffer`、`setImmediate` も外部スコープから取得するようにします (通常、browserify はそれらのコードを挿入します)。
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+現在、プリロードスコープで提供されている `require` 関数は、以下のモジュールを公開しています。
 
 - `electron` 
   - `crashReporter`
@@ -112,19 +112,19 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `nativeImage`
   - `remote`
   - `webFrame`
-- `events`
+- `イベント`
 - `timers`
 - `url`
 
-More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+より多くの Electron API をサンドボックスに公開するために、必要に応じて追加することができますが、メインプロセスのどのモジュールも `electron.remote.require` で既に使用できます。
 
 ## 状況
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+まだ実験的な機能なので、`sandbox` オプションは慎重に使用してください。 プリロードスクリプトにいくつかの Electron レンダラー API を公開することによるセキュリティの影響をまだ確認していませんが、信頼できないコンテンツをレンダリングする前に考慮すべき点がいくつかあります。
 
 - プリロードスクリプトは、誤って特権 API を信頼できないコードにリークさせる可能性があります。
 - V8 エンジンのいくつかのバグで、悪意のあるコードがレンダラープリロード API にアクセスし、`remote` モジュールを介してシステムに完全にアクセスできるようにする可能性があります。
 
-Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
+信頼できないコンテンツを Electron で描画することはまだ未知の領域なので、サンドボックスプリロードスクリプトに公開されている API は他の Electron API よりも不安定であるとみなされ、セキュリティ上の問題を修正するための変更が行われる可能性があります。
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+計画されている、セキュリティを大幅に強化する機能の1つは、デフォルトでサンドボックス化したレンダラーからの IPC メッセージをブロックし、レンダラーが送信できるメッセージセットをメインプロセスが明示的に定義できるようにするものです。
