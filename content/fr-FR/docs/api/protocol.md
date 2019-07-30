@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ## Méthodes
 
-The `protocol` module has the following methods:
+Le module `protocol` dispose des méthodes suivantes :
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
