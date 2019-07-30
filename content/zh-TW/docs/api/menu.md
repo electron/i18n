@@ -124,7 +124,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### 主處理序
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -232,7 +232,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### 畫面轉譯處理序
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -302,7 +302,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- 1
@@ -324,7 +324,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- 3
@@ -345,7 +345,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- ---
