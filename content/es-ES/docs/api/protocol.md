@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ## Métodos
 
-The `protocol` module has the following methods:
+El módulo `protocolo` tiene los siguientes métodos:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
@@ -74,11 +74,11 @@ protocol.registerSchemesAsPrivileged([
 ])
 ```
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Un esquema estandar se adhiere a lo que el RFC3986 llama [Sintaxis URI genérica](https://tools.ietf.org/html/rfc3986#section-3). Por ejemplo `http` y `https` son esquemas estándar, mientras `archivo` no lo es.
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Registrar un esquema como estandar, permitirá a recursos relativos y absolutos ser resueltos correctamente cuando son servidos. De otra manera el esquema se comportaría como el protocolo `archivo`, pero sin la habilidad de resolver URLs relativas.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Por ejemplo cuando usted carga la siguiente carga con un protocolo personalizado sin registrar como un esquema estándar, esta imagen no será cargada debido a que un esquema que no es estandar puede no reconocer URLs relativas:
 
 ```html
 <body>
@@ -86,9 +86,9 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Registrando un esquema como estándar permitirá el acceso a archivos mediante la [Api de archivos de sistema](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). De otra manera el renderizador arrojará un error de seguridad en el sistema.
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) está deshabilitado para esquemas no estándar. Así que en general si quiere registrar un protocolo personalizado para reemplazar el protocolo el `http`, tiene que registrarlo como un esquema estándar.
 
 `protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
 
@@ -125,11 +125,11 @@ protocol.registerSchemesAsPrivileged([
 * `completion` Función (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
+Registra un protocolo de `esquema` que enviará el archivo como respuesta. El `controlador` será llamado con `handler(request, callback)` cuando una `solicitud` será creada con el `esquema`. `terminación` será llamado con `terminación(nulo)` cuando el `esquema` está registrado exitósamente o `terminación(error)` cuando haya fallado.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
+Para controlar la `solicitud`, la `retrollamada` debe ser llamada con la ruta al archivo o un objeto que tiene una propiedad `ruta`, ejemplo `callback(filePath)` o `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
-When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Cuando la `retrollamada` es llamada sin argumento, un número, o un objeto que tiene una propiedad `error`, la `solicitud` fallará con el número de `error` que usted haya especificado. Para números de errores que puede usar, por favor vea la [lista de errores de red](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
 
@@ -147,9 +147,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `completion` Function (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+Registra un protocolo de `esquema` que enviará un `Buffer` como respuesta.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada` debe ser llamada bien con un objeto `Buffer` o con un objeto que tenga las propiedades `data`, `mimeType`, y `charset`.
 
 Ejemplo:
 
@@ -177,9 +177,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Function (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Registra un protocolo de `esquema` que enviará una `cadena` como respuesta.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada` debe ser llamada bien sea con una `cadena` o un objeto que tienen las propiedades`data`, `mimeType`, and `charset`.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -202,13 +202,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `completion` Function (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Registra un protocolo de `esquema` que enviará una solicitud HTTP como respuesta.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada` debe ser llamada con un objeto `redirectRequest` que tenga las propiedades `url`, `metodo`, `referenciar`, `uploadData` y `sesion`.
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+Por defecto la solicitud HTTP reutilizará la sesión actual. Si quiere que solicitud tenga una sesión diferente debe configurarla de `sesion` a `nulo`.
 
-For POST requests the `uploadData` object must be provided.
+Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
@@ -225,9 +225,9 @@ For POST requests the `uploadData` object must be provided.
 * `completion` Function (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+Registra un protocolo de `schema` que se enviará a `Readable` como respuesta.
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+El uso es similar al otro `register{Any}Protocol`, excepto que el `callback` debería ser llamado ya sea con un objeto `Readable` o que contenga las propiedades `data`, `statusCode` y `headers`.
 
 Ejemplo:
 
@@ -251,11 +251,11 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('Falló al registrar protocolo')
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Es posible pasar cualquier objeto que implemente la API de flujo legible (emite los eventos `data`/`end`/`error`). Por ejemplo, a continuación se muestra como podría devolverse un fichero:
 
 ```javascript
 const { protocol } = require('electron')
@@ -274,7 +274,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Función (opcional) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+Anula el registro del protocolo predeterminado de `esquema`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -282,7 +282,7 @@ Unregisters the custom protocol of `scheme`.
 * `callback` Function 
   * `handled` Boolean
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+El `callback` será llamado con un booleano que indique si ya existe un manejador para `scheme`.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -306,7 +306,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (optional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nuevo protocolo lo cual enviará un archivo como respuesta.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -322,7 +322,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador de protocolo, lo cual envía una `Cadena` como respuesta.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -338,7 +338,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador del protocolo, el cual envía un `Buffer` como respuesta.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -361,7 +361,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlador del protocolo, el cual envía una nueva solicitud HTTP como respuesta.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -378,7 +378,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Función (opcional) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador de protocolo existente.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -386,4 +386,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (opcional) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Elimina el interceptor instalado para el `scheme` y restaura su controlador original.
