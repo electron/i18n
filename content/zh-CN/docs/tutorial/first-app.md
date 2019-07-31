@@ -8,7 +8,7 @@ Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) AP
 
 从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 与 Node.js 模块相同，应用的入口是 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
 
-```text
+```plaintext
 your-app/
 ├── package.json
 ├── main.js
