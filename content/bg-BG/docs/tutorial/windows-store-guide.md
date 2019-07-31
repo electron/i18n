@@ -28,7 +28,7 @@ Package the application using [electron-packager](https://github.com/electron/el
 
 The output should look roughly like this:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
