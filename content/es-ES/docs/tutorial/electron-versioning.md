@@ -90,7 +90,7 @@ Específicamente, lo anterior significa:
 
 For each major and minor bump, you should expect to see something like the following:
 
-```text
+```plaintext
 2.0.0-beta.1
 2.0.0-beta.2
 2.0.0-beta.3
