@@ -68,19 +68,19 @@ Siehe auch: [Nutzen von Native Node Modules](tutorial/using-native-node-modules.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering, Verarbeitung außerhalb des Bildschirms) kann verwendet werden, um große Seiten im Hintergrund zu laden, bevor sie sichtbar werden, wodurch die Zeit bis zum vollständigen Laden sich merklich verkürzt.
 
 ### process
 
-Ein Prozess ist eine Instanz eines Computerprogramms, welches ausgeführt wird. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Ein Prozess ist eine Instanz eines Computerprogramms, welches ausgeführt wird. Electron Anwendungen, welche einen [main](#main-process)- und einen oder mehrere [renderer](#renderer-process)-Prozesse verwenden, bestehen eigentlich aus mehreren parallel laufenden Programmen.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+In Node.js und Electron hat jeder laufende Prozess ein `process`-Objekt. Dieses globale Objekt stellt Informationen und Steuerungsmöglichkeiten über den aktuellen Prozess bereit. Als globales Objekt ist es immer verfügbar für Anwendungen, welche nicht require() benutzen.
 
 Siehe auch: [main process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Der renderer process ist ein Browser-Fenster deiner Anwendungen. Anders als beim main process können mehrere von ihm mehrere existieren, wobei jeder in einem eigenen Prozess läuft. Sie können außerdem versteckt werden.
 
 In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
@@ -92,7 +92,7 @@ Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich a
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Der Begriff hat seinen Ursprung in der Unix Community, wo "userland" oder "userspace" für Programme steht, die außerhalb des Kernels des Betriebssystems agieren. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
 Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
