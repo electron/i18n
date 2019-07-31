@@ -16,7 +16,7 @@ Pour distribuer votre application avec Electron, vous devez télécharger les [b
 
 Sur macOS :
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Sur Windows et Linux :
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Pour utiliser une archive `asar` au lieu du dossier `app`, vous devez renommer l
 
 Sur macOS :
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Sur Windows et Linux :
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ Vous pouvez aussi renommer l'application d'aide pour éviter d'afficher `Electro
 
 La structure d'une application renommée serait comme :
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
