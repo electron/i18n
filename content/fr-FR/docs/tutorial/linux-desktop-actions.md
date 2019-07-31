@@ -8,7 +8,7 @@ Sur de nombreux environnements Linux, vous pouvez ajouter des entrées personnal
 
 Généralement, les raccourcis sont ajoutés en fournissant les propriétés `Name` et `Exec` pour chaque entrée dans le menu des raccourcis. Unity exécutera la commande `Exec` une fois cliqué par l'utilisateur. Le format est le suivant :
 
-```text
+```plaintext
 Actions=PlayPause;Next;Previous
 
 [Desktop Action PlayPause]
