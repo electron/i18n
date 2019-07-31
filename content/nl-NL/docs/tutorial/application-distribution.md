@@ -16,7 +16,7 @@ To distribute your app with Electron, you need to download Electron's [prebuilt 
 
 Op macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Op Windows en Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ To use an `asar` archive to replace the `app` folder, you need to rename the arc
 
 Op macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Op Windows en Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ You can also rename the helper app to avoid showing `Electron Helper` in the Act
 
 The structure of a renamed app would be like:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
