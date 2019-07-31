@@ -98,7 +98,7 @@ Verwende `AutoUpdater` als Beispiel:
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Beschreibung des Rückgabewertes 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instanz Eigenschaften` chapter. 
+* Instance Properties must be listed under an `### Instanz Eigenschaften` Kapitel. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
