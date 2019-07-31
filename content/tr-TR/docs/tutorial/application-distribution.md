@@ -16,7 +16,7 @@ Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuiltbinaries](htt
 
 MacOS üzerinde:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Windows ve Linux üzerinde:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Tüm kaynak dosyalarını kopyalayarak uygulamanızın taşınmasından ayrı ol
 
 MacOS üzerinde:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Windows ve Linux üzerinde:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ Etkinlik İzleyicisinde `Electron Helper`'in görüntülenmesini engellemek içi
 
 Yeniden adlandırılan bir uygulamanın yapısı aşağıdaki gibi olur:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
