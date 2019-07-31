@@ -17,6 +17,7 @@ const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
 const parseElectronGlossary = require('../lib/parse-electron-glossary')
+const plaintextFix = require('../lib/remark-plaintext-fix')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -94,7 +95,7 @@ async function parseFile(file) {
 
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async section => {
-      const parsed = await hubdown(section.body)
+      const parsed = await hubdown(section.body, { runBefore: [plaintextFix] })
       const $ = cheerio.load(parsed.content || '')
       file.title =
         file.title ||
