@@ -309,9 +309,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда поддержка доступности Chrome включена, иначе `false`.
+* `accessibilitySupportEnabled` Boolean - `true`, когда поддержка доступности Chrome включена, иначе `false`.
 
-Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ### Событие: 'session-created'
 
@@ -319,7 +319,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `session` [Session](session.md)
 
-Происходит после создания новой сессии `session`.
+Происходит, когда Electron создал новый объект `session`.
 
 ```javascript
 const { app } = require('electron')
