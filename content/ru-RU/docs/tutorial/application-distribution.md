@@ -16,7 +16,7 @@ You can also choose to manually get your app ready for distribution. The steps n
 
 На macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 На Windows и Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ electron/resources/app
 
 На macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 На Windows и Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ electron/resources/
 
 Структура переименования app будет такая:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
