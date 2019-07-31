@@ -8,7 +8,7 @@ Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa gra
 
 As far as development is concerned, an Electron application is essentially a Node.js application. Ang panimula ay `package.json` na katulad sa node.js module. A pinaka simpleng Electron app ay merong sumusunod na folder na struktura:
 
-```text
+```plaintext
 iyong-app/
 ├── package.json
 ├── main.js
