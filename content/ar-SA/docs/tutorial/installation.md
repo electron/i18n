@@ -95,7 +95,7 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ## اكتشاف الأخطاء وإصلاحها
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykają okazjonalne błędy instalacji.
 
 In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
 
