@@ -274,7 +274,7 @@ CSP allows the server serving content to restrict and control the resources Elec
 
 下面這組 CSP 允許 Electron 由目前的網站及 `apis.example.com` 執行腳本。
 
-```txt
+```plaintext
 // 錯誤示範
 Content-Security-Policy: '*'
 
