@@ -44,13 +44,13 @@ Kung hindi mo ma-access ang GitHub o kailangan mong magbigay ng custom build, ay
 
 Maaari mong gamitin ang mga variable ng kapaligiran upang i-override ang base URL, ang landas kung saan hahanapin ang mga binary ng Electron, at ang binary filename. Ang url na ginamit ng ` electron-download ` ay binubuo ng mga sumusunod:
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 Halimbawa, gamitin ang mirror ng China:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
