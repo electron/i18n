@@ -56,15 +56,15 @@ Siehe https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### systemeigene Module
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native Module, in Node.js auch [addons](https://nodejs.org/api/addons.html) genannt, sind Module, welche in C oder C++ geschrieben werden und genau wie normale mithilfe der require() Funktion geladen werden können. Sie werden in erster Linie dazu eingesetzt, um eine Schnittstelle zwischen JavaScript in Node.js und C/C++-Bibliotheken zur Verfügung zu stellen.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Native Node-Module werden von Electron unterstützt, aber da Electron sehr es wahrscheinlich eine andere V8-Version als die von der auf ihrem System verwendete Node.js Version verwendet, musst du den Ort der Electron-Header beim Bauen von nativen Modulen manuell angeben.
 
 Siehe auch: [Nutzen von Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+"Nullsoft Scriptable Install System" ist ein Werkzeug zur Erstellung von Installern auf Microsoft Windows. Es ist verfügbar unter einer Kombination freier Software-Lizenzen und eine vielgenutzte Alternative zu kommerziellen Produkten wie InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) unterstützt NSIS als Build-Ziel.
 
 ### OSR
 
