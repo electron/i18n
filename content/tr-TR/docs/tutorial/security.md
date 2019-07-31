@@ -275,7 +275,7 @@ CSP, sunum yapan sunucuya kaynakların kısıtlanmasına ve kontrol edilmesine i
 
 Aşağıdaki CSP, Electron'un şu andaki komut dosyalarını web sitesinden ve ` apis.example.com </ 0> adresinden.</p>
 
-<pre><code class="txt">// Yanlış
+<pre><code class="plaintext">// Yanlış
 Content-Security-Policy: '*'
 
 // Doğru
