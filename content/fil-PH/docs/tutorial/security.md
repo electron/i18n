@@ -274,7 +274,7 @@ an CSP ay nagpapahintulot sa server serving na nilalaman upang paghigpitan at ko
 
 Ang sumusunod na CSP ay nagpapahintulot sa Electron na mag-execute ng mga manuskrito galing sa kasalukuyang website at galing sa 0>apis.example.com</code>.
 
-```txt
+```plaintext
 // Hindi kaaya-aya
 Nilalaman-Seguridad-Patakaran: '*'
 
