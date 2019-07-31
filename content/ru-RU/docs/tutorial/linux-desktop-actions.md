@@ -9,7 +9,7 @@ see <a href="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Add
 
 <p>Ярлыки добавляются путем предоставления свойств <code>Name` и `Exec` для каждой записи в меню ярлыков. Unity will execute the `Exec` field once clicked by the user. Они выглядят следующим образом:
 
-```text
+```plaintext
 Actions=PlayPause;Next;Previous
 
 [Desktop Action PlayPause]
