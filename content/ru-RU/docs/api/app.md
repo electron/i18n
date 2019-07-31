@@ -294,7 +294,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Происходит, когда gpu процесс аварийно завершает работу или является убитым.
 
-### Event: 'renderer-process-crashed'
+### Событие: 'renderer-process-crashed'
 
 Возвращает:
 
@@ -302,14 +302,14 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Происходит, когда графический процесс `webContents` аварийно завершает работу или является убитым.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда доступность поддержки Chrome включена, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true` когда поддержка доступности Chrome включена, иначе `false`.
 
 Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
