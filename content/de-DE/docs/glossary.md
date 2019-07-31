@@ -6,19 +6,19 @@ Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig
 
 ASAR steht für Atom-Shell-Archiv-Format. Ein [asar](https://github.com/electron/asar)-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-Das ASAR-Format wurde primär für bessere Performence unter Windows entwickelt.... TODO
+Das ASAR-Format wurde primär für bessere Performance unter Windows entwickelt.... TODO
 
 ### CRT
 
-Die C Runtime Library (CRT) ist Teil der C++ Standard Library, welche die ISO C66 Standard Library beinhaltet. Die Visual C++ Bibliotheken welche die CRT implementieren unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
+Die C Runtime Library (CRT) ist Teil der C++ Standard Library, welche die ISO C66 Standard Library beinhaltet. Die Visual C++ Bibliotheken, welche die CRT implementieren, unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
 
 ### DMG
 
-Ein Apple Disk Image ist ein Packetformat von macOS. DMG-Dateien werde oft zur Distribution von Installern verwendet. [electron-builder](https://github.com/electron-userland/electron-builder) unterstützt `dmg` als Build-Ziel.
+"Apple Disk Image" ist ein Paket-Format von macOS. DMG-Dateien werden oft zur Distribution von Installern verwendet. [electron-builder](https://github.com/electron-userland/electron-builder) unterstützt `dmg` als Build-Ziel.
 
 ### IME
 
-Input Method Editor. Ein Programm welches dem Benutzer die Eingabe von Buchstaben und Zeichen, welche nicht auf der Tastatur vertreten sind, erlaubt. Zum Beispiel können Benutzer einer lateinischen Tastatur, chinesische, japanische, koreanische und indische Zeichen einzugeben.
+Input Method Editor. Ein Programm, dass dem Benutzer die Eingabe von Buchstaben und Zeichen, welche nicht auf der Tastatur vertreten sind, erlaubt. Zum Beispiel können Benutzer einer lateinischen Tastatur chinesische, japanische, koreanische und indische Zeichen einzugeben.
 
 ### IDL
 
