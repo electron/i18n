@@ -28,7 +28,7 @@ npm install -g electron-windows-store
 
 결과물은 대략 아래와 같이 보일것 입니다:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
