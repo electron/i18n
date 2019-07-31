@@ -28,7 +28,7 @@ npm install -g electron-windows-store
 
 Консольный вывод должен иметь примерный вид:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
