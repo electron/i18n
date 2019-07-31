@@ -8,7 +8,7 @@ Su molti ambienti Linux, puoi aggiungere voci personalizzate al suo Launcher mod
 
 Generalmente parlando, le shortcut sono aggiunte fornendo una proprietà `Nome` ed una `Exec` per ogni voce del menu shortcut. L'unità eseguirà il campo `Exec` una volta cliccato dall'utente. Il formato è come segue:
 
-```text
+```plaintext
 Azioni=AvviaPausa;Prossimo;Precedente
 
 [Azione Desktop AvviaPausa]
