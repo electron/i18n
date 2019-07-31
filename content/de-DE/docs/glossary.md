@@ -92,7 +92,7 @@ Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich a
 
 ### userland
 
-Der Begriff hat seinen Ursprung in der Unix Community, wo "userland" oder "userspace" für Programme steht, die außerhalb des Kernels des Betriebssystems agieren. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Der Begriff hat seinen Ursprung in der Unix Community, wo "userland" oder "userspace" für Programme steht, die außerhalb des Kernels des Betriebssystems agieren. Seit einiger Zeit wird der Begriff auch in der Node und npm Community verwendet, um zwischen Features, die im "Node core" verfügbar sind, und Paketen, die in der npm registry veröffentlicht wurden, zu unterscheiden.
 
 Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
