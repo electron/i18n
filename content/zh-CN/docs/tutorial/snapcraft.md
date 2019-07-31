@@ -32,7 +32,7 @@ npm install --save-dev electron-installer-snap
 
 结构输出应该看起来大致像这样:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64
