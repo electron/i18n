@@ -32,7 +32,7 @@ Package the application using [electron-packager](https://github.com/electron/el
 
 The output should look roughly like this:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64
