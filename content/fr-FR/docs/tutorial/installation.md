@@ -44,13 +44,13 @@ Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de 
 
 Vous pouvez utiliser des variables d’environnement pour substituer l’URL de base, le chemin d’accès où chercher les binaires d'Electron, et le nom du fichier binaire. L’url utilisée par `electron-download` se compose de la manière suivante :
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 Par exemple, pour utiliser le miroir en Chine:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
