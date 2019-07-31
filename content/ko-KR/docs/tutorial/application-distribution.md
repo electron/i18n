@@ -16,7 +16,7 @@ Electron으로 만든 우리의 앱을 배포하기 위해서는, Electron의 [p
 
 macOS 의 경우 : 
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -26,7 +26,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Windows 와 Linux 의 경우 :
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -43,14 +43,14 @@ electron/resources/app
 
 macOS 의 경우 : 
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Windows 와 Linux 의 경우 :
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -76,7 +76,7 @@ electron/resources/
 
 애플리케이션 이름을 원하는 이름으로 변경한 예시:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
