@@ -258,7 +258,7 @@ CSP memungkinkan server yang menyajikan konten untuk membatasi dan mengontrol su
 
 CSP berikut akan memungkinkan Electron untuk mengeksekusi script dari situs web saat ini dan dari `apis.example.com`.
 
-```txt
+```plaintext
 // Bad
 Content-Security-Policy: '*'
 
