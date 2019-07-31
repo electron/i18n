@@ -8,7 +8,7 @@
 
 一般情况下，在快捷键menu中为每一个条目添加`Name` 和`Exec`属性就可以将其设置为快捷键。 用户点击快捷见时，Unity启动器就会执行`Exec` 属性。 其形式如下：
 
-```text
+```plaintext
 Actions=PlayPause;Next;Previous
 
 [Desktop Action PlayPause]
