@@ -32,7 +32,7 @@ I-package ang application gamit ang [ electron-packager ](https://github.com/ele
 
 Ang output ay dapat magmukhang halos katulad nito:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64
