@@ -8,7 +8,7 @@ Electronは、豊富なネイティブ (オペレーティング・システム)
 
 開発に関しては、Electron は基本的に Node.js アプリケーションです。 開始点は Node.js モジュールと同じ `package.json` です。 最も基本的な Electron アプリは以下のフォルダ階層になるでしょう。
 
-```text
+```plaintext
 your-app/
 ├── package.json
 ├── main.js
