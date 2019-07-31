@@ -31,7 +31,7 @@ Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketl
 
 Çıktı kabaca şöyle olmalıdır:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
