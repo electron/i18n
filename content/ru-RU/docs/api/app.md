@@ -481,17 +481,17 @@ app.exit(0)
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
-On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+На *macOS* этот каталог будет установлен по умолчанию в `/Library/Logs/YourAppName`, а на *Linux* и *Windows* будет размещено внутри Вашего каталога `userData`.
 
 ### `app.getAppPath()`
 
-Возвращает `String` - текущего каталога приложения.
+Возвращает `String` - текущий каталог приложения.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Возвращает `String` - путь в специальную директорию или файл, ассоциированный с `name`. В случае неудачи возникает `Error`.
+Возвращает `String` - путь в специальный каталог или файл, ассоциированный с `name`. В случае неудачи возникает `Error`.
 
 Вы можете запросить следующие пути по их имени:
 
@@ -500,17 +500,17 @@ On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName
   * `%APPDATA%` на Windows
   * `$XDG_CONFIG_HOME` или `~/.config` на Linux
   * `~/Library/Application Support` на macOS
-* `userData` каталог для хранения файлов конфигурации вашего приложения, которые по умолчанию является `appData` добавляется с именем вашего приложения.
-* ` temp ` временный каталог.
+* `userData` каталог для хранения файлов конфигурации Вашего приложения, который по умолчанию является каталогом `appData` с именем Вашего приложения в конце.
+* `temp` временный каталог.
 * `exe` текущий исполняемый файл.
 * `module` библиотека `libchromiumcontent`.
-* `desktop` каталог рабочего стола, текущего пользователя.
-* `documents` каталог пользователя "My Documents".
-* `downloads` Каталог пользователя "Downloads".
-* `music` каталог пользователя "Music".
+* `desktop` каталог рабочего стола текущего пользователя.
+* `documents` каталог пользователя для документов.
+* `downloads` каталог пользователя для загрузок.
+* `music` каталог пользователя для музыки.
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
-* `logs` директория для логов вашего приложения.
+* `logs` каталог для логов Вашего приложения.
 * `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -525,9 +525,9 @@ On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Извлекает путь значка.
+Извлекает значок, ассоциированный с путем.
 
-On *Windows*, there are 2 kinds of icons:
+На *Window*, есть 2 типа иконок:
 
 * Иконки, связанные с определенными расширениями, такими как `.mp3`, `.png`, и т.д.
 * Иконки внутри файла, таких как `.exe`, `.dll` и `.ico`.
