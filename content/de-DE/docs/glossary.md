@@ -10,7 +10,7 @@ Das ASAR-Format wurde primär für bessere Performence unter Windows entwickelt.
 
 ### CRT
 
-Die C Run-time Library (CRT) ist Teil der C++ Standard Library welche die ISO C66 Standard Library beinhaltet. Die Visual C++ Bibliotheken welche die CRT implementieren unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
+Die C Runtime Library (CRT) ist Teil der C++ Standard Library, welche die ISO C66 Standard Library beinhaltet. Die Visual C++ Bibliotheken welche die CRT implementieren unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
 
 ### DMG
 
@@ -94,15 +94,15 @@ Squirrel ist ein Open-Source Framework, welches Electron Apps ermöglicht sich a
 
 Der Begriff hat seinen Ursprung in der Unix Community, wo "userland" oder "userspace" für Programme steht, die außerhalb des Kernels des Betriebssystems agieren. Seit einiger Zeit wird der Begriff auch in der Node und npm Community verwendet, um zwischen Features, die im "Node core" verfügbar sind, und Paketen, die in der npm registry veröffentlicht wurden, zu unterscheiden.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Wie Node fokussiert sich auch Electron darauf, eine relativ einfache API mit allen nötigen primitiven Werkzeugen, die es braucht, um Multi-Plattform Desktop-Anwendungen zu entwickeln, bereitzustellen. Diese Design-Philosophie ermöglicht es Electron, ein flexibles Werkzeug zu sein, ohne zu stark in der Art, wie es benutzt werden kann, einzuschränken. Userland erlaubt Nutzern das Erstellen und Teilen von Tools, die weitere, komplexere Funktionalität bereitstellt, zusätzlich zu denen, die im "Core" existieren.
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 ist Googles Open-Source JavaScript-Engine. Sie ist in C++ geschrieben und wird in Google Chrome verwendet. V8 kann als alleinstehende Anwendung benutzt oder in jede C++ Anwendung integriert werden.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron baut V8 als Teil von Chromium und weist dann Node beim Bauen darauf hin.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8s Versionsnummern stimmen immer mit der von Google Chrome überein. Chrome 59 enthält V8 5.9, Chrome 58 V8 5.8 usw.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -110,4 +110,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` Tags werden verwendet, um "Gast"-Inhalte, wie zum Beispiel externe Webseiten, in der Electron-Anwendung einzubetten. Sie verhalten sich ähnlich wie `iframe`s, aber unterscheiden sich darin, dass sie jeweils in einem eigenen Prozess laufen. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
