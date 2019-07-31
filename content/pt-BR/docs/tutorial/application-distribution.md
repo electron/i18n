@@ -16,7 +16,7 @@ Para distribuir seu aplicativo com Electron, você precisa baixar os [binários 
 
 No macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 No Windows e Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Para usar um arquivo `asar` para substituir a pasta `app`, você precisa renomea
 
 No macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 No Windows e Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ Você também pode renomear o app auxiliar para evitar de mostrar `Electron Help
 
 Veja como ficaria a estrutura de um aplicativo renomeado:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
