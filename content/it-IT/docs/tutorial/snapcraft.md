@@ -32,7 +32,7 @@ Impacchetta l'app usando [electron-impacchettatore](https://github.com/electron/
 
 L'output dovrebbe sembrare questo:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64

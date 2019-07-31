@@ -74,7 +74,7 @@ process.once('loaded', () => {
 
 ### `process.enablePromiseAPIs`
 
-非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 Setting this to `true` will enable deprecation warnings.
+非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 これを `true` に設定すると非推奨警告が有効になります。
 
 ### `process.resourcesPath`
 
@@ -152,11 +152,11 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+戻り値 `Promise<ProcessMemoryInfo>` - [ProcessMemoryInfo](structures/process-memory-info.md) で実行されます
 
 現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。この API は app の ready の後に呼び出さなければなりません。
 
-Chromium は macOS には `residentSet` の値を提供しません。 This is because macOS performs in-memory compression of pages that haven't been recently used. 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
+Chromium は macOS には `residentSet` の値を提供しません。 これは直近の使用されていないページを macOS がメモリ内で圧縮するためです。 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
 
 ### `process.getSystemMemoryInfo()`
 
@@ -171,7 +171,7 @@ Chromium は macOS には `residentSet` の値を提供しません。 This is b
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+戻り値 `String` - ホストのオペレーティングシステムのバージョン。
 
 例:
 
@@ -181,7 +181,7 @@ Returns `String` - The version of the host operating system.
 | Windows  | `10.0.17763`        |
 | Linux    | `4.15.0-45-generic` |
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**注釈:** `os.release()` とは異なり、macOS ではカーネルバージョンではなく実際のオペレーティングシステムのバージョンを返します。
 
 ### `process.takeHeapSnapshot(filePath)`
 

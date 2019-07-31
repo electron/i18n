@@ -32,7 +32,7 @@ npm install --save-dev electron-installer-snap
 
 आउटपुट कुछ इस तरह का दिखना चाहिये:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64

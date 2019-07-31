@@ -37,7 +37,7 @@
 * `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
 
-Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
+戻り値 `Promise<Boolean>` - プロダクトが有効で支払いキューに追加されている場合は、`true` を返します。
 
 `purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
 
@@ -55,7 +55,7 @@ Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to
 
 * `productIDs` String[] - 取得する製品の識別子。
 
-Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
+戻り値 `Promise<Product[]>` - [`Product`](structures/product.md) オブジェクトの配列で実行されます。
 
 製品説明を探します。
 

@@ -277,7 +277,7 @@ CSP を使用すると、コンテンツを提供するサーバーが、指定�
 
 以下の CSP は、Electron が現在のウェブサイトと `apis.example.com` からスクリプトを実行できるようにします。
 
-```txt
+```plaintext
 // NG
 Content-Security-Policy: '*'
 

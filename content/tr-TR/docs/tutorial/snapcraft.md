@@ -32,7 +32,7 @@ Package the application using [electron-packager](https://github.com/electron/el
 
 Çıktı kabaca şöyle olmalıdır:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64

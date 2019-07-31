@@ -44,13 +44,13 @@ If you are unable to access GitHub or you need to provide a custom build, you ca
 
 You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 For instance, to use the China mirror:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
@@ -95,7 +95,7 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ## اكتشاف الأخطاء وإصلاحها
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykają okazjonalne błędy instalacji.
 
 In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
 

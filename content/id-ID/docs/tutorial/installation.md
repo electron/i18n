@@ -43,13 +43,13 @@ Jika Anda tidak dapat mengakses GitHub atau Anda memerlukan penyediaan kustom bu
 
 Anda dapat menggunakan variabel lingkungan untuk mengganti URL dasar, jalan di mana untuk memeriksa biner elektron, dan nama berkas biner. Url yang digunakan oleh ` electron-download ` disusun sebagai berikut:
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_NAMABERKAS
 ```
 
 Misalnya, untuk menggunakan mirror China:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 

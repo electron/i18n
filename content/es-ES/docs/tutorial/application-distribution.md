@@ -16,7 +16,7 @@ Para distribuir su aplicación con Electron, debe descargar los [binarios precom
 
 En macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 En Windows y Linux:
 
-```text
+```plaintext
 electron/recursos/aplicaciones
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Para usar un archivo `asar` para reemplazar la carpeta `aplicación`, debe cambi
 
 En macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 En Windows y Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ También puede cambiar el nombre de la aplicación auxiliar para evitar mostrar 
 
 La estructura de una aplicación renombrada sería como:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/

@@ -28,7 +28,7 @@ Kemas aplikasi dengan menggunakan [electron-packager](https://github.com/electro
 
 Outputnya harus terlihat kira-kira seperti ini:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak

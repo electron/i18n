@@ -32,7 +32,7 @@ Package the application using [electron-packager](https://github.com/electron/el
 
 Консольный вывод должен иметь примерный вид:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64

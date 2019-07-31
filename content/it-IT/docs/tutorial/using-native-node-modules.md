@@ -93,7 +93,7 @@ On Windows, by default, `node-gyp` links native modules against `node.dll`. Howe
 Se ottieni un errore del tipo `Module did not self-register`, oppure `The specified
 procedure could not be found`, potrebbe significare che il modulo che stai cercando di usare non include correttamente l'hook delay-load. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
 
-```text
+```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```

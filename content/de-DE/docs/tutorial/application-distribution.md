@@ -16,7 +16,7 @@ Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [El
 
 Unter macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Unter Windows und Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Um ein `asar`-Archiv zu nutzen, um den `app` Ordner zu ersetzen, müssen Sie das
 
 Unter macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Unter Windows und Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ Sie können desweiteren die 'Helper App' von Electron umbenennen um das Auftauch
 
 Die Struktur der umbenannten App könnte so aussehen:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/

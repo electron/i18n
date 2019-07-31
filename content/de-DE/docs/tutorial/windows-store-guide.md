@@ -28,7 +28,7 @@ Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/ele
 
 Die Ausgabe sollte etwa wie folgt aussehen:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak

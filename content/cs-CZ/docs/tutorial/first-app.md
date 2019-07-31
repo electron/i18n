@@ -8,7 +8,7 @@ To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživ
 
 Pokud jde o vývoj, aplikace Elektronu je v podstatě Node.js aplikace. Začínající bod je soubor `package.json`, který je identický s tím, který vytváří Node.js. Nejvíce jednoduchá Electron aplikace by měla následující strukturu složek:
 
-```text
+```plaintext
 vase-aplikace/
 ├── package.json
 ├── main.js 

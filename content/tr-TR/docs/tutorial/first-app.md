@@ -8,7 +8,7 @@ Bu, Electron'un (GUI) kütüphaneleri grafiksel kullanıcı arayüzüne JavaScri
 
 Geliştirme göz önünde bulundurulduğunda, bir Electron uygulaması aslında bir Node.js uygulamasıdır. Başlangıç noktası her Node.js uygulamasına özel olan `package.json` dır. En temel bir elektron uygulaması aşağıdaki klasör yapısındadır:
 
-```text
+```plaintext
 uygulamanın-adı/
 ├── package.json
 ├── main.js

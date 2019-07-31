@@ -273,7 +273,7 @@ CSP允许Electron通过服务端内容对指定页面的资源加载进行约束
 
 下面的CSP设置使得Electron只能执行自身站点和来自`apis.example.com`的脚本。
 
-```txt
+```plaintext
 // 不推荐
 Content-Security-Policy: '*'
 

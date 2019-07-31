@@ -38,9 +38,9 @@ Eine gemeinsame Bibliothek, die das [Chromium Content Modul](https://www.chromiu
 
 Der Main-Prozess, gewöhnlich in einer Datei namens `main.js`, ist der Einstiegspunkt für jede Electron-App. Es steuert die App, vom Öffnen bis zum Schließen. Er steurert auch Native Elemente wie Menu, Menu Bar, Dock, Tray, usw. Der Hauptprozess ist für die Erstellung jedes neuen Renderer-Prozesses in der App verantwortlich. Die vollständige Node-API ist eingebaut.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Die Hauptprozessdatei jeder App ist in der `main`-Eigenschaft in der `package.json` spezifiziert. Nur so weiß `Electron`, welche Datei beim Start ausgeführt werden muss.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+In Chromium wird dieser Prozess als "Browser-Prozess" bezeichnet. Er wurde in Electron umbenannt, um Verwechslung mit dem Renderer-Prozess zu vermeiden.
 
 Siehe auch: [process](#process), [renderer process](#renderer-process)
 
@@ -50,7 +50,7 @@ Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner A
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Ein IPC-System zur Kommunikation innerhalb und zwischen Prozessen. Das ist wichtig, da Chrome seine Arbeit in verschiedene Prozesse teilen möchte, oder auch nicht, abhängig von der RAM-Nutzung, usw.
 
 Siehe https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 

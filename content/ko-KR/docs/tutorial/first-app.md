@@ -8,7 +8,7 @@ Electron은 풍부한 네이티브(운영 체제) API를 가진 런타임을 제
 
 개발과 관련해서 Electron 애플리케이션은 근본적으로 Node.js 애플리케이션이라고 할 수 있습니다. Node.js 모듈과 마찬가지로 시작점은 `package.json` 입니다. 기본적으로 Electron 앱 대부분은 다음과 같은 폴더 구조를 가지고 있습니다:
 
-```text
+```plaintext
 your-app/
 ├── package.json
 ├── main.js

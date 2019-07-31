@@ -8,7 +8,7 @@ Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utili
 
 En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. L'application Electron la plus simple pourrait avoir la structure disque suivante :
 
-```text
+```plaintext
 votre-app/
 ├── package.json
 ├── main.js

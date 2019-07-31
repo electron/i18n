@@ -16,7 +16,7 @@ You can also choose to manually get your app ready for distribution. The steps n
 
 macOS 平臺:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Windows 及 Linux 平臺:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ electron/resources/app
 
 macOS 平臺:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Windows 及 Linux 平臺:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ electron/resources/
 
 改名後的應用程式結構應該像:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/

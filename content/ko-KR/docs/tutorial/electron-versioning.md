@@ -90,7 +90,7 @@ Specifically, the above means:
 
 메이저, 마이너 버전이 증가하면 다음과 같은 버전 정보를 갖게 될 것입니다:
 
-```text
+```plaintext
 2.0.0-beta.1
 2.0.0-beta.2
 2.0.0-beta.3

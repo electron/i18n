@@ -4,11 +4,11 @@
 * `rotation` Number - 0, 90, 180, 270, 시계 방향의 화면 회전을 표시.
 * `scaleFactor` Number - 출력 장치의 화소 배율.
 * `touchSupport` String - `available`, `unavailable`, `unknown`. 
-* `monochrome` Boolean - Whether or not the display is a monochrome display.
+* `monochrome` Boolean - 디스플레이가 monochrome 디스플레이 인지 아닌지.
 * `accelerometerSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `colorSpace` String - represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
-* `colorDepth` Number - The number of bits per pixel.
-* `depthPerComponent` Number - The number of bits per color component.
+* `colorDepth` Number - 픽셀당 비트 개수.
+* `depthPerComponent` Number - 색상 컴포넌트당 비트 개수.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)

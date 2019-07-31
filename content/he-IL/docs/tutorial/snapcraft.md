@@ -32,7 +32,7 @@ npm install --save-dev electron-installer-snap
 
 הפלט אמור להיראות פחות או יותר כך:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64

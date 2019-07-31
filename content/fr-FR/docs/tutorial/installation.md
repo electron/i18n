@@ -44,13 +44,13 @@ Si vous êtes dans l'incapacité d'accéder à github ou si vous avez besoin de 
 
 Vous pouvez utiliser des variables d’environnement pour substituer l’URL de base, le chemin d’accès où chercher les binaires d'Electron, et le nom du fichier binaire. L’url utilisée par `electron-download` se compose de la manière suivante :
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 Par exemple, pour utiliser le miroir en Chine:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
@@ -81,13 +81,13 @@ Le cache contient l’archive zip de la version officielle, ainsi qu'un checksum
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Skip binary download
+## Désactiver le téléchargement des binaires
 
-When installing the `electron` NPM package, it automatically downloads the electron binary.
+Lorsque vous installer le packet `electron`, npm va automatiquement télécharger le fichier binaire associé.
 
-This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+Ceci peut poser problème avec l'utilisation d'une CI par exemple, où on voudrait éviter de télécharger les binaires à chaque fois que la CI lance un build.
 
-To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+Pour désactiver le téléchargement des binaires, utilisez la variable d'environnement `ELECTRON_SKIP_BINARY_DOWNLOAD` avant `npm install`, exemple :
 
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install

@@ -8,7 +8,7 @@ Das bedeutet nicht, dass Electron's JavaScript an Bibliotheken für die grafisch
 
 Was die Entwicklung betrifft, so ist eine Electron-Anwendung grundlegend eine Node.js-Anwendung. Beginnen wir mit einer `package.json`, die die gleiche ist wie die eines Node.js-Moduls. Eine einfache Electron-App hat die folgende Ordnerstruktur:
 
-```text
+```plaintext
 your-app/
 ├── package.json
 ├── main.js

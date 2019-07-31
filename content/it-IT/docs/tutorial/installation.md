@@ -44,13 +44,13 @@ Se non puoi accedere a GitHub o necessiti di fornire una build personalizzata, p
 
 Puoi usare le variabili ambiente per annullare l'URL base, il percorso a cui si guarda per i binari Electron e per i nomi dei file binari. L'url usata da `electron-download` è composta come segue:
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 Per istanza, usare lo specchio Cina:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 

@@ -8,7 +8,7 @@ En muchos entornos de escritorio Linux, puede agregar entradas personalizadas al
 
 En términos generales, se añaden accesos directos proporcionando un `name` y la propiedad `Exec` para cada entrada en el menú de accesos directos. Unity ejecutará el campo `Exec` cuando el usuario haga clic. El formato es el siguiente:
 
-```text
+```plaintext
 Actions=PlayPause;Next;Previous
 
 [Desktop Action PlayPause]

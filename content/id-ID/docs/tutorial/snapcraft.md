@@ -33,7 +33,7 @@ Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron/electr
 
 Outputnya harus terlihat kira-kira seperti ini:
 
-```text
+```plaintext
 .
 └── dist
     └── app-linux-x64

@@ -138,7 +138,7 @@ npm uninstall -g electron
 
 Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler bekommen, dann ist es sehr wahrscheinlich, dass Sie das Modul im falschen Prozess verwenden. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.
 
-## The font looks blurry, what is this and what can I do?
+## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 
 Wenn [Subpixel-Anti-Alias](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen unscharf aussehen. Beispiel:
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Der Effekt ist nur auf (einigen?) LCD-Bildschirmen sichtbar. Auch wenn du keinen Unterschied siehst, einige deiner Benutzer können es vielleicht. Es ist am besten, immer den Hintergrund auf diese Weise zu setzen. Es sei denn, du hast Gründe, dies nicht zu tun.
 
 Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.

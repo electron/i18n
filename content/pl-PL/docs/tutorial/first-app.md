@@ -8,7 +8,7 @@ To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficzn
 
 As far as development is concerned, an Electron application is essentially a Node.js application. Punktem wyjścia jest `package.json`, który jest identyczny z modułem Node.js. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
 
-```text
+```plaintext
 twoja-aplikacja
 ├── package.json
 ├── main.js

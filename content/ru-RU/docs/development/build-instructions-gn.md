@@ -147,7 +147,7 @@ To package the electron build as a distributable zip file:
 ninja -C out/Release electron:electron_dist_zip
 ```
 
-### Cross-compiling
+### Кросс-компиляция
 
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
@@ -173,8 +173,8 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
     <td>
       Экспериментально
     </td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Автоматически тестировано</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Автоматически тестировано</td></tr>
 </table> 
     
     <p>
@@ -186,7 +186,7 @@ Not all combinations of source and target CPU/OS are supported by Chromium.
     </p>
     
     <h4>
-      Windows on Arm (experimental)
+      Windows на Arm (экспериментально)
     </h4>
     
     <p>
@@ -198,7 +198,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Or (if using PowerShell):
+      Или (если используется PowerShell):
     </p>
     
     <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
@@ -206,7 +206,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+      Далее, запустите <code>gn gen</code>, как указано выше, с <code>target_cpu="arm64"</code>.
     </p>
     
     <h2>
@@ -262,7 +262,7 @@ $ ./out/Debug/electron electron/spec
     </p>
     
     <p>
-      This can be set quickly in powershell (ran as administrator):
+      Это можно быстро установить в powershell (запускается от имени администратора):
     </p>
     
     <pre><code class="powershell">New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Services\Lanmanworkstation\Parameters" -Name DirectoryCacheLifetime -Value 0 -PropertyType DWORD -Force

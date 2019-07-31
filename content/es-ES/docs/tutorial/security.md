@@ -276,7 +276,7 @@ CSP permite que el servidor dando contenido pueda restringir y controlar los rec
 
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
-```txt
+```plaintext
 // Bad
 Content-Security-Policy: '*'
 
