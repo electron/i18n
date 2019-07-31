@@ -8,7 +8,7 @@ Isso não significa que o Electron é uma ligação de Javascript a bibliotecas 
 
 O desenvolvimento pode ser preocupante, porém, uma aplicação Electron é essencialmente uma aplicação Node.js. O ponto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
 
-```text
+```plaintext
 seu-app/
 ├── package.json
 ├── main.js
