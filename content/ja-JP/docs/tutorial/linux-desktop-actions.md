@@ -8,7 +8,7 @@
 
 一般的に、ショートカットメニューのそれぞれのエントリーには、`Name` と`Exec`のプロパティを追加することで、シュートカットを追加できます。 Unityはユーザーがクリックしたときに`Exec`フィールドを実行します。 このフォーマットは以下のとおりです。
 
-```text
+```plaintext
 Actions=PlayPause;Next;Previous
 
 [Desktop Action PlayPause]
