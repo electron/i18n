@@ -16,7 +16,7 @@ Untuk mendistribusikan aplikasi Anda dengan electron, Anda perlu mengunduh elect
 
 Pada macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Pada Windows dan Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Untuk menggunakan arsip `asar` untuk mengganti folder `app`, anda perlu untuk me
 
 Pada macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Pada Windows dan Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ Anda juga dapat mengubah nama helper app untuk menyembunyikan `Electron helper` 
 
 Struktur aplikasi yang diganti namanya akan jadi seperti:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
