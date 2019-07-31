@@ -28,7 +28,7 @@ Package the application using [electron-packager](https://github.com/electron/el
 
 Ang output ay dapat magmukhang halos katulad nito:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
