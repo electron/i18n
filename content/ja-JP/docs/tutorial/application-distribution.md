@@ -16,7 +16,7 @@ Electron でアプリを配布する際は、Electron の [プレビルドバイ
 
 macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Windows および Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ electron/resources/app
 
 macOS:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Windows および Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ electron/resources/
 
 名前を変更したアプリケーションの構造は以下のようになります。
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
