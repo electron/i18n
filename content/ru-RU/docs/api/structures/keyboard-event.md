@@ -4,4 +4,4 @@
 * `metaKey` Boolean (опционально) - использовалась ли мета клавиша в акселераторе, при запуске события
 * `shiftKey` Boolean (опционально) - использовалась ли клавиша Shift в акселераторе, при запуске события
 * `altKey` Boolean (опционально) - использовалась ли клавиша Alt в акселераторе, при запуске события
-* `triggeredByAccelerator` Boolean (optional) - whether an accelerator was used to trigger the event as opposed to another user gesture like mouse click
+* `triggeredByAccelerator` Boolean (опционально) - использовался ли акселератор для запуска события, в отличие от другого жеста пользователя, как, например, нажатие мыши
