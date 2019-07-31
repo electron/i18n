@@ -91,7 +91,7 @@ En Windows, por defecto `node-gyp` enlaza los módulos nativos contra `node.dll`
 Si se obtiene un error como `Módulo no se auto-registró`, o `El procedimiento especificado
 no se pudo encontrar`, puede significar que el módulo que está intentando usar no incluyó correctamente el delay-load hook. Si el módulo esta construido con node-gyp, asegurese de que la variable `win_delay_load_hook` esta configurada a `true` en el archivo `binding.gyp`, y que no esta siendo sobrescrita en ningún lado. Si el módulo esta siendo construido con otro sistema, necesitarás asegurarte que construye con un delay-load hook instalado en el archivo `.node` principal. Su invocación `link.exe` debe parecerce a esto:
 
-```text
+```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```
