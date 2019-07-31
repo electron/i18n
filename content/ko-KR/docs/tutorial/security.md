@@ -277,7 +277,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     다음 CSP는 Electron이 현재 웹사이트와 `apis.example.com`에서만 스크립트를 실행하게 허용합니다.
     
-    ```txt
+    ```plaintext
     // 나쁜 예
     Content-Security-Policy: '*'
     
