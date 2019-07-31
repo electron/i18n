@@ -44,13 +44,13 @@ GitHub에 액세스 할 수 없거나 사용자 정의 빌드를 제공해야하
 
 환경 변수를 사용하여 기본 URL, Electron binaries가 위치한 경로, 그 binary의 filename을 대체할 수 있습니다. `electron-download`에 의해 사용되는 url은 다음과 같이 구성됩니다.
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 예를 들어, 중국 mirror는 다음과 같습니다.
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
