@@ -44,13 +44,13 @@ During installation, the `electron` module will call out to [`electron-download`
 
 你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 `electron-download` 用來下載的 Url 是這樣組出來的:
 
-```txt
+```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
 假如我們要使用位於中國的鏡像站:
 
-```txt
+```plaintext
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
