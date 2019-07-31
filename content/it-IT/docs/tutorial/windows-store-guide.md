@@ -28,7 +28,7 @@ Costruisci il pacchetto dell'applicazione impiegando [electron-packager](https:/
 
 L'output dovrebbe sembrare questo:
 
-```text
+```plaintext
 ├── Ghost.exe
 ├── LICENSE
 ├── content_resources_200_percent.pak
