@@ -13,6 +13,6 @@
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
-* `internal` Boolean - `true` for an internal display and `false` for an external display
+* `internal` Boolean - `true` для внутреннего дисплея и `false` для внешнего дисплея
 
 `Display` - объект представляет физический дисплей, подключенный к системе. Фейковый `Display` может существовать в безголовой системе, или `Display` может соответствовать удаленному виртуальному дисплею.
