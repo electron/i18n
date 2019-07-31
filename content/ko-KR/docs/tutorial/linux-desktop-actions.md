@@ -8,7 +8,7 @@
 
 일반적으로, 단축키 메뉴의 각 항목에 대해 `Name` 및 `Exec`속성을 제공하여 바로 가기를 추가합니다. Unity는 사용자의 클릭에 의해 `Exec`필드를 실행합니다. 양식은 아래와 같습니다.
 
-```text
+```plaintext
 Actions=PlayPause;Next;Previous
 
 [Desktop Action PlayPause]
