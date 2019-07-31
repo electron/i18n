@@ -16,7 +16,7 @@ Upang maipamahagi ang iyong app sa Electron, kailangan mong i-download ang elect
 
 Sa macOs:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
@@ -25,7 +25,7 @@ electron/Electron.app/Contents/Resources/app/
 
 Sa Windows at Linux:
 
-```text
+```plaintext
 electron/resources/app
 ├── package.json
 ├── main.js
@@ -42,14 +42,14 @@ Para gamitin ang `asar` i-archive para palitan ang `app` na folder, kailangan mo
 
 Sa macOs:
 
-```text
+```plaintext
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
 Sa Windows at Linux:
 
-```text
+```plaintext
 electron/resources/
 └── app.asar
 ```
@@ -75,7 +75,7 @@ Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpa
 
 Ang istraktura na pinalitang pangalan ng app ay magiging tulad ng:
 
-```text
+```plaintext
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
