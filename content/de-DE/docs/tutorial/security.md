@@ -276,7 +276,7 @@ CSP allows the server serving content to restrict and control the resources Elec
 
 The following CSP will allow Electron to execute scripts from the current website and from `apis.example.com`.
 
-```txt
+```plaintext
 // Schlecht
 Content-Security-Policy: '*'
 
