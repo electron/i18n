@@ -21,6 +21,7 @@ const plaintextFix = require('../lib/remark-plaintext-fix')
 const bashFix = require('../lib/remark-bash-fix')
 const fiddleUrls = require('../lib/remark-fiddle-urls')
 const itsReallyJS = require('../lib/remark-its-really-js')
+import { plaintextFix } from '../lib/remark-plaintext-fix'
 
 const contentDir = path.join(__dirname, '../content')
 import * as cheerio from 'cheerio'

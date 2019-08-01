@@ -20,5 +20,3 @@ export const plaintextFix = () => (tree: Node) => {
   })
   return tree
 }
-
-module.exports = plaintextFix
