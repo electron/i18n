@@ -175,7 +175,7 @@ Returns `String` - The version of the host operating system.
 
 Ejemplos:
 
-| Platform | Version             |
+| Platform | Versión             |
 | -------- | ------------------- |
 | macOS    | `10.13.6`           |
 | Windows  | `10.0.17763`        |
