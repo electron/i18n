@@ -96,7 +96,9 @@ async function parseFile(file) {
 
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async section => {
-      const parsed = await hubdown(section.body, { runBefore: [plaintextFix, fiddleUrls] })
+      const parsed = await hubdown(section.body, {
+        runBefore: [plaintextFix, fiddleUrls],
+      })
       const $ = cheerio.load(parsed.content || '')
       file.title =
         file.title ||
