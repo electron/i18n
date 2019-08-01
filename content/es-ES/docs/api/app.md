@@ -294,7 +294,7 @@ Devuelve:
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'renderer-process-crashed'
+### Evento: 'renderer-process-crashed'
 
 Devuelve:
 
