@@ -7,7 +7,7 @@ import * as walk from 'walk-sync'
 import * as path from 'path'
 import * as fs from 'fs'
 const cleanDeep = require('clean-deep')
-const hubdown = require('hubdown')
+import hubdown = require('hubdown')
 import locales from '../lib/locales'
 const hrefType = require('href-type')
 import * as URL from 'url'
@@ -100,7 +100,7 @@ async function parseFile(file: $TSFixMe) {
   }
 
   file.sections = await Promise.all(
-    splitMd(await fixMdLinks(markdown)).map(async section => {
+    splitMd(await fixMdLinks(markdown)).map(async (section: $TSFixMe) => {
       const parsed = await hubdown(section.body, {
         runBefore: [plaintextFix, bashFix, fiddleUrls, itsReallyJS],
       })
