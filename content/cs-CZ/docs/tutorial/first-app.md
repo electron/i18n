@@ -9,19 +9,19 @@ To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživ
 Pokud jde o vývoj, aplikace Elektronu je v podstatě Node.js aplikace. Začínající bod je soubor `package.json`, který je identický s tím, který vytváří Node.js. Nejvíce jednoduchá Electron aplikace by měla následující strukturu složek:
 
 ```plaintext
-vase-aplikace/
+your-app/
 ├── package.json
 ├── main.js 
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Vytvořte novou složku pro Vaší Electron aplikaci. Otevřte příkazovou řádku a spusťte příkaz `npm init` ve Vámi vytvořené složce.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm skript vytvoří základní `package.json` soubor na základě Vámi zadaných dat. Příkaz, který je uveden (v package. json) v položce `main` je startup skriptem Vaší aplikace. Váš `package.json` může vypadat například takto:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Poznámka**: Pokud položka `main` neexistuje v `package.json`, Electron se pokusí spustit`index.js` (stejně jako v případě Node.js). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
 
 ```json
 {
