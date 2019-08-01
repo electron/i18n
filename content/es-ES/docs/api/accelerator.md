@@ -52,7 +52,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `Tab`
 * `Capslock`
 * `Numlock`
-* `Scrolllock`
+* `Bloqueo de desplazamiento`
 * `Retroceso`
 * `Delete`
 * `Insert`
@@ -64,9 +64,9 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `VolumeUp`, `VolumeDown` y `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` y `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* Teclas del teclado numérico 
   * `num0` - `num9`
-  * `numdec` - decimal key
+  * `numdec` - clave decimal
   * `numadd` - numpad `+` key
   * `numsub` - numpad `-` key
   * `nummult` - numpad `*` key
