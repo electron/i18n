@@ -18,6 +18,7 @@ const remark = require('remark')
 const links = require('remark-inline-links')
 const parseElectronGlossary = require('../lib/parse-electron-glossary')
 const plaintextFix = require('../lib/remark-plaintext-fix')
+const fiddleUrls = require('../lib/remark-fiddle-urls')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -95,7 +96,7 @@ async function parseFile(file) {
 
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async section => {
-      const parsed = await hubdown(section.body, { runBefore: [plaintextFix] })
+      const parsed = await hubdown(section.body, { runBefore: [plaintextFix, fiddleUrls] })
       const $ = cheerio.load(parsed.content || '')
       file.title =
         file.title ||
