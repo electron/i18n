@@ -294,7 +294,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Происходит, когда gpu процесс аварийно завершает работу или является убитым.
 
-### Event: 'renderer-process-crashed'
+### Событие: 'renderer-process-crashed'
 
 Возвращает:
 
@@ -302,16 +302,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Происходит, когда графический процесс `webContents` аварийно завершает работу или является убитым.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда доступность поддержки Chrome включена, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true`, когда поддержка доступности Chrome включена, иначе `false`.
 
-Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ### Событие: 'session-created'
 
@@ -319,7 +319,7 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 * `session` [Session](session.md)
 
-Происходит после создания новой сессии `session`.
+Происходит, когда Electron создал новый объект `session`.
 
 ```javascript
 const { app } = require('electron')
@@ -339,7 +339,7 @@ app.on('session-created', (event, session) => {
 
 Это событие произойдет внутри главного экземпляра Вашего приложения, когда второй экземпляр был запущен и вызывает `app.requestSingleInstanceLock()`.
 
-`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущая рабочая директория. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущий рабочий каталог. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 Это событие гарантировано происходит после события `ready` в `app`.
 
@@ -362,7 +362,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.require()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-global'
 
@@ -372,7 +372,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
@@ -382,7 +382,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getBuiltin()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-window'
 
@@ -391,7 +391,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getCurrentWindow()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
@@ -400,7 +400,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getCurrentWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getCurrentWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
@@ -410,7 +410,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `<webview>.getWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ## Методы
 
@@ -420,15 +420,15 @@ app.on('session-created', (event, session) => {
 
 ### `app.quit()`
 
-Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
+Попытка закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
 
-Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
+Этот метод гарантирует, что все обработчики событий `beforeunload` и `unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (опиционально)
+* `exitCode` Integer (опционально)
 
-Выйти немедленно с `exitCode`. `exitCode` по умолчанию 0.
+Немедленно выходит с `exitCode`. `exitCode` по умолчанию 0.
 
 Все окна будут закрыты немедленно, без разрешения пользователя, а также события `before-quit` и `will-quit` не будут происходить.
 
@@ -438,15 +438,15 @@ app.on('session-created', (event, session) => {
   * `args` String[] (опционально)
   * `execPath` String (опиционально)
 
-Перезапуск приложения когда существует текущий экземпляр.
+Перезапускает приложение, когда существует текущий экземпляр.
 
-По умолчанию, новый экземпляр будет использовать ту же самую рабочую директорию и аргументы командной строки, что и текущий экземпляр. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
+По умолчанию, новый экземпляр будет использовать ту же самую рабочий каталог и аргументы командной строки, что и текущий экземпляр. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска, вместо текущего приложения.
 
-Обратите внимание, что этот метод не завершает приложение при выполнении, вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch` чтобы перезапустить приложение.
+Обратите внимание, что этот метод не завершает приложение при выполнении, Вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch`, чтобы перезапустить приложение.
 
-Когда `app.relaunch` вызывается несколько раз, несколько экземпляров будет запущено после выхода из текущего экземпляра.
+Когда `app.relaunch` вызывается несколько раз, несколько экземпляров будет запущено, после выхода из текущего экземпляра.
 
-Пример перезапуска немедленно текущего экземпляра и добавив новый аргумент командной строки в новый экземпляр:
+Пример немедленного перезапуска текущего экземпляра и добавления нового аргумента командной строки в новый экземпляр:
 
 ```javascript
 const { app } = require('electron')
@@ -457,15 +457,15 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Возвращает `Boolean` - `true,` если Electron завершил инициализацию, `false` в противном случае.
+Возвращает `Boolean` - `true`, если Electron завершил инициализацию, иначе `false`.
 
 ### `app.whenReady()`
 
-Возвращает `Promise<void>` - выполняется при инициализации Electron. Может быть использован в качестве удобной альтернативы проверки `app.isReady()` и подписывания на событие `ready`, если приложение еще не готово.
+Возвращает `Promise<void>` - выполняется, когда Electron инициализирован. Может быть использован в качестве удобной альтернативы проверки `app.isReady()` и подписывания на событие `ready`, если приложение еще не готово.
 
 ### `app.focus()`
 
-На Linux перемещает фокус на первое видимое окно. В macOS делает приложение активным. На Windows перемещает фокус на первое окно приложения.
+На Linux перемещает фокус на первое видимое окно. На macOS делает приложение активным. На Windows перемещает фокус на первое окно приложения.
 
 ### `app.hide()` *macOS*
 
@@ -477,21 +477,21 @@ app.exit(0)
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (опционально) - пользовательский путь для Ваших логов. Должен быть абсолютным.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
-On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+На *macOS* этот каталог будет установлен по умолчанию в `/Library/Logs/YourAppName`, а на *Linux* и *Windows* будет размещено внутри Вашего каталога `userData`.
 
 ### `app.getAppPath()`
 
-Возвращает `String` - текущего каталога приложения.
+Возвращает `String` - текущий каталог приложения.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Возвращает `String` - путь в специальную директорию или файл, ассоциированный с `name`. В случае неудачи возникает `Error`.
+Возвращает `String` - путь в специальный каталог или файл, ассоциированный с `name`. В случае неудачи возникает `Error`.
 
 Вы можете запросить следующие пути по их имени:
 
@@ -500,17 +500,17 @@ On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName
   * `%APPDATA%` на Windows
   * `$XDG_CONFIG_HOME` или `~/.config` на Linux
   * `~/Library/Application Support` на macOS
-* `userData` каталог для хранения файлов конфигурации вашего приложения, которые по умолчанию является `appData` добавляется с именем вашего приложения.
-* ` temp ` временный каталог.
+* `userData` каталог для хранения файлов конфигурации Вашего приложения, который по умолчанию является каталогом `appData` с именем Вашего приложения в конце.
+* `temp` временный каталог.
 * `exe` текущий исполняемый файл.
 * `module` библиотека `libchromiumcontent`.
-* `desktop` каталог рабочего стола, текущего пользователя.
-* `documents` каталог пользователя "My Documents".
-* `downloads` Каталог пользователя "Downloads".
-* `music` каталог пользователя "Music".
+* `desktop` каталог рабочего стола текущего пользователя.
+* `documents` каталог пользователя для документов.
+* `downloads` каталог пользователя для загрузок.
+* `music` каталог пользователя для музыки.
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
-* `logs` директория для логов вашего приложения.
+* `logs` каталог для логов Вашего приложения.
 * `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -525,9 +525,9 @@ On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Извлекает путь значка.
+Извлекает значок, ассоциированный с путем.
 
-On *Windows*, there are 2 kinds of icons:
+На *Window*, есть 2 типа иконок:
 
 * Иконки, связанные с определенными расширениями, такими как `.mp3`, `.png`, и т.д.
 * Иконки внутри файла, таких как `.exe`, `.dll` и `.ico`.

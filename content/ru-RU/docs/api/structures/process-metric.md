@@ -1,7 +1,7 @@
 # Объект ProcessMetric
 
 * `pid` Integer - id процесса в списке процессов.
-* `тип` String - Process type. One of the following values: 
+* `тип` String - тип процесса. Один из следующих значений: 
   * `Browser`
   * `Tab`
   * `Utility`
