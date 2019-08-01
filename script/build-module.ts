@@ -188,7 +188,7 @@ function fixMdLinks(md: string): Promise<string> {
   })
 }
 
-function splitMd(md: string): Array<{ name: null, body: string[] }> {
+function splitMd(md: string): Array<$TSFixMe> {
   const slugger = new GithubSlugger()
   const sections: Array<{ name: null, body: Array<string> }> = []
   let section = { name: null, body: [] as Array<string> }
