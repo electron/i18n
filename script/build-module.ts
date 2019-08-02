@@ -17,7 +17,6 @@ const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
 import { parseElectronGlossary, IParseElectronGlossaryReturn } from '../lib/parse-electron-glossary'
-const plaintextFix = require('../lib/remark-plaintext-fix')
 const bashFix = require('../lib/remark-bash-fix')
 const itsReallyJS = require('../lib/remark-its-really-js')
 import { fiddleUrls } from '../lib/remark-fiddle-urls'
