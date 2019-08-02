@@ -43,7 +43,7 @@ Please make sure that you use the documents that match your Electron version. �
   * [ไฟล์ที่แสดงสำหรับ macOS Browser Windows](tutorial/represented-file.md)
   * [เนทิฟไฟล์ ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
   * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [O](tutorial/mojave-dark-mode-guide.md)
 * [การเข้าถึง](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
