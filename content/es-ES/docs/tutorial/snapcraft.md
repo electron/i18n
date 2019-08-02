@@ -87,9 +87,8 @@ description: |
  ¿Sábes qué? ¡Esta aplicación es asombrosa! Hace todas las cosas
  por vos. Algunos dicen que te mantiene joven, tal vez incluso feliz.
 
-grade: stable
-confinement: classic
-
+grade: estable
+confinement: clásico
 parts:
   slack:
     plugin: dump
@@ -117,8 +116,8 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # Corrija la ruta TMPDIR para el Framework Chromium/Electron para asegurarse que
+    # libappindicator tengas recursos legibles.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```

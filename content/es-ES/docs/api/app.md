@@ -294,7 +294,7 @@ Devuelve:
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'renderer-process-crashed'
+### Evento: 'renderer-process-crashed'
 
 Devuelve:
 
@@ -302,7 +302,7 @@ Devuelve:
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 * `killed` Booleano
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Emitido cuando el proceso render de `webContents` se bloquea o es matado.
 
 ### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -337,7 +337,7 @@ Devuelve:
 * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
 * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+Este evento será emitido dentro de la primera instancia de tu aplicación cuando una segunda instancia ha sido ejecutada y llama `app.requestSingleInstanceLock()`.
 
 `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
@@ -758,7 +758,7 @@ El valor devuelto de este método indica si esta instancia de su aplicación obt
 
 Este método retorna `true` si el proceso es de primera instancia en su aplicación y esta debe continuar la carga. Retorna `false` si su proceso deja inmediatamente de enviar parámetros a otra instancia que ya haya adquirido el bloqueo con anterioridad.
 
-On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
+En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuario intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` seran emitidos por eso. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
 Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda instancia se inicia:
 

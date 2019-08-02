@@ -4,7 +4,7 @@ O Electron é essencialmente desenvolvido em Node.js. Para transformar seu siste
 
 ## Configurando o macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> O Electron suporta o macOS 10.10 (Yosemite) e posterior. Apple não permite rodar macOS em máquinas virtuais a menos que o computador de hospedagem seja já um computador Apple, então se você se encontrar carecido de um Mac, considere usando um serviço de nuvem que aluga o acesso a Macs (como [MacInCloud](https://www.macincloud.com/) ou [xcloud](https://xcloud.me)).
 
 First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
