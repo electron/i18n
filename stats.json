@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10940",
-    "translated": "4750",
+    "translated": "4752",
     "approved": "384",
     "words": "101378",
-    "words_translated": "34099",
+    "words_translated": "34148",
     "words_approved": "2713",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 938
+    "qa_issues": 939
   },
   {
     "name": "Romanian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10940",
-    "translated": "9465",
+    "translated": "9514",
     "approved": "245",
     "words": "101378",
-    "words_translated": "79771",
+    "words_translated": "80077",
     "words_approved": "1977",
     "translated_progress": 78,
     "approved_progress": 1,
-    "qa_issues": 3690
+    "qa_issues": 3700
   },
   {
     "name": "Tagalog",
