@@ -36,7 +36,7 @@ export default fs
       stat => lang === stat.code || locale === stat.code
     )
 
-    if (locale !== 'en-US' && !stats || stats === undefined) {
+    if (locale !== 'en-US' && !stats ) {
       throw new Error(
         `language stats not found! locale: ${locale}, lang: ${lang}`
       )
@@ -44,11 +44,12 @@ export default fs
 
     let result: IResult = {
       locale: locale,
-      languageCode: locale === 'en-US' ? 'en' : stats.code,
+      languageCode: locale === 'en-US' ? 'en' : stats!.code,
       languageName: getLanguageName(locale),
       languageNativeName: getLanguageNativeName(locale),
       countryCode: getCountryCode(locale),
       countryName: getCountryName(locale),
+      // @ts-ignore | TODO(HashimotoYT): Possible undefined because english not found.
       stats: stats,
     }
 
