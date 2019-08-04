@@ -924,20 +924,20 @@ machineModelVersion: '11.5' }
 * `openAtLogin` Boolean - `true`, если приложение открывается при входе в систему.
 * `openAsHidden` Boolean *macOS* - `true`, если приложение должно запускаться скрытым при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true`, если приложение было открыто автоматически при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` если приложение было запущено в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true`, если приложение было запущено в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true`, если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
-  * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
-  * `openAsHidden` Boolean (опиционально) *macOS* - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (опиционально) *Windows* - исполняемый файл запускается при входе в систему. По умолчанию `process.execPath`.
-  * `args` String[] (опиционально) *Windows* - аргументы командной строки для передачи исполняемого файла. По умолчанию пустой массив. Позаботесь обернуть путь кавычками.
+  * `openAtLogin` Boolean (опционально) - `true`, чтобы открыть приложение при входе в систему, `false`, чтобы удалить приложение в качестве элемента входа. По умолчанию `false`.
+  * `openAsHidden` Boolean (опционально) *macOS* - `true`, чтобы открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+  * `path` String (опционально) *Windows* - исполняемый файл для запуска при входе в систему. По умолчанию `process.execPath`.
+  * `args` String[] (опционально) *Windows* - аргументы командной строки для передачи исполняемому файлу. По умолчанию пустой массив. Позаботьтесь обернуть путь кавычками.
 
 Установите приложению параметры при входе в систему.
 
-Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
+Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), Вы можете задать путь запуска Update.exe и передать аргументы, которые указывают на имя приложения. Например:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -956,19 +956,19 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Возвращает `Boolean` - `true` если включена поддержка специальных возможностей Chrome, и `false` в противном случае. Этот API будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возвращает `Boolean` - `true`, если включена поддержка специальных возможностей Chrome, иначе `false`. Этот метод будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 **[Скоро устареет](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - включить или отключить рендеринг древа [специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
+* `enabled` Boolean - включить или отключить отображение [древа специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. Смотрите [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
+Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. См. [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
 
-Этот API должен вызываться после того, как произошло событие `ready`.
+Этот метод должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Примечание:** Отображение древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
 **[Скоро устареет](modernization/property-updates.md)**
 
@@ -979,15 +979,15 @@ app.setLoginItemSettings({
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `options` Object 
-  * `applicationName` String (опиционально) - имя приложения.
-  * `applicationVersion` String (опиционально) - версия приложения.
-  * `copyright` String (опиционально) - copyright информация.
+  * `applicationName` String (опционально) - имя приложения.
+  * `applicationVersion` String (опционально) - версия приложения.
+  * `copyright` String (опционально) - информация авторских прав.
   * `version` String (опционально) - номер версии сборки приложения. *macOS*
   * `credits` String (опционально) - информация об авторах. *macOS*
   * `website` String (опционально) - веб-сайт приложения. *Linux*
   * `iconPath` String (опционально) - путь до иконки приложения. *Linux*
 
-Установите описание панели опций. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
+Устанавливает параметры панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. См. [документацию Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
 ### `app.isEmojiPanelSupported`
 
