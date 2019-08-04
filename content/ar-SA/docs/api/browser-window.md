@@ -25,9 +25,9 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## نافذة بدون إطارات
 
-يمكن استخدام واجهة [نافذة بدون إطارات](frameless-window.md) لإنشاء نافذة غير محاطة بإطار، أو نافذة شفافة ذات شكل غير محدد.
+To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
-## عرض النافذة بسلاسة ودون تقطيع
+## Showing window gracefully
 
 قد يشاهد المستخدم الصفحة وهي تُعرض تدريجيًا في نافذة البرنامج، وقد يعاني المستخدم نتيجة لذلك من تجربة استخدام سيئة. هناك طريقتان مختلفتان لعرض محتويات الصفحة دون حدوث أي تأخير.
 
