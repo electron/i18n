@@ -80,7 +80,7 @@
   * [Прокси](tutorial/installation.md#proxies)
   * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Отзыв разработчика Electron Releases & 
   * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
