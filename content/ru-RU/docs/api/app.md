@@ -991,35 +991,35 @@ app.setLoginItemSettings({
 
 ### `app.isEmojiPanelSupported`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+Возвращает `Boolean` - позволяет или нет текущая версия ОС выбирать нативные эмодзи.
 
 ### `app.showEmojiPanel` *macOS* *Windows*
 
-Show the platform's native emoji picker.
+Показывает нативный выбор эмодзи.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
-* `bookmarkData` String - Закодированные base64 данные закладки области безопасности, возвращаемые `dialog.showOpenDialog` или `dialog.showSaveDialog`.
+* `bookmarkData` String - закодированные base64 данные закладки области безопасности, возвращаемые `dialog.showOpenDialog` или `dialog.showSaveDialog`.
 
-Возвращает `Function`. Эта функция **должна** быть вызвана после того как вы have finished accessing the security scoped file. Если Вы забыли, запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
+Возвращает `Function`. Эта функция **должна** быть вызвана после того, как Вы завершили использовать файл области безопасности. Если Вы забыли запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и Ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
 ```js
 // Получение доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Теперь у Вас есть доступ к файлу вне песочницы 
 stopAccessingSecurityScopedResource()
 ```
 
-Начать доступ в области безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
+Начинает доступ в область безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить за пределы их песочницы, чтобы получить файлы, выбранные пользователем. Описание того, как работает эта система, см. в [документации Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (опиционально) - значение для данного переключателя
+* `switch` String - переключатель командной строки, без ведущего `--`
+* `value` String (опционально) - значение для данного переключателя
 
-Добавьте переключатель (с опциональным значением `value`) Chromium в командной строке.
+Добавляет переключатель (с опциональным значением `value`) в командную строку Chromium.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примечание:** Это не повлияет на `process.argv`. Предназначенное использование этой функции - контролирование поведения Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
@@ -1029,7 +1029,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примечание:** Это не повлияет на `process.argv`. Предназначенное использование этой функции - контролирование поведения Chromium.
 
 ### `app.commandLine.hasSwitch(switch)`
 
