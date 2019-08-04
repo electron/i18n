@@ -1131,26 +1131,26 @@ stopAccessingSecurityScopedResource()
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-`Boolean` свойство, которое `true`, если поддержка специальных возможностей Chrome включена, иначе `false`. Это свойство будет `true`, если использование вспомогательных технологий, таких как средства чтения с экрана, были обнаружены. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean` свойство, которое `true`, если поддержка специальных возможностей Chrome включена, иначе `false`. Это свойство будет `true`, если использование вспомогательных технологий, таких как средства чтения с экрана, были обнаружены. Устанавливая это свойство на `true`, вручную включает поддержку специальных возможностей Chrome, позволяя разработчикам показать пользователю переключатели специальных возможностей в настройках приложения.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+См. [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробностей. Отключено по умолчанию.
 
-Этот API должен вызываться после того, как произошло событие `ready`.
+Этот метод должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Примечание:** Отображение древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
 ### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+`Строка`, которая является строкой агента пользователя, которую Electron будет использовать в качестве глобального запаса.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+Это агент пользователя, который будет использоваться, если ни один агент пользователя не установлен на уровнях `webContents` или `session`. Полезно для обеспечения всему Вашему приложению иметь один и тот же пользовательский агент. Установите пользовательское значение как можно раньше в инициализации Ваших приложений, чтобы убедиться, что используется переопределенное значение.
 
 ### `app.isPackaged`
 
-`Boolean` свойство, которое возвращает `true`, если приложение упаковано, `false` иначе. Для многих приложений это свойство может использоваться для отличия среды разработки и производства.
+`Boolean` свойство, которое возвращает `true`, если приложение упаковано, иначе `false`. Для многих приложений это свойство может использоваться для отличия среды разработки и продакшна.
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+`Boolean`, которое, когда `true`, отключает переопределения, которые Electron имеет на месте, чтобы убедиться, что графические процессы перезапускаются при каждой навигации. Текущее значение по умолчанию для этого свойства - `false`.
 
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+Цель заключается в том, чтобы эти переопределения были отключены по умолчанию, а затем, в некоторой точке в будущем, это свойство будет удалено. Это свойство влияет на то, какие нативные модули можно использовать в графическом процессе. Для большей информации о том, как Electron перезапускает графический процесс и использует нативные модули в графическом процессе, пожалуйста, проверьте этот [отслеживаемый вопрос](https://github.com/electron/electron/issues/18397).
