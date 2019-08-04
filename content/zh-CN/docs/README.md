@@ -50,7 +50,7 @@
   * [启用辅助功能](tutorial/accessibility.md#enabling-accessibility)
 * [测试和调试](tutorial/application-debugging.md) 
   * [调试主进程](tutorial/debugging-main-process.md)
-  * [使用 Vscode 调试主进程](tutorial/debugging-main-process-vscode.md)
+  * [Débogguer le Main Process avec Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [使用 Selenium 和 WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [使用自动化持续集成系统 (CI) 进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [开发者工具拓展](tutorial/devtools-extension.md)
