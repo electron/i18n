@@ -1025,9 +1025,9 @@ stopAccessingSecurityScopedResource()
 
 * `value` String - аргумент для добавления в командную строку
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Добавляет аргумент в командную строку Chromium. Аргумент будет правильно заключен в кавычки. Переключатели будут предшествовать аргументам, независимо от порядка добавления.
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+Если Вы добавляете аргумент, такой как `--switch=value`, вместо этого рассмотрите использование `appendSwitch('switch', 'value')`.
 
 **Примечание:** Это не повлияет на `process.argv`. Предназначенное использование этой функции - контролирование поведения Chromium.
 
@@ -1043,7 +1043,7 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 Возвращает `String` - значение переключателя командной строки.
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**Примечание:** Когда переключатель не присутствует или не имеет значения, возвращает пустую строку.
 
 ### `app.enableSandbox()` *Experimental*
 
@@ -1053,7 +1053,7 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - выполняется ли приложение сейчас из systems Application папки. Используется совместно с `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение сейчас из системной папки Application. Используется совместно с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
@@ -1065,13 +1065,13 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (опиционально) - может быть `critical` или `informational`. По умолчанию `informational`
+* `type` String (опционально) - может быть `critical` или `informational`. По умолчанию `informational`
 
-Когда `critical` передается, значок dock будет отскакивать, пока приложение не станет активным или запрос отменяется.
+Когда передается `critical`, значок dock будет отскакивать, пока приложение не станет активным или запрос отменился.
 
-Когда `informational` передается, значок dock будет отскакивать в течение одной секунды. Однако запрос остается до тех пор, пока приложение не станет активным или запрос отменяется.
+Когда передается `informational`, значок dock будет отскакивать в течение одной секунды. Однако запрос остается до тех пор, пока приложение не станет активным или запрос отменился.
 
-Возвращает `Integer` ID, представляющий запрос.
+Возвращает `Integer` - ID, представляющий запрос.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
@@ -1083,51 +1083,51 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 * `filePath` String
 
-Отскакивает от "Downloads", если путь к файлу находится в папке "Downloads".
+Отскакивает от загрузок, если путь к файлу находится в папке загрузок.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Устанавливает строку для отображения в панели dock запирающими областями.
+Устанавливает строку для отображения в зоне значка панели dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Возвращает `String` - строки значка в dock.
+Возвращает `String` - строка значка в dock.
 
 ### `app.dock.hide()` *macOS*
 
-Скрыть значок в dock.
+Скрывает значок в dock.
 
 ### `app.dock.show()` *macOS*
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Возвращает `Promise<void>` - выполняется, когда показан значок dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible.
+Возвращает `Boolean` - виден или нет значок dock.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Устанавливает [Dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
+Устанавливает [dock-меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
 
 ### `app.dock.getMenu()` *macOS*
 
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Возвращает `Menu | null` - [dock-меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Задает `image`, связывает со значком в dock.
+Устанавливает `image`, ассоциируемый со значком в dock.
 
 ## Свойства
 
 ### `app.applicationMenu`
 
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+Свойство `Menu`, которое возвращает [`Menu`](menu.md), если было установлено, иначе `null`. Пользователи могут передать [Menu](menu.md), чтобы установить это свойство.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
