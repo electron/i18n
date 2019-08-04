@@ -834,7 +834,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - результат импорта.
 
-Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывается с `result` - результат операции импорта, значение `0` указывает на успех, все другие значения указывают на ошибку в соответствии со списком [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) в Chromium.
+Импортирует сертификат в формате pkcs12 в хранилище сертификатов платформы. `callback` вызывается с `result` - результат операции импорта, значение `0` указывает на успех, все другие значения указывают на ошибку в соответствии со списком [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) в Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
@@ -850,7 +850,7 @@ if (!gotTheLock) {
 
 ### `app.getAppMetrics()`
 
-Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех process, связанных с app.
+Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех процессов, связанных с приложением.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -862,7 +862,7 @@ if (!gotTheLock) {
 
 Возвращает `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Это включает информацию о версии и драйвере, показанную на странице `chrome://gpu`.
+Для `infoType` равным `complete`: Промис выполняется с `объектом`, содержащий всю GPU информацию как в [объекте GPUInfo в chromium](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Это включает информацию о версии и драйвере, показанную на странице `chrome://gpu`.
 
 Для `infoType` равным `basic`: Промис выполняется с `объектом`, содержащий меньшее количество атрибутов, чем когда запрашивается с `complete`. Вот пример базового ответа:
 
@@ -897,33 +897,33 @@ machineModelVersion: '11.5' }
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
+Задает счетчик-значок для текущего приложения. При значении счетчика `0` значок будет скрыт.
 
 На macOS показывается на иконке в dock. На Linux только работает для лаунчера Unity.
 
-**Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграция окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграцию окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Возвращает `Integer` - текущее значение, отображаемое в значке счётчика.
+Возвращает `Integer` - текущее значение, отображаемое в значке-счетчика.
 
 ### `app.isUnityRunning()` *Linux*
 
-Возвращает `Boolean` - является ли текущее окружение рабочего стола Unity.
+Возвращает `Boolean` - является ли текущее окружение рабочего стола лаунчером Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (опционально) 
-  * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
+  * `path` String (опционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
 Если Вы предоставили параметры `path` и `args` в `app.setLoginItemSettings`, тогда Вам необходимо передать те же аргументы сюда, чтобы `openAtLogin` установилось корректно.
 
 Возвращает `Object`:
 
-* `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
-* `openAsHidden` Boolean *macOS* - `true` если приложение должно запускаться скрытым при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` если приложение было открыто автоматически при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `openAtLogin` Boolean - `true`, если приложение открывается при входе в систему.
+* `openAsHidden` Boolean *macOS* - `true`, если приложение должно запускаться скрытым при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true`, если приложение было открыто автоматически при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` если приложение было запущено в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean *macOS* - `true` если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 
