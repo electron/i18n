@@ -25,13 +25,13 @@ npm wird dich schrittweise durch die Erstellung einer `package.json`-Datei führ
 
 ```json
 {
-  "name": "your-app",
-  "version": "0.1.0",
-  "main": "main.js"
+  "name"    : "your-app",
+  "version" : "0.1.0",
+  "main"    : "main.js"
 }
 ```
 
-**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen, eine `index.js`-Datei zu laden. Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
+**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron versuchen eine `index.js`-Datei zu laden).หนังโป็ไทย Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
 
 ```json
 {

@@ -21,7 +21,7 @@ Vytvořte novou složku pro Vaší Electron aplikaci. Otevřte příkazovou řá
 npm init
 ```
 
-npm skript vytvoří základní `package.json` soubor na základě Vámi zadaných dat. Příkaz, který je uveden (v package. json) v položce `main` je startup skriptem Vaší aplikace. Váš `package.json` může vypadat například takto:
+npm skript vytvoří základní `package.json` soubor na základě Vámi zadaných dat. Příkaz, který je uveden (v package. json) v položce `main` je startup skriptem Vaší aplikace. An example of your `package.json` might look like this:
 
 ```json
 {
