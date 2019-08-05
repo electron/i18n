@@ -1,10 +1,10 @@
 # Ruperea modificărilor
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Ruperea modificărilor va fi documentată aici, iar notificările dezaprobatoare adăugate în codul JavaScript unde e posibil, [cel puțin o versiune majoră](../tutorial/electron-versioning.md#semver) înainte de a fi făcută modificarea.
 
-# `FIXME` comments
+# Comentariile ` FIXME sau Repară-mă `
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+Șir-ul sau String-ul `FIXME` este utilizat în comentariile codului pentru a indica lucruri ce ar trebui reparate în realizările viitoare. See https://github.com/electron/electron/search?q=fixme
 
 # Planned Breaking API Changes (7.0)
 
