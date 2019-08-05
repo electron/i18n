@@ -75,29 +75,29 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+//Dezaprobată
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+//Înlocuiește cu API sincronizat
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+//Dezaprobată
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+//Înlocuiește cu API sincronizat
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray`
+## `Tray - Tavă`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Sub îndrumarea formatoruilui nostru macOS Cătălina, implementarea se rupe. Substitutul nativ Apple nu suportă schimbarea în evidențierea comportamentului.
 
 ```js
-// Deprecated
+//Dezaprobată
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// API v-a fi indepărtat în v7.0 fără posibilitate de înlocuire.
 ```
 
 # Planned Breaking API Changes (5.0)
