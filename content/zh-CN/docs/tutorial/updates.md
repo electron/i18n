@@ -4,7 +4,7 @@
 
 ## 使用 `update.electronjs.org`
 
-GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 The service is designed for Electron apps that meet the following criteria:
+GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/electron/update.electronjs.org)，一个免费开源的网络服务，可以让 Electron 应用使用自动更新。 这个服务是设计给那些满足以下标准的 Electron 应用：
 
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库
@@ -25,7 +25,7 @@ npm install update-electron-app
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. 当发现了一个更新，它会自动在后台下载。 When the download completes, a dialog is displayed allowing the user to restart the app.
+默认情况下，这个模块会在应用启动的时候检查更新，然后每隔十分钟再检查一次。 当发现了一个更新，它会自动在后台下载。 当下载完成后，会显示一个对话框以允许用户重启应用。
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
