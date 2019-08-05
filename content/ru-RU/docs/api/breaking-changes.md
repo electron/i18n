@@ -33,13 +33,13 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
+// Устаревшее
 contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+  // сделать что-нибудь
 })
-// Replace with
+// Заменено на
 contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+  // infoObject имеет поля percentage и value
 })
 ```
 
@@ -79,18 +79,18 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// Устаревшее
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Заменено на синхронный метод
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// Устаревшее
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Заменено на синхронный метод
 const idleTime = getSystemIdleTime()
 ```
 
