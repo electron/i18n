@@ -42,36 +42,33 @@ contentTracing.getTraceBufferUsage().then(infoObject = > {
 })
 ```
 
-## `electron.screen` in renderer process
+## `electron.screen` în procesul de cedare
 
 ```js
-// Deprecated
-require('electron').screen
-// Replace with
-require('electron').remote.screen
+// Dezaprobată
+require(`electron`).screen
+// Înlocuiește cu 
+require(`electron`).remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `require` procesul de cedare în cutiidenisip
 
 ```js
-// Deprecated
+// Dezaprobată
 require('child_process')
-// Replace with
-require('electron').remote.require('child_process')
-
-// Deprecated
+// Înlocuiește cu 
+require('electron').remote.require('child.process')
+// Dezaprobată
 require('fs')
-// Replace with
+// Înlocuiește cu 
 require('electron').remote.require('fs')
-
-// Deprecated
+// Dezaprobată
 require('os')
-// Replace with
+// Înlocuiește cu 
 require('electron').remote.require('os')
-
-// Deprecated
+// Dezaprobată
 require('path')
-// Replace with
+// Înlocuiește cu 
 require('electron').remote.require('path')
 ```
 
