@@ -4,7 +4,7 @@ Ruperea modificărilor va fi documentată aici, iar notificările dezaprobatoare
 
 # Comentariile ` FIXME sau Repară-mă `
 
-Șir-ul sau String-ul `FIXME` este utilizat în comentariile codului pentru a indica lucruri ce ar trebui reparate în realizările viitoare. See https://github.com/electron/electron/search?q=fixme
+Șir-ul sau String-ul `FIXME` este utilizat în comentariile codului pentru a indica lucruri ce ar trebui reparate în realizările viitoare. Vezi https://github.com/electron/electron/search?q=fixme
 
 # Planned Breaking API Changes (7.0)
 
