@@ -358,11 +358,11 @@ protocol.registerStandardSchemes(['app'], { secure: true })
 ```js
 // Удалено
 webview.setAttribute('disableguestresize', '')
-// Нет замены для этого API
+// Нет замены для этого метода
 
 // Удалено
 webview.setAttribute('guestinstance', instanceId)
-// Нет замены для этого API
+// Нет замены для этого метода
 
 // Слушатели клавиатуры больше не работают в webview теге
 webview.onkeydown&nbsp;= () => { /* обработчик */ }
@@ -387,7 +387,7 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 // Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
+// Заменено на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -397,7 +397,7 @@ let windowB = new BrowserWindow(optionsB)
 ```js
 // Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Заменить на
+// Заменено на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
@@ -406,12 +406,12 @@ menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```js
 // Удалено
 nativeImage.toPng()
-// Заменить на
+// Заменено на
 nativeImage.toPNG()
 
 // Удалено
 nativeImage.toJpeg()
-// Заменить на
+// Заменено на
 nativeImage.toJPEG()
 ```
 
@@ -424,7 +424,7 @@ nativeImage.toJPEG()
 ```js
 // Удалено
 webContents.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -433,7 +433,7 @@ webContents.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -442,13 +442,13 @@ webFrame.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webview.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Двойные ARM ресурсы
+## Дублированные ARM ресурсы
 
-Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
+Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными именами файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
 Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 
