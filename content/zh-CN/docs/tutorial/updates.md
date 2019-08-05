@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 默认情况下，这个模块会在应用启动的时候检查更新，然后每隔十分钟再检查一次。 当发现了一个更新，它会自动在后台下载。 当下载完成后，会显示一个对话框以允许用户重启应用。
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+如果你需要定制化你的配置，你可以 [将配置设置传递给 `update-electron-app`](https://github.com/electron/update-electron-app) 或者 [直接使用更新服务](https://github.com/electron/update.electronjs.org)。
 
 ## 使用 `electron-builder`
 
@@ -35,7 +35,7 @@ If you need to customize your configuration, you can [pass options to `update-el
 
 ## 部署更新服务器
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+如果你开发的是一个私有的 Electron 应用程序，或者你没有在 GitHub Releases 中公开发布，你可能需要运行自己的更新服务器。
 
 根据你的需要，你可以从下方选择：
 
