@@ -34,7 +34,7 @@ docs:
   detailed: В деталях
   custom_dom: Пользовательские DOM-элементы
   main_proc_modules: Модули основного процесса
-  renderer_proc_modules: Модули процесса визуализации
+  renderer_proc_modules: Модули графического процесса
   both_proc_modules: Модули для обоих процессов
   footer:
     propose_change: Улучшить этот документ
