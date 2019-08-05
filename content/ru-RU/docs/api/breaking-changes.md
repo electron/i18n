@@ -11,7 +11,7 @@
 ## `shell.openExternalSync(url[, options])`
 
 ```js
-// Устаревшее
+// Устарело
 shell.openExternalSync(url)
 // Заменено на
 async function openThing (url) {
@@ -24,7 +24,7 @@ async function openThing (url) {
 ## `win.setMenu(null)`
 
 ```js
-// Устаревшее
+// Устарело
 win.setMenu(null)
 // Заменено на
 win.removeMenu()
@@ -33,7 +33,7 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Устаревшее
+// Устарело
 contentTracing.getTraceBufferUsage((percentage, value) => {
   // сделать что-нибудь
 })
@@ -46,7 +46,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 ## `electron.screen` в графическом процессе
 
 ```js
-// Устаревшее
+// Устарело
 require('electron').screen
 // Заменено на
 require('electron').remote.screen
@@ -55,22 +55,22 @@ require('electron').remote.screen
 ## `require` в песочнице графических процессов
 
 ```js
-// Устаревшее
+// Устарело
 require('child_process')
 // Заменено на
 require('electron').remote.require('child_process')
 
-// Устаревшее
+// Устарело
 require('fs')
 // Заменено на
 require('electron').remote.require('fs')
 
-// Устаревшее
+// Устарело
 require('os')
 // Заменено на
 require('electron').remote.require('os')
 
-// Устаревшее
+// Устарело
 require('path')
 // Заменено на
 require('electron').remote.require('path')
@@ -79,7 +79,7 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Устаревшее
+// Устарело
 powerMonitor.querySystemIdleState(threshold, callback)
 // Заменено на синхронный метод
 const idleState = getSystemIdleState(threshold)
@@ -88,7 +88,7 @@ const idleState = getSystemIdleState(threshold)
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Устаревшее
+// Устарело
 powerMonitor.querySystemIdleTime(callback)
 // Заменено на синхронный метод
 const idleTime = getSystemIdleTime()
@@ -96,12 +96,12 @@ const idleTime = getSystemIdleTime()
 
 ## `Tray`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Под macOS Catalina наша прежняя реализация Tray нарушена. Нативная замена Apple не поддерживает изменение поведения подсветки.
 
 ```js
-// Deprecated
+// Устарело
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// Метод будет удален в v7.0 без альтернатив.
 ```
 
 # Запланированные критические изменения API (5.0)
@@ -128,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
+У дочерних окон, открытых с опцией `nativeWindowOpen`, всегда будет отключена интеграция Node.JS, если `nodeIntegrationInSubFrames` не true.
 
 ## Регистрация привилегированных схем
 
@@ -174,7 +174,7 @@ app.on('second-instance', (event, argv, cwd) => {
 ```js
 // Устарело
 app.releaseSingleInstance()
-// Заменят на
+// Заменено на
 app.releaseSingleInstanceLock()
 ```
 
@@ -182,13 +182,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же с `basic` в macOS
+// Теперь ведет себя так же, как `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для информации.
 
 # Критические изменения API (3.0)
 
@@ -199,7 +199,7 @@ app.getGPUInfo('basic')
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменить на
+// Заменено на
 app.getAppMetrics()
 
 // Устарело
@@ -213,20 +213,20 @@ const { memory } = metrics[0] // свойство устарело
 // Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
+// Заменено на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
 // Устарело
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // делаем что-нибудь
+    // сделать что-нибудь
   }
 })
-// Заменить на
+// Заменено на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // делаем что-нибудь
+    // сделать что-нибудь
   }
 })
 ```
@@ -236,22 +236,22 @@ window.on('app-command', (e, cmd) => {
 ```js
 // Устарело
 clipboard.readRtf()
-// Заменить на
+// Заменено на
 clipboard.readRTF()
 
 // Устарело
 clipboard.writeRtf()
-// Заменить на
+// Заменено на
 clipboard.writeRTF()
 
 // Устарело
 clipboard.readHtml()
-// Заменить на
+// Заменено на
 clipboard.readHTML()
 
 // Устарело
 clipboard.writeHtml()
-// Заменить на
+// Заменено на
 clipboard.writeHTML()
 ```
 
@@ -264,7 +264,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменить на
+// Заменено на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -277,7 +277,7 @@ crashReporter.start({
 ```js
 // Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменить на
+// Заменено на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -295,7 +295,7 @@ const info = process.getProcessMemoryInfo()
 ```js
 // Устарело
 screen.getMenuBarHeight()
-// Заменить на
+// Заменено на
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -317,12 +317,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('off')
 ```
 
@@ -331,12 +331,12 @@ tray.setHighlightMode('off')
 ```js
 // Устарело
 webContents.openDevTools({ detach: true })
-// Заменить на
+// Заменено на
 webContents.openDevTools({ mode: 'detach' })
 
 // Удалено
 webContents.setSize(options)
-// Нет замены для этого API
+// Нет замены для этого метода
 ```
 
 ## `webFrame`
@@ -344,12 +344,12 @@ webContents.setSize(options)
 ```js
 // Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
