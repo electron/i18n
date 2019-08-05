@@ -6,27 +6,26 @@ Ruperea modificărilor va fi documentată aici, iar notificările dezaprobatoare
 
 Șir-ul sau String-ul `FIXME` este utilizat în comentariile codului pentru a indica lucruri ce ar trebui reparate în realizările viitoare. Vezi https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (7.0)
+# Modificări Plănuite ale API(7.0)
 
-## `shell.openExternalSync(url[, options])`
+## `shell.openExternalSync(url, ["optiuni"-options])`
 
 ```js
-// Deprecated
+// Dezaprobată
 shell.openExternalSync(url)
-// Replace with
-async function openThing (url) {
-  await shell.openExternal(url)
-}
+// Înlocuită  cu 
+async function open Thing (url) {
+await.shell.openExternal(url)
 ```
 
-# Planned Breaking API Changes (6.0)
+# Modificări Plănuite ale API (6.0)
 
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// Dezaprobată
 win.setMenu(null)
-// Replace with
+// Înlocuită cu 
 win.removeMenu()
 ```
 
