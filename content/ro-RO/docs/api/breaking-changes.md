@@ -32,13 +32,13 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
-contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+// Dezaprobată
+contentTracing.getTTraceBufferUsage((percentage,value) => {
+// Fă ceva 
 })
-// Replace with
-contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+// Înlocuiește cu 
+contentTracing.getTraceBufferUsage().then(infoObject = > {
+    //infoObject deține procente și valori 
 })
 ```
 
