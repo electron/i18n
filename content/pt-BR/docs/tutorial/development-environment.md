@@ -30,7 +30,7 @@ Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale
 
 Na tela que permite você configurar a instalação, tenha certeza de selecionar as seguintes opções: `Node.js runtime`, `npm package manager`, e `Adcionar ao PATH`.
 
-Uma vez instalado, confirme se tudo está funcionando corretamente. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Uma vez instalado, confirme se tudo está funcionando corretamente. Encontre o PowerShell do Windows abrindo o Menu Iniciar e digitando `PowerShell` - ou aperte windows + x e selecione a opção Windows PowerShell. Abra o `PowerShell` ou outro aplicativo de linha de comando de sua escolha e confirme que ambos `node` and `npm` estejam disponíveis:
 
 ```powershell
 #Execute o comando para mostrar a versão do Node.js instalada
@@ -44,11 +44,11 @@ Se o retorno de ambos os comandos for o número da versão instalada, está tudo
 
 ## Configurando o Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> De modo geral, Electron suporta Ubuntu 12.04, Fedora 21, Debian 8 e versões superiores.
 
-Primeiro, instale uma versão recente do Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Primeiro, instale uma versão recente do Node.js. Dependendo da sua distribuição Linux, os passos da instalação podem ser diferentes. Assumindo que você normalmente instala softwares usando um gerenciador de pacotes como `apt` ou `pacman`, use o [guia de instalação do Node.js no Linux](https://nodejs.org/en/download/package-manager/).
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Você usa Linux, então você gostaria de saber como operar pela linha de comando. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
 #Execute o comando para mostrar a versão do Node.js instalada
