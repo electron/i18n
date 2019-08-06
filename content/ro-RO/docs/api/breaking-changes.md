@@ -367,7 +367,7 @@ webview.onkeyup = () => { /* handler */ }
 
 ## Node Headers URL - Anteturile nodurilor URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Acest URL poate fi specificat ca `disturl` într-un fișier `.npmrc` sau ca și o comandă principală `--dist-url` când e vorba de construirea unor module de tip Node- nod.
 
 Deprecated: https://atom.io/download/atom-shell
 
