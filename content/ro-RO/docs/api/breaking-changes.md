@@ -128,16 +128,16 @@ Copilul windows deschis cu opțiunea `nativeWindowOpen` mereu va avea integrat N
 
 ## Înregistrarea schemelor privilegiate
 
-Generarea proceselor API `webFrame.setRegisterURLSchemeAsPrivileged ` si `webFrame.registerURLSchemeAsBypassingCSP` la fel ca procesul browserului API ` protocol.registerStandardSchemes` au fost eliminate. Un nou API, `protocol.registerSchemesAsPrivileged` a fost adăugat și ar trebui să fie utilizat la înregistrarea unor scheme personalizate ce conțin cereri privilegiate. Custom schemes are required to be registered before app ready.
+Generarea proceselor API `webFrame.setRegisterURLSchemeAsPrivileged ` si `webFrame.registerURLSchemeAsBypassingCSP` la fel ca procesul browserului API ` protocol.registerStandardSchemes` au fost eliminate. Un nou API, `protocol.registerSchemesAsPrivileged` a fost adăugat și ar trebui să fie utilizat la înregistrarea unor scheme personalizate ce conțin cereri privilegiate. Schemele personalizate trebuie să fie înregistrate înainte de terminarea aplicației.
 
-## webFrame Isolated World APIs
+## webFrame API-urile lumii izolate
 
 ```js
-// Deprecated
-webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+// Dezaprobate
+ webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Înlocuite cu 
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -147,16 +147,16 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# Planned Breaking API Changes (4.0)
+# Plănuirea modificărilor ruperilor API(4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+Următoarea listă include schimbările ruperilor API făcute în Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Dezaprobată 
 app.makeSingleInstance((argv, cwd) => {
-  /* ... */
+  /* ... */... */
 })
 // Replace with
 app.requestSingleInstanceLock()
