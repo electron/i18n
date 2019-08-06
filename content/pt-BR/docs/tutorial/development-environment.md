@@ -48,7 +48,7 @@ Se o retorno de ambos os comandos for o número da versão instalada, está tudo
 
 Primeiro, instale uma versão recente do Node.js. Dependendo da sua distribuição Linux, os passos da instalação podem ser diferentes. Assumindo que você normalmente instala softwares usando um gerenciador de pacotes como `apt` ou `pacman`, use o [guia de instalação do Node.js no Linux](https://nodejs.org/en/download/package-manager/).
 
-Você usa Linux, então você gostaria de saber como operar pela linha de comando. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Você usa Linux, então você gostaria de saber como operar pela linha de comando. Abra o aplicativo de linha de comando de sua escolha e confirme que ambos `node` e `npm` estejam disponíveis globalmente:
 
 ```sh
 #Execute o comando para mostrar a versão do Node.js instalada
@@ -60,8 +60,8 @@ npm -v
 
 Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
-## A Good Editor
+## Um Bom Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Podemos sugerir dois editores gratuitos e populares que foram feitos usando Electron: [Atom](https://atom.io/) e [Visual Studio Code](https://code.visualstudio.com/). Ambos possuem um excelente suporte a linguagem Javascript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Se você é um desenvolvedor com uma forte preferência, saiba que todos os editores de código e IDEs atualmente suportam JavaScript.
