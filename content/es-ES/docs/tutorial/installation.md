@@ -6,7 +6,7 @@ Para instalar binarios de Electron incorporados, usar [`npm`](https://docs.npmjs
 npm install electron -save-dev
 ```
 
-See the [Electron versioning doc](./electron-versioning.md) for info on how to manage Electron versions in your apps.
+Por favor, echa un vistazo a [Electron versioning doc](./electron-versioning.md) para información de como manejar version de Electron en tus apps.
 
 ## Instalación Global
 
@@ -36,7 +36,7 @@ Si necesitas usar un porxy HTTP puedes [configurar estas variables de entorno](h
 
 ## Espejos y cachés personalizados
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
+Durante la instalación, el módulo `electron` llamara a [`electron-download`](https://github.com/electron-userland/electron-download) para descargar binarios precompilados de Electron para tu plataforma. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
 
 Si no puede acceder a GitHub o necesita proporcionar una compilación personalizada, puede hacerlo proporcionando un espejo o un directorio de caché existente.
 
