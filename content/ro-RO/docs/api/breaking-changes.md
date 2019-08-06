@@ -369,82 +369,82 @@ webview.onkeyup = () => { /* handler */ }
 
 Acest URL poate fi specificat ca `disturl` într-un fișier `.npmrc` sau ca și o comandă principală `--dist-url` când e vorba de construirea unor module de tip Node- nod.
 
-Deprecated: https://atom.io/download/atom-shell
+Dezaprobată: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Înlocuiește cu: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# Modificarea Ruperilor API(2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+Următoarea listă include modificarea ruperilor API făcute în Electron 2.0.
 
-## `BrowserWindow`
+## `BrowserWindow- FereastraBrowser-ului`
 
 ```js
-// Deprecated
+// Dezaprobate
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Înlocuiește cu
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+## `menu-meniu`
 
 ```js
-// Removed
+// Eliminată 
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Înlocuiește cu
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+## `nativeImage-Imagineautohtonă`
 
 ```js
-// Removed
+// Eliminată 
 nativeImage.toPng()
-// Replaced with
+// Înlocuiește cu
 nativeImage.toPNG()
 
-// Removed
+// Eliminată 
 nativeImage.toJpeg()
-// Replaced with
+// Înlocuiește cu
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `process-proces`
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` și `process.version.chrome` vor fi făcute propietăți read-only - doarcitit, pentru a avea consistență cu celelalte propietăți setate de Node `process.versions`.
 
-## `webContents`
+## `webContents-conținutWeb`
 
 ```js
-// Removed
+// Eliminată 
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Înlocuiește cu
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+## `webFrame-cadruWeb`
 
 ```js
-// Removed
+// Eliminată 
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Înlocuiește cu
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>`
+## `<webview>vizualizareWeb`
 
 ```js
-// Removed
+// Eliminată 
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Înlocuiește cu
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Duplicarea bunurilor ARM
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Fiecare eliberare Electron include 2 ARM identice, construite cu diferențe mici în numirea fișierelor, ca `electron-v1.7.3-linux-arm.zip` și `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
 The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
