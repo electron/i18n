@@ -104,9 +104,9 @@ tray.setHighlightMode(mode)
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Următoarea opțiune `webPreferences` este dezaprobată în favoarea unor noi valori prestabilite afișate în continuare.
 
-| Property           | Deprecated Default                   | New Default |
+| Propietate         | Deprecated Default                   | New Default |
 | ------------------ | ------------------------------------ | ----------- |
 | `contextIsolation` | `false`                              | `true`      |
 | `nodeIntegration`  | `true`                               | `false`     |
