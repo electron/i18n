@@ -112,7 +112,7 @@ Următoarea opțiune `webPreferences` este dezaprobată în favoarea unor noi va
 | `nodeIntegration`  | `true`                               | `false`      |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`      |
 
-E.g. Re-enabling the webviewTag
+Ex. Reactivarea webviewTag
 
 ```js
 const w = new BrowserWindow({
