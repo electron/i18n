@@ -190,7 +190,7 @@ La construirea unui model autohton window, variabila `win_delay_load_hook` în m
 
 Următoarea listă include modificarea ruperilor API în Electron 3.0.
 
-## `app`
+## `app - aplicație`
 
 ```js
 // Dezaprobată 
@@ -203,7 +203,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Proprietăți dezaprobate
 ```
 
-## `BrowserWindow`
+## `BrowserWindow - Fereastra Browseru-ului`
 
 ```js
 // Dezaprobate
@@ -227,7 +227,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+## `clipboard -`
 
 ```js
 // Dezaprobată 
@@ -251,7 +251,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `crashReporter - ReporterAccident`
 
 ```js
 // Dezaprobată 
@@ -268,104 +268,104 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `nativeImage-ImagineAutohtonă`
 
 ```js
-// Deprecated
+// Dezaprobată 
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Înlocuiește cu
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `process`
+## `process- proces`
 
 ```js
-// Deprecated
+// Dezaprobată 
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen`
+## `screen- ecran`
 
 ```js
-// Deprecated
+// Dezaprobată 
 screen.getMenuBarHeight()
-// Replace with
+// Înlocuiește cu
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+## `session- sesiune`
 
 ```js
-// Deprecated
+// Dezaprobată 
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Înlocuiește cu
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```
 
-## `Tray`
+## `Tray - tavă`
 
 ```js
-// Deprecated
+// Dezaprobată 
 tray.setHighlightMode(true)
-// Replace with
+// Înlocuiește cu
 tray.setHighlightMode('on')
 
-// Deprecated
+// Dezaprobată 
 tray.setHighlightMode(false)
-// Replace with
+// Înlocuiește cu
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `webContents- conținutWeb`
 
 ```js
-// Deprecated
+// Dezaprobată 
 webContents.openDevTools({ detach: true })
-// Replace with
+// Înlocuiește cu
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Eliminată 
 webContents.setSize(options)
-// There is no replacement for this API
+// Acest API nu a fost înlocuit
 ```
 
-## `webFrame`
+## `webFrame-cadruWeb`
 
 ```js
-// Deprecated
+// Dezaprobată 
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Înlocuiește cu
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Dezaprobată 
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Înlocuiește cu
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>`
+## `<webview>vizualizareWeb`
 
 ```js
-// Removed
+//  Eliminată 
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Acest API nu a fost înlocuit
 
-// Removed
+// Eliminată 
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Acest API nu a fost înlocuit
 
-// Keyboard listeners no longer work on webview tag
+// Keyboard listeners - ascultătorii de tastatură, nu mai funcționează  în eticheta webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## Node Headers URL - Anteturile nodurilor URL
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
