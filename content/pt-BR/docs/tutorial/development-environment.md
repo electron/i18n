@@ -8,15 +8,15 @@ O Electron é essencialmente desenvolvido em Node.js. Para transformar seu siste
 
 Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visite a [página de download do Node.js](https://nodejs.org/en/download/) e selecione `macOS Installer`. Homebrew é um método de instalação oferecida mas não a recomendamos. Algumas ferramentas são incompatíveis com essa forma de instalação.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Uma vez baixado, execute o instalador e siga os passos da instalação.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Uma vez instalado, confirme se tudo está funcionando corretamente. Encontre o `Terminal` do macOS, encontrado em `/Aplicações/Utilitários` ou pesquise por `Terminal` no Spotlight (cmd + espaço). Abra o `Terminal` ou outro aplicativo de linha de comando de sua escolha e confirme que ambos `node` e `npm` estejam disponíveis:
 
 ```sh
-# This command should print the version of Node.js
+#Execute o comando para mostrar a versão do Node.js instalada
 node -v
 
-# This command should print the version of npm
+#Execute o comando para mostrar a versão do NPM instalada
 npm -v
 ```
 
@@ -26,17 +26,17 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
-Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Uma vez baixado, execute o instalador e siga os passos da instalação.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Uma vez instalado, confirme se tudo está funcionando corretamente. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+#Execute o comando para mostrar a versão do Node.js instalada
 node -v
 
-# This command should print the version of npm
+#Execute o comando para mostrar a versão do NPM instalada
 npm -v
 ```
 
@@ -51,10 +51,10 @@ Primeiro, instale uma versão recente do Node.js. Depending on your Linux distri
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+#Execute o comando para mostrar a versão do Node.js instalada
 node -v
 
-# This command should print the version of npm
+#Execute o comando para mostrar a versão do NPM instalada
 npm -v
 ```
 
