@@ -206,20 +206,20 @@ const { memory } = metrics[0] // Proprietăți dezaprobate
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Dezaprobate
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Înlocuiește cu
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Dezaprobate
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Înlocuiește cu
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -230,37 +230,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Dezaprobată 
 clipboard.readRtf()
-// Replace with
+// Înlocuiește cu
 clipboard.readRTF()
 
-// Deprecated
+// Dezaprobată 
 clipboard.writeRtf()
-// Replace with
+// Înlocuiește cu
 clipboard.writeRTF()
 
-// Deprecated
+// Dezaprobată 
 clipboard.readHtml()
-// Replace with
+// Înlocuiește cu
 clipboard.readHTML()
 
-// Deprecated
+// Dezaprobată 
 clipboard.writeHtml()
-// Replace with
+// Înlocuiește cu
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Dezaprobată 
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Înlocuiește cu
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
