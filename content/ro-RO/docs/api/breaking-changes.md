@@ -158,7 +158,7 @@ Următoarea listă include schimbările ruperilor API făcute în Electron 4.0.
 app.makeSingleInstance((argv, cwd) => {
   /* ... */... */
 })
-// Replace with
+// Înlocuiește cu 
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -168,9 +168,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Dezaprobată 
 app.releaseSingleInstance()
-// Replace with
+// Înlocuiește cu 
 app.releaseSingleInstanceLock()
 ```
 
@@ -178,7 +178,7 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// Acum se comportă la fel ca `basic`in macOs
 app.getGPUInfo('basic')
 ```
 
