@@ -20,11 +20,11 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
 ## Configurando o Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron suporta Windows 7 e versões superiores - o desenvolvimento de aplicações Electron em versões anteriores ao Windows 7 não vão funcionar. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
 Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Uma vez baixado, execute o instalador e siga os passos da instalação.
 
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
 ## Configurando o Linux
 
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
 ## A Good Editor
 
