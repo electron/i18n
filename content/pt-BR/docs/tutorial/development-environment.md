@@ -6,62 +6,62 @@ O Electron é essencialmente desenvolvido em Node.js. Para transformar seu siste
 
 > O Electron suporta o macOS 10.10 (Yosemite) e posterior. Apple não permite rodar macOS em máquinas virtuais a menos que o computador de hospedagem seja já um computador Apple, então se você se encontrar carecido de um Mac, considere usando um serviço de nuvem que aluga o acesso a Macs (como [MacInCloud](https://www.macincloud.com/) ou [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visite a [página de download do Node.js](https://nodejs.org/en/download/) e selecione `macOS Installer`. Homebrew é um método de instalação oferecida mas não a recomendamos. Algumas ferramentas são incompatíveis com essa forma de instalação.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Uma vez baixado, execute o instalador e siga os passos da instalação.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Uma vez instalado, confirme se tudo está funcionando corretamente. Encontre o `Terminal` do macOS, encontrado em `/Aplicações/Utilitários` ou pesquise por `Terminal` no Spotlight (cmd + espaço). Abra o `Terminal` ou outro aplicativo de linha de comando de sua escolha e confirme que ambos `node` e `npm` estejam disponíveis:
 
 ```sh
-# This command should print the version of Node.js
+#Execute o comando para mostrar a versão do Node.js instalada
 node -v
 
-# This command should print the version of npm
+#Execute o comando para mostrar a versão do NPM instalada
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
 ## Configurando o Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron suporta Windows 7 e versões superiores - o desenvolvimento de aplicações Electron em versões anteriores ao Windows 7 não vão funcionar. A Microsoft fornece [imagens de máquinas virtuais com Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) gratuitas para desenvolvedores.
 
-First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visite a [página de download do Node.js](https://nodejs.org/en/download/) e selecione `Windows Installer`. Uma vez baixado, execute o instalador e siga os passos da instalação.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Na tela que permite você configurar a instalação, tenha certeza de selecionar as seguintes opções: `Node.js runtime`, `npm package manager`, e `Adcionar ao PATH`.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Uma vez instalado, confirme se tudo está funcionando corretamente. Encontre o PowerShell do Windows abrindo o Menu Iniciar e digitando `PowerShell` - ou aperte windows + x e selecione a opção Windows PowerShell. Abra o `PowerShell` ou outro aplicativo de linha de comando de sua escolha e confirme que ambos `node` and `npm` estejam disponíveis:
 
 ```powershell
-# This command should print the version of Node.js
+#Execute o comando para mostrar a versão do Node.js instalada
 node -v
 
-# This command should print the version of npm
+#Execute o comando para mostrar a versão do NPM instalada
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
 ## Configurando o Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> De modo geral, Electron suporta Ubuntu 12.04, Fedora 21, Debian 8 e versões superiores.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Primeiro, instale uma versão recente do Node.js. Dependendo da sua distribuição Linux, os passos da instalação podem ser diferentes. Assumindo que você normalmente instala softwares usando um gerenciador de pacotes como `apt` ou `pacman`, use o [guia de instalação do Node.js no Linux](https://nodejs.org/en/download/package-manager/).
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Você usa Linux, então você gostaria de saber como operar pela linha de comando. Abra o aplicativo de linha de comando de sua escolha e confirme que ambos `node` e `npm` estejam disponíveis globalmente:
 
 ```sh
-# This command should print the version of Node.js
+#Execute o comando para mostrar a versão do Node.js instalada
 node -v
 
-# This command should print the version of npm
+#Execute o comando para mostrar a versão do NPM instalada
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Se o retorno de ambos os comandos for o número da versão instalada, está tudo pronto! Antes de começar, você pode querer instalar um [editor de texto](#a-good-editor) adequado para trabalhar com Javascript.
 
-## A Good Editor
+## Um Bom Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Podemos sugerir dois editores gratuitos e populares que foram feitos usando Electron: [Atom](https://atom.io/) e [Visual Studio Code](https://code.visualstudio.com/). Ambos possuem um excelente suporte a linguagem Javascript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Se você é um desenvolvedor com uma forte preferência, saiba que todos os editores de código e IDEs atualmente suportam JavaScript.

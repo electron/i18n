@@ -1,122 +1,118 @@
-# Breaking Changes
+# Ruperea modificărilor
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Ruperea modificărilor va fi documentată aici, iar notificările dezaprobatoare adăugate în codul JavaScript unde e posibil, [cel puțin o versiune majoră](../tutorial/electron-versioning.md#semver) înainte de a fi făcută modificarea.
 
-# `FIXME` comments
+# Comentariile ` FIXME sau Repară-mă `
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+Șir-ul sau String-ul `FIXME` este utilizat în comentariile codului pentru a indica lucruri ce ar trebui reparate în realizările viitoare. Vezi https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (7.0)
+# Modificări Plănuite ale API(7.0)
 
-## `shell.openExternalSync(url[, options])`
+## `shell.openExternalSync(url, ["optiuni"-options])`
 
 ```js
-// Deprecated
+// Dezaprobată
 shell.openExternalSync(url)
-// Replace with
-async function openThing (url) {
-  await shell.openExternal(url)
-}
+// Înlocuită  cu 
+async function open Thing (url) {
+await.shell.openExternal(url)
 ```
 
-# Planned Breaking API Changes (6.0)
+# Modificări Plănuite ale API (6.0)
 
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// Dezaprobată
 win.setMenu(null)
-// Replace with
+// Înlocuită cu 
 win.removeMenu()
 ```
 
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
-contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+// Dezaprobată
+contentTracing.getTTraceBufferUsage((percentage,value) => {
+// Fă ceva 
 })
-// Replace with
-contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+// Înlocuiește cu 
+contentTracing.getTraceBufferUsage().then(infoObject = > {
+    //infoObject deține procente și valori 
 })
 ```
 
-## `electron.screen` in renderer process
+## `electron.screen` în procesul de cedare
 
 ```js
-// Deprecated
-require('electron').screen
-// Replace with
-require('electron').remote.screen
+// Dezaprobată
+require(`electron`).screen
+// Înlocuiește cu 
+require(`electron`).remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `require` procesul de cedare în cutiidenisip
 
 ```js
-// Deprecated
+// Dezaprobată
 require('child_process')
-// Replace with
-require('electron').remote.require('child_process')
-
-// Deprecated
+// Înlocuiește cu 
+require('electron').remote.require('child.process')
+// Dezaprobată
 require('fs')
-// Replace with
+// Înlocuiește cu 
 require('electron').remote.require('fs')
-
-// Deprecated
+// Dezaprobată
 require('os')
-// Replace with
+// Înlocuiește cu 
 require('electron').remote.require('os')
-
-// Deprecated
+// Dezaprobată
 require('path')
-// Replace with
+// Înlocuiește cu 
 require('electron').remote.require('path')
 ```
 
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+//Dezaprobată
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+//Înlocuiește cu API sincronizat
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+//Dezaprobată
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+//Înlocuiește cu API sincronizat
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray`
+## `Tray - Tavă`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Sub îndrumarea formatoruilui nostru macOS Cătălina, implementarea se rupe. Substitutul nativ Apple nu suportă schimbarea în evidențierea comportamentului.
 
 ```js
-// Deprecated
+//Dezaprobată
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// API v-a fi indepărtat în v7.0 fără posibilitate de înlocuire.
 ```
 
-# Planned Breaking API Changes (5.0)
+# Plănuirea modificărilor ruperilor API(5.0)
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Următoarea opțiune `webPreferences` este dezaprobată în favoarea unor noi valori prestabilite afișate în continuare.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Propietate         | Valoare dezaprobată                  | Noua valoare |
+| ------------------ | ------------------------------------ | ------------ |
+| `contextIsolation` | `false`                              | `true`       |
+| `nodeIntegration`  | `true`                               | `false`      |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`      |
 
-E.g. Re-enabling the webviewTag
+Ex. Reactivarea webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -128,20 +124,20 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
+Copilul windows deschis cu opțiunea `nativeWindowOpen` mereu va avea integrat Node.js invalid, doar dacă `nodeIntegrationInSubFrames` este `true.
 
-## Privileged Schemes Registration
+## Înregistrarea schemelor privilegiate
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+Generarea proceselor API `webFrame.setRegisterURLSchemeAsPrivileged ` si `webFrame.registerURLSchemeAsBypassingCSP` la fel ca procesul browserului API ` protocol.registerStandardSchemes` au fost eliminate. Un nou API, `protocol.registerSchemesAsPrivileged` a fost adăugat și ar trebui să fie utilizat la înregistrarea unor scheme personalizate ce conțin cereri privilegiate. Schemele personalizate trebuie să fie înregistrate înainte de terminarea aplicației.
 
-## webFrame Isolated World APIs
+## webFrame API-urile lumii izolate
 
 ```js
-// Deprecated
-webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+// Dezaprobate
+ webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Înlocuite cu 
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -151,18 +147,18 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# Planned Breaking API Changes (4.0)
+# Plănuirea modificărilor ruperilor API(4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+Următoarea listă include schimbările ruperilor API făcute în Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Dezaprobată 
 app.makeSingleInstance((argv, cwd) => {
-  /* ... */
+  /* ... */... */
 })
-// Replace with
+// Înlocuiește cu 
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -172,9 +168,9 @@ app.on('second-instance', (event, argv, cwd) => {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Dezaprobată 
 app.releaseSingleInstance()
-// Replace with
+// Înlocuiește cu 
 app.releaseSingleInstanceLock()
 ```
 
@@ -182,48 +178,48 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// Acum se comportă la fel ca `basic`in macOs
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+La construirea unui model autohton window, variabila `win_delay_load_hook` în modulul `binding.gyp` trebuie să fie adevărată (true, vine implicit). Dacă acest cârlig nu este prezent, atunci modelul autohton nu se va încărca în Windows și va aparea următorul mesaj `Cannot find module`. Pentru mai multe detalii, vezi [native module guide](/docs/tutorial/using-native-node-modules.md).
 
-# Breaking API Changes (3.0)
+# Modificarea Ruperilor API(3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+Următoarea listă include modificarea ruperilor API în Electron 3.0.
 
 ## `app`
 
 ```js
-// Deprecated
+// Dezaprobată 
 app.getAppMemoryInfo()
-// Replace with
+// Înlocuiește cu
 app.getAppMetrics()
 
-// Deprecated
+// Dezaprobate
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // Proprietăți dezaprobate
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Dezaprobate
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Înlocuiește cu
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Dezaprobate
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Înlocuiește cu
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -234,37 +230,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Dezaprobată 
 clipboard.readRtf()
-// Replace with
+// Înlocuiește cu
 clipboard.readRTF()
 
-// Deprecated
+// Dezaprobată 
 clipboard.writeRtf()
-// Replace with
+// Înlocuiește cu
 clipboard.writeRTF()
 
-// Deprecated
+// Dezaprobată 
 clipboard.readHtml()
-// Replace with
+// Înlocuiește cu
 clipboard.readHTML()
 
-// Deprecated
+// Dezaprobată 
 clipboard.writeHtml()
-// Replace with
+// Înlocuiește cu
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Dezaprobată 
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Înlocuiește cu
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',

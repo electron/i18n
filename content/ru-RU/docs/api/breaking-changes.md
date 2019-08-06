@@ -11,7 +11,7 @@
 ## `shell.openExternalSync(url[, options])`
 
 ```js
-// Устаревшее
+// Устарело
 shell.openExternalSync(url)
 // Заменено на
 async function openThing (url) {
@@ -24,7 +24,7 @@ async function openThing (url) {
 ## `win.setMenu(null)`
 
 ```js
-// Устаревшее
+// Устарело
 win.setMenu(null)
 // Заменено на
 win.removeMenu()
@@ -33,20 +33,20 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
+// Устарело
 contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+  // сделать что-нибудь
 })
-// Replace with
+// Заменено на
 contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+  // infoObject имеет поля percentage и value
 })
 ```
 
 ## `electron.screen` в графическом процессе
 
 ```js
-// Устаревшее
+// Устарело
 require('electron').screen
 // Заменено на
 require('electron').remote.screen
@@ -55,22 +55,22 @@ require('electron').remote.screen
 ## `require` в песочнице графических процессов
 
 ```js
-// Устаревшее
+// Устарело
 require('child_process')
 // Заменено на
 require('electron').remote.require('child_process')
 
-// Устаревшее
+// Устарело
 require('fs')
 // Заменено на
 require('electron').remote.require('fs')
 
-// Устаревшее
+// Устарело
 require('os')
 // Заменено на
 require('electron').remote.require('os')
 
-// Устаревшее
+// Устарело
 require('path')
 // Заменено на
 require('electron').remote.require('path')
@@ -79,29 +79,29 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// Устарело
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Заменено на синхронный метод
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// Устарело
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Заменено на синхронный метод
 const idleTime = getSystemIdleTime()
 ```
 
 ## `Tray`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Под macOS Catalina наша прежняя реализация Tray нарушена. Нативная замена Apple не поддерживает изменение поведения подсветки.
 
 ```js
-// Deprecated
+// Устарело
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// Метод будет удален в v7.0 без альтернатив.
 ```
 
 # Запланированные критические изменения API (5.0)
@@ -128,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
+У дочерних окон, открытых с опцией `nativeWindowOpen`, всегда будет отключена интеграция Node.JS, если `nodeIntegrationInSubFrames` не true.
 
 ## Регистрация привилегированных схем
 
@@ -174,7 +174,7 @@ app.on('second-instance', (event, argv, cwd) => {
 ```js
 // Устарело
 app.releaseSingleInstance()
-// Заменят на
+// Заменено на
 app.releaseSingleInstanceLock()
 ```
 
@@ -182,13 +182,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же с `basic` в macOS
+// Теперь ведет себя так же, как `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для информации.
 
 # Критические изменения API (3.0)
 
@@ -199,7 +199,7 @@ app.getGPUInfo('basic')
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменить на
+// Заменено на
 app.getAppMetrics()
 
 // Устарело
@@ -213,20 +213,20 @@ const { memory } = metrics[0] // свойство устарело
 // Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
+// Заменено на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
 // Устарело
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // делаем что-нибудь
+    // сделать что-нибудь
   }
 })
-// Заменить на
+// Заменено на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // делаем что-нибудь
+    // сделать что-нибудь
   }
 })
 ```
@@ -236,22 +236,22 @@ window.on('app-command', (e, cmd) => {
 ```js
 // Устарело
 clipboard.readRtf()
-// Заменить на
+// Заменено на
 clipboard.readRTF()
 
 // Устарело
 clipboard.writeRtf()
-// Заменить на
+// Заменено на
 clipboard.writeRTF()
 
 // Устарело
 clipboard.readHtml()
-// Заменить на
+// Заменено на
 clipboard.readHTML()
 
 // Устарело
 clipboard.writeHtml()
-// Заменить на
+// Заменено на
 clipboard.writeHTML()
 ```
 
@@ -264,7 +264,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменить на
+// Заменено на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -277,7 +277,7 @@ crashReporter.start({
 ```js
 // Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменить на
+// Заменено на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -295,7 +295,7 @@ const info = process.getProcessMemoryInfo()
 ```js
 // Устарело
 screen.getMenuBarHeight()
-// Заменить на
+// Заменено на
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -317,12 +317,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('off')
 ```
 
@@ -331,12 +331,12 @@ tray.setHighlightMode('off')
 ```js
 // Устарело
 webContents.openDevTools({ detach: true })
-// Заменить на
+// Заменено на
 webContents.openDevTools({ mode: 'detach' })
 
 // Удалено
 webContents.setSize(options)
-// Нет замены для этого API
+// Нет замены для этого метода
 ```
 
 ## `webFrame`
@@ -344,12 +344,12 @@ webContents.setSize(options)
 ```js
 // Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
@@ -358,11 +358,11 @@ protocol.registerStandardSchemes(['app'], { secure: true })
 ```js
 // Удалено
 webview.setAttribute('disableguestresize', '')
-// Нет замены для этого API
+// Нет замены для этого метода
 
 // Удалено
 webview.setAttribute('guestinstance', instanceId)
-// Нет замены для этого API
+// Нет замены для этого метода
 
 // Слушатели клавиатуры больше не работают в webview теге
 webview.onkeydown&nbsp;= () => { /* обработчик */ }
@@ -387,7 +387,7 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 // Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
+// Заменено на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -397,7 +397,7 @@ let windowB = new BrowserWindow(optionsB)
 ```js
 // Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Заменить на
+// Заменено на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
@@ -406,12 +406,12 @@ menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```js
 // Удалено
 nativeImage.toPng()
-// Заменить на
+// Заменено на
 nativeImage.toPNG()
 
 // Удалено
 nativeImage.toJpeg()
-// Заменить на
+// Заменено на
 nativeImage.toJPEG()
 ```
 
@@ -424,7 +424,7 @@ nativeImage.toJPEG()
 ```js
 // Удалено
 webContents.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -433,7 +433,7 @@ webContents.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -442,13 +442,13 @@ webFrame.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webview.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Двойные ARM ресурсы
+## Дублированные ARM ресурсы
 
-Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
+Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными именами файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
 Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 

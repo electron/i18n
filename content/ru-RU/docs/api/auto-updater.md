@@ -66,7 +66,7 @@
 
 На Windows доступен только `releaseName`.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Примечание:** Не обязательно обрабатывать это событие. Успешно загруженное обновление будет применено в следующий раз, когда приложение запустится.
 
 ### Событие: 'before-quit-for-update'
 
@@ -101,4 +101,4 @@
 
 Внутри, вызов `autoUpdater.quitAndInstall()` сначала закроет все окна приложения, и автоматически вызовет `app.quit()`, после того, как все окна будут закрыты.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Примечание:** Не обязательно вызывать эту функцию, чтобы применить обновление, успешно загруженное обновление будет применено в следующий раз, когда приложение запустится.
