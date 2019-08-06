@@ -24,11 +24,11 @@ Se o retorno de ambos os comandos for o número da versão instalada, está tudo
 
 ## Configurando o Windows
 
-> Electron suporta Windows 7 e versões superiores - o desenvolvimento de aplicações Electron em versões anteriores ao Windows 7 não vão funcionar. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron suporta Windows 7 e versões superiores - o desenvolvimento de aplicações Electron em versões anteriores ao Windows 7 não vão funcionar. A Microsoft fornece [imagens de máquinas virtuais com Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) gratuitas para desenvolvedores.
 
-Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Uma vez baixado, execute o instalador e siga os passos da instalação.
+Primeiro, instale uma versão recente do Node.js. Recomendamos que você instale a última versão `LTS` ou `Atual` versão disponível. Visite a [página de download do Node.js](https://nodejs.org/en/download/) e selecione `Windows Installer`. Uma vez baixado, execute o instalador e siga os passos da instalação.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+Na tela que permite você configurar a instalação, tenha certeza de selecionar as seguintes opções: `Node.js runtime`, `npm package manager`, e `Adcionar ao PATH`.
 
 Uma vez instalado, confirme se tudo está funcionando corretamente. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
