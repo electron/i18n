@@ -106,31 +106,31 @@
 ```markdown
 # session
 
-## Methods
+## Методы
 
 ### session.fromPartition(partition)
 
-## Static Properties
+## Статические свойства
 
 ### session.defaultSession
 
 ## Class: Session
 
-### Instance Events
+### События экземпляра
 
 #### Event: 'will-download'
 
-### Instance Methods
+### Методы экземпляра
 
 #### `ses.getCacheSize()`
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `ses.cookies`
 
 ## Class: Cookies
 
-### Instance Methods
+### Методы экземпляра
 
 #### `cookies.get(filter, callback)`
 ```
