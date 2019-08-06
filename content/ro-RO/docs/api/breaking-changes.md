@@ -106,11 +106,11 @@ tray.setHighlightMode(mode)
 
 Următoarea opțiune `webPreferences` este dezaprobată în favoarea unor noi valori prestabilite afișate în continuare.
 
-| Propietate         | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Propietate         | Valoare dezaprobată                  | Noua valoare |
+| ------------------ | ------------------------------------ | ------------ |
+| `contextIsolation` | `false`                              | `true`       |
+| `nodeIntegration`  | `true`                               | `false`      |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`      |
 
 E.g. Re-enabling the webviewTag
 
