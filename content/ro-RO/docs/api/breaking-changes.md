@@ -184,23 +184,23 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-Când construiești un mod nativ pentru window, variabila `win_delay_load_hook` în modulul `binding.gyp` trebuie să fie adevărată (true, vine implicit). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+La construirea unui model autohton window, variabila `win_delay_load_hook` în modulul `binding.gyp` trebuie să fie adevărată (true, vine implicit). Dacă acest cârlig nu este prezent, atunci modelul autohton nu se va încărca în Windows și va aparea următorul mesaj `Cannot find module`. Pentru mai multe detalii, vezi [native module guide](/docs/tutorial/using-native-node-modules.md).
 
-# Breaking API Changes (3.0)
+# Modificarea Ruperilor API(3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+Următoarea listă include modificarea ruperilor API în Electron 3.0.
 
 ## `app`
 
 ```js
-// Deprecated
+// Dezaprobată 
 app.getAppMemoryInfo()
-// Replace with
+// Înlocuiește cu
 app.getAppMetrics()
 
-// Deprecated
+// Dezaprobate
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // Proprietăți dezaprobate
 ```
 
 ## `BrowserWindow`
