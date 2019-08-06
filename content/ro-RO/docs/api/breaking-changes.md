@@ -100,7 +100,7 @@ tray.setHighlightMode(mode)
 // API v-a fi indepărtat în v7.0 fără posibilitate de înlocuire.
 ```
 
-# Planned Breaking API Changes (5.0)
+# Plănuirea modificărilor ruperilor API(5.0)
 
 ## `new BrowserWindow({ webPreferences })`
 
