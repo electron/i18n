@@ -365,7 +365,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
-#### Événement: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Retourne :
 
@@ -695,7 +695,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Retourne [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -706,7 +706,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 #### `win.getContentBounds()`
 
-Retourne [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 
