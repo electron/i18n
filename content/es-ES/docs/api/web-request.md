@@ -59,6 +59,21 @@ Los `buttons` es un arreglo de objetos `Button`.
 
 The `callback` has to be called with an `response` object.
 
+Some examples of valid `urls`:
+
+```js
+'http://foo:1234/'
+'http://foo.com/'
+'http://foo:1234/bar'
+'*://*/*'
+'*://example.com/*'
+'*://example.com/foo/*'
+'http://*.foo:1234/'
+'file://foo:1234/bar'
+'http://foo:*/'
+'*://www.foo.com/'
+```
+
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (opcional) 
