@@ -10,7 +10,7 @@ Proses: [Main](../glossary.md#main-process)
 <h2>Mengirim Pesan</h2>
 
 <p>It is also possible to send messages from the main process to the renderer
-process, see [webContents.send][web-contents-send] for more information.</p>
+process, see <a href="web-contents.md#contentssendchannel-arg1-arg2-">webContents.send</a> for more information.</p>
 
 <ul>
 <li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
