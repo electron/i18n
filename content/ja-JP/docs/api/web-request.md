@@ -59,7 +59,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
-Some examples of valid `urls`:
+いくつか有効な `url` の例を示します。
 
 ```js
 'http://foo:1234/'
