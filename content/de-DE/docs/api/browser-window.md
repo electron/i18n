@@ -367,7 +367,7 @@ Rückgabewert:
   
   Emitted when the window leaves a full-screen state triggered by HTML API.
   
-  #### Event: 'always-on-top-changed' *macOS*
+  #### Event: 'always-on-top-changed'
   
   Rückgabewert:
   
@@ -696,7 +696,7 @@ Rückgabewert:
   
   #### `win.getBounds()`
   
-  Returns [`Rectangle`](structures/rectangle.md)
+  Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
   
   #### `win.setContentBounds(bounds[, animate])`
   
@@ -707,7 +707,7 @@ Rückgabewert:
   
   #### `win.getContentBounds()`
   
-  Returns [`Rectangle`](structures/rectangle.md)
+  Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
   
   #### `win.getNormalBounds()`
   

@@ -364,7 +364,7 @@ Pencere, HTML API'sı tarafından tetiklenen bir tam ekran haline girdiğinde d�
 
 Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldığında dışarı çıkar.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Dönüşler:
 
@@ -695,7 +695,7 @@ console.log(win.getBounds())
 #### `win.getBounds()
 `
 
-[`Rectangle`](structures/rectangle.md) döndürür
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -706,7 +706,7 @@ Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taş�
 
 #### `win.getContentBounds()`
 
-[`Rectangle`](structures/rectangle.md) döndürür
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 

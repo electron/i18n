@@ -59,6 +59,21 @@ The `uploadData` is an array of `UploadData` objects.
 
 The `callback` has to be called with an `response` object.
 
+Some examples of valid `urls`:
+
+```js
+'http://foo:1234/'
+'http://foo.com/'
+'http://foo:1234/bar'
+'*://*/*'
+'*://example.com/*'
+'*://example.com/foo/*'
+'http://*.foo:1234/'
+'file://foo:1234/bar'
+'http://foo:*/'
+'*://www.foo.com/'
+```
+
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (опционально) 
@@ -84,7 +99,7 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (необязательно) 
+* `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null 
   * `details` Object 

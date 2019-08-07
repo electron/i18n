@@ -8,7 +8,7 @@ ipcMain模块是EventEmitter类的一个实例。 当在主进程中使用时，
 
 ## 发送消息
 
-It is also possible to send messages from the main process to the renderer process, see \[webContents.send\]\[web-contents-send\] for more information.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。

@@ -4,7 +4,7 @@
 
 Для большинства пользователей это просто, потому что это поддерживается "из коробки" [`electron-packager`](https://github.com/electron/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), и [`electron-builder`](https://github.com/electron-userland/electron-builder). Если же вы не используете ни один из этих инструментов, читайте дальше.
 
-## Generating `asar` Archives
+## Создание `asar` архивов
 
 Архив [asar](https://github.com/electron/asar) это простой tar-подобный формат, который объединяет файлы в один общий файл. Electron может читать любые файлы из архива без распаковки всего архива.
 

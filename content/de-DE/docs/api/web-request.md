@@ -59,6 +59,21 @@ The `listener` will be called with `listener(details, callback)` when a request 
 
 Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
+Some examples of valid `urls`:
+
+```js
+'http://foo:1234/'
+'http://foo.com/'
+'http://foo:1234/bar'
+'*://*/*'
+'*://example.com/*'
+'*://example.com/foo/*'
+'http://*.foo:1234/'
+'file://foo:1234/bar'
+'http://foo:*/'
+'*://www.foo.com/'
+```
+
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Objekt (optional) 

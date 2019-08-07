@@ -366,7 +366,7 @@ Emesso quando la finestra entra in uno stato full-screen attivata da un API HTML
 
 Emesso quando la finestra esce da uno stato full-screen attivata da un API HTML.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Restituisce:
 
@@ -696,7 +696,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -707,7 +707,7 @@ Ridimensiona e muove l'area client della finestra (es. la pagina web) ai limiti 
 
 #### `win.getContentBounds()`
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 

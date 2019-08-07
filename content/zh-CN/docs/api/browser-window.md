@@ -365,7 +365,7 @@ window.onbeforeunload = (e) => {
 
 窗口离开由HTML API触发的全屏状态时触发
 
-#### 事件: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 返回:
 
@@ -695,7 +695,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-返回 [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -706,7 +706,7 @@ console.log(win.getBounds())
 
 #### `win.getContentBounds()`
 
-返回 [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 

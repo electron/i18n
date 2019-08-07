@@ -366,7 +366,7 @@ window.onbeforeunload = (e) => {
 
 Происходит, когда окно выходит из полноэкранного режима с помощью HTML API.
 
-#### Событие: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Возвращает:
 
@@ -696,7 +696,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Возвращает [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -707,7 +707,7 @@ console.log(win.getBounds())
 
 #### `win.getContentBounds()`
 
-Возвращает [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 

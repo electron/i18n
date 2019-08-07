@@ -241,7 +241,7 @@ governance:
     title: Các phiên bản phát hành
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: Nâng cấp
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: Website

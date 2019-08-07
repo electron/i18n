@@ -190,7 +190,7 @@ La construirea unui model autohton window, variabila `win_delay_load_hook` în m
 
 Următoarea listă include modificarea ruperilor API în Electron 3.0.
 
-## `app`
+## `app - aplicație`
 
 ```js
 // Dezaprobată 
@@ -203,7 +203,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Proprietăți dezaprobate
 ```
 
-## `BrowserWindow`
+## `BrowserWindow - Fereastra Browseru-ului`
 
 ```js
 // Dezaprobate
@@ -227,7 +227,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+## `clipboard -`
 
 ```js
 // Dezaprobată 
@@ -251,7 +251,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+## `crashReporter - ReporterAccident`
 
 ```js
 // Dezaprobată 
@@ -268,184 +268,184 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `nativeImage-ImagineAutohtonă`
 
 ```js
-// Deprecated
+// Dezaprobată 
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Înlocuiește cu
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `process`
+## `process- proces`
 
 ```js
-// Deprecated
+// Dezaprobată 
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen`
+## `screen- ecran`
 
 ```js
-// Deprecated
+// Dezaprobată 
 screen.getMenuBarHeight()
-// Replace with
+// Înlocuiește cu
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+## `session- sesiune`
 
 ```js
-// Deprecated
+// Dezaprobată 
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Înlocuiește cu
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```
 
-## `Tray`
+## `Tray - tavă`
 
 ```js
-// Deprecated
+// Dezaprobată 
 tray.setHighlightMode(true)
-// Replace with
+// Înlocuiește cu
 tray.setHighlightMode('on')
 
-// Deprecated
+// Dezaprobată 
 tray.setHighlightMode(false)
-// Replace with
+// Înlocuiește cu
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `webContents- conținutWeb`
 
 ```js
-// Deprecated
+// Dezaprobată 
 webContents.openDevTools({ detach: true })
-// Replace with
+// Înlocuiește cu
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Eliminată 
 webContents.setSize(options)
-// There is no replacement for this API
+// Acest API nu a fost înlocuit
 ```
 
-## `webFrame`
+## `webFrame-cadruWeb`
 
 ```js
-// Deprecated
+// Dezaprobată 
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Înlocuiește cu
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Dezaprobată 
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Înlocuiește cu
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>`
+## `<webview>vizualizareWeb`
 
 ```js
-// Removed
+//  Eliminată 
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Acest API nu a fost înlocuit
 
-// Removed
+// Eliminată 
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Acest API nu a fost înlocuit
 
-// Keyboard listeners no longer work on webview tag
+// Keyboard listeners - ascultătorii de tastatură, nu mai funcționează  în eticheta webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## Node Headers URL - Anteturile nodurilor URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Acest URL poate fi specificat ca `disturl` într-un fișier `.npmrc` sau ca și o comandă principală `--dist-url` când e vorba de construirea unor module de tip Node- nod.
 
-Deprecated: https://atom.io/download/atom-shell
+Dezaprobată: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Înlocuiește cu: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# Modificarea Ruperilor API(2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+Următoarea listă include modificarea ruperilor API făcute în Electron 2.0.
 
-## `BrowserWindow`
+## `BrowserWindow- FereastraBrowser-ului`
 
 ```js
-// Deprecated
+// Dezaprobate
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Înlocuiește cu
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+## `menu-meniu`
 
 ```js
-// Removed
+// Eliminată 
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Înlocuiește cu
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+## `nativeImage-Imagineautohtonă`
 
 ```js
-// Removed
+// Eliminată 
 nativeImage.toPng()
-// Replaced with
+// Înlocuiește cu
 nativeImage.toPNG()
 
-// Removed
+// Eliminată 
 nativeImage.toJpeg()
-// Replaced with
+// Înlocuiește cu
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `process-proces`
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` și `process.version.chrome` vor fi făcute propietăți read-only - doarcitit, pentru a avea consistență cu celelalte propietăți setate de Node `process.versions`.
 
-## `webContents`
+## `webContents-conținutWeb`
 
 ```js
-// Removed
+// Eliminată 
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Înlocuiește cu
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+## `webFrame-cadruWeb`
 
 ```js
-// Removed
+// Eliminată 
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Înlocuiește cu
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>`
+## `<webview>vizualizareWeb`
 
 ```js
-// Removed
+// Eliminată 
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Înlocuiește cu
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Duplicarea bunurilor ARM
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Fiecare eliberare Electron include 2 ARM identice, construite cu diferențe mici în numirea fișierelor, ca `electron-v1.7.3-linux-arm.zip` și `electron-v1.7.3-linux-armv7l.zip`. Bunurile cu prefixul `v7l` au fost adăugate pentru a ajuta la clarificarea versiunilor pe care le suporta șii la dezambiguarea viitoarelor armv6l si arm64, bunuri care se pot produce.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Fișierul *without the prefix* încă funcționează pentru a ajuta la evitarea ruperilor unor setări care îl pot consuma. Începând cu 2.0 fișierul fără prefix nu va mai fi publicat.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Pentru detalii, vezi [6986](https://github.com/electron/electron/pull/6986) și [7189](https://github.com/electron/electron/pull/7189).

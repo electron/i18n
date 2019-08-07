@@ -59,6 +59,21 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
 
 `callback` bir </code>`response` nesnesi ile birlikte çağırılacak.
 
+Some examples of valid `urls`:
+
+```js
+'http://foo:1234/'
+'http://foo.com/'
+'http://foo:1234/bar'
+'*://*/*'
+'*://example.com/*'
+'*://example.com/foo/*'
+'http://*.foo:1234/'
+'file://foo:1234/bar'
+'http://foo:*/'
+'*://www.foo.com/'
+```
+
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `Filtre` Obje (opsiyonel) 

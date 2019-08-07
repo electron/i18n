@@ -366,7 +366,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
-#### イベント: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 戻り値:
 
@@ -696,7 +696,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-戻り値 [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -707,7 +707,7 @@ console.log(win.getBounds())
 
 #### `win.getContentBounds()`
 
-戻り値 [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 

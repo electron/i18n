@@ -29,7 +29,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Metode Instance
+### Методы экземпляра
 
 Metode berikut tersedia pada contoh `WebRequest`:
 
@@ -58,6 +58,21 @@ Metode berikut tersedia pada contoh `WebRequest`:
   `UploadData` sebuah array `UploadData` objek.
   
   `panggilan kembali` harus dipanggil dengan `respon` objek.
+  
+  Some examples of valid `urls`:
+  
+  ```js
+  'http://foo:1234/'
+  'http://foo.com/'
+  'http://foo:1234/bar'
+  '*://*/*'
+  '*://example.com/*'
+  '*://example.com/foo/*'
+  'http://*.foo:1234/'
+  'file://foo:1234/bar'
+  'http://foo:*/'
+  '*://www.foo.com/'
+  ```
   
   #### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
   

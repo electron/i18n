@@ -81,10 +81,10 @@
   * [Пользовательские зеркала и кеши](tutorial/installation.md#custom-mirrors-and-caches)
   * [Устранение проблем](tutorial/installation.md#troubleshooting)
 * Отзыв разработчика Electron Releases & 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [Политика контроля версиями](tutorial/electron-versioning.md)
+  * [Графики выпуска](tutorial/electron-timelines.md)
+  * [Программа отзывов](tutorial/app-feedback-program.md)
+* [Упаковка исходников приложения с помощью asar](tutorial/application-packaging.md) 
   * [Создание архива asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -109,7 +109,7 @@
 * [Объект `File`](api/file-object.md)
 * [Тег `<webview>`](api/webview-tag.md)
 * [Функция `window.open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [Объект `BrowserWindowProxy`](api/browser-window-proxy.md)
 
 ### Модули для главного процесса:
 
