@@ -11,7 +11,7 @@ const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+نافذة الحوار تفتح من في جهة(thread) ال Main لإلكترون. إذا كنت تريد إستعمالها من جهة ال Renderer، تذكر أنه عليك إستعمال الremote للوصول إليها:
 
 ```javascript
 const { dialog } = require('electron').remote
