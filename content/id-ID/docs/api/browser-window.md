@@ -381,7 +381,7 @@ Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.
 
 Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Pengembalian:
 
@@ -713,7 +713,7 @@ height areas you have within the overall content view.</p>
             
             #### `win.getBounds ()`
             
-            Kembali [`Rectangle`](structures/rectangle.md)
+            Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
             
             #### `win.setContentBounds (batas [, bernyawa])`
             
@@ -724,7 +724,7 @@ height areas you have within the overall content view.</p>
             
             #### `win.getContentBounds ()`
             
-            Kembali [`Rectangle`](structures/rectangle.md)
+            Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
             
             #### `win.getNormalBounds()`
             
