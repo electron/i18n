@@ -578,7 +578,7 @@ them.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-On _macOS_, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on _Linux_ and _Windows_ it will be placed inside your `userData` directory.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on _macOS_, and inside the `userData` directory on _Linux_ and _Windows_.
 
 ### `app.getAppPath()`
 
@@ -1188,7 +1188,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `version` String (optional) - The app's build version number. _macOS_
   * `credits` String (optional) - Credit information. _macOS_
   * `website` String (optional) - The app's website. _Linux_
-  * `iconPath` String (optional) - Path to the app's icon. _Linux_
+  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. _Linux_
 
 Set the about panel options. This will override the values defined in the app's
 `.plist` file on MacOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.

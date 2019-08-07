@@ -555,7 +555,7 @@ Emitted when the window enters a full-screen state triggered by HTML API.
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'always-on-top-changed' _macOS_
+#### Event: 'always-on-top-changed'
 
 Returns:
 
@@ -929,7 +929,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -941,7 +941,7 @@ the supplied bounds.
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 
