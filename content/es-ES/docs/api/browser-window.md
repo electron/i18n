@@ -366,7 +366,7 @@ Aparece cuando la ventana entra en un estado pantalla completa activado por la A
 
 Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Devuelve:
 
@@ -696,7 +696,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Devuelve [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -707,7 +707,7 @@ Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página
 
 #### `win.getContentBounds()`
 
-Devuelve [`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 
