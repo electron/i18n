@@ -37,7 +37,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Întoarce `BrowserView | null` - BrowserView care deține `webContents` sau `null` dacă conținutul nu e deținut de un BrowserView.
 
 #### `BrowserView.fromId(id)`
 
