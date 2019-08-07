@@ -93,7 +93,7 @@ Some examples of valid `urls`:
       * `cancel` Boolean (任意)
       * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
@@ -112,7 +112,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
     * `timestamp` Double
     * `requestHeaders` Object
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+`listener` は、リクエストがサーバに送信される直前に `listener(details)` で呼び出され、以前の `onBeforeSendHeaders` レスポンスの変更は、このリスナが起動される時までに表示されます。
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
@@ -136,7 +136,7 @@ The `listener` will be called with `listener(details)` just before a request is 
       * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
       * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+`listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
@@ -158,7 +158,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+`listener` は、レスポンスボディの最初のバイトを受信したときに `listener(details)` で呼ばれます。 HTTP リクエストの場合、これはステータスラインとレスポンスヘッダが使用可能であることを意味します。
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
@@ -179,7 +179,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+`listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -199,7 +199,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+`listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
@@ -217,4 +217,4 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `fromCache` Boolean
     * `error` String - エラーの内容。
 
-The `listener` will be called with `listener(details)` when an error occurs.
+`listener` は、エラーが発生したときに `listener(details)` で呼ばれます。
