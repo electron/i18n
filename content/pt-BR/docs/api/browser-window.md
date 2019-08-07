@@ -366,7 +366,7 @@ Emitted when the window enters a full-screen state triggered by HTML API.
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'always-on-top-changed'
+#### Evento: 'always-on-top-changed'
 
 Retorna:
 
