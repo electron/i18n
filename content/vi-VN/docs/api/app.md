@@ -426,7 +426,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (tùy chọn)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -436,7 +436,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 * `options` Object (không bắt buộc) 
   * `args` String[] (optional)
-  * `execPath` String (optional)
+  * `execPath` String (tùy chọn)
 
 Relaunches the app when current instance exits.
 
@@ -481,7 +481,7 @@ Hiển thị tất cả cửa sổ của ứng dụng sau khi chúng đã đư�
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-On *macOS*, this directory will be set by deafault to `/Library/Logs/YourAppName`, and on *Linux* and *Windows* it will be placed inside your `userData` directory.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -501,7 +501,7 @@ You can request the following paths by the name:
   * `$XDG_CONFIG_HOME` or `~/.config` on Linux
   * `~/Library/Application Support` on macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
+* `temp` Thư mục tạm thời.
 * `exe` The current executable file.
 * `module` The `libchromiumcontent` library.
 * `desktop` The current user's Desktop directory.
@@ -543,15 +543,15 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 trên *Linux*, 32x32 trên *Windows*, không hỗ trợ trên *macOS*.
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+Trên *Windows*, có 2 loại biểu tượng:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* Những biểu tượng được gán với phần mở rộng tệp tin nhất định, giống như `.mp3``.png`...v.v.
 * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
@@ -860,7 +860,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
 
-Returns `Promise`
+Trả về một `Promise`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -956,7 +956,7 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. Xem https://www.chromium.org/developers/design-documents/accessibility để biết thêm chi tiết.
 
 **[Deprecated Soon](modernization/property-updates.md)**
 
@@ -985,7 +985,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `version` String (optional) - The app's build version number. *macOS*
   * `credits` String (optional) - Credit information. *macOS*
   * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
 
 Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
