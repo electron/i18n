@@ -366,7 +366,7 @@ Ay lalabas kapag pumasok ang window ng isang full-screen na estado ayy na-trigge
 
 Ay lalabas kung ang window ay aalis na sa full-screen na estado ay na-trigger ng HTML API.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Event: 'always-on-top-changed'
 
 Ibinabalik ang:
 
@@ -697,7 +697,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Nagbabalik[`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -708,7 +708,7 @@ Lumalawak at gumagalaw ang lugar ng kliyente ng window (e.g. the web page) ang i
 
 #### `win.getContentBounds()`
 
-Nagbabalik[`Rectangle`](structures/rectangle.md)
+Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
 
 #### `win.getNormalBounds()`
 
