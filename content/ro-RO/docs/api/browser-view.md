@@ -9,21 +9,20 @@ O `BroswerView- VizualizareABrowser-ului` poate fi folosită la încorporarea de
 ## Exemplu
 
 ```javascript
-// In the main process.
+// În procesul principal-main.
 const { BrowserView, BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
-
 let view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### ` noua BrowserView-VizualizareABrowser-ului([options])`*Experimentează *
 
 * `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
