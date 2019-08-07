@@ -59,6 +59,21 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   `panggilan kembali` harus dipanggil dengan `respon` objek.
   
+  Some examples of valid `urls`:
+  
+  ```js
+  'http://foo:1234/'
+  'http://foo.com/'
+  'http://foo:1234/bar'
+  '*://*/*'
+  '*://example.com/*'
+  '*://example.com/foo/*'
+  'http://*.foo:1234/'
+  'file://foo:1234/bar'
+  'http://foo:*/'
+  '*://www.foo.com/'
+  ```
+  
   #### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
   
   * `menyaring` Objek (opsional) 
@@ -78,7 +93,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
         * `batalkan` Boolean (opsional)
         * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
   
-  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.
+  The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
   
   `panggilan kembali` harus dipanggil dengan `respon` objek.
   
@@ -97,7 +112,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
   
-  `pendengar` akan dipanggil dengan `pendengar(rincian)` tepat sebelum permintaan akan dikirim ke server, modifikasi sebelumnya `onBeforeSendHeader` respon terlihat pada saat pendengar ini dipecat.
+  The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
   
   #### `webRequest.onHeadersReceived([filter, ]pendengar)`
   
@@ -121,7 +136,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
         * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
         * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
   
-  `pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.
+  The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
   
   `panggilan kembali` harus dipanggil dengan `respon` objek.
   
@@ -143,7 +158,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `statusCode` Bilangan bulat
       * `statusGaris` String
   
-  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte pertama dari respon tubuh yang diterima. Untuk permintaan HTTP, ini berarti baris status dan header respon tersedia.
+  The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
   
   #### `webRequest.onBeforeRedirect([filter, ]listener)`
   
@@ -164,7 +179,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `dariCache` Boolean
       * `responseHeaders` Objek
   
-  `pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
+  The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
   
   #### `webRequest.onCompleted([filter, ]listener)`
   
@@ -184,7 +199,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `statusCode` Bilangan bulat
       * `statusGaris` String
   
-  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika sebuah permintaan selesai.
+  The `listener` will be called with `listener(details)` when a request is completed.
   
   #### `webRequest.onErrorOccurred([filter, ]listener)`
   
@@ -202,4 +217,4 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `dariCache` Boolean
       * `kesalahan` String - deskripsi kesalahan.
   
-  `pendengar` akan dipanggil dengan `pendengar(rincian)` bila terjadi kesalahan.
+  The `listener` will be called with `listener(details)` when an error occurs.
