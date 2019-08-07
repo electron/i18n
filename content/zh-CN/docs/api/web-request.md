@@ -93,7 +93,7 @@ Some examples of valid `urls`:
       * `cancel` Boolean (可选)
       * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
 必须使用 `response` 对象调用` callback `。
 
@@ -112,7 +112,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
     * `timestamp` Double
     * `requestHeaders` Object
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+在请求发送到服务器之前，`listener`将以`listener(details)`的形式被调用，在该侦听器被出发前，上一个对 `onBeforeSendHeaders` 响应的修改是可见的。
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
@@ -136,7 +136,7 @@ The `listener` will be called with `listener(details)` just before a request is 
       * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
 
 必须使用 `response` 对象调用` callback `。
 
@@ -158,7 +158,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+当收到响应体的第一个字节时， 将以 ` listener(details) ` 的形式来调用 ` listener`。 对于 HTTP 请求而言，这意味着此时 HTTP 状态行和回应头已经可以读取了。
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
@@ -179,7 +179,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+当服务器的初始重定向即将发生时，将以 `listener(details)`的方式调用`listener`。
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -199,7 +199,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when a request is completed.
+当请求完成时，将以 `listener(details)`的方式调用`listener`。
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
@@ -217,4 +217,4 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `fromCache` Boolean
     * `error` String - 错误描述.
 
-The `listener` will be called with `listener(details)` when an error occurs.
+当发生错误时，将以 `listener(details)`的方式调用`listener`。
