@@ -696,7 +696,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+Retorna [`Rectangle`](structures/rectangle.md) - Os `limites` da janela como `Objeto`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
