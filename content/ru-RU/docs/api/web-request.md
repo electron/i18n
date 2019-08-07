@@ -99,7 +99,7 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (необязательно) 
+* `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function | null 
   * `details` Object 
