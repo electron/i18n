@@ -1,12 +1,12 @@
-## Class: BrowserView
+## Class-Clasa: BrowserView- VizualizareaBrowseru-ului
 
-> Create and control views.
+> Crează și controlează vizualizările.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+O `BroswerView- VizualizareABrowser-ului` poate fi folosită la încorporarea de conținut web adițional în [`BrowserWindow-FereastraBrowser-ului`](browser-window.md). Acționează ca o fereastră copil, cu excepția că este relativ poziționată lângă propia sa fereastră. A fost creat ca o alternativă la eticheta `wedview-vizualizareweb`.
 
-## Example
+## Exemplu
 
 ```javascript
 // In the main process.
