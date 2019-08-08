@@ -24,20 +24,20 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### ` noua BrowserView-VizualizareABrowser-ului([options])`*Experimentează *
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `opțiuni` Object -Obiect (opțional) 
+  * `webPreferences-PreferințeWeb`Object(opțional) - Vezi [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Metode Statice
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Întoarce `BrowserView[]` - O mulțime a tuturor FerestrelorBrowser-ului.
 
-#### `BrowserView.fromWebContents(webContents)`
+#### `BrowserView.fromWebContents(ConținutulWeb)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Întoarce `BrowserView | null` - BrowserView care deține `webContents` sau `null` dacă conținutul nu e deținut de un BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -71,7 +71,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Object 
+* `opțiuni` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.

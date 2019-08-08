@@ -59,7 +59,7 @@ The `uploadData` is an array of `UploadData` objects.
 
 The `callback` has to be called with an `response` object.
 
-Some examples of valid `urls`:
+Alguns exemplos de `urls` válidas:
 
 ```js
 'http://foo:1234/'
@@ -93,9 +93,9 @@ Some examples of valid `urls`:
       * `cancel` Boolean (optional)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. Isto pode ocorrer após uma conexão TCP ser feita ao servidor, mas antes que qualquer dado http seja enviado.
 
-The `callback` has to be called with an `response` object.
+O `callback` tem que ser chamado com um objeto `response`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 

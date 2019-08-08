@@ -481,7 +481,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 アプリがロギングするディレクトリを設定または作成します。これは `app.getPath()` や `app.setPath(pathName, newPath)` で操作できます。
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+`path` 引数なしで `app.setAppLogsPath()` を呼び出すと、このディレクトリは、*macOS* では `/Library/Logs/アプリ名` に、*Linux* と *Windows* では `userData` ディレクトリ内に設定されます。
 
 ### `app.getAppPath()`
 
@@ -985,7 +985,7 @@ app.setLoginItemSettings({
   * `version` String (任意) - アプリのビルドバージョン番号。*macOS*
   * `credits` String (任意) - クレジット情報.*macOS*
   * `website` String (任意) - アプリのウェブサイト *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `iconPath` String (任意) - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。*Linux*
 
 Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 

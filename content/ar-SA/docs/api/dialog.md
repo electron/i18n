@@ -1,17 +1,17 @@
-# الحوار
+# نافذة الحوار
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> يظهر نافذة حوار النظام لفتح ملفات، حفظها، تعديلها إلخ.
 
 العملية: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+مثال عن كيفية فتح نافذة الحوار لإختيار ملفات و مجلدات متعددة:
 
 ```javascript
 const { dialog } = require('electron')
 console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+نافذة الحوار تفتح من في جهة(thread) ال Main لإلكترون. إذا كنت تريد إستعمالها من جهة ال Renderer، تذكر أنه عليك إستعمال الremote للوصول إليها:
 
 ```javascript
 const { dialog } = require('electron').remote

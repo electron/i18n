@@ -35,7 +35,7 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternalSync(url[, options])`
 
 * `url` String - Max 2081 characters on Windows, or the function returns false.
-* `options` Object (optional) 
+* `opțiuni` Object -Obiect (opțional) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
 
@@ -48,7 +48,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `options` Object (optional) 
+* `opțiuni` Object -Obiect (opțional) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
 

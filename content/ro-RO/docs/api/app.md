@@ -434,7 +434,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `opțiuni` Object -Obiect (opțional) 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
@@ -516,7 +516,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `opțiuni` Object -Obiect (opțional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -539,7 +539,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` Object (optional) 
+* `opțiuni` Object -Obiect (opțional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -828,7 +828,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `opțiuni` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -913,7 +913,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `opțiuni` Object -Obiect (opțional) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -978,7 +978,7 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
-* `options` Object 
+* `opțiuni` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
