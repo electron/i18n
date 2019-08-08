@@ -14,6 +14,6 @@ average words per file | 1019
 Stat | Value
 ---- | -----
 total files | 4829
-total words | 3765731
-unique words | 84134
+total words | 3765775
+unique words | 84155
 average words per file | 779
