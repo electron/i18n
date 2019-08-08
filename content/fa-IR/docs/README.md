@@ -24,7 +24,7 @@
   * [Boilerplate در مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [Aliakbar](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [سایر ابزارها و Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [معماری برنامه](tutorial/application-architecture.md) 
   * [فرآیندهای اصلی و رندرینگ](tutorial/application-architecture.md#main-and-renderer-processes)
