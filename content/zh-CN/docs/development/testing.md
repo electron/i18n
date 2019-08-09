@@ -12,11 +12,11 @@
 
 要确保您的C ++代码符合Electron编码风格，请运行`npm run lint-cpp`，它将会运行`cpplint`脚本。 我们建议您使用`clang-format`并准备[一个简短的教程](clang-format.md)。
 
-这个版本库中没有太多的Python，但是它也受编码风格规则的支配。 `npm run lint-py`将使用`pylint`检查所有的Python。
+这个仓库中没有太多的Python代码，但是它也受编码风格规范的约束。使用`npm run lint-py`来检查Python的编码风格规范。当然你也可以使用`pylint`。
 
 ## 单元测试
 
-要运行所有单元测试，请运行 `npm run test`。 单元测试是一个 Electron 应用程序(惊喜！)，可以在`spec`文件夹中找到。 请注意，它有自己的 `package.json`，因此它的依赖关系没有在顶层`package.json`中定义。
+要运行所有单元测试，请运行 `npm run test`。 单元测试其实也是一个Electron应用！你可以在`spec` 文件夹中找到它。 请注意，单元测试也有自己的 `package.json`，因此它的依赖没有在最顶层的`package.json`中定义。
 
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
