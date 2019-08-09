@@ -6,11 +6,11 @@
 
 ## 提示
 
-为确保您的JavaScript符合Electron编码风格，请运行`npm run lint-js`，它将针对Electron本身以及单元测试运行`标准`测试。 如果您正在使用带有插件/插件系统的编辑器，则可能需要使用多个 [StandardJS插件](https://standardjs.com/#are-there-text-editor-plugins)之一来通知编码风格违规。
+为确保您的JavaScript符合Electron编码风格，请运行`npm run lint-js`，它将针对Electron本身以及单元测试运行`standard`测试。 如果您正在使用带有插件/插件系统的编辑器，那么可以使用[StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins)之类的插件在你提交代码前来检查编码规范。
 
-要用参数运行`标准测试`，运行`npm run lint-js --` 然后输入要传递给`标准测试`的参数。
+若要用参数运行`standard`测试，首先运行`npm run lint-js --` 然后输入要传递给`standard`测试的参数。
 
-要确保您的C ++符合Electron编码风格，请运行运行`cpplint`脚本的`npm run lint-cpp`。 我们建议您使用`clang-format`并准备[一个简短的教程](clang-format.md)。
+要确保您的C ++代码符合Electron编码风格，请运行`npm run lint-cpp`，它将会运行`cpplint`脚本。 我们建议您使用`clang-format`并准备[一个简短的教程](clang-format.md)。
 
 这个版本库中没有太多的Python，但是它也受编码风格规则的支配。 `npm run lint-py`将使用`pylint`检查所有的Python。
 
