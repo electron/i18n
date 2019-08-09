@@ -28,9 +28,9 @@ C++ が Electron コーディングスタイルに準拠していることを確
 2. *機能の追加* をクリックします。
 3. *日本語追加フォント* を選択して *インストール* をクリックします。
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+正確なピクセル測定値に依存するようなテストは、浮動小数点精度の誤差のために Hi-DPI 画面設定のデバイスでは正しく動作しない場合があります。 これらのテストを正常に実行するには、そのデバイスが倍率 100% に設定されていることを確認してください。
 
-To configure display scaling:
+ディスプレイ倍率を設定するには、
 
-1. Push the Windows key and search for *Display settings*.
-2. Under *Scale and layout*, make sure that the device is set to 100%.
+1. Windows キーを押して *ディスプレイの設定* と検索します。
+2. *スケールとレイアウト* で、そのデバイスが 100% に設定されていることを確認します。
