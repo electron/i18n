@@ -28,3 +28,10 @@ To run only specific tests matching a pattern, run `npm run test --
 1. Presione la tecla Windows y busca *Administrar herramientas opcionales*.
 2. Haga clic en *Añadir una herramienta*.
 3. Seleccione *Fuentes suplementarias japonesas* y haga clic en *Instalar*.
+
+Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+
+To configure display scaling:
+
+1. Push the Windows key and search for *Display settings*.
+2. Under *Scale and layout*, make sure that the device is set to 100%.
