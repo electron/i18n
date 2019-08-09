@@ -25,13 +25,13 @@
 
 [一些 Windows 10 设备](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list)上没有默认安装Meriryo字体，这会导致字体回退测试的失败。 要安装Meiryo字体：
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+1. 按下Windows key并搜索 *管理可选功能*。
+2. 单击*添加功能*
+3. 选择*Japanese Supplemental Fonts*并单击 *安装*
 
 由于浮点数精度误差，某些依赖于精确像素测量的测试可能无法正常在Hi-DPI屏幕的设备上工作。 为了使这些测试能正常运行，请确保设备的缩放比为100%。
 
 要配置缩放比：
 
-1. 按下Windows key并搜索*Display settings*.
+1. 按下Windows key并搜索*显示设置*.
 2. 在*Scale and layout*下，确保缩放比为100%。
