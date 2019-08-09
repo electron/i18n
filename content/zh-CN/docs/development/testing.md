@@ -33,5 +33,5 @@
 
 要配置缩放比：
 
-1. 按下Windows Key并搜索*Display settings*.
+1. 按下Windows key并搜索*Display settings*.
 2. 在*Scale and layout*下，确保缩放比为100%。
