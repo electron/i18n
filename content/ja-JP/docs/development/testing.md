@@ -27,3 +27,10 @@ C++ が Electron コーディングスタイルに準拠していることを確
 1. Windows キーを押して *オプション機能の管理* と検索します。
 2. *機能の追加* をクリックします。
 3. *日本語追加フォント* を選択して *インストール* をクリックします。
+
+Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+
+To configure display scaling:
+
+1. Push the Windows key and search for *Display settings*.
+2. Under *Scale and layout*, make sure that the device is set to 100%.
