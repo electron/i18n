@@ -29,9 +29,9 @@ To run only specific tests matching a pattern, run `npm run test --
 2. Click *Add a feature*.
 3. Select *Japanese Supplemental Fonts* and click *Install*.
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+由于浮点数精度误差，某些依赖于精确像素测量的测试可能无法正常在Hi-DPI屏幕的设备上工作。 为了使这些测试能正常运行，请确保设备的缩放比为100%。
 
-To configure display scaling:
+要配置缩放比：
 
-1. Push the Windows key and search for *Display settings*.
+1. 按下Windows Key并搜索*Display settings*.
 2. Under *Scale and layout*, make sure that the device is set to 100%.
