@@ -1,4 +1,4 @@
-# Oficiální průvodci
+# Oficiální Příručky
 
 Použijte prosím dokumentaci, která odpovídá vámi používanou verzi Electronu. Číslo verze by mělo být součástí URL. Pokud ne, používáte pravděpodobně dokumentaci vývojové větve, která může obsahovat změny v API, který nemusí být kompatibilní s vaší verzí Electronu. Chcete-li zobrazit starší verze dokumentace, můžete na GitHubu využít možnost [Switch branches/tags](https://github.com/electron/electron/tree/v1.4.0) a tak pomocí značek přepnout na starší verzi.
 
@@ -8,9 +8,9 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 
 * [Electron FAQ](faq.md)
 
-## Průvodci a postupy
+## Příručky a Návody
 
-* [About Electron](tutorial/about.md)
+* [O Electron](tutorial/about.md)
 * [Nastavení vývojového prostředí](tutorial/development-environment.md) 
   * [Nastavení pro macOS](tutorial/development-environment.md#setting-up-macos)
   * [Nastavení pro Windows](tutorial/development-environment.md#setting-up-windows)
@@ -43,7 +43,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Podpora macOS tmavého módu [Dark Mode]](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -55,7 +55,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools rozšíření](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distribution](tutorial/application-distribution.md) 
+* [Distribuce](tutorial/application-distribution.md) 
   * [Podporované platformy](tutorial/support.md#supported-platforms)
   * [Code Signing](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
