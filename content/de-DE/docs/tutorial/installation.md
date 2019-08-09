@@ -24,7 +24,7 @@ Falls Sie die herunterzuladende Architektur ändern möchten (z.B. `ia32` auf ei
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Zusätzlich zur Änderung der Architektur können Sie auch die Plattform (z.B. `win32`, `linux`, usw.) mittels des `--platform`-Flags spezifizieren:
 
 ```shell
 npm install --platform=win32 electron
