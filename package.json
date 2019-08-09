@@ -70,7 +70,7 @@
     "automerge": "ts-node ./script/automerge.ts"
   },
   "electronLatestStableTag": "v6.0.1",
-  "electronMasterBranchCommit": "ed3b69ffb128b383e9af41eb823d3b03f3a3dc41",
+  "electronMasterBranchCommit": "84cbc1d6c0332beda5d73b36c8bb64c8e928447e",
   "engines": {
     "node": ">=10"
   }
