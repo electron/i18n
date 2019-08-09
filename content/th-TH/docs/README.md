@@ -50,7 +50,7 @@ Please make sure that you use the documents that match your Electron version. �
   * [เปิดใช้งานการเข้าถึง](tutorial/accessibility.md#enabling-accessibility)
 * [การทดสอบและการดีบัก](tutorial/application-debugging.md) 
   * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugging the Main Process with Visual Studio Codeo](tutorial/debugging-main-process-vscode.md)
   * [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
