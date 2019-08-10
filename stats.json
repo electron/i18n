@@ -276,14 +276,14 @@
     "name": "Tagalog",
     "code": "tl",
     "phrases": "10947",
-    "translated": "2",
+    "translated": "3",
     "approved": "0",
     "words": "101499",
-    "words_translated": "11",
+    "words_translated": "24",
     "words_approved": "0",
     "translated_progress": 0,
     "approved_progress": 0,
-    "qa_issues": 0
+    "qa_issues": 1
   },
   {
     "name": "Thai",
