@@ -55,14 +55,14 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "10947",
-    "translated": "1271",
+    "translated": "1274",
     "approved": "0",
     "words": "101499",
-    "words_translated": "3492",
+    "words_translated": "3499",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 264
+    "qa_issues": 266
   },
   {
     "name": "Dutch",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "10947",
-    "translated": "4849",
+    "translated": "4850",
     "approved": "34",
     "words": "101499",
-    "words_translated": "28021",
+    "words_translated": "28041",
     "words_approved": "65",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1893
+    "qa_issues": 1894
   },
   {
     "name": "Hebrew",
