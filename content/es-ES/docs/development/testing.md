@@ -29,9 +29,9 @@ To run only specific tests matching a pattern, run `npm run test --
 2. Haga clic en *Añadir una herramienta*.
 3. Seleccione *Fuentes suplementarias japonesas* y haga clic en *Instalar*.
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+Algunas pruebas que dependen de medidas precisas a nivel de píxel pueden no funcionar correctamente en dispositivos con ajustes de pantalla Hi-DPI debido a errores de precisión de puntos flotantes. Para ejecutar correctamente estas pruebas, asegúrese de que el dispositivo está fijado para escalar el 100%.
 
-To configure display scaling:
+Para configurar el escalamiento de pantalla:
 
-1. Push the Windows key and search for *Display settings*.
-2. Under *Scale and layout*, make sure that the device is set to 100%.
+1. Presione la tecla Windows y busca *Ajustes de pantalla*.
+2. Bajo *Escalar y disposición*, asegúrese de que el dispositivo está fijado al 100%.
