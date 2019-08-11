@@ -1,3 +1,3 @@
-# Event Object extends `GlobalEvent`
+# Event Objekt erweitert `GlobalEvent`
 
 * `preventDefault` VoidFunction
