@@ -8,7 +8,7 @@
 
 다음 내용은 기본 Node.js 모듈 대신에 `net` 모듈을 사용해야 하는 구체적인 이유들을 나열한 목록입니다.
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
+* wpad 프로토콜과 proxy pac 구성 파일을 지원하는 시스템 프록시 구성에 대한 자동적인 지원.
 * HTTPS 요청의 자동적인 터널링.
 * Basic, Digest, NTLM, Kerberos 또는 Negotiate 인증 Scheme를 사용한 프록시 인증 지원.
 * 접근 제어나 모니터링을 위해 사용하는 Fiddler 같은 부류의 프록시들을 지원.
@@ -48,4 +48,4 @@ app.on('ready', () => {
 
 [`ClientRequest`](./client-request.md)를 반환합니다
 
-주어진 `options`를 사용하여 `ClientRequest` 생성자에 직접적으로 넘겨주는 [`ClientRequest`](./client-request.md) 인스턴스를 생성합니다. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+주어진 `options`를 사용하여 `ClientRequest` 생성자에 직접적으로 넘겨주는 [`ClientRequest`](./client-request.md) 인스턴스를 생성합니다. `net.request` 메서드를 사용해 `options` 객체에 명시된 protocol scheme에 따라 보안 연결이나 보안되지 않은 HTTP 요청을 만들 수 있습니다.
