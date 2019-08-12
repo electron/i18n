@@ -10,10 +10,10 @@
 
 * Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
 * HTTPS 요청의 자동적인 터널링.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Basic, Digest, NTLM, Kerberos 또는 Negotiate 인증 Scheme를 사용한 프록시 인증 지원.
+* 접근 제어나 모니터링을 위해 사용하는 Fiddler 같은 부류의 프록시들을 지원.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+이 모듈의 API 요소 (Class, 메서드, 속성, 그리고 이벤트 이름들) 들은 Node.js에서 사용되는 것과 비슷합니다.
 
 사용 예시:
 
@@ -48,4 +48,4 @@ app.on('ready', () => {
 
 [`ClientRequest`](./client-request.md)를 반환합니다
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+주어진 `options`를 사용하여 `ClientRequest` 생성자에 직접적으로 넘겨주는 [`ClientRequest`](./client-request.md) 인스턴스를 생성합니다. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
