@@ -2,9 +2,9 @@
 
 > 애플리케이션이 자동으로 업데이트를 진행할 수 있도록 기능을 활성화합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**참고 자료: [애플리케이션에 업데이트를 구현하는 방법에 대한 자세한 가이드](../tutorial/updates.md).**
 
 ## 플랫폼 참고 사랑
 
@@ -70,9 +70,9 @@ Windows에서는 `releaseName`만 사용이 가능합니다.
 
 ### Event: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+이 이벤트는 사용자가 `quitAndInstall()`을 호출한 뒤에 발생합니다.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+이 API가 호출되면, `before-quit` 이벤트는 모든 창이 닫기 전까지 발생되지 않습니다. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## 메소드
 
@@ -82,7 +82,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 * `options` Object 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `headers` Object (선택적) *macOS* - HTTP 요청 헤더.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`을 설정하고 자동 업데이터를 초기화합니다.

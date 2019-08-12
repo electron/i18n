@@ -1,21 +1,21 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Chromium 기본 네트워킹 라이브러리를 사용하여 HTTP/HTTPS 요청을 만듭니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+`net` 모듈은 HTTP(S) 요청을 만들기 위한 클라이언트 측 API입니다. Node.js의 [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) 모듈과 유사하지만 Node.js의 구현 대신 웹 프록시를 더 잘 지원하는 Chromium 기본 네트워킹 라이브러리를 사용합니다.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+다음 내용은 기본 Node.js 모듈 대신에 `net` 모듈을 사용해야 하는 구체적인 이유들을 나열한 목록입니다.
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* wpad 프로토콜과 proxy pac 구성 파일을 지원하는 시스템 프록시 구성에 대한 자동적인 지원.
+* HTTPS 요청의 자동적인 터널링.
+* Basic, Digest, NTLM, Kerberos 또는 Negotiate 인증 Scheme를 사용한 프록시 인증 지원.
+* 접근 제어나 모니터링을 위해 사용하는 Fiddler 같은 부류의 프록시들을 지원.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+이 모듈의 API 요소 (Class, 메서드, 속성, 그리고 이벤트 이름들) 들은 Node.js에서 사용되는 것과 비슷합니다.
 
-Example usage:
+사용 예시:
 
 ```javascript
 const { app } = require('electron')
@@ -36,16 +36,16 @@ app.on('ready', () => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+`net` API는 애플리케이션이 `ready` 이벤트를 발생시킨 후에만 사용할 수 있습니다. `ready` 이벤트 이전에 이 모듈을 사용하려고 하면 오류를 발생시킵니다.
 
 ## 메서드
 
-The `net` module has the following methods:
+다음은 `net` 객체에서 사용할 수 있는 메서드입니다.
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - `ClientRequest` 생성자 옵션.
 
-Returns [`ClientRequest`](./client-request.md)
+[`ClientRequest`](./client-request.md)를 반환합니다
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+주어진 `options`를 사용하여 `ClientRequest` 생성자에 직접적으로 넘겨주는 [`ClientRequest`](./client-request.md) 인스턴스를 생성합니다. `net.request` 메서드를 사용해 `options` 객체에 명시된 protocol scheme에 따라 보안 연결이나 보안되지 않은 HTTP 요청을 만들 수 있습니다.
