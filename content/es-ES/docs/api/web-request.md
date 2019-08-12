@@ -59,7 +59,7 @@ Los `buttons` es un arreglo de objetos `Button`.
 
 The `callback` has to be called with an `response` object.
 
-Some examples of valid `urls`:
+Algunos ejemplos de `urls` válidas:
 
 ```js
 'http://foo:1234/'
@@ -199,7 +199,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `Estatus de código` entero
     * `linea de estatus` Cadena
 
-The `listener` will be called with `listener(details)` when a request is completed.
+El `listener` será llamado con `listener(details)` cuando una petición es completada.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
