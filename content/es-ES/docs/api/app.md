@@ -481,7 +481,7 @@ Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca 
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Llamando a `app.setAppLogsPath()` sin un parámetro `path` dará como resultado que se configure en `/Library/Logs/YourAppName` en *macOS*, y dentro del directorio `userData` en *Linux* y *Windows*.
 
 ### `app.getAppPath()`
 
@@ -986,7 +986,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `version` String (optional) - The app's build version number. *macOS*
   * `credits` String (optional) - Credit information. *macOS*
   * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `iconPath` String (opcional) - Ruta al icono de la aplicación. Se mostrará como 64x64 píxeles mientras se mantiene la relación de aspecto. *Linux*
 
 Establece el panel de opciones. This will override the values defined in the app's `.plist` file on MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. On Linux, values must be set in order to be shown; there are no defaults.
 
