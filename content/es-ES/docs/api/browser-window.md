@@ -707,7 +707,7 @@ Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+Retorna [`Rectangle`](structures/rectangle.md) - El `bounds` del área del cliente de la ventana como `Object`.
 
 #### `win.getNormalBounds()`
 
