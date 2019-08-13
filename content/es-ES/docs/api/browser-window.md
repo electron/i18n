@@ -1078,7 +1078,7 @@ Establece una superposición de 16 x 16 píxeles sobre el icono actual de la bar
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+Establece si la ventana debe tener una sombra.
 
 #### `win.hasShadow()`
 
@@ -1098,7 +1098,7 @@ Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opa
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+Establecer una forma de ventana determina el área dentro de la ventana donde el sistema permite dibujar y interactuar con el usuario. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Los eventos del ratón fuera de la región no será recibida por esa ventana, pero pasará a lo que esté detrás de la misma.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1131,7 +1131,7 @@ Los `flags` es una matriz que puede incluir siguientes `String`s:
 
 * `region` [Rectangle](structures/rectangle.md) - la región de la ventana
 
-Establece la región de la ventana para mostrar como la vista previa de la imagen es mostrada cuando se pasa sobre la ventana en la barra de tareas. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Establece la región de la ventana para mostrar como la vista previa de la imagen es mostrada cuando se pasa sobre la ventana en la barra de tareas. Puede restablecer la miniatura de la la ventana completa simplemente especificando una región vacía: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1168,7 +1168,7 @@ Cambia el icono de la ventana.
 
 Sets whether the window traffic light buttons should be visible.
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+Esto no puede llamarse cuando `titleBarStyle` está configurado para ser `customButtonsOnHover`.
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1320,7 +1320,7 @@ Returns array of `BrowserView` what was an attached with addBrowserView or setBr
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+Una propiedad `Boolean` que determina si la ventana está excluida del menú Windows de la aplicación. `false` por defecto.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
