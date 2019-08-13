@@ -1078,7 +1078,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+ウインドウに影を付けるべきかどうかを設定します。
 
 #### `win.hasShadow()`
 
