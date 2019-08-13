@@ -1087,29 +1087,29 @@ Sets whether the window should have a shadow.
 
 * `opacity` Number - 介于0.0 ( 完全透明 ) 和1.0 ( 完全不透明 ) 之间
 
-Sets the opacity of the window. On Linux does nothing.
+设置窗口的不透明度，在Linux系统上无效
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
 
 #### `win.setShape(rects)` *Windows* *Linux* *实验性*
 
 * `rects` [Rectangle[]](structures/rectangle.md) - 设置窗口的形状. 传入空列表会使窗口恢复至矩形.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+对窗口形状的设置决定了窗口内系统允许绘制与用户交互的区域. 在给定的区域外, 没有像素会被绘制, 且没有鼠标事件会被登记. 在该区域外的鼠标事件将不会被该窗口接收, 而是落至该窗口后方的任意窗口.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+返回 `Boolean` - 按钮是否成功添加
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+将指定的一组按钮添加到菜单栏的缩图工具栏上。 返回一个 `Boolean` 对象表示是否成功地添加了缩略图.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+由于空间有限, 缩图工具栏中的按钮数量不要超过7个。 一旦设置了缩略图工具栏，则无法删除。 但你可以通过调用 API 传递一个空数组来清除按钮.
 
-The `buttons` is an array of `Button` objects:
+`buttons` 是一个 `Button` 对象的数组:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - 在缩图工具栏上显示的图标.
@@ -1130,13 +1130,13 @@ The `buttons` is an array of `Button` objects:
 
 * `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 通过指定空区域：`{ x: 0, y: 0, width: 0, height: 0 }`，可以重置整个窗口的缩略图。
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+设置在任务栏中悬停在窗口缩略图上时显示的工具提示。
 
 #### `win.setAppDetails(options)` *Windows*
 
@@ -1147,49 +1147,49 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
   * `relaunchCommand` String (可选) - 窗口的 [重新启动命令](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (可选) - 窗口的[重新启动显示名称](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+设置窗口任务栏按钮的属性。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注意:** `relaunchCommand` 和 `relaunchDisplayName` 必须一起设置. 如果这些属性中的一个没有设置, 那么两者都不会被使用.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+和 `webContents.showDefinitionForSelection()` 相同.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+设置窗口图标
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+设置是否窗口交通灯需要显示。
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+当`titleBarStyle` 是 `customButtonsOnHover`的时候，不可调用。
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+设置窗口的菜单栏是否自动隐藏。设置后只有当用户按下 `Alt` 键时才显示菜单栏.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+返回 `Boolean` - 判断窗口的菜单栏是否自动隐藏.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+设置窗口的菜单栏是否可见. 如果设为可见, 菜单栏自动隐藏时, 用户仍然可以按下 `Alt` 键来显示.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+返回 `Boolean` - 判断窗口的菜单栏是否可见.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
@@ -1197,15 +1197,15 @@ Returns `Boolean` - Whether the menu bar is visible.
 * `options` Object (可选) 
   * `visibleOnFullScreen` Boolean (可选) *macOS* - 设置是否窗口可以在全屏窗口之上显示。
 
-Sets whether the window should be visible on all workspaces.
+设置窗口是否在所有工作空间上可见
 
-**Note:** This API does nothing on Windows.
+**注意:** 该 API 在 Windows 上无效.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+返回 `Boolean` - 判断窗口是否在所有工作空间上可见.
 
-**Note:** This API always returns false on Windows.
+**注意:** 该 API 在 Windows 上始终返回 false.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1213,81 +1213,81 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 * `options` Object (可选) 
   * `forward` Boolean (可选) *macOS* *Windows* - 如果为 true, 传递鼠标移动消息给 Chromium，鼠标相关事件将可用，如 `mouseleave`。 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
-Makes the window ignore all mouse events.
+忽略窗口内的所有鼠标事件
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+在此窗口中发生的所有鼠标事件将被传递到此窗口下面的窗口, 但如果此窗口具有焦点, 它仍然会接收键盘事件
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+防止窗口内容被其他应用捕获
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+在macOS中, 它设置 NSWindow的 sharingType为 NSWindowSharingNone. 在Windows中, 它设置 `WDA_MONITOR`调用 SetWindowDisplayAffinity.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+设置窗口是否可聚焦
 
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+设置 `parent` 为当前窗口的父窗口. 为`null`时表示将当前窗口转为顶级窗口
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+返回 `BrowserWindow` - 父窗口.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+返回 `BrowserWindow[]` - 首页的子窗口.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+设置输入时是否隐藏光标
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择上一个选项卡。
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+当启用本地选项卡，并且窗口中有另一个标签时，选择下一个选项卡。
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+当启用本地选项卡并且存在多个打开窗口时，将所有窗口合并到一个带有多个选项卡的窗口中。
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+如果启用了本机选项卡并且当前窗口中有多个选项卡，则将当前选项卡移动到新窗口中。
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+如果启用了本机选项卡并且当前窗口中只有一个选项卡，则切换选项卡栏是否可见。
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+在该窗口中添加一个窗口作为选项卡，位于窗口实例的选项卡之后。
 
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - 可以为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` 或 `ultra-dark`. 更多详细信息，请查阅 [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc)
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+在浏览器窗口中添加一个动态效果. 设置为`null`或空字符串将移除窗口的动态效果。
 
 #### `win.setTouchBar(touchBar)` *macOS* *实验*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
 **注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
@@ -1313,7 +1313,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
 
 ### 属性
 
