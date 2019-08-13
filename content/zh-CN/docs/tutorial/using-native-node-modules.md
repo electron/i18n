@@ -1,6 +1,6 @@
 # 使用 Node 原生模块
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Electron 支持原生的 Node 模块，但 Electron 很可能使用一个与您的电脑上所安装的 Node 不同的 V8 引擎，因此您所使用的模块将需要被重新编译。 否则，如果您尝试运行您的应用程序， 将会遇到以下类别的错误：
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -12,7 +12,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ## 如何安装原生模块
 
-There are several different ways to install native modules:
+有多种不同的方法来安装原生模块：
 
 ### 为 Electron 安装并重新编译模块
 
@@ -116,6 +116,6 @@ See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec2
 
 [`node-pre-gyp` 工具](https://github.com/mapbox/node-pre-gyp) 提供一种部署原生 Node 预编译二进制模块的方法， 许多流行的模块都是使用它。
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node and/or there are ABI changes, bad things may happen. So in general, it is recommended to always build native modules from source code. `electron-rebuild` handles this for you automatically.
+通常这些模块在 Electron 中工作良好，但有时当 Electron 使用比 Node 新的 V8 版本且/或有 ABI 改变时，可能发生错误。 因此，一般来说，建议始终从源代码编译原生模块。 `electron-rebuild` 会自动帮你处理这些问题。
 
 如果你通过 `npm` 的方式安装模块，默认情况下这就完成了， 如果没有，你需要传入 `--build-from-source` 给 `npm`, 或者设置 `npm_config_build_from_source` 环境变量。
