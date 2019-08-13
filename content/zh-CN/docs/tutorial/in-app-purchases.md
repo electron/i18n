@@ -16,16 +16,16 @@
 
 ### 变更 CFBundleIdentifier
 
-若要在Electron开发阶段对应用内购买功能进行测试，您需要在`node_modules/electron/dist/Electron.app/Contents/Info.plist`路径下修改`CFBundleIdentifier`。 You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+若要在Electron开发阶段对应用内购买功能进行测试，您必须在`node_modules/electron/dist/Electron.app/Contents/Info.plist`路径下修改`CFBundleIdentifier`。 您必须使用通过ITunes Connect创建的应用的bundle indentifier来替换掉`com.github.electron`。
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## 代码示例
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+通过下面的例子来了解如何在Electron中使用应用内购买功能。 您必须使用通过ITunes Connect创建的产品的唯一标识 （ID）来替换掉下面示例中的PRODUCT_IDS。( `com.example.app.product1` 的ID是 `product1`)。 请注意，您必须尽可能早的在你的应用中监听`transactions-updated`事件。
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
