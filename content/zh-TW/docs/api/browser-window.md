@@ -1152,7 +1152,7 @@ Sets the properties for the window's taskbar button.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+跟 `webContents.showDefinitionForSelection()` 一樣。
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
@@ -1312,7 +1312,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
 ### 屬性
 
