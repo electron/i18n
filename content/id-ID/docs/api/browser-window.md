@@ -1099,17 +1099,15 @@ win.loadURL(url)
                               
                               Mengatur 16 x 16 piksel overlay ke ikon taskbar saat ini, biasanya digunakan untuk sampaikan semacam status aplikasi atau secara pasif memberitahukan pengguna.
                               
-                              #### `win.setHasShadow (hasShadow)` *macos*
+                              #### `win.setHasShadow(hasShadow)`
                               
                               * `hasShadow` Boolean
                               
-                              Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
+                              Sets whether the window should have a shadow.
                               
-                              #### `win.hasShadow()` *macos *
+                              #### `win.hasShadow()`
                               
                               Mengembalikan `Boolean` - Apakah jendela memiliki bayangan.
-                              
-                              Pada Windows dan Linux selalu kembali `benar`.
                               
                               #### `win.setOpacity(opacity)` *Windows* *macOS*
                               
@@ -1131,13 +1129,13 @@ win.loadURL(url)
                               
                               * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
                               
-                              Mengembalikan `Boolean` - Apakah tombol berhasil ditambahkan
+                              Returns `Boolean` - Whether the buttons were added successfully
                               
-                              Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Mengembalikan objek `Boolean` apakah thumbnail telah berhasil ditambahkan.
+                              Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
                               
-                              Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
+                              The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
                               
-                              `Tombol` adalah array dari objek `Button`:
+                              The `buttons` is an array of `Button` objects:
                               
                               * `Tombol` Obyek 
                                 * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
@@ -1161,13 +1159,13 @@ win.loadURL(url)
 <h4><code>win.setThumbnailClip (wilayah)` *Windows*</h4> 
                                   * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
                                   
-                                  Mengatur area jendela untuk ditampilkan saat gambar thumbnail ditampilkan saat melayang di atas jendela di taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+                                  Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
                                   
                                   #### `win.setThumbnailToolTip(toolTip)` *Windows*
                                   
                                   * `toolTip` String
                                   
-                                  Menetapkan toolTip yang ditampilkan saat melayang di atas thumbnail jendela di taskbar.
+                                  Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
                                   
                                   #### `win.setAppDetails(options)` *Windows*
                                   
@@ -1178,19 +1176,19 @@ win.loadURL(url)
                                     * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
                                     * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
                                   
-                                  Mengatur properti untuk tombol taskbar jendela.
+                                  Sets the properties for the window's taskbar button.
                                   
-                                  **Catatan:** `relaunchCommand` dan `relaunchDisplayName` harus selalu diatur bersama-sama. Jika salah satu properti-properti tidak diset, maka tidak akan digunakan.
+                                  **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
                                   
                                   #### `win.showDefinitionForSelection()` *macOS*
                                   
-                                  Sama seperti `webContents.showDefinitionForSelection()`.
+                                  Same as `webContents.showDefinitionForSelection()`.
                                   
                                   #### `win.setIcon(icon)` *Windows* *Linux*
                                   
                                   * `ikon` [NativeImage](native-image.md)
                                   
-                                  Ubah ikon jendela.
+                                  Changes window icon.
                                   
                                   #### `win.setWindowButtonVisibility(visible)` * macos*
                                   
@@ -1204,23 +1202,23 @@ win.loadURL(url)
                                   
                                   * `Sembunyikan` Boolean
                                   
-                                  Menetapkan apakah jendela menu bar harus menyembunyikan diri secara otomatis. Pernah mengatur menu bar hanya akan menunjukkan bila pengguna menekan tombol `Alt` tunggal.
+                                  Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
                                   
-                                  Jika bilah menu sudah terlihat, memanggil `setAutoHideMenuBar(true)` tidak menyembunyikan itu segera.
+                                  If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
                                   
                                   #### `win.isMenuBarAutoHide()`
                                   
-                                  Kembali `Boolean` - Apakah bilah menu secara otomatis menyembunyikan dirinya sendiri.
+                                  Returns `Boolean` - Whether menu bar automatically hides itself.
                                   
                                   #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
                                   
                                   * `terlihat` Boolean
                                   
-                                  Menetapkan apakah menu bar harus terlihat. Jika auto-Sembunyikan menu bar, pengguna dapat masih memunculkan bilah menu dengan menekan tombol `Alt` tunggal.
+                                  Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
                                   
                                   #### `win.isMenuBarVisible()`
                                   
-                                  Kembali `Boolean` - Apakah menu bar terlihat.
+                                  Returns `Boolean` - Whether the menu bar is visible.
                                   
                                   #### `win.setVisibleOnAllWorkspaces(visible[, options])`
                                   
@@ -1228,15 +1226,15 @@ win.loadURL(url)
                                   * `pilihan` Objek (opsional) 
                                     * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
                                   
-                                  Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
+                                  Sets whether the window should be visible on all workspaces.
                                   
-                                  **Catatan:** API ini tidak apa-apa pada Windows.
+                                  **Note:** This API does nothing on Windows.
                                   
                                   #### `win.isVisibleOnAllWorkspaces()`
                                   
-                                  Kembali `Boolean` - Apakah jendela terlihat pada semua workspace.
+                                  Returns `Boolean` - Whether the window is visible on all workspaces.
                                   
-                                  **Catatan:** API ini selalu kembali palsu pada Windows.
+                                  **Note:** This API always returns false on Windows.
                                   
                                   #### `win.setIgnoreMouseEvents(ignore[, options])`
                                   
@@ -1244,43 +1242,43 @@ win.loadURL(url)
                                   * `pilihan` Objek (opsional) 
                                     * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
                                   
-                                  Membuat jendela mengabaikan semua kejadian mouse.
+                                  Makes the window ignore all mouse events.
                                   
-                                  Semua kejadian mouse yang terjadi di jendela ini akan diteruskan ke jendela di bawah jendela ini, namun jika jendela ini fokus, masih akan ada acara keyboard.
+                                  All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
                                   
                                   #### `win.setContentProtection(enable)` *macOS* *Windows*
                                   
                                   * `enable` Boolean
                                   
-                                  Mencegah isi jendela ditangkap oleh aplikasi lain.
+                                  Prevents the window contents from being captured by other apps.
                                   
-                                  On macOS itu set NSWindow sharingType untuk NSWindowSharingNone. Pada Windows itu panggilan SetWindowDisplayAffinity dengan `WDA_MONITOR`.
+                                  On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
                                   
                                   #### `win.setFocusable(focusable)` *Windows*
                                   
                                   * `focusable` Boolean
                                   
-                                  Perubahan apakah jendela bisa difokuskan.
+                                  Changes whether the window can be focused.
                                   
                                   #### `win.setParentWindow(parent)`
                                   
                                   * `orang tua` BrowserWindow
                                   
-                                  Set `orangtua` sebagai jendela aktif jendela induk, melewati `null` akan mengubah jendela ke jendela di tingkat atas.
+                                  Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
                                   
                                   #### `win.getParentWindow()`
                                   
-                                  Kembali `[BrowserWindow]` - semua jendela anak.
+                                  Returns `BrowserWindow` - The parent window.
                                   
                                   #### `win.getChildWindows()`
                                   
-                                  Kembali `[BrowserWindow]` - semua jendela anak.
+                                  Returns `BrowserWindow[]` - All child windows.
                                   
                                   #### `win.setAutoHideCursor(autoHide)` *macOS*
                                   
                                   * `autoHide` Boolean
                                   
-                                  Mengontrol apakah akan menyembunyikan kursor saat mengetik.
+                                  Controls whether to hide cursor when typing.
                                   
                                   #### ` win.selectPreviousTab () </ 0>  <em> macos </ 1></h4>
 
@@ -1317,13 +1315,13 @@ there is only one tab in the current window.</p>
                                   
                                   * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) untuk rincian lebih lanjut.
                                   
-                                  Menambahkan efek semangat ke jendela browser. Melewati `null` atau string kosong akan menghapus semangat efek pada jendela.
+                                  Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
                                   
                                   #### `win.setTouchBar(touchBar)` *macOS* *Linux*
                                   
                                   * `touchBar` TouchBar
                                   
-                                  Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
+                                  Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
                                   
                                   **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
                                   
@@ -1347,7 +1345,7 @@ there is only one tab in the current window.</p>
                                   
                                   Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
                                   
-                                  **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
+                                  **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
                                   
                                   ### properti
                                   
