@@ -1074,17 +1074,15 @@ En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, 
 
 Establece una superposición de 16 x 16 píxeles sobre el icono actual de la barra de tareas. Generalmente se utiliza para transmitir algún tipo de estatus de la aplicación o para notificar pasivamente al usuario.
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Establece si la ventana debe tener o no una sombra. En Windows y Linux no hace nada.
+Sets whether the window should have a shadow.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()`
 
 Devuelve `Boolean` - Si la ventana tiene o no una sombra.
-
-En Windows y Linux siempre devuelve `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
