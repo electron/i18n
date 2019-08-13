@@ -362,7 +362,7 @@ Devuelve:
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.require()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
 
 ### Evento: 'remote-get-global'
 
@@ -382,7 +382,7 @@ Devuelve:
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
 
 ### Evento: 'remote-get-current-window'
 
