@@ -16,9 +16,9 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ### 为 Electron 安装并重新编译模块
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+您可以像其他 Node 项目一样安装模块，然后用 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 包重建这些模块以适配 Electron 。 这个包可以自动识别当前 Electron 版本，为你的应用自动完成下载 headers、重新编译原生模块等步骤。
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+例如，想要通过命令行下载 `electron-rebuild` 并重新编译：
 
 ```sh
 npm install --save-dev electron-rebuild
