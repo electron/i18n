@@ -1074,17 +1074,15 @@ Remove the window's menu bar.
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Встановлює чи вікно повинно мати тінь. На Windows і Linux не робить нічого.
+Sets whether the window should have a shadow.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()`
 
 Повертає `Boolean` - Чи вікно має тінь.
-
-На Windows та Linux завжди повертає `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
