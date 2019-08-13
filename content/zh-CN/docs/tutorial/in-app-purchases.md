@@ -88,29 +88,29 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// 检查用户是否允许当前app启用应用内购买功能.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Retrieve and display the product descriptions.
+// 检索并显示产品描述.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // 检查参数.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
   }
 
-  // Display the name and price of each product.
+  // 显示每个产品的名称和价格.
   products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // 询问用户需要购买哪个产品.
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
-  // Purchase the selected product.
+  // 购买选中的产品.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')
