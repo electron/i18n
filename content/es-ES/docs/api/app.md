@@ -339,11 +339,11 @@ Devuelve:
 
 Este evento será emitido dentro de la primera instancia de tu aplicación cuando una segunda instancia ha sido ejecutada y llama `app.requestSingleInstanceLock()`.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
+`argv` Es un Array los argumentos de la línea de comando de la segunda instancia y `workingDirectory` es su actual directorio de trabajo. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
 Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Note:** Chromium podría agregar argumentos extras de línea de comando, por ejemplo `--original-process-start-time`.
 
 ### Event: 'desktop-capturer-get-sources'
 
@@ -352,7 +352,7 @@ Devuelve:
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Emitido cuando `desktopCapturer.getSources()` es llamado en el renderer process del `webContents`. Llamando `event.preventDefault()` hará que retorne fuentes vacías.
 
 ### Evento: 'remote-require'
 
