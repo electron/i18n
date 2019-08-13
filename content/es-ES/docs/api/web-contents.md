@@ -648,7 +648,7 @@ Devuelve:
 * `event` Event
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
 
 #### Evento: 'remote-get-global'
 
@@ -666,7 +666,7 @@ Devuelve:
 * `event` Event
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
 
 #### Evento: 'remote-get-current-window'
 
