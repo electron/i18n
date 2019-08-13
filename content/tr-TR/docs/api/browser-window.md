@@ -1075,17 +1075,15 @@ Linux üzerinde her zaman `true` döndürür.
   
   Görevçubuğu ikonu üzerine 16 x 16 pixel ayarlar, genellikle kullanıcıyı pasif olarak uyarır.
   
-  #### `win.setHasShadow(hasShadow)` *macOS*
+  #### `win.setHasShadow(hasShadow)`
   
   * `hasShadow` Boolean
   
-  Pencerenin bir karartıya sahip olup olmadığını ayarlamaktadır. Windows ve Linux hiçbir şey yapmaz.
+  Sets whether the window should have a shadow.
   
-  #### `win.hasShadow()` *macOS*
+  #### `win.hasShadow()`
   
   `Boolean` - Pencerenin bir gölgeye sahip olup olmadığını gösterir.
-  
-  `true` Windows and Linux her zaman döndürür.
   
   #### `win.setOpacity(opacity)` *Windows* *macOS*
   
