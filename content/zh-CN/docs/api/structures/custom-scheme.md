@@ -1,6 +1,6 @@
-# 自定义方案 Object
+# CustomScheme 对象
 
-* `计划` 字符串 - 自定义计划需要使用选项注册。
+* `scheme` 字符串 - 自定义的计划，可以被按选项注册。
 * `privileges` Object (可选) 
   * `standard` Boolean (可选) -默认为false
   * `secure` Boolean (可选) - 默认为false
