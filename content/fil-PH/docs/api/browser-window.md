@@ -1088,11 +1088,11 @@ Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
 * `opacity` Number - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Nagtatakda ng opacity ng window. Sa Linux walang ginagawa.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Ibinabalik ang `Number` - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
@@ -1104,13 +1104,13 @@ Setting a window shape determines the area within the window where the system pe
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Ibinibalik ang `Boolean` - Kung saan ang mga buttons ay naidagdag ng matagumpay
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Ibinibalik ang ` Boolean ` kung ang thumbnail ay matagumpay na naidagdag.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki kaysa sa 7 dahil sa ang limitadong kuwarto. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. Ngunit maaari mong tawagan ang API na walang laman na array upang linisin ang mga pindutan.
 
-The `buttons` is an array of `Button` objects:
+Ang `buttons` ay isang array ng `Button` objects:
 
 * `Button` Bagay 
   * `icon` [NativeImage](native-image.md) - Ang icon na ipinapakita sa thumbnail ng toolbar.
@@ -1131,13 +1131,13 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 * `region` [Rectangle](structures/rectangle.md) - Rehiyon ng window
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnail sa taskbar.
 
 #### `win.setAppDetails(options)` *Windows*
 
@@ -1148,19 +1148,19 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+Itakda ang ari-arian para sa window's taskbar na button.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
 
 #### `win.showDefinitionForSelection()` *macOS* 
 
-Same as `webContents.showDefinitionForSelection()`.
+Tulad nang`webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Pinagbabago ang window icon.
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
@@ -1174,23 +1174,23 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Itakda kung ang window menu bar ay dapat itago ang sarili na awtomatiko. Kapag naitakda na ang menu bar ay ipapakita lamang kung ang gumagamit ay pipindutin ang single na `Alt` key.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Kpag ang menu bar ay kasalukuyang makikita, ang pag-tawag `setAutoHideMenuBar(true)` hindi ito kayang itago agad.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Ang mga pagbalik `Boolean` - kung ito ay awtomatikong itinatago ng menu bar.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+I-takda kung saan ang menu bar ay maaring makita. kapag ang menu bar ay kusang nagtatago sa taga-gamit pwedi pa ring ilabas ang menu bar sa paraan ng solong pagpindut `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
@@ -1198,15 +1198,15 @@ Returns `Boolean` - Whether the menu bar is visible.
 * `options` Na Bagay (opsyonal) 
   * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
-Sets whether the window should be visible on all workspaces.
+Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
 
-**Note:** This API does nothing on Windows.
+**Tandaan:** Ang API ay walang magagawa para sa windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng workspaces.
 
-**Note:** This API always returns false on Windows.
+**Tandaan:** Itong API ay palaging ibinabalik na huwad para sa windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1214,81 +1214,81 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 * `options` Na Bagay (opsyonal) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
-Makes the window ignore all mouse events.
+Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Lahat ng mouse na kaganapan dito sa window ay maaring dumaan para sa window sa ibaba ng window, pero kung ang window ay may focus, ito ay makakatanggap parin ng keyboard na kaganapan.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Ang pag-pigil sa mga nilalaman ng window mula sa kumkuha ng iba pang apps.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+Sa macOS itinatakda nito ang pagbabahagi ng NSWindow sa NSWindowSharingNone. Sa Windows tinatawagan nito ang SetWindowDisplayAffinity sa `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Binabago kung ang window ay maaaring nakatuon.
 
 #### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Ang mga pagtatakda`peyrent`bilang isang peyrent ng window, na dumadaan sa `null` babalik sa kasalukuyang window sa isang mataas na antas ng window.
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Ibinabalik kung `BrowserWindow` - Ang magulang na window.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Kinokontrol kung ang cursor ay itatago kapag nag-type.
 
 #### `win.selectPreviousTab()` *macOS* 
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa mga tab sa window.
 
 #### `win.selectNextTab()` *macOS* 
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong iba pa mga tab sa window.
 
 #### `win.mergeAllWindows()` *macOS* 
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang mga native na tab ay gumagana at mayroong higit sa isang bukas na window.
 
 #### `win.moveTabToNewWindow()` *macOS* 
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Inililipat ang kasalukuyang tab sa isang bagong window kung pinagana ang mga native na tab at mayroong higit sa isang tab sa kasalukuyang window.
 
 #### `win.toggleTabBar()` *macOS* 
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Tina-toggle ang kakayahang makita ng tab na bar kung pinagana ang mga native na tab at mayroon lamang isang tab sa kasalukuyang window.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` ang BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Nagdagdag ng window na isang tab sa window, pagkatapos ng tab para sa window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Tignan ang[macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) para sa ibang detalye.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Nadagdagan ng isang epekto sa pagkalantad sa window ng browser. Pagpasa `null` o ang isang walang laman na string ay tatangalin ang epekto ng pagkalantad sa window.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` or `undefined` Nililinis ang touch bar. Ang paraan na ito lamang ang may epekto sa Ang makina ay merong nahahawakang bar at napapatakbo ito sa macOS 10.12.1+.
 
 **Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron. 
 
@@ -1314,7 +1314,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
 ### Mga Katangian
 
