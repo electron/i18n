@@ -81,8 +81,8 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
   * [Mirroirs et Caches personnalisés](tutorial/installation.md#custom-mirrors-and-caches)
   * [Résolution de problème](tutorial/installation.md#troubleshooting)
 * Releases d'Electron & Feedback 
-  * [Stratégie de versioning](tutorial/electron-versioning.md)
-  * [Calendrier de release](tutorial/electron-timelines.md)
+  * [Versioning Policy](tutorial/electron-versioning.md)
+  * [Calendrier de release99](tutorial/electron-timelines.md)
   * [Programme de feedback](tutorial/app-feedback-program.md)
 * [Empaqueter le code source de l'App avec asar](tutorial/application-packaging.md) 
   * [Créer une archive asar](tutorial/application-packaging.md#generating-asar-archives)
