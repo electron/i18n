@@ -31,13 +31,13 @@
 const { inAppPurchase } = require('electron').remote
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// 尽早监听transactions事件.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // 检查每一笔交易.
   transactions.forEach(function (transaction) {
     var payment = transaction.payment
 
@@ -49,18 +49,18 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // Get the receipt url.
+        // 获取收据的url.
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // 将收据提交到服务器并校验收据是否有效.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // 如果收据通过校验，说明产品已经被购买了
         // ...
 
-        // Finish the transaction.
+        // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -68,7 +68,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
