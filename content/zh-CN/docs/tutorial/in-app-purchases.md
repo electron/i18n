@@ -16,7 +16,7 @@
 
 ### 变更 CFBundleIdentifier
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+若要在Electron开发阶段对应用内购买功能进行测试，您需要在`node_modules/electron/dist/Electron.app/Contents/Info.plist`路径下修改`CFBundleIdentifier`。 You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
 
 ```xml
 <key>CFBundleIdentifier</key>
