@@ -7,18 +7,22 @@ jobs:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - name: Install dependencies
-      run: 'npm ci'
-    - name: Run tests
-      env:
-        NODE_OPTIONS: --max_old_space_size=4096
-      run: 'npm test'
-    - name: Publish via semantic-release
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm run semantic-release
+    - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+    # - uses: actions/checkout@master
+    # - uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '12.x'
+    # - name: Install dependencies
+    #   run: 'npm ci'
+    # - name: Run tests
+    #   env:
+    #     NODE_OPTIONS: --max_old_space_size=4096
+    #   run: 'npm test'
+    # - name: Publish via semantic-release
+    #   env:
+    #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    #   run: npm run semantic-release
