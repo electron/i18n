@@ -1,5 +1,7 @@
-on: push
-name: Test and publish
+on: [push, pull_request]
+
+name: CI / GitHub Actions
+
 jobs:
   installDependencies:
     name: Install dependencies
@@ -16,12 +18,6 @@ jobs:
         NODE_OPTIONS: --max_old_space_size=4096
       with:
         args: test
-    - name: Release master branch only
-      uses: BinaryMuse/tip-of-branch@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: master
     - name: Publish via semantic-release
       uses: actions/npm@master
       env:
