@@ -491,7 +491,7 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Retorna `String` - Una ruta a un directorio especial o a un archivo asociado con `name`. Cuando falla, un `Error` es lanzado.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
@@ -527,12 +527,12 @@ Usted puede pedir las siguientes direcciones por nombre:
 
 Busca un ícono asociado a la ruta.
 
-On *Windows*, there are 2 kinds of icons:
+En *Windows*, hay dos tipos de iconos:
 
 * Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
 * Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo de archivo.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -545,7 +545,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
     * `normal` - 32x32
     * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+Devuelve `Promise<NativeImage>` - cumplido con el icono de la aplicación, el cual es un [NativeImage](native-image.md).
 
 Busca un ícono asociado a la ruta.
 
@@ -554,14 +554,14 @@ En *Windows*, Hay dos tipos de íconos:
 * Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
 * Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+En *Linux* y *macOS*, los iconos dependen de la aplicación asociada al tipo de archivo.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si la ruta especifica un directorio que no existe, un `Error` es lanzado. En ese caso, el directorio devería ser creado con `fs.mkdirSync` o similar.
 
 Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
 
