@@ -18,7 +18,6 @@ jobs:
         NODE_OPTIONS: --max_old_space_size=4096
       run: 'npm test'
     - name: Publish via semantic-release
-      if: ${{ github.ref == refs/heads/master }}
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
