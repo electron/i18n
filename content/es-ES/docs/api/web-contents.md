@@ -657,7 +657,7 @@ Devuelve:
 * `event` Event
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Llamando `event.preventDefault()` evitará que sea devuelto el global. Custom value can be returned by setting `event.returnValue`.
 
 #### Evento: 'remote-get-builtin'
 
