@@ -591,13 +591,13 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**Note:** En windows, tienes que llamarlo después del los eventos `ready` sean emitidos.
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Devuelve `string` - El código de país del sistema operativo local del usuario [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) El valor se obtiene de APIs nativas del sistema operativo.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -605,7 +605,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 Añade la `ruta` a la lista de documentos recientes.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Esta lista es manejada por el sistema operativo. En windows, puedes visitar la lista desde la barra de tarea, y en macOS, puedes visitarla desde le menu dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -621,7 +621,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+En Windows, puedes proveer la ruta de parámetros opcionales, la ruta a tu ejecutable, y args, un array de argumentos para ser pasada al ejecutable de tu aplicación cuando este sea lance.
 
 **Nota:** En macOS, solo puede registrar protocolos que han sido añadidos a la `info.plist` de su aplicación, que no puede ser modificada mientras la aplicación esté corriendo. Usted también puede modificar el archivo con un editor de texto o script durante su creación. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
 
