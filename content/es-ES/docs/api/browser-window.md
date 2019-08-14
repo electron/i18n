@@ -1166,7 +1166,7 @@ Cambia el icono de la ventana.
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+Establece si los botones de luz del tráfico de ventana deben estar visibles.
 
 Esto no puede llamarse cuando `titleBarStyle` está configurado para ser `customButtonsOnHover`.
 
@@ -1298,13 +1298,13 @@ Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `
 
 #### `win.getBrowserView()` *Experimental*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Retorna `BrowserView | null` - Un BrowserView que se adjunto. Retorna `null` si nada esta adjuntado. Lanza error si varias BrowserViews son adjuntada.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+API de reemplazo para setBrowserView soporta el trabajo con múltiples vistas de navegador.
 
 #### `win.removeBrowserView(browserView)` *Experimental*
 
@@ -1312,7 +1312,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.getBrowserViews()` *Experimental*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Retorna un array de `BrowserView` que estuvo adjunto con addBrowserView o setBrowserView.
 
 **Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en versiones futuras de Electron.
 
