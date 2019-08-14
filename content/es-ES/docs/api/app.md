@@ -410,7 +410,7 @@ Devuelve:
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitido cuando `<webview>.getWebContents()` es llamado en el proceso renderizador de `webContents`. Llamando `event.preventDefault()` evetará que el objeto sea retornado. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `<webview>.getWebContents()` es llamado en el proceso renderizador de `webContents`. Llamando `event.preventDefault()` evetará que el objeto sea retornado. El valor personalizado puede ser retornado por la configuración `event.returnValue`.
 
 ## Métodos
 
@@ -430,7 +430,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 Sale inmediatamente con `exitCode`. `exitCode` por defecto es 0.
 
-All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
+Todas las ventanas serán cerradas de inmediato sin preguntarle al usuario, y los eventos `before-quit` y `will-quit` no serán emitidos.
 
 ### `app.relaunch([options])`
 
@@ -440,7 +440,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 Reinicia la aplicación cuando la instancia se cierra.
 
-By default, the new instance will use the same working directory and command line arguments with current instance. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+Por defecto, la nueva instancia va a usar el mismo directorio de trabajo y los argumentos de la linea de comando con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
 
 Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
@@ -461,7 +461,7 @@ Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo 
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. También puede ser utilizado para comprobar el estado de: `app.isReady()` y registrar al evento `ready` si la aplicación aun no esta lista.
+Retorna `Promise<void>` - cumplido cuando Electron esta inicializado. También puede ser utilizado para comprobar el estado de: `app.isReady()` y registrar al evento `ready` si la aplicación aun no esta lista.
 
 ### `app.focus()`
 
@@ -477,9 +477,9 @@ Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca 
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (opcional) - Una ruta personalizada para tus registros. Debe ser absoluta.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+Establece o crea un directorio de registros de tu aplicación el cual puede ser manipulado con `app.getPath()` o `app.setPath(pathName, newPath)`.
 
 Llamando a `app.setAppLogsPath()` sin un parámetro `path` dará como resultado que se configure en `/Library/Logs/YourAppName` en *macOS*, y dentro del directorio `userData` en *Linux* y *Windows*.
 
