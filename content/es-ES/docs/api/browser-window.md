@@ -1098,7 +1098,7 @@ Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opa
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
-Establecer una forma de ventana determina el área dentro de la ventana donde el sistema permite dibujar y interactuar con el usuario. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Los eventos del ratón fuera de la región no será recibida por esa ventana, pero pasará a lo que esté detrás de la misma.
+Establecer una forma de ventana determina el área dentro de la ventana donde el sistema permite dibujar y interactuar con el usuario. Fuera de la región dada, no se dibujarán píxeles y no se registrarán eventos del ratón. Los eventos del ratón fuera de la región no será recibida por esa ventana, pero pasará a lo que esté detrás de la misma.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
