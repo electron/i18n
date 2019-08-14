@@ -8,20 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Install dependencies
-      uses: actions/npm@master
+    - uses: actions/setup-node@v1
       with:
-        args: ci
+        node-version: '12.x'
+    - name: Install dependencies
+      run: 'npm ci'
     - name: Run tests
       uses: actions/npm@master
       env:
         NODE_OPTIONS: --max_old_space_size=4096
-      with:
-        args: test
+      run: 'npm test'
     - name: Publish via semantic-release
-      uses: actions/npm@master
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      with:
-        args: run semantic-release
+      run: npm run semantic-release
