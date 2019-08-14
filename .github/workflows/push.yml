@@ -1,0 +1,31 @@
+on: push
+name: Test and publish
+jobs:
+  installDependencies:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Install dependencies
+      uses: actions/npm@master
+      with:
+        args: ci
+    - name: Run tests
+      uses: actions/npm@master
+      env:
+        NODE_OPTIONS: --max_old_space_size=4096
+      with:
+        args: test
+    - name: Release master branch only
+      uses: BinaryMuse/tip-of-branch@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: master
+    - name: Publish via semantic-release
+      uses: actions/npm@master
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      with:
+        args: run semantic-release
