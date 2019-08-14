@@ -1,20 +1,21 @@
 on:
   schedules:
   - cron: 00 09 * * *
+
 name: Auto-merge Crowdin PR
+
 jobs:
   installDependencies:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Install dependencies
-      uses: actions/npm@master
+    - uses: actions/setup-node@v1
       with:
-        args: ci
+        node-version: '12.x'
+    - name: Install dependencies
+      run: npm ci
     - name: Automerge PR
-      uses: actions/npm@master
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      with:
-        args: run automerge
+      run: npm run automerge
