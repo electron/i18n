@@ -26,12 +26,12 @@
   * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
-  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. 如果所引用的选项不存在，该选项将会插入菜单的尾部 Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. 此属性只能在macOS High Sierra 10.13或以上中使用
 
 ### 角色
 
