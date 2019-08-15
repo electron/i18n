@@ -31,7 +31,7 @@
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. 此属性只能在macOS High Sierra 10.13或以上中使用。
+**注意: **`acceleratorWorksWhenHidden`只在MacOS中生效，因为在Windows和Linux中快捷键不会随着隐藏菜单项而失效。 The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. 此属性只能在macOS High Sierra 10.13或以上中使用。
 
 ### 角色
 
