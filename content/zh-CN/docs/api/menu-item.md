@@ -100,7 +100,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 #### `menuItem.id`
 
-A `String` indicating the item's unique id, this property can be dynamically changed.
+`String` 指定了该选项的唯一id，此属性可被动态更改
 
 #### `menuItem.label`
 
@@ -108,7 +108,7 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+当菜单项被单击时所调用的函数，It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
