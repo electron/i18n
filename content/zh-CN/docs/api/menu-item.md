@@ -24,14 +24,14 @@
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
   * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
-  * `before` String[] (optional) - Inserts this item before the item with the specified label. 如果所引用的选项不存在，该选项将会插入菜单的尾部 Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. 如果所引用的选项不存在，该选项将会插入菜单的尾部。 Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. 此属性只能在macOS High Sierra 10.13或以上中使用
+**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. 此属性只能在macOS High Sierra 10.13或以上中使用。
 
 ### 角色
 
@@ -59,7 +59,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `reload` - 重新加载当前窗口。
 * `forcereload` - 忽略缓存，重新加载当前窗口。
 * `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
-* `togglefullscreen` - Toggle full screen mode on the current window.
+* `togglefullscreen` - 将当前窗口切换至全屏模式。
 * `resetzoom` - 将主页的缩放级别重置为初始大小.
 * `zoomin` - 主页面放大 10%.
 * `zoomout` -主页面缩小 10%.
@@ -100,7 +100,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 #### `menuItem.id`
 
-`String` 指定了该选项的唯一id，此属性可被动态更改
+`String` 指定了该选项的唯一id，此属性可被动态更改。
 
 #### `menuItem.label`
 
