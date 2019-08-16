@@ -32,7 +32,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-返回 `BrowserWindow[]` - 所有打开的窗口的数组
+返回 `BrowserView[]` - 所有打开的 BrowserViews 的数组。
 
 #### `BrowserView.fromWebContents(webContents)`
 
