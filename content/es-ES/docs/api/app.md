@@ -1134,7 +1134,7 @@ A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` o
 
 A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+Mira [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) para más detalles. Deshabilitado por defecto.
 
 Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
