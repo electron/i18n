@@ -790,11 +790,11 @@ if (!obtenerBloqueo) {
 
 Devuelve `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. Usted puede realiza un bloqueo con `app.requestSingleInstanceLock()` o liberarlo con `app.releaseSingleInstanceLock()`
+Este método devuelve si esta instancia de tu aplicación es actualmente manteniendo el bloqueo de una sola instancia. Usted puede realiza un bloqueo con `app.requestSingleInstanceLock()` o liberarlo con `app.releaseSingleInstanceLock()`
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Libera todos los bloqueos que fueron creados por `requestSingleInstanceLock`. Esto va a permitir que varias instancias de la aplicación se ejecuten nuevamente lado a lado.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
