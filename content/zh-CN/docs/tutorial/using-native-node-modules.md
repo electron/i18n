@@ -64,10 +64,10 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` changes where to find development headers.
-- `--target=1.2.3` is the version of Electron.
-- `--dist-url=...` specifies where to download the headers.
-- `--arch=x64` says the module is built for a 64-bit system.
+- `HOME=~/.electron-gyp` 设置去哪找头文件
+- `--target=1.2.3` 设置了 Electron 的版本。
+- `--dist-url=...`设置了 Electron 的 headers 的下载地址。
+- `--arch=x64` 设置了该模块为适配64位操作系统而编译。
 
 ### 为Electron的自定义编译手动编译
 
