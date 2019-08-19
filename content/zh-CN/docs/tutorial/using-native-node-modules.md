@@ -23,20 +23,20 @@ the module (for instance, using `npm rebuild` or `npm install`).
 ```sh
 npm install --save-dev electron-rebuild
 
-# 每次运行"npm install"时，也运行这条命令
+# 每次运行"npm install"后，也运行这条命令
 ./node_modules/.bin/electron-rebuild
 
 # 在windows下如果上述命令遇到了问题，尝试这个：
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools, consult the project's README.
+更多有关使用方法和与其他工具结合的信息，请查阅该项目的README。
 
 ### 通过 `npm` 安装
 
 只要设置一些系统环境变量，你就可以通过 `npm` 直接安装原生模块。
 
-For example, to install all dependencies for Electron:
+例如，要安装所有Electron的依赖：
 
 ```sh
 # Electron 的版本。
