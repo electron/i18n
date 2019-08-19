@@ -41,8 +41,8 @@ npm install --save-dev electron-rebuild
 ```sh
 # Electron 的版本。
 export npm_config_target=1.2.3
-# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
-# for supported architectures.
+# Electron的目标架构, 可用的架构列表请参见
+# https://electronjs.org/docs/tutorial/support#supported-platforms
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # 下载 Electron 的 headers。
