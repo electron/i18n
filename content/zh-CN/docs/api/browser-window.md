@@ -830,7 +830,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 #### `win.isClosable()` *macOS* *Windows*
 
-返回 `Boolean` - 窗口是否被用户关闭了.
+返回 `Boolean` - 窗口是否可以被用户关闭.
 
 在 Linux 上总是返回 ` true `。
 
