@@ -1,4 +1,4 @@
-# CustomScheme Object
+# Objet CustomScheme
 
 * `scheme` String - Custom schemes to be registered with options.
 * `privileges` Object (facultatif) 
