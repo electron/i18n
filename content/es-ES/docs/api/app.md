@@ -975,7 +975,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+Muestra las opciones del panel acerca de la aplicación. Estas opciones estas opciones pueden ser sobrescritas con `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
@@ -984,11 +984,11 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
   * `version` String (opcional) - El número de versión de construcción de la aplicación. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
+  * `credits` String (opcional) - Información de crédito. *macOS*
+  * `website` String (opcional) - El sitio web de la aplicación. *Linux*
   * `iconPath` String (opcional) - Ruta al icono de la aplicación. Se mostrará como 64x64 píxeles mientras se mantiene la relación de aspecto. *Linux*
 
-Establece el panel de opciones. This will override the values defined in the app's `.plist` file on MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. On Linux, values must be set in order to be shown; there are no defaults.
+Establece el panel de opciones. Esto va a sobrescribir los valores de la aplicación definidos en el archivo `.plist` en MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 
 ### `app.isEmojiPanelSupported`
 
