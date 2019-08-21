@@ -1102,21 +1102,21 @@ Esconde el icono del punto.
 
 ### `app.dock.show()` *macOS*
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Devuelve `Promise<void>` - Se resuelve cuando se muestra el icono del dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible.
+Devuelve `Boolean` - Si el icono del dock es visible.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Establece el [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) de la aplicación.
 
 ### `app.dock.getMenu()` *macOS*
 
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Retorna `Menu | null` - El [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) de la aplicación.
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1128,11 +1128,11 @@ Establece la `image` asociada con el ícono del punto.
 
 ### `app.applicationMenu`
 
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+Un propiedad `Menu` que devuelve [`Menu`](menu.md) si se ha establecido y `null` de otra manera. Los usuarios pueden pasar un [Menu](menu.md) para establecer esta propiedad.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+Un propiedad `Boolean` eso es `true` si el soporte de accesibilidad de Chrome esta activado, `false` de otra manera. Esta propiedad será `true` si se ha detectado el uso de tecnologías asistitivas, como lectores de pantalla. Estableciendo esta propiedad manualmente a `true` se activá el soporte de accesibilidad de Chrome, permitiendo a los desarrolladores exponer el cambio de accesibilidad a los usuarios en la configuración de la aplicación.
 
 Mira [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) para más detalles. Deshabilitado por defecto.
 
