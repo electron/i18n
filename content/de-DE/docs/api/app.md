@@ -162,7 +162,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Wird ausgelöst, wenn der Benutzer den nativen macOS "neuen Tab"-Button anklickt. Der "neue Tab"-Button ist nur sichtbar, wenn das derzeitige `BrowserWindow` einen `tabbingIdentifier` hat
 
 ### Event: 'browser-window-blur'
 
@@ -241,7 +241,7 @@ Rückgabewert:
 
 Emittiert wenn ein Client Zertifikat angefordert wird.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+Die `url` entspricht dem Navigationseintrag, der das Client-Zertifikat anfordert und `Callback` kann mit einem Eintrag aufgerufen werden, der aus der Liste gefiltert wird. Die Verwendung von `event.preventDefault()` verhindert, dass die App das erste Zertifikat aus dem Store verwendet.
 
 ```javascript
 const { app } = require('electron')
@@ -457,7 +457,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Gibt `Boolean` - `true` zurück, wenn Electron das Initialisieren beendet hat, ansonsten `false`.
 
 ### `app.whenReady()`
 
@@ -752,7 +752,7 @@ app.setJumpList([
 
 ### `app.requestSingleInstanceLock()`
 
-Returns `Boolean`
+Gibt `Boolean` zurück
 
 The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
@@ -1111,7 +1111,7 @@ Returns `Boolean` - Whether the dock icon is visible.
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Legt das App [Dock-Menü](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) fest.
 
 ### `app.dock.getMenu()` *macOS*
 
@@ -1147,7 +1147,7 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.isPackaged`
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+Eine `Boolean` Eigenschaft, die `true` zurückgegeben, wenn die App gepackt ist, ansonsten `false`. Für viele Apps kann diese Eigenschaft verwendet werden, um Entwicklungs- und Produktionsumgebungen zu unterscheiden.
 
 ### `app.allowRendererProcessReuse`
 
