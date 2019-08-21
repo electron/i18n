@@ -992,11 +992,11 @@ Establece el panel de opciones. Esto va a sobrescribir los valores de la aplicac
 
 ### `app.isEmojiPanelSupported`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+Devuelve `Boolean` - si la versión del sistema operativo actual permite permite o no los selectores de emoji nativos.
 
 ### `app.showEmojiPanel` *macOS* *Windows*
 
-Show the platform's native emoji picker.
+Muestra el selector de emoji nativo de la plataforma.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -1011,26 +1011,26 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Empezar a acceder un recurso de ámbito de seguridad. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
+Empezar a acceder un recurso de ámbito de seguridad. Con este método las aplicaciones Electron que están empaquetadas para la Mac App Store pueden llegar fuera de su caja de arena para acceder a los archivos elegidos por el usuario. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
+* `switch` String - Un interruptor de la linea de comandos, sin el líder `--`
 * `value` Cadena (opcional) - Un valor para el cambio dado
 
 Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Note:** Esto no va a afectar a `process.argv`. El uso previsto de esta función es para el control del comportamiento de Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `valor` Cadena - El argumento a adjuntar a la línea de comando
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Añadir un argunmento a la línea de comandos de Chromium. El argumento será citado correctamente. Los interruptores procederán a los argumentos independientemente de la orden de la adición.
 
 If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Note:** Esto no va a afectar a `process.argv`. El uso previsto de esta función es para el control del comportamiento de Chromium.
 
 ### `app.commandLine.hasSwitch(switch)`
 
