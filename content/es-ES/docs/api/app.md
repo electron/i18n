@@ -1036,15 +1036,15 @@ Si estas añadiendo un argumento como `--switch=value`, considere usar en su lug
 
 * `switch` Cadena - Un cambio en la línea de comando
 
-Returns `Boolean` - Whether the command-line switch is present.
+Devuelve `Boolean` - Si el interruptor de la línea de comando esta presente.
 
 ### `app.commandLine.getSwitchValue(switch)`
 
 * `switch` Cadena - Un cambio en la línea de comando
 
-Returns `String` - The command-line switch value.
+Devuelve `String` - El valor del interruptor de la linea de comando.
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**Note:** Cando el interruptor no esta presento o no tiene un valor, revuelve una cadena vacía.
 
 ### `app.enableSandbox()` *Experimental*
 
@@ -1058,11 +1058,11 @@ Devuelve `Boolean` - Si la aplicación se está operando actualmente desde la ca
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+Devuelve `Boolean` - Si el movimiento fue exitoso. Por favor tenga en cuenta que si el movimiento es exitoso, tu aplicación se cerrará y se volverá a reabrir.
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+No se presentará ningún dialogo de confirmación por defecto. Si tú deseas permitir al usuario a confirmar la operación, debes usar la API [`dialog`](dialog.md).
 
-**Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
+**Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por ejemplo si el usuario cancela el dialogo de autorización, este método va a devolver falso. Si nosotros no realizamos la copia, entonces este método va a lanzar un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
 
 ### `app.dock.bounce([type])` *macOS*
 
