@@ -173,9 +173,9 @@ Setzt alle aufgeschobenen Weiterleitungsanfragen fort, falls der Weiterleitung M
 
 Gibt das `Object` zurück:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - Die Anzahl der bereits hochgeladenen bytes
+* `active` Boolean - Ob die Anfrage gerade aktiv ist. Wenn das falsch ist, werden keine anderen Eigenschaften festgelegt
+* `started` Boolean - Ob der Upload gestartet wurde. Wenn dies falsch ist, werden `current` und `total` auf 0 gesetzt werden.
+* `current` Integer - Die Anzahl der bereits hochgeladenen Bytes
 * `total` Integer - The number of bytes that will be uploaded this request
 
 You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
