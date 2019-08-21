@@ -64,7 +64,7 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 * `VolumeUp`, `VolumeDown` und `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` und `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* NumPad-Tasten 
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
