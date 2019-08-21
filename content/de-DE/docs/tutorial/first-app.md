@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade die index.html der App.
   win.loadFile('index.html')
 }
 
@@ -118,7 +118,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade die index.html der App.
   win.loadFile('index.html')
 
   // Öffnen der DevTools.
