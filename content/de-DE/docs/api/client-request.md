@@ -176,6 +176,6 @@ Gibt das `Object` zurück:
 * `active` Boolean - Ob die Anfrage gerade aktiv ist. Wenn das falsch ist, werden keine anderen Eigenschaften festgelegt
 * `started` Boolean - Ob der Upload gestartet wurde. Wenn dies falsch ist, werden `current` und `total` auf 0 gesetzt werden.
 * `current` Integer - Die Anzahl der bereits hochgeladenen Bytes
-* `total` Integer - The number of bytes that will be uploaded this request
+* `total` Integer - Die Anzahl der Bytes, die für diese Anforderung hochgeladen werden
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+Sie können diese Methode in Verbindung mit `POST`-Anfragen verwenden, um den Fortschritt von einem Datei-Upload oder einer anderen Datenübertragung abzurufen.
