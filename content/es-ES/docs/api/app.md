@@ -1028,7 +1028,7 @@ Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
 Añadir un argunmento a la línea de comandos de Chromium. El argumento será citado correctamente. Los interruptores procederán a los argumentos independientemente de la orden de la adición.
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+Si estas añadiendo un argumento como `--switch=value`, considere usar en su lugar `appendSwitch('switch', 'value')`.
 
 **Note:** Esto no va a afectar a `process.argv`. El uso previsto de esta función es para el control del comportamiento de Chromium.
 
