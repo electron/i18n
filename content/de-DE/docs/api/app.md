@@ -1047,7 +1047,7 @@ Returns `String` - The command-line switch value.
 
 ### `app.enableSandbox()` *Experimental*
 
-Enables full sandbox mode on the app.
+Aktiviert den vollen Sandbox-Modus auf der App.
 
 Diese Methode kann nur vor dem Start der App aufgerufen werden.
 
