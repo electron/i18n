@@ -865,7 +865,7 @@ Devuelve `Promise`
 
 Para `infoType` igual a `complete`: La promesa es completada con `Object` conteniendo toda la información de la GPU como [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Esto incluye la versión y la información del controlador que es mostrada en la pagina `chrome://gpu</0.</p>
 
-<p>For <code>infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Aquí hay un ejemplo de respuesta básica:
+<p>Para <code>infoType` igual a `basic`: La promesa se cumple con `Object` que contiene pocos atributos que son solicitados con `complete`. Aquí hay un ejemplo de respuesta básica:
 
 ```js
 { auxAttributes:
@@ -890,7 +890,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+El uso de `basic` debería ser preferido si sólo se necesita información básica como `vendorId` o `driverId`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -900,7 +900,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `0` esconderá el distintivo.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+En macOS, se muestra en el icono del dock. En Linux, solo funciona para Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
