@@ -902,7 +902,7 @@ Establece el distintivo en contra para la aplicación actual. Establecer la cuen
 
 En macOS, se muestra en el icono del dock. En Linux, solo funciona para Unity launcher.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** El lanzador Unity requiere que exista un archivo `.desktop` para funcionar, para mas información por favor lea [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -918,7 +918,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
   * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Su proporcionas las opciones `path` y `args` a `app.setLoginItemSettings`, entonces necesitas pasar los mismos argumentos aquí para `openAtLogin` para que sea correctamente configurado.
 
 Devuelve `Objeto`:
 
@@ -932,7 +932,7 @@ Devuelve `Objeto`:
 
 * `ajustes` Object 
   * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` abrirse la aplicación como oculta. Por defecto a `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` abrirse la aplicación como oculta. Por defecto a `false`. El usuario puede editar esta configuración desde la Preferencias del Sistema, así que `app.getLoginItemSettings().wasOpenedAsHidden` debe ser comprobado cuanto la aplicación es abierta para conocer el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
 
