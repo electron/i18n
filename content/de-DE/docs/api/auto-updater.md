@@ -1,16 +1,16 @@
-# automatischerUpdater
+# Auto-Updater
 
 > Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Siehe auch: [Eine detaillierte Anleitung zur Implementierung von Updates in Ihrer Anwendung](../tutorial/updates.md).**
 
-## Platform Notices
+## Plattform-Hinweise
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Derzeit wird nur macOS und Windows unterstützt. Es gibt keine eingebaute Unterstützung des Auto-Updaters für Linux, deshalb empfehlen wir, dass benutzen eines Distributionsmanagers, um die App automatisch zu aktualisieren.
 
-In addition, there are some subtle differences on each platform:
+Außerdem gibt es auf jeder Plattform einige subtile Unterschiede:
 
 ### macOS
 
