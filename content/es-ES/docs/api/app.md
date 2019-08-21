@@ -1142,7 +1142,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 ### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+Un `String` que es la cadena de agente de usuario Electron usará como una regresión global.
 
 This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
 
