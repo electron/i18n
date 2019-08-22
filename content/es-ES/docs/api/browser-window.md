@@ -210,7 +210,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `safeDialogsMessage` String (opcional) - El mensaje a mostrar cuando la protección de diálogo consecutivo es lanzada. So no se define el mensaje por defecto sería utilizado, note que actualmente el mensaje por defecto esta en Inglés y no localizado.
     * `navigateOnDragDrop` Boolean (opcional) - Ya sea arrastrando y soltando un archivo o un link sobre la pagina causa una navegación. Por defecto es `false`.
     * `autoplayPolicy` String (opcional) - Política de autoplay para aplicar al contenido en la ventana, puede ser `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Por defecto a `no-user-gesture-required`.
-    * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `disableHtmlFullscreenWindowResize` Boolean (opcional) - Si se debe evitar que la ventana cambie de tamaño cuando se esta entrando en HTML Fullscreen. Por defecto es is `false`.
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
@@ -983,9 +983,9 @@ Captura una foto instantánea de la página dentro de `rect`. Al finalizar se ll
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
 
 #### `win.loadURL(url[, options])`
 
