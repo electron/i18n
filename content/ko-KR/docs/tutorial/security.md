@@ -8,7 +8,7 @@ Electron으로 작업할때, Electron이 웹 브라우저가 아니라는 점을
 
 ## 보안 문제 제보
 
-Electron의 보안 취약점을 공개하는 방법은 [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)를 참조하세요.
+Electron의 보안 취약점을 적절히 공개하는 방법은 [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)를 참조하세요.
 
 ## Chromium 보안 문제와 업그레이드
 
