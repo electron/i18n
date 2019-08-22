@@ -513,9 +513,9 @@ Captura una foto instantánea de la página dentro de `rect`. Al finalizar se ll
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
