@@ -1144,7 +1144,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 Un `String` que es la cadena de agente de usuario Electron usará como una regresión global.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+Este es el agente de usuario que se utilizará cuando ningún agente de usuario está establecido en el nivel `webContents` o `session`. Útil para asegurar que toda tu aplicación tenga el mismo agente de usuario. Establecer a valor personalizado lo antes posible en la inizialización de tus aplicaciones para asegurar que usa los valores sobrescritos.
 
 ### `app.isPackaged`
 
