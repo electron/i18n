@@ -1,11 +1,11 @@
 # Display对象
 
-* `id` 数字-与display相关联的唯一的标志符
-* `rotation `数字--可以是 0, 90, 180, 270, 代表屏幕旋转角度。
+* `id`数字-与显示相关联的唯一的标志符。
+* `rotation `数字 - 可以是 0, 90, 180, 270, 代表屏幕旋转角度。
 * ` scaleFactor `数字-输出设备的像素比例因子。
-* ` touchSupport `字符串-可以是 `available`, `unavailable`, `unknown`.
+* ` touchSupport `字符串--可以是 `available `、`unavailable `、` unknown `。
 * `monochrome` 布尔值-表示display对象是否是一个单色的显示对象(monochrome display)
-* `accelerometerSupport` 字符串-可以是 `available`, `unavailable`, `unknown`.
+* `accelerometerSupport` 字符串-可以是 `available`、`unavailable`、`unknown`。
 * `colorSpace` String - represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
 * `colorDepth` Number - The number of bits per pixel.
 * `depthPerComponent` Number - The number of bits per color component.
