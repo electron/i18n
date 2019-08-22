@@ -66,7 +66,7 @@ Aparece cuando se ha descargado una actualización.
 
 Solo esta disponible en Windows `releaseName`.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Note:** Esto no es estrictamente necesario para manejar este evento. Todavía se aplicará una actualización descargada con éxito la próxima vez que la aplicación inicie.
 
 ### Evento: 'before-quit-for-update'
 
