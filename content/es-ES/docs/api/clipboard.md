@@ -11,7 +11,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Ejemplo de cadena')
 ```
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+En Linux, hay además un clipboard `selection`. Para manipularlo ti necesitas pasar `selection` a cada método:
 
 ```javascript
 const { clipboard } = require('electron')
