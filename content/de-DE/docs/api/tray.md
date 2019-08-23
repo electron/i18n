@@ -27,9 +27,9 @@ app.on('ready', () => {
 
 * Unter Linux wird der App-Indikator verwendet, wenn er unterstützt wird, ansonsten wird `GtkStatusIcon` verwendet.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* App-Indikator wird nur angezeigt, wenn es ein Kontextmenü hat.
+* Wenn die App-Anzeige auf Linux verwendet wird, wird das `click` Ereignis ignoriert.
+* Auf Linux, um Änderungen an Individuellen `MenuItem`s zu bewirken, müssen Sie `setContextMenu` erneut aufrufen. Zum Beispiel:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -50,39 +50,39 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Unter Windows wird empfohlen, `ICO` Icons zu verwenden, um beste visuelle Effekte zu erhalten.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
-### `new Tray(image)`
+### `neue Tray(Bild)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
 Creates a new tray icon associated with the `image`.
 
-### Instanz Events
+### Instanz-Ereignisse
 
-The `Tray` module emits the following events:
+Das `Tray` Modul sendet folgende Ereignisse aus:
 
-#### Event: 'click'
-
-* `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
-
-Emitted when the tray icon is clicked.
-
-#### Event: 'right-click' *macOS* *Windows*
+#### Ereignis: 'click'
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rechteck](structures/rectangle.md) - Die Grenzen des Tray-Symbols.
+* `position` [Punkt](structures/point.md) - Die Position des Events.
 
-Emitted when the tray icon is right clicked.
+Wird beim Klicken des Tray Icons gesendet.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Ereignis: 'right-click' *macOS* *Windows*
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rechteck](structures/rectangle.md) - Die Grenzen des Tray-Symbols.
+
+Wird durch einen Rechts Klick auf das Tray Icon gesendet.
+
+#### Ereignis: 'double-click' *macOS* *Windows*
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `bounds` [Rechteck](structures/rectangle.md) - Die Grenzen des Tray-Symbols.
 
 Emitted when the tray icon is double clicked.
 
@@ -131,21 +131,21 @@ Emitted when a drag operation ends on the tray or ends at another location.
 #### Event: 'mouse-enter' *macOS*
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Punkt](structures/point.md) - Die Position des Events.
 
 Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Punkt](structures/point.md) - Die Position des Events.
 
 Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' *macOS*
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Punkt](structures/point.md) - Die Position des Events.
 
 Emitted when the mouse moves in the tray icon.
 
@@ -245,13 +245,13 @@ Displays a tray balloon.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+Die `position` ist nur unter Windows verfügbar und ist standardmäßig (0, 0).
 
-#### `tray.setContextMenu(menu)`
+#### `tray.setContextMenu(Menü)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Legt das Kontextmenü für dieses Symbol fest.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
