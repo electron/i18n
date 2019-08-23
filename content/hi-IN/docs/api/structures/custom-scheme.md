@@ -1,6 +1,6 @@
-# CustomScheme Object
+# CustomScheme वस्तु
 
-* `scheme` String - Custom schemes to be registered with options.
+* `scheme` String - वैकल्पिक कस्टम योजना पंजीकृत।
 * `privileges` Object (optional) 
   * `standard` Boolean (optional) - Default false.
   * `secure` Boolean (optional) - Default false.
