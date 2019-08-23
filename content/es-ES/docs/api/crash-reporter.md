@@ -83,7 +83,7 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 * `value` String - Valor del parámetro, debe tener menos de 64 caracteres.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. Esta API solo esta disponible en macOS y en windows, Si tú necesitas agregar/actualizar parámetros adicionales en Linux después de tu primera llamada a `start` tu puedes llamar `start` otra vez con la opción `start` actualizada.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
