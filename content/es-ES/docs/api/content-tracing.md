@@ -112,6 +112,6 @@ Obtenga el máximo uso en los procesos de búfer de rastreo como un porcentaje d
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo el `value` y `percentage` de máximo uso de trace buffer
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+Obtener el uso máximo a través de procesos de trace buffer como un porcentaje del estado completo.
