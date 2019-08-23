@@ -1,4 +1,4 @@
 # rv
 
 * `date`दिनांक
-* `id` String
+* `id`पहचान
