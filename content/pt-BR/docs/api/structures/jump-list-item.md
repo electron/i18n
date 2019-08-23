@@ -11,4 +11,4 @@
 * `Descrição` String (opcional) - Descrição da tarefa (exibida em uma dica de ferramenta). Só deve ser definido se o `type` é `task`.
 * `iconPath` String (opcional) - O caminho absoluto para um ícone a ser exibido em uma lista de atalhos, que pode ser um recurso arbitrário do arquivo que contém um ícone (exemplo: `.ico`, `.exe` e `.dll`). Geralmente, você pode especificar `process.execPath` para mostrar o ícone do programa.
 * `iconIndex` Número (opcional) - O índice do ícone no arquivo de recurso. Se um arquivo de recurso contém vários ícones esse valor pode ser usado para especificar o índice baseado em zero do ícone a ser exibido para esta tarefa. Se um arquivo de recurso contém apenas um ícone, esta propriedade deve ser definida como zero.
-* `workingDirectory` String (optional) - The working directory. Default is empty.
+* `workingDirectory` String (opcional) - O diretório de trabalho. O padrão está vazio.
