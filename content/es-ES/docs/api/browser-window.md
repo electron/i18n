@@ -1047,7 +1047,7 @@ Es igual a `webContents.reload`.
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+Establece el `menu` como el menu bar de la ventana.
 
 #### `win.removeMenu()` *Linux* *Windows*
 
