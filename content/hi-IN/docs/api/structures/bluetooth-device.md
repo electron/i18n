@@ -1,4 +1,4 @@
-# ब्लूटूथ डिवाइस ऑब्जेक्ट
+# ब्लूटूथ डिवाइस वस्तु
 
 * ` deviceName ` String
 * ` deviceId ` String
