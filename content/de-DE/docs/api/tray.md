@@ -1,10 +1,10 @@
-## Class: Tray
+## Klasse: Tray
 
-> Add icons and context menus to the system's notification area.
+> Fügen Sie Symbole und Kontextmenüs in den Benachrichtigungsbereich des Systems hinzu.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -18,14 +18,14 @@ app.on('ready', () => {
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Dies ist meine Anwendung.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-**Platform limitations:**
+**Plattform-Einschränkungen:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
+* Unter Linux wird der App-Indikator verwendet, wenn er unterstützt wird, ansonsten wird `GtkStatusIcon` verwendet.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * App indicator will only be shown when it has a context menu.
 * When app indicator is used on Linux, the `click` event is ignored.
