@@ -10,7 +10,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
 
 ## Ghiduri și tutoriale
 
-* [About Electron](tutorial/about.md)
+* [Despre Electron](tutorial/about.md)
 * [Configurarea mediului de dezvoltare](tutorial/development-environment.md) 
   * [Configurarea macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurarea Windows](tutorial/development-environment.md#setting-up-windows)
