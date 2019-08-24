@@ -50,7 +50,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Toegankelijkheid beschikbaar maken](tutorial/accessibility.md#enabling-accessibility)
 * [Testen en Debuggen](tutorial/application-debugging.md) 
   * [Debuggen van het hoofd proces](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debuggen van het hoofdproces met Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Het gebruik maken van Selenium en WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testen op Headless CI systemen (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools extensie](tutorial/devtools-extension.md)
@@ -70,7 +70,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Een Update Server implementeren](tutorial/updates.md#deploying-an-update-server)
   * [Updates implementeren in uw App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Updates toepassen](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Ondersteuning verkrijgen](tutorial/support.md)
 
 ## Gedetailleerde tutorials
 
@@ -80,16 +80,16 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors en Caches](tutorial/installation.md#custom-mirrors-and-caches)
   * [Probleemoplossen](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Electron uitgaven & Feedback van de ontwikkelaar 
+  * [Versiebeleid](tutorial/electron-versioning.md)
+  * [Tijdlijn van uitgaves](tutorial/electron-timelines.md)
+  * [App Feedback programma](tutorial/app-feedback-program.md)
+* [De broncode van de app inpakken met asar](tutorial/application-packaging.md) 
   * [Genereren asar archieven](tutorial/application-packaging.md#generating-asar-archives)
   * [Het gebruik maken van asar archieven](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaties](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Voeg uitgepakte bestanden toe aan asar archieven](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Widevine CDM testen](tutorial/testing-widevine-cdm.md)
 * [Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
