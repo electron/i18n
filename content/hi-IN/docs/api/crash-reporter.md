@@ -1,6 +1,6 @@
 # क्रेश रिपोर्टर
 
-> Submit crash reports to a remote server.
+> Submit crash reports to a remote server.https://www.linkedin.com/in/alfaiz-khan-1a183b144/ https://www.linkedin.com/in/alfaiz-khan-1a183b144/
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
