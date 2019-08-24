@@ -26,7 +26,7 @@ In Electron, Node.js and Chromium share a single V8 instance—usually the versi
 
 ### Versionare
 
-Începând de la versiunea 2.0, Electron [utilizează `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Începând de la versiunea 2.0, Electron [utilizează `semver`](https://semver.org). Pentru majoritatea aplicațiilor, care folosesc oricare din versiuniile recente de npm, rulând ` $ npm install electron ` va face ce trebuie.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
