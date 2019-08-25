@@ -1,6 +1,6 @@
 # Certifikát object
 
-* `data` String - PEM encoded data
+* Windows XP/0>Data pro software (Windows Mobile)> String - KRM kódované údaje
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
 * `issuerName` String - Issuer's Common Name
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
