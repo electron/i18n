@@ -16,9 +16,9 @@
 
 Мы понимаем, что наша текущая система обновления компонента Chromiumнарушает баланс между имеющимися у нас ресурсами и потребностями большинство приложений, построенных на его основе. Мы, безусловно, заинтересованы в получении дополнительной информации о работе с Электроном, от людей которые создают приложения на его основе. Мы будем очень благодарны за pull requests и поддержку проекта.
 
-## Security Is Everyone's Responsibility
+## Безопасность - это ответственность каждого
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
+Важно помнить, что безопасность вашего Electron приложения является результатом общей безопасности основы платформы (*Chromium*, *Node.js*), самого Electron, всех NPM-зависимостей и вашего кода. Поэтому вы обязаны следовать нескольким важным рекомендациям:
 
 * **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
 
