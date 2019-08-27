@@ -12,11 +12,11 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ## 네이티브 모듈들을 설치하는 방법
 
-There are several different ways to install native modules:
+네이티브 모듈을 설치하는 몇 가지 다른 방법이 있습니다.
 
 ### 모듈을 설치하고 Electron용으로 다시 빌드하기
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+다른 노드 프로젝트 처럼 모듈을 설치하고 [`electron-rebuild`](https://github.com/electron/electron-rebuild) 패키지를 사용해서 모듈을 Electron용으로 다시 빌드할 수 있습니다. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
 For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
 
@@ -88,7 +88,7 @@ If you installed a native module and found it was not working, you need to check
 
 ### A note about `win_delay_load_hook`
 
-On Windows, by default, `node-gyp` links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+Windows인 경우에, 기본적으로 `node-gyp`가 네이티브 모듈을 `node.dll`에 링크합니다. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 `Module did not self-register`, 혹은 `The specified
 procedure could not be found`같은 에러가 발생한다면, delay-load hook을 올바르게 포함하지 않은 상태로 모듈을 사용하려고 한다는 의미입니다. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
