@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// 一个简单的验证测试和一个带标题的可是窗口
+// 一个简单的验证测试和一个带标题的可视窗口
 const Application = require('spectron').Application
 const assert = require('assert')
 
