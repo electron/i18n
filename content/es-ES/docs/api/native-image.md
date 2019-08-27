@@ -121,11 +121,11 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (opcional) - Por defecto es 1.0.
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+Crea una nueva instancia de `NativeImage` desde `buffer` que contiene los datos del mapa de bits crudo devueltos por `toBitmap()`. El formato específico es dependiente de la plataforma.
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
