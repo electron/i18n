@@ -90,7 +90,7 @@ Inserta el `menuItem` en la posición `pos` del menú.
 
 ### Eventos de Instancia
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Objetos creados con `new Menu` o retornados por `Menu.buildFromTemplate` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
