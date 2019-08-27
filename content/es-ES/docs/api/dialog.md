@@ -252,7 +252,7 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.
 
-Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+Devuelve `Promise<void>` - resuelve cuando se muestra el diálogo de confianza del certificado.
 
 En macOS, esto muestra un diálogo modelo que muestra un mensaje e información certificada, y da al usuario la opción de confiar/importar el certificado. Si tú provees un argumento `browserWindow` el diálogo será adjuntado a la ventana parental, haciéndolo un modelo.
 
