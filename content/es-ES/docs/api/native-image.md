@@ -134,7 +134,7 @@ Crea una nueva instancia de `NativeImage` desde `buffer` que contiene los datos 
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Crea una nueva instancia de `NativeImage` desde `buffer`. Intenta primer decodificar como PNG o JPEG.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -161,11 +161,11 @@ El `hslShift` se aplica a la imagen con las siguientes reglas
 
 Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+En algunos casos, el `NSImageName` no coincide con su cadena de representación; un ejemplo de esto es `NSFolderImageName`, cuya cadena de representación en realidad sería `NSFolder`. Por lo tanto, necesitar determinar la cadena de representación correcta para su imagen antes de pasarla. Esto puede hacer con lo siguiente:
 
 `echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
-where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+donde `SYSTEM_IMAGE_NAME` debe ser reemplazado con cualquier valor de [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
 
 ## Clase: NativeImage
 
