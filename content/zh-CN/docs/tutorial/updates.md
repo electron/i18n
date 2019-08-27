@@ -9,9 +9,9 @@ GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/elec
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库
 - 编译的版本发布在 GitHub Releases
-- 编译已代码签名
+- 编译的版本已代码签名
 
-最简单的使用这个服务是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
+使用这个服务最简单的方法是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
 
 安装模块
 
