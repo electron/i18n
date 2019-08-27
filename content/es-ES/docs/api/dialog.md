@@ -137,7 +137,7 @@ dialog.showOpenDialog(mainWindow, {
   * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
-Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
+Devuelve `String | undefined`, la ruta del archivo elegido por el usuario; si el cuadro de dialogo es cancelado retorna `undefined`.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -156,10 +156,10 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
-    * `canceled` Boolean - whether or not the dialog was canceled.
-    * `filePath` String (optional) If the dialog is canceled this will be `undefined`.
+    * `canceled` Boolean - si el dialogo a sido cancelado o no.
+    * `filePath` String (opcional) el el diálogo es cancelado esto va a ser `undefined`.
     * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
     
 
