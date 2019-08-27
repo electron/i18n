@@ -181,15 +181,15 @@ Ejemplos:
 | Windows    | `10.0.17763`        |
 | Linux      | `4.15.0-45-generic` |
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**Note:** Devuelve la versión actual del sistema en lugar de la versión del kernel en macOS deferente a `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Ruta al archivo de salida.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Devuelve `Boolean` - Indica si la instantánea ha sido creada correctamente.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 ### `process.hang()`
 
