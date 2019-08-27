@@ -110,7 +110,7 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.windowsStore`
 
-`Boolean`. 如果应用运行于 Windows 商店(appx), 改属性为`true`, 否则为 `undefined`.
+`Boolean`。如果应用运行于 Windows 商店(appx)，该属性为`true`，否则为 `undefined`。
 
 ## 方法
 
