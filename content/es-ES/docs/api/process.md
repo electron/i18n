@@ -74,7 +74,7 @@ Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no
 
 ### `process.enablePromiseAPIs`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Configurando esto en `true` se habilitaran las advertencias de deprecación.
 
 ### `process.resourcesPath`
 
@@ -152,11 +152,11 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+Devuelve `Promise<ProcessMemoryInfo>` - Resuelve con un [ProcessMemoryInfo](structures/process-memory-info.md)
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium does not provide `residentSet` value for macOS. Este es porque macOS realiza compresión en memoria que no han sido utilizadas recientemente. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
 
 ### `process.getSystemMemoryInfo()`
 
@@ -171,15 +171,15 @@ Devuelve un objeto que contiene las estadísticas de la memoria usada por el sis
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+Devuelve `String` - La versión de sistema operativo del host.
 
 Ejemplos:
 
-| Platform | Versión             |
-| -------- | ------------------- |
-| macOS    | `10.13.6`           |
-| Windows  | `10.0.17763`        |
-| Linux    | `4.15.0-45-generic` |
+| Plataforma | Versión             |
+| ---------- | ------------------- |
+| macOS      | `13.13.6`           |
+| Windows    | `10.0.17763`        |
+| Linux      | `4.15.0-45-generic` |
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
