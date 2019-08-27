@@ -15,7 +15,7 @@ La siguiente es una lista no completa de por qué debería considerar usar el m�
 
 Los componentes API (incluyendo clases, métodos, propiedades y nombres de eventos) son similares a esos usados en Node.js.
 
-Example usage:
+Ejemlo de uso:
 
 ```javascript
 const { app } = require('electron')
