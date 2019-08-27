@@ -78,4 +78,4 @@ Elimina los oyentes del `channel` especificado.
 
 ## Objeto de evento
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+La documentación para el objeto `event` pasado a `callback` puede ser encontrada en la estructura de documentos de [`ipc-main-event`](structures/ipc-main-event.md).
