@@ -24,9 +24,9 @@ app.on('ready', () => {
 
 ## Usando `protocol` con una `partition` o `session` personalizada
 
-Un protocolo está registrado en un objeto [`session`](./session.md) específico de Electron. Si no especificas una sesión, luego tu `protocol` será aplicado a la sesión por defecto que Electron usa. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+Un protocolo está registrado en un objeto [`session`](./session.md) específico de Electron. Si no especificas una sesión, luego tu `protocol` será aplicado a la sesión por defecto que Electron usa. Sin embargo, si defines una `partition` o `session` en tú `webPreferences` de `browserWindow`, luego esa ventana va a usar una sesión diferente y tu protocolo personalizado no funcionará si solo usas `electron.protocol.XXX`.
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+Para tener su protocolo personalizado trabajando con una sesión personalizada, necesitas registarlo a esa sesión explícitamente.
 
 ```javascript
 const { session, app, protocol } = require('electron')
@@ -61,7 +61,7 @@ El módulo `protocolo` tiene los siguientes métodos:
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**Note:** Este método solo puede ser usado antes de que el evento `ready` del modulo `app` sea emitido y solo puede ser llamado una vez.
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
@@ -95,9 +95,9 @@ Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL,
 **antes (<= v4.x)**
 
 ```javascript
-// Main
+// Principal
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
-// Renderer
+// Renderizador
 webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
@@ -159,7 +159,7 @@ const { protocol } = require('electron')
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('Fallo al registrar el protocolo')
 })
 ```
 
