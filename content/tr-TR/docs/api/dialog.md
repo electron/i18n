@@ -14,7 +14,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'm
 Diyalog, Electron'un ana dizininden açılır. iletişim kutusunu bir oluşturucu işlem nesnesinde kullanmak isterseniz, uzaktan erişim kullanarak erşiebileceğinizi unutmayın:
 
 ```javascript
-const { dialog } = ihtiyaç('electron').dolaylı
+const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
