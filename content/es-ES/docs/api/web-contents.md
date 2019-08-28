@@ -1196,7 +1196,7 @@ By default Electron manages the devtools by creating an internal `WebContents` w
 
 Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
 
-An example of showing devtools in a `<webview>` tag:
+Un ejemplo de mostrar devtools en una etiqueta `<webview>`:
 
 ```html
 <html>
