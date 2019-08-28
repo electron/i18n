@@ -24,7 +24,7 @@ app.on('ready', () => {
 
 ## Usando `protocol` con una `partition` o `session` personalizada
 
-Un protocolo está registrado en un objeto [`session`](./session.md) específico de Electron. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+Un protocolo está registrado en un objeto [`session`](./session.md) específico de Electron. Si no especificas una sesión, luego tu `protocol` será aplicado a la sesión por defecto que Electron usa. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
 
 To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
 
@@ -92,7 +92,7 @@ Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL,
 
 `protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
 
-**before (<= v4.x)**
+**antes (<= v4.x)**
 
 ```javascript
 // Main
@@ -102,7 +102,7 @@ webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
-**after (>= v5.x)**
+**después de (>= v5.x)**
 
 ```javascript
 protocol.registerSchemesAsPrivileged([
