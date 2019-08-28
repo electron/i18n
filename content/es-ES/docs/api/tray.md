@@ -179,7 +179,7 @@ Configura la activación de texto para este icono de bandeja.
 
 * `title` Cadena
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Establece el título mostrado al lado de la bandeja de icono en la barra de estado (Soporta colores ANSI).
 
 #### `tray.getTitle()` *macOS*
 
