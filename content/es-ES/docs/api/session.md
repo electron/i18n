@@ -375,7 +375,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `manejador` Function<boolean> | null 
   * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso. Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
-  * `permission` String - Enum of 'media'.
+  * `permission` String - Enumeración de 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
     * `securityOrigin` String - The security orign of the `media` check.
@@ -531,7 +531,7 @@ app.on('ready', function () {
 
 #### `ses.netLog`
 
-A [NetLog](net-log.md) object for this session.
+Un objeto [NetLog](net-log.md) para esta sesión.
 
 ```javascript
 const { app, session } = require('electron')
