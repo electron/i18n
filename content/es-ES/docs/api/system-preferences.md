@@ -345,7 +345,7 @@ Returns `Promise<void>` - resolves if the user has successfully authenticated wi
 const { systemPreferences } = require('electron')
 
 systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
-  console.log('You have successfully authenticated with Touch ID!')
+  console.log('Te has autenticado exitosamente correctamente con Touch ID!')
 }).catch(err => {
   console.log(err)
 })
@@ -387,4 +387,4 @@ Devuelve `Objeto`:
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
 * `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
 
-Returns an object with system animation settings.
+Devuelve un objeto con las configuraciones del sistema de animación.
