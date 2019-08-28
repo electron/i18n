@@ -121,7 +121,7 @@ Borra la memoria caché del HTTP de la sesión.
   * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Clears the storage data for the current session.
+Borra los datos de almacenamiento para la sesión actual.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
