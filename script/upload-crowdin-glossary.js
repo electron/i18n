@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-require('dotenv-safe').load()
+require('dotenv-safe').config()
 
 const assert = require('assert')
 const globals = require('globals')
