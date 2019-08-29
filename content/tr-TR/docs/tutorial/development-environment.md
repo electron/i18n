@@ -13,10 +13,9 @@ Once downloaded, execute the installer and let the installation wizard guide you
 Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```sh
-# This command should print the version of Node.js
+#Bu komut Node.js versiyonunu yazdırır  
 node -v
-
-# This command should print the version of npm
+#Bu komut npm versiyonunu yazdırır 
 npm -v
 ```
 
@@ -33,10 +32,9 @@ On the screen that allows you to configure the installation, make sure to select
 Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+#Bu komut Node.js versiyonunu yazdırır  
 node -v
-
-# This command should print the version of npm
+#Bu komut npm versiyonunu yazdırır 
 npm -v
 ```
 
@@ -51,10 +49,9 @@ First, install a recent version of Node.js. Depending on your Linux distribution
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+#Bu komut Node.js versiyonunu yazdırır  
 node -v
-
-# This command should print the version of npm
+#Bu komut npm versiyonunu yazdırır 
 npm -v
 ```
 
