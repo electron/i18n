@@ -41,7 +41,7 @@ Abre el archivo determinado en el escritorio por defecto.
 
 Devuelve `Boolean` - Si una aplicación estaba disponible para abrir la URL.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Abra la URL del protocolo externo dado en la forma predeterminada del escritorio. (Por ejemplo, mailto: URL en el agente de correo predeterminado del usuario).
 
 **Cambiar**
 
