@@ -63,7 +63,7 @@ El módulo `protocolo` tiene los siguientes métodos:
 
 **Note:** Este método solo puede ser usado antes de que el evento `ready` del modulo `app` sea emitido y solo puede ser llamado una vez.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Registra el `scheme` como estándar, seguro, elude la política de seguridad de contenido para recursos, permite registrar ServiceWorker y soporta la API fetch.
 
 Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
 
