@@ -125,6 +125,6 @@ Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una 
 - Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
 
-Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
+Dado que el renderizado de contenido no confiable en Electron sigue siendo un territorio inexplorado, las APIs expuestas al script de pre carga del sandbox deben ser consideradas más inestables que el resto de las APIs de Electron, y pueden tener cambios repentinos para solucionar problemas de seguridad.
 
 Una mejora planificada que debería incrementar mucho la seguridad es bloquear los mensajes IPC de los renderizadores de la caja de arena por defecto, permitiendo al proceso principal definir un grupo de mensajes que el renderizador está autorizado para enviar.
