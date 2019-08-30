@@ -603,7 +603,7 @@ Devuelve:
 
 Emitido cuando la ventana asociada registra un mensaje de consola. No se emite para ventanas con *Renderización fuera de pantalla* activado.
 
-#### Event: 'preload-error'
+#### Evento: 'error-preload'
 
 Devuelve:
 
@@ -623,7 +623,7 @@ Devuelve:
 
 Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
 
-#### Event: 'ipc-message-sync'
+#### Evento: 'ipc-message-sync'
 
 Devuelve:
 
@@ -932,7 +932,7 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 #### `contents.getZoomFactor()`
 
-Returns `Number` - the current zoom factor.
+Devuelve `Number` - el factor de zoom actual.
 
 #### `contents.setZoomLevel(level)`
 
@@ -942,7 +942,7 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 #### `contents.getZoomLevel()`
 
-Returns `Number` - the current zoom level.
+Devuelve `Number` - el nivel de zoom actual.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -1035,7 +1035,7 @@ Inserta `texto` en el elemento enfocado.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Returns `Integer` - The request id used for the request.
+Devuelve `Integer` - El id de la solicitud usado para la solicitud.
 
 Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
