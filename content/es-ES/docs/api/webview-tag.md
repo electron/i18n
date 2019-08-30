@@ -448,7 +448,7 @@ Inserta `texto` en el elemento enfocado.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Returns `Integer` - The request id used for the request.
+Devuelve `Integer` - El id de la solicitud usado para la solicitud.
 
 Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
@@ -548,11 +548,11 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 ### `<webview>.getZoomFactor()`
 
-Returns `Number` - the current zoom factor.
+Devuelve `Number` - el factor de zoom actual.
 
 ### `<webview>.getZoomLevel()`
 
-Returns `Number` - the current zoom level.
+Devuelve `Number` - el nivel de zoom actual.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
