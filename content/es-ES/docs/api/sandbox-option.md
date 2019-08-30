@@ -1,6 +1,6 @@
 # `sandbox` Option
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Crea un ventana de navegador con un renderizador en modo sandbox. Con esta opción habilitada, el renderer debe comunicarse a través de IPC con el proceso principal para acceder a las APIs de node.
 
 Una de las características clave de la seguridad de Chromium es que toda la renderización y el código de JavaScript es ejecutado dentro d una caja de arena. Esta caja de area usa características específicas para cada OS para asegurar que un explosivo en el proceso de renderización no pueda lastimar al sistema.
 
