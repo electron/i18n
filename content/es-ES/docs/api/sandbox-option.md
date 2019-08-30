@@ -64,8 +64,8 @@ app.on('ready', () => {
 y preload.js:
 
 ```js
-// Este archivo se carga cada vez que se crea un contexto de javascript. It runs in a
-// private scope that can access a subset of Electron renderer APIs. Debemos ser
+// Este archivo se carga cada vez que se crea un contexto de javascript. Corre en un
+// ámbito privado que puede acceder a un subconjunto de APIs de rendererizado de Electron. Debemos ser
 // cuidadosos de no dejar salir ningún objeto en el ámbito global!
 const { ipcRenderer, remote } = require('electron')
 const fs = remote.require('fs')
@@ -116,11 +116,11 @@ Actualmente la function `require` proveída en el ambiente de precargado expone 
 - `contadores`
 - `url`
 
-More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Se pueden agregar más si se necesitan para exponer más APIs de Electron en el sandbox, pero cualquier módulo en el proceso principal puede ser usado a través de `electron.remote.require`.
 
 ## Estado
 
-Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. Nosotros todavía no estamos seguros de las implicaciones de seguridad al exponer algunas APIs renderer de Electron a un script de precarga, pero aquí hay algunas cosas a considerar antes de renderizar contenido no confiable:
 
 - Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
