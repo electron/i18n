@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 
 if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
-  require('dotenv-safe').load()
+  require('dotenv-safe').config()
 }
 
 import * as del from 'del'
