@@ -539,7 +539,7 @@ const { app, session } = require('electron')
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // Después de algunos eventos de red
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
