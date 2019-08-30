@@ -65,7 +65,7 @@ El módulo `protocolo` tiene los siguientes métodos:
 
 Registra el `scheme` como estándar, seguro, elude la política de seguridad de contenido para recursos, permite registrar ServiceWorker y soporta la API fetch.
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+Especifique a privilegio con el valor de `true` para habilitar la capacidad. Un ejemplo de registro de un esquema de privilegiado, con eliminación de la Política de Seguridad de Contenido:
 
 ```javascript
 const { protocol } = require('electron')
@@ -90,7 +90,7 @@ Registrando un esquema como estándar permitirá el acceso a archivos mediante l
 
 Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) está deshabilitado para esquemas no estándar. Así que en general si quiere registrar un protocolo personalizado para reemplazar el protocolo el `http`, tiene que registrarlo como un esquema estándar.
 
-`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+`protocol.registerSchemesAsPrivileged` se puede usar para replicar las funcionalidad anterior `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` y `protocol.registerServiceWorkerSchemes` funciones que existían antes de Electron 5.0.0, por ejemplo:
 
 **antes (<= v4.x)**
 
