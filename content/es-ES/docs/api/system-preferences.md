@@ -331,9 +331,9 @@ Sets the appearance setting for your application, this should override the syste
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
-Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+Devuelve `Boolean` - si este dispositivo tiene la habilidad para usar Touch ID.
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+**NOTE:** Esta API retornará `false` en sistemas macOS mas viejos que Sierra 10.12.2.
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
