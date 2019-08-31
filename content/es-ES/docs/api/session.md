@@ -383,7 +383,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
-Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará. To clear the handler, call `setPermissionCheckHandler(null)`.
+Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará. Para borrar el manejador, llame `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
@@ -406,7 +406,7 @@ Borra la caché de resolución de host.
 
 #### `ses.clearHostResolverCache()`
 
-Returns `Promise<void>` - Resolves when the operation is complete.
+Devuelve `Promise<void>` - Se resuelve cuando la operación es completada.
 
 Borra la caché de resolución de host.
 
@@ -453,7 +453,7 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 
 * `identificador` Cadena - UUID válido.
 
-Returns `Promise<Buffer>` - resolves with blob data.
+Devuelve `Promise<Buffer>` - Se resuelve con datos blob.
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -482,11 +482,11 @@ Limpia caché de autenticación HTTP de la sesión.
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Devuelve `Promise<void>` - resuelve cuando se ha borrado el caché de autenticación HTTP de la sesión.
 
 #### `ses.clearAuthCache()`
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Devuelve `Promise<void>` - resuelve cuando se ha borrado el caché de autenticación HTTP de la sesión.
 
 #### `ses.setPreloads(preloads)`
 
