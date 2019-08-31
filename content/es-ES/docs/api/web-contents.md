@@ -749,7 +749,7 @@ Inicia una descarga del recurso en el `url` sin navegar. Se activará el evento 
 
 #### `contents.getURL()`
 
-Devuelve `String` - El URL de la página web actual.
+Devuelve `String` - La URL de la página web actual.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1104,7 +1104,7 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -1124,7 +1124,7 @@ El `callback` será llamado con `callback(error, data)` cuando finalice. La `dat
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
 Imprime la página web de la ventana como PDF con la configuración personalizada de impresión previa de Chromium.
 
@@ -1522,7 +1522,7 @@ Controls whether or not this WebContents will throttle animations and timers whe
 
 #### `contents.getType()`
 
-Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+Devuelve `String` - el tipo de webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Propiedades de Instancia
 
@@ -1532,7 +1532,7 @@ A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session`
 
-A [`Session`](session.md) used by this webContents.
+Un [`Session`](session.md) usado por este webContents.
 
 #### `contents.hostWebContents`
 
