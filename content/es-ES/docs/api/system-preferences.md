@@ -337,9 +337,9 @@ Devuelve `Boolean` - si este dispositivo tiene la habilidad para usar Touch ID.
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
-* `reason` String - The reason you are asking for Touch ID authentication
+* `reason` String - La razón por la que estás pidiendo por la autenticación Touch ID
 
-Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+Devuelve `Promise<void>` - Se resuelve si el usuario se ha autenticado con éxito con Touch ID.
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -351,7 +351,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 })
 ```
 
-This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+Esta API en si misma no va a proteger sus datos de usuario, más bien, es un mecanismo para permitirle hacerlo. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
 
 **NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
 
@@ -363,9 +363,9 @@ Returns `Boolean` - `true` if the current process is a trusted accessibility cli
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` or `camera`.
+* `mediaType` String - `microphone` o `camera`.
 
-Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 
 This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
 
@@ -383,7 +383,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 Devuelve `Objeto`:
 
-* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
+* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Se observa en el tipo de sesión (por ejemplo, escritorio remoto) y ajustes de accesibilidad para dar orientación a animaciones pesadas.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
 * `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
 
