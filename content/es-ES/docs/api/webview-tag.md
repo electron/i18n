@@ -495,7 +495,7 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
