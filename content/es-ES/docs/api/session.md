@@ -88,7 +88,7 @@ Los siguientes métodos están disponibles para instancias de `Sesión`:
 
 * `callback` Function 
   * `size` Integer - Tamaño en bytes del caché usado.
-  * `error` Integer - The error code corresponding to the failure.
+  * `error` Integer - El código de erro correspondiente al fallo.
 
 La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
@@ -96,12 +96,12 @@ La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Devuelve `Promise<Integer>` - El tamaño de cache de la sesión actual, en bytes.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done. 
-  * `error` Integer - The error code corresponding to the failure.
+* `callback` Function - Llamada cuando la operación es realizada. 
+  * `error` Integer - El código de erro correspondiente al fallo.
 
 Borra la memoria caché del HTTP de la sesión.
 
