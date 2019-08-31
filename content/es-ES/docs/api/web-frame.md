@@ -88,9 +88,9 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ### `webFrame.insertCSS(css)`
 
-* `css` String - CSS source code.
+* `css` String - CSS codigo de origen.
 
-Inserts `css` as a style sheet in the document.
+Se inserta `css` como una hoja de estilo en el documento.
 
 ### `webFrame.insertText(texto)`
 
