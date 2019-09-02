@@ -776,7 +776,7 @@ Enfoca la página web.
 
 Devuelve `Boolean` - Si se enfocó o no la página web.
 
-#### `contents.isLoading()`
+#### `contents.isLoading ()`
 
 Devuelve `Boolean` - Si todavía la página web está cargando recursos.
 
