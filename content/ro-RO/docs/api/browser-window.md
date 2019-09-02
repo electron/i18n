@@ -75,7 +75,7 @@ Fereastra `child` va fi arată mereu în partea de sus a ferestrei `top`.
 
 ### Ferestrele modale
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+O fereastră modală este o fereastră copil care dezactivează fereastra părinte cu scopul de a creea o fereastră modală, care trebuie setată la opțiunile `parent` și `modal`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
