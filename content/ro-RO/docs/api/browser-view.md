@@ -73,16 +73,17 @@ Forțează închiderea priveliștei, evenimentele `unload` și `beforeunload` nu
 
 * `opțiuni` Obiect 
   * `width-lățime` Boolean - Dacă `true-adevărat`, lățimea priveliștei va crește și se contractă împreună cu fereastra. `false-fals` din fabrică.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `height-înălțime` Boolean - Dacă `true-adevărat`, înălțimea priveliștii va crește și se va contracta împreună cu fereastra. `false-fals` din fabrică.
+  * `horizontal-orizontal` Boolean - Dacă `true-adevărat`, poziția x a priveliștii și lățimea vor crește și contracta proporțional cu fereastra.`false-fals` din fabrică.
+  * `vertical` Boolean - Dacă `true-adevărat`, poziția y și înălțimea priveliștii vor crește și contracta proporțional cu fereastra. `false-fals<0> din fabrică.</li>
+</ul></li>
+</ul>
 
-#### `view.setBounds(bounds)` *Experimental*
-
-* `bounds` [Rectangle](structures/rectangle.md)
-
-Resizes and moves the view to the supplied bounds relative to the window.
-
-#### `view.setBackgroundColor(color)` *Experimental*
-
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+<h4><code>view.setBounds(bounds)` *Experimental*</h4> 
+    * `bounds` [Rectangle](structures/rectangle.md)
+    
+    Redimensionează și mută vederea în limitele furnizate în raport cu fereastra.
+    
+    #### `view.setBackgroundColor(color)` *Experimental*
+    
+    * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
