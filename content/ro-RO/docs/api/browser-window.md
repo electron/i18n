@@ -47,7 +47,7 @@ Acest eveniment este de obicei emis după evenimentul `did-finish-load`, dar pen
 
 ### Setarea `backgroundColor` - culorii fondului
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Pentru o app- aplicație mai complexă, evenimentul `ready-to-show` poate fi emis prea târziu, ceea ce duce la funcționarea lentă a aplicației. În acest caz, este recomendabil să se arate fereastra imediat, și să se folosească `backgroundColor`-culoarea de fond apropiată fondului aplicației tale:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+I-a aminte că, chiar și pentru aplicațiile care folosesc evenimentul ` ready-to-show`, este recomendabil să setezi`backgroundColor` ca să faci ca aplicația să aibă o tentă mai mult nativă.
 
-## Parent and child windows
+## Ferestrele-windows Părinte și copil
 
-By using `parent` option, you can create child windows:
+Folosind opțiunea `parent`, poți să creezi ferestre copii:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -71,9 +71,9 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Fereastra `child` va fi arată mereu în partea de sus a ferestrei `top`.
 
-### Modal windows
+### Ferestrele modale
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
