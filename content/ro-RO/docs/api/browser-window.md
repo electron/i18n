@@ -11,23 +11,23 @@ const (constanta) { BrowserWindow } = require- cere ('electron')
 // Sau utilizează `remote`-la distanță din procesul renderer.
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+let win = new BrowserWindow ( { width: 800, height: 600 })
 win.on('closed', () => {
-  win = null
+win = null
 })
 
-// Load a remote URL
+//Încărcarea URL la distanță
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Sau încărcarea unui fișier HTML local
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Fereastra Frameless-fără cadru
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Pentru a crea o fereastră fără chrome, sau o fereastră transparentă pentru o formă arbitrară poți folosi [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Afișarea ferestrei cu grație
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
