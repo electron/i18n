@@ -1,14 +1,14 @@
-# BrowserWindow
+# BrowserWindow - FereastraBrowser-ului
 
-> Create and control browser windows.
+> Creează și controlează ferestrele browser-ului.
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 ```javascript
 // În procesul principal-main.
-const { BrowserWindow } = require('electron')
+const (constanta) { BrowserWindow } = require- cere ('electron')
 
-// Or use `remote` from the renderer process.
+// Sau utilizează `remote`-la distanță din procesul renderer.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -107,7 +107,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Creează și controlează ferestrele browser-ului.
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
