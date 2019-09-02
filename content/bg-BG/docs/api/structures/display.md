@@ -1,6 +1,6 @@
 # Обект Display
 
-* `id` Number - Уникален идентификатор за съответния дисплей.
+* `id` Number - Unique identifier associated with the display.
 * `rotation` Number - Може да бъде 0, 90, 180, 270, показва ъгъла на завъртане на екрана в градуси по посока на часовниковата стрелка.
 * `scaleFactor` Number - Показва каква скала на пикселите използва съответното устройство.
 * `touchSupport` String - Може да бъде `available`, `unavailable`, `unknown`.
