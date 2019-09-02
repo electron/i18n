@@ -29,23 +29,23 @@ Pentru a crea o fereastră fără chrome, sau o fereastră transparentă pentru 
 
 ## Afișarea ferestrei cu grație
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+La încărcarea directă în fereastra unei pagini, utilizatorii pot să vadă pagina încărcându-se pas cu pas, ceea ce semnifică că nu este o bună experiență-app pentru un nativ a. Pentru a face ca fereastra să fie afișată fără flash, există două soluții pentru diferite situații.
 
-### Using `ready-to-show` event
+### Folosirea evenimentului `ready-to-show`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+În momentul încărcarii paginii, evenimentul `ready-to-show` va fi emis când procesul prestatorului a prestat pagina pentru prima dată, dacă fereastra nu a fost arătată deja. Aratând fereastra după eveniment nu avea nici nu efect visual-flash:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ show: false })
-win.once('ready-to-show', () => {
-  win.show()
+win.once('ready-to-show',() => {
+win.show()
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Acest eveniment este de obicei emis după evenimentul `did-finish-load`, dar pentru paginile cu multe resurse la distanță, poate fi emis înainte de evenimentul `did-finish-load`.
 
-### Setting `backgroundColor`
+### Setarea `backgroundColor` - culorii fondului
 
 For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
