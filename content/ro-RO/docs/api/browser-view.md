@@ -43,23 +43,23 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Întoarce `BroswerView` - Priveliștea cu date `id`.
 
-### Instance Properties
+### Propietățile inițiale
 
-Objects created with `new BrowserView` have the following properties:
+Crearea obiectelor cu `new BrowserView` au următoarele propiețăti:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Obiectul `WebContents<//0> deținut de această priveliște.</p>
 
-#### `view.id` *Experimental*
+<h4><code>view.id` *Experimental*</h4> 
 
-A `Integer` representing the unique ID of the view.
+`Integer` reprezintă ID-ul unic a acestei priveliști.
 
-### Instance Methods
+### Metode de Instanță
 
-Objects created with `new BrowserView` have the following instance methods:
+Obiectele create cu `new BrowserView` au următoarele metode de instanță:
 
 #### `view.destroy()`
 
