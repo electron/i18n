@@ -86,4 +86,4 @@ Forțează închiderea priveliștei, evenimentele `unload` și `beforeunload` nu
     
     #### `view.setBackgroundColor(color)` *Experimental*
     
-    * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+    * `color` String - Șir - Culoare în formatele `#aarrggbb` sau `#argb`. Canalul alpha este opțional.
