@@ -63,16 +63,16 @@ Obiectele create cu `new BrowserView` au următoarele metode de instanță:
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Forțează închiderea priveliștei, evenimentele `unload` și `beforeunload` nu vor fi emise pentru pagina web. După terminarea priveliștei, cheamă this function cu scopul de a elibera din memorie și alte resurse cât mai repede posibil.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Întoarce valoare `Booleană ` - Dacă priveliștea este distrusă.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `opțiuni` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+* `opțiuni` Obiect 
+  * `width-lățime` Boolean - Dacă `true-adevărat`, lățimea priveliștei va crește și se contractă împreună cu fereastra. `false-fals` din fabrică.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
   * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
   * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
