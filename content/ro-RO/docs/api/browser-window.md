@@ -137,10 +137,10 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `alwaysOnTop` Boolean (opțional) - Fereastra stă în partea de sus a tuturor ferestrelor. Modul implicit este `false-fals`.
   * `fullscreen` Boolean(opțional) - Apariția ferestrei în ecran complet. Când este explicit setat la ` false-fals` butonul de ecran complet va fi ascuns sau dezactivat în macOS. Modul implicit este `false-fals`.
   * `fullscreenable` Boolean(opțional) - Punerea ferestrei în ecran complet. În macOS, butonul de maximizare/zoom ar trebui comutat la modul full screen-ecran complet sau maximizarea ferestrei. Modul implicit este `true-adevărat`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
+  * `simpleFullscreen` Boolean ( opțional) - Utilizează ecranul complet pre-Lion în macOS. Modul implicit este `false-fals`.
+  * `skipTaskbar` Boolean (opțional) - Apariția ferestrei în bara de activități. Modul implicit este `false-fals`.
+  * `kiosk` Boolean (opțional) - Modul kiosk. Modul implicit este `false-fals`.
+  * `title` String (opțional) - Titlul ferestrei în modul implicit. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
