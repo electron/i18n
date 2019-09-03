@@ -1,4 +1,4 @@
-# IO计数器 对象
+# IOCounters 对象
 
 * `readOperationCount` Number - I/O读取操作的数量
 * `writeOperationCount` Number - I/O写入操作的数量.
