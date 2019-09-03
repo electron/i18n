@@ -119,9 +119,9 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
 
 * `opțiuni` Object -Obiect (opțional) 
   * `width-lățime`Integer(opțional) - Lățimea ferestrei în pixeli. Modul implicit este ` 800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
+  * `lungime` Integer (opțional) - Lungimea ferestrei în pixeli. Modul implicit este `600`.
+  * `x` Integer (opțional) (**required-cerut** dacă y este utilizat) - Stânga offset-compensată din ecran. Modului implicit îi revine sarcina de a centra fereastra.
+  * `y` Integer (opțional) (**required-cerut** dacă x este utilizat) - Partea de sus a ferestrei din ecran. Modului implicit îi revine sarcina de a centra fereastra.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
   * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
