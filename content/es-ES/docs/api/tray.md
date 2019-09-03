@@ -185,7 +185,7 @@ Establece el título mostrado al lado de la bandeja de icono en la barra de esta
 
 * `title` Cadena
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Devuelve `String` - el título mostrado junto al icono de la bandeja en la barra de estado
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
