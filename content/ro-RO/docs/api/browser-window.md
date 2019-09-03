@@ -94,13 +94,13 @@ child.once('ready-to-show', () => {
 * În toate platformele, statutul visibil verifică dacă fereastra este ascunsă/minimizată sau nu.
 * Adițional, în macOS, starea de vizibilitate urmărește statutul de ocluzie al ferestrei. Dacă fereastra este ocluzionată(i.e. acoperită complet) de altă fereastră, statul vizibilității va fi `hidden-ascuns`. În alte platforme, statutul vizibilității va fi `hidden-ascuns` doar când fereastra este minimizată sau explicit ascunsă cu `win.hide()`.
 * Dacă `BrowserWindow` este creată cu `show: false`, statutul vizibilității inițial va fi `visible-vizibil` chiar dacă fereastra actuală este ascunsă.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* Dacă`bacgroundThrottling` este dezactivat, statutul vizibiliății va rămâne`visible-vizibil` chiar dacă fereastra este minimizată, ocluzată, sau ascunsă.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Este recomendabil să pauzezi operațiile scumpe când statutul vizibilității este`hidden-ascuns` pentru a minimiza consumul puterii.
 
-### Platform notices
+### Platform notices- Notificările Platformei
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
+* În macOS ferestrele modale vor fi displayed-afișate ca și foi la fereastra părinte.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
