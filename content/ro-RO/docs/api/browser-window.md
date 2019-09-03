@@ -101,24 +101,24 @@ Este recomendabil să pauzezi operațiile scumpe când statutul vizibilității 
 ### Platform notices- Notificările Platformei
 
 * În macOS ferestrele modale vor fi displayed-afișate ca și foi la fereastra părinte.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* În macOS fereastra copil își va menține poziția relativă a ferestrei părinte atunci când fereastra părinte se mișcă, în timp ce în Windows sau Linux fereastra copil nu se mișcă.
+* În Linux modelul ferestrei modale va fi schimbat în `dialog`.
+* În Linux multe din mediile desktop-ului nu suportă o fereastră modală ascunsă.
 
-## Class: BrowserWindow
+## Clasa: BrowserWindow
 
 > Creează și controlează ferestrele browser-ului.
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` este un [EventEmitter-Emisor de Evenimente](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>options-opțiuni`.
 
 ### `new BrowserWindow([options])`
 
 * `opțiuni` Object -Obiect (opțional) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
+  * `width-lățime`Integer(opțional) - Lățimea ferestrei în pixeli. Modul implicit este ` 800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
