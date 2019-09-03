@@ -124,16 +124,16 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `y` Integer (opțional) (**required-cerut** dacă x este utilizat) - Partea de sus a ferestrei din ecran. Modului implicit îi revine sarcina de a centra fereastra.
   * `useContentSize-utilizareaConținutuluiMărimii` Boolean ( opțional) - `lățimea` și `height-lungimea` vor fi folosite ca size-mărimi ale paginii web, ceea ce semnifică că size-marimea actuală a ferestrei va include mărimea cadrului ferestrei și va fi usor mai largă. Modul implicit este `false-fals`.
   * `center-centru` Boolean (opțional) - Arată fereastra în mijlocul ecranului.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
+  * `minWidth` Integer (opțional) - Lățimea minimă a ferestrei. Modul implicit este `0`.
+  * `minHeight` Integer (opțional) - Lungimea minimă a ferestrei. Modul implicit este `0`.
+  * `maxWidth` Integer (opțional) - Lățimea maximă a ferestrei. Modul implicit nu are limite.
+  * `maxHeight` Integer (opțional) - Lungimea maximă a ferestrei. Modul implicit nu are limite.
+  * `resizable` Boolean (opțional) - Fereastra poate fi ajustată. Modul implicit este`true-adevărat`.
+  * `movable` Boolean(opțional) - Fereastra poate fi mutată. Nu este implementată în Linux. Modul implicit este `true-adevărat`.
+  * `minimizable` Boolean (opțional) - Minimizarea ferestrei. Nu este implementată în Linux. Modul implicit este ` true-adevărat`.
+  * `maximizable` Boolean(opțional) - Maximizarea ferestrei. Nu este implementată în Linux. Modul implicit este ` true-adevărat`.
+  * `closable` Boolean(opțional) - Închiderea ferestrei. Nu este implementată în Linux. Modul implicit este `true-adevărat`.
+  * `focusable` Boolean (opțional) - Focusarea ferestrei. Modul implicit este `true-adevărat`. În setările ferestrei `focusable: false`, implică setarea `skipTaskbar: true`. În setările Linux `focusable: false` face ca fereastra să nu mai interacționeze cu wm, așa că fereastra va ramane mereu în partea de sus a tuturor spațiilor de muncă.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Modul implicit este `false-fals`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
