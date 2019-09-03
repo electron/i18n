@@ -92,8 +92,8 @@ child.once('ready-to-show', () => {
 [Page Visibility API - Visibilitatea Paginii API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funcționează după cum urmează:
 
 * În toate platformele, statutul visibil verifică dacă fereastra este ascunsă/minimizată sau nu.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
+* Adițional, în macOS, starea de vizibilitate urmărește statutul de ocluzie al ferestrei. Dacă fereastra este ocluzionată(i.e. acoperită complet) de altă fereastră, statul vizibilității va fi `hidden-ascuns`. În alte platforme, statutul vizibilității va fi `hidden-ascuns` doar când fereastra este minimizată sau explicit ascunsă cu `win.hide()`.
+* Dacă `BrowserWindow` este creată cu `show: false`, statutul vizibilității inițial va fi `visible-vizibil` chiar dacă fereastra actuală este ascunsă.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
