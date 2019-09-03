@@ -105,7 +105,7 @@ Inserta `texto` en el elemento enfocado.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página.
 
@@ -118,7 +118,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 * `code` Cadena de caracteres
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página.
 
@@ -132,7 +132,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
@@ -144,7 +144,7 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
