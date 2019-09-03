@@ -221,13 +221,13 @@ win.on('hide', () => {
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Establece la opción para ignorar los eventos de doble click. Ignorar estos eventos te permite detectar cada pulsación individual del icono de la bandeja.
 
 Este valor se establece en falso por defecto.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 
 #### `tray.displayBalloon(options)` *Windows*
 
