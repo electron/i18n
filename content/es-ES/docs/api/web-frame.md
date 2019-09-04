@@ -126,7 +126,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
@@ -134,7 +134,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -146,32 +146,32 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede proporcionar aquí cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede proporcionar aquí cualquier entero.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `información` Object 
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
