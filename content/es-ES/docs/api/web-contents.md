@@ -1244,8 +1244,8 @@ app.once('ready', () => {
 #### `contents.openDevTools([options])`
 
 * `opciones` Objecto (opcional) 
-  * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
-  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+  * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado del dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
+  * `activate` Boolean (opcional) - Si llevar la ventana de devtools abierta al primer plano. El valor predeterminado es `true`.
 
 Abre las herramientas del desarrolador.
 
