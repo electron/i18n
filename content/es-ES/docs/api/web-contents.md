@@ -1192,9 +1192,9 @@ Usa el `devToolsWebContents` como objetivo `WebContents` para mostrar devtools.
 
 El `devToolsWebContents` no debe tener ninguna ninguna navegación, y este no debería ser usado para otros propósitos después de la llamada.
 
-Por defecto Electron maneja el devtools creando un `WebContents` interno con un vista nativa, de lo cual los desarrolladores tienen un control muy limitado. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+Por defecto Electron maneja el devtools creando un `WebContents` interno con un vista nativa, de lo cual los desarrolladores tienen un control muy limitado. Con el método `setDevToolsWebContents`, los desarrolladores pueden usar algún `WebContents` para mostrar el devtools en él, incluyendo la etiqueta `BrowserWindow`, `BrowserView` y `<webview>`.
 
-Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+Tenga en cuenta que cerrando el devtools no se destruye el `devToolsWebContents`, es responsabilidad del que llamo destruir el `devToolsWebContents`.
 
 Un ejemplo de mostrar devtools en una etiqueta `<webview>`:
 
@@ -1224,7 +1224,7 @@ Un ejemplo de mostrar devtools en una etiqueta `<webview>`:
 </html>
 ```
 
-An example of showing devtools in a `BrowserWindow`:
+Un ejemplo de mostrar devtools en un `BrowserWindow`:
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -1249,7 +1249,7 @@ app.once('ready', () => {
 
 Abre las herramientas del desarrolador.
 
-When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
+Cuando `contents` es un tag `<webview>`, el `mode` debería ser `detach` por defecto, explícitamente pasando un `mode` vacío puede forzar el uso del último estado del dock.
 
 #### `contents.closeDevTools()`
 
@@ -1276,7 +1276,7 @@ Empieza a inspeccionar elementos en la posición (`x`, `y`).
 
 #### `contents.inspectSharedWorker()`
 
-Opens the developer tools for the shared worker context.
+Abre las herramientas de desarrollador para el contexto de los trabajadores compartidos.
 
 #### `contents.inspectServiceWorker()`
 
@@ -1289,7 +1289,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 
 Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
 Un ejemplo de envío de mensajes desde el proceso principal al proceso de renderizado:
 
@@ -1326,9 +1326,9 @@ app.on('ready', () => {
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Envía un mensaje asíncrono para especificar el frame en el proceso renderizador vía `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
 If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
 
