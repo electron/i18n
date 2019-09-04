@@ -142,7 +142,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `kiosk` Boolean (opțional) - Modul kiosk. Modul implicit este `false-fals`.
   * `title` String (opțional) - Titlul ferestrei în modul implicit. Modul implicit este `"Electron"`. Dacă eticheta HTML`<title>` este definită în fișierul HTML încărcat de `loadURL()`, această propietate va fi ignorată.
   * `icon` ([NativeImage](native-image.md) | String) (opțional) - Icoana ferestrei. În Windows este recomandabil a se folosi icoanele `ICO` pentru a avea cele mai bune efecte visuale, pe care le poți lăsa nedefinite în așa fel în cât icoana executabilă va fi folosită.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
+  * `show` Boolean(opțional) - Fereastra este aratată când este creată. Modul implicit este `true-adevărat`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
