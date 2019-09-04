@@ -144,7 +144,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `icon` ([NativeImage](native-image.md) | String) (opțional) - Icoana ferestrei. În Windows este recomandabil a se folosi icoanele `ICO` pentru a avea cele mai bune efecte visuale, pe care le poți lăsa nedefinite în așa fel în cât icoana executabilă va fi folosită.
   * `show` Boolean(opțional) - Fereastra este aratată când este creată. Modul implicit este `true-adevărat`.
   * `frame` Boolean (opțional) - Specifică `false-fals` pentru a crea [Frameless Window](frameless-window.md). Modul implicit este `true-adevărat`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `parent-părinte` BrowserWindow (opțional) - Specifică fereastra părinte. modul implicit este `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
