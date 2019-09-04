@@ -140,7 +140,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `simpleFullscreen` Boolean ( opțional) - Utilizează ecranul complet pre-Lion în macOS. Modul implicit este `false-fals`.
   * `skipTaskbar` Boolean (opțional) - Apariția ferestrei în bara de activități. Modul implicit este `false-fals`.
   * `kiosk` Boolean (opțional) - Modul kiosk. Modul implicit este `false-fals`.
-  * `title` String (opțional) - Titlul ferestrei în modul implicit. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
+  * `title` String (opțional) - Titlul ferestrei în modul implicit. Modul implicit este `"Electron"`. Dacă eticheta HTML`<title>` este definită în fișierul HTML încărcat de `loadURL()`, această propietate va fi ignorată.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
