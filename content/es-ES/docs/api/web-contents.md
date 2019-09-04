@@ -1326,23 +1326,23 @@ app.on('ready', () => {
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono para especificar el frame en el proceso renderizador vía `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Envía un mensaje asíncrono para especificar el frame en el proceso renderizador vía `channel`. Los argumentos serán serializados internamente como JSON y como tal no se incluirán funciones o cadenas de prototipo.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+Si quieres obtener el `frameId` de un contexto renderer dado deberías usar el valor `webFrame.routingId`. E.g.
 
 ```js
-// In a renderer process
-console.log('My frameId is:', require('electron').webFrame.routingId)
+// En un proceso renderizador
+console.log('Mi frameid es:', require('electron').webFrame.routingId)
 ```
 
-You can also read `frameId` from all incoming IPC messages in the main process.
+También puede leer el `frameId` de todos los mensajes IPC entrantes en el proceso principal.
 
 ```js
-// In the main process
+// En el proceso principal
 ipcMain.on('ping', (event) => {
-  console.info('Message came from frameId:', event.frameId)
+  console.info('Mensaje viene de  frameId:', event.frameId)
 })
 ```
 
@@ -1370,7 +1370,7 @@ Deshabilita la emulación del dispositivo habilitado por `webContents.enableDevi
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - Un arreglo con los modificadores del evento, puede incluir `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Envía un input `event` a la página. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+Envía un input `event` a la página. **Nota:** El [`BrowserWindow`](browser-window.md) que contiene los contenidos necesita estar enfocado para que `sendInputEvent()` trabaje.
 
 Para eventos del teclado, el objeto `evento` también tiene las siguientes propiedades:
 
@@ -1431,7 +1431,7 @@ Configura el `item` como un elemento arrastrable para la operación drag-drop ac
   * `HTMLComplete` - Guarda una página html completa.
   * `MHTML` - Guarda una página html completa como MHTML.
 
-Returns `Promise<void>` - resolves if the page is saved.
+Devuelve `Promise<void>` - resuelve si la pagina se guardo.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1500,11 +1500,11 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
+Devuelve `Integer` - El `pid` del sistema operativo, del proceso de renderizado asociado.
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Devuelve `Integer` - El `pid` interno de Chromium del renderizador asociado. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
