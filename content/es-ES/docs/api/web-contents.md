@@ -1031,13 +1031,13 @@ Inserta `texto` en el elemento enfocado.
 * `opciones` Objecto (opcional) 
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (opcional) - Si la operación es la primera solicitud o un seguimiento, por defecto a `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
+  * `matchCase` Boolean (opcional) - Si la busqueda debe ser sensible a mayúsculas, por defecto es `false`.
+  * `wordStart` Boolean (opcional) - Si sólo se mira al inicio de las palabras. por defecto a `false`.
+  * `medialCapitalAsWordStart` Boolean (opcional) - Cuando se combina con `wordStart`, acepta emparejar en el medio de una palabra si el emparejado comienza con un una letra mayúscula seguida por una minúscula o no letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Devuelve `Integer` - El id de la solicitud usado para la solicitud.
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Empieza una solicitud para encontrar todas las coincidencias para el `text` en la página web. El resultado de la solicitud puede ser obtenida suscribiendote al evento [`found-in-page`](web-contents.md#event-found-in-page).
 
 #### `contents.stopFindInPage(action)`
 
@@ -1064,7 +1064,7 @@ console.log(requestId)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitiendo `rect` capturará toda la página visible.
+Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. La `image` es una instancia de [NativeImage](native-image.md) que almacena datos de la instantánea. Omitiendo `rect` capturará toda la página visible.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -1089,7 +1089,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md).
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 * `callback` Función (opcional) 
-  * `success` Boolean - Indicates success of the print call.
+  * `success` Boolean - Indica el éxito de la llamada impresa.
 
 Imprime la página web de la ventana. Cuando se configura `silent` a `true`, Electron seleccionará la impresora por defecto del sistema si `deviceName` esta en blanco y la configuración por defecto para imprimir.
 
@@ -1100,7 +1100,7 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 #### `contents.printToPDF(options, callback)`
 
 * `opciones` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar, Usa 0 para el margen por defecto, 1 para no margen y 2 para margenes minimos.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
