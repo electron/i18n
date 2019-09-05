@@ -476,8 +476,8 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
   * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
   * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -486,18 +486,18 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
-### `<webview>.printToPDF(options)`
+### `<webview>.printToPDF(opciones)`
 
 * `opciones` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (opcional) - Si se va a imprimir o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+Imprime la página web de `webview` como PDF, Igual como `webContents.printToPDF(options)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -505,7 +505,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. La `image` es una instancia de [NativeImage](native-image.md) que almacena datos de la instantánea. Omitir `rect` capturará toda la página visible.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -522,7 +522,7 @@ Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` captur
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. El proceso renderizador puede manejar el mensaje escuchando el evento `channel` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
 Ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para ejemplos.
 
@@ -576,7 +576,7 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuando este módulo esta deshabilitado.
 
 ### `<webview>.getWebContentsId()`
 
