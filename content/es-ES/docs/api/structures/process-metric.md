@@ -6,9 +6,9 @@
   * `Tab`
   * `Utility`
   * `Zygote`
-  * `Sandbox helper`
+  * `Ayuda de Sandbox`
   * `GPU`
-  * `Pepper Plugin`
+  * `Plugin Pepper`
   * `Pepper Plugin Broker`
-  * `Unknown`
+  * `Desconocido`
 * `CPU` [CPUUsage](cpu-usage.md) - uso de CPU del proceso.
