@@ -34,7 +34,7 @@ You should listen for the `transactions-updated` event as soon as possible and c
 
 ### `inAppPurchase.purchaseProduct(productID, quantity)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - Los identificadores del producto a comprar. (El identificador de `com.example.app.product1` es `product1`).
 * `quantity` Integer (opcional) - El número de objetos que el usuario quiere comprar.
 
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
