@@ -173,9 +173,9 @@ Establecer el origen de seguridad del mundo aislado.
 
 * `worldId` Integer - El ID del mundo para correr el javascript en `0` es el mundo por defecto, `999` es el mindo usado por la característica `contextIsolation` de Electron. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `información` Object 
-  * `securityOrigin` String (optional) - Security origin for the isolated world.
-  * `csp` String (optional) - Content Security Policy for the isolated world.
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `securityOrigin` String (opcional) - Origen de seguridad para el mundo aislado.
+  * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
+  * `name` String (opcional) - Nombre para el mundo aislado. Útil en devtools.
 
 Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
@@ -221,7 +221,7 @@ Tenga en cuenta que llamar ciegamente este método probablemente haga que Electr
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - selector CSS para un elemento frame.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
