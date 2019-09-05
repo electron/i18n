@@ -241,15 +241,15 @@ Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se en
 
 ### `webFrame.top`
 
-A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+Un `WebFrame` representa el frame superior en la jerarquía de frames a la que pertenece el `webFrame`, la propiedad sería `null` si el frame superior no es el actual.
 
 ### `webFrame.opener`
 
-A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+Un `WebFrame` representa el frame `webFrame` que abrió, la propiedad sería `null` si no hay abridores o si el abridor no está en el proceso renderer actual.
 
 ### `webFrame.parent`
 
-A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+Un `WebFrame` representando el marco padre de `webFrame`, la propiedad sería `null` si `webFrame` es superior o padre no está en el proceso actual de renderer.
 
 ### `webFrame.firstChild`
 
