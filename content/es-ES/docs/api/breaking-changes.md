@@ -33,64 +33,64 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
+// Deprecado
 contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+  // hacer algo
 })
-// Replace with
+// Reemplace con 
 contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+  // infoObject tiene campos de porcentaje y valor
 })
 ```
 
 ## `electron.screen` en proceso de renderizado
 
 ```js
-// Deprecated
+// Deprecado
 require('electron').screen
-// Replace with
+// Reemplazar con 
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `requiere` en renderizadores sandboxed
 
 ```js
-// Deprecated
+// Deprecado
 require('child_process')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('child_process')
 
-// Deprecated
+// Deprecado
 require('fs')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('fs')
 
-// Deprecated
+// Deprecado
 require('os')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('os')
 
-// Deprecated
+// Deprecado
 require('path')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('path')
 ```
 
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// Deprecado
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Reemplazar con API síncrona 
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// Deprecado
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Reemplazar con API síncrona
 const idleTime = getSystemIdleTime()
 ```
 
@@ -99,9 +99,9 @@ const idleTime = getSystemIdleTime()
 Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
 
 ```js
-// Deprecated
+// Deprecado
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// API sera eliminada en V7.0 sin reemplazo.
 ```
 
 # Cambios planeados en la API(5.0)
@@ -116,7 +116,7 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `cierto`                             | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-E.g. Re-enabling the webviewTag
+Por ejemplo, rehabilitar la webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -181,9 +181,9 @@ app.releaseSingleInstanceLock()
 ## `app.getGPUInfo`
 
 ```js
-app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
-app.getGPUInfo('basic')
+app.getGPUInfo('completo')
+// Ahora se comporta lo mismo con `basic` en macOS
+app.getGPUInfo('básico')
 ```
 
 ## `win_delay_load_hook`
