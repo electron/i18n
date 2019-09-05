@@ -1496,7 +1496,7 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+Configure la política de manejo de WebRTC IP, le permite controlar cuales IPs son expuestas vía WebRTC. Ver [BrowserLeaks](https://browserleaks.com/webrtc) para más detalles.
 
 #### `contents.getOSProcessId()`
 
@@ -1504,13 +1504,13 @@ Devuelve `Integer` - El `pid` del sistema operativo, del proceso de renderizado 
 
 #### `contents.getProcessId()`
 
-Devuelve `Integer` - El `pid` interno de Chromium del renderizador asociado. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Devuelve `Integer` - El `pid` interno de Chromium del renderizador asociado. Puede ser comparado con el `frameProcessId` pasado por los eventos de navegación específicos del frame (e.g. `did-frame-navigate`)
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Ruta al archivo de salida.
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+Devuelve `Promise<void>` - Indica si la instantánea se ha creado correctamente.
 
 Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
