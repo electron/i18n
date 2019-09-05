@@ -145,10 +145,10 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `show` Boolean(opțional) - Fereastra este aratată când este creată. Modul implicit este `true-adevărat`.
   * `frame` Boolean (opțional) - Specifică `false-fals` pentru a crea [Frameless Window](frameless-window.md). Modul implicit este `true-adevărat`.
   * `parent-părinte` BrowserWindow (opțional) - Specifică fereastra părinte. modul implicit este `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
+  * `modal` Boolean (opțional) - O fereastră modală. Aceasta funcționează doar când fereastra este o fereastră copil. Modul implicit este `false-fals`.
+  * `acceptFirstMouse` Boolean (opțional) - Dacă web-ul acceptă un singur eveniment de mouse în partea de jos care în același timp activează fereastra. Modul implicit este `false-fals`.
+  * `disableAutoHideCursor` Boolean (opțional) - La scriere cursorul este ascuns. Modul implicit este`false-fals`.
+  * `autoHideMenuBar` Boolean(opțional) - Ascunde bara meniului până când tasta`Alt` este apasată. Modul implicit este `false-fals`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
