@@ -93,7 +93,7 @@ Cuando este atributo esté presente, la página de invitado en `webview` tendrá
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. Esta opción está deshailitada por defecto en la pagina de invitado.
 
 ### `enableremotemodule`
 
@@ -333,7 +333,7 @@ Evalúa el `código` en la página. Si `userGesture` está establecido, creará 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` Cadena de caracteres
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean (opcional) - Por defecto `false`.
 
 Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
@@ -474,7 +474,7 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
 
 * `opciones` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
