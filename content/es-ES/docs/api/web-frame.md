@@ -177,7 +177,7 @@ Establecer el origen de seguridad del mundo aislado.
   * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
   * `name` String (opcional) - Nombre para el mundo aislado. Útil en devtools.
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+Establecer el origen de seguridad, la política de seguridad de contenido y el nombre del mundo aislado. Nota: Si se especifica el `csp` entonces el `securityOrigin` también debe ser especificado.
 
 ### `webFrame.getResourceUsage()`
 
@@ -223,13 +223,13 @@ Tenga en cuenta que llamar ciegamente este método probablemente haga que Electr
 
 * `selector` String - selector CSS para un elemento frame.
 
-Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+Devuelve `WebFrame` - El elemento de frame en `webFrame's` documento seleccionado por `selector`, `null` sería devuelto si `selector` no selecciona un frame o si el frame no está en el proceso actual de renderizado.
 
 ### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
+Deveulve `WebFrame` - Un hijo de `webFrame` con el `name` suministrado, `null` sería retornado is no hay tal frame o si el frame no está en el proceso renderer actual.
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
