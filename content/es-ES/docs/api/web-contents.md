@@ -1518,17 +1518,17 @@ Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+Controla si el WebContents acelerará o no las animaciones y temporizadores cuando la página se vuelve de fondo. Esto además afecta la API de Visibilidad de la Página.
 
 #### `contents.getType()`
 
-Devuelve `String` - el tipo de webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+Devuelve `String` - el tipo de webContent. Puede ser `backgroundPage`, `window`, `browserView`, `remote`, `webview` o `offscreen`.
 
 ### Propiedades de Instancia
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+Un `Integer` representando el ID único de este WebContents.
 
 #### `contents.session`
 
