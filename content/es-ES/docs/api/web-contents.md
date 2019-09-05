@@ -1405,11 +1405,11 @@ Para el evento `mouseWheel`, el objeto `evento` también tiene las siguientes pr
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+Empezar suscripción para eventos de presentación y capturas de fotogramas, la `callback` sera llamada con `callback(image, dirtyRect)` cuando hay un evento de presentación.
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+La `image` es una instancia de [NativeImage](native-image.md) que almacena el fotograma capturado.
 
-El `dirtyRect` es un objeto con propiedades `x, y, width, height` que describe cual parte de la página fue pintada de nuevo. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` por defecto en `false`.
+El `dirtyRect` es un objeto con propiedades `x, y, width, height` que describe cual parte de la página fue pintada de nuevo. Si `onlyDirty` está configurado a `true`, `image` solo contendrá el área repintada. `onlyDirty` por defecto en `false`.
 
 #### `contents.endFrameSubscription()`
 
