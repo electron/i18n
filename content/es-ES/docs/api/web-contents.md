@@ -1536,13 +1536,13 @@ Un [`Session`](session.md) usado por este webContents.
 
 #### `contents.hostWebContents`
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+Un instancia de [`WebContents`](web-contents.md) que podría poseer este `WebContents`.
 
 #### `contents.devToolsWebContents`
 
-A `WebContents` of DevTools for this `WebContents`.
+Un `WebContents` de DevTools para este `WebContents`.
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**Note:** Los usuario nunca deberían almacenar este objeto porque puede convertirse en `null` cuando el DevTools ha sido cerrado.
 
 #### `contents.debugger`
 
