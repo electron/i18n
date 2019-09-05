@@ -253,12 +253,12 @@ Un `WebFrame` representando el marco padre de `webFrame`, la propiedad sería `n
 
 ### `webFrame.firstChild`
 
-A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+Un `WebFrame` representa el primer hijo de `webFrame`, la propiedad sería `null` si `webFrame` no tiene hijos o si el primer hijo no esta en el proceso renderer actual.
 
 ### `webFrame.nextSibling`
 
-A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+Un `WebFrame` que representa el siguiente marco hermano, la propiedad sería `null` si `webFrame` es el último fotograma en su padre o si el próximo hermano no está en el proceso renderer actual.
 
 ### `webFrame.routingId`
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+Un `Integer` que representa el id único del frame en el proceso renderizador actual. Distintas instancias WebFrame que refieren al mismo frame subyacente tendrán el mismo `routingId`.
