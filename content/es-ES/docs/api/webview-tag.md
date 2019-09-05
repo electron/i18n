@@ -93,7 +93,7 @@ Cuando este atributo esté presente, la página de invitado en `webview` tendrá
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. Esta opción está deshailitada por defecto en la pagina de invitado.
+Opción experimental para habilitar el suporte de NodeJS en sub-frames tal como iframes dentro de `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
 
 ### `enableremotemodule`
 
