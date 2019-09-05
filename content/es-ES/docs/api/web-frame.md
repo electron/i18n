@@ -233,9 +233,9 @@ Deveulve `WebFrame` - Un hijo de `webFrame` con el `name` suministrado, `null` s
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+* `routingId` Integer - Un `Integer` representando el id único del frame en el proceso renderer actual. Las IDs de rutas se pueden recuperar de `WebFrame` instancias (`webFrame.routingId`) y también son pasados por el frame `WebContents` específicos eventos de navegación (por ejemplo, `did-frame-navigate`)
 
-Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se encuentra.
 
 ## Propiedades
 
