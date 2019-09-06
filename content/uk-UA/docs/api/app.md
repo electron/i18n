@@ -1127,13 +1127,13 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 ### `app.applicationMenu`
 
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+Властивість `Menu`, яка повертає [`Menu`](menu.md), якщо таке було встановлено і `null` в іншому випадку. Користувачі можуть передати [Menu](menu.md) для встановлення даної властивості.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+Властивість типу `Boolean`, яка є `true` якщо увімкнено спеціальні можливості Chrome, `false` в іншому випадку. Ця властивість буде `true` якщо виявлено використання спеціальних можливостей, наприклад, читач екрану. Встановлення цієї властивості в `true` вручну увімкне спеціальні можливості Chrome, дозволяючи розробникам показати перемикачі спеціальних можливостей в налаштуваннях застосунку.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+Дивись [спеціальні можливості Chromium](https://www.chromium.org/developers/design-documents/accessibility) для деталей. Вимкнено за замовчуванням.
 
 Цей API має викликатися після виклику події `ready`.
 
@@ -1141,7 +1141,7 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 ### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+`String`, яка містить агент користувача, який Electron буде використовувати за замовчуванням.
 
 This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
 
