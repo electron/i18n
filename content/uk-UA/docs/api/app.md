@@ -294,7 +294,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Відбувається коли процес gpu ламається або припиняється примусово.
 
-### Event: 'renderer-process-crashed'
+### Подія: 'renderer-process-crashed'
 
 Повертає:
 
@@ -302,7 +302,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Викликається коли рендер процес `webContents` ламається чи зупиняється примусово.
 
 ### Подія: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -477,9 +477,9 @@ app.exit(0)
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (shared) - Користувацький шлях для ваших логів. Мусить бути абсолютним.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+Встановлює чи створює папку ваших логів, якою в подальшому можна маніпулювати за допомогою `app.getPath()` чи `app.setPath(pathName, newPath)`.
 
 Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
