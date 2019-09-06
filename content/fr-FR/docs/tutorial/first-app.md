@@ -1,12 +1,12 @@
-# Ecrire votre première application Electron
+# Writing Your First Electron App
 
-Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'une application Node.js directement exécutable sur le bureau au lieu des serveurs Web.
+Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
-Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utilisateur graphique (GUI). Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
+This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
 
-**Remarque** : cet exemple est également disponible dans un dépôt git que vous pouvez [télécharger et exécuter immédiatement](#trying-this-example).
+**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
-En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. L'application Electron la plus simple pourrait avoir la structure disque suivante :
+En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. A most basic Electron app would have the following folder structure:
 
 ```plaintext
 votre-app/
