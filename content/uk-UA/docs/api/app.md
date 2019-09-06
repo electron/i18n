@@ -1143,7 +1143,7 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 `String`, яка містить агент користувача, який Electron буде використовувати за замовчуванням.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+Цей агент користувача буде використовуватися, якщо інший не встановлено на рівні `webContents` чи `session`. Корисно для впевнення, що весь ваш застосунок має однаковий агент користувача. Встановіть в користувацьке значення як тільки можливо у ініціалізації вашого застосунку, щоб впевнитись що ваше перевизначене значення використовується.
 
 ### `app.isPackaged`
 
@@ -1151,6 +1151,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+`Boolean` значення, яке при встановленні в `true` унеможливлює перевизначення, які має Electron, щоб впевнитися що рендер процес перезапускається при кожному переході. Поточним значенням за замовчуванням є `false`.
 
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+Призначення цих перевизначень бути вимкненими за замовчуванням і в подальшому ця властивість буде усунута. Ця властивість визначає, які нативні модулі ви можете використовувати в рендер процесі. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
