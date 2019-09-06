@@ -481,7 +481,7 @@ app.exit(0)
 
 Встановлює чи створює папку ваших логів, якою в подальшому можна маніпулювати за допомогою `app.getPath()` чи `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Виклик `app.setAppLogsPath()` без параметру `path` встановить цю папку як `/Library/Logs/YourAppName` на *macOS*, та всередині папки `userData` на *Linux* та *Windows*.
 
 ### `app.getAppPath()`
 
@@ -527,7 +527,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 Витягує піктограму, що відповідає шляху.
 
-On *Windows*, there are 2 kinds of icons:
+На *Windows*, є 2 види піктограм:
 
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
@@ -561,7 +561,7 @@ On *Windows*, there are 2 kinds of icons:
 * `name` String
 * `path` String
 
-Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. Якщо шлях визначає директорію, якої не існує, викинеться `Error`. В такому випадку, директорію потрібно створити за допомогою `fs.mkdirSync` чи аналогічним чином.
 
 Ви можете перевизначати шляхи `name` визначені в `app.getPath`.
 
@@ -625,7 +625,7 @@ On *Windows*, there are 2 kinds of icons:
 
 **Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
 
-**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
+**Примітка:** В Windows Store середовищі (коли запаковано як `appx`) цей API поверне `true` для всіх викликів, але ключ регістру, який він встановлює не буде доступний іншим застосункам. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 API всередині використовує реєстр Windows та LSSetDefaultHandlerForURLScheme.
 
