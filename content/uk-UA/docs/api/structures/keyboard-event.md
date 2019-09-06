@@ -1,6 +1,6 @@
-# KeyboardEvent Object extends `Event`
+# Об'єкт KeyboardEvent наслідує `Event`
 
-* `ctrlKey` Boolean (optional) - whether the Control key was used in an accelerator to trigger the Event
+* `ctrlKey` Boolean (опціонально) - чи використовувалась клавіша Control в акселераторі при провокуванні Event
 * `metaKey` Boolean (optional) - whether a meta key was used in an accelerator to trigger the Event
 * `shiftKey` Boolean (optional) - whether a Shift key was used in an accelerator to trigger the Event
 * `altKey` Boolean (optional) - whether an Alt key was used in an accelerator to trigger the Event
