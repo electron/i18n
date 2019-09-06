@@ -1014,22 +1014,22 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
+* `switch` String - Перемикач командного рядка, без переходу `--`
 * `value` String (опціонально) - Значення для перемикача
 
 Додає перемикач (з опціональним `value`) до командного рядка Chromium.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примітка:** Це не впливає на `process.argv`. Призначення даної функцій: контроль поведінки Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - Аргумент для додання до командного рядку
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Додає аргумент в командний рядок Chromium. Аргумент буде правильно взято в лапки. Перемикачі будуть передувати аргументам незалежно від порядку додавання.
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+Якщо ви додаєте аргумент у вигляді `--switch=value`, розгляньте натомість використання `appendSwitch('switch', 'value')`.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примітка:** Це не впливає на `process.argv`. Призначення даної функцій: контроль поведінки Chromium.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1043,7 +1043,7 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 Повертає `String` - значення перемикача командного рядка.
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**Примітка:** Якщо перемикач не присутній або не має значення, він поверне пусту стрічку.
 
 ### `app.enableSandbox()` *Експериментальний*
 
@@ -1101,11 +1101,11 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 ### `app.dock.show()` *macOS*
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Повертає `Promise<void>` - Виконується коли показується піктограма на панелі задач.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible.
+Повертає `Boolean` - Чи видима піктограма на панелі задач.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -1115,7 +1115,7 @@ Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.getMenu()` *macOS*
 
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Повертає `Menu | null` - [Меню панелі задач](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) застосунку.
 
 ### `app.dock.setIcon(image)` *macOS*
 
