@@ -997,9 +997,9 @@ win.setSheetOffset(toolbarRect.height)
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опціонально)
   * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Повертає `Promise<void>` - проміс буде виконано коли сторінка завершить завантаження (дивись [`did-finish-load`](web-contents.md#event-did-finish-load)), якщо завантаження не успішне проміс буде проігноровано (дивись [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+Так само як [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
 `url` може бути віддаленою адресою (наприклад, `http://`) чи шляхом до локального HTML файлу, за допомогою протоколу `file://`.
 
@@ -1031,13 +1031,13 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (опціонально) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (опціонально) - Передається в `url.format()`.
+  * `search` String (опціонально) - Передається в `url.format()`.
+  * `hash` String (опціонально) - Передається в `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Повертає `Promise<void>` - проміс буде виконано коли сторінка завершить завантаження (дивись [`did-finish-load`](web-contents.md#event-did-finish-load)), якщо завантаження не успішне проміс буде проігноровано (дивись [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Так само як `webContents.loadFile`, `filePath` має бути шляхом до HTML файлу відносно кореню застосунку. Дивись `webContents` документацію для деталей.
 
 #### `win.reload()`
 
@@ -1047,11 +1047,11 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+Встановлює `menu` як панель меню вікна.
 
 #### `win.removeMenu()` *Linux* *Windows*
 
-Remove the window's menu bar.
+Забирає панель меню вікна.
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -1069,16 +1069,16 @@ Remove the window's menu bar.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md) | null - піктограма для відображення в правому нижньому куті панелі задач. Якщо цей параметр `null`, маску буде очищено
+* `description` String - опис, який буде надано в читач екрану
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Встановлює 16 x 16 піксельну маску на поточну піктограму панелі задач, зазвичай використовується для передачі якогось статусу застосунку чи пасивного сповіщення користувача.
 
 #### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+Встановлює чи вікно має мати тінь.
 
 #### `win.hasShadow()`
 
