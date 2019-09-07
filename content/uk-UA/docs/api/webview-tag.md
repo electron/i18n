@@ -504,7 +504,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Якщо не передати `rect`, буде захоплено всю видиму сторінку.
 
 **[Незабаром застаріє](modernization/promisification.md)**
 
@@ -512,9 +512,9 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Повертає `Promise<NativeImage>` - Виконуєтсья з [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Якщо не передати `rect` буде захоплено всю видиму сторінку.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
