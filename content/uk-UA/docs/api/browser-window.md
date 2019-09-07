@@ -1096,9 +1096,9 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setShape(rects)` *Windows* *Linux* *Експериментальний*
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - Втановлює форму вікна. Передача пустого списку повертає вікно до прямокутного вигляду.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+Встановлення форми фікна визначає зону де система дозволяє рендер та взаємодію користувача. За межеми даної області, не будуть промальовуватися пікселі та не реєструватимуться події миші. Події миші за межами області не будуть отримані вікном, але будуть передані нижче, щоб не було за вікном.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1106,9 +1106,9 @@ Setting a window shape determines the area within the window where the system pe
 
 Повертає `Boolean` - Якщо кнопки були додані успішно
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Додає панель з визначеним набором кнопок в мініатюру піктограми панелі задач вікна. Повертає `Boolean` об'єкт, який показує чи мініатюра була додана успішно.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Число кнопок на панелі мініатюри не має бути більшим за 7 через обмежений простір. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
 `buttons` масив об'єктів `Button`:
 
