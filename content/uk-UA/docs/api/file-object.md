@@ -2,13 +2,13 @@
 
 > Використовує HTML5 `File` API для нативної роботи з файлами в файловій системі.
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+Інтерфейс DOM File надає абстракцію навколо нативних файлів для роботи користувача прямо з HTML5 API для файлів. Electron додає атрибут `path` до інтерфейсу `File`, який відображає справжній шлях в файловій системі.
 
 Приклад отримання справжнього шляху перетягнутого в додаток файлу:
 
 ```html
 <div id="holder">
-  Drag your file here
+  Перетягніть файли сюди
 </div>
 
 <script>
@@ -17,7 +17,7 @@ The DOM's File interface provides abstraction around native files in order to le
     e.stopPropagation();
 
     for (const f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
+      console.log('Перетягнуті файл(и) тут: ', f.path)
     }
   });
   document.addEventListener('dragover', (e) => {
