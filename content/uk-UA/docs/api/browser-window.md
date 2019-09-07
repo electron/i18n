@@ -696,7 +696,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+Повертає [`Rectangle`](structures/rectangle.md) - `bounds` вікна як `Object`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -707,13 +707,13 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+Повертає [`Rectangle`](structures/rectangle.md) - `bounds` зони клієнта вікна як `Object`.
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+Повертає [`Rectangle`](structures/rectangle.md) - Містить границі вікна в нормальному стані
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+**Примітка:** який би не був поточний стан вікна: розгорнутий, згорнутий чи повноекранний, ця функція завжди поверне позицію і розмір вікна в нормальному стані. В нормальному стані, getBounds та getNormalBounds повертають однакові [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
@@ -727,7 +727,7 @@ Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of t
 * `height` Integer
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Змінює розмір вікна на `width` та `height`. Якщо `width` чи `height` є нижчі заданого мінімального розміру, вікно зменшиться до мінімального розміру.
 
 #### `win.getSize()`
 
@@ -849,7 +849,7 @@ Resizes the window to `width` and `height`. If `width` or `height` are below any
 
 #### `win.moveTop()`
 
-Moves window to top(z-order) regardless of focus
+Переміщує вікно наверх (z-вимір) незалежно від фокусування
 
 #### `win.center()`
 
@@ -877,7 +877,7 @@ Moves window to top(z-order) regardless of focus
 
 Повертає `String` - Заголовок нативного вікна.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Примітка:** Заголовок веб-сторінки може відрізнятися від заголовку нативного вікна.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -975,7 +975,7 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Omitting `rect` will capture the whole visible page.
 
 **[Незабаром застаріє](modernization/promisification.md)**
 
