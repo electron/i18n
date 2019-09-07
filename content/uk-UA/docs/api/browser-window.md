@@ -1108,7 +1108,7 @@ win.loadURL('http://localhost:8000/post', {
 
 Додає панель з визначеним набором кнопок в мініатюру піктограми панелі задач вікна. Повертає `Boolean` об'єкт, який показує чи мініатюра була додана успішно.
 
-Число кнопок на панелі мініатюри не має бути більшим за 7 через обмежений простір. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Число кнопок на панелі мініатюри не має бути більшим за 7 через обмежений простір. Коли ви налаштували панель мініатюри, її не можна буде забрати через обмеження платформи. Але ви можете викликати API з пустим масивом для очищення кнопок.
 
 `buttons` масив об'єктів `Button`:
 
@@ -1131,7 +1131,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `region` [Rectangle](structures/rectangle.md) - Область вікна
 
-Встановлює область вікна яке відображатиметься як мініатюра при наведенні на вікно в панелі задач. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+Встановлює область вікна яке відображатиметься як мініатюра при наведенні на вікно в панелі задач. Ви можете змінити мініатюру на ціле вікно, вказавши порожню область: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1166,9 +1166,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+Встановлює чи мають бути видимі кнопки контролю вікна.
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+Метод не можна викликати якщо `titleBarStyle` встановлено в `customButtonsOnHover`.
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1196,9 +1196,9 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `visible` Boolean
 * `options` Object (опціонально) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (опціонально) *macOS* - Встановлює чи вікно має бути видиме над іншими повноекранними вікнами
 
-Sets whether the window should be visible on all workspaces.
+Встановлює чи вікно вікно має бути видиме на всіх робочих областях.
 
 **Примітка:** Цей API не працює на Windows.
 
@@ -1236,7 +1236,7 @@ Sets whether the window should be visible on all workspaces.
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Встановлює `parent` як батьківське вікно поточного, передавання `null` перетворить поточне в вікно верхнього рівня.
 
 #### `win.getParentWindow()`
 
@@ -1294,11 +1294,11 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.setBrowserView(browserView)` *Експериментальний*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md). Прикріпляє browserView до вікна. Якщо якісь інші browserViews були прикріплені, вони будуть усунуті.
 
 #### `win.getBrowserView()` *Експериментальний*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Повертає `BrowserView | null` - BrowserView, який прикріплено. Повертає `null` якщо немає жодного прикріпленого. Викидає помилку якщо прикріплено декілька BrowserViews.
 
 #### `win.addBrowserView(browserView)` *Експериментальний*
 
