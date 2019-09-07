@@ -1304,7 +1304,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+Заміна API для setBrowserView, підтримує роботу з декількома виглядами.
 
 #### `win.removeBrowserView(browserView)` *Експериментальний*
 
@@ -1312,7 +1312,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.getBrowserViews()` *Експериментальний*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Повертає масив `BrowserView`, які було прикліплено за допомогою addBrowserView чи setBrowserView.
 
 **Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.
 
@@ -1320,7 +1320,7 @@ Returns array of `BrowserView` what was an attached with addBrowserView or setBr
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+Властивість `Boolean`, яка визначає чи вікно виключене з меню застосунків Windows. `false` за замовчуванням.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
