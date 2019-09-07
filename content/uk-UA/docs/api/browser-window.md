@@ -975,7 +975,7 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Якщо не передати `rect`, буде захоплено всю видиму сторінку.
 
 **[Незабаром застаріє](modernization/promisification.md)**
 
@@ -983,9 +983,9 @@ win.setSheetOffset(toolbarRect.height)
 
 * `rect` [Rectangle](structures/rectangle.md) (опціонально) - Межі для захоплення
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Повертає `Promise<NativeImage>` - Виконуєтсья з [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Якщо не передати `rect` буде захоплено всю видиму сторінку.
 
 #### `win.loadURL(url[, options])`
 
