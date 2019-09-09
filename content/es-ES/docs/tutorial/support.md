@@ -25,7 +25,7 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+Las últimas tres versiones *stable* son soportadas por el equipo Electron. Por ejemplo, si el último lanzamiento es 6.x.y, luego las series 5.x.y también la 4.x.y son soportadas.
 
 La última versión estable recibe unilateralmente todas las correcciones de `master`, y la versión anterior recibe la gran mayoría de esas correcciones como el tiempo y el ancho de banda lo permite. Las versiones más antiguas soportadas solamente van a recibir correcciones de seguridad directamente.
 
