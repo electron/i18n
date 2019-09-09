@@ -55,7 +55,7 @@ Recupera las descripciones del producto.
 
 * `productIDs` String[] - Los identificadores de los productos a obtener.
 
-Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
+Devuelve `Promise<Product[]>` - Resuelve con un array de objetos [`Product`](structures/product.md).
 
 Recupera las descripciones del producto.
 
@@ -73,6 +73,6 @@ Completa todas las transacciones pendientes.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - La fecha en formato ISO de la transacción para terminar.
 
 Completa las pendientes transacciones correspondiendo al día.
