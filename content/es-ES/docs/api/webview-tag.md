@@ -580,7 +580,7 @@ Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuand
 
 ### `<webview>.getWebContentsId()`
 
-Returns `Number` - The WebContents ID of this `webview`.
+Devuelve `Number` - El ID de WebContents de este `webview`.
 
 ## Eventos DOM
 
@@ -705,7 +705,7 @@ Devuelve:
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` Object - Las opciones que deberían ser usadas para la creación del nuevo [`BrowserWindow`](browser-window.md).
 
 Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
@@ -780,7 +780,7 @@ Devuelve:
 
 Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte entre la página de invitado y la página del integrador:
 
 ```javascript
 // In embedder page.
