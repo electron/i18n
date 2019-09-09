@@ -1,4 +1,4 @@
-# IpcMainEvent Object extends `Event`
+# IpcMainEvent objeto extendido de `Event`
 
 * `frameId` Integer - The ID of the renderer frame that sent this message
 * `returnValue` any - Set this to the value to be returned in a syncronous message
