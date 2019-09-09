@@ -11,4 +11,4 @@
 * `descripción` Cadena (opcional) - Descripción de la tarea (mostrado en un tip de la herramienta). Debe ser configurado solo si `tipo` es `tarea`.
 * `iconPath` Cadena (opcional) - La ruta total a un ícono a ser mostrado en la lista, que puede ser un archivo arbitrario que contenga un ícono (e.g. `.ico`, `.exe`, `.dll`). Puede especificar `process.execPath` Para mostrar el ícono del programa.
 * `iconIndex` Numero (opcional) - El serial del ícono en el archivo de recursos. Si un archivo de recursos contiene múltiples íconos este valor puede ser utilizado para especificar el índice basado en cero que debe ser mostrado en esta tarea. Si un archivo de recurso contiene solamente un ícono, este debe ser puesto en cero.
-* `workingDirectory` String (optional) - The working directory. Default is empty.
+* `workingDirectory` String (opcional) - El directorio de trabajo. Por defecto es vacío.
