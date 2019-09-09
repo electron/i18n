@@ -334,9 +334,9 @@ Emitido después que la ventana se haya redimensionada.
 Devuelve:
 
 * `evento` Evento
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Ubicación a la que la ventana se esta moviendo.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Emitido antes de que se mueva la ventana. Llamar `event.preventDefault()` impedirá que la ventana se mueva.
 
 Tenga en cuenta que esto solo es emitido cuando la ventana es redimencionada manualmente. Redimencionando la ventana con `setBounds`/`setSize` no se emitirá este evento.
 
@@ -344,7 +344,7 @@ Tenga en cuenta que esto solo es emitido cuando la ventana es redimencionada man
 
 Aparece cuando la ventana se mueve a una nueva posición.
 
-**Note**: On macOS this event is an alias of `moved`.
+**Note**: En macOS este evento es un alias de `moved`.
 
 #### Evento: "moved" *macOS*
 
@@ -373,9 +373,9 @@ Devuelve:
 * `event` Event
 * `isAlwaysOnTop` Boolean
 
-Emitted when the window is set or unset to show always on top of other windows.
+Emitido cuando la ventana es configurada o no configurada para mostrarse siempre en la parte superior de las otras ventanas.
 
-#### Event: 'app-command' *Windows* *Linux*
+#### Evento: 'app-command' *Windows* *Linux*
 
 Devuelve:
 
@@ -397,7 +397,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explictly supported on Linux:
+Los siguientes comandos de aplicación son explícitamente soportados en Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -445,7 +445,7 @@ Devuelve `BrowserWindow[]`- Un arreglo de todas las ventanas abiertas del navega
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación, de lo contrario devuelve `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
@@ -643,7 +643,7 @@ Devuelve `Boolean` - Si la ventana está en modo simple de pantalla completa (pr
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Devuelve `Boolean` - Si la ventana esta en estado normal (no maximizada, no minimizada, no en el modo de pantalla completa).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -652,15 +652,15 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 
 Esto hará que la ventana mantenga una relación de aspecto. El tamaño extra permite al desarrollador tener espacio especificado en píxeles, el cual no está incluido dentro de los cálculos de la relación de aspecto. Esta API ya toma en cuenta la diferencia entre el tamaño de la ventana y el tamaño del contenido.
 
-Considere una ventana normal con un reproductor de video HD y los controles asociados. Quizá hay 15 pixeles de controles en el borde izquierdo, 25 pixeles de control en el borde derecho y 50 pixeles de control bajo el reproductor. Para mantener una relación de aspecto de 16:9 (la relación de aspecto estándar para HD@1920x1080) dentro del reproductor, tendríamos que llamar esta función con argumentos de 16/9 y [ 40, 50 ]. En el segundo argumento no importa donde están la anchura extra ni altura extra dentro de la vista del contenido, solo importa que existan. Sum any extra width and height areas you have within the overall content view.
+Considere una ventana normal con un reproductor de video HD y los controles asociados. Quizá hay 15 pixeles de controles en el borde izquierdo, 25 pixeles de control en el borde derecho y 50 pixeles de control bajo el reproductor. Para mantener una relación de aspecto de 16:9 (la relación de aspecto estándar para HD@1920x1080) dentro del reproductor, tendríamos que llamar esta función con argumentos de 16/9 y [ 40, 50 ]. En el segundo argumento no importa donde están la anchura extra ni altura extra dentro de la vista del contenido, solo importa que existan. Suma cualquier áreas de ancho y alto adicionales que tengas dentro de la vista de contenido general.
 
-Calling this function with a value of `0` will remove any previously set aspect ratios.
+Llamar esta función con un valor de `0` eliminara cualquier configuración de aspecto de ratios establecida anteriormente.
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Por defecto es `#FFF` (blanco).
+* `backgroundColor` String - Color de fondo de la ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportada si `transparent` es `true`). Por defecto es `#FFF` (blanco).
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+Establece el color de fondo de la ventana. Mire [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -678,7 +678,7 @@ Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opcional) *macOS*
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+Redimenciona y mueve la ventana a los limites proporcionados. Cualquier valor que no se proporciona volverán a sus valores actuales.
 
 ```javascript
 const { BrowserWindow } = require('electron')
