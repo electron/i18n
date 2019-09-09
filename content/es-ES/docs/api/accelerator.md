@@ -50,7 +50,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `Más`
 * `Espacio`
 * `Tab`
-* `Capslock`
+* `Bloq Mayús`
 * `Numlock`
 * `Bloqueo de desplazamiento`
 * `Retroceso`
