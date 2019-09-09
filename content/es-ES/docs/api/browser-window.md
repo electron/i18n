@@ -711,7 +711,7 @@ Retorna [`Rectangle`](structures/rectangle.md) - El `bounds` del área del clien
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+Devuelve [`Rectangle`](structures/rectangle.md) - Contiene los limites del estado normal de la ventana
 
 **Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
 
