@@ -50,4 +50,4 @@ Un propiedad `Boolean` que indica si los registros de red están configurados o 
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+Un propiedad `String` que devuelve la ruta del archivo de registro actual.
