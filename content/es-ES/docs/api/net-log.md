@@ -38,9 +38,9 @@ Stops recording network events. If not called, net logging will automatically en
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+Devuelve `Promise<String>` - resuelve con una rula de archivo en la que se registraron los registros de red.
 
-Parar la grabación de eventos de red. If not called, net logging will automatically end when app quits.
+Parar la grabación de eventos de red. Si no se llama, el registro de red automáticamente terminara cuando la aplicación se cierre.
 
 ## Propiedades
 
