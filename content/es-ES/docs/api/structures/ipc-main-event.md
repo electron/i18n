@@ -1,7 +1,7 @@
 # IpcMainEvent objeto extendido de `Event`
 
-* `frameId` Integer - The ID of the renderer frame that sent this message
-* `returnValue` any - Set this to the value to be returned in a syncronous message
-* `sender` WebContents - Returns the `webContents` that sent the message
-* `reply` Function - A function that will send an IPC message to the renderer frame that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame. 
+* `frameId` Integer - El ID de frame renderer que enviá este mensaje
+* `returnValue` any - Establece esto al valor que es devuelto en un mensaje síncrono
+* `sender` WebContents - Devuelve el `webContents` que enviá el mensaje
+* `reply` Function - Una función que enviara un mensaje IPC al renderizador del frame que enviá el mensaje original que actualmente estas manejando. Tú deberías usar este método para "responder" al mensaje al mensaje enviado para garantizar que la respuesta vaya al frame y al proceso correcto. 
   * `...args` any[] IpcRenderer
