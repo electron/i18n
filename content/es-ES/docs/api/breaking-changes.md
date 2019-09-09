@@ -132,9 +132,9 @@ Las ventanas hijas abiertas con la opción `webPreferences` siempre tienen la in
 
 ## Registro de Esquema Privilegiados
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+Las APIs de Renderer Process `webFrame.setRegisterURLSchemeAsPrivileged` y `webFrame.registerURLSchemeAsBypassingCSP` tal como la API del proceso de navegador `protocol.registerStandardSchemes` han sido eliminados. Una nueva API, `protocol.registerSchemesAsPrivileged` ha sido agregada y debe ser usada para registrar esquemas personalizados con los privilegios requeridos. Se requieren esquemas personalizados para ser registrados antes de que la aplicación esté lista.
 
-## webFrame Isolated World APIs
+## webFrame APIs del mundo Aislado
 
 ```js
 // Deprecated
@@ -302,11 +302,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// Deprecado
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Reemplazar con
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
