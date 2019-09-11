@@ -149,7 +149,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `acceptFirstMouse` Boolean (opțional) - Dacă web-ul acceptă un singur eveniment de mouse în partea de jos care în același timp activează fereastra. Modul implicit este `false-fals`.
   * `disableAutoHideCursor` Boolean (opțional) - La scriere cursorul este ascuns. Modul implicit este`false-fals`.
   * `autoHideMenuBar` Boolean(opțional) - Ascunde bara meniului până când tasta`Alt` este apasată. Modul implicit este `false-fals`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
+  * `enableLargerThanScreen` Boolean(opțional) - Face ca fereastra să fie mai mare ca și ecranul. Modul implicit este `false-fals`.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
