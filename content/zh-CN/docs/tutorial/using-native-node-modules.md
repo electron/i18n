@@ -1,6 +1,6 @@
 # 使用 Node 原生模块
 
-Electron 支持原生的 Node 模块，但 Electron 很可能使用一个与您的电脑上所安装的 Node 不同的 V8 引擎，因此您所使用的模块将需要被重新编译。 否则，如果您尝试运行您的应用程序， 将会遇到以下类别的错误：
+Electron 支持原生的 Node 模块，但由于 Electron 非常有可能使用一个与您的系统上所安装的 Node 不同的 V8 引擎，您所使用的模块将需要被重新编译。 否则，当您尝试运行您的应用程序时， 将会遇到以下的错误：
 
 ```sh
 Error: The module '/path/to/native/module.node'
