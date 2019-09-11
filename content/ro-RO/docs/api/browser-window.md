@@ -150,9 +150,9 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `disableAutoHideCursor` Boolean (opțional) - La scriere cursorul este ascuns. Modul implicit este`false-fals`.
   * `autoHideMenuBar` Boolean(opțional) - Ascunde bara meniului până când tasta`Alt` este apasată. Modul implicit este `false-fals`.
   * `enableLargerThanScreen` Boolean(opțional) - Face ca fereastra să fie mai mare ca și ecranul. Modul implicit este `false-fals`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
+  * `hasShadow-are umbră` Boolean (opțional) - Daca fereastra ar trebui să aibă umbră. Aceasta este implementată doar în macOS. Modul implicit este ` true-adevărat`.
+  * `opacity-opacitate` Number - Număr (opțional) - Setează opacitatea inițială a ferestrei între 0.0 ( transparent în întregime) și 1.0 (opac în totalitate). Acesta este implementat doar în Windows și macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
@@ -658,7 +658,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Modul implicit este `#FFF` (alb).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
