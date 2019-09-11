@@ -25,9 +25,9 @@ Déclenchez la mise à jour à partir du processus principal de votre applicatio
 require('update-electron-app')()
 ```
 
-Par défaut, ce module vérifiera les mises à jour au démarrage de l'application, toutes les dix- minutes. Lorsqu’une mise à jour est trouvée, elle sera automatiquement téléchargée en arrière-plan. When the download completes, a dialog is displayed allowing the user to restart the app.
+Par défaut, ce module vérifiera les mises à jour au démarrage de l'application, toutes les dix- minutes. Lorsqu’une mise à jour est trouvée, elle sera automatiquement téléchargée en arrière-plan. Une fois le téléchargement terminé, une boîte de dialogue s’affiche permettant à l’utilisateur de redémarrer l’application.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Si vous avez besoin personnaliser votre configuration, vous pouvez [passer des paramètres à `update-electron-app`](https://github.com/electron/update-electron-app) ou [utiliser le service de mise à jour directement](https://github.com/electron/update.electronjs.org).
 
 ## Utilisation de `electron-builder`
 
