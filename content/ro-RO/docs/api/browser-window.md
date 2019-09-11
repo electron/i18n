@@ -153,12 +153,12 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
   * `hasShadow-are umbră` Boolean (opțional) - Daca fereastra ar trebui să aibă umbră. Aceasta este implementată doar în macOS. Modul implicit este ` true-adevărat`.
   * `opacity-opacitate` Number - Număr (opțional) - Setează opacitatea inițială a ferestrei între 0.0 ( transparent în întregime) și 1.0 (opac în totalitate). Acesta este implementat doar în Windows și macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
+  * `darkTheme-tema închisă` Boolean (opțional) - Forțează utilizarea temei închise pentru fereastră, funcționează doar în câteva dintre mediile desktop-ului ale GTK +3. Modul implicit este ` false-fals`.
+  * ` transparent` Boolean (opțional) - Face ca fereastra să fie [transparent-transparentă ](frameless-window.md). Modul implicit este `false-fals`.
+  * `type-tip` String (opțional) - Tip-ul ferestrei, modul implicit este fereastra normală. Vezi mai multe despre asta în partea de jos.
+  * `titleBarStyle - Stil titlu` String(opțional) - Stilul bării titlu al ferestrei. Modul implicit este `modul implicit`. Valorile posibile sunt: 
+    * `default-modul implicit` - Bara titlului în standard-ul opac gri al Mac.
+    * `hidden-ascuns` - Rezultă într-o bară de titlu ascunsă și într-o fereastră de conținut de dimensiuni complete, dar totuși bara titlului deține controlul standard al ferestrei ("traffic lights") în partea stângă din partea de sus.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
