@@ -1,4 +1,4 @@
-tagline: Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS
+tagline: Membangun aplikasi desktop lintas platform dengan JavaScript, HTML dan CSS
 nav:
   apps: Aplikasi
   blog: Blog
@@ -156,8 +156,8 @@ apps:
 blog:
   title: Halaman elektron
   description: Semua berita terbaru dari tim dan komunitas Elektron.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Punya umpan balik untuk posting ini? Beritahu <a href="https://twitter.com/electronjs">@electronjs</a> di Twitter.
+  help: Butuh bantuan atau menemukan bug? <a href="/contact">Hubungi kami</a>.
 clipboard:
   copy: Salinan
   copy_to_clipboard: Menyalin ke clipboard
@@ -207,20 +207,20 @@ pages:
     description: Spectron adalah kerangka kerja open source untuk memudahkan pengujian integrasi untuk aplikasi Elektron Anda. Dibangun di atas ChromeDriver dan WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Cara paling mudah memulai dengan Electron
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Tata Kelola Electron
+    description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
   '/donors':
     title: Penyumbang
 landing:
   get_started: Memulai
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    lead_desc: Cara paling mudah memulai dengan Electron
+    create_app: Ciptakan aplikasi Anda
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    explore: Jelajahi Electron
+    explore_desc: "Mencoba Elektron tanpa menginstal dependensi apa pun: Fiddle mencakup semua yang Anda perlukan untuk menjelajahi platform ini. Termasuk juga contoh untuk setiap API yang tersedia di Electron, jadi jika Anda ingin segera melihat apa itu BrowserView atau bagaimana desktopCapturer bekerja, Fiddle bisa membantu Anda."
     code_with_types: Code with Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
     compile_and_package: Compile and Package
@@ -228,8 +228,8 @@ landing:
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  title: Tata Kelola Electron
+  description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
   wgs: Working Groups
   docstools:
     title: Docs & Tools
