@@ -218,14 +218,14 @@ landing:
   fiddle:
     lead_desc: Cara paling mudah memulai dengan Electron
     create_app: Ciptakan aplikasi Anda
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle memungkinkan Anda membuat dan bermain dengan eksperimen Electron kecil. Anda akan disambut dengan templat quick-start segera setelah dibuka, ubahlah beberapa hal, pilih versi Electron yang ingin Anda jalankan, dan mainkan. Kemudian, simpan Fiddle Anda baik sebagai GitHub Gist atau ke folder lokal. Setelah di-push ke GitHub, siapa pun dapat dengan cepat mencoba Fiddle Anda dengan hanya memasukkannya di bilah alamat.
     explore: Jelajahi Electron
     explore_desc: "Mencoba Elektron tanpa menginstal dependensi apa pun: Fiddle mencakup semua yang Anda perlukan untuk menjelajahi platform ini. Termasuk juga contoh untuk setiap API yang tersedia di Electron, jadi jika Anda ingin segera melihat apa itu BrowserView atau bagaimana desktopCapturer bekerja, Fiddle bisa membantu Anda."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
+    code_with_types: Kode dengan Tipe
+    code_with_types_desc: Fiddle menyertakan Editor Microsoft Monaco yang hebat, editor yang sama diberdayakan untuk Visual Studio Code. Fiddle juga menginstal definisi untuk versi Electron yang saat ini dipilih secara otomatis, memastikan bahwa Anda mendapatkan semua API Electron hanya dengan beberapa penekanan tombol saja.
+    compile_and_package: Paket dan Kompilasi
+    compile_and_package_desc: Fiddle mampu secara otomatis mengubah karya Anda menjadi kode binari yang dapat Anda bagikan dengan teman, rekan kerja, atau kakek-nenek. Hal itu didapat berkat <a href="https://electronforge.io/"> electron-forge </a>, yang memungkinkan Anda untuk mengemas Fiddle sebagai aplikasi untuk Windows, MacOS, atau Linux.
+    easy_start: Mulai dengan Fiddle, Lanjutkan Kapanpun
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 governance:
   title: Tata Kelola Electron
