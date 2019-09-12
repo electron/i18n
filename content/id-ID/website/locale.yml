@@ -146,13 +146,13 @@ apps:
   search_app: Filter apps by name, description, etc…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
+  website: Situs Web
+  repository: Repositori
   category: Category
   downloads: Downloads
-  keywords: Keywords
+  keywords: Kata Kunci
   license: Lisensi
-  latest_release: Latest Release
+  latest_release: Rilis Terakhir
 blog:
   title: Halaman elektron
   description: Semua berita terbaru dari tim dan komunitas Elektron.
@@ -244,7 +244,7 @@ governance:
     title: Upgrades
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
-    title: Website
+    title: Situs Web
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Community & Safety
