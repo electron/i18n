@@ -259,7 +259,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `grid` - Las líneas de cuadrículas de un elemento de interfaz como una tabla.
     * `header-text` - El texto de una celda de cabecera en una tabla.
     * `highlight` - La fuente de luz virtual en la pantalla.
-    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `keyboard-focus-indicator` - El anillo que aparece alrededor del control actualmente enfocado cuando se usa el teclado para la nevagación por la interface.
     * `label` - The text of a label containing primary content.
     * `link` - Un enlace a otro contenido.
     * `placeholder-text` - A placeholder string in a control or text view.
