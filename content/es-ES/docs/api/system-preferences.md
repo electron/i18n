@@ -260,17 +260,17 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `header-text` - El texto de una celda de cabecera en una tabla.
     * `highlight` - La fuente de luz virtual en la pantalla.
     * `keyboard-focus-indicator` - El anillo que aparece alrededor del control actualmente enfocado cuando se usa el teclado para la nevagación por la interface.
-    * `label` - The text of a label containing primary content.
+    * `label` - El texto de una etiqueta que contiene el contenido primario.
     * `link` - Un enlace a otro contenido.
-    * `placeholder-text` - A placeholder string in a control or text view.
-    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
-    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
-    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
-    * `selected-content-background` - The background for selected content in a key window or view.
-    * `selected-control` - The surface of a selected control.
+    * `placeholder-text` - Una cadena de marcador de posición en una vista de control o texto.
+    * `quaternary-label` - El texto de una etiqueta de menor importancia que una etiqueta terciaria como el texto de la marca de agua.
+    * `scrubber-textured-background` - El fonfo de un depurado en el Touch Bar.
+    * `secondary-label` - El texto de una etiqueta de menor importancia que una etiqueta normal como el usado para representar un subtítulo o información adicional.
+    * `selected-content-background` - El fondo para el contenido seleccionado en una ventana clave o en una vista.
+    * `selected-control` - La superficie de un control seleccionado.
     * `selected-control-text` - El texto un control seleccionado.
     * `selected-menu-item` - El texto de un menu seleccionado.
-    * `selected-text-background` - The background of selected text.
+    * `selected-text-background` - El fondo de un texto seleccionado.
     * `selected-text` - Texto seleccionado.
     * `separator` - A separator between different sections of content.
     * `shadow` - The virtual shadow cast by a raised object onscreen.
