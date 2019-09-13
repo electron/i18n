@@ -303,17 +303,17 @@ Devuelve uno de los varios colores estándar del sistema que se adaptan automát
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
 ### `systemPreferences.isHighContrastColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
+Devuelve `Boolean` - `true` si un tema de alto contraste está activo, si no `false`.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-Returns `String` - Can be `dark`, `light` or `unknown`.
+Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
-Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
 Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. Consulte la [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
 
