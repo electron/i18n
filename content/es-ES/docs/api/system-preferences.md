@@ -325,9 +325,9 @@ Obtiene la configuración de apariencia de macOS que has declarado que desea par
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - Can be `dark` or `light`
+* `appearance` String | null - Puede ser `dark` o `light`
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+Establece la configuración por defecto para su aplicación, esto debe sobrescribir el valor predeterminado del sistema y sobrescribir el valor de `getEffectiveAppearance`.
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
