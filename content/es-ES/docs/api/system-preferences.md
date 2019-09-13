@@ -256,9 +256,9 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `control-text` - El texto de un control que no está deshabilitado.
     * `disabled-control-text` - El texto de un control que esta deshabilitado.
     * `find-highlight` - El color de un indicador de búsqueda.
-    * `grid` - The gridlines of an interface element such as a table.
-    * `header-text` - The text of a header cell in a table.
-    * `highlight` - The virtual light source onscreen.
+    * `grid` - Las líneas de cuadrículas de un elemento de interfaz como una tabla.
+    * `header-text` - El texto de una celda de cabecera en una tabla.
+    * `highlight` - La fuente de luz virtual en la pantalla.
     * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
     * `label` - The text of a label containing primary content.
     * `link` - Un enlace a otro contenido.
