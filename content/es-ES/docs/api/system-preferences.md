@@ -251,10 +251,10 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-text` - Texto en ventanas.
   * Activado **macOS** 
     * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla.
-    * `control-background` - The background of a large interface element, such as a browser or table.
-    * `control` - The surface of a control.
-    * `control-text` -The text of a control that isn’t disabled.
-    * `disabled-control-text` - The text of a control that’s disabled.
+    * `control-background` - El fondo de un elemento de interfaz grande, tal como un navegador o tablet.
+    * `control` - La superficie de un control.
+    * `control-text` - El texto de un control que no está deshabilitado.
+    * `disabled-control-text` - El texto de un control que esta deshabilitado.
     * `find-highlight` - El color de un indicador de búsqueda.
     * `grid` - The gridlines of an interface element such as a table.
     * `header-text` - The text of a header cell in a table.
