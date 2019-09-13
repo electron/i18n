@@ -272,19 +272,19 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `selected-menu-item` - El texto de un menu seleccionado.
     * `selected-text-background` - El fondo de un texto seleccionado.
     * `selected-text` - Texto seleccionado.
-    * `separator` - A separator between different sections of content.
-    * `shadow` - The virtual shadow cast by a raised object onscreen.
-    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `separator` - Un separado entre las diferentes secciones del contenido.
+    * `shadow` - La sombra virtual proyectada por un objeto en la pantalla.
+    * `tertiary-label` - El texto para una etiqueta de menor importancia que una etiqueta secundaria como una etiqueta que se usa para representar texto deshabilidato.
     * `text-background` - Texto de fondo.
     * `text` - Texto en un documento.
-    * `under-page-background` - The background behind a document's content.
-    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
-    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
-    * `unemphasized-selected-text` - Selected text in a non-key window or view.
-    * `window-background` - The background of a window.
-    * `window-frame-text` - The text in the window's titlebar area.
+    * `under-page-background` - El fondo detrás del contenido de un documento.
+    * `unemphasized-selected-content-background` - El contenido seleccionado en una ventana o vista no-clave.
+    * `unemphasized-selected-text-background` - Un fondo para el texto seleccionado en una ventana o vista no clave.
+    * `unemphasized-selected-text-background` - Texto seleccionado en una ventana o vista no clave.
+    * `window-background` - El fondo de una ventana.
+    * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Mira el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) y el [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) para mas detalles.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -299,7 +299,7 @@ Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RG
   * `rojo`
   * `amarillo`
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
+Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
