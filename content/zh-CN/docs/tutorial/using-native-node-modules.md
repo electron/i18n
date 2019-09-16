@@ -82,7 +82,7 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 If you installed a native module and found it was not working, you need to check the following things:
 
 - 当有疑问时，请先执行 `electron-rebuild`。
-- Make sure the native module is compatible with the target platform and architecture for your Electron app.
+- 确保本地模块与Electron应用程序的目标平台和体系结构兼容。
 - Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
 - 如果升级了 Electron，你通常需要重新编译这些模块。
 
