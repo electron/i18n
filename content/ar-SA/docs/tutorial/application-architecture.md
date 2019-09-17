@@ -1,4 +1,4 @@
-# معمارية التطبيق منصة شليلة
+# معمارية التطبيق
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
