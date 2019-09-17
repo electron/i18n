@@ -1,7 +1,7 @@
 # Electron Release Timelines
 
-* The `-beta.1` and `stable` dates are our solid release dates.
-* We strive for weekly beta releases, however we often release more betas than scheduled.
+* `-beta.1` 와 `stable` 날짜는 우리의 믿을만한 릴리즈 날짜입니다.
+* 주 단위 베타 릴리즈를 위해 노력하고 있지만, 자주 예정보다 더 많은 베타를 릴리즈하고 있습니다.
 * All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
 * Take a look at the [5.0.0 Timeline blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
 
