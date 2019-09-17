@@ -1,4 +1,4 @@
-# Electron Application Architecture
+# معمارية التطبيق منصة شليلة
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
@@ -20,7 +20,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 > #### Aside: Communication Between Processes
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. منصةشليلة.
 
 ## Using Electron APIs
 
