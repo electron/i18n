@@ -179,11 +179,11 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `affinity` String(opțional) - Când este specificată, paginile cu aceeași`affinity-afinitate` vor rula în același proces de redare. Notează că odată reutilizat procesul de redare, anumite opțiuni `webPreferences-PreferințeWeb` vor fi afișate între paginile web chiar dacă ai specificat valori diferite pentru fiecare, inclusiv dar fară limită la `preload`, `sandbox` și `nodeIntegration`. Așa că este preferabil să utilizezi aceleași `webPreferences-PreferințeWeb` pentru toate paginile cu aceași `affinity-afinitate`. *Această propietate este experimentală*
     * `zoomFactor` Number-Număr (opțional) - Modul implicit al factorului de mărire a paginii`3.0` reprezintă `300%`. Modul implicit este`1.0`.
     * `javascript` Boolean (opțional)- Activează suportul JavaScript. Modul implicit este `true-adevărat`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Modul implicit este `true-adevărat`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
+    * `webSecurity` Boolean (opțional)- Când este `false-fals`, va dezactiva politica cu aceași origine ( de obicei website-urile folosite drept test de către oameni), și setează `allowRunningInsecureContent` la `true-adevărat` dacă această opțiune nu a fost deja setată de către utilizator. Modul implicit este `true-adevărat`.
+    * `allowRunningInsecureContent` Boolean (opțional) - Admite o pagină https să acționeze JavaScript, CSS sau plugin-uri din URL http. Modul implicit este `false-fals`.
+    * `images-imagini` Boolean(opțional) - Activează suportul imaginilor. Modul implicit este `true-adevărat`.
+    * `textAreaAreResizable` Boolean(opțional) - Face ca elementele TextArea să își poată modifica mărimea. Modul implicit este`true-adevărat`.
+    * `webgl` Boolean(opțional)- Activează suportul Webgl. Modul implicit este`true-adevărat`.
     * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
