@@ -1,8 +1,8 @@
 # Modo oscuro Mojave
 
-En macOS 10.14 Mojave, Apple introdujo un nuevo modo oscuro [para todo el sistema](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) en sus ordenadores macOS. If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
+En macOS 10.14 Mojave, Apple introdujo un nuevo modo oscuro [para todo el sistema](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) en sus ordenadores macOS. Si tu aplicación tiene un modo oscuro, puedes hacer que tu aplicación Electron siga la configuración de modo oscuro del sistema.
 
-In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for all macOS computers. Para que las APIs `siDarkMode` y `Tray` trabajen correctamente en este modo, en Catalina necesitas tener `NSRequiresAquaSystemAppearance` en `false` en tu archivo `Info.plist` o en Electron `>=7.0.0`.
+En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "automático" para todas las computadoras macOS. Para que las APIs `siDarkMode` y `Tray` trabajen correctamente en este modo, en Catalina necesitas tener `NSRequiresAquaSystemAppearance` en `false` en tu archivo `Info.plist` o en Electron `>=7.0.0`.
 
 ## Actualizando automáticamente las interfaces nativas
 
