@@ -190,15 +190,15 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `enableBlinkFeatures` String(opțional)- O listă a caracteristicilor șirului separate prin `,` la fel activarea `CSSVariables, KeyboardEventKey`. Întreaga listă a caracteristicilor șirurilor poate fi regasită în fișierele[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `enableBlinkFeatures` String(opțional)- O listă a caracteristicilor șirurilor separate prin `,` la fel dezactivarea `CSSVariables, KeyboardEventKey`. Întreaga listă suportată a caracteristicilor șirurilor se poate găsi în fișierul [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `modul implicit al fontului este FontFamily` Obiect (opțional) - Setează modul implicit al fontului la fontul -FontFamily. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
+      * `standard` String (opțional)- Modul implicit la `Times New Roman`.
+      * `serif` String(opțional)- Modul implicit setat la `Times New Roman`.
+      * `sansSerif` String (opțional) - Modul implicit la `Arial`.
+      * `monospace` String (opțional) - Modul implicit la `Courier New`.
+      * `cursive` String (opțional)- Modul implicit la `Script`.
+      * `fantasy` String (opțional)- Modul implicit la `Impact`.
+    * `defaultFontSize` Integer (opțional) - Modul implicit la `16`.
+    * `defaultMonospaceFontSize` Integer (opțional) -Modul implicit la `13`.
+    * `minimumFontSize` Integer (opțional) - Modul implicit `0`.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
