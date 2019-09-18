@@ -188,8 +188,8 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `experimentalFeatures`Boolean(opțional)- Activează caracteristicile experimentale ale Chromium. Modul implicit este `false-fals`.
     * `scrollBounce` Boolean (opțional)- Activează efectul de defilare(bandă de cauciuc) în macOs. Modul implicit este`false-fals`.
     * `enableBlinkFeatures` String(opțional)- O listă a caracteristicilor șirului separate prin `,` la fel activarea `CSSVariables, KeyboardEventKey`. Întreaga listă a caracteristicilor șirurilor poate fi regasită în fișierele[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
+    * `enableBlinkFeatures` String(opțional)- O listă a caracteristicilor șirurilor separate prin `,` la fel dezactivarea `CSSVariables, KeyboardEventKey`. Întreaga listă suportată a caracteristicilor șirurilor se poate găsi în fișierul [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `modul implicit al fontului este FontFamily` Obiect (opțional) - Setează modul implicit al fontului la fontul -FontFamily. 
       * `standard` String (optional) - Defaults to `Times New Roman`.
       * `serif` String (optional) - Defaults to `Times New Roman`.
       * `sansSerif` String (optional) - Defaults to `Arial`.
