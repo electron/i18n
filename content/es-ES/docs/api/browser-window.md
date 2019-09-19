@@ -713,7 +713,7 @@ Retorna [`Rectangle`](structures/rectangle.md) - El `bounds` del área del clien
 
 Devuelve [`Rectangle`](structures/rectangle.md) - Contiene los limites del estado normal de la ventana
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+**Note:** si el estado actual de la ventana: maximizado, minimizado en el pantalla completa, esta función siempre devuelve la posición y tamaño de la ventana en estado normal. En estado normal, getBounds y getNormalBounds el mismo [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
@@ -727,7 +727,7 @@ Habilita o deshabilita la ventana.
 * `alto` Integer
 * `animate` Boolean (opcional) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Re dimensiona la ventana a `width` y `height`. Si `width` o `height` están por debajo de cualquier limite de tamaño mínimo establecido la ventana se ajustará a estos tamaños minímo.
 
 #### `win.getSize()`
 
@@ -877,7 +877,7 @@ Cambia el título de la ventana nativa a `title`.
 
 Devuelve `String` - El título de la ventana nativa.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Note:** El título de la página web puede ser diferente del título de la ventana nativa.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -975,7 +975,7 @@ Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. La imagen `` es una instancia de [NativeImage](native-image.md) que almacena datos de la instantánea. Omitiendo `rect` capturará toda la página visible.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -991,10 +991,10 @@ Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` captur
 
 * `url` String
 * `opciones` Objecto (opcional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP Referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -1031,9 +1031,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `opciones` Objecto (opcional) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (opcional) - Pasado a `url.format()`.
+  * `search` String (opcional) - Pasado a `url.format()`.
+  * `hash` String (opcional) - Pasado a `url.format()`.
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -1096,7 +1096,7 @@ Devuelve `number` - entre 0.0 (completamente transparente) y 1.0 (totalmente opa
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - Establece una forma en la ventana. Pasando un lista vacía revierte la ventana para ser rectangular.
 
 Establecer una forma de ventana determina el área dentro de la ventana donde el sistema permite dibujar y interactuar con el usuario. Fuera de la región dada, no se dibujarán píxeles y no se registrarán eventos del ratón. Los eventos del ratón fuera de la región no será recibida por esa ventana, pero pasará a lo que esté detrás de la misma.
 
@@ -1196,7 +1196,7 @@ Devuelve `Boolean` - Si la barra de menú es visible o no.
 
 * `visible` Boolean
 * `opciones` Objecto (opcional) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (opcional) *macOS* - Establece si la ventana debe ser visible encima de la ventanas de pantalla completas
 
 Establece si la ventana debe ser visible o no en todos los espacios de trabajo.
 
@@ -1212,7 +1212,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 
 * `ignore` Boolean
 * `opciones` Objecto (opcional) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
+  * `forward` Boolean (opcional) *macOS* *Windows* - Si es true, enviá el mensaje de movimiento de mouse a Chromium, permitiendo eventos relacionados tal como `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.
 
@@ -1294,7 +1294,7 @@ Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md). Ajduntar el browerView a la ventana. Si hay otras browserViews que fueron adjuntadas se eliminaran desde esta ventana.
 
 #### `win.getBrowserView()` *Experimental*
 
