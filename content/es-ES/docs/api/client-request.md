@@ -173,7 +173,7 @@ Sigue cualquier solicitud de redirección diferida cuando el modo de redirecció
 
 Devuelve `Objecto`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `active` Boolean - Si la solicitud está activa actualmente. Si esto es falso ninguna otra propiedad será establecida
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
 * `current` Integer - The number of bytes that have been uploaded so far
 * `total` Integer - The number of bytes that will be uploaded this request
