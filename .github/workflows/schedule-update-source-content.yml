@@ -1,5 +1,5 @@
 on:
-  schedules:
+  schedule:
   - cron: 0 */6 * * *
 
 name: Update source content
