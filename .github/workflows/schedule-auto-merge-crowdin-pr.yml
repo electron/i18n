@@ -1,5 +1,5 @@
 on:
-  schedules:
+  schedule:
   - cron: 00 09 * * *
 
 name: Auto-merge Crowdin PR
