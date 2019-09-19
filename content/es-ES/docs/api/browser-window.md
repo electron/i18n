@@ -150,7 +150,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `disableAutoHideCursor` Boolean (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
   * `autoHideMenuBar` Boolean (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
   * `enableLargerThanScreen` Boolean (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Por defecto es `#FFF` (blanco).
+  * `backgroundColor` String (opcional) - El color de fondo de la Ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alfa en formato #AARRGGBB es soportado si `transparent` es establecido a `true`). Por defecto es `#FFF` (blanco).
   * `hasShadow` Boolean (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
   * `opacity` Number (opcional) - Establece la opacidad inicial de la ventana, entre 0.0 (completamente transparente) y 1.0 (completamente opaca). Solo está implementado en Windows y macOS.
   * `darkTheme` Boolean (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
