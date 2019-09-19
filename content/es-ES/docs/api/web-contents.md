@@ -719,9 +719,9 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `opciones` Objecto (opcional) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (opcional) - Pasado a `url.format()`.
+  * `search` String (opcional) - Pasado a `url.format()`.
+  * `hash` String (opcional) - Pasado a `url.format()`.
 
 Devuelve `Promise<void>` - la promesa sera resolvida cuando la página haya finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y será rechazada si la pagina falla al cargar (mira [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
