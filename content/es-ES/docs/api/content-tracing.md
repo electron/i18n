@@ -38,17 +38,17 @@ El módulo `contentTracing` tiene los siguientes métodos:
 * `callback` Function 
   * `categories` Cadena[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Obtiene un conjunto de grupos de categorías. Los grupos de categorías pueden cambiar a medida que se alcancen nuevas rutas de código.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Una vez que todos los procesos hijos han confirmado la solicitud de `getCategories` `callback` es llamado con un array de grupos de categorías.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+Devuelve `Promise<String[]>` - resuelve con un array de grupos de categorías una vez que todos los procesos hijos han confirmado la solicitud `getCategories`
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Obtiene un conjunto de grupos de categorías. Los grupos de categorías pueden cambiar a medida que se alcancen nuevas rutas de código.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -65,7 +65,7 @@ La grabación se inicia de manera inmediata de forma local y asincrónica en los
 
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+Devuelve `Promise<void>` - resuelto una vez que todos los procesos hijos han confirmado la solicitud `startRecording`.
 
 Iniciar la grabación en todos los procesos.
 
@@ -91,13 +91,13 @@ Los datos de rastreo se escribirán en `resultFilePath` si no está vacío o en 
 
 * `resultFilePath` Cadena
 
-Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Devuelve `Promise<String>` - resuelve con un archivo que contiene los datos rastreados una vez que todos los procesos hijos han confirmado la solicitud `stopRecording`
 
 Dejar de grabar en todos los procesos.
 
 Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
+Los datos de rastreo serán escritos dentro de `resultFilePath` si este no está vacío o dentro de un archivo temporal.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
