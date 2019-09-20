@@ -1,0 +1,21 @@
+on:
+  schedule:
+  - cron: 0 */6 * * *
+
+name: Update source content
+
+jobs:
+  fetchLatestSourceContent:
+    name: Fetch latest source content
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Fetch latest source content
+      env:
+        CROWDIN_KEY: ${{ secrets.CROWDIN_KEY }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        NODE_OPTIONS: --max_old_space_size=4096
+      run: npm run update-source-content
