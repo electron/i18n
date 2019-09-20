@@ -19,7 +19,7 @@ session.defaultSession.cookies.get({})
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// Consulta todas las cookies asociadas con un url especifica.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
@@ -27,8 +27,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
     console.log(error)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Establece un cookie con los datos de la misma.
+// puede sobrescriba cookies iguales si existen.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
@@ -70,9 +70,9 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
   * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
   * `session` Booleano (opcional) - Filtra las cookies fuera de la sesión o cookies persistentes.
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+Returns `Promise<Cookie[]>` - Una promesa que resulve un array de objetos cookies.
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+Envía una solicitud para obtener todas las cookies que coincidan con `filter`, y resuelve una promesa con la respuesta.
 
 #### `cookies.get(filter, callback)`
 
@@ -97,7 +97,7 @@ Envía una solicitud para obtener todas las cookies que coinciden con `filter`, 
   * `url` String - La url con la que asociar la cookie. La promesa será rechazada si la url no es válida.
   * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
   * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `domain` String (opcional) - El dominio de la cookie; esto se normalizara con un punto anterior para que también sean validos para subdominios. Vacío por defecto si se omite.
   * `path` Cadena (opcional) - La ruta de la cookie. Por defecto estará vacío si se omite.
   * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
   * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
