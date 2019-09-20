@@ -178,4 +178,4 @@ Devuelve `Objecto`:
 * `current` Integer - El número de bytes que se han subido hasta ahora
 * `total` Integer - El número de bytes que ha subido esta solicitud
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+Puedes usar este método en conjunto con solicitudes `POST` para obtener el progreso de la carga de un archivo u otro dato de transferencia.
