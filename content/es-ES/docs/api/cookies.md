@@ -103,7 +103,7 @@ Envía una solicitud para obtener todas las cookies que coinciden con `filter`, 
   * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
   * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+Returns `Promise<void>` - Una promesa que resuelve cuando la cookie ha sido establecida
 
 Establece una cookie con `detalles`.
 
@@ -130,9 +130,9 @@ Configura una cookie con `details`, `callback` y sera llamada con `callback(erro
 * `url` Cadena - La URL asociada con la cookie.
 * `name` Cadena - El nombre de la cookie que será eliminada.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+Devuelve `Promise<void>` - Una promesa que se resuelve cuando la cookie ha sido removida
 
-Removes the cookies matching `url` and `name`
+Elimina las cookies que coinciden con `url` y `name`
 
 #### `cookies.remove(url, name, callback)`
 
@@ -146,7 +146,7 @@ Elimina las cookies que coinciden con `url` and `name`, `callback` y serán llam
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+Devuelve `Promise<void>` - Una promesa que se resuelve cuando el almacenamiento de la cookie ha sido borrado
 
 Escribe cualquier dato de cookies en el disco que no haya sido escrito.
 
