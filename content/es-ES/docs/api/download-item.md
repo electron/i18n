@@ -1,6 +1,6 @@
 ## Clase: DownloadItem
 
-> El archivo de control descarga desde fuentes remotas.
+> Control de descargas de archivos desde fuentes remotas.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -82,7 +82,7 @@ Devuelve `String` - La ruta de guardado del elemento descargado. Este puede ser 
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SaveDialogOptions - Establece las opciones del diálogo de guardar archivos. Este objeto tiene la misma propiedad como el parámetro `options` de [`dialog.showSaveDialog()`](dialog.md).
 
 This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
 
