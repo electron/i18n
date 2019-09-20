@@ -84,11 +84,11 @@ Devuelve `String` - La ruta de guardado del elemento descargado. Este puede ser 
 
 * `options` SaveDialogOptions - Establece las opciones del diálogo de guardar archivos. Este objeto tiene la misma propiedad como el parámetro `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+Esta API permite al usuario establecer opciones personalizadas para el diálogo de guardado que abre para el elemento de descarga por defecto. Esta API solo esta disponible en la función callback `will-download` de la sesión.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+Devuelve `SaveDialogOptions` - Devuelve el objeto previamente establecido por `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 
