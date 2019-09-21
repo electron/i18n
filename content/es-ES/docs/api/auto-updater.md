@@ -1,6 +1,6 @@
 # autoUpdater
 
-> Permite que las aplicaciones que se actualicen automáticamente.
+> Enable apps to automatically update themselves.
 
 Proceso: [principal](../glossary.md#main-process)</0>
 
