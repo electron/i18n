@@ -1,6 +1,24 @@
 # Official Guides
 
-4.4 The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+4.4 The version number should be a part of the page URL. 
+
+<div id="holder">
+  Drag your file here
+</div> 
+
+<script>
+ document.addEventListener('drop', (e) => {
+ e.preventDefault();
+ e.stopPropagation();
+
+ for (const f of e.dataTransfer.files) {
+ console.log('File(s) you dragged here: ', f.path) } });
+ document.addEventListener('dragover', (e) => {
+ e.preventDefault();
+ e.stopPropagation(); });
+</script>. To view older versions of the documentation, you can 
+
+[browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
 
 ## FAQ
 
@@ -153,4 +171,18 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Development
 
-See <development/README.md>
+<div id="holder">
+  Drag your file here
+</div> 
+
+<script>
+ document.addEventListener('drop', (e) => {
+ e.preventDefault();
+ e.stopPropagation();
+
+ for (const f of e.dataTransfer.files) {
+ console.log('File(s) you dragged here: ', f.path) } });
+ document.addEventListener('dragover', (e) => {
+ e.preventDefault();
+ e.stopPropagation(); });
+</script>
