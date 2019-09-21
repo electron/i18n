@@ -126,6 +126,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocool](api/protocol.md)
