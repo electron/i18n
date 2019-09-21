@@ -12,15 +12,13 @@ Para obter informações sobre como divulgar adequadamente uma vulnerabilidade d
 
 ## Upgrades e Problemas de Segurança do Chromium
 
-While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
-
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## Security Is Everyone's Responsibility
 
 It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
-* **Mantenha sua aplicação atualizada com a última versão do framework Electron.** Ao lançar seu produto, você também está enviando um pacote composto pelo Electron, Biblioteca Compartilhada do Chromium e Node.js. Vulnerabilidades afetando estes componentes podem afetar a segurança do seu aplicativo. Ao atualizar o Electron para a versão mais recente, você garante que as vulnerabilidades críticas (como *nodeIntegration bypasses*) já estão corrigidas e não podem ser exploradas em seu aplicativo.
+* **Mantenha sua aplicação atualizada com a última versão do framework Electron.** Ao lançar seu produto, você também está enviando um pacote composto pelo Electron, Biblioteca Compartilhada do Chromium e Node.js. Vulnerabilidades afetando estes componentes podem afetar a segurança do seu aplicativo. Ao atualizar o Electron para a versão mais recente, você garante que as vulnerabilidades críticas (como *nodeIntegration bypasses*) já estão corrigidas e não podem ser exploradas em seu aplicativo. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
 * **Avalie suas dependências.** O NPM fornece meio milhão de pacotes reutilizáveis, mas é sua responsabilidade escolher bibliotecas de terceiros confiáveis. Se você usar bibliotecas desatualizadas afetadas por vulnerabilidades conhecidas ou se depender de código mal mantido, a segurança do aplicativo pode estar comprometida.
 
@@ -58,6 +56,7 @@ You should at least follow these steps to improve the security of your applicati
 14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
 15. [Disable the `remote` module](#15-disable-the-remote-module)
 16. [Filter the `remote` module](#16-filter-the-remote-module)
+17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -383,7 +382,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    enableBlinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: 'ExecCommandInJavaScript'
   }
 })
 ```
@@ -620,3 +619,13 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
   event.preventDefault()
 })
 ```
+
+## 17) Use a current version of Electron
+
+You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+
+### Por que?
+
+An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+
+Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
