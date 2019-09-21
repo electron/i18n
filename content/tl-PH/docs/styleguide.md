@@ -1,6 +1,32 @@
-# Electron Documentation Style Guide
+# <div id="holder">
+  Drag your file here
+</div> 
 
-These are the guidelines for writing Electron documentation.
+<script>
+ document. addEventListener('drop', (e) => {
+ e. preventDefault();
+ e. stopPropagation();
+
+ for (const f of e. dataTransfer. files) {
+ console. log('File(s) you dragged here: ', f. path) } });
+ document. addEventListener('dragover', (e) => {
+ e. preventDefault();
+ e. stopPropagation(); });
+</script><div id="holder">
+  Drag your file here
+</div> 
+
+<script>
+ document. addEventListener('drop', (e) => {
+ e. preventDefault();
+ e. stopPropagation();
+
+ for (const f of e. dataTransfer. files) {
+ console. log('File(s) you dragged here: ', f. path) } });
+ document. addEventListener('dragover', (e) => {
+ e. preventDefault();
+ e. stopPropagation(); });
+</script>.
 
 ## Titles
 
