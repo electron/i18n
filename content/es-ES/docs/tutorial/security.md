@@ -314,7 +314,7 @@ El mecanismo de entrega preferido de CSP es una cabecera HTTP, sin embargo no es
 
 *La recomendación por defecto es Electrón*
 
-By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
+Por defecto, Electron no permitirá sitios webs cargados sobre `HTTPS` para cargar y ejecutar scripts, CSS, o plugins desde orígenes inseguros (`HTTP`). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
 
 Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar recursos subsecuentes mediante `HTTP` es también conocido como "contenido mixto".
 
