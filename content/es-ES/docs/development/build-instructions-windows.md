@@ -91,4 +91,4 @@ Asegúrese de haber instalado `pywin32` con `pip install pywin32`.
 
 ### Los scripts de compilacion se bloquean haste que se presione una tecla
 
-Este error es una "característica" del intérprete de comandos de Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Este error es una "característica" del intérprete de comandos de Windows. Ocurre cuando se pulsa dentro de la ventana prompt con `QuickEdit` habilitado y está destinado a permitir seleccionar y copiar el texto de la salida fácilmente. Dado que cada click accidental pausará el proceso de compilación, puede que quiera desactivar esta característica en la propiedades del símbolo del sistema.
