@@ -14,7 +14,7 @@ Electron development is unopinionated - there is no "one true way" to develop, b
 
 "모던 Electron 응용 프로그램을 구축하기위한 완벽한 도구". Electron Forge는 Electron 개발을 위한 기존의 (잘 관리 된) 빌드 툴을 일관된 패키지로 통합하여 누구나 바로 Electron 개발에 뛰어들 수 있습니다.
 
-Forge에는 React, Vue 또는 Angular와 같은 보편적 인 프레임 워크 용 [ready-to-use templates](https://electronforge.io/templates)이 있습니다. ([`electron-packager`](https://github.com/electron/electron-packager)와 같은) 더 큰 Electron 커뮤니티에서 사용되는 것과 동일한 핵심 모듈을 사용합니다. - (Slack과 같은) Electron maintainers가 변경 한 사항은 Forge의 사용자에게도 도움이됩니다.
+Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. ([`electron-packager`](https://github.com/electron/electron-packager)와 같은) 더 큰 Electron 커뮤니티에서 사용되는 것과 동일한 핵심 모듈을 사용합니다. - (Slack과 같은) Electron maintainers가 변경 한 사항은 Forge의 사용자에게도 도움이됩니다.
 
 [Electronforge.io](https://electronforge.io/)에 더 많은 정보 및 문서를 찾을 수 있습니다.
 
