@@ -233,7 +233,7 @@ session
 
 *La recomendación por defecto es Electrón*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+Puede que haya adivinado que deshabilitando la propiedad `webSecurity` en un render process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) desactiva características de seguridad cruciales.
 
 No deshabilite `webSecurity` en aplicaciones de producción.
 
@@ -271,7 +271,7 @@ Un Contenido de Política de Seguridad (CSP) es una capa adicional de protecció
 
 ### ¿Por què?
 
-CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://example.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Defining a CSP is an easy way to improve your application's security.
+CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://example.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Definir un CSP es una manera fácil de mejorar la seguridad de tus aplicaciones.
 
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
@@ -285,7 +285,7 @@ Content-Security-Policy: script-src 'self' https://apis.example.com
 
 ### Encabezado CSP HTTP
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron respeta el [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) que puede ser establecido usando el manejador [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) de Electron:
 
 ```javascript
 const { session } = require('electron')
@@ -302,7 +302,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP Meta Etiqueta
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+El mecanismo de entrega preferido de CSP es una cabecera HTTP, sin embargo no es posible usar este método al cargar un recurso usando el protocolo `file://`. Puede ser útil en algunos casos, como usar el protocolo `file://`, para establecer una política en un página directamente en el markup usando un tag `<meta>`:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
