@@ -89,6 +89,6 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 Asegúrese de haber instalado `pywin32` con `pip install pywin32`.
 
-### Build Scripts Hang Until Keypress
+### Los scripts de compilacion se bloquean haste que se presione una tecla
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Este error es una "característica" del intérprete de comandos de Windows. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
