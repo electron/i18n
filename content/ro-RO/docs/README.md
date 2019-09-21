@@ -126,6 +126,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
