@@ -42,6 +42,8 @@ O módulo `dialog` possúi os seguintes métodos:
   * `message` String (opcional) *macOS* - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
+Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
 Os `filters` designam um array dos tipos que podem ser apresentados ou selecionados quando você quer que o usuário veja apenas um tipo específico. Como por exemplo:
@@ -90,7 +92,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 Returns `Promise<Object>` - Resolve wih an object containing the following:
 
-* `canceled` - Boolean - whether or not the dialog was canceled.
+* `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
@@ -181,7 +183,7 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
   * `detail` String (opcional) - Informações adicionais da mensagem.
   * `checkboxLabel` String (opcional) - Se fornecida, a caixa de mensagem incluirá uma caixa de seleção com o devido rótulo. O estado da caixa de seleção poderá ser verificada apenas quando `callback` estiver sendo usado.
   * `checkboxChecked` Boolean (opcional) - Estado inicial da caixa de seleção designada como ativa. `false` por padrão.
-  * `icon` [NativeImage](native-image.md) (opcional)
+  * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `cancelId` Integer (opcional) - O indicador do botão será usado para cancelar o diálogo, por via da tecla `Esc`. Por padrão é atribuído ao primeiro botão como "cancelar" ou "não" como rótulos. Se botões desse tipo não existem e essa opção não é atribuída, `0` será usado como valor de retorno ou resposta do callback.
   * `noLink` Boolean (opcional) - No Windows, o Electron tentará identificar qual dos `buttons` são botões comuns (como "cancelar" ou "sim"), e exibir os outros como links de comandos no diálogo. Ele pode fazer o diálogo ser apresentado com o estilo dos aplicativos modernos do Windows. Se você não deseja esse comportamento, você pode definir `noLink` para `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normaliza o acesso às teclas do teclado entre as plataformas. Por padrão é `false`. Ativando-o assume-se que `&` é usado nos rótulos dos botões para atribuir a tecla de atalho de acesso do teclado assim os rótulos serão convertidos para que funcionem corretamente em cada plataforma, os caracteres `&` são removidos no macOS, convertidos para `_` no Linux, e deixados intactos no Windows. Por exemplo, um rótulo de botão `Vie&w` será convertido para `Vie_w` no Linux e `View` no macOS e pode ser selecionado através de `Alt-W` no Windows e Linux.
