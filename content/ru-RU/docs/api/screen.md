@@ -12,42 +12,35 @@ You cannot require or use this module until the `ready` event of the `app` modul
 
 An example of creating a window that fills the whole screen:
 
-```javascript
-const electron = require('electron')
-const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
 
 let win
 
-app.on('ready', () => {
-  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
-})
-```
+app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-Another example of creating a window in the external display:
-
-```javascript
-const electron = require('electron')
-const { app, BrowserWindow } = require('electron')
-
-let win
-
-app.on('ready', () => {
-  let displays = electron.screen.getAllDisplays()
-  let externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
-
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
+    <br />Another example of creating a window in the external display:
+    
+    ```javascript
+    const electron = require('electron')
+    const { app, BrowserWindow } = require('electron')
+    
+    let win
+    
+    app.on('ready', () =&gt; {
+      let displays = electron.screen.getAllDisplays()
+      let externalDisplay = displays.find((display) =&gt; {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
+      })
+    
+      if (externalDisplay) {
+        win = new BrowserWindow({
+          x: externalDisplay.bounds.x + 50,
+          y: externalDisplay.bounds.y + 50
+        })
+        win.loadURL('https://github.com')
+      }
     })
-    win.loadURL('https://github.com')
-  }
-})
-```
+    
 
 ## События
 

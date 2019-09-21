@@ -22,11 +22,11 @@ app.on('ready', () => {
 
 **Nota:** Todos los métodos salvo los especificados pueden ser usados solo después de que el evento `listo` del módulo de la `aplicación` sea emitido.
 
-## Using `protocol` with a custom `partition` or `session`
+## Usando `protocol` con una `partition` o `session` personalizada
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+Un protocolo está registrado en un objeto [`session`](./session.md) específico de Electron. Si no especificas una sesión, luego tu `protocol` será aplicado a la sesión por defecto que Electron usa. Sin embargo, si defines una `partition` o `session` en tú `webPreferences` de `browserWindow`, luego esa ventana va a usar una sesión diferente y tu protocolo personalizado no funcionará si solo usas `electron.protocol.XXX`.
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+Para tener su protocolo personalizado trabajando con una sesión personalizada, necesitas registarlo a esa sesión explícitamente.
 
 ```javascript
 const { session, app, protocol } = require('electron')
@@ -61,11 +61,11 @@ El módulo `protocolo` tiene los siguientes métodos:
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**Note:** Este método solo puede ser usado antes de que el evento `ready` del modulo `app` sea emitido y solo puede ser llamado una vez.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Registra el `scheme` como estándar, seguro, elude la política de seguridad de contenido para recursos, permite registrar ServiceWorker y soporta la API fetch.
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+Especifique a privilegio con el valor de `true` para habilitar la capacidad. Un ejemplo de registro de un esquema de privilegiado, con eliminación de la Política de Seguridad de Contenido:
 
 ```javascript
 const { protocol } = require('electron')
@@ -90,19 +90,19 @@ Registrando un esquema como estándar permitirá el acceso a archivos mediante l
 
 Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) está deshabilitado para esquemas no estándar. Así que en general si quiere registrar un protocolo personalizado para reemplazar el protocolo el `http`, tiene que registrarlo como un esquema estándar.
 
-`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+`protocol.registerSchemesAsPrivileged` se puede usar para replicar las funcionalidad anterior `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` y `protocol.registerServiceWorkerSchemes` funciones que existían antes de Electron 5.0.0, por ejemplo:
 
-**before (<= v4.x)**
+**antes (<= v4.x)**
 
 ```javascript
-// Main
+// Principal
 protocol.registerStandardSchemes(['scheme1', 'scheme2'], { secure: true })
-// Renderer
+// Renderizador
 webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
-**after (>= v5.x)**
+**después de (>= v5.x)**
 
 ```javascript
 protocol.registerSchemesAsPrivileged([
@@ -127,11 +127,11 @@ protocol.registerSchemesAsPrivileged([
 
 Registra un protocolo de `esquema` que enviará el archivo como respuesta. El `controlador` será llamado con `handler(request, callback)` cuando una `solicitud` será creada con el `esquema`. `terminación` será llamado con `terminación(nulo)` cuando el `esquema` está registrado exitósamente o `terminación(error)` cuando haya fallado.
 
-Para controlar la `solicitud`, la `retrollamada` debe ser llamada con la ruta al archivo o un objeto que tiene una propiedad `ruta`, ejemplo `callback(filePath)` o `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
+Para controlar la `solicitud`, la `retrollamada` debe ser llamada con la ruta al archivo o un objeto que tiene una propiedad `ruta`, ejemplo `callback(filePath)` o `callback({ path: filePath })`. El objeto puede contener también un propiedad `headers` el cual da un mapa de cabeceras a valores para los cabeceras de respuesta, por ejemplo. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
 Cuando la `retrollamada` es llamada sin argumento, un número, o un objeto que tiene una propiedad `error`, la `solicitud` fallará con el número de `error` que usted haya especificado. Para números de errores que puede usar, por favor vea la [lista de errores de red](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
+Por defecto el `scheme` es tratado como `http:`, que es analizado de forma diferente que los protocolos que siguen la "generic URI syntax" como `file:`.
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
@@ -159,7 +159,7 @@ const { protocol } = require('electron')
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('Fallo al registrar el protocolo')
 })
 ```
 
@@ -290,7 +290,7 @@ El `callback` será llamado con un booleano que indique si ya existe un manejado
 
 * `scheme` String
 
-Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
+Devuelve `Promise<Boolean>` - completado con un boolean eso indica si hay un controlador listo para `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 

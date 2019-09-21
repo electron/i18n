@@ -13,9 +13,9 @@ La siguiente es una lista no completa de por qué debería considerar usar el m�
 * Soportar los proxies de autentificación usando basic, digest, NTLM, Kerberos, o negociar esquemas de autentificación.
 * Soporta proxies para monitoreo de tráfico: Fiddler como proxies usados para el acceso, el control y el monitoreo.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+Los componentes API (incluyendo clases, métodos, propiedades y nombres de eventos) son similares a esos usados en Node.js.
 
-Example usage:
+Ejemlo de uso:
 
 ```javascript
 const { app } = require('electron')

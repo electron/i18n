@@ -54,7 +54,7 @@ Vea la [documentación de Node](https://nodejs.org/api/cli.html) o ejecute `node
 
 ## --proxy-server=`address:port`
 
-Usa un servidor proxy especifico, el cual sobrescribe la configuración del sistema. Esta opción solo afecta peticiones con protocolo HTTP, incluyendo peticiones HTTPS y WebSocket. También cabe destacar que no todos los servidores proxy aceptan peticiones HTTPS y WebSocket. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Usa un servidor proxy especifico, el cual sobrescribe la configuración del sistema. Esta opción solo afecta peticiones con protocolo HTTP, incluyendo peticiones HTTPS y WebSocket. También cabe destacar que no todos los servidores proxy aceptan peticiones HTTPS y WebSocket. La URL del proxy no soporta la autenticacón usuario y clave [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -148,6 +148,6 @@ Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
 Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. Por ejemplo `my_module=2,foo*=3` cambiaría el nivel de logging para todo el código fuente en los archivos `my_module.*` y `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Por ejemplo `*/foo/bar/*=2` cambiaría le nivel de logging para todo el código fuente en los ficheros contenidos en `foo/bar` directorio.
+Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. Por ejemplo `*/foo/bar/*=2` cambiaría le nivel de logging para todo el código fuente en los ficheros contenidos en `foo/bar` directorio.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.

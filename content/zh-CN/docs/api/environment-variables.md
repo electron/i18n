@@ -107,7 +107,7 @@ Options:
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-由 ` electron ` 包运行时，该变量告知 ` electron `命令使用指定构件代替由`npm install`下载的构件。 用法:
+当 `electron` 包运行时，该变量告知 `electron` 命令使用指定Electron的构建代替由 `npm install` 下载的构建。 用法:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug

@@ -2,7 +2,7 @@
 
 Istnieje kilka sposobów, aby zaktualizować aplikację Electron. Ten najprostszy i oficjalnie wspierany jest korzystając z wbudowanej struktury [Squirrel](https://github.com/Squirrel) oraz modułu [autoUpdater](../api/auto-updater.md) Electron'a.
 
-## Using `update.electronjs.org`
+## Używanie `update.electronjs.org`
 
 GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
@@ -84,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: 'Nowa wersja została pobrana. Zrestartuj aplikację aby zatwierdzić zmiany.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {

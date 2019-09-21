@@ -12,23 +12,21 @@
 
 ## Вопросы и обновления безопасности Chromium
 
-Команда Электрона стремится поддерживать новые версии Chromium как можно быстрее, разработчики должны быть в курсе, что модернизация важное мероприятие с пересмотром и исправлением не одной дюжины или даже сотни файлов. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
-Мы понимаем, что наша текущая система обновления компонента Chromiumнарушает баланс между имеющимися у нас ресурсами и потребностями большинство приложений, построенных на его основе. Мы, безусловно, заинтересованы в получении дополнительной информации о работе с Электроном, от людей которые создают приложения на его основе. Мы будем очень благодарны за pull requests и поддержку проекта.
+## Безопасность - это ответственность каждого
 
-## Security Is Everyone's Responsibility
+Важно помнить, что безопасность вашего Electron приложения является результатом общей безопасности основы платформы (*Chromium*, *Node.js*), самого Electron, всех NPM-зависимостей и вашего кода. Поэтому вы обязаны следовать нескольким важным рекомендациям:
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
-
-* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
 * **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-## Isolation For Untrusted Content
+## Изоляция ненадежного контента
 
-A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Проблемы безопасности возникают всякий раз, когда вы получаете код из ненадежного источника (напр., удаленный сервер) и выполняете его локально. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
 > :warning: ни при каких обстоятельствах не следует загружать и выполнять удаленный код с Node.js integration enabled. Вместо этого используйте только локальные файлы (упакованные вместе с вашим приложением), для выполнения Node.js кода. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
@@ -49,7 +47,7 @@ You should at least follow these steps to improve the security of your applicati
 5. [Не выключайте `webSecurity`](#5-do-not-disable-websecurity)
 6. [Определите `Content-Security-Policy`](#6-define-a-content-security-policy) и используйте ограничительные правила (i.e. `script-src 'self'`)
 7. [Не устанавливайте `allowRunningInsecureContent` в `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
-8. [Do not enable experimental features](#8-do-not-enable-experimental-features)
+8. [Не включайте экспериментальные функции](#8-do-not-enable-experimental-features)
 9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
 10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
 11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
@@ -58,6 +56,7 @@ You should at least follow these steps to improve the security of your applicati
 14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
 15. [Disable the `remote` module](#15-disable-the-remote-module)
 16. [Filter the `remote` module](#16-filter-the-remote-module)
+17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -383,7 +382,7 @@ Generally speaking, there are likely good reasons if a feature was not enabled b
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    enableBlinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: 'ExecCommandInJavaScript'
   }
 })
 ```
@@ -620,3 +619,13 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
   event.preventDefault()
 })
 ```
+
+## 17) Use a current version of Electron
+
+You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+
+### Почему?
+
+An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+
+Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.

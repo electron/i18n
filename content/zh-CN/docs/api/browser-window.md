@@ -830,7 +830,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 #### `win.isClosable()` *macOS* *Windows*
 
-返回 `Boolean` - 窗口是否被用户关闭了.
+返回 `Boolean` - 窗口是否可以被用户关闭.
 
 在 Linux 上总是返回 ` true `。
 
@@ -1073,17 +1073,15 @@ Remove the window's menu bar.
 
 在当前任务栏图标上设置一个 16 x 16 像素的图标, 通常用于传达某种应用程序状态或被动地通知用户。
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-设置窗口是否应该有阴影. 在 Windows 和 Linux 系统无效
+Sets whether the window should have a shadow.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()`
 
 返回 `Boolean` - 判断窗口是否有阴影.
-
-在 Windows 和 Linux 上总是返回 `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 

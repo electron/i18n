@@ -166,12 +166,14 @@ app.on('activate', () => {
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
   </head>
   <body>
     <h1>Hello World!</h1>
-    我們用了 node <script>document.write(process.versions.node)</script>,
+    We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    以及 Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```

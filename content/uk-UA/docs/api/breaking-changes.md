@@ -1,4 +1,4 @@
-# Breaking Changes
+# Важливі Зміни
 
 Зміни, які ламають роботу застосунку, будуть документуватися тут, також попередження про припинення підримки по можливості додано в JS код, як мінімум за [одне велике оновлення](../tutorial/electron-versioning.md#semver) до змін.
 
@@ -11,9 +11,9 @@
 ## `shell.openExternalSync(url[, options])`
 
 ```js
-// Deprecated
+// Не підтримується
 shell.openExternalSync(url)
-// Replace with
+// Замініть на
 async function openThing (url) {
   await shell.openExternal(url)
 }
@@ -33,13 +33,13 @@ win.removeMenu()
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
+// Не пітримується
 contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+  // зробити щось
 })
-// Replace with
+// Замініть на
 contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+  // infoObject має відсоток і поля значень
 })
 ```
 
@@ -79,29 +79,29 @@ require('electron').remote.require('path')
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// Не підтримується
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Замініть на синхронний API
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// Не підтримується
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Замініть на синхронний API
 const idleTime = getSystemIdleTime()
 ```
 
 ## `Tray`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+На macOS Catalina наша колишня імплементація Tray ламається. Нативна заміна Apple не підтримує зміни поведінки підсвітки.
 
 ```js
-// Deprecated
+// Не підтримується
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// API буде видалено у версії v7.0 без заміни.
 ```
 
 # Заплановані Зміни API (5.0)
@@ -116,7 +116,7 @@ tray.setHighlightMode(mode)
 | `nodeIntegration`  | `true`                                            | `false`       |
 | `webviewTag`       | `nodeIntegration` якщо встановлено, інакше `true` | `false`       |
 
-E.g. Re-enabling the webviewTag
+Наприклад, повторне вмикання webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -128,7 +128,7 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
+Дочірнє вікно з опцією `nativeWindowOpen` завжди буде мати відімкнену інтеграцію з Node.js, хіба `nodeIntegrationInSubFrames` є `true.
 
 ## Реєстрація Привілейованих Схем
 

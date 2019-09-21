@@ -42,6 +42,8 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
   * `message` String (opsyonal) *macOS* - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
+Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+
 Ang `browserWindow` na argumento ay pinahihintulutan ang dialog na ilakip ang kanyang sarili sa isang parent window, na ginagawa itong modal.
 
 Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o mapipili kung nais mong limitahan ang gumagamit sa isang tiyak na uri. Halimbawa:
@@ -90,7 +92,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 Returns `Promise<Object>` - Resolve wih an object containing the following:
 
-* `canceled` - Boolean - whether or not the dialog was canceled.
+* `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
@@ -181,7 +183,7 @@ Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, t
   * `detail` String (opsyonal) - Karagdagang impormasyon ukol sa mensahe.
   * `checkboxLabel` String (opsyonal) - Kapag ibinigay, ang mensaheng kahon ay maglalakip ng isang checkbox na may lebel. Ang estado ng checkbox ay pwede tingnan lamang kapag gumagamit ng `callback`.
   * `checkboxChecked` Boolean (optional) - paunang naka-check na estado ng checkbox. `false` ito sa default.
-  * `icon` [NativeImage](native-image.md) (opsyonal)
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal)
   * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `0` ay gagamitin bilang pabalik na halaga o sagot sa callback.
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.

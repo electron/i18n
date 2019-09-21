@@ -1099,17 +1099,15 @@ win.loadURL(url)
                               
                               Mengatur 16 x 16 piksel overlay ke ikon taskbar saat ini, biasanya digunakan untuk sampaikan semacam status aplikasi atau secara pasif memberitahukan pengguna.
                               
-                              #### `win.setHasShadow (hasShadow)` *macos*
+                              #### `win.setHasShadow(hasShadow)`
                               
                               * `hasShadow` Boolean
                               
-                              Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
+                              Sets whether the window should have a shadow.
                               
-                              #### `win.hasShadow()` *macos *
+                              #### `win.hasShadow()`
                               
                               Mengembalikan `Boolean` - Apakah jendela memiliki bayangan.
-                              
-                              Pada Windows dan Linux selalu kembali `benar`.
                               
                               #### `win.setOpacity(opacity)` *Windows* *macOS*
                               

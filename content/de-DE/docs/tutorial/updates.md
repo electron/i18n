@@ -4,22 +4,22 @@ Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachs
 
 ## Benutzt `update.electronjs.org`
 
-GitHub's Electron Team verwaltet [update.electronjs.org](https://github.com/electron/update.electronjs.org), Ein kostenloser open-source Web Dienst, welchen Electron Apps für automatische updates benutzen können. The service is designed for Electron apps that meet the following criteria:
+GitHub's Electron Team verwaltet [update.electronjs.org](https://github.com/electron/update.electronjs.org), Ein kostenloser open-source Web Dienst, welchen Electron Apps für automatische updates benutzen können. Der Service ist für Electron-Apps, die die folgenden Kriterien erfüllen ausgelegt:
 
 - App läuft unter Mac OS oder Windows
 - App hat ein öffentliches GitHub Repository
 - Builds werden in GitHub-Releases veröffentlicht
 - Builds sind Code-signiert
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+Am einfachsten können Sie diesen Service nutzen, indem Sie [update-electron-app](https://github.com/electron/update-electron-app) installieren, ein Node.js-Modul, das für die Verwendung mit update.electronjs.org vorkonfiguriert ist.
 
-Install the module:
+Installiere das Modul:
 
 ```sh
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Rufen Sie den Updater über die Hauptprozessdatei Ihrer App auf:
 
 ```js
 require('update-electron-app')()

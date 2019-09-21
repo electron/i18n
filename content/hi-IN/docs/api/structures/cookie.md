@@ -2,8 +2,8 @@
 
 * `नाम` String - Cookie का नाम ।
 * ` मान ` String - Cookie का मूल्य ।
-* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
+* `domain` String (वैकल्पिक) - Cookie का डोमेन; इसे पूर्ववर्ती बिंदु के साथ सामान्यीकृत किया जाएगा ताकि यह उप-डोमेन के लिए भी मान्य हो।
+* `hostOnly` Boolean (वैकल्पिक) - जबकि कुकी एक मेजबान केवल कुकी है। यह केवल तभी सच होगा जब कोई डोमेन `पारित` नहीं किया गया था।
 * ` मार्ग ` String (वैकल्पिक) - Cookie का मार्ग ।
 * ` सुदृढ़ ` Boolean (वैकल्पिक) - क्या Cookie सुदृढ़ रूप में चिह्नित है ।
 * ` httpOnly ` Boolean (वैकल्पिक) - क्या Cookie केवल HTTP के रूप में चिह्नित है ।

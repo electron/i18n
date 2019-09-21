@@ -12,42 +12,35 @@ No se puede solicitar o usar este módulo hasta que el evento `ready` del módul
 
 Un ejemplo de crear una ventana que llene toda la pantalla:
 
-```javascript
-const electron = require('electron')
-const { app, BrowserWindow } = electron
-
-dejar ganar
-
-app.on('ready', () => {
-  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
-})
-```
-
-Otro ejemplo de crear una ventana el display externo es:
-
-```javascript
-onst electron = require('electron')
-const { app, BrowserWindow } = require('electron')
+```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
 
 let win
 
-app.on('ready', () => {
-  let displays = electron.screen.getAllDisplays()
-  let externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
+app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
+    <br />Another example of creating a window in the external display:
+    
+    ```javascript
+    const electron = require('electron')
+    const { app, BrowserWindow } = require('electron')
+    
+    let win
+    
+    app.on('ready', () =&gt; {
+      let displays = electron.screen.getAllDisplays()
+      let externalDisplay = displays.find((display) =&gt; {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
+      })
+    
+      if (externalDisplay) {
+        win = new BrowserWindow({
+          x: externalDisplay.bounds.x + 50,
+          y: externalDisplay.bounds.y + 50
+        })
+        win.loadURL('https://github.com')
+      }
     })
-    win.loadURL('https://github.com')
-  }
-})
-```
+    
 
 ## Eventos
 
@@ -117,7 +110,7 @@ Devuelve [`Display`](structures/display.md) - La muestra que es más cercana int
 
 Devuelve [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+Convierte un punto físico de la pantalla a un punto DIP de pantalla. La escala DPI se realiza en relación a la pantalla que contiene el punto físico.
 
 ### `screen.dipToScreenPoint(point)` *Windows*
 
@@ -125,7 +118,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 Devuelve [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+Convierte un punto DIP de una pantalla a un punto físico de pantalla. La escala DPI se realiza en relación a la pantalla que contiene el punto DIP.
 
 ### `screen.screenToDipRect(window, rect)` *Windows*
 
@@ -134,7 +127,7 @@ Converts a screen DIP point to a screen physical point. The DPI scale is perform
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Convierte una rect física de pantalla a una rect DIP de pantalla. La escala DPI se realiza en relación a la pantalla más cercana a `window`. Si `window` es nulo, el escalamiento se realizará a la pantalla mas cercana a `rect`.
 
 ### `screen.dipToScreenRect(window, rect)` *Windows*
 
@@ -143,4 +136,4 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Convierte una pantalla DIP rect a una rect física de pantalla. La escala DPI se realiza en relación a la pantalla más cercana a `window`. Si `window` es nulo, el escalamiento se realizará a la pantalla mas cercana a `rect`.

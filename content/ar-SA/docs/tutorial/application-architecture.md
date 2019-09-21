@@ -1,4 +1,4 @@
-# Electron Application Architecture
+# معمارية التطبيق
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
@@ -20,7 +20,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 
 > #### Aside: Communication Between Processes
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. منص</a>ةشليلة.
 
 ## Using Electron APIs
 
@@ -66,7 +66,7 @@ const root = fs.readdirSync('/')
 
 // This will print all files at the root-level of the disk,
 // either '/' or 'C:\'.
-console.log(root)
+console.log(root)منصةشليلة ar 
 ```
 
 As you might already be able to guess, this has important security implications if you ever attempt to load remote content. You can find more information and guidance on loading remote content in our [security documentation](./security.md).

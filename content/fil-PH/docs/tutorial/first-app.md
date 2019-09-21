@@ -153,19 +153,21 @@ app.on('activate', () => {
 Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
 
 ```html
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;Hello World!&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello World!&lt;/h1&gt;
-    Kami ay gumagamit ng node&lt;script&gt;document.write(process.versions.node)&lt;/script&gt;,
-    Chrome &lt;script&gt;document.write(process.versions.chrome)&lt;/script&gt;,
-    and Electron &lt;script&gt;document.write(process.versions.electron)</6.
-  &lt;/body&gt;
-&lt;/html&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+  </body>
+</html>
 ```
 
 ## Pagpapaandar ng yong aplikasyon

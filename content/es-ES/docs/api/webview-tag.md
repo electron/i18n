@@ -93,7 +93,7 @@ Cuando este atributo esté presente, la página de invitado en `webview` tendrá
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
+Opción experimental para habilitar el suporte de NodeJS en sub-frames tal como iframes dentro de `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
 
 ### `enableremotemodule`
 
@@ -101,7 +101,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
+Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá acceso al módulo [`remote`](remote.md). El módulo remote está habilitado por defecto.
 
 ### `complementos`
 
@@ -217,7 +217,7 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
-Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
+Devuelve `Promise<void>` - La promesa se resolverá cuando la pagina ha finalizado de cargar (ver [`did-finish-load`](webview-tag.md#event-did-finish-load)), y rechaza si la página falla al cargar (ver [`did-fail-load`](webview-tag.md#event-did-fail-load)).
 
 Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. el `http://` or `file://`.
 
@@ -324,7 +324,7 @@ Inyecta CSS en la página de invitado.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
@@ -333,9 +333,9 @@ Evalúa el `código` en la página. Si `userGesture` está establecido, creará 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
 * `code` Cadena de caracteres
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean (opcional) - Por defecto `false`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
@@ -364,7 +364,7 @@ Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitad
 
 ### `<webview>.inspectSharedWorker()`
 
-Opens the DevTools for the shared worker context present in the guest page.
+Abre el DevTools para el contexto de trabajadores compartidos presentes en la página de invitado.
 
 ### `<webview>.inspectServiceWorker()`
 
@@ -382,7 +382,7 @@ Devuelve `Boolean` - Aunque a página de invitado haya sido silenciada.
 
 ### `<webview>.isCurrentlyAudible()`
 
-Returns `Boolean` - Whether audio is currently playing.
+Devuelve `Boolean` - Si el audio se esta reproduciendo actualmente.
 
 ### `<webview>.undo()`
 
@@ -443,14 +443,14 @@ Inserta `texto` en el elemento enfocado.
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
 * `opciones` Objecto (opcional) 
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
-  * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
+  * `findNext` Boolean (opcional) - Si la operación es la primera solicitud o un seguimiento, por defecto a `false`.
+  * `matchCase` Boolean (opcional) - Si la busqueda debe ser sensible a mayúsculas, por defecto es `false`.
+  * `wordStart` Boolean (opcional) - Si sólo se mira al inicio de las palabras. por defecto a `false`.
+  * `medialCapitalAsWordStart` Boolean (opcional) - Cuando se combina con `wordStart`, acepta emparejar en el medio de una palabra si el emparejado comienza con un una letra mayúscula seguida por una minúscula o no letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Returns `Integer` - The request id used for the request.
+Devuelve `Integer` - El id de la solicitud usado para la solicitud.
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Empieza una solicitud para encontrar todas las coincidencias para el `text` en la página web. El resultado de la petición puede ser obtenido por suscripción al evento [`found-in-page`](webview-tag.md#event-found-in-page).
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -473,11 +473,11 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
 ### `<webview>.printToPDF(options, callback)`
 
 * `opciones` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
   * `error` Error
   * `data` Buffer
@@ -486,18 +486,18 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
-### `<webview>.printToPDF(options)`
+### `<webview>.printToPDF(opciones)`
 
 * `opciones` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (opcional) - Si se va a imprimir o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
+Imprime la página web de `webview` como PDF, Igual como `webContents.printToPDF(options)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -505,7 +505,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. La `image` es una instancia de [NativeImage](native-image.md) que almacena datos de la instantánea. Omitir `rect` capturará toda la página visible.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -513,16 +513,16 @@ Captura una foto instantánea de la página dentro de `rect`. Al finalizar se ll
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. El proceso renderizador puede manejar el mensaje escuchando el evento `channel` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
 Ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para ejemplos.
 
@@ -548,11 +548,11 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 ### `<webview>.getZoomFactor()`
 
-Returns `Number` - the current zoom factor.
+Devuelve `Number` - el factor de zoom actual.
 
 ### `<webview>.getZoomLevel()`
 
-Returns `Number` - the current zoom level.
+Devuelve `Number` - el nivel de zoom actual.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -576,11 +576,11 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuando este módulo esta deshabilitado.
 
 ### `<webview>.getWebContentsId()`
 
-Returns `Number` - The WebContents ID of this `webview`.
+Devuelve `Number` - El ID de WebContents de este `webview`.
 
 ## Eventos DOM
 
@@ -705,7 +705,7 @@ Devuelve:
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` Object - Las opciones que deberían ser usadas para la creación del nuevo [`BrowserWindow`](browser-window.md).
 
 Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
@@ -780,7 +780,7 @@ Devuelve:
 
 Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte entre la página de invitado y la página del integrador:
 
 ```javascript
 // In embedder page.

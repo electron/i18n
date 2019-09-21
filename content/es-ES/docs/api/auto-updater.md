@@ -2,7 +2,7 @@
 
 > Permite que las aplicaciones que se actualicen automáticamente.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [principal](../glossary.md#main-process)</0>
 
 **Puede Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
@@ -66,7 +66,7 @@ Aparece cuando se ha descargado una actualización.
 
 Solo esta disponible en Windows `releaseName`.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Note:** Esto no es estrictamente necesario para manejar este evento. Todavía se aplicará una actualización descargada con éxito la próxima vez que la aplicación inicie.
 
 ### Evento: 'before-quit-for-update'
 
@@ -101,4 +101,4 @@ Reinicia la aplicación e instala la actualización luego de que se haya descarg
 
 Llamar a `autoUpdater.quitAndInstall()` bajo la capucha cerrará todas las ventanas de la aplicación, y llamará automáticamente a `app.quit()` después de que se hayan cerrado todas las ventanas.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Note:** No es estrictamente necesario llamar esta función para aplicar una actualización, como una actualización fue descargada con éxito siempre será actualizada la próxima vez que la aplicación inicie.

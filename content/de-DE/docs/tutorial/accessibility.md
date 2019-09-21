@@ -1,6 +1,6 @@
 # Barrierefreiheit
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Die Bereitstellung zugänglicher Anwendungen ist wichtig und wir freuen uns, neue -Funktionen für [Devtron](https://electronjs.org/devtron) und [Spectron](https://electronjs.org/spectron) einzuführen, die Entwicklern die Möglichkeit gibt, ihre Apps für alle besser zu machen.
 
 * * *
 

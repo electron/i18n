@@ -12,15 +12,35 @@ Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready`
 
 Isang halimbawa ng paglikha ng isang window na pupuno sa buong screen:
 
-```javascript
-const elektron = require('elektron') const { app, BrowserWindow } = elektron let win app.on('ready', () => { const { width, height } = elektron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https:..github.com') })
-```
+```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
 
-Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
+let win
 
-```javascript
-const elektron = rewuire('elektron') const { app, BrowserWindow } = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
-```
+app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+
+    <br />Another example of creating a window in the external display:
+    
+    ```javascript
+    const electron = require('electron')
+    const { app, BrowserWindow } = require('electron')
+    
+    let win
+    
+    app.on('ready', () =&gt; {
+      let displays = electron.screen.getAllDisplays()
+      let externalDisplay = displays.find((display) =&gt; {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
+      })
+    
+      if (externalDisplay) {
+        win = new BrowserWindow({
+          x: externalDisplay.bounds.x + 50,
+          y: externalDisplay.bounds.y + 50
+        })
+        win.loadURL('https://github.com')
+      }
+    })
+    
 
 ## Mga event
 

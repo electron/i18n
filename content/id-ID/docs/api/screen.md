@@ -12,42 +12,35 @@ Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`apl
 
 An example of creating a window that fills the whole screen:
 
-```javascript
-const electron = require('electron')
-const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
 
 let win
 
-app.on('ready', () => {
-  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({ width, height })
-  win.loadURL('https://github.com')
-})
-```
+app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-Another example of creating a window in the external display:
-
-```javascript
-const electron = require('electron')
-const { app, BrowserWindow } = require('electron')
-
-let win
-
-app.on('ready', () => {
-  let displays = electron.screen.getAllDisplays()
-  let externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
-
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
+    <br />Another example of creating a window in the external display:
+    
+    ```javascript
+    const electron = require('electron')
+    const { app, BrowserWindow } = require('electron')
+    
+    let win
+    
+    app.on('ready', () =&gt; {
+      let displays = electron.screen.getAllDisplays()
+      let externalDisplay = displays.find((display) =&gt; {
+        return display.bounds.x !== 0 || display.bounds.y !== 0
+      })
+    
+      if (externalDisplay) {
+        win = new BrowserWindow({
+          x: externalDisplay.bounds.x + 50,
+          y: externalDisplay.bounds.y + 50
+        })
+        win.loadURL('https://github.com')
+      }
     })
-    win.loadURL('https://github.com')
-  }
-})
-```
+    
 
 ## Kejadian
 
@@ -55,7 +48,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Pengembalian:
+Returns:
 
 * ` event </ 0>  Acara</li>
 <li><code>newDisplay` [Display](structures/display.md)
@@ -64,7 +57,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Mengirimkan:
 
 * `event` Sinyal
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +66,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Mengirimkan:
+Pengembalian:
 
 * `peristiwa` Peristiwa
 * `display` [Display](structures/display.md)

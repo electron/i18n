@@ -126,6 +126,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [Powiadomienie](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

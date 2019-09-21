@@ -1,8 +1,8 @@
 # MacOS Dock
 
-Electron有API来配置macOS Dock中的应用程序图标。 A macOS-only API exists to create a custom dock menu, but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron有API来配置macOS Dock中的应用程序图标。 可以使用API用来创建一个自定义的Dock菜单项，这个API是macOS独占的，但是Electron也会默认使用应用的Dock图标来实现一些可以跨平台的功能，例如[最近文件](./recent-documents.md)和[应用程序进度](./progress-bar.md)
 
-The custom dock is commonly used to add shortcuts to tasks the user wouldn't want to open the whole app window for.
+一个自定义的Dock项也普遍用于为那些用户不愿意为之打开整个应用窗口的任务添加快捷方式。
 
 **Terminal.app 的 Dock 菜单:**
 

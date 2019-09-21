@@ -1,4 +1,4 @@
-tagline: Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS
+tagline: Membangun aplikasi desktop lintas platform dengan JavaScript, HTML dan CSS
 nav:
   apps: Aplikasi
   blog: Blog
@@ -146,18 +146,18 @@ apps:
   search_app: Filter apps by name, description, etc…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
+  website: Situs Web
+  repository: Repositori
   category: Category
   downloads: Downloads
-  keywords: Keywords
+  keywords: Kata Kunci
   license: Lisensi
-  latest_release: Latest Release
+  latest_release: Rilis Terakhir
 blog:
   title: Halaman elektron
   description: Semua berita terbaru dari tim dan komunitas Elektron.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Punya umpan balik untuk posting ini? Beritahu <a href="https://twitter.com/electronjs">@electronjs</a> di Twitter.
+  help: Butuh bantuan atau menemukan bug? <a href="/contact">Hubungi kami</a>.
 clipboard:
   copy: Salinan
   copy_to_clipboard: Menyalin ke clipboard
@@ -207,60 +207,60 @@ pages:
     description: Spectron adalah kerangka kerja open source untuk memudahkan pengujian integrasi untuk aplikasi Elektron Anda. Dibangun di atas ChromeDriver dan WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Cara paling mudah memulai dengan Electron
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Tata Kelola Electron
+    description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
   '/donors':
     title: Penyumbang
 landing:
   get_started: Memulai
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    lead_desc: Cara paling mudah memulai dengan Electron
+    create_app: Ciptakan aplikasi Anda
+    description: Electron Fiddle memungkinkan Anda membuat dan bermain dengan percobaan Electron kecil. Anda akan disambut dengan templat quick-start segera setelah dibuka, ubahlah beberapa hal, pilih versi Electron yang ingin Anda jalankan, dan mainkan. Kemudian, simpan Fiddle Anda baik sebagai GitHub Gist atau ke folder lokal. Setelah di-push ke GitHub, siapa pun dapat dengan cepat mencoba Fiddle Anda dengan hanya memasukkannya di bilah alamat.
+    explore: Jelajahi Electron
+    explore_desc: "Mencoba Elektron tanpa menginstal dependensi apa pun: Fiddle mencakup semua yang Anda perlukan untuk menjelajahi platform ini. Termasuk juga contoh untuk setiap API yang tersedia di Electron, jadi jika Anda ingin segera melihat apa itu BrowserView atau bagaimana desktopCapturer bekerja, Fiddle bisa membantu Anda."
+    code_with_types: Kode dengan Tipe
+    code_with_types_desc: Fiddle menyertakan Editor Microsoft Monaco yang hebat, editor yang sama diberdayakan untuk Visual Studio Code. Fiddle juga menginstal definisi untuk versi Electron yang saat ini dipilih secara otomatis, memastikan Anda mendapatkan semua API Electron hanya dengan beberapa penekanan tombol saja.
+    compile_and_package: Paket dan Kompilasi
+    compile_and_package_desc: Fiddle mampu secara otomatis mengubah karya Anda menjadi kode binari yang dapat Anda bagikan dengan teman, rekan kerja, atau kakek-nenek. Hal itu didapat berkat <a href="https://electronforge.io/"> electron-forge </a>, yang memungkinkan Anda untuk mengemas Fiddle sebagai aplikasi untuk Windows, MacOS, atau Linux.
+    easy_start: Mulai dengan Fiddle, Lanjutkan Kapanpun
+    easy_start_desc: Fiddle bukanlah IDE – namun itu bisa jadi titik mulai yang bagus. Ketika fiddle Anda berkembang, eksporlah sebagai proyek dengan atau tanpa <a href="https://electronforge.io/">electron-forge</a>. Lalu, gunakan editor favorit Anda dan hadapilah dunia!
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  title: Tata Kelola Electron
+  description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
+  wgs: Kelompok Kerja
   docstools:
-    title: Docs & Tools
+    title: Dokumen & Peralatan
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
-    title: Outreach
-    description: Grows the Electron community
+    title: Diluar Jangkauan
+    description: Menumbuhkan komunitas Elektron
   releases:
     title: Rilis
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: Upgrade
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
-    title: Website
+    title: Situs Web
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: Komunitas & Keselamatan
     description: Oversees removal/bans from community.
   security:
     title: Keamanan
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: Administratif
+    description: Kelompok Kerja Administratif mengawasi seluruh tata kelola dan proyek.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: Sekilas
+    associated_repos: Repositori Terkait
+    notes: Catatan Rapat
   definitions:
-    title: Definitions
+    title: Definisi
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
@@ -277,7 +277,7 @@ governance:
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
   code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  license: Electron dilisensi dengan <a href="https://github.com/electron/electron/blob/master/LICENSE">Lisensi MIT</a>.
+  repository: Silahkan kunjungi <a href="https://github.com/electron/governance">Tatakelola Repositori</a> untuk mendapatkan informasi lebih lengkap mengenai struktur tatakelola.
 _404:
   page_not_found: Halaman tidak ditemukan.

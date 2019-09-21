@@ -88,9 +88,9 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ### `webFrame.insertCSS(css)`
 
-* `css` String - CSS source code.
+* `css` String - CSS codigo de origen.
 
-Inserts `css` as a style sheet in the document.
+Se inserta `css` como una hoja de estilo en el documento.
 
 ### `webFrame.insertText(texto)`
 
@@ -105,7 +105,7 @@ Inserta `texto` en el elemento enfocado.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página.
 
@@ -118,7 +118,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 * `code` Cadena de caracteres
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
 Evalúa el `código` en la página.
 
@@ -126,15 +126,15 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -144,40 +144,40 @@ Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
 
-Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede proporcionar aquí cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede proporcionar aquí cualquier entero.
 * `csp` String
 
-Set the content security policy of the isolated world.
+Establecer la política de seguridad de contenido del mundo aislado.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - El ID del mundo para ejecutar el javascript en `0` el mundo por defecto es `999` es el mundo usado por la caracteristica de Electron `contextIsolation`. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `name` String
 
-Set the name of the isolated world. Useful in devtools.
+Establecer el nombre del mundo aislado. Útil en devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - El ID del mundo para correr el javascript en `0` es el mundo por defecto, `999` es el mindo usado por la característica `contextIsolation` de Electron. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `securityOrigin` String
 
-Set the security origin of the isolated world.
+Establecer el origen de seguridad del mundo aislado.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
+* `worldId` Integer - El ID del mundo para correr el javascript en `0` es el mundo por defecto, `999` es el mindo usado por la característica `contextIsolation` de Electron. Las extenciones de Chrome reservan el rango de IDs en `[1 << 20, 1 << 29)`. Puede aquí suministrar cualquier entero.
 * `información` Object 
-  * `securityOrigin` String (optional) - Security origin for the isolated world.
-  * `csp` String (optional) - Content Security Policy for the isolated world.
-  * `name` String (optional) - Name for isolated world. Useful in devtools.
+  * `securityOrigin` String (opcional) - Origen de seguridad para el mundo aislado.
+  * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
+  * `name` String (opcional) - Nombre para el mundo aislado. Útil en devtools.
 
-Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+Establecer el origen de seguridad, la política de seguridad de contenido y el nombre del mundo aislado. Nota: Si se especifica el `csp` entonces el `securityOrigin` también debe ser especificado.
 
 ### `webFrame.getResourceUsage()`
 
@@ -221,44 +221,44 @@ Tenga en cuenta que llamar ciegamente este método probablemente haga que Electr
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - selector CSS para un elemento frame.
 
-Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+Devuelve `WebFrame` - El elemento de frame en `webFrame's` documento seleccionado por `selector`, `null` sería devuelto si `selector` no selecciona un frame o si el frame no está en el proceso actual de renderizado.
 
 ### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
+Deveulve `WebFrame` - Un hijo de `webFrame` con el `name` suministrado, `null` sería retornado is no hay tal frame o si el frame no está en el proceso renderer actual.
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+* `routingId` Integer - Un `Integer` representando el id único del frame en el proceso renderer actual. Las IDs de rutas se pueden recuperar de `WebFrame` instancias (`webFrame.routingId`) y también son pasados por el frame `WebContents` específicos eventos de navegación (por ejemplo, `did-frame-navigate`)
 
-Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se encuentra.
 
 ## Propiedades
 
 ### `webFrame.top`
 
-A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+Un `WebFrame` representa el frame superior en la jerarquía de frames a la que pertenece el `webFrame`, la propiedad sería `null` si el frame superior no es el actual.
 
 ### `webFrame.opener`
 
-A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+Un `WebFrame` representa el frame `webFrame` que abrió, la propiedad sería `null` si no hay abridores o si el abridor no está en el proceso renderer actual.
 
 ### `webFrame.parent`
 
-A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+Un `WebFrame` representando el marco padre de `webFrame`, la propiedad sería `null` si `webFrame` es superior o padre no está en el proceso actual de renderer.
 
 ### `webFrame.firstChild`
 
-A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+Un `WebFrame` representa el primer hijo de `webFrame`, la propiedad sería `null` si `webFrame` no tiene hijos o si el primer hijo no esta en el proceso renderer actual.
 
 ### `webFrame.nextSibling`
 
-A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+Un `WebFrame` que representa el siguiente marco hermano, la propiedad sería `null` si `webFrame` es el último fotograma en su padre o si el próximo hermano no está en el proceso renderer actual.
 
 ### `webFrame.routingId`
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+Un `Integer` que representa el id único del frame en el proceso renderizador actual. Distintas instancias WebFrame que refieren al mismo frame subyacente tendrán el mismo `routingId`.

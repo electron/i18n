@@ -88,7 +88,7 @@ Los siguientes métodos están disponibles para instancias de `Sesión`:
 
 * `callback` Function 
   * `size` Integer - Tamaño en bytes del caché usado.
-  * `error` Integer - The error code corresponding to the failure.
+  * `error` Integer - El código de erro correspondiente al fallo.
 
 La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
@@ -96,12 +96,12 @@ La retrollamada es invocada con el tamaño actual de caché usado en la sesión.
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Devuelve `Promise<Integer>` - El tamaño de cache de la sesión actual, en bytes.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done. 
-  * `error` Integer - The error code corresponding to the failure.
+* `callback` Function - Llamada cuando la operación es realizada. 
+  * `error` Integer - El código de erro correspondiente al fallo.
 
 Borra la memoria caché del HTTP de la sesión.
 
@@ -109,7 +109,7 @@ Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+Devuelve `Promise<void>` - Se resuelve cuando la operación de limpieza de cache es completada.
 
 Borra la memoria caché del HTTP de la sesión.
 
@@ -121,7 +121,7 @@ Borra la memoria caché del HTTP de la sesión.
   * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Clears the storage data for the current session.
+Borra los datos de almacenamiento para la sesión actual.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
@@ -129,10 +129,10 @@ Clears the storage data for the current session.
 
 * `opciones` Objecto (opcional) 
   * `origin` String (opcional) - Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `storages` String[] (opcional) - Los tipos de almacenajes a limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
 
-Returns `Promise<void>` - resolves when the storage data has been cleared.
+Devuelve `Promise<void>` - Se resuelve cuando los datos del almacenamiento ha sido borrado.
 
 #### `ses.flushStorageData()`
 
@@ -209,7 +209,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
   * `proxyRules` Cadena - Reglas indicando cual proxy utilizar.
   * `proxyBypassRules` Cadena - Reglas indicando cuál URL deben eludir la configuración del proxy.
 
-Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+Devuelve `Promise<void>` - Se resuelve cuando el proceso de configuración del proxy está completo.
 
 Configurar proxy.
 
@@ -279,7 +279,7 @@ Resuelve la información del proxy para una `url`. La `llamada` será hecha con 
 
 * `url` URL
 
-Returns `Promise<string>` - Resolves with the proxy information for `url`.
+Devuelve `Promise<string>` - Se resuelve con la información del proxy para `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -375,15 +375,15 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `manejador` Function<boolean> | null 
   * `webContents` [WebContents](web-contents.md) -WebContens comprobando el permiso. Por favor, tenga en cuenta que si la solicitud viene de un subframe debe utilizar `requestUrl` para comprobar el origen de la solicitud.
-  * `permission` String - Enum of 'media'.
-  * `requestingOrigin` String - The origin URL of the permission check
+  * `permission` String - Enumeración de 'media'.
+  * `requestingOrigin` String - La URL de origen para la comprobación de permisos
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
-    * `securityOrigin` String - The security orign of the `media` check.
-    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * `securityOrigin` String - El origen de seguridad de la comprobación `media`.
+    * `mediaType` String - El tipo de acceso a los medios que se solicita, puede ser `video`, `audio` o `unknown`
     * `requestingUrl` String - La ultima URL que el frame solicitante cargo
     * `isMainFrame` Boolean - Si el marco que realiza la solicitud es el marco principal
 
-Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+Establece el manejador que puede ser usado para responder a las comprobaciones para `session`. Retornando `true` permitirá el permiso y `false` lo rechará. Para borrar el manejador, llame `setPermissionCheckHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
@@ -406,7 +406,7 @@ Borra la caché de resolución de host.
 
 #### `ses.clearHostResolverCache()`
 
-Returns `Promise<void>` - Resolves when the operation is complete.
+Devuelve `Promise<void>` - Se resuelve cuando la operación es completada.
 
 Borra la caché de resolución de host.
 
@@ -453,7 +453,7 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 
 * `identificador` Cadena - UUID válido.
 
-Returns `Promise<Buffer>` - resolves with blob data.
+Devuelve `Promise<Buffer>` - Se resuelve con datos blob.
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -482,11 +482,11 @@ Limpia caché de autenticación HTTP de la sesión.
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Devuelve `Promise<void>` - resuelve cuando se ha borrado el caché de autenticación HTTP de la sesión.
 
 #### `ses.clearAuthCache()`
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Devuelve `Promise<void>` - resuelve cuando se ha borrado el caché de autenticación HTTP de la sesión.
 
 #### `ses.setPreloads(preloads)`
 
@@ -531,7 +531,7 @@ app.on('ready', function () {
 
 #### `ses.netLog`
 
-A [NetLog](net-log.md) object for this session.
+Un objeto [NetLog](net-log.md) para esta sesión.
 
 ```javascript
 const { app, session } = require('electron')
@@ -539,7 +539,7 @@ const { app, session } = require('electron')
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // Después de algunos eventos de red
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })

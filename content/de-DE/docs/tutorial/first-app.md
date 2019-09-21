@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade die index.html der App.
   win.loadFile('index.html')
 }
 
@@ -118,7 +118,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // und lade die index.html der App.
   win.loadFile('index.html')
 
   // Öffnen der DevTools.
@@ -168,6 +168,8 @@ Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
   </head>
   <body>
     <h1>Hello World!</h1>

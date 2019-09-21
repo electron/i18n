@@ -1,4 +1,4 @@
-# About Electron
+# Despre Electron
 
 [Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
 
@@ -8,7 +8,7 @@ It has since become a popular tool used by open source developers, startups, and
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 
-## Core Team and Contributors
+## Echipa de baza și contribuitori
 
 Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
@@ -16,7 +16,7 @@ Electron is maintained by a team at GitHub as well as a group of [active contrib
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
-### Updating Dependencies
+### Actualizarea dependințelor
 
 Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
 
@@ -24,9 +24,9 @@ When a new version of Node.js is released, Electron usually waits about a month 
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
-### Versioning
+### Versionare
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Începând de la versiunea 2.0, Electron [utilizează `semver`](https://semver.org). Pentru majoritatea aplicațiilor, care folosesc oricare din versiuniile recente de npm, rulând ` $ npm install electron ` va face ce trebuie.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 

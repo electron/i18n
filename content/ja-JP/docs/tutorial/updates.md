@@ -33,7 +33,7 @@ require('update-electron-app')()
 
 アプリが [`electron-builder`](https://github.com/electron-userland/electron-builder) でパッケージされている場合は、[electron-updater](https://www.electron.build/auto-update) モジュールを使用できます。これはサーバを必要とせず、S3、GitHub、その他の静的ファイルホストからの更新も可能です。 これは、Electron に組み込まれているアップデートメカニズムを回避するものです。つまり、このドキュメントの残りの部分は、`electron-builder` のアップデートには適用されません。
 
-## アップロードサーバーを配備
+## アップデートサーバーを配備
 
 プライベートの Electron アプリケーションを開発している場合、または GitHub リリースにリリースを公開していない場合は、独自のアップデートサーバーを実行する必要があるかもしれません。
 

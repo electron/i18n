@@ -6,7 +6,7 @@ Al estar basado en Chromium, Electron requiere un controlador para funcionar. If
 
 Primero, instala [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Es un framebuffer virtual, implementando el protocolo de servidor de pantalla X11 - realiza todas las operaciones gráficas en la memoria sin mostrar nada en el monitor, que es exactamente lo que necesitamos.
 
-Entonces, crea una pantalla virtual Xvfb y exporta una variable de entorno llamada DISPLAY que apunta a ella. Chromium en electron buscará automáticamente por `$DISPLAY`, así que su aplicación no requerirá más configuraciones. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. En Windows o macOS, no hará nada.
+Entonces, crea una pantalla virtual Xvfb y exporta una variable de entorno llamada DISPLAY que apunta a ella. Chromium en electron buscará automáticamente por `$DISPLAY`, así que su aplicación no requerirá más configuraciones. Este paso puede ser automatizado con Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): prepara tus pruebas de comandos con `xvfb-maybe` y la pequeña herramienta automáticamente configurará Xvfb, si es requerido por el sistema actual. En Windows o macOS, no hará nada.
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha

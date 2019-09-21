@@ -90,7 +90,7 @@ Inserta el `menuItem` en la posición `pos` del menú.
 
 ### Eventos de Instancia
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Objetos creados con `new Menu` o retornados por `Menu.buildFromTemplate` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
@@ -260,7 +260,7 @@ macOS tiene un estilo de menú de aplicaciones completamente diferente de Window
 
 ### Menús Estándar
 
-On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. Para hacer que el menú sea un menú estándar, se debe configurar el `role` del menú a uno de los siguientes y Electron los reconocerá y convertirá en menús estándares:
+En macOS hay muchos menúes estándares definidos por el sistema, como los menúes [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) y`Windows`. Para hacer que el menú sea un menú estándar, se debe configurar el `role` del menú a uno de los siguientes y Electron los reconocerá y convertirá en menús estándares:
 
 * `window`
 * `help`
@@ -280,7 +280,7 @@ El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/
 
 ## La posición del elemento del menú
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Tú puedes hacer uso de `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` y `id` para controlar como el elemento sera colocado cuando un menu sea construido con `Menu.buildFromTemplate`.
 
 * `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
 * `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.

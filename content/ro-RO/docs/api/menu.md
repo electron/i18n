@@ -8,7 +8,7 @@ Process: [Main](../glossary.md#main-process)
 
 Creates a new menu.
 
-### Static Methods
+### Metode Statice
 
 The `menu` class has the following static methods:
 

@@ -1,10 +1,10 @@
 # Швидкий Старт
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron дозволяє вам створювати прикладні застосунки за допомогою чистого JavaScript, надаючи середовище з багатим нативним (операційна система) API. Ви можете розглядати це як варіант Node.js середовища, яке фокусується на прикладних застосунках, а не вебсервісах.
 
-The old "Quick Start" document that used to live here has been split up into two documents:
+Старий документ "Швидкий Старт", який знаходився тут, був розділений на два документи:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* Щоб переконатися як просто створювати застосунки на Electron, дивіться [Написати Ваш Перший Electron Застосунок](./first-app.md)
+* Щоб зрозуміти архітектуру процесів, дивіться [Головний та Рендер Процеси](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../).
+Детальніше про Electron, в [офіційній документації](../).

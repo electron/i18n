@@ -12,15 +12,13 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-尽管 Electron 努力尽快支持新版本的 Chromium，但开发人员应该意识到，升级是一项严肃的工作 - 涉及手动编辑几十个甚至几百个文件。 受限于当前可用的资源与贡献，Electron 通常不能保持使用最新版本的 Chromium，可能落后几周或几个月。
-
-我们认为，我们当前的更新 Chromium 组件的系统在我们可用的资源和构建在框架之上的大多数应用程序的需求之间取得了适当的平衡。 我们绝对有兴趣听听更多关于在 Electron 上构建事物的人的具体用例。 非常欢迎提出请求并且捐助支持我们的努力。
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## 安全是所有人的共同责任
 
 需要牢记的是，你的 Electron 程序安全性除了依赖于整个框架基础（*Chromium*、*Node.js*）、Electron 本身和所有相关 NPM 库的安全性，还依赖于你自己的代码安全性。 因此，你有责任遵循下列安全守则：
 
-* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+* **使用最新版的 Electron 框架搭建你的程序。**你最终发行的产品中会包含 Electron、Chromium 共享库和 Node.js 的组件。 这些组件存在的安全问题也可能影响你的程序安全性。 By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
 * **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
 
@@ -58,6 +56,7 @@ A security issue exists whenever you receive code from an untrusted source (e.g.
 14. [不要对不可信的内容使用 `openExternal`](#14-do-not-use-openexternal-with-untrusted-content)
 15. [禁用 `remote` 模块](#15-disable-the-remote-module)
 16. [Filter the `remote` module](#16-filter-the-remote-module)
+17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -377,10 +376,10 @@ Blink是Chromium里的渲染引擎名称。 就像`experimentalFeatures`一样�
 ### 怎么做？
 
 ```js
-// 不推荐
+// Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    enableBlinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: 'ExecCommandInJavaScript'
   }
 })
 ```
@@ -617,3 +616,13 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
   event.preventDefault()
 })
 ```
+
+## 17) Use a current version of Electron
+
+You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+
+### 为什么？
+
+An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+
+Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.

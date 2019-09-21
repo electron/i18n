@@ -18,7 +18,7 @@ Process: [Main](../glossary.md#main-process)
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Metode Statice
 
 The `Notification` class has the following static methods:
 

@@ -50,13 +50,13 @@ Es necesario llamar este método antes de utilizar cualquier otra API `crashRepo
 
 **Nota:** Si necesita enviar parámetros adicionales o actualizados `extra` después de la primera llamada a `start` puede llamar a `addExtraParameter`, en macOS, o llamar a `start` otra vez con los parámetros nuevos o actualizados `extra`, en Linux y Windows.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
+**Note:** En macOS y windows, Electron usa un nuevo cliente `crashpad` para la recolección y reporte de los fallos. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
 Devuelve [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+Devuelve la fecha y el ID del último reporte de fallo. Solo los reportes de fallos que han sido alzados serán retornados; incluso si un reporte de fallo esta presente en el disco este no sera retornado a menos que este alzado. En caso de que no haya reportes subidos, `null` es retornado.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -83,7 +83,7 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 * `key` String - La clave del parámetro, debe tener menos de 64 caracteres.
 * `value` String - Valor del parámetro, debe tener menos de 64 caracteres.
 
-Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores especificados aquí se enviarán adicionalmente a otros valores establecidos con la opción `extra` cuando se llama a `start`. Esta API solo esta disponible en macOS y en windows, Si tú necesitas agregar/actualizar parámetros adicionales en Linux después de tu primera llamada a `start` tu puedes llamar `start` otra vez con la opción `start` actualizada.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 

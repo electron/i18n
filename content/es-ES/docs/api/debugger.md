@@ -49,7 +49,7 @@ Desasocia el depurador de la `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Nombre del método, debe ser un de los métodos definido por el [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Objeto (opcional) - El objeto JSON con parámetros de la solicitud.
 * `callback` Function (opcional) - Respuesta 
   * `error` Objeto- Mensaje de error que indica el fallo del comando.
@@ -61,10 +61,10 @@ Envía el comando al objetivo de la depuración.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `method` String - Nombre del método, debe ser un de los métodos definido por el [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Objeto (opcional) - El objeto JSON con parámetros de la solicitud.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+Devuelve `Promise<any>` - Una promesa que resuelve con la respuesta definida por el atributo 'returns' del comando de descripción en el protocolo de depuración remoto o es rechazada indicando el fallo del comando.
 
 Envía el comando al objetivo de la depuración.
 

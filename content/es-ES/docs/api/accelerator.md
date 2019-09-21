@@ -50,7 +50,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * `Más`
 * `Espacio`
 * `Tab`
-* `Capslock`
+* `Bloq Mayús`
 * `Numlock`
 * `Bloqueo de desplazamiento`
 * `Retroceso`
@@ -67,7 +67,7 @@ La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` p
 * Teclas del teclado numérico 
   * `num0` - `num9`
   * `numdec` - clave decimal
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numadd` - teclado numérico tecla `+`
+  * `numsub` - teclado numérico tecla `-`
+  * `nummult` - teclado numérico tecla `*`
+  * `numdiv` - teclado numérico tecla `÷`

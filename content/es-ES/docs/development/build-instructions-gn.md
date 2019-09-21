@@ -46,7 +46,7 @@ $ gclient sync --with_branch_heads --with_tags
 # Esto tomará unos momentos, puedes ir por un café.
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> En lugar de `https://github.com/electron/electron`, puedes usar tu propio fork aquí (algo como `https://github.com/<username>/electron`).
 
 #### A note on pulling/pushing
 
@@ -193,7 +193,7 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
       To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
     </p>
     
-    <pre><code class="bat">set ELECTRON_BUILDING_WOA=1
+    <pre><code class="bat">estalecer ELECTRON_BUILDING_WOA=1
 gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
@@ -285,5 +285,5 @@ $ ./out/Debug/electron electron/spec
     </h3>
     
     <p>
-      If you see a prompt for <code>Username for 'https://chrome-internal.googlesource.com':</code> when running <code>gclient sync</code> on Windows, it's probably because the <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> environment variable is not set to 0. Open <code>Control Panel</code> → <code>System and Security</code> → <code>System</code> → <code>Advanced system settings</code> and add a system variable <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> with value <code>0</code>. Esto le indica a <code>depot_tools</code> que utilice tu version instalada de Visual Studio (por defecto, <code>depot_tools</code> intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
+      Si ve un prompt para <code>Username for 'https://chrome-internal.googlesource.com':</code> cuando corre <code>gclient sync</code> en Windows, es probable que la variable de entorno <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> no esta establecida a 0. Abra <code>Control Panel</code> → <code>System and Security</code> → <code>System</code> → <code>Advanced system settings</code> y agregue un variable de sistema <code>DEPOT_TOOLS_WIN_TOOLCHAIN</code> con valor <code>0</code>. Esto le indica a <code>depot_tools</code> que utilice tu version instalada de Visual Studio (por defecto, <code>depot_tools</code> intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
     </p>

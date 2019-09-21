@@ -43,46 +43,47 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Întoarce `BroswerView` - Priveliștea cu date `id`.
 
-### Instance Properties
+### Propietățile inițiale
 
-Objects created with `new BrowserView` have the following properties:
+Crearea obiectelor cu `new BrowserView` au următoarele propiețăti:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Obiectul `WebContents<//0> deținut de această priveliște.</p>
 
-#### `view.id` *Experimental*
+<h4><code>view.id` *Experimental*</h4> 
 
-A `Integer` representing the unique ID of the view.
+`Integer` reprezintă ID-ul unic a acestei priveliști.
 
-### Instance Methods
+### Metode de Instanță
 
-Objects created with `new BrowserView` have the following instance methods:
+Obiectele create cu `new BrowserView` au următoarele metode de instanță:
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Forțează închiderea priveliștei, evenimentele `unload` și `beforeunload` nu vor fi emise pentru pagina web. După terminarea priveliștei, cheamă this function cu scopul de a elibera din memorie și alte resurse cât mai repede posibil.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Întoarce valoare `Booleană ` - Dacă priveliștea este distrusă.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `opțiuni` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+* `opțiuni` Obiect 
+  * `width-lățime` Boolean - Dacă `true-adevărat`, lățimea priveliștei va crește și se contractă împreună cu fereastra. `false-fals` din fabrică.
+  * `height-înălțime` Boolean - Dacă `true-adevărat`, înălțimea priveliștii va crește și se va contracta împreună cu fereastra. `false-fals` din fabrică.
+  * `horizontal-orizontal` Boolean - Dacă `true-adevărat`, poziția x a priveliștii și lățimea vor crește și contracta proporțional cu fereastra.`false-fals` din fabrică.
+  * `vertical` Boolean - Dacă `true-adevărat`, poziția y și înălțimea priveliștii vor crește și contracta proporțional cu fereastra. `false-fals<0> din fabrică.</li>
+</ul></li>
+</ul>
 
-#### `view.setBounds(bounds)` *Experimental*
-
-* `bounds` [Rectangle](structures/rectangle.md)
-
-Resizes and moves the view to the supplied bounds relative to the window.
-
-#### `view.setBackgroundColor(color)` *Experimental*
-
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+<h4><code>view.setBounds(bounds)` *Experimental*</h4> 
+    * `bounds` [Rectangle](structures/rectangle.md)
+    
+    Redimensionează și mută vederea în limitele furnizate în raport cu fereastra.
+    
+    #### `view.setBackgroundColor(color)` *Experimental*
+    
+    * `color` String - Șir - Culoare în formatele `#aarrggbb` sau `#argb`. Canalul alpha este opțional.

@@ -173,9 +173,9 @@ Sigue cualquier solicitud de redirección diferida cuando el modo de redirecció
 
 Devuelve `Objecto`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
+* `active` Boolean - Si la solicitud está activa actualmente. Si esto es falso ninguna otra propiedad será establecida
+* `started` Boolean - Si la subida ha comenzado. Si esto es falso ambos `current` y `total` se establecerán a 0.
+* `current` Integer - El número de bytes que se han subido hasta ahora
+* `total` Integer - El número de bytes que ha subido esta solicitud
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+Puedes usar este método en conjunto con solicitudes `POST` para obtener el progreso de la carga de un archivo u otro dato de transferencia.

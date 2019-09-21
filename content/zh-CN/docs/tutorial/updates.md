@@ -9,9 +9,9 @@ GitHub 的 Electron 团队维护 [update.electronjs.org](https://github.com/elec
 - 应用运行在 macOS 或者 Windows
 - 应用有公开的 GitHub 仓库
 - 编译的版本发布在 GitHub Releases
-- 编译已代码签名
+- 编译的版本已代码签名
 
-最简单的使用这个服务是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
+使用这个服务最简单的方法是安装 [update-electron-app](https://github.com/electron/update-electron-app)，一个预配置好的 Node.js 模块来使用 update.electronjs.org。
 
 安装模块
 
@@ -46,7 +46,7 @@ require('update-electron-app')()
 
 ## 在你的应用中实施更新
 
-一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化，但它的工作原理就像使用[Hazel](https://github.com/zeit/hazel)所描述的那样。
 
 **重要:** 请确保下面的代码只在打包的应用程序, 而不是开发中. 你可以使用[electron-is-dev](https://github.com/sindresorhus/electron-is-dev)检查当前环境.
 

@@ -80,8 +80,7 @@
   * [بروكسيات](tutorial/installation.md#proxies)
   * [الكاش ومصادر أخرى](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
+* * [Versioning Policy](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
@@ -126,6 +125,7 @@
 * [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
 * [سجل الشبكة](api/net-log.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

@@ -61,7 +61,7 @@ app.on('ready', () => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**注意.** 此方法只能在 `app` 的 `ready` 事件触发前调用，且只能调用一次
 
 Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 

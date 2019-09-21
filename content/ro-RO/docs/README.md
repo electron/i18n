@@ -10,7 +10,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
 
 ## Ghiduri și tutoriale
 
-* [About Electron](tutorial/about.md)
+* [Despre Electron](tutorial/about.md)
 * [Configurarea mediului de dezvoltare](tutorial/development-environment.md) 
   * [Configurarea macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurarea Windows](tutorial/development-environment.md#setting-up-windows)
@@ -126,6 +126,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

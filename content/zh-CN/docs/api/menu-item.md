@@ -13,25 +13,25 @@
     * `menuItem` 菜单项
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` [KeyboardEvent](structures/keyboard-event.md)
-  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String （可选）- 可为`undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu` - 指定菜单项的行为，定义`click`属性后此属性将被忽略。 参见 [roles](#roles)
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
-  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
+  * `acceleratorWorksWhenHidden` Boolean（可选） - 默认为`true`，当设置为`false`时，菜单项隐藏后将无法触发该选项的快捷键。 *macOS*
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
   * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
   * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
+**注意: **`acceleratorWorksWhenHidden`只在MacOS中生效，因为在Windows和Linux中快捷键不会随着隐藏菜单项而失效。 该选项让用户可以选择关闭，因为这是本地 macOS 开发中的可能。 此属性只能在macOS High Sierra 10.13或以上中使用。
 
 ### 角色
 
@@ -55,11 +55,11 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `delete`
 * ` minimize ` - 最小化当前窗口。
 * `close` - 关闭当前窗口.
-* `quit` - Quit the application.
+* `quit` - 退出程序
 * `reload` - 重新加载当前窗口。
 * `forcereload` - 忽略缓存，重新加载当前窗口。
 * `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
-* `togglefullscreen` - Toggle full screen mode on the current window.
+* `togglefullscreen` - 将当前窗口切换至全屏模式。
 * `resetzoom` - 将主页的缩放级别重置为初始大小.
 * `zoomin` - 主页面放大 10%.
 * `zoomout` -主页面缩小 10%.
@@ -100,7 +100,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 #### `menuItem.id`
 
-A `String` indicating the item's unique id, this property can be dynamically changed.
+`String` 指定了该选项唯一的id，此属性可被动态更改。
 
 #### `menuItem.label`
 
@@ -108,7 +108,7 @@ A `String` indicating the item's visible label, this property can be dynamically
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+当菜单项被单击时所调用的函数，It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)
@@ -120,15 +120,15 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+`String` 表示菜单项的类型
 
 #### `menuItem.role`
 
-A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+`String`（可选） 指出菜单项的角色 可为 `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`, `windowMenu`
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+`String` （可选）表示菜单项的快捷键。
 
 #### `menuItem.icon`
 

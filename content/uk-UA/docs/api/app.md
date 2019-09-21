@@ -294,7 +294,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Відбувається коли процес gpu ламається або припиняється примусово.
 
-### Event: 'renderer-process-crashed'
+### Подія: 'renderer-process-crashed'
 
 Повертає:
 
@@ -302,7 +302,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Викликається коли рендер процес `webContents` ламається чи зупиняється примусово.
 
 ### Подія: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -477,11 +477,11 @@ app.exit(0)
 
 ### `app.setAppLogsPath(path)`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (shared) - Користувацький шлях для ваших логів. Мусить бути абсолютним.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+Встановлює чи створює папку ваших логів, якою в подальшому можна маніпулювати за допомогою `app.getPath()` чи `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Виклик `app.setAppLogsPath()` без параметру `path` встановить цю папку як `/Library/Logs/YourAppName` на *macOS*, та всередині папки `userData` на *Linux* та *Windows*.
 
 ### `app.getAppPath()`
 
@@ -527,7 +527,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 Витягує піктограму, що відповідає шляху.
 
-On *Windows*, there are 2 kinds of icons:
+На *Windows*, є 2 види піктограм:
 
 * Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
 * Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
@@ -561,7 +561,7 @@ On *Windows*, there are 2 kinds of icons:
 * `name` String
 * `path` String
 
-Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+Перевизначає `path` до спеціальної директорії чи файлу, що відповідає `name`. Якщо шлях визначає директорію, якої не існує, викинеться `Error`. В такому випадку, директорію потрібно створити за допомогою `fs.mkdirSync` чи аналогічним чином.
 
 Ви можете перевизначати шляхи `name` визначені в `app.getPath`.
 
@@ -625,7 +625,7 @@ On *Windows*, there are 2 kinds of icons:
 
 **Примітка:** На macOS, ви можете зареєструвати тільки ті протоколи, які додані до вашого `info.plist`, який не може модифікуватися під час роботи застосунку. Однак, ви можете міняти файл за допомогою звичайного текстового редактора чи скрипта під час збирання. Перегляньте [документацію Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) для деталей.
 
-**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
+**Примітка:** В Windows Store середовищі (коли запаковано як `appx`) цей API поверне `true` для всіх викликів, але ключ регістру, який він встановлює не буде доступний іншим застосункам. Для реєстрації вашого Windows Store застосунку як обробника протоколу за замовчуванням, ви маєте [оголосити протокол у вашому маніфесті](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 API всередині використовує реєстр Windows та LSSetDefaultHandlerForURLScheme.
 
@@ -862,7 +862,7 @@ if (!gotTheLock) {
 
 Повертає `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
+Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
 
 Для `infoType` що дорівнює `basic`: Promise заповнюється `Object`, який містить менше атрибутів ніж виклик з `complete`. Ось приклад базової відповіді:
 
@@ -985,17 +985,17 @@ app.setLoginItemSettings({
   * `version` String (опціонально) - Версія збірки застосунку. *macOS*
   * `credits` String (опціонально) - Інформація про оплату. *macOS*
   * `website` String (опціонально) - Веб сайт застосунку. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `iconPath` String (опціонально) - Шлях до піктограми застосунку. Буде показана в розмірі 64x64 пікселі, зберігаючи співвіжношення сторін. *Linux*
 
 Встановлює інформацію про застосунок. Це перевизначить значення, визначені в файлі `.plist` на MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. На Linux, значення мають бути встановлені, щоб їх показувати; значення за замовчуванням відсутні.
 
 ### `app.isEmojiPanelSupported`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+Повертає `Boolean` - чи поточна версія ОС підтримує нативні селектори емоджі.
 
 ### `app.showEmojiPanel` *macOS* *Windows*
 
-Show the platform's native emoji picker.
+Показує нативні селектори емоджі платформи.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -1006,7 +1006,7 @@ Show the platform's native emoji picker.
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Тепер ви можете використовувати файли за межами sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
@@ -1014,22 +1014,22 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
+* `switch` String - Перемикач командного рядка, без переходу `--`
 * `value` String (опціонально) - Значення для перемикача
 
 Додає перемикач (з опціональним `value`) до командного рядка Chromium.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примітка:** Це не впливає на `process.argv`. Призначення даної функцій: контроль поведінки Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - Аргумент для додання до командного рядку
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Додає аргумент в командний рядок Chromium. Аргумент буде правильно взято в лапки. Перемикачі будуть передувати аргументам незалежно від порядку додавання.
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+Якщо ви додаєте аргумент у вигляді `--switch=value`, розгляньте натомість використання `appendSwitch('switch', 'value')`.
 
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примітка:** Це не впливає на `process.argv`. Призначення даної функцій: контроль поведінки Chromium.
 
 ### `app.commandLine.hasSwitch(switch)`
 
@@ -1043,7 +1043,7 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 Повертає `String` - значення перемикача командного рядка.
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**Примітка:** Якщо перемикач не присутній або не має значення, він поверне пусту стрічку.
 
 ### `app.enableSandbox()` *Експериментальний*
 
@@ -1101,11 +1101,11 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 ### `app.dock.show()` *macOS*
 
-Returns `Promise<void>` - Resolves when the dock icon is shown.
+Повертає `Promise<void>` - Виконується коли показується піктограма на панелі задач.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible.
+Повертає `Boolean` - Чи видима піктограма на панелі задач.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -1115,7 +1115,7 @@ Returns `Boolean` - Whether the dock icon is visible.
 
 ### `app.dock.getMenu()` *macOS*
 
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Повертає `Menu | null` - [Меню панелі задач](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) застосунку.
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -1127,13 +1127,13 @@ Returns `Menu | null` - The application's [dock menu](https://developer.apple.co
 
 ### `app.applicationMenu`
 
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+Властивість `Menu`, яка повертає [`Menu`](menu.md), якщо таке було встановлено і `null` в іншому випадку. Користувачі можуть передати [Menu](menu.md) для встановлення даної властивості.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+Властивість типу `Boolean`, яка є `true` якщо увімкнено спеціальні можливості Chrome, `false` в іншому випадку. Ця властивість буде `true` якщо виявлено використання спеціальних можливостей, наприклад, читач екрану. Встановлення цієї властивості в `true` вручну увімкне спеціальні можливості Chrome, дозволяючи розробникам показати перемикачі спеціальних можливостей в налаштуваннях застосунку.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+Дивись [спеціальні можливості Chromium](https://www.chromium.org/developers/design-documents/accessibility) для деталей. Вимкнено за замовчуванням.
 
 Цей API має викликатися після виклику події `ready`.
 
@@ -1141,9 +1141,9 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 ### `app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+`String`, яка містить агент користувача, який Electron буде використовувати за замовчуванням.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
+Цей агент користувача буде використовуватися, якщо інший не встановлено на рівні `webContents` чи `session`. Корисно для впевнення, що весь ваш застосунок має однаковий агент користувача. Встановіть в користувацьке значення як тільки можливо у ініціалізації вашого застосунку, щоб впевнитись що ваше перевизначене значення використовується.
 
 ### `app.isPackaged`
 
@@ -1151,6 +1151,6 @@ This is the user agent that will be used when no user agent is set at the `webCo
 
 ### `app.allowRendererProcessReuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+`Boolean` значення, яке при встановленні в `true` унеможливлює перевизначення, які має Electron, щоб впевнитися що рендер процес перезапускається при кожному переході. Поточним значенням за замовчуванням є `false`.
 
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+Призначення цих перевизначень бути вимкненими за замовчуванням і в подальшому ця властивість буде усунута. Ця властивість визначає, які нативні модулі ви можете використовувати в рендер процесі. Для детальнішої інформації куди рухається Electron з перезавантаженням рендер процесу та використанням нативних модулів у рендер процесі, буль ласка, перегляньте це [відстежуване питання](https://github.com/electron/electron/issues/18397).

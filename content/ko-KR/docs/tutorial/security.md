@@ -8,19 +8,17 @@ Electron으로 작업할때, Electron이 웹 브라우저가 아니라는 점을
 
 ## 보안 문제 제보
 
-Electron의 보안 취약점을 공개하는 방법은 [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)를 참조하세요.
+Electron의 보안 취약점을 적절히 공개하는 방법은 [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)를 참조하세요.
 
 ## Chromium 보안 문제와 업그레이드
 
-Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. 현재 사용할 수 있는 자원과 기여를 고려할 때, Electron은 종종 최신 버전의 Chromiun 대신 몇 주 혹은 몇 달 전 버전을 사용할 것입니다.
-
-우리의 현재 크로니움 컴포넌트 업그레이드 시스템이 우리가 사용할 수 있는 자원과 프레임 워크 위에 구축 된 대부분의 애플리케이션의 요구 사이에서 적절한 균형을 유지한다는 인상을 받고 있습니다. 우리는 Electron을 기반으로 무엇인가를 개발중인 사람들의 특별한 use case에 관해 더 듣고싶습니다. 이 노력을 지지하는 Pull 요청과 기여는 언제나 환영합니다.
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## 보안은 모두의 책무
 
 Electron으로 만들어진 애플리케이션의 보안은 프레임워크 기반 (*Chromium*, *Node.js*), Electron 자체, 모든 NPM 의존성, 그리고 당신의 코드의 결과라는 것을 명심하세요. 그에 있어 다음 몇 가지 중요한 사항들을 따르는 것이 여러분의 책무입니다.
 
-* **최신 Electron 프레임워크로 애플리케이션을 최신 버전으로 유지하기.** 제품을 공개하는 것은 Electron, Chromium 공유 라이브러리, 그리고 Node.js로 구성된 묶음도 포함합니다. 이러한 구성요소들의 취약점은 애플리케이션의 보안에도 영향을 미칠 수 있습니다. Electron을 최신 버전으로 업데이트하는 것으로, 심각한 취약점 (*nodeIntegration 건너뛰기* 등) 들이 이미 패치되어 여러분의 애플리케이션에서 실행될 수 없는 것을 보장할 수 있습니다.
+* **최신 Electron 프레임워크로 애플리케이션을 최신 버전으로 유지하기.** 제품을 공개하는 것은 Electron, Chromium 공유 라이브러리, 그리고 Node.js로 구성된 묶음도 포함합니다. 이러한 구성요소들의 취약점은 애플리케이션의 보안에도 영향을 미칠 수 있습니다. Electron을 최신 버전으로 업데이트하는 것으로, 심각한 취약점 (*nodeIntegration 건너뛰기* 등) 들이 이미 패치되어 여러분의 애플리케이션에서 실행될 수 없는 것을 보장할 수 있습니다. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
 * **의존성 평가하기.** NPM이 50만 가지의 재사용 가능한 패키지를 제공하는 반면, 신뢰 가능한 제3자 라이브러리를 고르는 것은 여러분의 책임입니다. 알려진 취약점이나 엉망으로 관리되는 코드에 의존하는 오래된 버전의 라이브러리를 사용하면, 애플리케이션 보안이 취약할 수 있습니다.
 
@@ -58,7 +56,8 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     * [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)
     * [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
     * [Disable the `remote` module](#15-disable-the-remote-module)
-    * [Filter the `remote` module](#16-filter-the-remote-module)</ol> 
+    * [Filter the `remote` module](#16-filter-the-remote-module)
+    * [Use a current version of Electron](#17-use-a-current-version-of-electron)</ol> 
     
     To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
     
@@ -384,7 +383,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     // Bad
     const mainWindow = new BrowserWindow({
       webPreferences: {
-        enableBlinkFeatures: ['ExecCommandInJavaScript']
+        enableBlinkFeatures: 'ExecCommandInJavaScript'
       }
     })
     ```
@@ -621,3 +620,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
       event.preventDefault()
     })
     ```
+    
+    ## 17) Use a current version of Electron
+    
+    You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+    
+    ### 왜냐구요?
+    
+    An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+    
+    Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.

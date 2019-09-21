@@ -1,4 +1,4 @@
-# Accelerator
+# האצה
 
 > Define keyboard shortcuts.
 

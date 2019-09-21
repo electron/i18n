@@ -719,11 +719,11 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (опціонально) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (опціонально) - Передається в `url.format()`.
+  * `search` String (опціонально) - Передається в `url.format()`.
+  * `hash` String (опціонально) - Передається в `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Повертає `Promise<void>` - проміс буде виконано коли сторінка завершить завантаження (дивись [`did-finish-load`](web-contents.md#event-did-finish-load)), якщо завантаження не успішне проміс буде проігноровано (дивись [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -1064,7 +1064,7 @@ console.log(requestId)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Якщо не передати `rect`, буде захоплено всю видиму сторінку.
 
 **[Незабаром застаріє](modernization/promisification.md)**
 
@@ -1072,9 +1072,9 @@ Captures a snapshot of the page within `rect`. Upon completion `callback` will b
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Повертає `Promise<NativeImage>` - Виконуєтсья з [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Захоплює знімок сторінки в межах `rect`. Якщо не передати `rect` буде захоплено всю видиму сторінку.
 
 #### `contents.getPrinters()`
 

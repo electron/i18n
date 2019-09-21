@@ -42,6 +42,8 @@ El módulo `dialogo` tiene los siguientes métodos:
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *MAS* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store.
 
+Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
 Los `filters` especifican un arreglo de tipo de archivos que pueden ser desplegadas cuando quieres limitar el usuario a un tipo específico. Por ejemplo:
@@ -88,11 +90,11 @@ dialog.showOpenDialogSync(mainWindow, {
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *MAS* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store.
 * `retrocallback` Funcion (opcional)
 
-Returns `Promise<Object>` - Resolve wih an object containing the following:
+Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo los siguiente:
 
-* `canceled` - Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` debe estar activado para ser poblado.
+* `canceled` Boolean - whether or not the dialog was canceled.
+* `filePaths` String[] (opcional) - Un array de rutas de archivos elegidos por el usuario. Si el dialogo es cancelado sera un array vacío.
+* `bookmarks` String[] (opcional) *macOS* *mas* - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -135,9 +137,9 @@ dialog.showOpenDialog(mainWindow, {
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) *macOS* - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
+  * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
-Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
+Devuelve `String | undefined`, la ruta del archivo elegido por el usuario; si el cuadro de dialogo es cancelado retorna `undefined`.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -154,20 +156,20 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) *macOS* - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
+  * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
-    * `canceled` Boolean - whether or not the dialog was canceled.
-    * `filePath` String (optional) If the dialog is canceled this will be `undefined`.
-    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+    * `canceled` Boolean - si el dialogo a sido cancelado o no.
+    * `filePath` String (opcional) el el diálogo es cancelado esto va a ser `undefined`.
+    * `bookmark` String (opcional) _macOS_ _mas_ - Cadena codificada en Base64 que contiene marcadores de ámbito de seguridad para el archivo guardado. `securityScopedBookmarks` bebe estar activado para que esto este presente.
     
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
 Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mostrados, ver `dialog.showOpenDialog` por un ejemplo.
 
-**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+**Nota:** En macOS, se recomienda usar la versión asincrona para evitar problemas cuando expanda y colapsa el diálogo.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
@@ -181,12 +183,12 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `detail` Cadena (opcional) - Información extra del mensaje.
   * `checkboxLabel` Cadena (opcional) - Si es proveído, la caja de mensaje será incluido en una caja de chequeo con la etiqueta dada. El estado de la caja puede ser inspeccionado solo cuando se usa `callback`.
   * `checkboxChecked` Boolean (opcional) - Inicial estado de chequeo de la caja. `false` por defecto.
-  * `icon` [NativeImage](native-image.md) (opcional)
+  * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `0` será usado como un valor de retorno o una respondida de llamada de vuelta.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 
-Returns `Integer` - the index of the clicked button.
+Devuelve `Integer` - el índice del botón pulsado.
 
 Muestra una caja de mensaje, esto bloqueará el proceso hasta que la caja de mensaje esté cerrada. Se devuelve el índice del botón al que se le hizo clic.
 
@@ -209,14 +211,13 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 
-Returns `Promise<Object>` - resolves with a promise containing the following properties:
+Devuelve `Promise<Object>` - resuelve con una promesa conteniendo lo siguiente:
 
-    * `response` Number - The index of the clicked button.
-    * `checkboxChecked` Boolean - The checked state of the checkbox if
-    `checkboxLabel` was set. Otherwise `false`.
+    * `response` Number - El índice del botón pulsado.
+    * `checkboxChecked` Boolean - El estado chequeado del checkbox si `checkboxLabel` fue establecido. De otra manera `false`.
     
 
-Shows a message box, it will block the process until the message box is closed.
+Muestra un cuadro de mensaje, bloqueará el proceso hasta que el cuadro de mensaje esté cerrado.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -253,7 +254,7 @@ En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.
 
-Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+Devuelve `Promise<void>` - resuelve cuando se muestra el diálogo de confianza del certificado.
 
 En macOS, esto muestra un diálogo modelo que muestra un mensaje e información certificada, y da al usuario la opción de confiar/importar el certificado. Si tú provees un argumento `browserWindow` el diálogo será adjuntado a la ventana parental, haciéndolo un modelo.
 

@@ -39,9 +39,9 @@ Abre el archivo determinado en el escritorio por defecto.
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
 
-Returns `Boolean` - Whether an application was available to open the URL.
+Devuelve `Boolean` - Si una aplicación estaba disponible para abrir la URL.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Abra la URL del protocolo externo dado en la forma predeterminada del escritorio. (Por ejemplo, mailto: URL en el agente de correo predeterminado del usuario).
 
 **Cambiar**
 

@@ -179,13 +179,13 @@ Configura la activación de texto para este icono de bandeja.
 
 * `title` Cadena
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Establece el título mostrado al lado de la bandeja de icono en la barra de estado (Soporta colores ANSI).
 
 #### `tray.getTitle()` *macOS*
 
 * `title` Cadena
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Devuelve `String` - el título mostrado junto al icono de la bandeja en la barra de estado
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -221,13 +221,13 @@ win.on('hide', () => {
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Establece la opción para ignorar los eventos de doble click. Ignorar estos eventos te permite detectar cada pulsación individual del icono de la bandeja.
 
 Este valor se establece en falso por defecto.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 
 #### `tray.displayBalloon(options)` *Windows*
 

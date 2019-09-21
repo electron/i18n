@@ -82,4 +82,4 @@ Es como `ipcRenderer.send` pero el evento se enviará al `<webview>`elemento en 
 
 ## Objeto de evento
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+La documentación para el objeto `event` pasado a `callback` pude ser encontrada en la estructura de documentos de [`ipc-renderer-event`](structures/ipc-renderer-event.md).

@@ -1074,17 +1074,15 @@ Sa windows, ang mode ay maaring makapasa. Tinatanggap na mga balyu ay `none`, `n
 
 Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskbar, kadalasang ginagamit sa ihatid ang ilang mga uri ng katayuan ng application o upang pasabihan ipagbigay-alam sa gumagamit.
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
+Sets whether the window should have a shadow.
 
-#### `win.hasShadow()` *macOS* 
+#### `win.hasShadow()`
 
 Ibinabalik ` Boolean` - Kung ang window ay may anino.
-
-Palaging nagbabalik ang Windows at Linux `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 

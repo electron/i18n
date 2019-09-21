@@ -43,7 +43,7 @@ export SCCACHE_TWO_TIER=true
 $ mkdir electron-gn && cd electron-gn
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# 이 작업은 잠시 시간이 소요될 수 있으니, 잠시 쉬다 오세요.
 ```
 
 > `https://github.com/electron/electron` 대신, 자신이 소유한 fork저장소를 사용할 수도 있습니다. (저장소 url은 아래와 같은 형태일 것입니다. `https://github.com/<username>/electron`).

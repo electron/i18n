@@ -1,53 +1,53 @@
-# BrowserWindow
+# BrowserWindow - FereastraBrowser-ului
 
-> Create and control browser windows.
+> Creează și controlează ferestrele browser-ului.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 ```javascript
 // În procesul principal-main.
-const { BrowserWindow } = require('electron')
+const (constanta) { BrowserWindow } = require- cere ('electron')
 
-// Or use `remote` from the renderer process.
+// Sau utilizează `remote`-la distanță din procesul renderer.
 // const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({ width: 800, height: 600 })
+let win = new BrowserWindow ( { width: 800, height: 600 })
 win.on('closed', () => {
-  win = null
+win = null
 })
 
-// Load a remote URL
+//Încărcarea URL la distanță
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Sau încărcarea unui fișier HTML local
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Fereastra Frameless-fără cadru
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Pentru a crea o fereastră fără chrome, sau o fereastră transparentă pentru o formă arbitrară poți folosi [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Afișarea ferestrei cu grație
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+La încărcarea directă în fereastra unei pagini, utilizatorii pot să vadă pagina încărcându-se pas cu pas, ceea ce semnifică că nu este o bună experiență-app pentru un nativ a. Pentru a face ca fereastra să fie afișată fără flash, există două soluții pentru diferite situații.
 
-### Using `ready-to-show` event
+### Folosirea evenimentului `ready-to-show`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+În momentul încărcarii paginii, evenimentul `ready-to-show` va fi emis când procesul prestatorului a prestat pagina pentru prima dată, dacă fereastra nu a fost arătată deja. Aratând fereastra după eveniment nu avea nici nu efect visual-flash:
 
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({ show: false })
-win.once('ready-to-show', () => {
-  win.show()
+win.once('ready-to-show',() => {
+win.show()
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Acest eveniment este de obicei emis după evenimentul `did-finish-load`, dar pentru paginile cu multe resurse la distanță, poate fi emis înainte de evenimentul `did-finish-load`.
 
-### Setting `backgroundColor`
+### Setarea `backgroundColor` - culorii fondului
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Pentru o app- aplicație mai complexă, evenimentul `ready-to-show` poate fi emis prea târziu, ceea ce duce la funcționarea lentă a aplicației. În acest caz, este recomendabil să se arate fereastra imediat, și să se folosească `backgroundColor`-culoarea de fond apropiată fondului aplicației tale:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+I-a aminte că, chiar și pentru aplicațiile care folosesc evenimentul ` ready-to-show`, este recomendabil să setezi`backgroundColor` ca să faci ca aplicația să aibă o tentă mai mult nativă.
 
-## Parent and child windows
+## Ferestrele-windows Părinte și copil
 
-By using `parent` option, you can create child windows:
+Folosind opțiunea `parent`, poți să creezi ferestre copii:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Fereastra `child` va fi arată mereu în partea de sus a ferestrei `top`.
 
-### Modal windows
+### Ferestrele modale
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+O fereastră modală este o fereastră copil care dezactivează fereastra părinte cu scopul de a creea o fereastră modală, care trebuie setată la opțiunile `parent` și `modal`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -87,127 +87,127 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Visibilitatea paginii
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[Page Visibility API - Visibilitatea Paginii API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funcționează după cum urmează:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* În toate platformele, statutul visibil verifică dacă fereastra este ascunsă/minimizată sau nu.
+* Adițional, în macOS, starea de vizibilitate urmărește statutul de ocluzie al ferestrei. Dacă fereastra este ocluzionată(i.e. acoperită complet) de altă fereastră, statul vizibilității va fi `hidden-ascuns`. În alte platforme, statutul vizibilității va fi `hidden-ascuns` doar când fereastra este minimizată sau explicit ascunsă cu `win.hide()`.
+* Dacă `BrowserWindow` este creată cu `show: false`, statutul vizibilității inițial va fi `visible-vizibil` chiar dacă fereastra actuală este ascunsă.
+* Dacă`bacgroundThrottling` este dezactivat, statutul vizibiliății va rămâne`visible-vizibil` chiar dacă fereastra este minimizată, ocluzată, sau ascunsă.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Este recomendabil să pauzezi operațiile scumpe când statutul vizibilității este`hidden-ascuns` pentru a minimiza consumul puterii.
 
-### Platform notices
+### Platform notices- Notificările Platformei
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* În macOS ferestrele modale vor fi displayed-afișate ca și foi la fereastra părinte.
+* În macOS fereastra copil își va menține poziția relativă a ferestrei părinte atunci când fereastra părinte se mișcă, în timp ce în Windows sau Linux fereastra copil nu se mișcă.
+* În Linux modelul ferestrei modale va fi schimbat în `dialog`.
+* În Linux multe din mediile desktop-ului nu suportă o fereastră modală ascunsă.
 
-## Class: BrowserWindow
+## Clasa: BrowserWindow
 
-> Create and control browser windows.
+> Creează și controlează ferestrele browser-ului.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` este un [EventEmitter-Emisor de Evenimente](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>options-opțiuni`.
 
 ### `new BrowserWindow([options])`
 
 * `opțiuni` Object -Obiect (opțional) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
-  * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Default is `false`.
-  * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (optional) - Settings of web page's features. 
-    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
-    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
-    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
-    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
-    * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
-    * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
-    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
-    * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Default is `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
-    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
-    * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
-    * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
+  * `width-lățime`Integer(opțional) - Lățimea ferestrei în pixeli. Modul implicit este ` 800`.
+  * `lungime` Integer (opțional) - Lungimea ferestrei în pixeli. Modul implicit este `600`.
+  * `x` Integer (opțional) (**required-cerut** dacă y este utilizat) - Stânga offset-compensată din ecran. Modului implicit îi revine sarcina de a centra fereastra.
+  * `y` Integer (opțional) (**required-cerut** dacă x este utilizat) - Partea de sus a ferestrei din ecran. Modului implicit îi revine sarcina de a centra fereastra.
+  * `useContentSize-utilizareaConținutuluiMărimii` Boolean ( opțional) - `lățimea` și `height-lungimea` vor fi folosite ca size-mărimi ale paginii web, ceea ce semnifică că size-marimea actuală a ferestrei va include mărimea cadrului ferestrei și va fi usor mai largă. Modul implicit este `false-fals`.
+  * `center-centru` Boolean (opțional) - Arată fereastra în mijlocul ecranului.
+  * `minWidth` Integer (opțional) - Lățimea minimă a ferestrei. Modul implicit este `0`.
+  * `minHeight` Integer (opțional) - Lungimea minimă a ferestrei. Modul implicit este `0`.
+  * `maxWidth` Integer (opțional) - Lățimea maximă a ferestrei. Modul implicit nu are limite.
+  * `maxHeight` Integer (opțional) - Lungimea maximă a ferestrei. Modul implicit nu are limite.
+  * `resizable` Boolean (opțional) - Fereastra poate fi ajustată. Modul implicit este`true-adevărat`.
+  * `movable` Boolean(opțional) - Fereastra poate fi mutată. Nu este implementată în Linux. Modul implicit este `true-adevărat`.
+  * `minimizable` Boolean (opțional) - Minimizarea ferestrei. Nu este implementată în Linux. Modul implicit este ` true-adevărat`.
+  * `maximizable` Boolean(opțional) - Maximizarea ferestrei. Nu este implementată în Linux. Modul implicit este ` true-adevărat`.
+  * `closable` Boolean(opțional) - Închiderea ferestrei. Nu este implementată în Linux. Modul implicit este `true-adevărat`.
+  * `focusable` Boolean (opțional) - Focusarea ferestrei. Modul implicit este `true-adevărat`. În setările ferestrei `focusable: false`, implică setarea `skipTaskbar: true`. În setările Linux `focusable: false` face ca fereastra să nu mai interacționeze cu wm, așa că fereastra va ramane mereu în partea de sus a tuturor spațiilor de muncă.
+  * `alwaysOnTop` Boolean (opțional) - Fereastra stă în partea de sus a tuturor ferestrelor. Modul implicit este `false-fals`.
+  * `fullscreen` Boolean(opțional) - Apariția ferestrei în ecran complet. Când este explicit setat la ` false-fals` butonul de ecran complet va fi ascuns sau dezactivat în macOS. Modul implicit este `false-fals`.
+  * `fullscreenable` Boolean(opțional) - Punerea ferestrei în ecran complet. În macOS, butonul de maximizare/zoom ar trebui comutat la modul full screen-ecran complet sau maximizarea ferestrei. Modul implicit este `true-adevărat`.
+  * `simpleFullscreen` Boolean ( opțional) - Utilizează ecranul complet pre-Lion în macOS. Modul implicit este `false-fals`.
+  * `skipTaskbar` Boolean (opțional) - Apariția ferestrei în bara de activități. Modul implicit este `false-fals`.
+  * `kiosk` Boolean (opțional) - Modul kiosk. Modul implicit este `false-fals`.
+  * `title` String (opțional) - Titlul ferestrei în modul implicit. Modul implicit este `"Electron"`. Dacă eticheta HTML`<title>` este definită în fișierul HTML încărcat de `loadURL()`, această propietate va fi ignorată.
+  * `icon` ([NativeImage](native-image.md) | String) (opțional) - Icoana ferestrei. În Windows este recomandabil a se folosi icoanele `ICO` pentru a avea cele mai bune efecte visuale, pe care le poți lăsa nedefinite în așa fel în cât icoana executabilă va fi folosită.
+  * `show` Boolean(opțional) - Fereastra este aratată când este creată. Modul implicit este `true-adevărat`.
+  * `frame` Boolean (opțional) - Specifică `false-fals` pentru a crea [Frameless Window](frameless-window.md). Modul implicit este `true-adevărat`.
+  * `parent-părinte` BrowserWindow (opțional) - Specifică fereastra părinte. modul implicit este `null`.
+  * `modal` Boolean (opțional) - O fereastră modală. Aceasta funcționează doar când fereastra este o fereastră copil. Modul implicit este `false-fals`.
+  * `acceptFirstMouse` Boolean (opțional) - Dacă web-ul acceptă un singur eveniment de mouse în partea de jos care în același timp activează fereastra. Modul implicit este `false-fals`.
+  * `disableAutoHideCursor` Boolean (opțional) - La scriere cursorul este ascuns. Modul implicit este`false-fals`.
+  * `autoHideMenuBar` Boolean(opțional) - Ascunde bara meniului până când tasta`Alt` este apasată. Modul implicit este `false-fals`.
+  * `enableLargerThanScreen` Boolean(opțional) - Face ca fereastra să fie mai mare ca și ecranul. Modul implicit este `false-fals`.
+  * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
+  * `hasShadow-are umbră` Boolean (opțional) - Daca fereastra ar trebui să aibă umbră. Aceasta este implementată doar în macOS. Modul implicit este ` true-adevărat`.
+  * `opacity-opacitate` Number - Număr (opțional) - Setează opacitatea inițială a ferestrei între 0.0 ( transparent în întregime) și 1.0 (opac în totalitate). Acesta este implementat doar în Windows și macOS.
+  * `darkTheme-tema închisă` Boolean (opțional) - Forțează utilizarea temei închise pentru fereastră, funcționează doar în câteva dintre mediile desktop-ului ale GTK +3. Modul implicit este ` false-fals`.
+  * ` transparent` Boolean (opțional) - Face ca fereastra să fie [transparent-transparentă ](frameless-window.md). Modul implicit este `false-fals`.
+  * `type-tip` String (opțional) - Tip-ul ferestrei, modul implicit este fereastra normală. Vezi mai multe despre asta în partea de jos.
+  * `titleBarStyle - Stil titlu` String(opțional) - Stilul bării titlu al ferestrei. Modul implicit este `modul implicit`. Valorile posibile sunt: 
+    * `default-modul implicit` - Bara titlului în standard-ul opac gri al Mac.
+    * `hidden-ascuns` - Rezultă într-o bară de titlu ascunsă și într-o fereastră de conținut de dimensiuni complete, dar totuși bara titlului deține controlul standard al ferestrei ("traffic lights") în partea stângă din partea de sus.
+    * `hiddenInset` - Rezultă într-o bară de titlu ascunsă cu o nouă alternativă de a privi unde butoanele traffic light - traficul luminilor, sunt ușor mai insetate de marginea ferestrei.
+    * `customButtonsOnHover` Boolean (opțional) - Deschide personalizarea și minimizează butoanele în fereastra fară cadru macOS. Aceste butoane nu pot fi arătate doar dacă este planat în stânga de sus a ferestrei. Aceste butoane customizate previn evenimentele malițioase cu mouse-ul care se produc cu butoanele din bara de ustensile ale ferestrei standard. **Note:** Aceasta opțiune este de moment experimentală.
+  * `fullscreenWindowTitle` Boolean (opțional) - Arată titlul în bara de titlu în modul full screen - ecran complet în macOS pentru toate opțiunile `titleBarStyle`. Modul implicit este `false-fals`.
+  * `thickFrame` Boolean (opțional) - Utilizează stilul `WS_THICKFRAME` pentru ferestrele fără cadru în Windows, care adaugă cadru standard al ferestrei. Setat la ` false-fals` va îndeparta umbra ferestrei și animațiile ferestrei. Modul implicit este `true-adevărat`.
+  * `vibrancy` String (opțional) - Adaugă ferestrei un tip de efect vibrant, doar în macOS. Poate fi `appearance-based-bazat pe aparență`, `light-luminos`, `dark-închis`, `titlebar-bară titlu`, `selection-selecție`, `menu-meniu`, `popover-sare peste`, `sidebar-bara laterală`, `medium-light-lumină medie` sau ` ultra-dark-foarte închis`. Vă rog a nota că utilizând `frame: false- cadru: fals` în combinație cu o valoare vibrantă negativă semnifică că utilizezi un non-mod implicit deasemenea `titleBarStyle`.
+  * `zoomToPageWidth` Boolean (opțional) - Controlează comportamentul în macOS când opțiunea- făcând clic pe butonul verde stoplight din bara de instrumente sau făcând clic în meniu pe articolul Window > Zoom. Dacă `true-adevărat`, fereastra va crește la lățimea preferată a paginii web când este marită, `false- fals` cauzează mărirea lățimii a ecranului. Acesta de asemenea afectează direct comportamentul când apelăm la `maximize() - maximizează`. Modul implicit este `false-fals`.
+  * `tabbingIdentifier` String (opțional) - Numele grupului de file, permite deschiderea ferestrei ca o filă nativă în macOs 10.12+. Ferestrele cu aceași identificatori de file vor fi grupate împreună. Aceasta de asemenea adaugă un nou buton nativ de file în bara de file a ferestrei și permite ` app -aplicației` și ferestrei să primească evenimentul `new-window-for-tab`.
+  * `webPreferences - Preferințele web` Object-Obiect (optional) - Setări ale caracteristicilor paginii web. 
+    * `devTools` Boolean (opțional) - Dacă este deschis la DevTools. Dacă este setat la `false`, nu poate folosi pentru a deschide Dev Tools `BrowserWindow.webContents.openDevTools()`. Modul implicit este `true-adevărat`.
+    * `nodeIntegration` Boolean (opțional) - Dacă integrarea nodului este activată. Modul implicit este ` false-fals`.
+    * `nodeIntegrationInWorker` Boolean (opțional) - Dacă integrarea nodului este activată în web-ul muncitorilor. Modul implicit este `false-fals`. Mai multe despre acestea se pot regăsi în [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInSubFrames` Boolean (opțional) - Opțiune experimentală pentru a activa suportul Node.js în sub-cadre ca și iframes și ferestre copil. Toate preîncărcarile tale se vor încărca pentru toate iframe-urile, poți utiliza`process.isMainFrame` pentru a determina dacă esti în cadrul principal sau nu.
+    * `preload-preîncărcare` String (opțional) - Specifică un scenariu care va fi încărcat înaintea altor scenarii ce aleargă deja în pagină. Acest scenariu va avea mereu acces la nodul API, chiar dacă integrarea nodului este pornită sau nu. Valoarea ar trebui să fie calea absolută a fișierului pentru scenariu. Când integrarea nodurilor este oprită, preîncărcarea scenariului poate reintroduce un simbol global Nod înapoi în scopul global. Vezi exemplul [ aici](process.md#event-loaded).
+    * `sandbox` Boolean (opțional) - Dacă set- setează, acest lucru va face ca sandbox-cutie de nisip să redea asociarea cu fereastra, facând-o compatibilă cu Chromium OS-nivel sandbox și dezabilitând motorul Node.js. Acesta nu este la fel ca opțiunea `nodeIntegration` iar API-urile disponibile la preîncărcarea scenariului este limitată. Citește mai multe despre opțiune [aici](sandbox-option.md). **Notă:** Această curentă opțiune e experimentală și poate fi modificată sau eliminată în viitoarele realizări Electron.
+    * `enableRemoteModule` Boolean (opțional)- Activarea modului [` remote-de la distanță`](remote.md). Modul implicit este `true-adevărat`.
+    * `session` [Session-Sesiune](session.md#class-session)(opțional) - Setează sesiunea utilizată de pagină. În loc să trimiți direct obiectul Session-Sesiune, poți alege să folosești în loc opțiunea `partition`, care acceptă o partiție a șirului. Atunci când sunt obținute`session-sesiune<code> și <code>partition-partiție`, <0>session</code> va fi cel preferat. Modul implicit este modul implicit al sesiunii.
+    * `partition` String(opțional)- Setează sesiunea utilizată de pagină în conformitate cu partiția șirului sesiunii. Dacă `partition` începe cu `persist:`, pagina va utiliza o sesiune persistentă valabilă tuturor paginilor din interiorul aplicației cu aceași`partitio-partiție`. Dacă nu există prefixul `persist:`, pagina va folosi o sesiune în-memorie. Asignând aceași`partition-partiție`, pagini multiple pot arăta aceași sesiune. Modul implicit este modul implicit al sesiunii.
+    * `affinity` String(opțional) - Când este specificată, paginile cu aceeași`affinity-afinitate` vor rula în același proces de redare. Notează că odată reutilizat procesul de redare, anumite opțiuni `webPreferences-PreferințeWeb` vor fi afișate între paginile web chiar dacă ai specificat valori diferite pentru fiecare, inclusiv dar fară limită la `preload`, `sandbox` și `nodeIntegration`. Așa că este preferabil să utilizezi aceleași `webPreferences-PreferințeWeb` pentru toate paginile cu aceași `affinity-afinitate`. *Această propietate este experimentală*
+    * `zoomFactor` Number-Număr (opțional) - Modul implicit al factorului de mărire a paginii`3.0` reprezintă `300%`. Modul implicit este`1.0`.
+    * `javascript` Boolean (opțional)- Activează suportul JavaScript. Modul implicit este `true-adevărat`.
+    * `webSecurity` Boolean (opțional)- Când este `false-fals`, va dezactiva politica cu aceași origine ( de obicei website-urile folosite drept test de către oameni), și setează `allowRunningInsecureContent` la `true-adevărat` dacă această opțiune nu a fost deja setată de către utilizator. Modul implicit este `true-adevărat`.
+    * `allowRunningInsecureContent` Boolean (opțional) - Admite o pagină https să acționeze JavaScript, CSS sau plugin-uri din URL http. Modul implicit este `false-fals`.
+    * `images-imagini` Boolean(opțional) - Activează suportul imaginilor. Modul implicit este `true-adevărat`.
+    * `textAreaAreResizable` Boolean(opțional) - Face ca elementele TextArea să își poată modifica mărimea. Modul implicit este`true-adevărat`.
+    * `webgl` Boolean(opțional)- Activează suportul Webgl. Modul implicit este`true-adevărat`.
+    * `plugins` Boolean(opțional) - Activarea plugin-urilor. Modul implicit este `false-fals`.
+    * `experimentalFeatures`Boolean(opțional)- Activează caracteristicile experimentale ale Chromium. Modul implicit este `false-fals`.
+    * `scrollBounce` Boolean (opțional)- Activează efectul de defilare(bandă de cauciuc) în macOs. Modul implicit este`false-fals`.
+    * `enableBlinkFeatures` String(opțional)- O listă a caracteristicilor șirului separate prin `,` la fel activarea `CSSVariables, KeyboardEventKey`. Întreaga listă a caracteristicilor șirurilor poate fi regasită în fișierele[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `enableBlinkFeatures` String(opțional)- O listă a caracteristicilor șirurilor separate prin `,` la fel dezactivarea `CSSVariables, KeyboardEventKey`. Întreaga listă suportată a caracteristicilor șirurilor se poate găsi în fișierul [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `modul implicit al fontului este FontFamily` Obiect (opțional) - Setează modul implicit al fontului la fontul -FontFamily. 
+      * `standard` String (opțional)- Modul implicit la `Times New Roman`.
+      * `serif` String(opțional)- Modul implicit setat la `Times New Roman`.
+      * `sansSerif` String (opțional) - Modul implicit la `Arial`.
+      * `monospace` String (opțional) - Modul implicit la `Courier New`.
+      * `cursive` String (opțional)- Modul implicit la `Script`.
+      * `fantasy` String (opțional)- Modul implicit la `Impact`.
+    * `defaultFontSize` Integer (opțional) - Modul implicit la `16`.
+    * `defaultMonospaceFontSize` Integer (opțional) -Modul implicit la `13`.
+    * `minimumFontSize` Integer (opțional) - Modul implicit `0`.
+    * `defaultEncoding` String (opțional) - Modul implicit la `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (opțional)- Indiferent dacă accelerați animațiile și cronometrele când pagina devine fundal. Aceasta de asemenea afectează [Page Visibility API](#page-visibility). Modul implicit este `true-adevărat`.
+    * `offscreen` Boolean (opțional) - Dacă se activează interpretarea offscreen-oprirea ecranului pentru fereastra browser-ului. Modul implicit este`false-fals`. Pentru mai multe detalii vezi [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
+    * `contextIsolation` Boolean (opțional) - Dacă se deschid API-urile Electronilor și script-urile specificate ale `preload` într-un context JavaScript separat. Modurile implicite sunt `false-fals`. În contextul în care script-ul `preload` încă este activ poate avea acces total la globalele `document` și `window-fereastră`, dar va folosi propiul set de construcții JavaScript (`Array`, `Object`, `JSON`, etc.) și vor fi izolate de orice schimbare adusă la mediul global al paginii încărcate. API-ul Electronului va fi valabil doar în script-ul `preload` și nu al paginii încărcate. Această opțiune trebuie utilizată atunci când încărcarea conținutului la distanță potențial necredibil pentru a asigura conținutul încărcat nu poate altera scriptul ` preload-preîncărcare ` și orice API-uri Electron utilizate. Această opțiune folosește aceași tehnică utilizată de [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Poți accesa acest context în instrumentele dev selectând intrarea 'Electron Isolated Context' din caseta combo din partea de sus a barei Consolei.
+    * `nativeWindowOpen` Boolean (opțional)- Folosirea nativei `window.open()`. Modul implicit este ` false-fals`. Fereastra copil va avea mereu integrarea nodului dezactivată doar dacă `nodeIntegrationInSubFrames` este adevărată. **Note-Notă:** Această opțiune este în momentul actual în fază experimentală.
+    * `webviewTag` Boolean (opțional) - Activarea [`<webview>` tag](webview-tag.md). Modurile implicite sunt `false-fals`. **Note-Notă:** Script-ul `preload` configurat pentru `<webview>` nu va avea integrarea nodului activată când este executată așa că ar trebui să asiguri controlul la distanță/conținuturile noncredibile, nu sunt în stare să creeze o etichetă `<webview>` cu un script malicios `preload-preîncărcare`. Poți folosi evenimentul `will-attach-webview` în [webContents](web-contents.md) pentru a îndepărta script-ul `preload` și a valida ori altera setările inițiale ale `<webview>`.
+    * `additionalArguments` String[] (optional) - O listă de șiruri care vor fi adăugate la `process.argv` în procesul de redare a acestei aplicații. Utilizat pentru a transmite mici bitsi de date în jos către preîncărcarea script-urilor în procesul de redare.
+    * `safeDialogs` Boolean (opțional) - Dacă activați stilul browserului protecție dialogică consecutivă. Modul implicit este `false-fals`.
+    * `safeDialogsMessage` String (opțional) - Mesajul afișat caâd consecutive protecții dialog sunt expuse. Dacă nu este definit modul implicit va fi folosit, atenție că actualul mesaj implicit este în Engleză și nu este localizat.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
@@ -435,7 +435,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Metode Statice
 
 The `BrowserWindow` class has the following static methods:
 
@@ -658,7 +658,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Modul implicit este `#FFF` (alb).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
@@ -1074,17 +1074,15 @@ On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeter
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Sets whether the window should have a shadow.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()`
 
 Returns `Boolean` - Whether the window has a shadow.
-
-On Windows and Linux always returns `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 

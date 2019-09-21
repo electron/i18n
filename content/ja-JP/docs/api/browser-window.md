@@ -1074,17 +1074,15 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 現在のタスクバーアイコンの上に、通常、何らかのアプリケーションステータスを伝えたり、ユーザーに控えめに通知したりするのに使われる16 x 16ピクセルのオーバレイを設定します。
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-ウインドウに影を表示させるかどうかを設定します。WindowsとLinuxでは何もしません。
+ウインドウに影を付けるべきかどうかを設定します。
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()`
 
 戻り値 `Boolean` - ウインドウに影を表示させているかどうか。
-
-WindowsとLinuxでは常に `true` を返します。
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 

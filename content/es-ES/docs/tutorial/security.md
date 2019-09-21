@@ -12,15 +12,13 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 ## Actualizaciones y problemas de seguridad Chromium
 
-Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más pronto posible, los desarrolladores deben estar conscientes que actualizar es una tarea muy seria - involucrando ediciones a mano a docenas o hasta cientos de archivos. Dados los recursos y contribuciones disponibles, Electron no va a estar sobre la última versión de Chromium, rezagándose por días o semanas.
-
-Sentimos que el sistema actual de actualización de el componente Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidades de la mayoría de las aplicaciones construidas por encima de el framework. Estamos definitivamente interesados en escuchar más sobre casos de uso específicos de gente que construye cosas sobre de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
+Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## La seguridad es la responsabilidad de Todos
 
 Es importante recordar que la seguridad de tu aplicación Electron es el resultado de la seguridad general de la base de framework (*Chromium*, *Node.js*), Electron mismo, todas las dependencias NPM y tu código. Por tanto, es tu responsabilidad seguir algunas importantes mejores prácticas:
 
-* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación.
+* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
 * **Evalue sus dependencias.**Mientras NPM provee más de medio millón de paquetes reusables, es su responsabilidad la elección de librerías confiables de terceros. Si utiliza librerías desactualizadas afectadas por vulnerabilidades conocidas o basado en código escasamente mantenido, la seguridad de su aplicación puede estar en peligro.
 
@@ -58,6 +56,7 @@ Al menos debes seguir los siguientes pasos para mejorar la seguridad de su aplic
 14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
 15. [Deshabilitar el módulo `remote`](#15-disable-the-remote-module)
 16. [Filtrar el módulo `remote`](#16-filter-the-remote-module)
+17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
 
 Para automatizar la detección de configuraciones erróneas y de modelos inseguros, es posible usar [electronegativity](https://github.com/doyensec/electronegativity). Para detalles adicionales sobre potenciales debilidades y errores en la implementación durante el desarrollo de aplicaciones usando Electron, consulte [guía para desarrolladores y auditores](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -151,7 +150,7 @@ window.readConfig = function () {
 
 ## 3) Habilitar el aislamiento del contexto para Contenido Remoto
 
-Context isolation es un ajuste de Electron que permite a los desarrolladores ejecutar códigos en guiones de pre carga y en APIs de Electron en un contexto dedicado de JavaScript. En práctica, eso significa que los objetos globales como `Array.prototype.push` o `JSON.parse` no puede ser modificado por guiones por guiones ejecutándose en el proceso de renderizado.
+Aislamiento de contexto es un ajuste de Electron que permite a los desarrolladores ejecutar códigos en guiones de pre carga y en APIs de Electron en un contexto dedicado de JavaScript. En práctica, eso significa que los objetos globales como `Array.prototype.push` o `JSON.parse` no puede ser modificado por guiones por guiones ejecutándose en el proceso de renderizado.
 
 Electron usa la misma tecnología que los [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) de Chromium para activar este comportamiento.
 
@@ -383,7 +382,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 // Bad
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    enableBlinkFeatures: ['ExecCommandInJavaScript']
+    enableBlinkFeatures: 'ExecCommandInJavaScript'
   }
 })
 ```
@@ -620,3 +619,13 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
   event.preventDefault()
 })
 ```
+
+## 17) Use a current version of Electron
+
+You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+
+### ¿Por què?
+
+An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+
+Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.

@@ -14,7 +14,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'm
 Diyalog, Electron'un ana dizininden açılır. iletişim kutusunu bir oluşturucu işlem nesnesinde kullanmak isterseniz, uzaktan erişim kullanarak erşiebileceğinizi unutmayın:
 
 ```javascript
-const { dialog } = ihtiyaç('electron').dolaylı
+const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
@@ -41,6 +41,8 @@ console.log(dialog)
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `mesaj` dizi(isteğe bağlı) *macOS* -Girdi kutularının üstünde görüntülenecek ileti.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+
+Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
 
 `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
 
@@ -91,7 +93,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 Returns `Promise<Object>` - Resolve wih an object containing the following:
 
-* `canceled` - Boolean - whether or not the dialog was canceled.
+* `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
@@ -184,7 +186,7 @@ expanding and collapsing the dialog.</p>
   * ` ayrıntı </ 0> Dizge (isteğe bağlı) - Mesajın ek bilgileri.</li>
 <li><code>checkboxLabel` dizge(isteğe bağlı) - sağlandıysa, ileti kutusu verilen etiketi içeren bir onay kutusu içerir. Onay kutusu durumu yalnızca ` geri arama </ 0> kullanılırken incelenebilir.</li>
 <li><code>checkboxChecked` Boolean (isteğe bağlı) -Onay kutusunun başlangıçta kontrol edilmiş durumu. ` yanlış </ 0> varsayılan olarak.</li>
-<li><code>icon` [NativeImage](native-image.md) (isteğe bağlı)
+<li><code>icon` ([NativeImage](native-image.md) | String) (isteğe bağlı)
   * `cancelId` Integer (isteğe bağlı) - Diyalogu iptal etmek için kullanılacak düğmenin indeksi,` Esc </ 0> tuşu ile. Varsayılan olarak bu, etiket olarak "iptal" veya "hayır" ile ilk düğmeye atanır. Böyle bir etiketli düğme yoksa ve bu seçenek ayarlanmamışsa, <code>0`dönüş değeri veya geri arama yanıtı olarak kullanılacaktır.
   * `noLink` Boolean (isteğe bağlı) - Windows Elektron' da `buttons`' dan hangisinin ortak düğmeler olduğunu ve diğer iletişim kutusundaki komutların bağlantılarını anlamaya çalışacağız ("İptal" veya "Evet" gibi). Bu işlem diyaloğun modern Windows aplikasyonu tarzında çıkmasını sağlar. Bu davranış hoşunuza gitmiyorsa, `noLink` `true` ayarlayabilirsiniz.
   * `normalizeAccessKeys` Boolean (İsteğe Bağlı) - Platformlar arasında klavye erişim anahtarlarını normalize eder. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. Örneğin; `Vie&w` düğme etiketi Linux' ta `Vie_w` ve macOS' ta `View` olarak dönüştürülecektir, Windows ve Linux' ta `Alt-W` yoluyla seçilebilir.

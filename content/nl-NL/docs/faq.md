@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 require('electron').console.log(require('electron').remote.getGlobal('sharedObject').someProperty = 'new value)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Het venster/tray van mijn app verdween na een paar minuten.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Dit gebeurt wanneer de variabele die wordt gebruikt om het venster/tray op te slaan "garbage collected" wordt.
 
 Wanneer je dit probleem tegenkomt, zullen de volgende artikelen misschien van pas komen:
 
 * [Geheugenbeheer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Variabel bereik](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Als je een snelle oplossing zoekt, kun je de variabelen globaal maken door de code te veranderen naar het volgende:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -77,7 +77,7 @@ app.on('ready', () => {
 
 ## Ik kan geen jQuery/RequireJS/Meteor/AngularJS gebruiken in Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Vanwege de Node.js integratie van Electron zijn er een aantal extra symbolen aan de DOM toegevoegd, zoals `module`, `exports` en `require`. Dit kan problemen veroorzaken voor sommige bibliotheken omdat ze symbolen met dezelfde namen willen toevoegen.
 
 To solve this, you can turn off node integration in Electron:
 
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Maar als je de mogelijkheden wilt behouden om Node.js en Electron API's te gebruiken, moet je de symbolen in de pagina hernoemen voordat je andere bibliotheken kunt opnemen:
 
 ```html
 <head>

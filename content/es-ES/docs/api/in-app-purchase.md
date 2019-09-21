@@ -34,18 +34,18 @@ You should listen for the `transactions-updated` event as soon as possible and c
 
 ### `inAppPurchase.purchaseProduct(productID, quantity)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - Los identificadores del producto a comprar. (El identificador de `com.example.app.product1` es `product1`).
 * `quantity` Integer (opcional) - El número de objetos que el usuario quiere comprar.
 
-Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
+Devuelve `Promise<Boolean>` - Devuelve `true` si el producto es valido y añadido a la cola de pago.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Deberías escuchar por el evento `transactions-updated` tan pronto como sea posible y sin dudas antes de llamar a `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-  * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - Los identificadores de los productos a obtener.
+* `callback` Función - El callback llamado con los productos o una matriz vacía si los productos no existen. 
+  * `products` Product[] - Array de objetos [`Product`](structures/product.md)
 
 Recupera las descripciones del producto.
 
@@ -53,9 +53,9 @@ Recupera las descripciones del producto.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - Los identificadores de los productos a obtener.
 
-Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
+Devuelve `Promise<Product[]>` - Resuelve con un array de objetos [`Product`](structures/product.md).
 
 Recupera las descripciones del producto.
 
@@ -73,6 +73,6 @@ Completa todas las transacciones pendientes.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - La fecha en formato ISO de la transacción para terminar.
 
 Completa las pendientes transacciones correspondiendo al día.

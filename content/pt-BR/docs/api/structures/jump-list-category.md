@@ -1,4 +1,4 @@
-# JumpListCategory Object
+# Objeto JumpListCategory
 
 * `tipo` String (opcional) - Um dos seguintes: 
   * `tarefas` - itens nesta categoria serão colocados na categoria de `tarefas` padrão. Só pode existir um de cada categoria, e sempre será mostrado no final da Jump List.

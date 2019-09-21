@@ -11,9 +11,9 @@ El string `FIXME` se usa en las cadenas de código para indicar que cualquier pr
 ## `shell.openExternalSync(url[, options])`
 
 ```js
-// Deprecated
+// Deprecado
 shell.openExternalSync(url)
-// Replace with
+// Reeamplazar con 
 async function openThing (url) {
   await shell.openExternal(url)
 }
@@ -24,91 +24,91 @@ async function openThing (url) {
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// Deprecado
 win.setMenu(null)
-// Replace with
+// Reemplazar con 
 win.removeMenu()
 ```
 
 ## `contentTracing.getTraceBufferUsage()`
 
 ```js
-// Deprecated
+// Deprecado
 contentTracing.getTraceBufferUsage((percentage, value) => {
-  // do something
+  // hacer algo
 })
-// Replace with
+// Reemplace con 
 contentTracing.getTraceBufferUsage().then(infoObject => {
-  // infoObject has percentage and value fields
+  // infoObject tiene campos de porcentaje y valor
 })
 ```
 
 ## `electron.screen` en proceso de renderizado
 
 ```js
-// Deprecated
+// Deprecado
 require('electron').screen
-// Replace with
+// Reemplazar con 
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `requiere` en renderizadores sandboxed
 
 ```js
-// Deprecated
+// Deprecado
 require('child_process')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('child_process')
 
-// Deprecated
+// Deprecado
 require('fs')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('fs')
 
-// Deprecated
+// Deprecado
 require('os')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('os')
 
-// Deprecated
+// Deprecado
 require('path')
-// Replace with
+// Reemplazar con
 require('electron').remote.require('path')
 ```
 
 ## `powerMonitor.querySystemIdleState`
 
 ```js
-// Deprecated
+// Deprecado
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Reemplazar con API síncrona 
 const idleState = getSystemIdleState(threshold)
 ```
 
 ## `powerMonitor.querySystemIdleTime`
 
 ```js
-// Deprecated
+// Deprecado
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Reemplazar con API síncrona
 const idleTime = getSystemIdleTime()
 ```
 
 ## `Tray`
 
-Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
+Bajo macOS Catalina nuestra implementación Tray se rompe. El sustituto nativo de Apple no soporta cambiar el comportamiento de resaltado.
 
 ```js
-// Deprecated
+// Deprecado
 tray.setHighlightMode(mode)
-// API will be removed in v7.0 without replacement.
+// API sera eliminada en V7.0 sin reemplazo.
 ```
 
 # Cambios planeados en la API(5.0)
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Los siguientes valores por defectos de opción `webPreferences` están obsoletos a favor de los nuevos valores por defectos listados a continuación.
 
 | Propiedad          | Valor obsoleto                       | El valor por defecto nuevo |
 | ------------------ | ------------------------------------ | -------------------------- |
@@ -116,7 +116,7 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `cierto`                             | `false`                    |
 | `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
-E.g. Re-enabling the webviewTag
+Por ejemplo, rehabilitar la webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -128,13 +128,13 @@ const w = new BrowserWindow({
 
 ### `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
+Las ventanas hijas abiertas con la opción `webPreferences` siempre tienen la integración con Node.js deshabilitada, a menos que `nodeIntegrationInSubFrames` se true.
 
-## Privileged Schemes Registration
+## Registro de Esquema Privilegiados
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+Las APIs de Renderer Process `webFrame.setRegisterURLSchemeAsPrivileged` y `webFrame.registerURLSchemeAsBypassingCSP` tal como la API del proceso de navegador `protocol.registerStandardSchemes` han sido eliminados. Una nueva API, `protocol.registerSchemesAsPrivileged` ha sido agregada y debe ser usada para registrar esquemas personalizados con los privilegios requeridos. Se requieren esquemas personalizados para ser registrados antes de que la aplicación esté lista.
 
-## webFrame Isolated World APIs
+## webFrame APIs del mundo Aislado
 
 ```js
 // Deprecated
@@ -181,14 +181,14 @@ app.releaseSingleInstanceLock()
 ## `app.getGPUInfo`
 
 ```js
-app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
-app.getGPUInfo('basic')
+app.getGPUInfo('completo')
+// Ahora se comporta lo mismo con `basic` en macOS
+app.getGPUInfo('básico')
 ```
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. Consulte la [guía de módulo nativo](/docs/tutorial/using-native-node-modules.md) para más infromación.
+Cuando se construye módulos nativos para windows, la variable `win_delay_load_hook` del módulo `binding.gyp` debe ser true (el cual es por defecto). Si este hook no esta presente, luego el módulo nativo va a fallar al cargar en Windows, con un mensaje de error como `Cannot find module`. Consulte la [guía de módulo nativo](/docs/tutorial/using-native-node-modules.md) para más infromación.
 
 # Cambios en la API(3.0)
 
@@ -302,11 +302,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// Deprecado
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// Reemplazar con
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })

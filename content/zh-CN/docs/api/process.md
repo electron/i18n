@@ -58,7 +58,7 @@ process.once('loaded', () => {
 
 ### `process.isMainFrame`
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+`Boolean`类型， 当前渲染器为主渲染器时为`true`。如果你需要获取当前渲染器的ID你需要使用`webFrame.routingId` 。
 
 ### `process.mas`
 
@@ -74,7 +74,7 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.enablePromiseAPIs`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. 将其设置为`true`将会禁用弃用警告。
 
 ### `process.resourcesPath`
 
@@ -110,7 +110,7 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.windowsStore`
 
-`Boolean`. 如果应用运行于 Windows 商店(appx), 改属性为`true`, 否则为 `undefined`.
+`Boolean`。如果应用运行于 Windows 商店(appx)，该属性为`true`，否则为 `undefined`。
 
 ## 方法
 

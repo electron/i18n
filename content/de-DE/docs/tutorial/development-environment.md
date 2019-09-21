@@ -26,7 +26,7 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 > Electron unterstützt Windows 7 und neuere Versionen – Versuche, Electron Anwendungen auf früheren Versionen von Windows zu entwickeln, werden fehlschlagen. Microsoft stellt kostenlose [virtual machine images mit Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) für Entwickler zur Verfügung.
 
-Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entweder die `LTS` oder die `Current` Version zu installieren. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
+Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entweder die `LTS` oder die `Current` Version zu installieren. Besuche [die Node.js Download-Seite](https://nodejs.org/en/download/) und wähle den `Windows-Installer` aus. Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
 Stellen sicher, dass Sie in dem Fenster, welches Ihnen erlaubt die Installation zu konfigurieren, `Node.js runtime`, `npm package manager`, und `Add to PATH` auswählen.
 

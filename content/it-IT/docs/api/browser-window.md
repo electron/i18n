@@ -1074,17 +1074,15 @@ On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeter
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
-#### `win.setHasShadow(hasShadow)` *macOS*
+#### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Sets whether the window should have a shadow.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()`
 
 Returns `Boolean` - Whether the window has a shadow.
-
-On Windows and Linux always returns `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 

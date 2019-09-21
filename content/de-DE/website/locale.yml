@@ -13,27 +13,27 @@ nav:
   releases: Veröffentlichungen
   search: Suchen
   userland: Userland
-  governance: Governance
+  governance: Kontrolle
 keyboard_modal:
   title: Tastenkürzel
   key: Schlüssel
   action: Aktion
-  focus_search: Focus the search bar
+  focus_search: Suchleiste fokussieren
   focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
+  scroll_down: Nächstes Suchergebnis auswählen
   scroll_up: Vorheriges Suchergebnis auswählen
   open: Ausgewähltes Suchergebnis öffnen
-  open_new_tab: Open the selected search result in a new tab
+  open_new_tab: Das ausgewählte Suchergebnis in einem neuen Tab öffnen
 docs:
   title: Electron-Dokumentation
   description: Die gesamte <a href="/docs/all">Dokumentation auf einer Seite</a> anzeigen oder die <a href="/docs/faq">FAQ</a> ansehen.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Guide: Erste Schritte mit Electron"
   api_reference: API-Referenz
-  api_structures: API Structures
+  api_structures: API-Strukturen
   advanced: Erweitert
   detailed: Im Detail
   custom_dom: Benutzerdefinierte DOM-Elemente
-  main_proc_modules: Main Process Modules
+  main_proc_modules: Hauptprozessmodule
   renderer_proc_modules: Renderer Process Modules
   both_proc_modules: Modules for Both Process Types
   footer:
@@ -43,7 +43,7 @@ docs:
     view_all_docs: Gesamte Dokumentation auf einer Seite
 languages:
   choose_language: Wählen Sie Ihre Sprache
-  view_more_details: View More Language Details
+  view_more_details: Weitere Sprachdetails anzeigen
   translation_progress: Übersetzungsfortschritt
   current: Aktuelle Auswahl
 community:
@@ -71,21 +71,21 @@ community:
   awesome_notice: "Diese Liste wurde von <a href=\"https://github.com/sindresorhus/awesome-electron\">@sindresorhus's Awesome Electron</a> Repository genieriert.\n<br>Fehlt etwas? Dann <a href=\"https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md\">erstellen Sie einen Pull-Request</a>."
   meetup_notice: Um ein Treffen hinzuzufügen, bearbeiten Sie die Datei <code>data/meetups.json</code> und <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">erstellen einen Pull-Request</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
+  show_releases: "Veröffentlichungen anzeigen:"
+  show_only_releases_from: "Nur Veröffentlichungen anzeigen von:"
+  all_versions: Alle Versionen
+  stable_releases: Stabile Veröffentlichungen
+  stable_desc: Regelmäßige, unterstützte Versionen
+  beta_releases: Beta-Veröffentlichungen
+  beta_desc: Teste deine App mit anstehenden Änderungen
+  nightly_releases: Nighly-Veröffentlichungen
+  nightly_desc: Experimentiere mit den neuesten Funktionen
+  next: Nächste
+  next_page: Nächste Seite
+  previous: Vorherige
+  previous_page: Vorherige Seite
+  page: Seite
+  all_releases: Alle Veröffentlichungen
   back_to_index: Zurück zum Index
 electron_is_easy:
   title: Es ist einfacher, als Sie denken
@@ -114,7 +114,7 @@ explore:
   title: Erkunden Sie die Electron-APIs
   description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
   fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  see_more_info: Weitere Infos anzeigen
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
@@ -135,7 +135,7 @@ help_translate: "Helfen Sie bei der Übersetzung"
 footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
 companies:
-  title: Built on Electron
+  title: Mit Electron gebaut
   description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
@@ -144,15 +144,15 @@ apps:
   something_missing: Fehlt etwas?
   edit_this_app: Diese App bearbeiten.
   search_app: Filter apps by name, description, etc…
-  categories: Categories
+  categories: Kategorien
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
+  website: Webseite
   repository: Repository
-  category: Category
+  category: Kategorie
   downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  keywords: Schlagwörter
+  license: Lizenz
+  latest_release: Neueste Veröffentlichung
 blog:
   title: Electron-Blog
   description: Die neuesten Nachrichten vom Electron-Team und der Community.
@@ -217,11 +217,11 @@ landing:
   get_started: Erste Schritte
   fiddle:
     lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    create_app: Erstelle Deine App
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
+    explore: Erkunde Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
+    code_with_types: Programmiere mit Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
     compile_and_package: Compile and Package
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
@@ -244,7 +244,7 @@ governance:
     title: Upgrades
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
-    title: Website
+    title: Webseite
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Community & Safety
@@ -256,11 +256,11 @@ governance:
     title: Administrative
     description: The Administrative Working Group oversees the entire governance and project.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
+    overview: Übersicht
+    associated_repos: Verknüpfte Repositories
     notes: Meeting Notes
   definitions:
-    title: Definitions
+    title: Definitionen
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
@@ -268,7 +268,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: Verantwortungen
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
@@ -277,7 +277,7 @@ governance:
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
   code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+  license: Electron ist mit der <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT Lizenz</a> lizenziert.
   repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: Seite nicht gefunden.

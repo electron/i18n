@@ -126,6 +126,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [Bildirim](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

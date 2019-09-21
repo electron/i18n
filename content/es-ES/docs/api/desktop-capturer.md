@@ -74,8 +74,8 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 
 * `opciones` Object 
   * `types` String[] - Un arreglo de cadenas que crea una lista de los tipos de fuentes de escritorio para ser capturadas. Los tipos disponibles son `screen` y `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. El valor por defecto es falso. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `thumbnailSize` [Size](structures/size.md) (opcional) - El tamaño de la miniatura de la fuente al cual deber ser escalado. Por defecto es `150` x `150`. Establecer ancho o alto a 0 cuando no necesitas las miniaturas. Esto guardara el tiempo de procesamiento requerido para capturar el contenido de cada ventana y pantalla.
+  * `fetchWindowIcons` Boolean (opcional) - Establece a true para activar la obtención de los iconos de ventana. El valor por defecto es falso. Cuando es false la propiedad appIcon de las fuentes devuelve null. Mismo si una fuente tiene el tipo pantalla.
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
@@ -90,13 +90,13 @@ Inicia la recopilación de información sobre todas las fuentes de escritorio di
 
 * `opciones` Object 
   * `types` String[] - Un arreglo de cadenas que crea una lista de los tipos de fuentes de escritorio para ser capturadas. Los tipos disponibles son `screen` y `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. El valor por defecto es falso. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `thumbnailSize` [Size](structures/size.md) (opcional) - El tamaño de la miniatura de la fuente al cual deber ser escalado. Por defecto es `150` x `150`. Establecer ancho o alto a 0 cuando no necesitas las miniaturas. Esto guardara el tiempo de procesamiento requerido para capturar el contenido de cada ventana y pantalla.
+  * `fetchWindowIcons` Boolean (opcional) - Establece a true para activar la obtención de los iconos de ventana. El valor por defecto es falso. Cuando es false la propiedad appIcon de las fuentes devuelve null. Mismo si una fuente tiene el tipo pantalla.
 
-Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Devuelve `Promise<DesktopCapturerSource[]>` - Resuelve con un array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
 
 ### Advertencias
 
-`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, y por extensión Electron, no proporciona esto.
+`navigator.mediaDevices.getUserMedia` no trabaja en macOS para captura de audio debido a una limitación fundamental porque las aplicaciones que quieren acceder al audio del sistema requieren un [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, y por extensión Electron, no proporciona esto.
 
-It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.
+Es posible eludir esta limitación capturando el audio del sistema con otra aplicación macOS como Soundflower y pasar esto a través de una dispositivo de entrada de audio virtual. Este dispositivo virtual puede ser consultado con `navigator.mediaDevices.getUserMedia`.

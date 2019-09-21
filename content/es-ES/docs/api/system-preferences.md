@@ -251,40 +251,40 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-text` - Texto en ventanas.
   * Activado **macOS** 
     * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla.
-    * `control-background` - The background of a large interface element, such as a browser or table.
-    * `control` - The surface of a control.
-    * `control-text` -The text of a control that isn’t disabled.
-    * `disabled-control-text` - The text of a control that’s disabled.
+    * `control-background` - El fondo de un elemento de interfaz grande, tal como un navegador o tablet.
+    * `control` - La superficie de un control.
+    * `control-text` - El texto de un control que no está deshabilitado.
+    * `disabled-control-text` - El texto de un control que esta deshabilitado.
     * `find-highlight` - El color de un indicador de búsqueda.
-    * `grid` - The gridlines of an interface element such as a table.
-    * `header-text` - The text of a header cell in a table.
-    * `highlight` - The virtual light source onscreen.
-    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
-    * `label` - The text of a label containing primary content.
+    * `grid` - Las líneas de cuadrículas de un elemento de interfaz como una tabla.
+    * `header-text` - El texto de una celda de cabecera en una tabla.
+    * `highlight` - La fuente de luz virtual en la pantalla.
+    * `keyboard-focus-indicator` - El anillo que aparece alrededor del control actualmente enfocado cuando se usa el teclado para la nevagación por la interface.
+    * `label` - El texto de una etiqueta que contiene el contenido primario.
     * `link` - Un enlace a otro contenido.
-    * `placeholder-text` - A placeholder string in a control or text view.
-    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
-    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
-    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
-    * `selected-content-background` - The background for selected content in a key window or view.
-    * `selected-control` - The surface of a selected control.
+    * `placeholder-text` - Una cadena de marcador de posición en una vista de control o texto.
+    * `quaternary-label` - El texto de una etiqueta de menor importancia que una etiqueta terciaria como el texto de la marca de agua.
+    * `scrubber-textured-background` - El fonfo de un depurado en el Touch Bar.
+    * `secondary-label` - El texto de una etiqueta de menor importancia que una etiqueta normal como el usado para representar un subtítulo o información adicional.
+    * `selected-content-background` - El fondo para el contenido seleccionado en una ventana clave o en una vista.
+    * `selected-control` - La superficie de un control seleccionado.
     * `selected-control-text` - El texto un control seleccionado.
     * `selected-menu-item` - El texto de un menu seleccionado.
-    * `selected-text-background` - The background of selected text.
+    * `selected-text-background` - El fondo de un texto seleccionado.
     * `selected-text` - Texto seleccionado.
-    * `separator` - A separator between different sections of content.
-    * `shadow` - The virtual shadow cast by a raised object onscreen.
-    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `separator` - Un separado entre las diferentes secciones del contenido.
+    * `shadow` - La sombra virtual proyectada por un objeto en la pantalla.
+    * `tertiary-label` - El texto para una etiqueta de menor importancia que una etiqueta secundaria como una etiqueta que se usa para representar texto deshabilidato.
     * `text-background` - Texto de fondo.
     * `text` - Texto en un documento.
-    * `under-page-background` - The background behind a document's content.
-    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
-    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
-    * `unemphasized-selected-text` - Selected text in a non-key window or view.
-    * `window-background` - The background of a window.
-    * `window-frame-text` - The text in the window's titlebar area.
+    * `under-page-background` - El fondo detrás del contenido de un documento.
+    * `unemphasized-selected-content-background` - El contenido seleccionado en una ventana o vista no-clave.
+    * `unemphasized-selected-text-background` - Un fondo para el texto seleccionado en una ventana o vista no clave.
+    * `unemphasized-selected-text-background` - Texto seleccionado en una ventana o vista no clave.
+    * `window-background` - El fondo de una ventana.
+    * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Mira el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) y el [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) para mas detalles.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -299,92 +299,92 @@ Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RG
   * `rojo`
   * `amarillo`
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
+Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
 ### `systemPreferences.isHighContrastColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
+Devuelve `Boolean` - `true` si un tema de alto contraste está activo, si no `false`.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-Returns `String` - Can be `dark`, `light` or `unknown`.
+Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
-Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. Consulte la [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
+Por favor, tenga en cuenta que hasta que Electron es construido con el SDK 10.14, la `effectiveAppearance` de tu aplicación será por defecto ´light´ y no heredará la preferencia del sistema oprativo. Mientras tanto para que su aplicación herede la preferencia del sistema operativo debes establecer la clave `NSRequiresAquaSystemAppearance` en tus aplicaciones `Info.plist` a `false`. Si estas usando `electron-packager` o `electron-forge` solo establece la opción de empaquetador `enableDarwinDarkMode` a `true`. Consulte la [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS*
 
-Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+Devuelve`String` | `null` - Puede ser `dark`, `light` o `unknown`.
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+Obtiene la configuración de apariencia de macOS que has declarado que desea para su aplicación, mapea a [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Puedes usar la API `setAppLevelAppearance` para establecer este valor.
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - Can be `dark` or `light`
+* `appearance` String | null - Puede ser `dark` o `light`
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+Establece la configuración por defecto para su aplicación, esto debe sobrescribir el valor predeterminado del sistema y sobrescribir el valor de `getEffectiveAppearance`.
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
-Returns `Boolean` - whether or not this device has the ability to use Touch ID.
+Devuelve `Boolean` - si este dispositivo tiene la habilidad para usar Touch ID.
 
-**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+**NOTE:** Esta API retornará `false` en sistemas macOS mas viejos que Sierra 10.12.2.
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
-* `reason` String - The reason you are asking for Touch ID authentication
+* `reason` String - La razón por la que estás pidiendo por la autenticación Touch ID
 
-Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
+Devuelve `Promise<void>` - Se resuelve si el usuario se ha autenticado con éxito con Touch ID.
 
 ```javascript
 const { systemPreferences } = require('electron')
 
 systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').then(success => {
-  console.log('You have successfully authenticated with Touch ID!')
+  console.log('Te has autenticado exitosamente correctamente con Touch ID!')
 }).catch(err => {
   console.log(err)
 })
 ```
 
-This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
+Esta API en si misma no va a proteger sus datos de usuario, más bien, es un mecanismo para permitirle hacerlo. Las aplicaciones nativas necesitarán establecer [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) como [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) en la entrada de su llavero para que al leerlo se solicite automáticamente el consentimiento biométrico de Touch ID. Esto se podría hacer con [`node-keytar`](https://github.com/atom/node-keytar), de tal manera que se almacenaría una clave de cifrado con `node-keytar` u sólo se obtendría si `promptTouchID()` se resuelve.
 
-**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
+**NOTE:** Esta API retornara una promesa rechazada en sistemas macOS más viejos que Sierra 10.12.2.
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
-* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+* `prompt` Boolean - Si el usuario será informado o no vía prompt si el proceso actual no es confiable.
 
-Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
+Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad de confianza y `false` si no lo es.
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` or `camera`.
+* `mediaType` String - `microphone` o `camera`.
 
-Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo que este método siempre devolverá `granted` si su sistema está ejecutando 10.13 High Sierra o inferior.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
-* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
+* `mediaType` String - el tipo de medio que se solicita; puede ser `microphone`, `camera`.
 
-Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+Devuelve `Promise<Boolean>` - Una promesa que resuelve con `true` se fue concedido el consentimiento y `false` si fue denegado. Si un `mediaType` invalido es pasado, la promesa será rechazada. Si se negó una solicitud de acceso y después se cambia a través del panel de Preferencias del Sistema, se requerirá un reinicio de la aplicación para que los nuevos permisos surtan efecto. Si el acceso ya ha sido solicitado y denegado, *must* ser cambiado a través del panel de preferencias; una alerta no aparecerá y la promesa resolverá con el estado de acceso existente.
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+**Important:** Para poder aprovechar correctamente esta API, debes [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) las cadenas `NSMicrophoneUsageDescription` y `NSCameraUsageDescription` en el archivo `Info.plist` de tu aplicación. Los valores para estas claves se utilizarán para rellenar los diálogos de permisos para que el usuario sea informado correctamente sobre el propósito de la solicitud de permiso. Mira [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) para más información acerca de como establecer estos en el contexto de Electron.
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
+Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo que este método siempre devolverá `true` si su sistema está ejecutando 10.13 High Sierra o inferior.
 
 ### `systemPreferences.getAnimationSettings()`
 
 Devuelve `Objeto`:
 
-* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
-* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
-* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+* `shouldRenderRichAnimation` Boolean - Devuelve verdadero is animaciones ricas deben ser renderizadas. Se observa en el tipo de sesión (por ejemplo, escritorio remoto) y ajustes de accesibilidad para dar orientación a animaciones pesadas.
+* `scrollAnimationsEnabledBySystem` Boolean - Determina sobre una base por plataforma si las animaciones de desplazamiento (por ejemplo, producidas por la clave home/end) deben estar habilitadas.
+* `prefiere ReducdMotion` Boolean - Determina si el usuario desea un movimiento reducido basado en APIs de la plataforma.
 
-Returns an object with system animation settings.
+Devuelve un objeto con las configuraciones del sistema de animación.

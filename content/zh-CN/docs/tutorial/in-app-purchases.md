@@ -16,28 +16,28 @@
 
 ### 变更 CFBundleIdentifier
 
-To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
+若要在Electron开发阶段对应用内购买功能进行测试，您必须在`node_modules/electron/dist/Electron.app/Contents/Info.plist`路径下修改`CFBundleIdentifier`。 您必须使用通过ITunes Connect创建的应用的bundle indentifier来替换掉`com.github.electron`。
 
 ```xml
 <key>CFBundleIdentifier</key>
 <string>com.example.app</string>
 ```
 
-## Code example
+## 代码示例
 
-Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+通过下面的例子来了解如何在Electron中使用应用内购买功能。 您必须使用通过ITunes Connect创建的产品的唯一标识 （ID）来替换掉下面示例中的PRODUCT_IDS。( `com.example.app.product1` 的ID是 `product1`)。 请注意，您必须尽可能早的在你的应用中监听`transactions-updated`事件。
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// 尽早监听transactions事件.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // 检查每一笔交易.
   transactions.forEach(function (transaction) {
     var payment = transaction.payment
 
@@ -49,18 +49,18 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // Get the receipt url.
+        // 获取收据的url.
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // 将收据提交到服务器并校验收据是否有效.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // 如果收据通过校验，说明产品已经被购买了
         // ...
 
-        // Finish the transaction.
+        // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -68,7 +68,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // 交易完成.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -88,29 +88,29 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// 检查用户是否允许当前app启用应用内购买功能.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Retrieve and display the product descriptions.
+// 检索并显示产品描述.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // 检查参数.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
   }
 
-  // Display the name and price of each product.
+  // 显示每个产品的名称和价格.
   products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // 询问用户需要购买哪个产品.
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
-  // Purchase the selected product.
+  // 购买选中的产品.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')
