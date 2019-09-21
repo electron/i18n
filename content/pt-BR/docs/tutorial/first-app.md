@@ -165,13 +165,15 @@ Finalmente, o `index.html` é a pagina da web que você quer mostrar:
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Olá Mundo!</title>
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
   </head>
   <body>
-    <h1>Olá Mundo!</h1>
-    Nos estamos usando node <script>document.write(process.versions.node)</script>,
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    e Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
