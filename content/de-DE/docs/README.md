@@ -126,6 +126,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
+* [Mitteilung](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -133,7 +134,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [TouchBar](api/touch-bar.md)
-* [Tray](api/tray.md)
+* [Fach](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Module für den Renderer-Prozess (Webseite):
