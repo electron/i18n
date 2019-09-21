@@ -163,14 +163,14 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
   </head>
   <body>
     <h1>Hello World!</h1>
-Kullandığınız Node'un sürümü: <script>document.write(process.versions.node)</script>,
-    Kullandığınız Chrome'un sürümü:
- <script>document.write(process.versions.chrome)</script>,
-    ve Kullandığınız Electron'un sürümü: 
- <script>document.write(process.versions.electron)</script>.
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
