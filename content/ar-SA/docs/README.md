@@ -125,6 +125,7 @@
 * [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
 * [سجل الشبكة](api/net-log.md)
+* [Notification](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
