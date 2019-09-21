@@ -5,7 +5,11 @@
 ## 基本要求
 
 * Windows 10 / Server 2012 R2 或更高版本
-* Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2017 社区版](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/) 
+  * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
+  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path. 
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (replace `2019` and `Community` with your installed versions)
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
 * [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/) 
   * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 为此，应确保 **PATH** 中 Python 的安装目录在 `depot_tools` 之前。 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
   * [Python for Windows (pywin32) 扩展](https://pypi.org/project/pywin32/#files)对于构建流程也是必需的。
@@ -84,3 +88,7 @@ $ git config --system core.longpaths true
 ### 导入错误：没有名为 win32file 的模块
 
 确保已使用 `pip install pywin32` 安装了 `pywin32`。
+
+### Build Scripts Hang Until Keypress
+
+This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
