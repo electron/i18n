@@ -1,6 +1,6 @@
 # Task Object
 
-* ` program </ 0>  String - Jalur program untuk dijalankan, biasanya Anda harus menentukan <code> process.execPath </ 0> yang akan membuka program saat ini.</li>
+* ` program </ 0> String - Jalur program untuk dijalankan, biasanya Anda harus menentukan <code> process.execPath </ 0> yang akan membuka program saat ini.</li>
 <li><code> argumen </ 0>  String - Argumen baris perintah saat <code> program </ 0> dijalankan.</li>
 <li><code> judul </ 0>  String - The String yang akan ditampilkan dalam Jumplist a.</li>
 <li><code> deskripsi </ 0>  String - Uraian tugas ini.</li>
