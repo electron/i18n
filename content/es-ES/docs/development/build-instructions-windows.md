@@ -5,11 +5,11 @@ Siga las indicaciones a continuación para compilar Electron en Windows.
 ## Pre-requisitos
 
 * Windows 10 / Server 2012 R2 o superior
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/) 
-  * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
-  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path. 
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (replace `2019` and `Community` with your installed versions)
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
+* Visual Studio 2017 15.7.2 o superior [descargar VS 2019 Community Edition gratis](https://www.visualstudio.com/vs/) 
+  * Vea [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) para mas detalles sobre cuales componentes de Visual Studio son requeridos.
+  * Si tu Visual Studio está instalado en un directorio diferente que el predeterminado, necesitarás establecer unas pocas variables de entorno para apuntar las toolchains a tu ruta de instalación. 
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (reemplace `2019` y `Community` con sus versiones instaladas)
+    * `WINDOWSSDKDIR = DISCO:\ruta\a\Windows Kits\10`
 * [Python 2.7.10 o posterior](http://www.python.org/download/releases/2.7/) 
   * Contrariamente a las instrucciones de configuración de `depot_tools` enlazadas a continuación, necesitará usar su Python instalado localmente con, al menos, la versión 2.7.10 (con soporte para TLS 1.2). Para hacerlo, asegúrese de que en **PATH**, su Python instalado localmente viene antes de la carpeta `depot_tools`. Ahora mismo `depot_tools` todavía viene con Python 2.7.6, lo que causará que el comando `gclient` falle (ver https://crbug.com/868864).
   * También se necesita la [extensión de Python para Windows (pywin32)](https://pypi.org/project/pywin32/#files) para ejecutar el proceso de compilación.
@@ -89,6 +89,6 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 Asegúrese de haber instalado `pywin32` con `pip install pywin32`.
 
-### Build Scripts Hang Until Keypress
+### Los scripts de compilacion se bloquean haste que se presione una tecla
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Este error es una "característica" del intérprete de comandos de Windows. Ocurre cuando se pulsa dentro de la ventana prompt con `QuickEdit` habilitado y está destinado a permitir seleccionar y copiar el texto de la salida fácilmente. Dado que cada click accidental pausará el proceso de compilación, puede que quiera desactivar esta característica en la propiedades del símbolo del sistema.

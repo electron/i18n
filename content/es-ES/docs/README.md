@@ -133,7 +133,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [Barra táctil](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 

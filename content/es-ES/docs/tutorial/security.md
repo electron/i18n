@@ -12,13 +12,13 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 ## Actualizaciones y problemas de seguridad Chromium
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron se mantiene actualizado con versiones alternas de Chromium. Para más información, vea el [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
 
 ## La seguridad es la responsabilidad de Todos
 
 Es importante recordar que la seguridad de tu aplicación Electron es el resultado de la seguridad general de la base de framework (*Chromium*, *Node.js*), Electron mismo, todas las dependencias NPM y tu código. Por tanto, es tu responsabilidad seguir algunas importantes mejores prácticas:
 
-* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación. For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
+* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación. Para más informacón, vea "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
 
 * **Evalue sus dependencias.**Mientras NPM provee más de medio millón de paquetes reusables, es su responsabilidad la elección de librerías confiables de terceros. Si utiliza librerías desactualizadas afectadas por vulnerabilidades conocidas o basado en código escasamente mantenido, la seguridad de su aplicación puede estar en peligro.
 
@@ -56,7 +56,7 @@ Al menos debes seguir los siguientes pasos para mejorar la seguridad de su aplic
 14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
 15. [Deshabilitar el módulo `remote`](#15-disable-the-remote-module)
 16. [Filtrar el módulo `remote`](#16-filter-the-remote-module)
-17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
+17. [Usar una versión actual de Electron](#17-use-a-current-version-of-electron)
 
 Para automatizar la detección de configuraciones erróneas y de modelos inseguros, es posible usar [electronegativity](https://github.com/doyensec/electronegativity). Para detalles adicionales sobre potenciales debilidades y errores en la implementación durante el desarrollo de aplicaciones usando Electron, consulte [guía para desarrolladores y auditores](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -160,7 +160,7 @@ Incluso cuando usas `nodeIntegration: false` para forzar el fuerte aislamiento y
 
 El aislamiento de contenido permite que cada guión se ejecute en el renderizado para hacer cambios a su ambiente JavaScript sin preocuparse acerca de conflictos con los guiones en el API Electron en el guión pre cargado.
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
+Mientras aún es una característica experimental de Electron, el contexto de aislamiento agrega una capa adicional de seguridad. Esto crea un nuevo mundo JavaScript para las APIs Electron y scripts de precargas, que mitiga los llamados ataques de "Prototype Pollution".
 
 Al mismo tiempo, los guiones pre cargados todavía tienen acceso al `documento` y a los objetos de `window`. En otras palabras, estás teniendo un retorno decente en una pequeña inversión.
 
@@ -233,7 +233,7 @@ session
 
 *La recomendación por defecto es Electrón*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+Puede que haya adivinado que deshabilitando la propiedad `webSecurity` en un render process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) desactiva características de seguridad cruciales.
 
 No deshabilite `webSecurity` en aplicaciones de producción.
 
@@ -271,7 +271,7 @@ Un Contenido de Política de Seguridad (CSP) es una capa adicional de protecció
 
 ### ¿Por què?
 
-CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://example.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Defining a CSP is an easy way to improve your application's security.
+CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://example.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Definir un CSP es una manera fácil de mejorar la seguridad de tus aplicaciones.
 
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
@@ -285,7 +285,7 @@ Content-Security-Policy: script-src 'self' https://apis.example.com
 
 ### Encabezado CSP HTTP
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron respeta el [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) que puede ser establecido usando el manejador [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) de Electron:
 
 ```javascript
 const { session } = require('electron')
@@ -302,7 +302,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP Meta Etiqueta
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+El mecanismo de entrega preferido de CSP es una cabecera HTTP, sin embargo no es posible usar este método al cargar un recurso usando el protocolo `file://`. Puede ser útil en algunos casos, como usar el protocolo `file://`, para establecer una política en un página directamente en el markup usando un tag `<meta>`:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -314,7 +314,7 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 *La recomendación por defecto es Electrón*
 
-By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
+Por defecto, Electron no permitirá sitios webs cargados sobre `HTTPS` para cargar y ejecutar scripts, CSS, o plugins desde orígenes inseguros (`HTTP`). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
 
 Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar recursos subsecuentes mediante `HTTP` es también conocido como "contenido mixto".
 

@@ -29,7 +29,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 ## Showing window gracefully
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+When loading a page in the window directly, users may see the page load incrementally, which is not app good experience for a native a. To make the window display without visual flash, there are two solutions for different situations.
 
 ### Using `ready-to-show` event
 
