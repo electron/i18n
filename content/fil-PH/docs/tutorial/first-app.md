@@ -1,6 +1,6 @@
 # Pag-gawa ng iyong unang Electron App
 
-Ang Electron ang nagbibigay-daan para makalikha ng desktop application na gawa sa purong JavaScript sa pamamagitan ng pagbibigay ng runtime na may mayamang lokal na (operating system) APIs. Maari mong makita ang mga ito bilang isang baryante ng Node.js runtime na nakatuon sa desktop applications na sa halip na mga server ng web.
+Ang Electron ang nagbibigay-daan para makalikha ng desktop application na may malinis na JavaScript sa pamamagitan ng pagbibigay ng runtime na may rich native (operating system)APIs. Maari mong makita ang mga ito bilang isang baryante ng Node.js runtime na nakatuon sa desktop applications na sa halip na mga server ng web.
 
 Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa graphical user interface (GUI) libraries. Sa halip, ang Electron ay gumagamit ng mga web pages bilang GUI, kaya pwede mong makita ito bilang isang minimal Chromium browser, kontrolado ng JavaScript.
 
