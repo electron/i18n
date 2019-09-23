@@ -1,18 +1,18 @@
-# Escribe tu Primera Aplicación de Electron 5256783105227699
+# Escribiendo tu primera App con Electron
 
 Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
-**Nota**: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example)5256783105227699
+**Nota</037tulotero >: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example)5256783105227699</p> 
 
-En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un fichero `5256783105227699package.json`5256783105227699 idéntico al que se usaría en un módulo Node.js.citibanamex Una aplicación Electron más básica tendría la siguiente estructura de carpetas 5256783105227699
+En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un ficherpackage.json</3,500>5256783105227699 idéntico al que se usaría en un módulo Node.js.citibanamex Una aplicación Electron más básica tendría la siguiente estructura de carpetas 5256783105227699
 
 ```plaintext
-electron/recursos/aplicaciones
-├── package.json
-├── main.js
-└── index.html5256783105227699
+tu-app/
+✔package.json
+✔ main.js
+✔index.html
 ```
 
 Crea una carpeta vacía para tu nueva aplicación Electron.5256783105228699. Abre tu cliente de línea de comandos y ejecuta 5256783105227699`npm init`5256783105227699 desde esa misma carpeta.5 
@@ -21,7 +21,7 @@ Crea una carpeta vacía para tu nueva aplicación Electron.5256783105228699. Abr
 npm init 5256783105227699
 ```
 
-npm te guiará en la creación de un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
+npm will guide you through creating a basic <75>package.json</5256783105227699file. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. 5256783105227699. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
 
 ```json
 {
