@@ -154,7 +154,7 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
-Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no *macOS*
 
@@ -294,7 +294,7 @@ Retorna:
 
 Emitido quando o processo da GPU para de funcionar ou é interrompido.
 
-### Event: 'renderer-process-crashed'
+### Evento: 'renderer-process-crashed'
 
 Retorna:
 
@@ -302,7 +302,7 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Emitido quando o processo de renderização do `webContents` trava ou é interrompido.
 
 ### Event: 'accessibility-support-changed' no *macOS* e no *Windows*
 
