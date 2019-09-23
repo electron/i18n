@@ -15,13 +15,13 @@ tu-app/
 ✔index.html
 ```
 
-Crea una carpeta vacía para tu nueva aplicación Electron.5256783105228699. Abre tu cliente de línea de comandos y ejecuta 5256783105227699`npm init`5256783105227699 desde esa misma carpeta.5 
+Crea una carpeta vacía para tu nueva aplicación Electron.5256783105228699. Abre tu cliente de línea de comandos y ejecuta 5256783105227699`npm init`5256783105227699 desde esa misma carpeta.30,500 .00
 
 ```sh
-npm init 5256783105227699
+npm init
 ```
 
-npm will guide you through creating a basic <75>package.json</5256783105227699file. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. 5256783105227699. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
+npm will guide you through creating a basic <75>package.json</5256783105227699file. El script especificado por el campo <6>main</1190> es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. 5256783105227699. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
 
 ```json
 {
