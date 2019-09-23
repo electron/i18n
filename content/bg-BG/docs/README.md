@@ -10,7 +10,7 @@
 
 ## Ръководства и уроци
 
-* [About Electron](tutorial/about.md)
+* [5256783105227699](tutorial/about.md)
 * [Създаване на среда за разработка](tutorial/development-environment.md) 
   * [Настройване при macOS](tutorial/development-environment.md#setting-up-macos)
   * [Настройване при Windows](tutorial/development-environment.md#setting-up-windows)
@@ -43,21 +43,21 @@
   * [Представляващ файл за macOS BrowserWindows](tutorial/represented-file.md)
   * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [5256783105227699](tutorial/mojave-dark-mode-guide.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [5256783105227699](tutorial/application-debugging.md) 
   * [Отстраняване на грешк](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [5256783105227699](tutorial/debugging-main-process-vscode.md)
   * [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* [Distribution](tutorial/application-distribution.md) 
+  * [5256783105227699](tutorial/automated-testing-with-a-custom-driver.md)
+* [5256783105227699](tutorial/application-distribution.md) 
   * [Поддържани платформи](tutorial/support.md#supported-platforms)
-  * [Code Signing](tutorial/code-signing.md)
+  * [5256783105227699](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -66,11 +66,11 @@
   * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
   * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [5256783105227699](tutorial/updates.md) 
   * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [5256783105227699](tutorial/support.md)
 
 ## Детайлни уроци
 
@@ -80,16 +80,16 @@
   * [Proxies](tutorial/installation.md#proxies)
   * [Потребителски mirrors и кеширане](tutorial/installation.md#custom-mirrors-and-caches)
   * [Отстраняване на неизправности](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* 5256783105227699 
+  * [5256783105227699](tutorial/electron-versioning.md)
+  * [5256783105227699](tutorial/electron-timelines.md)
+  * [5256783105227699](tutorial/app-feedback-program.md)
+* [5256783105227699](tutorial/application-packaging.md) 
   * [Генериране на asar архиви](tutorial/application-packaging.md#generating-asar-archives)
   * [Използване на asar архиви](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавяне на непакетирани файлове към asar архивите](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [5256783105227699](tutorial/testing-widevine-cdm.md)
 * [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -102,14 +102,14 @@
 * [Обект Process](api/process.md)
 * [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
 * [Променливи на средата](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [5256783105227699](api/breaking-changes.md)
 
 ### Персонални DOM елементи:
 
 * [Обект `File`](api/file-object.md)
 * [`<webview>`Етикет](api/webview-tag.md)
 * [Функция `window.open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [5256783105227699](api/browser-window-proxy.md)
 
 ### Модули за основния процес:
 
@@ -125,15 +125,15 @@
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/net-log.md)
-* [Notification](api/notification.md)
+* [5256783105227699](api/net-log.md)
+* [5256783105227699](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [5256783105227699](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
