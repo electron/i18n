@@ -370,7 +370,7 @@ const mainWindow = new BrowserWindow({})
 
 *La recomendación por defecto es Electrón*
 
-Blink es el nombre del motor de renderizado detrás de Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink es el nombre del motor de renderizado detrás de Chromium. Como con la propiedad `experimentalFeatures`, la propiedad `enableBlinkFeatures` permite a los desarrolladores habilitar características que han sido deshabilitada por defecto.
 
 ### ¿Por què?
 
@@ -379,7 +379,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 ### ¿Còmo?
 
 ```js
-// Bad
+// Mal
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -396,7 +396,7 @@ const mainWindow = new BrowserWindow()
 
 *La recomendación por defecto es Electrón*
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
+Si estas usando [`<webview>`](../api/webview-tag.md), puede que necesites las paginas y los scripts cargados en tu tag `<webview>` par abrir nuevas ventanas. El atributo `allowpopups` les permite crear nuevas [`BrowserWindows`](../api/browser-window.md) usando el método `window.open()`. tags `<webview>` de otra manera no se permite crear nuevas ventanas.
 
 ### ¿Por què?
 
@@ -416,7 +416,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 
 Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
-It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
+Es una buena ida controlar la creación de nuevas etiquetas [`<webview>`](../api/webview-tag.md) desde el proceso principal y verificar que su webPreferences no deshabilitan características de seguridad.
 
 ### ¿Por què?
 
