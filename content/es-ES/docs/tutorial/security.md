@@ -462,7 +462,7 @@ Un patrón común de ataque es que el atacante convence a los usuarios de tu apl
 
 Si tu aplicación no tiene necesidad de navegación, puedes llamar a `event.preventDefault()` en un manejador [`will-navigate`](../api/web-contents.md#event-will-navigate). Si sabes a que páginas tu aplicación puede navegar, revisa la URL en el manejador de evento y solo deja que ocurra la navegación si coincide con las URL que estás esperando.
 
-Recomendamos que uses el parser para URLs de Node. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+Recomendamos que uses el parser para URLs de Node. Comparaciones simples de cadenas puede a veces engañar - una prueba `startsWith('https://example.com')` podría dejar pasar `https://example.com.attacker.com`.
 
 ```js
 const URL = require('url').URL
@@ -480,11 +480,11 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 13) Disable or limit creation of new windows
 
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+Si tienes un conjunto de ventanas conocido, es una buena idea limitar la creación de ventanas adicionales en tu aplicación.
 
 ### ¿Por què?
 
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+Al igual que la navegación, la creación de nuevo `webContents` en un vector de ataque común. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
 
 If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
