@@ -484,9 +484,9 @@ Si tienes un conjunto de ventanas conocido, es una buena idea limitar la creaci�
 
 ### ¿Por què?
 
-Al igual que la navegación, la creación de nuevo `webContents` en un vector de ataque común. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+Al igual que la navegación, la creación de nuevo `webContents` en un vector de ataque común. Los atacantes intentar convencer a tu aplicación a crear nuevas ventanas, frames u otros procesos renderer con más privilegios de lo que antes tenían; o con páginas abiertas que antes no pudieron abrir.
 
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+Si no tienes la necesidad de crear ventanas adicionales de la que sabes que tendrás que crear, desactivando la creación te compra un poco de seguridad extra sin costo alguno. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
 ### ¿Còmo?
 
