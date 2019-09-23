@@ -426,7 +426,7 @@ Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad 
 
 ### ¿Còmo?
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Antes que la etiqueta [`<webview>`](../api/webview-tag.md) sea adjuntada, Electron va a disparar el evento `will-attach-webview` en el `webContents` hosting. Use el evento para evitar la creación de `webViews` con posibles opciones inseguras.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -450,11 +450,11 @@ De nuevo, esta lista solo minimiza los riesgos, no los remueve. Si su meta es mo
 
 ## 12) Deshabilitar o limitar la navegación
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+Si tu aplicación no tiene la necesidad de navegar o sólo necesita navegar a páginas conocidas, es una buena idea limitar la navegación directamente a ese alcance conocido, inhabilitando cualquier otro tipo de navegación.
 
 ### ¿Por què?
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+La navegación es un vector de ataque común. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
 
 A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
 
