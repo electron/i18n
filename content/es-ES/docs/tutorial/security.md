@@ -320,7 +320,7 @@ Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar 
 
 ### ¿Por què?
 
-Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
+Cargando contenido sobre `HTTPS` se asegura la autenticidad y la integridad de los recursos cargados mientras se cifra el trafico en si mismo. Ver la sección en [only displaying secure content](#1-only-load-secure-content) para más detalles.
 
 ### ¿Còmo?
 
@@ -342,11 +342,11 @@ const mainWindow = new BrowserWindow({})
 
 *La recomendación por defecto es Electrón*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+Usuarios avanzados de Electron pueden habilitar las características experimentales de Chromium usando la propiedad `experimentalFeatures`.
 
 ### ¿Por què?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Las características experimentales son, como el nombre lo sugiere experimental y no han sido activadas para todos los usuarios de Chromium. Ademas, su impacto en Electron en su conjunto es probable que no haya sido testado.
 
 Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciendo, usted no debería habilitar esta propiedad.
 
