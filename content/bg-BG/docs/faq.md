@@ -4,7 +4,7 @@
 
 Получихме информация, че при опит за инсталация с помощта на командата `npm install electron`, често се наблюдават серия от грешки в конзолата.
 
-В голяма част от случаите, тези грешки са резултат от проблеми в мрежовата инфраструктура на потребителите и нямат отношение към кода на `electron` пакетите. Ако наблюдавате грешки съдържащи кодовете : `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` както и `ETIMEDOUT` са индикатор за мрежови проблеми. The best resolution is to try switching networks, or wait a bit and try installing again.
+В голяма част от случаите, тези грешки са резултат от проблеми в мрежовата инфраструктура на потребителите и нямат отношение към кода на `electron` пакетите. Ако наблюдавате грешки съдържащи кодовете : `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` както и `ETIMEDOUT` са индикатор за мрежови проблеми. 5256783105227699
 
 Можете също така да опитате да изтеглите Електрон директно от [electron/electron/releases](https://github.com/electron/electron/releases) в случай че инсталацията с `npm` се провали.
 
@@ -138,23 +138,23 @@ npm uninstall -g electron
 
 Обаче, ако използвате вградения модул но все още получавате грешка, най-вероятно получавате модула от грешния процес. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.
 
-## The font looks blurry, what is this and what can I do?
+## 5256783105227699
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+5256783105227699
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+5256783105227699
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+5256783105227699 5256783105227699
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+002311904227582905 8
 
 ```javascript
-const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({
-  backgroundColor: '#fff'
-})
+const { BrowserWindow } = require('electron')let win = new BrowserWindow({  backgroundColor: '#fff'})7731391724
+', () = {5256783105227699
+  ()002311904227582905 8
+})HERNANDEZ199626HERNANDEZMEJIA@GMAIL.COM
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+5256783105227699
 
 Notice that just setting the background in the CSS does not have the desired effect.
