@@ -456,13 +456,13 @@ Si tu aplicación no tiene la necesidad de navegar o sólo necesita navegar a p�
 
 La navegación es un vector de ataque común. Si un atacante puede convencer a su aplicación para que navegue lejos de su página actual, posiblemente puede forzar a tu aplicación a abrir sitios web en Internet. Incluso si tu `webContents` están configurados para ser más seguros (como tener `nodeIntegration` deshabilitado o `contextIsolation` habilitado), conseguir que tu aplicación abra un sitio web aleatorio hará que el trabajo de explotar tu aplicación sea mucho mas fácil.
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+Un patrón común de ataque es que el atacante convence a los usuarios de tu aplicación a interactuar con la aplicación de tal manera que navegue a una de las páginas del atacante. Esto usualmente se hace vía links, plugins u otro contenido generado por el usuario.
 
 ### ¿Còmo?
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+Si tu aplicación no tiene necesidad de navegación, puedes llamar a `event.preventDefault()` en un manejador [`will-navigate`](../api/web-contents.md#event-will-navigate). Si sabes a que páginas tu aplicación puede navegar, revisa la URL en el manejador de evento y solo deja que ocurra la navegación si coincide con las URL que estás esperando.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
+Recomendamos que uses el parser para URLs de Node. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
 
 ```js
 const URL = require('url').URL
