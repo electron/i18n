@@ -420,9 +420,9 @@ Es una buena ida controlar la creación de nuevas etiquetas [`<webview>`](../api
 
 ### ¿Por què?
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+Puesto que `<webview>` vive en el DOM, ellos pueden ser creados por un script corriendo en tu sitio web incluso si la integración con Node.js está descativada.
 
-Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad que controlan un proceso de renderizado. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad que controlan un proceso de renderizado. En la mayoría de los casos, los desarrolladores no necesitan desactivar ninguna de esas características - y por lo tanto no deberías permitir diferentes configuraciones para las etiquetas [`<webview>`](../api/webview-tag.md) recién creados.
 
 ### ¿Còmo?
 
@@ -490,7 +490,7 @@ If you have no need to create windows in addition to the ones you know you'll ne
 
 ### ¿Còmo?
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`](../api/web-contents.md) emitirá el evento [`new-window`](../api/web-contents.md#event-new-window) antes de crear nuevas ventanas. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
 
 ```js
 const { shell } = require('electron')
@@ -620,7 +620,7 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
 })
 ```
 
-## 17) Use a current version of Electron
+## 17) Utilizar una versión actual de Electron
 
 You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
 
