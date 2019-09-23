@@ -170,9 +170,7 @@ Finalmente el archivo `index.html` es la página web que quieres mostrar:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+  Nosotros estamos usando  node <script>document.write(process.versions.node)</script>, Chrome <script>document.write(process.versions.chrome)</script>, y Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
