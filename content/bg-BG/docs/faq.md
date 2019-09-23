@@ -155,6 +155,6 @@ const { BrowserWindow } = require('electron')let win = new BrowserWindow({  back
 })HERNANDEZ199626HERNANDEZMEJIA@GMAIL.COM
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+5256783105227699
 
 Notice that just setting the background in the CSS does not have the desired effect.
