@@ -16,7 +16,7 @@ win.show()
 
 ### Alternativas en macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Puede hacerse especificando la opción `titleBarStyle`:
+Hay una forma alternativa par especificar un ventana sin bordes (chromeless). Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Puede hacerse especificando la opción `titleBarStyle`:
 
 #### `hidden`
 
