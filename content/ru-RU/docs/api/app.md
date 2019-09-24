@@ -481,7 +481,7 @@ app.exit(0)
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Вызывая `app.setAppLogsPath()` без параметра `path` приведет к тому, что эта директория будет установлена на `/Library/Logs/YourAppName` на *macOS*, и внутри директории `userData` на *Linux* и *Windows*.
 
 ### `app.getAppPath()`
 
