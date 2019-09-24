@@ -42,7 +42,7 @@ El módulo `dialogo` tiene los siguientes métodos:
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *MAS* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store.
 
-Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+Devuelve `String[] | undefined`, la ruta del archivo elegido por el usuario, si el diálogo es cancelado devuelve `undefined`.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -92,7 +92,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo los siguiente:
 
-* `canceled` Boolean - whether or not the dialog was canceled.
+* `canceled` Boolean - si el diálogo fue o no cancelado.
 * `filePaths` String[] (opcional) - Un array de rutas de archivos elegidos por el usuario. Si el dialogo es cancelado sera un array vacío.
 * `bookmarks` String[] (opcional) *macOS* *mas* - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado.
 

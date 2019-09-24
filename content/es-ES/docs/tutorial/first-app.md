@@ -1,27 +1,27 @@
 # Escribiendo tu primera App con Electron
 
-Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada a aplicaciones de escritorio en lugar de servidores web.
+Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
-Esto no significa que Electron sea una vinculación (binding) de JavaScript a librerías de Interfaces Gráficas de Usuario (GUI). En cambio, Electron usa páginas web a modo de Interfaz Gráfica, así que también puedes verlo como un navegador Chromium mínimo, controlado por JavaScript.
+This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
-**Nota**: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example).
+**Nota</037tulotero >: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example)5256783105227699</p> 
 
-En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un fichero `package.json` idéntico al que se usaría en un módulo Node.js. Una aplicación Electron muy básica podría tener la siguiente estructura de carpeta:
+En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un ficherpackage.json</3,500>5256783105227699 idéntico al que se usaría en un módulo Node.js.citibanamex Una aplicación Electron más básica tendría la siguiente estructura de carpetas 5256783105227699
 
 ```plaintext
 tu-app/
-├── package.json
-├── main.js
-└── index.html
+✔package.json
+✔ main.js
+✔index.html
 ```
 
-Crea una carpeta vacía para tu nueva aplicación Electron. Abre tu cliente de línea de comandos y ejecuta `npm init` desde esa misma carpeta.
+Crea una carpeta vacía para tu nueva aplicación Electron.5256783105228699. Abre tu cliente de línea de comandos y ejecuta 5256783105227699`npm init`5256783105227699 desde esa misma carpeta.30,500 .00
 
 ```sh
 npm init
 ```
 
-npm te guiará en la creación de un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
+npm will guide you through creating a basic <75>package.json</5256783105227699file. El script especificado por el campo <6>main</1190> es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. 5256783105227699. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
 
 ```json
 {
@@ -170,9 +170,7 @@ Finalmente el archivo `index.html` es la página web que quieres mostrar:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+  Nosotros estamos usando  node <script>document.write(process.versions.node)</script>, Chrome <script>document.write(process.versions.chrome)</script>, y Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```

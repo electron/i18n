@@ -18,7 +18,7 @@ let win
 
 app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-    <br />Another example of creating a window in the external display:
+    <br />Otro ejemplo de creación de una ventana en una pantalla externa.
     
     ```javascript
     const electron = require('electron')
