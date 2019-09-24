@@ -532,7 +532,7 @@ shell.openExternal('https://example.com/index.html')
 
 El módulo `remoto` suministra una manera al proceso de renderizado a acceder a las APIs que normalmente solo están disponibles en el proceso principal. Usando esto, un renderer puede invocar métodos de un objeto de proceso principal sin enviar explícitamente mensajes interproceso. Si su aplicación de escritorio no ejecuta contenido no confiable, esta puede ser una manera valedera para que los procesos de renderizado accedan y trabajen con los módulos que solo están disponibles en el proceso principal, tales como aquellos módulos vinculados con la interface de usuario (sea cuadro de diálogos, menús, etc.).
 
-However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Por lo tanto, debería deshabilitarse en tales circunstancias.
+Sin embargo, su su aplicación puede ejecutar contenido inseguro e incluso si en [sandbox](../api/sandbox-option.md) tus renderer process en consecuencia, el módulo `remote` hace esto fácil que el código malicioso escape la caja de arena (sandbox) y tenga acceso a los recursos del sistema a través de los privilegios más alto del proceso principal. Por lo tanto, debería deshabilitarse en tales circunstancias.
 
 ### ¿Por què?
 
