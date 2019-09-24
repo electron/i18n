@@ -985,7 +985,7 @@ app.setLoginItemSettings({
   * `version` String (опционально) - номер версии сборки приложения. *macOS*
   * `credits` String (опционально) - информация об авторах. *macOS*
   * `website` String (опционально) - веб-сайт приложения. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `iconPath` String (опционально) - путь до иконки приложения. Будет показано как 64x64 пикселей с сохранением пропорций. *Linux*
 
 Устанавливает параметры панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. См. [документацию Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
@@ -1006,7 +1006,7 @@ app.setLoginItemSettings({
 ```js
 // Получение доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Теперь у Вас есть доступ к файлу вне песочницы 
 stopAccessingSecurityScopedResource()
 ```
 
