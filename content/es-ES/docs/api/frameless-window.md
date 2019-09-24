@@ -16,7 +16,7 @@ win.show()
 
 ### Alternativas en macOS
 
-Hay una forma alternativa par especificar un ventana sin bordes (chromeless). Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Puede hacerse especificando la opción `titleBarStyle`:
+Hay una forma alternativa par especificar un ventana sin bordes (chromeless). En lugar de establecer `frame` a `false` lo que deshabilita ambos la barra de título y los controles de la ventana, usted puede querer tener la barra de título oculta y su contenido se extienda al tamaño completo de la ventana, aún conserva los controles de la ventana ("semáforos") para las acciones estándar de la ventana. Puede hacerse especificando la opción `titleBarStyle`:
 
 #### `hidden`
 
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
+Usa botones personalizados de cierre y miniaturiza que se muestran cuando se activa en la parte superior izquierda de la ventana. El botón de pantalla completa no está disponible debido a las restricciones de ventanas sin marco ya que interactúan con las máscaras de ventana MacOS de Apple. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. Esta opción sólo es aplicable para ventanas sin marco.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Si sólo está configurando una barra de títulos personalizada como arrastrable, también necesita hacer todos los botones en la barra de título no arrastrable.
 
 ## Selección de texto
 
