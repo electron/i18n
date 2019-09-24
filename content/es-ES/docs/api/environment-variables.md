@@ -24,7 +24,7 @@ Las siguientes variables de entorno están diseñadas principalmente para usarse
 
 ### `NODE_OPTIONS`
 
-Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+Electron incluye soporte para un subconjunto de [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) de Node. La mayoría son soportadas con la excepción de aquellos que entran en conflicto con el uso de BoringSSL de Chromium.
 
 Ejemplo:
 
@@ -46,13 +46,13 @@ Las opciones no respaldadas son:
 
 ### `GOOGLE_API_KEY`
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Usted puede proveer una clave de API para hacer solicitudes al servicio web de geocodificación de Google. Para hacer esto, coloque el siguiente código en el archivo del proceso principal, antes de abrir cualquier ventana de navegador que hará solicitudes de geocodificación:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Por defecto, una clave API de Google recién generada podría no funcionar al hacer solicitudes geocoding. Para habilitar las solicitudes de geocodificación., visite [esta página](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+Para instrucciones sobre cómo adquirir una clave de Google API, visite [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Por defecto, una clave API de Google recién generada podría no funcionar al hacer solicitudes geocoding. Para habilitar las solicitudes de geocodificación., visite [esta página](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 
@@ -107,7 +107,7 @@ Esta variable de entorno no funcionará si se inicia el `crashReporter`.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Uso:
+Cuando corre desde el paquete `electron`, esta variable dice al comando `electron` para usar la instancia especificada del constructor de Electron en lugar de uno descargado por `npm install`. Uso:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
