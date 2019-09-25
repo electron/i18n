@@ -282,10 +282,10 @@ El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/
 
 Tú puedes hacer uso de `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` y `id` para controlar como el elemento sera colocado cuando un menu sea construido con `Menu.buildFromTemplate`.
 
-* `before` - Inserta este ítem antes que el ítem con la etiqueta especificada. Si el ítem referenciado no existe se insertara al final del menú. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. Si el ítem referenciado no existe se insertara al final del menú. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+* `before` - Inserta este ítem antes que el ítem con la etiqueta especificada. Si el ítem referenciado no existe se insertara al final del menú. Ademas implica que el ítem del menú en cuestión debe ser colocado en el mismo "grupo" como el ítem.
+* `after` - Inserta este ítem después del ítem con la etiqueta especificada. Si el ítem referenciado no existe se insertara al final del menú. Ademas implica que el ítem del menú en cuestión debe ser colocado en el mismo "grupo" como el ítem.
+* `beforeGroupContaining` - Proporciona una manera que un único menú contextual declare la ubicación de su grupo contenedor antes del grupo contenedor del ítem con la etiqueta especificada.
+* `beforeGroupContaining` - Proporciona una manera que un único menú contextual declare la ubicación de su grupo contenedor antes del grupo contenedor del ítem con la etiqueta especificada.
 
 Por defecto, los elementos se insertarán en el orden en que existen en la plantilla, a menos que se utilice una de las palabras clave de posicionamiento especificadas.
 
