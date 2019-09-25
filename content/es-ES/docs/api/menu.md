@@ -18,9 +18,9 @@ La clase `menú` tiene los siguientes métodos estáticos:
 
 Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+Pasar `null` eliminará el menú por defecto. En Windows y Linux, esto tiene el efecto adicional de quitar la barra de menú de la ventana.
 
 **Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
