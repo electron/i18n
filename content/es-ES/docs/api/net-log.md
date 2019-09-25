@@ -25,14 +25,14 @@ Vea [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) para re
 
 * `path` String - Ruta de archivo para guardar los registros de red.
 
-Starts recording network events to `path`.
+Comienza la agravación de eventos de red en `path`.
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (opcional) 
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - Ruta de archivo en el cual se guardo los registros de red.
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+Detener la grabación de los eventos de red. Si no se llama, la grabación de los registros de red terminará automáticamente cuando la aplicación se cierre.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 
