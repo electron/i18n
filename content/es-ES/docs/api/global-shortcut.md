@@ -1,4 +1,4 @@
-# globalShortcut
+# acceso rápido global
 
 > Detecta los eventos del teclado cuando la aplicación no tiene el enfoque en el teclado.
 
@@ -43,29 +43,29 @@ El módulo `globalShortcut` tiene los siguientes métodos:
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Función
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+Devuelve `Boolean` - Si el acceso fue registrado con éxito.
 
 Registra un atajo global de`accelerator`. El `callback` es llamado cuando el atajo registrado es presionado por el usuario.
 
 Cuando el acelerador ha sido tomado por otras aplicaciones, esta llamada fallará silenciosamente. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Los siguientes aceleradores no serán registrados con correctamente en macOS 10.14 a menos que la aplicación haya sido autorizada como [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
 * "Media Play/Pause"
 * "Media Next Track"
 * "Media Previous Track"
-* "Detener medio"
+* "Media Stop"
 
 ### `globalShortcut.registerAll(accelerators, callback)`
 
-* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `accelerators` String[] - un array de [Accelerator](accelerator.md)s.
 * `callback` Función
 
-Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+Registra un acceso rápido global de todos los ítems `accelerator` presentes en `accelerators`. La función `callback` es llamada cuando alguno de los accesos rápidos registrados es presionado por el usuario.
 
-When a given accelerator is already taken by other applications, this call will silently fail. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
+Cuando el acelerador ya ha sido tomado por otras aplicaciones, esta llamada fallará silenciosamente. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Los siguientes aceleradores no serán registrados con correctamente en macOS 10.14 a menos que la aplicación haya sido autorizada como [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
 * "Media Play/Pause"
 * "Media Next Track"
