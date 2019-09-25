@@ -22,7 +22,7 @@ Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel s
 
 Pasar `null` eliminará el menú por defecto. En Windows y Linux, esto tiene el efecto adicional de quitar la barra de menú de la ventana.
 
-**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**Note:** El menú por defecto será creado automáticamente si la aplicación no establece uno. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -46,7 +46,7 @@ Devuelve `Menu`
 
 Generalmente, el `template` es un arreglo de `options` para construir un [MenuItem](menu-item.md). El uso puede ser referenciado más arriba.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Usted puede además adjuntar otros campos al elemento del `template` y se convierten en propiedades de los items del menú construido.
 
 ### Métodos de Instancia
 
