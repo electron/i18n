@@ -532,15 +532,15 @@ shell.openExternal('https://example.com/index.html')
 
 El módulo `remoto` suministra una manera al proceso de renderizado a acceder a las APIs que normalmente solo están disponibles en el proceso principal. Usando esto, un renderer puede invocar métodos de un objeto de proceso principal sin enviar explícitamente mensajes interproceso. Si su aplicación de escritorio no ejecuta contenido no confiable, esta puede ser una manera valedera para que los procesos de renderizado accedan y trabajen con los módulos que solo están disponibles en el proceso principal, tales como aquellos módulos vinculados con la interface de usuario (sea cuadro de diálogos, menús, etc.).
 
-However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Por lo tanto, debería deshabilitarse en tales circunstancias.
+Sin embargo, su su aplicación puede ejecutar contenido inseguro e incluso si en [sandbox](../api/sandbox-option.md) tus renderer process en consecuencia, el módulo `remote` hace esto fácil que el código malicioso escape la caja de arena (sandbox) y tenga acceso a los recursos del sistema a través de los privilegios más alto del proceso principal. Por lo tanto, debería deshabilitarse en tales circunstancias.
 
 ### ¿Por què?
 
-`remote` usa un canal IPC interno para comunicarse con el proceso principal. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`remote` usa un canal IPC interno para comunicarse con el proceso principal. Los ataques de "contaminación de prototipos" pueden permitir el acceso al canal IPC interno de códigos maliciosos, que luego pueden ser usados para escapar del sandbox imitando mensajes IPC de `remote` y obteniendo acceso a los módulos del proceso principal corriendo con privilegios más altos.
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+Adicionalmente, es posible que los scripts de precarga filtren accidentalmente módulos a un renderizador sandboxed. Fuga de `remoto` arma código malicioso con una multitud de los principales módulos de proceso con los que realizar un ataque.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+Deshabilitar el modulo `remote` elimina estos vectores de ataque. Activando el context isolation además evita que los ataques de "prototype pollution" tengan exito.
 
 ### ¿Còmo?
 
@@ -572,9 +572,9 @@ Si no puede deshabilitar el módulo `remote`, debería filtrar los globales, Nod
 
 ### ¿Por què?
 
-Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+Debido a los privilegios de acceso del sistema del proceso principal, la funcionalidad proporcionada por los módulos del proceso principal puede ser peligrosa en manos de código malicioso que se ejecuta en un proceso de renderizado comprometido. Al limitar el conjunto de módulos accesibles al mínimo que necesita tu aplicación y filtrando a los demás, reduces el conjunto de herramientas que el código malicioso puede usar para atacar el sistema.
 
-Tenga en cuenta que la opción más segura es [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+Tenga en cuenta que la opción más segura es [fully disable the remote module](#15-disable-the-remote-module). Si elige filtrar lo accesos en lugar de deshabilitar completamente el modulo, debe ser muy cuidadoso para asegurar que no se puede escalar el privilegio a través de los módulos que permite que pasen el filtro.
 
 ### ¿Còmo?
 
@@ -622,10 +622,10 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
 
 ## 17) Utilizar una versión actual de Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+Debes esforzarte por usar siempre la última versión disponible de Electron. Siempre que se publique una nueva versión importante, deberías intentar actualizar tu aplicación lo antes posible.
 
 ### ¿Por què?
 
-An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+Una aplicación construida con una versión anterior de Electron, Chromium y Node.js es un objetivo más fácil que una aplicación que está usando versiones más recientes de esos componentes. Generalmente hablando, los problemas de seguridad y exploits para viejas verciones de Chromium y Node.js están más ampliamente disponibles.
 
-Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Tu aplicación será más segura si está ejecutando una versión reciente de Electron (y por tanto, Chromium y Node.js) para los cuales problemas de seguridad potenciales no son tan conocidos.
+Ambos Chomium y Node.js impresionantes son impresionantes hazañas de ingeniería construidas por miles de talentosos desarrolladores. Dada su popularidad, su seguridad es cuidadosamente probada y analizada por investigadores de seguridad igualmente calificados. Muchos de esos investigadores [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), lo que generalmente quiere decir que los investigadores darán a Chromium y Node.js algo de tiempo para solucionar los problemas antes de publicarlos. Tu aplicación será más segura si está ejecutando una versión reciente de Electron (y por tanto, Chromium y Node.js) para los cuales problemas de seguridad potenciales no son tan conocidos.

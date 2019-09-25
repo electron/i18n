@@ -481,7 +481,7 @@ app.exit(0)
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Вызывая `app.setAppLogsPath()` без параметра `path` приведет к тому, что эта директория будет установлена на `/Library/Logs/YourAppName` на *macOS*, и внутри директории `userData` на *Linux* и *Windows*.
 
 ### `app.getAppPath()`
 
@@ -985,7 +985,7 @@ app.setLoginItemSettings({
   * `version` String (опционально) - номер версии сборки приложения. *macOS*
   * `credits` String (опционально) - информация об авторах. *macOS*
   * `website` String (опционально) - веб-сайт приложения. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `iconPath` String (опционально) - путь до иконки приложения. Будет показано как 64x64 пикселей с сохранением пропорций. *Linux*
 
 Устанавливает параметры панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. См. [документацию Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
@@ -1006,7 +1006,7 @@ app.setLoginItemSettings({
 ```js
 // Получение доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Теперь у Вас есть доступ к файлу вне песочницы 
 stopAccessingSecurityScopedResource()
 ```
 
