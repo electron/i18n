@@ -82,7 +82,7 @@ También se admiten los siguientes sufijos para PPP:
 
 ## Imagen de plantilla
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Las imágenes de plantillas consisten en un canal negro y alfa. La imágenes de plantillas no están destinadas a ser usadas como imágenes independientes y usualmente se mezclan con otro contenido para crear la apariencia deseada final.
 
 El caso más común es usar imágenes de plantilla para un icono de barra de menú para que pueda adaptarse a barras de menú tanto claras como oscuras.
 
