@@ -71,7 +71,7 @@ El processo principal lo controlo por escuchar `channel` con el módulo [`ipcMai
 * `channel` Cadena
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+Envía un mensaje a la ventana con `webContentsId` a través de `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
