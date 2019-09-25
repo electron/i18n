@@ -63,7 +63,7 @@ La propiedad `role` puede tener los siguientes valores:
 * `resetZoom` - Restablece el nivel de zoom de la página enfocada al tamaño original.
 * `zoomIn` - Zoom en la página enfocada en un 10%.
 * `zoomOut` - Aleja la página enfocada en un 10%.
-* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `fileMenu` - Todo el menú "Archivo" por defecto (Cerrar / Salir)
 * `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.).
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
