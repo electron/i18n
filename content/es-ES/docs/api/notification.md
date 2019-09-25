@@ -94,7 +94,7 @@ Los objetos creados con `new Notification` tienen los siguientes métodos de ins
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta, esto quiere decir que a diferencia de la implementación de notificación de HTML5, iniciando una `new Notification` no se mostrará inmediatamente al usuario, usted necesita llamar este método antes que el sistema operativo lo muestre.
 
 Si la notificación ha sido mostrada con anterioridad, este método descartará la notificación previa y creará una nueva con propieades idénticas.
 
