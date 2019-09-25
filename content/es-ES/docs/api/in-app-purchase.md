@@ -15,7 +15,7 @@ Emitido cuando una o más transacciones han sido actualizadas.
 Devuelve:
 
 * `event`
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` Transaction[] - Un array de objetos [`Transaction`](structures/transaction.md).
 
 ## Métodos
 
@@ -23,7 +23,7 @@ El módulo `inAppPurchase` tiene los siguientes métodos:
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - El identificador del producto a comprar. (The identifier of `com.example.app.product1` is `product1`).
 * `quantity` Integer (opcional) - El número de objetos que el usuario quiere comprar.
 * `callback` Función (opcional) - El callback llama cuando el pago se añade a la cola de pagos (PaymentQueue). 
   * `isProductValid` Boleano - Determina si el producto es válido e se añade a la cola de pagos.
