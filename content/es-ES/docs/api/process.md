@@ -58,7 +58,7 @@ Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a l
 
 ### `process.isMainFrame`
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+Un `Boolean`, `true` cuando el contexto actual del render es el frame "main" renderer. Si usted quiere el ID del frame actual debería usar `webFrame.routingId`.
 
 ### `process.mas`
 
@@ -74,7 +74,7 @@ Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no
 
 ### `process.enablePromiseAPIs`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Configurando esto en `true` se habilitaran las advertencias de deprecación.
+Un `Boolean` que controla si las advertencias de deprecación son mostrados en `stderr` o no cuando las APIs anteriores basadas en callback convertidas a Promises son invocadas usando callbacks. Configurando esto en `true` se habilitaran las advertencias de deprecación.
 
 ### `process.resourcesPath`
 
@@ -98,7 +98,7 @@ Un `Booleano` que controla si las advertencias de procesos son enviadas a `stder
 
 ### `proceso.tipo`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+Un `String` representando el tipo actual del proceso, puede ser `"browser"` (ejemplo main processl), `"renderer"`, o `"worker"` (ejemplo web worker).
 
 ### `proceso.vesiones.chrome`
 
@@ -122,7 +122,7 @@ Hace que el hilo principal del proceso actual se detenga.
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
 Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
