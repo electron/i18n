@@ -1,6 +1,6 @@
-# protocol
+# Protocolo
 
-> Registra un protocolo personalizado e intercepta solicitudes de protocolos existente.
+> Registrar un protocolo personalizado e interceptar las peticiones de protocolo existentes.
 
 Process: [Main](../glossary.md#main-process)
 
