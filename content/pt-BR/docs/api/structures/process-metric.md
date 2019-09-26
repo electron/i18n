@@ -4,11 +4,11 @@
 * `tipo` String - Tipo de processo. Um dos seguintes valores: 
   * `Browser`
   * `Tab`
-  * `Utility`
+  * `Utilidade`
   * `Zygote`
-  * `Sandbox helper`
+  * `Ajuda ao Sandbox`
   * `GPU`
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
-  * `Unknown`
-* `CPU` [CPUUsage](cpu-usage.md) - uso da CPU do processo.
+  * `Desconhecido`
+* `CPU` [CPUUsage](cpu-usage.md) - uso da CPU.
