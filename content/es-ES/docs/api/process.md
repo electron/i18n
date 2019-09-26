@@ -124,7 +124,7 @@ Hace que el hilo principal del proceso actual se detenga.
 
 Devuelve `Number | null` - El numero de mili-segundos desde la época o `null` si la información no esta disponible
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Indica el tiempo de creación de la aplicación. El tiempo es representado como números de mili-segundos desde la época. Retorna nulo si no es capaz de obtener el tiempo de creación del proceso.
 
 ### `process.getCPUUsage()`
 
@@ -148,15 +148,15 @@ Devuelve `Objeto`:
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Devuelve un objeto con estadísticas de pila V8. Tenga en cuenta que todas las estadísticas se reportan en Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
 Devuelve `Promise<ProcessMemoryInfo>` - Resuelve con un [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Devuelve un objeto conteniendo las estadísticas de uso de la memoria del proceso actual. Tenga en cuenta que todas las estadísticas son reportadas en Kilobytes. Esta Api debería ser llamada después que la aplicación este lista.
 
-Chromium does not provide `residentSet` value for macOS. Este es porque macOS realiza compresión en memoria que no han sido utilizadas recientemente. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium no provee el valor `residentSet` para macOS. Esto es porque macOS realiza compresión en memoria que no han sido utilizadas recientemente. Como resultado, el valor del tamaño del conjunto de residentes no es lo que uno esperaría. Memoria `private` es más representativo del uso real de la memoria de precompresión del proceso en macOS.
 
 ### `process.getSystemMemoryInfo()`
 
