@@ -27,15 +27,15 @@ keyboard_modal:
 docs:
   title: Documentación de Electron
   description: Ver todos los <a href="/docs/all">documentos en una sola página</a> o consultar las <a href="/docs/faq">preguntas frecuentes</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Guías: Empezando con Electron"
   api_reference: Referencia de la API
   api_structures: Estructuras del API
   advanced: Avanzado
-  detailed: In Detail
+  detailed: En detalle
   custom_dom: Elementos de DOM personalizados
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Módulos del proceso principal
+  renderer_proc_modules: Módulos de Process Renderer
+  both_proc_modules: Módulos para ambos tipos de procesos
   footer:
     propose_change: Mejora este documento
     version_history: Historial de versiones
@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Empieza</b></a> a crear una aplicación leyendo la <a href='/docs/tutorial/first-app'>guía de inicio rápido</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Mantente al día</b></a> siguiendo a <a href='https://twitter.com/electronjs'>@electronjs</a> en Twitter y suscribiendote a nuestro <a href='/blog'>blog</a>."
     localized_docs: "<a href='/languages'><b>Lee la documentación en tu idioma</b></a> visitando la <a href='/languages'>página de idiomas</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Obten ayuda y retroalimentación </b></a>uniéndose a <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, o visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Reporte problemas de seguridad</b></a> enviando un correo electrónico<a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Reporta errores</b></a> abriendo un issue en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicita características</b></a> abriendo un issue en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -136,9 +136,9 @@ footer:
   see_the_faq: Ver las preguntas frecuentes
 companies:
   title: Hecho con Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  description: Inicialmente desarrollado para el editor de Atom de GitHub <a href='https://atom.io' target='_blank'></a>, Electron ha sido adoptado por compañías de todo el mundo.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'Con Electron, crear una aplicación de escritorio para tu empresa o idea es fácil. Echa un vistazo a <a href=''/apps''>algunas de las aplicaciones creadas por la comunidad</a> o <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">añadir tu propia</a>.'
   view_more: Ver mas aplicaciones
   submit_your_own: sube tu propia aplicación
   something_missing: '¿Falta algo?'

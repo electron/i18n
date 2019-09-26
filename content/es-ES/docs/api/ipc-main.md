@@ -12,7 +12,7 @@ También es posible enviar mensajes desde el proceso principal al proceso de ren
 
 * Cuando se envía un mensaje, el nombre del evento es el`channel`.
 * Para responder a un mensaje sincrónico, es necesario establecer `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* Para enviar un mensaje asíncrono de vuelta al emisor, puede usar `event.reply(...)`. Este método de ayuda automáticamente va a manejar los mensajes entrantes desde frames que no son el frame principal (ejemplo iframes) mientras que `event.sender.send(...)` siempre enviará al frame principal.
 
 Ejemplo de envío y manejo de mensajes entre el proceso de renderizado y el principal:
 

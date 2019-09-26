@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events for a session.
+> Registrar eventos de red para una sesión.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -15,7 +15,7 @@ app.on('ready', async function () {
 })
 ```
 
-See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+Vea [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) para registrar eventos a lo largo del ciclo de vida de la aplicación.
 
 **Nota:** Todos los métodos salvo los especificados pueden ser usados solo después de que el evento `listo` del módulo de la `aplicación` sea emitido.
 
@@ -23,16 +23,16 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 
 ### `netLog.startLogging(path)`
 
-* `path` String - File path to record network logs.
+* `path` String - Ruta de archivo para guardar los registros de red.
 
-Starts recording network events to `path`.
+Comienza la agravación de eventos de red en `path`.
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (opcional) 
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - Ruta de archivo en el cual se guardo los registros de red.
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+Detener la grabación de los eventos de red. Si no se llama, la grabación de los registros de red terminará automáticamente cuando la aplicación se cierre.
 
 **[Próximamente desaprobado](modernization/promisification.md)**
 

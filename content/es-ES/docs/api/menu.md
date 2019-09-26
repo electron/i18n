@@ -18,11 +18,11 @@ La clase `menú` tiene los siguientes métodos estáticos:
 
 Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+Además en Windows y Linux, puedes usar un `&` en el nombre del ítem de nivel superior para indicar que letra debe obtener un acelerador generado. Por ejemplo, usando `&File` para el menú resultaría en un acelerador generado `Alt-F` que abre el menú asociado. El carácter indicado en la etiqueta del botón obtiene un subrayado. El carácter `&` no es mostrado en la etiqueta del botón.
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+Pasar `null` eliminará el menú por defecto. En Windows y Linux, esto tiene el efecto adicional de quitar la barra de menú de la ventana.
 
-**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**Note:** El menú por defecto será creado automáticamente si la aplicación no establece uno. Esto contiene los ítems estándares como `File`, `Edit`, `View`, `Window` y `Help`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -46,7 +46,7 @@ Devuelve `Menu`
 
 Generalmente, el `template` es un arreglo de `options` para construir un [MenuItem](menu-item.md). El uso puede ser referenciado más arriba.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Usted puede además adjuntar otros campos al elemento del `template` y se convierten en propiedades de los items del menú construido.
 
 ### Métodos de Instancia
 
@@ -282,10 +282,10 @@ El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/
 
 Tú puedes hacer uso de `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` y `id` para controlar como el elemento sera colocado cuando un menu sea construido con `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+* `before` - Inserta este ítem antes que el ítem con la etiqueta especificada. Si el ítem referenciado no existe se insertara al final del menú. Ademas implica que el ítem del menú en cuestión debe ser colocado en el mismo "grupo" como el ítem.
+* `after` - Inserta este ítem después del ítem con la etiqueta especificada. Si el ítem referenciado no existe se insertara al final del menú. Ademas implica que el ítem del menú en cuestión debe ser colocado en el mismo "grupo" como el ítem.
+* `beforeGroupContaining` - Proporciona una manera que un único menú contextual declare la ubicación de su grupo contenedor antes del grupo contenedor del ítem con la etiqueta especificada.
+* `beforeGroupContaining` - Proporciona una manera que un único menú contextual declare la ubicación de su grupo contenedor antes del grupo contenedor del ítem con la etiqueta especificada.
 
 Por defecto, los elementos se insertarán en el orden en que existen en la plantilla, a menos que se utilice una de las palabras clave de posicionamiento especificadas.
 

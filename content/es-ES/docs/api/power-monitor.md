@@ -1,4 +1,4 @@
-# powerMonitor
+# Monitor de energía
 
 > Monitorea los cambios de estado de energía.
 
@@ -43,32 +43,32 @@ Se emite cuando el sistema se cambia a la energía de batería.
 
 Se emite cuando el sistema está a punto de reiniciarse o apagarse. Si el controlador de eventos invocó `e.preventDefault()`, Electron intentará retrasar el apagado del sistema para que la aplicación salga limpiamente. Si se llama a `e.preventDefault()`, la aplicación debe salir tan pronto como sea posible llamando a algo como `app.quit()`.
 
-### Event: 'lock-screen' *macOS* *Windows*
+### Evento: 'lock-screen' *macOS* *Windows*
 
-Emitted when the system is about to lock the screen.
+Emitido cuando el sistema está a punto de bloquear la pantalla.
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### Evento: 'unlock-screen' *macOS* *Windows*
 
-Emitted as soon as the systems screen is unlocked.
+Emitido tan pronto como el sistema desbloquea la pantalla.
 
 ## Métodos
 
-The `powerMonitor` module has the following methods:
+El modulo `powerMonitor` tiene los siguientes métodos:
 
 ### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(Deprecated)*
 
 * `idleThreshold` Integer
 * `callback` Function 
-  * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
+  * `idleState` String - Puede ser `active`, `idle`, `locked` o `unknown`
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
+Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo. `callback` será llamada de forma sincrónica en algunos sistemas y con un argumento `idleState` que describe el estado del sistema. `locked` está disponible en sistemas soportado únicamente.
 
 ### `powerMonitor.querySystemIdleTime(callback)` *(Deprecated)*
 
 * `callback` Function 
-  * `idleTime` Integer - Idle time in seconds
+  * `idleTime` Integer - Tiempo inactivo en segundos
 
-Calculate system idle time in seconds.
+Calcular tiempo inactivo del sistema en segundos.
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 

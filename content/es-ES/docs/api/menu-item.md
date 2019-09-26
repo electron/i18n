@@ -63,14 +63,14 @@ La propiedad `role` puede tener los siguientes valores:
 * `resetZoom` - Restablece el nivel de zoom de la página enfocada al tamaño original.
 * `zoomIn` - Zoom en la página enfocada en un 10%.
 * `zoomOut` - Aleja la página enfocada en un 10%.
-* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `fileMenu` - Todo el menú "Archivo" por defecto (Cerrar / Salir)
 * `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.).
-* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
+* `viewMenu` - Todo el menú "Vista" por defecto (Recargar, Activar Herramientas del Desarrollador, etc.)
+* `windowMenu` - Todo el menú "Ventana" por defecto (Minimizar, Zoom, etc.).
 
 Los siguientes roles adicionales están disponibles en *macOS*:
 
-* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `appMenu` - Todo el menú "App" por defecto (Acerca de, Servicios, etc.)
 * `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
 * `hide` - Enlace a la acción `hide`.
 * `hideothers` - Enlace a la acción `hideOtherApplications`.
@@ -86,7 +86,7 @@ Los siguientes roles adicionales están disponibles en *macOS*:
 * `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`.
 * `window` - El submenú es un menú "Ventana".
 * `help` - El submenú es un menú "Ayuda".
-* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - El sub menú es una menú ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Esto sólo está destinado a ser usado en el menú de aplicación y es *not* el mismo que el submenú "Servicios" usado en los menús contextuales en las aplicaciones macOS, el cual no está implementado en Electron.
 * `recentDocuments` - El submenú es un menú "Abrir reciente".
 * `clearRecentDocuments` - Enlace a la acción `clearRecentDocuments`.
 
