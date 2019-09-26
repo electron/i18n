@@ -1,4 +1,4 @@
-# screen
+# Pantalla
 
 > Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
@@ -26,9 +26,9 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
     
     let win
     
-    app.on('ready', () =&gt; {
+    app.on('ready', () => {
       let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     
