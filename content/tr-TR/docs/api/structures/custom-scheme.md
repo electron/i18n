@@ -1,7 +1,7 @@
 # CustomScheme Object
 
-* `scheme` String - Custom schemes to be registered with options.
-* `ayrıcalıklar` Obje (opsiyonel) 
+* `scheme` String - Ayarlarla birlikte kaydedilen özel şemalar.
+* `ayrıcalıklar` Object (isteğe bağlı) 
   * `standard` Boolean (opsiyonel) - Varsayılan false.
   * `secure` Boolean (opsiyonel) - Varsayılan false.
   * `bypassCSP` Boolean (opsiyonel) - Varsayılan false.

@@ -1,8 +1,8 @@
-# protocol
+# Protocolo
 
-> Registra un protocolo personalizado e intercepta solicitudes de protocolos existente.
+> Registrar un protocolo personalizado e interceptar las peticiones de protocolo existentes.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que el protocolo `file://`:
 

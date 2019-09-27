@@ -1,4 +1,4 @@
-# `sandbox` Option
+# Opción `sandbox`
 
 > Crea un ventana de navegador con un renderizador en modo sandbox. Con esta opción habilitada, el renderer debe comunicarse a través de IPC con el proceso principal para acceder a las APIs de node.
 
@@ -6,7 +6,7 @@ Una de las características clave de la seguridad de Chromium es que toda la ren
 
 En otras palabras, cuando la caja de arena está activada, los renderizadores solamente pueden hacer cambios al sistema delegando tareas al proceso principal via IPC. [aquí](https://www.chromium.org/developers/design-documents/sandbox) hay más información sobre las cajas de arena.
 
-Since a major feature in Electron is the ability to run Node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most Node.js APIs require system access. `require()` por ejemplo, no es posible si el permiso del sistema, el cual no está disponible en un ambiente de caja de arena.
+Dado que una de la mayor característica en Electron es la habilidad de ejecutar Node.js en el renderer process (esto que facilita el desarrollo de aplicaciones de escritorio usando las tecnologías web), el sanbox está deshabilitado por Electron. Esto es porque la mayoría de las APIs Node.js requieren acceso al sistema. `require()` por ejemplo, no es posible sin el permiso de archivo del sistema, el cual no está disponible en un ambiente sandbox.
 
 Usually this is not a problem for desktop applications since the code is always trusted, but it makes Electron less secure than Chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force Electron to spawn a classic Chromium renderer that is compatible with the sandbox.
 

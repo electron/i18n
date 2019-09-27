@@ -2,8 +2,8 @@
 
 * `name` Dizi - Çerez ismi.
 * `value` Dizi - Çerez değeri.
-* `domain` Karakter (opsiyonel) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
+* `domain` Karakter (opsiyonel) - Çerezin alan adı; bu, önceki bir nokta ile normalleştirilir, böylece alt alanlar için de geçerlidir.
+* `hostOnly` Boolean (optiyonel) - Çerezin yalnızca sunucuya ait bir çerez olup olmadığını belirler; eğer hiç bir domain girilmediyse `true` olur.
 * `path` Dize (opsiyonel) - Çerezin yolu.
 * `secure` Boole (opsiyonel) - Çerezin güvenli olarak işaretlenip işaretlenmediği.
 * `httpOnly` Boole (opsiyonel) - Çerezin sadece HTTP olarak işaretlenip işaretlenmediği.
