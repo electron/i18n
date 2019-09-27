@@ -91,7 +91,7 @@ Cosas importantes que notar en el script precargado:
 
 - A pesar de que el renderizador en caja de arena no tiene Node.js ejecutándose, todavía tiene acceso a un entorno limitado parecido a node: `Buffer`, `process`, `setImmediate` y `require` están disponible.
 - El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`.
-- El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
+- El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. De echo, browserify ya es utilizado por Electron para proveer a ambiente parecido a node para el scrip de precarga.
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
