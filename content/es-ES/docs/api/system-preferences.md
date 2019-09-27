@@ -31,14 +31,14 @@ Devuelve:
 Devuelve:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondos oscuros) se esta usando, de otra manera `false`.
 
-### Event: 'high-contrast-color-scheme-changed' *Windows*
+### Evento: 'high-contrast-color-scheme-changed' *Windows*
 
 Devuelve:
 
 * `event` Evento
-* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
+* `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
 ## Métodos
 
