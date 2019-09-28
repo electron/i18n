@@ -6,9 +6,9 @@ Todos los [módulos incorporados de Node.js](https://nodejs.org/api/) está disp
 
 Electrón además provee algunos módulos incorporados extra para desarrollar aplicaciones de escritorio nativas. Algunos módulos solo están disponibles en el proceso principal, algunos solo están disponibles en el proceso de renderizado (página web) y algunos pueden ser usados en ambos procesos.
 
-La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. You need to be familiar with the concept of [main process vs. proceso de renderizado](../tutorial/application-architecture.md#main-and-renderer-processes) códigos para ser capaz de usar los módulos.
+La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Usted necesita estar familiarizado con el concepto de [main process vs. proceso de renderizado](../tutorial/application-architecture.md#main-and-renderer-processes) códigos para ser capaz de usar los módulos.
 
-The main process script is like a normal Node.js script:
+El scrip del proceso principal es como un script normal de Node.js:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
