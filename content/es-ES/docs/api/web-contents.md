@@ -1367,7 +1367,7 @@ Deshabilita la emulación del dispositivo habilitado por `webContents.enableDevi
 #### `contents.sendInputEvent(event)`
 
 * `event` Object 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
+  * `type` String (**required**) - El tipo del evento, puede ser `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` o `char`.
   * `modifiers` String[] - Un arreglo con los modificadores del evento, puede incluir `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
 Envía un input `event` a la página. **Nota:** El [`BrowserWindow`](browser-window.md) que contiene los contenidos necesita estar enfocado para que `sendInputEvent()` trabaje.
@@ -1380,7 +1380,7 @@ Para eventos del ratón, el objeto `evento` también tiene las siguientes propie
 
 * `x` Integer (**requerido**)
 * `y` Integer (**requerido**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`.
+* `button` String - El botón pulsado, puede ser `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
@@ -1494,7 +1494,7 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
   * `default` - Revela los IPs locales y publicos del usuario. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
   * `default_public_interface_only` - Revela el IP público del usuario pero no revela el IP local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+  * `disable_non_proxied_udp` - No expone IPs publica o locales. Cuando esta política es usada, WEBRTC solo debería usar TCP para contactas a los pares o servidores a menos que el proxy soporta UDP.
 
 Configure la política de manejo de WebRTC IP, le permite controlar cuales IPs son expuestas vía WebRTC. Ver [BrowserLeaks](https://browserleaks.com/webrtc) para más detalles.
 
