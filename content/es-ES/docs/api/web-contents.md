@@ -674,7 +674,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-web-contents'
 
@@ -682,7 +682,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-guest-web-contents'
 
@@ -699,10 +699,10 @@ Emitido cuando `<webview>.getWebContents()` se llama en el proceso de renderizad
 
 * `url` String
 * `opciones` Objecto (opcional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - la promesa se resolverá cuando la página ha finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y rechaza si la página falla al cargar (mira[`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -951,7 +951,7 @@ Devuelve `Number` - el nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **NOTA**: El zoom visual está desactivado por defecto en Electron. Para volverlo a activar, llame:
 > 
 > ```js
 contents.setVisualZoomLevelLimits(1, 3)
@@ -1118,11 +1118,11 @@ El `callback` será llamado con `callback(error, data)` cuando finalice. La `dat
 #### `contents.printToPDF(options)`
 
 * `opciones` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Use 0 para margen predeterminado, 1 para no margen y dos para margenes mínimos.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la pagina PDF generada. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (opcional) - Si va a imprimir los fondos CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se va a imprimir solo la selección.
+  * `landscape` Boolean (opcional) - `true` para landscape, `false` para portrait.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
