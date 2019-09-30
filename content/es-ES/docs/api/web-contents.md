@@ -185,9 +185,9 @@ Devuelve:
 
 Emitido como una redirección ocurrido del lado del servidor durante la navegación. Por ejemplo un redirección 302.
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+Este evento sera emitido después de `did-start-navigation` y siempre antes del evento `did-redirect-navigation` para la misma navegación.
 
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+Llamar a `event.preventDefault()` evitará la navegación (no solo la redirección).
 
 #### Evento: 'did-redirect-navigation'
 
@@ -200,9 +200,9 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+Emitido después de una redirección ocurrida del lado del servidor durante la navegación. Por ejemplo una redirección 302.
 
-This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+Este evento no puede ser evitado, si usted quiere evitar las redirecciones debe revisar el evento `will-redirect` anterior.
 
 #### Evento: 'did-navigate'
 
@@ -210,10 +210,10 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
+* `httpResponseCode` Integer - -1 para navegaciones no HTTP
+* `httpStatusText` String - vacío para navegaciones no HTTP
 
-Emitted when a main frame navigation is done.
+Emitido cuando se realizo un navegación del frame principal.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -223,13 +223,13 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
+* `httpResponseCode` Integer - -1 para navegaciones no HTTP
+* `httpStatusText` String - vacío para navegaciones no HTTP
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+Emitido cuando se ha realizado un navegación de algun frame.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -243,7 +243,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+Emitido cuando se produjo una navegación en la página en cualquier frame.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
@@ -648,7 +648,7 @@ Devuelve:
 * `event` Event
 * `moduleName` String
 
-Emitido cuando `remote.require()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.require()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-global'
 
@@ -657,7 +657,7 @@ Devuelve:
 * `event` Event
 * `globalName` String
 
-Emitido cuando `remote.getGlobal()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que sea devuelto el global. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getGlobal()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-builtin'
 
@@ -666,7 +666,7 @@ Devuelve:
 * `event` Event
 * `moduleName` String
 
-Emitido cuando `remote.getBuiltin()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getBuiltin()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-window'
 
@@ -674,7 +674,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-web-contents'
 
@@ -682,7 +682,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-guest-web-contents'
 
