@@ -1,6 +1,6 @@
-# nativeImage
+# 기본이미지
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> PNG 또는 JPG파일을 사용하여 트레이, 도크, 응용프로그램 아이콘으로 생성할 수 있다.
 
 프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
@@ -25,7 +25,7 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## 지원되는 형식
 
 현재 `PNG` 와 `JPEG` 이미지 형식들이 지원되고 있습니다. 투명성있고 무손실한 압축을 위해 `PNG` 형식을 추천합니다.
 
@@ -80,7 +80,7 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## 템플릿 이미지
 
 Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
