@@ -121,7 +121,7 @@ Devuelve:
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - Las opciones que se usarán para crear el nuevo [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
 
 Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
@@ -170,9 +170,9 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Emitido cuando algún frame (incluido el principal) empieza la navegación. `isInplace` será `true` para las navegaciones en la página.
 
-#### Event: 'will-redirect'
+#### Evento: 'will-redirect'
 
 Devuelve:
 
@@ -183,7 +183,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+Emitido como una redirección ocurrido del lado del servidor durante la navegación. Por ejemplo un redirección 302.
 
 This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
 
