@@ -43,7 +43,7 @@ Devuelve `Número` - El nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **NOTA**: El zoom visual está desactivado por defecto en Electron. Para volverlo a activar, llame:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
