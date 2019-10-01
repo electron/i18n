@@ -1,6 +1,6 @@
 # webFrame
 
-> Personalice la reproducción de la página web actual.
+> Personalizar el renderizado de la página web actual.
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
