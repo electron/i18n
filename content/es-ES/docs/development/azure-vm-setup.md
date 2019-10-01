@@ -20,29 +20,29 @@ Ejemplo Caso de uso:
 2. Obtenga la clave de la cuenta de almacenamiento Azure
     
     - Inicie sesión en Azure usando credenciales almacenadas en LastPass (bajo Azure Enterprise) y luego encuentre la cuenta de almacenamiento correspondiente al nombre encontrado en AppVeyor. 
-        - Ejemplo, para `appveyorlibccbuilds` **Nombre de cuenta de almacenamiento de disco** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
-            - Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
+        - Ejemplo, para `appveyorlibccbuilds` **Nombre de cuenta de almacenamiento de disco** buscarías por el `appveyorlibccbuilds` en la lista de cuentas de almacenamientos @ Home < Storage Accounts 
+            - Haga clic en él y busque `Access Keys`, y luego puede utilizar cualquiera de las claves presentes en la lista.
 
-3. Get the full virtual machine image URI from Azure
+3. Obtenga la URI completa de imagen de maquina virtual de Azure
     
-    - Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images 
-        - In the following list, look for the VHD path name you got from Appveyor and then click on it. 
-            - Copy the whole URL from the top of the subsequent window.
+    - Navegar a Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images 
+        - EN la siguiente lista, mira el nombre de ruta VHD que obtuvo de Appveyor y luego pulsa en él. 
+            - Copiar toda la URL desde la parte superior de la ventana posterior.
 
-4. Copy the image using the [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
+4. Copiar la imagen usando el [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
     
-    - It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
-    - Use the storage account name, key, and URI obtained from Azure to run this script. 
-        - See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        - Use default destination container name `(images)`
-        - Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp. 
+    - Es esencial copiar la VM porque si mueve una VM contra una imagen esa imagen no puede ser usada al mismo tiempo or AppVeyor.
+    - Utilizar el nombre de la cuenta de almacenamiento, clave y URI obtenidos de Azure para ejecutar este script. 
+        - Mire el paso 3 para URI & cuando se le solicite, puls enter para usar la misma cuenta de almacenamiento como destino.
+        - Usar nombre de contenedor de destino predeterminado `(images)`
+        - Además, al nombrar la copia, utilice un nombre que indique lo que contendrá la nueva imagen (si ha cambiado) y la fecha. 
             - Ej. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
-    - Go into Azure and get the URI for the newly created image as described in a previous step
+    - Acceda a Azure y consigua la URI para la imagen recién creada como se describe en un paso anterior
 
-5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
+5. Haz una nueva VM usando el [Crear VM Master de VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
     
-    - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
-    - You will need the credential information available in the AppVeyor build cloud definition. 
+    - Desde PowerShell, ejecute el archivo `ps1` con `./create_master_vm_from_vhd.ps1`
+    - Usted necesitarás la información de credencial disponible en la definición de nube de AppVeyor. 
         - Esto incluye: 
             - ID de Cliente
             - Secreto del Cliente
@@ -51,21 +51,21 @@ Ejemplo Caso de uso:
             - Grupo de Recursos
             - Red virtual
     - También necesitará especificar 
-        - Master VM name - just a unique name to identify the temporary VM
-        - Master VM size - use `Standard_F32s_v2`
-        - Master VHD URI - use URI obtained @ end of previous step
-        - Location use `East US`
+        - Nombre de la VM principal - sólo un nombre único para identificar la VM temporal
+        - Tamaño de la VM principal - usar `Standard_F32s_v2`
+        - VHD URI Principal - usar la URI obtenida de @ end del paso anterior
+        - Ubicación usar `East US`
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Registrse en Azure y encuentre la VM que recién ha sido creada en Homee < Virtual Machines < `$YOUR_NEW_VM`
     
-    - You can download a RDP (Remote Desktop) file to access the VM.
+    - Puede descargar un archivo RDP (escritorio remoto) para acceder a la VM.
 
-7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
+7. Usando Microsoft Remote Desktop, haga clic en `Connect` para conectarse a la VM.
     
-    - Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
+    - Las credenciales para iniciar sesión en la VM se encuentran en LastPass bajo las credenciales `AppVeyor Enterprise master VM`.
 
-8. Modify the VM as required.
+8. Modificar la VM como sea necesario.
 
 9. Apagar la VM y luego borrarla en Azure.
 
-10. Add the new image to the Appveyor Cloud settings or modify an existing image to point to the new VHD.
+10. Agreagar la nueva imagen a l configuracion de la nube Appveyor o modifique una imagen para apuntar al nuevo VHD.
