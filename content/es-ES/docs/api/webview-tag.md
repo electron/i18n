@@ -61,7 +61,7 @@ Entonces el comportamiento de `webview` es muy similar a `iframe` cross-domain, 
 
 ## Notas de Estilo CSS
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Por favor tenga en cuenta que las etiquetas de estilos de `webview` usa internamente `display:flex;` para asegurar que el elemento `iframe` hijo rellena el alto y el ancho por completo de su `webview` contenedor cuando es usado con el layouts tradicionales y flexbox. Por favor no sobrescrita la propiedad CSS por defecto `display:flex;` a menos que se especifique `display:inline-flex;` para layout inline.
 
 ## Atributos de Etiqueta
 
