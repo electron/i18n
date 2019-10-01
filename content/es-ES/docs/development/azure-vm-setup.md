@@ -9,18 +9,18 @@ Ejemplo Caso de uso:
     * Necesitamos `VS15.9` y tenemos instalado `VS15.7`; esto nos requeriría actualizar in imagen Azure.
     
 
-1. Identify the image you wish to modify.
+1. Identifique la imagen que desea modificar.
     
-    - In [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), the image is identified by the property *image*. 
-        - The names used correspond to the *"images"* defined for a build cloud, eg the [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
-    - Find the image you wish to modify in the build cloud and make note of the **VHD Blob Path** for that image, which is the value for that corresponding key. 
-        - You will need this URI path to copy into a new image.
-    - You will also need the storage account name which is labeled in AppVeyor as the **Disk Storage Account Name**
+    - En [appveyor.yml](https://github.com/electron/electron/blob/master/appveyor.yml), la imagen es identificada por la propiedad *image*. 
+        - Los nombres usados corresponden a las *"images"* definidas para una nube de construcción, ejemplo el [libcc-20 cloud](https://windows-ci.electronjs.org/build-clouds/8).
+    - Encuentre la imagen que desea modificar en la nube de construcción y tenga en cuenta que la **VHD Blob Path** para la imagen, que es el valor para la correspondiente llave. 
+        - Usted necesitará esta ruta URI para copiar dentro de una nueva imagen.
+    - Usted además necesitará el nombre de la cuenta de almacenamiento el cual es etiquetado en AppVeyor como **Disk Storage Account Name**
 
-2. Get the Azure storage account key
+2. Obtenga la clave de la cuenta de almacenamiento Azure
     
-    - Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor. 
-        - Example, for `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
+    - Inicie sesión en Azure usando credenciales almacenadas en LastPass (bajo Azure Enterprise) y luego encuentre la cuenta de almacenamiento correspondiente al nombre encontrado en AppVeyor. 
+        - Ejemplo, para `appveyorlibccbuilds` **Nombre de cuenta de almacenamiento de disco** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
             - Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
 
 3. Get the full virtual machine image URI from Azure
