@@ -121,7 +121,7 @@ Devuelve:
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - Las opciones que se usarán para crear el nuevo [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `referrer` [Referrer](structures/referrer.md) - El remitente que será pasado a la nueva ventana. Puede resultar o no en la cabecera `Referer` siendo enviado, dependiendo de la política de referencia.
 
 Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
@@ -170,9 +170,9 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Emitido cuando algún frame (incluido el principal) empieza la navegación. `isInplace` será `true` para las navegaciones en la página.
 
-#### Event: 'will-redirect'
+#### Evento: 'will-redirect'
 
 Devuelve:
 
@@ -183,11 +183,11 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+Emitido como una redirección ocurrido del lado del servidor durante la navegación. Por ejemplo un redirección 302.
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+Este evento sera emitido después de `did-start-navigation` y siempre antes del evento `did-redirect-navigation` para la misma navegación.
 
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+Llamar a `event.preventDefault()` evitará la navegación (no solo la redirección).
 
 #### Evento: 'did-redirect-navigation'
 
@@ -200,9 +200,9 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+Emitido después de una redirección ocurrida del lado del servidor durante la navegación. Por ejemplo una redirección 302.
 
-This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+Este evento no puede ser evitado, si usted quiere evitar las redirecciones debe revisar el evento `will-redirect` anterior.
 
 #### Evento: 'did-navigate'
 
@@ -210,10 +210,10 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
+* `httpResponseCode` Integer - -1 para navegaciones no HTTP
+* `httpStatusText` String - vacío para navegaciones no HTTP
 
-Emitted when a main frame navigation is done.
+Emitido cuando se realizo un navegación del frame principal.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -223,13 +223,13 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
+* `httpResponseCode` Integer - -1 para navegaciones no HTTP
+* `httpStatusText` String - vacío para navegaciones no HTTP
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+Emitido cuando se ha realizado un navegación de algun frame.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -243,7 +243,7 @@ Devuelve:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+Emitido cuando se produjo una navegación en la página en cualquier frame.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
@@ -648,7 +648,7 @@ Devuelve:
 * `event` Event
 * `moduleName` String
 
-Emitido cuando `remote.require()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.require()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-global'
 
@@ -657,7 +657,7 @@ Devuelve:
 * `event` Event
 * `globalName` String
 
-Emitido cuando `remote.getGlobal()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que sea devuelto el global. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getGlobal()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que sea devuelto el global. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-builtin'
 
@@ -666,7 +666,7 @@ Devuelve:
 * `event` Event
 * `moduleName` String
 
-Emitido cuando `remote.getBuiltin()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getBuiltin()` se llama en el proceso de renderizado. Llamando `event.preventDefault()` evitará que se devuelva el modulo. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-window'
 
@@ -674,7 +674,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getCurrentWindow()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-current-web-contents'
 
@@ -682,7 +682,7 @@ Devuelve:
 
 * `event` Event
 
-Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` se llama en el proceso de renderizado. Llamar a `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 #### Evento: 'remote-get-guest-web-contents'
 
@@ -699,10 +699,10 @@ Emitido cuando `<webview>.getWebContents()` se llama en el proceso de renderizad
 
 * `url` String
 * `opciones` Objecto (opcional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - la promesa se resolverá cuando la página ha finalizado de cargar (mira [`did-finish-load`](web-contents.md#event-did-finish-load)), y rechaza si la página falla al cargar (mira[`did-fail-load`](web-contents.md#event-did-fail-load)).
@@ -951,7 +951,7 @@ Devuelve `Number` - el nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **NOTA**: El zoom visual está desactivado por defecto en Electron. Para volverlo a activar, llame:
 > 
 > ```js
 contents.setVisualZoomLevelLimits(1, 3)
@@ -1118,11 +1118,11 @@ El `callback` será llamado con `callback(error, data)` cuando finalice. La `dat
 #### `contents.printToPDF(options)`
 
 * `opciones` Object 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Use 0 para margen predeterminado, 1 para no margen y dos para margenes mínimos.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la pagina PDF generada. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (opcional) - Si va a imprimir los fondos CSS.
+  * `printSelectionOnly` Boolean (opcional) - Si se va a imprimir solo la selección.
+  * `landscape` Boolean (opcional) - `true` para landscape, `false` para portrait.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
@@ -1367,7 +1367,7 @@ Deshabilita la emulación del dispositivo habilitado por `webContents.enableDevi
 #### `contents.sendInputEvent(event)`
 
 * `event` Object 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
+  * `type` String (**required**) - El tipo del evento, puede ser `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` o `char`.
   * `modifiers` String[] - Un arreglo con los modificadores del evento, puede incluir `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
 Envía un input `event` a la página. **Nota:** El [`BrowserWindow`](browser-window.md) que contiene los contenidos necesita estar enfocado para que `sendInputEvent()` trabaje.
@@ -1380,7 +1380,7 @@ Para eventos del ratón, el objeto `evento` también tiene las siguientes propie
 
 * `x` Integer (**requerido**)
 * `y` Integer (**requerido**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`.
+* `button` String - El botón pulsado, puede ser `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
@@ -1494,7 +1494,7 @@ Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
   * `default` - Revela los IPs locales y publicos del usuario. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
   * `default_public_interface_only` - Revela el IP público del usuario pero no revela el IP local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
   * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+  * `disable_non_proxied_udp` - No expone IPs publica o locales. Cuando esta política es usada, WEBRTC solo debería usar TCP para contactas a los pares o servidores a menos que el proxy soporta UDP.
 
 Configure la política de manejo de WebRTC IP, le permite controlar cuales IPs son expuestas vía WebRTC. Ver [BrowserLeaks](https://browserleaks.com/webrtc) para más detalles.
 

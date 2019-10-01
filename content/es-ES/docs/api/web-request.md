@@ -8,7 +8,7 @@ Instancias de la clase `WebRequest` son accesibles usando la propiedad `webReque
 
 Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `listener` será cancelado con `listener(details)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud.
 
-⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
+⚠️ Sólo el último `listener` adjuntado será usado. Pasando `null` como `listener` cancelará la subscripción al evento.
 
 El objeto `filter` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
 
