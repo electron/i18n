@@ -57,9 +57,9 @@ Entonces el comportamiento de `webview` es muy similar a `iframe` cross-domain, 
 
 * Cuando se pulsa dentro de un `webview`, el foco de la página se moverá desde el incrustador a `webview`.
 * Usted puede no agregar escuchadores de eventos de teclado, mouse y scroll a `webview`.
-* All reactions between the embedder frame and `webview` are asynchronous.
+* Todas las reacciones entre el frame embebedor y el `webview` son asíncronas.
 
-## Notas de Estilo CCS
+## Notas de Estilo CSS
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
