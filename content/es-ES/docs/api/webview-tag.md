@@ -51,12 +51,12 @@ Si tú quieres controlar el contenido de invitado de cualquier manera, puedes es
 
 ## Implementación interna
 
-Bajo la capa `webview` es implementado con [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+Bajo la capa `webview` es implementado con [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). La etiqueta `webview` es esencialmente un elemento personalizado usando shadow DOM para envolver un elemento `iframe` dentro de el.
 
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
+Entonces el comportamiento de `webview` es muy similar a `iframe` cross-domain, como ejemplos:
 
-* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard, mouse, and scroll event listeners to `webview`.
+* Cuando se pulsa dentro de un `webview`, el foco de la página se moverá desde el incrustador a `webview`.
+* Usted puede no agregar escuchadores de eventos de teclado, mouse y scroll a `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
 ## Notas de Estilo CCS
@@ -211,10 +211,10 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `opciones` Object (opcional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opcional) - Una url HTTP de referencia.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Devuelve `Promise<void>` - La promesa se resolverá cuando la pagina ha finalizado de cargar (ver [`did-finish-load`](webview-tag.md#event-did-finish-load)), y rechaza si la página falla al cargar (ver [`did-fail-load`](webview-tag.md#event-did-fail-load)).
@@ -320,7 +320,7 @@ Inyecta CSS en la página de invitado.
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` Cadena de caracteres
-* `userGesture` Boolean (optional) - Default `false`.
+* `userGesture` Boolean (opcional) - Predeterminado `false`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
