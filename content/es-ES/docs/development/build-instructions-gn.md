@@ -134,7 +134,7 @@ $ ./out/Debug/electron
 
 ### Embalaje
 
-On linux, first strip the debugging and symbol information:
+En linux, primero elimine la información de depuración y de símbolos:
 
 ```sh
 electron/script/strip-binaries.py -d out/Release
@@ -158,7 +158,7 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
 
 <table>
   
-<tr><th>Host</th><th>Target</th><th>Estado</th></tr>
+<tr><th>Host</th><th>Objetivo</th><th>Estado</th></tr>
   
   <tr>
     <td>
@@ -172,12 +172,12 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
     <td>
       Experimental
     </td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automáticamente probado</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automáticamente probado</td></tr>
 </table> 
     
     <p>
-      If you test other combinations and find them to work, please update this document :)
+      Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
     </p>
     
     <p>
@@ -185,11 +185,11 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
     </p>
     
     <h4>
-      Windows on Arm (experimental)
+      Windows en Arm (experimental)
     </h4>
     
     <p>
-      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+      Para compilar de forma cruzada para Windows en Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> para obtener las dependencias necesarias, SDK y librerias, luego construir con <code>ELECTRON_BUILDING_WOA=1</code> en su entorno antes de ejecutar <code>gclient sync</code>.
     </p>
     
     <pre><code class="bat">estalecer ELECTRON_BUILDING_WOA=1
@@ -197,7 +197,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Or (if using PowerShell):
+      O (si usa PowerShell):
     </p>
     
     <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
@@ -205,7 +205,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+      Despues, corra <code>gn gen</code> como arriba con <code>target_cpu="arm64"</code>.
     </p>
     
     <h2>
@@ -213,7 +213,7 @@ gclient sync -f --with_branch_heads --with_tags
     </h2>
     
     <p>
-      Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. To generate build headers for the modules to compile against, run the following under <code>src/</code> directory.
+      Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. Para generar cabeceras de compilación para los módulos a compilar, ejecute lo siguiente en el directorio <code>src/</code>.
     </p>
     
     <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
@@ -272,7 +272,7 @@ $ ./out/Debug/electron electron/spec
     </h2>
     
     <h3>
-      Stale locks in the git cache
+      Bloqueos anticuados en la caché de git
     </h3>
     
     <p>
