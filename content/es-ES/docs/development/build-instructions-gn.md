@@ -90,22 +90,21 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 
 Esto generará un directorio de construcción `out/Debug` bajo `src/` con configuración de depuración. Usted puede reemplazar `Debug` con otro nombre, pero este debería ser una sub carpeta de `out`. Además usted no debería tener que correr `gn gen` de nuevo - si quiere cambiar los argumentos de compilación, puede correr `gn args out/Debug` para traer un editor.
 
-To see the list of available build configuration options, run `gn args
-out/Debug --list`.
+Para ver la lista de opciones de configuración de compilación disponibles, corra `gn argsout/Debug --list`.
 
-**For generating Debug (aka "component" or "shared") build config of Electron:**
+**Para generar depuración (alias "component" o "shared") configuración de compilación de Electron:**
 
 ```sh
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Para generar la configuración de lanzamiento (alias "non-component" o "static") de Electron:**
 
 ```sh
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**Para compilar, corra `ninja` con el `electron` target:** Nota Bene: Esto también tomará un tiempo y probablemente calentará tu regazo.
 
 Para la configuración de depuración:
 
@@ -113,7 +112,7 @@ Para la configuración de depuración:
 $ ninja -C out/Debug electron
 ```
 
-For the release configuration:
+Para la configuración de la lanzamiento:
 
 ```sh
 $ ninja -C out/Release electron
@@ -121,7 +120,7 @@ $ ninja -C out/Release electron
 
 Esto construirá todo lo que anteriormente era 'libcromiumcontent' (es decir, ` contenido / ` directorio de ` chromium` y sus dependencias, incl. WebKit y V8), así que llevará un tiempo.
 
-Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Agregue el argumento `cc_wrapper = "sccache"` ejecutando `gn args out/Debug` para traer un editor y agregar un línea al final del archivo.
 
 El ejecutable compilado estará en `./out/Default`:
 
