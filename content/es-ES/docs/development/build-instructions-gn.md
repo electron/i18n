@@ -16,11 +16,11 @@ Necesitaras instalar [`depot_tools`](http://commondatastorage.googleapis.com/chr
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`. Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
-## Cached builds (optional step)
+## Compilaciones cacheadas (paso opcional)
 
 ### GIT\_CACHE\_PATH
 
-If you plan on building Electron more than once, adding a git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Si usted planea compilar Electron más de un vez, agregar in cache git aumentará las llamadas posteriores a `gclient`. Para hacer esto, establezca una variable de entorno: `GIT_CACHE_PATH`:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -30,7 +30,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 
 ### sccache
 
-Miles de archivos deben ser compilados para construir Chromium y Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Miles de archivos deben ser compilados para construir Chromium y Electron. Puede evitar gran parte de la espera reutilizando la salida de construcción de Electron CI a través de [sccache](https://github.com/mozilla/sccache). Esto requiere pasos adicionales (listados abajo) y estas dos variables:
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
@@ -48,7 +48,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 > En lugar de `https://github.com/electron/electron`, puedes usar tu propio fork aquí (algo como `https://github.com/<username>/electron`).
 
-#### A note on pulling/pushing
+#### Una nota al tirar/empujar
 
 If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
 
