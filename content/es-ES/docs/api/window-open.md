@@ -1,4 +1,4 @@
-# `window.open` Función
+# Función `window.open`
 
 > Abre una nueva ventana y carga una dirección URL.
 
@@ -16,7 +16,7 @@ La recien creada `BrowserWindow` heredará las opciones de la ventana principal 
 
 Devuelve [`BrowserWindowProxy`](browser-window-proxy.md) - Crea una nueva ventana y devuelve una instancia de la clase`BrowserWindowProxy`.
 
-La cadena `features` sigue el formato del navegador estándar, pero cada característica tiene que ser un campo de las opciones de `BrowserWindow`. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+La cadena `features` sigue el formato del navegador estándar, pero cada característica tiene que ser un campo de las opciones de `BrowserWindow`. Estas son las características que puedes establecer a través de `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Por ejemplo:
 

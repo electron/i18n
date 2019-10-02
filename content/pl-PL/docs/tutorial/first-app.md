@@ -1,4 +1,4 @@
-# Pisanie Swojej Pierwszej Aplikacji Używając Electron
+# Napisz swoją Pierwszą Aplikację Używając Electron
 
 Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScriptu poprzez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako odmianę środowiska wykonawczego Node.js, która jest skupiona na programach komputerowych zamiast na serwerach sieci web.
 

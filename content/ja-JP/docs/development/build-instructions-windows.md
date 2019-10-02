@@ -5,10 +5,10 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 ## 必要な環境
 
 * Windows 10 / Server 2012 R2 以上
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/) 
-  * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
-  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path. 
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (replace `2019` and `Community` with your installed versions)
+* Visual Studio 2017 15.7.2 以降 - [VS 2019 Community Edition を無料でダウンロード](https://www.visualstudio.com/vs/) 
+  * 必要な Visual Studio コンポーネントの情報については、[Chromium ビルドドキュメント](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) を参照してください。
+  * Visual Studio がデフォルト以外のディレクトリにインストールされている場合は、いくつかの環境変数を設定してツールチェインがインストールパスを指すようにする必要があります。 
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (`2019` と `Community` はあなたがインストールしたバージョンに置き換えます)
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
 * [Python 2.7.10 以上](http://www.python.org/download/releases/2.7/) 
   * 以下にリンクされている `depot_tools` の設定手順とは異なり、ローカルにインストールされた Python を少なくとも 2.7.10 (TLS 1.2 サポート) で使用する必要があります。 これをするには、**PATH** 内で、ローカルにインストールされた Python が `depot_tools`のフォルダより前に来るように指定してください。 現在、`depot_tools` にはまだ Python 2.7.6 が付属しているため、`gclient` コマンドが失敗します (https://crbug.com/868864 を参照)。
@@ -89,6 +89,6 @@ $ git config --system core.longpaths true
 
 `pywin32`がインストールされているか確認してください。これは次のコマンドでインストールします。:`pip install pywin32`.
 
-### Build Scripts Hang Until Keypress
+### ビルドスクリプトがキーを押さないと止まる
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+このバグは Windows コマンドプロンプトの「機能」によるものです。 `簡易編集モード` を有効にしたプロンプトウィンドウ内をクリックすると発生し、出力テキストを簡単に選択してコピーできるようにすることを目的としています。 誤ってクリックするたびにビルドプロセスが一時停止するため、この機能はコマンドプロンプトのプロパティで無効にできます。
