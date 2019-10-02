@@ -50,7 +50,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 #### Una nota al tirar/empujar
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+Si usted tiene la intención de `git pull` or `git push` desde el repositorio oficial `electron` en el futuro, ahora necesita actualizar las URLs de la carpeta origin correspondiente.
 
 ```sh
 $ cd src/electron
@@ -60,9 +60,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` funciona verificando las dependencias en un archivo llamado `DEPS` dentro de la carpeta `src/electron` (tales como Chromium o Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` funciona verificando las dependencias en un archivo llamado `DEPS` dentro de la carpeta `src/electron` (tales como Chromium o Node.js). Ejecutar `gclient sync -f` asegura que todas las dependencias requeridas para compilar Electron coninciden con ese archivo.
 
-So, in order to pull, you'd run the following commands:
+Así que, para tirar, ejecutarías los siguientes comandos:
 
 ```sh
 $ cd src/electron
@@ -88,7 +88,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
-Esto generará un directorio de construcción `out/Debug` bajo `src/` con configuración de depuración. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
+Esto generará un directorio de construcción `out/Debug` bajo `src/` con configuración de depuración. Usted puede reemplazar `Debug` con otro nombre, pero este debería ser una sub carpeta de `out`. Además usted no debería tener que correr `gn gen` de nuevo - si quiere cambiar los argumentos de compilación, puede correr `gn args out/Debug` para traer un editor.
 
 To see the list of available build configuration options, run `gn args
 out/Debug --list`.
