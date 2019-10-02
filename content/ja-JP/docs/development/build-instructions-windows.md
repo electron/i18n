@@ -91,4 +91,4 @@ $ git config --system core.longpaths true
 
 ### ビルドスクリプトがキーを押さないと止まる
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+このバグは Windows コマンドプロンプトの「機能」によるものです。 `簡易編集モード` を有効にしたプロンプトウィンドウ内をクリックすると発生し、出力テキストを簡単に選択してコピーできるようにすることを目的としています。 Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
