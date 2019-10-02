@@ -12,13 +12,13 @@ Electron の脆弱性を報告する正しい方法については [SECURITY.md]
 
 ## Chromium のセキュリティ問題とアップグレード
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron は Chromium のリリースと交互に更新しています。詳細については、[Electron リリースケイデンスのブログ投稿](https://electronjs.org/blog/12-week-cadence) を参照してください。
 
 ## セキュリティはみんなの責任
 
 あなたのElectronアプリケーションのセキュリティは、フレームワーク (*Chromium*, *Node.js*), Electron 自身、NPM の依存関係、あなたのコード のセキュリティの結果であることを覚えておくことは重要です。 そのため、いくつかの重要なベストプラックティスに従う、責任があります。
 
-* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 For more information, see "[Use a current version of Electron](#17-use-a-current-version-of-electron)".
+* **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。 詳細については、"[現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)" を参照してください。
 
 * **あなたのアプリの依存関係の評価する。** NPM は 50万もの再利用できるパッケージを提供しています。一方、あなたは信頼するサードパーティのライブラリを選択する責任があります。 あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
 
@@ -56,7 +56,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 14. [信用されないコンテンツで `openExternal` を使用しない](#14-do-not-use-openexternal-with-untrusted-content)
 15. [`remote` モジュールの無効化](#15-disable-the-remote-module)
 16. [`remote` モジュールをフィルタ](#16-filter-the-remote-module)
-17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
+17. [現行バージョンの Electron を使う](#17-use-a-current-version-of-electron)
 
 設定ミスやセキュアでないパターンを自動的に検出するには、[electronegativity](https://github.com/doyensec/electronegativity)が使用できます。 Electronを使用したアプリケーション開発時の潜在的な脆弱性やバグの埋め込みについてのより詳しい情報は、[開発者承認者向けガイドguide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)を参照してください。
 
@@ -380,7 +380,7 @@ Blink は、Chromium のバックグラウンドにあるレンダリングエ�
 ### どうすればいいの？
 
 ```js
-// Bad
+// 悪例
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -621,12 +621,12 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
 })
 ```
 
-## 17) Use a current version of Electron
+## 17) 現行バージョンの Electron を使う
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+最新バージョンの Electron を常に使用するよう努めるべきです。新しいメジャーバージョンがリリースされるたびに、できるだけ早くアプリを更新してください。
 
 ### なぜ？
 
-An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+古いバージョンの Electron、Chromium、Node.js で構築されたアプリケーションは、最新バージョンのこれらコンポーネントを使用しているアプリケーションよりも容易な標的です。 Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
 
 Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
