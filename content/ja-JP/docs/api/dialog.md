@@ -42,7 +42,7 @@ console.log(dialog)
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 
-Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+戻り値 `String[] | undefined` - ユーザが選択したファイルパス。dialog がキャンセルされた場合は `undefined` を返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -92,7 +92,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
 
-* `canceled` Boolean - whether or not the dialog was canceled.
+* `canceled` Boolean - dialog がキャンセルされたかそうでないか。
 * `filePaths` String[] (任意) - ユーザーによって選択されたファイルパスの配列。この dialog がキャンセルされた場合、これは空の配列になります。
 * `bookmarks` String[] (任意)*macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
 
