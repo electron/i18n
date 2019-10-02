@@ -14,7 +14,7 @@ Electron での開発は特定のやり方に固執しておらず、開発、�
 
 "モダンなElectronアプリケーションを作成する完璧なツール"。 Electron Forge は、既存の (よく保守されている) Electron 開発用のビルドツール群をまとまったパッケージに統合しており、誰でもすぐに Electron 開発に着手できるようにします。
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. これは、大規模な Electron コミュニティで使用されているものと同じコアモジュールを使用しています ([`electron-packager`](https://github.com/electron/electron-packager) など)。(Slack のような) Electron メンテナによる変更は、Forge のユーザにも有益です。
+Forge には Webpack をバンドラーとして利用するための [即席テンプレート](https://electronforge.io/templates) があります。 It includes an example typescript configuration and provides two configuration files to enable easy customization. これは、大規模な Electron コミュニティで使用されているものと同じコアモジュールを使用しています ([`electron-packager`](https://github.com/electron/electron-packager) など)。(Slack のような) Electron メンテナによる変更は、Forge のユーザにも有益です。
 
 詳細とドキュメントは [electronforge.io](https://electronforge.io/) で見ることができます。
 
