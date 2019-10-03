@@ -83,8 +83,8 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * Versiones Electron & Comentarios de desarrollador 
   * [Política de versiones](tutorial/electron-versioning.md)
   * [Tiempos de Lanzamientos](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [Programa de retroalimentación](tutorial/app-feedback-program.md)
+* [Empaquetando el código fuente con asar](tutorial/application-packaging.md) 
   * [Generando archivos asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usando archivos asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaciones](tutorial/application-packaging.md#limitations-of-the-node-api)
@@ -109,7 +109,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [`Archivo` Objeto](api/file-object.md)
 * [`<webview>` Etiqueta](api/webview-tag.md)
 * [`window.open` Función](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [`BrowserWindowProxy` Objeto](api/browser-window-proxy.md)
 
 ### Módulos para el proceso principal:
 
