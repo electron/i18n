@@ -45,7 +45,7 @@ Retorna um `Boolean` - que mostra se o debugger está anexado à `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Retira o debugger de `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
