@@ -75,15 +75,15 @@ Debe obtener este error si está usando Git Bash para la compilación, en cambio
 
 ### no se puede crear el directorio en '...': Nombre demasiado largo
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). Esto debería arreglarlo:
+node.js tiene algunos [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), y por defecto git en windows no maneja correctamente los nombres de rutas largos(a pesar de que windows los soporta). Esto debería arreglarlo:
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### error: uso del identificador no declarado 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+Esto puede ocurrir durante la construcción, cuando las Herramientas de Depuración para Windows ha sido instalada con el Windows Driver Kit. Desinstale Windows Driver Kit e instale las Herramienta de Depuración con los pasos descritos anteriormente.
 
 ### Error de importación: No existe un módulo llamado win32file
 
