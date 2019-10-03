@@ -16,11 +16,11 @@ Necesitaras instalar [`depot_tools`](http://commondatastorage.googleapis.com/chr
 
 Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`. Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
-## Cached builds (optional step)
+## Compilaciones cacheadas (paso opcional)
 
 ### GIT\_CACHE\_PATH
 
-If you plan on building Electron more than once, adding a git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Si usted planea compilar Electron más de un vez, agregar in cache git aumentará las llamadas posteriores a `gclient`. Para hacer esto, establezca una variable de entorno: `GIT_CACHE_PATH`:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -30,7 +30,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 
 ### sccache
 
-Miles de archivos deben ser compilados para construir Chromium y Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Miles de archivos deben ser compilados para construir Chromium y Electron. Puede evitar gran parte de la espera reutilizando la salida de construcción de Electron CI a través de [sccache](https://github.com/mozilla/sccache). Esto requiere pasos adicionales (listados abajo) y estas dos variables:
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
@@ -48,9 +48,9 @@ $ gclient sync --with_branch_heads --with_tags
 
 > En lugar de `https://github.com/electron/electron`, puedes usar tu propio fork aquí (algo como `https://github.com/<username>/electron`).
 
-#### A note on pulling/pushing
+#### Una nota al tirar/empujar
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+Si usted tiene la intención de `git pull` or `git push` desde el repositorio oficial `electron` en el futuro, ahora necesita actualizar las URLs de la carpeta origin correspondiente.
 
 ```sh
 $ cd src/electron
@@ -60,9 +60,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` funciona verificando las dependencias en un archivo llamado `DEPS` dentro de la carpeta `src/electron` (tales como Chromium o Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` funciona verificando las dependencias en un archivo llamado `DEPS` dentro de la carpeta `src/electron` (tales como Chromium o Node.js). Ejecutar `gclient sync -f` asegura que todas las dependencias requeridas para compilar Electron coninciden con ese archivo.
 
-So, in order to pull, you'd run the following commands:
+Así que, para tirar, ejecutarías los siguientes comandos:
 
 ```sh
 $ cd src/electron
@@ -88,24 +88,23 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
-Esto generará un directorio de construcción `out/Debug` bajo `src/` con configuración de depuración. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
+Esto generará un directorio de construcción `out/Debug` bajo `src/` con configuración de depuración. Usted puede reemplazar `Debug` con otro nombre, pero este debería ser una sub carpeta de `out`. Además usted no debería tener que correr `gn gen` de nuevo - si quiere cambiar los argumentos de compilación, puede correr `gn args out/Debug` para traer un editor.
 
-To see the list of available build configuration options, run `gn args
-out/Debug --list`.
+Para ver la lista de opciones de configuración de compilación disponibles, corra `gn argsout/Debug --list`.
 
-**For generating Debug (aka "component" or "shared") build config of Electron:**
+**Para generar depuración (alias "component" o "shared") configuración de compilación de Electron:**
 
 ```sh
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Para generar la configuración de lanzamiento (alias "non-component" o "static") de Electron:**
 
 ```sh
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**Para compilar, corra `ninja` con el `electron` target:** Nota Bene: Esto también tomará un tiempo y probablemente calentará tu regazo.
 
 Para la configuración de depuración:
 
@@ -113,7 +112,7 @@ Para la configuración de depuración:
 $ ninja -C out/Debug electron
 ```
 
-For the release configuration:
+Para la configuración de la lanzamiento:
 
 ```sh
 $ ninja -C out/Release electron
@@ -121,7 +120,7 @@ $ ninja -C out/Release electron
 
 Esto construirá todo lo que anteriormente era 'libcromiumcontent' (es decir, ` contenido / ` directorio de ` chromium` y sus dependencias, incl. WebKit y V8), así que llevará un tiempo.
 
-Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Agregue el argumento `cc_wrapper = "sccache"` ejecutando `gn args out/Debug` para traer un editor y agregar un línea al final del archivo.
 
 El ejecutable compilado estará en `./out/Default`:
 
@@ -135,7 +134,7 @@ $ ./out/Debug/electron
 
 ### Embalaje
 
-On linux, first strip the debugging and symbol information:
+En linux, primero elimine la información de depuración y de símbolos:
 
 ```sh
 electron/script/strip-binaries.py -d out/Release
@@ -159,7 +158,7 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
 
 <table>
   
-<tr><th>Host</th><th>Target</th><th>Estado</th></tr>
+<tr><th>Host</th><th>Objetivo</th><th>Estado</th></tr>
   
   <tr>
     <td>
@@ -173,12 +172,12 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
     <td>
       Experimental
     </td>
-<tr><td>Windows x64</td><td>Windows x86</td><td>Automatically tested</td></tr>
-<tr><td>Linux x64</td><td>Linux x86</td><td>Automatically tested</td></tr>
+<tr><td>Windows x64</td><td>Windows x86</td><td>Automáticamente probado</td></tr>
+<tr><td>Linux x64</td><td>Linux x86</td><td>Automáticamente probado</td></tr>
 </table> 
     
     <p>
-      If you test other combinations and find them to work, please update this document :)
+      Si prueba otras combinaciones y las encuentra para funcionar, por favor actualice este documento :)
     </p>
     
     <p>
@@ -186,11 +185,11 @@ No todas las combinaciones de origen y destino sea CPU/SO son compatibles con Ch
     </p>
     
     <h4>
-      Windows on Arm (experimental)
+      Windows en Arm (experimental)
     </h4>
     
     <p>
-      To cross-compile for Windows on Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> to get the necessary dependencies, SDK and libraries, then build with <code>ELECTRON_BUILDING_WOA=1</code> in your environment before running <code>gclient sync</code>.
+      Para compilar de forma cruzada para Windows en Arm, <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/master/docs/windows_build_instructions.md#Visual-Studio">follow Chromium's guide</a> para obtener las dependencias necesarias, SDK y librerias, luego construir con <code>ELECTRON_BUILDING_WOA=1</code> en su entorno antes de ejecutar <code>gclient sync</code>.
     </p>
     
     <pre><code class="bat">estalecer ELECTRON_BUILDING_WOA=1
@@ -198,7 +197,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Or (if using PowerShell):
+      O (si usa PowerShell):
     </p>
     
     <pre><code class="powershell">$env:ELECTRON_BUILDING_WOA=1
@@ -206,7 +205,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      Next, run <code>gn gen</code> as above with <code>target_cpu="arm64"</code>.
+      Despues, corra <code>gn gen</code> como arriba con <code>target_cpu="arm64"</code>.
     </p>
     
     <h2>
@@ -214,7 +213,7 @@ gclient sync -f --with_branch_heads --with_tags
     </h2>
     
     <p>
-      Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. To generate build headers for the modules to compile against, run the following under <code>src/</code> directory.
+      Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación. Para generar cabeceras de compilación para los módulos a compilar, ejecute lo siguiente en el directorio <code>src/</code>.
     </p>
     
     <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
@@ -273,7 +272,7 @@ $ ./out/Debug/electron electron/spec
     </h2>
     
     <h3>
-      Stale locks in the git cache
+      Bloqueos anticuados en la caché de git
     </h3>
     
     <p>
