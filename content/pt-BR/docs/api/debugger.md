@@ -13,11 +13,11 @@ let win = new BrowserWindow()
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log('Falha ao anexar o Debugger: ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+  console.log('Debugger desanexado devido a : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
@@ -35,13 +35,13 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (opcional) - Versão do protocolo de debugging solicitado.
 
-Attaches the debugger to the `webContents`.
+Anexa o debugger à `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Retorna um `Boolean` - que mostra se o debugger está anexado à `webContents`.
 
 #### `debugger.detach()`
 
