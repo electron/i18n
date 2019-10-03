@@ -140,13 +140,13 @@ Sin embargo si utilizas el módulo incorporado, pero sigue recibiendo este error
 
 ## La fuente se ve borrosa, ¿qué es esto y qué puedo hacer?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+Si [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) está desactivada, entonces las fuentes en las pantallas LCD puede parecer borrosas. Ejemplo:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+El anti-aliasing de Sub-píxeles necesita un fondo no transparente de la capa que contenga los glifos de fuente. (Vea [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) para más información).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Para alcanzar este objetivo, establezca el fondo en el constructor para [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -157,4 +157,4 @@ let win = new BrowserWindow({
 
 El efecto sólo es visible en (algunas?) pantallas LCD. Incluso si no ves una diferencia, algunos de tus usuarios si. Es mejor establecer el fondo de esta manera, a menos que tengas tus razones para no hacerlo.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Tenga en cuenta que sólo establecer el fondo en el CSS no tiene el efecto deseado.
