@@ -87,7 +87,7 @@ This can happen during build, when Debugging Tools for Windows has been installe
 
 ### ImportError: No module named win32file
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+Assurez-vous d'avoir installé `pywin32` avec `pip install pywin32`.
 
 ### Build Scripts Hang Until Keypress
 
