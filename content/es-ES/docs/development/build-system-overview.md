@@ -1,23 +1,23 @@
 # Compilación de sistemas
 
-Electron usa [gyp](https://gn.googlesource.com/gn) para la generación de proyectos y [ninja](https://ninja-build.org/) para su compilación. Project configurations can be found in the `.gn` and `.gni` files.
+Electron usa [gyp](https://gn.googlesource.com/gn) para la generación de proyectos y [ninja](https://ninja-build.org/) para su compilación. Las configuraciones del Proyecto puede ser encontradas en los archivos `.gn` y `.gni`.
 
 ## Archivos GN
 
-The following `gn` files contain the main rules for building Electron:
+Los siguientes archivos `gn` contienen las reglas principales para la construcción de Electron:
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` define como Electron mismo es construido e incluye la configuraciones predeterminadas para enlazar con Chromium.
+* `build/args/{debug,release,all}.gn` contiene los argumentos por defecto para la construcción de Electron.
 
 ## Compilación de componentes
 
 Dado que Chromium es un proyecto bastante grande, la etapa final de enlace puede tomar bastantes minutos, lo que dificulta el desarrollo. Para resolver esto, Chromium introdujo la "construcción de componentes", que construye cada componente como una biblioteca compartida separada, lo que hace que el enlace sea muy rápido pero sacrificando el tamaño del archivo y rendimiento.
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron hereda esta opción de construcción de Chromium. En versiones `Debug` se enlazará al binario con una versión de biblioteca compartida de los componentes de Chromium para lograr un tiempo de enlace rápido; para versiones `Release`, el binario estará vinculado a las versiones estáticas de la biblioteca, de modo que podemos tener el mejor tamaño de binario posible y rendimiento.
 
-## Verificación
+## Pruebas
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** * esta sección esta desactualizada y contiene información que ya no es relevante para el GN-built de elctron.*
 
 Pruebe sus cambios conforme al estilo de codificación del proyecto usando:
 
@@ -37,7 +37,7 @@ Cada vez que realice cambios en el código fuente de Electron, deberá volver a 
 $ npm run build && npm test
 ```
 
-Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Append `.only` to any `describe` or `it` function call:
+Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Agregar `.only` a cualquier `describe` o `it` función llama:
 
 ```js
 describe.only('some feature', function () {

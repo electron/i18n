@@ -1,10 +1,10 @@
 ## Class: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Um transporte alternativo para o protocolo de depuração remoto do Chrome.
 
 Processo: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+As ferramentas de desenvolvedor do Chrome possuem [special binding](https://chromedevtools.github.io/devtools-protocol/) disponível no runtime do JavaScript que permite interagir com páginas e instrumentá-las.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,11 +13,11 @@ let win = new BrowserWindow()
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log('Falha ao anexar o Debugger: ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+  console.log('Debugger desanexado devido a : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
@@ -35,17 +35,17 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (opcional) - Versão do protocolo de debugging solicitado.
 
-Attaches the debugger to the `webContents`.
+Anexa o debugger à `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Retorna um `Boolean` - que mostra se o debugger está anexado à `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Retira o debugger de `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 

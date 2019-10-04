@@ -1,4 +1,4 @@
-# Entwicklerumgebung
+# Entwicklungsumgebung
 
 Electron Entwicklung ist weitestgehend gleich zu Node.js Entwicklung. Um in deinem Betriebssystem eine Umgebung einzurichten, die dazu geeignet ist Desktop Apps mit Electron zu entwickeln, brauchst du eigentlich nur Node.js, npm, einen Code Editor deiner Wahl und ein Grundwissen wie Du den Command Line Client deines Betriebssystems verwendest.
 

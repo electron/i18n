@@ -12,7 +12,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-Electron keeps up to date with alternating Chromium releases. For more information, see the [Electron Release Cadence blog post](https://electronjs.org/blog/12-week-cadence).
+Electron 保持与 Chromium 同步更新迭代。更多信息参见 [Electron 博客发布文章](https://electronjs.org/blog/12-week-cadence)。
 
 ## 安全是所有人的共同责任
 
@@ -24,7 +24,7 @@ Electron keeps up to date with alternating Chromium releases. For more informati
 
 * **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
 
-## Isolation For Untrusted Content
+## 隔离不信任的内容
 
 A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
@@ -55,8 +55,8 @@ A security issue exists whenever you receive code from an untrusted source (e.g.
 13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
 14. [不要对不可信的内容使用 `openExternal`](#14-do-not-use-openexternal-with-untrusted-content)
 15. [禁用 `remote` 模块](#15-disable-the-remote-module)
-16. [Filter the `remote` module](#16-filter-the-remote-module)
-17. [Use a current version of Electron](#17-use-a-current-version-of-electron)
+16. [限制 `remote` 模块](#16-filter-the-remote-module)
+17. [使用当前版本的 Electron](#17-use-a-current-version-of-electron)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -617,9 +617,9 @@ app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) =
 })
 ```
 
-## 17) Use a current version of Electron
+## 17) 使用当前版本的 Electron
 
-You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+您应该努力使用最新的 Electron 版本。当新版本发布时，您应尽快更新您的应用。
 
 ### 为什么？
 

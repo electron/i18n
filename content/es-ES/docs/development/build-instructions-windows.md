@@ -17,7 +17,7 @@ Siga las indicaciones a continuación para compilar Electron en Windows.
 * [Git](http://git-scm.com)
 * Herramientas de depuración para Windows de Windows SDK 10.0.15063.468 si planea crear una distribución completa, pues `symstore.exe` se usa para crear un depósito de símbolo a partir de `.pdb` archivos. 
   * Diferentes versiones del SDK se pueden instalar juntas. Para instalar el SDK, abre Visual Studio Installer, selecciona `Cambiar` → `Componentes Individuales`, desplázate hacia abajo y selecciona el SDK apropiado para Windows para instalar. Otra opción sería mirar el [Windows SDK y el archivo emulador](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) y descargar la versión independiente del SDK respectivamente.
-  * Las herramientas de depuración de SDK también deben ser instaladas.https://crowdin.com/translate/electron/13/en-es#246828 If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+  * Las herramientas de depuración de SDK también deben ser instaladas.https://crowdin.com/translate/electron/13/en-es#246828 Si el SDK de Windows 10 fue instalado a través del instalador de Visual Studio, entonces se puede instalar yendo a: `Panel de Control` → `Programas ` → `Programas y Características` → Seleccione "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. O puede descargar el instalador independiente del SDK y usarlo para instalar el Debugging Tools.
 
 Si actualmente no tiene una instalación de Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
 
@@ -31,7 +31,7 @@ Ver [Build Instructions: GN](build-instructions-gn.md)
 
 ## Arquitectura 32bit
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+Para construir para 32bit, usted necesita pasar `target_cpu = "x86"` como un argumento GN. Usted puede construir para 32bit junto con el target de 64bit usando diferentes carpetas de salida para GN, por ejemplo: `out/Release-x86` con diferentes argumentos.
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
@@ -41,7 +41,7 @@ El resto de los pasos son exactamente los mismos.
 
 ## Proyecto de Visual Studio
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+Para generar un project de Visual Studio, puede pasar el parametro `--ide=vs2017` a `gn gen`:
 
 ```powershell
 $ gn gen out/Debug --ide=vs2017
@@ -63,7 +63,7 @@ Intente reinstalar Node.js 32bit.
 
 ### Error: ENOENT, estatus 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Creando ese directorio [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -73,17 +73,17 @@ $ mkdir ~\AppData\Roaming\npm
 
 Debe obtener este error si está usando Git Bash para la compilación, en cambio debería usar PowerShell o la ventana de comandos de VS2015.
 
-### cannot create directory at '...': Filename too long
+### no se puede crear el directorio en '...': Nombre demasiado largo
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). Esto debería arreglarlo:
+node.js tiene algunos [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), y por defecto git en windows no maneja correctamente los nombres de rutas largos(a pesar de que windows los soporta). Esto debería arreglarlo:
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### error: uso del identificador no declarado 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+Esto puede ocurrir durante la construcción, cuando las Herramientas de Depuración para Windows ha sido instalada con el Windows Driver Kit. Desinstale Windows Driver Kit e instale las Herramienta de Depuración con los pasos descritos anteriormente.
 
 ### Error de importación: No existe un módulo llamado win32file
 

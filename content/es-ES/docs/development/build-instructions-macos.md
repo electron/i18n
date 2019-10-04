@@ -27,13 +27,13 @@ Si está utilizando Python descargado por Homebrew, también debe instalar los s
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+Usted puede usar `pip` para instalarlo:
 
 ```sh
 $ pip install pyobjc
 ```
 
-## macOS SDK
+## SDK macOS
 
 Si simplemente estás desarrollando Electron y no planeas redistribuir tu compilación personalizada de Electron, puede omitir esta sección.
 
