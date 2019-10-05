@@ -77,25 +77,25 @@ Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un títul
 
 Ejemplos de mensajes de confirmación con prefijos semánticos:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `función: agregar método app.isPackaged()`
+* `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
+* `feat: agregar método app.isPackaged()`
 * `docs: app.isDefaultProtocolClient está disponible en Linux`
 
 Prefijos usuales:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
+    - fix: Una corrección de error
+    - feat: Una nueva característica 
+    - docs: Cambios en la documentación
+    - test: Añadir nuevas pruebas o corregir pruebas existentes
+    - build: Cambios que afectan el sistema de construcción
+    - ci: Cambios en nuestros archivos de configuración y scripts de CI
+    - perf: Un cambio en el código que mejora el rendimiento 
+    - refactor: Un cambio de código que no corrige un error ni añade una característica
+    - style: Cambios que no afectan al significado del código(linting)
+    - vendor: Eliminar una dependencia como contenido de libchromium o nodo
     
 
-Other things to keep in mind when writing a commit message:
+Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
 1. La primera linea debe: 
   * contener una breve descripción del cambio (preferiblemente 50 caracteres o menos, y no mas de 72 caracteres)
