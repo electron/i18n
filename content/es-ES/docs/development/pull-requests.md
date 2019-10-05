@@ -105,9 +105,9 @@ Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
 #### Cambios de última hora
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+Un commit que tiene el texto `BREAKING CHANGE:` al principio de su sección opcional de cuerpo o pie de página introduce un cambio de ruptura en el API (correlacionando con el Major en versionado semántico). Un cambio de ruptura puede ser parte de los commits de cualquier tipo. ejemplo, los tipos `fix:`, `feat:` & `chore:` serían válidos, ademas de cualquier otro tipo.
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+Vea [conventionalcommits.org](https://conventionalcommits.org) para más detalles.
 
 ### Paso 6: Reorganizar
 
@@ -132,7 +132,7 @@ $ npm run test
 
 Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Por favor no envíe parches que fallan en cualquiera de las verificaciones.
 
-If you are updating tests and want to run a single spec to check it:
+Si usted esta actualizando pruebas y quiere correr un simple especificación para probarlas:
 
 ```sh
 $ npm run test -match=menu
@@ -148,13 +148,13 @@ Una vez que tus commits están listos -- ya pasadas las pruebas y el linting -- 
 $ git push origin my-branch
 ```
 
-### Paso 9: Abriendo la Solicitud de Retiro
+### Paso 9: Abriendo el Pull Request
 
 Desde dentro de GitHub, abrir una nueva pull request te presentará con una plantilla que debe ser llenada:
 
 ```markdown
 <!--
-Gracias por su pedido de integración. Please provide a description above and review
+Thank you for your pull request. Please provide a description above and review
 the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
