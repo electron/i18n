@@ -21,7 +21,7 @@
 
 ### Paso 1: Fork
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+Haga Fork del proyecto [on GitHub](https://github.com/electron/electron) y clone su fork localmente.
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Paso 4: Código
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+La mayoría de los pull requests abiertos contra el repositorio `electron/electron` incluyen cambios en el código C/C++ en la carpeta `atom/`, el código JavaScript en la carpeta `lib/`, la documentación en `docs/api/` o pruebas en la carpeta `spec/`.
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
@@ -71,11 +71,11 @@ Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
 #### Directrices de mensaje commit
 
-Un buen mensaje de commit debe describir que ha cambiado y por qué. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+Un buen mensaje de commit debe describir que ha cambiado y por qué. El proyecto Electron usa [semantic commit messages](https://conventionalcommits.org/) para racionalizar el proceso de lanzamiento.
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un título de pull request con un prefijo semántico.
 
-Examples of commit messages with semantic prefixes:
+Ejemplos de mensajes de confirmación con prefijos semánticos:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `función: agregar método app.isPackaged()`
