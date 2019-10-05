@@ -7,16 +7,16 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
 ## Código general
 
 * Termine los archivos con una nueva linea vacía.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
+* Coloque los requires en el siguiente orden: 
+  * Módulos incorporados en Node (tal como `path`)
+  * Módulos incorporados en Electron (tal como `ipc`, `app`)
   * Módulos locales (usando rutas relativas)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
+* Coloque las propiedades de la case en el siguiente orden: 
+  * Métodos y propiedades de la clase (métodos que empiezan con un `@`)
   * Instancia métodos y propiedades
 * Evitar código dependiente de la plataforma: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+  * Use `path.join()` para concatenar nombres de archivos.
+  * Use `os.tmpdir()` en lugar de `/tmp` cuando necesite referencias el directorio temporal.
 * Usando uno plano `regresar` when returning explicitly at the end of a function. 
   * No `return null`, `return undefined`, `null` o `undefined`
 
