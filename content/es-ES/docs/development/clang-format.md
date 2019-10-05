@@ -6,7 +6,7 @@ Se recomienda formatear su código C++ modificado antes de abrir solicitudes de 
 
 Puede instalar `clang-format` y `git-clang-format` a través de `npm install -g clang-format`.
 
-To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Para formatear automáticamente un archivo de acuerdo a estilo de código C++ de Electron, ejecute `clang-format -i path/to/electron/file.cc`. Debería funcionar en macOS/Linux/Windows.
 
 El flujo de trabajo para formatear su código modificado:
 
