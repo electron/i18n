@@ -16,7 +16,7 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 ## Pedir ayuda general
 
-["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
+["Finding Support"](../tutorial/support.md#finding-support) tiene una lista de recursos para obtener ayuda de programación, reportar problemas de seguridad, contribuir y más. ¡Por favor, use el gestor de incidencias solo para errores!
 
 ## Presentar un informe de error
 
