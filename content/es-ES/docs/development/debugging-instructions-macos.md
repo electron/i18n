@@ -4,7 +4,7 @@ Si tiene accidentes o problemas en Electron que usted crea que no son causados p
 
 ## Requisitos
 
-* **Construcción de una depuración de Electron**: La manera más fácil usualmente es construirlo usted mismo, usando las herramientas y prerrequisitos especificados en el [Instrucciones de construcción para macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Construcción de una depuración de Electron**: La manera más fácil usualmente es construirlo usted mismo, usando las herramientas y prerrequisitos especificados en el [Instrucciones de construcción para macOS](build-instructions-macos.md). Aunque puede adjuntar y depurar Electrón a medida que lo descarga directamente, encontrará que está muy optimizado, lo que dificulta considerablemente la depuración: el depurador no podrá mostrarle el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a las llamadas en línea, las llamadas de cola y otras optimizaciones del compilador.
 
 * **Código X**: adicional al código X, también instala las herramientas del comando de linea de este. Estos incluye LLDB, el depurador por defecto en el código X para Mac OS X. Este soporta depuración en C, C objetivo y C++ en el escritorio y en dispositivos iOS y sus simuladores.
 
@@ -22,7 +22,7 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 LLDB es una herramienta poderosa y soporta múltiples estrategias para la inspección de código. Para esta instrucción básica, asumamos que está llamando un comando para JavaScript que no se está comportando correctamente - así que a usted le gustaría separarlo en la contraparte de esos comandos en C++ dentro de la fuente Electron.
 
-Relevant code files can be found in `./atom/`.
+Archivos de códigos relevantes se pueden encontrar en `./atom/`.
 
 Asumamos que quiere depurar `app.setName()`, el cual está definido en `browser.cc` como `Browser::SetName()`. Configure un punto de separación usando el comando `breakpoint`, especificando el archivo y la linea que quiere separar:
 

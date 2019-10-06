@@ -21,7 +21,7 @@
 
 ### Paso 1: Fork
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+Haga Fork del proyecto [on GitHub](https://github.com/electron/electron) y clone su fork localmente.
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Paso 4: Código
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+La mayoría de los pull requests abiertos contra el repositorio `electron/electron` incluyen cambios en el código C/C++ en la carpeta `atom/`, el código JavaScript en la carpeta `lib/`, la documentación en `docs/api/` o pruebas en la carpeta `spec/`.
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
@@ -71,31 +71,31 @@ Tenga en cuenta que multiples commits a menudo colisionan cuando son ejecutadas.
 
 #### Directrices de mensaje commit
 
-Un buen mensaje de commit debe describir que ha cambiado y por qué. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+Un buen mensaje de commit debe describir que ha cambiado y por qué. El proyecto Electron usa [semantic commit messages](https://conventionalcommits.org/) para racionalizar el proceso de lanzamiento.
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+Antes de que una solicitud de pull pueda ser fusionada, **debe** tener un título de pull request con un prefijo semántico.
 
-Examples of commit messages with semantic prefixes:
+Ejemplos de mensajes de confirmación con prefijos semánticos:
 
-* `fix: don't overwrite prevent_default if default wasn't prevented`
-* `función: agregar método app.isPackaged()`
+* `fix: no sobrescribir prevent_default si no se evitado el valor predeterminado`
+* `feat: agregar método app.isPackaged()`
 * `docs: app.isDefaultProtocolClient está disponible en Linux`
 
 Prefijos usuales:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
+    - fix: Una corrección de error
+    - feat: Una nueva característica 
+    - docs: Cambios en la documentación
+    - test: Añadir nuevas pruebas o corregir pruebas existentes
+    - build: Cambios que afectan el sistema de construcción
+    - ci: Cambios en nuestros archivos de configuración y scripts de CI
+    - perf: Un cambio en el código que mejora el rendimiento 
+    - refactor: Un cambio de código que no corrige un error ni añade una característica
+    - style: Cambios que no afectan al significado del código(linting)
+    - vendor: Eliminar una dependencia como contenido de libchromium o nodo
     
 
-Other things to keep in mind when writing a commit message:
+Otras cosas para tener en mente cuando se escribe un mensaje de commit:
 
 1. La primera linea debe: 
   * contener una breve descripción del cambio (preferiblemente 50 caracteres o menos, y no mas de 72 caracteres)
@@ -105,9 +105,9 @@ Other things to keep in mind when writing a commit message:
 
 #### Cambios de última hora
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+Un commit que tiene el texto `BREAKING CHANGE:` al principio de su sección opcional de cuerpo o pie de página introduce un cambio de ruptura en el API (correlacionando con el Major en versionado semántico). Un cambio de ruptura puede ser parte de los commits de cualquier tipo. ejemplo, los tipos `fix:`, `feat:` & `chore:` serían válidos, ademas de cualquier otro tipo.
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+Vea [conventionalcommits.org](https://conventionalcommits.org) para más detalles.
 
 ### Paso 6: Reorganizar
 
@@ -132,7 +132,7 @@ $ npm run test
 
 Asegúrese de que el linter no reporta ningún inconveniente y que pasa todas pruebas. Por favor no envíe parches que fallan en cualquiera de las verificaciones.
 
-If you are updating tests and want to run a single spec to check it:
+Si usted esta actualizando pruebas y quiere correr un simple especificación para probarlas:
 
 ```sh
 $ npm run test -match=menu
@@ -148,13 +148,13 @@ Una vez que tus commits están listos -- ya pasadas las pruebas y el linting -- 
 $ git push origin my-branch
 ```
 
-### Paso 9: Abriendo la Solicitud de Retiro
+### Paso 9: Abriendo el Pull Request
 
 Desde dentro de GitHub, abrir una nueva pull request te presentará con una plantilla que debe ser llenada:
 
 ```markdown
 <!--
-Gracias por su pedido de integración. Please provide a description above and review
+Thank you for your pull request. Please provide a description above and review
 the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.

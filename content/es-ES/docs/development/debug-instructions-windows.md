@@ -6,7 +6,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 ## Requisitos
 
-* **Construir una depuración de Electron**: la forma más fácil es usualmente que usted mismo lo construya, utilizando las herramientas y los requisitos previos enumerados en [instrucciones de compilación para Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Construir una depuración de Electron**: la forma más fácil es usualmente que usted mismo lo construya, utilizando las herramientas y los requisitos previos enumerados en [instrucciones de compilación para Windows](build-instructions-windows.md). Aunque puede adjuntar y depurar Electrón a medida que lo descarga directamente, encontrará que está muy optimizado, lo que dificulta considerablemente la depuración: el depurador no podrá mostrarle el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a las llamadas en línea, las llamadas de cola y otras optimizaciones del compilador.
 
 * **Visual Studio con herramientas de C++**: las ediciones de la comunidad gratuitas de Visual Studio 2013 y 2015 funcionan. Una vez instalado, [configure Visual Studio para usar el servidor de símbolos de GitHub de Electron](setting-up-symbol-server.md). Le permitirá a Visual Studio obtener una mejor comprensión de lo que sucede dentro de Electron, haciendo que sea más fácil presentar las variables en un formato de lectura.
 
@@ -24,7 +24,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 Luego, abre Visual Studio. Electron no está construido con Visual Studio y, por lo tanto, no contiene un archivo de proyecto - sin embargo, usted puede abrir los archivos de código fuente "Como archivo", lo que significa que Visual Studio los abrirá por sí mismo. Usted puede todavía establecer puntos de interrupción - Visual Studio automáticamente descifrará que el código fuente coincide con el código que se ejecuta en el proceso adjunto y se romperá en consecuencia.
 
-Relevant code files can be found in `./atom/`.
+Archivos de códigos relevantes se pueden encontrar en `./atom/`.
 
 ### Adjuntado
 
