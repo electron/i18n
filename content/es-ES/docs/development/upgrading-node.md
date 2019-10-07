@@ -65,20 +65,20 @@ Generalmente es más fácil actualizar Node para funcionar sin el parche de comp
 
 ## Actualizar el archivo `DEPS` de Electron
 
-Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
+Actualizar el archivo `DEPS` en la raíz de [electron/electron](https://github.com/electron/electron) para que apunte al hash de git de Node actualizado.
 
 ## Notas
 
 - Los nodos mantiene su propia bifurcación de V8 
   - Ellos le hacen backport a una pequeña cantidad de cosas, cuanto sean necesitadas
-  - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of Electron 
+  - Documentación en Node acerca de como [they work with V8](https://nodejs.org/api/v8.html)
+- Nosotros actualizamos el código de tal forma que sólo usamos una copia de V8 en todo Electron 
   - P.ej.: Electron, Chromium y Node.js
 - No rastreamos el stream ascendente debido a logística: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
-- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
-  - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
-  - Building Node: 
+  - Upstream usa múltiples repositorios y por tanto si se fusionara en un solo repositorio daría como resultado la perdida de historia. Por lo tanto, sólo actualizamos cuando estamos planeando un bump de versión de Node en Electron.
+- Chromium es grande y requiere mucho tiempo para actualizar, así que normalmente elegimos la versión del Node basada en la cual de sus versiones tiene una versión de V8 que está más cerca de la versión en Chromium que estamos usando. 
+  - A veces tenemos que esperar la próxima versión periódica de Node porque sincronizará más estrechamente con la versión de V8 en el nuevo Chromium
+  - Electron mantiene todos sus parches en el repositorio porque es más sencillo que mantener diferentes repositorios para parches por cada proyecto superior. 
+    - Crashpad, Node.js, Chromium, Skia, etc. todos los parches se guardan en el mismo lugar
+  - Construcción de Node: 
     - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
