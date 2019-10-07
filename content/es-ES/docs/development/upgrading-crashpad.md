@@ -3,7 +3,7 @@
 1. Obtenga la versión de crashpad que vamos a usar.
     
     - `libcc/src/third_party/crashpad/README.chromium` tendrá una linea `Revision:` con una suma de comprobación
-    - We need to check out the corresponding branch.
+    - Tenemos que comprobar la rama correspondiente.
     - El panel de fallos de Google (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Verifique la rama con la suma de verificación de revisión: 
@@ -23,7 +23,7 @@
     - En `electron-crashpad-vA.B.C.D`, seleccione exclusivamente la suma de comprobación del parche
     - `git cherry-pick <checksum>`
     - Solucione cualquier conflicto
-    - Make sure it builds then add, commit, and push work to electron's crashpad fork
+    - Asegúrese que se construyen luego agregue, confirme y empuje el trabajo al fork crashpad de Electron
     - `git push electron electron-crashpad-vA.B.C.D`
 
 4. Actualice Electron para crear un nuevo panel de fallos:
