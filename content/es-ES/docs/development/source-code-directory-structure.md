@@ -24,18 +24,16 @@ Electron
 |   |   └── api/ - La implementación de las APIs del proceso renderizador.
 |   └── common/ - Código que se usa por ambos procesos, main y el renderer, incluye algunos funciones útiles
 |       |         y código para integrar el bucle de mensaje de node dentro de bucle de mensaje de Chromium.
-|       └── api/ - The implementation of common APIs, and foundations of
-|                  Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. Vea abajo.
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
+|       └── api/ - La implementación de las APIs comunes y las bases de los módulos integrados de Electron.
+├── chromium_src/ - Código fuente copiado desde Chromium. Vea abajo.
+├── default_app/ - La página para mostrar cuando se inicia Electron sin proporcionar un aplicación.
 ├── docs/ - Documentaciones.
 ├── lib/ - Código fuente JavaScript.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
+|   ├── browser/ - Código de inicialización del proceso principll Javascript.
+|   |   └── api/ - Implementación de la API Javascript.
+|   ├── common/ - JavaScript usado por ambos procesos, main y renderer
+|   |   └── api/ - Implementación de API Javascript.
+|   └── renderer/ - Javascript Código de inicialización del proceso renderer.
 |       └── api/ - Implementación API Javascript.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
