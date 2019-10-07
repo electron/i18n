@@ -43,9 +43,8 @@ Nosotros necesitamos generar un archivo patch desde cada patch que Node aplica a
 ```sh
 $ cd third_party/electron_node
 $ CURRENT_NODE_VERSION=vX.Y.Z
-# Find the last commit with the message "deps: update V8 to <some version>"
-# This commit corresponds to Node resetting V8 to its pristine upstream
-# state at the stated version.
+# Encuentre el último commit con el mensaje "deps: update V8 to <some version>"
+# Este commit corresponde a Node reseteando V8 a su estado inicial en el versión indicada.
 $ LAST_V8_UPDATE="$(git log --grep='^deps: update V8' --format='%H' -1 deps/v8)"
 # This creates a patch file containing all changes in deps/v8 from
 # $LAST_V8_UPDATE up to the current Node version, formatted in a way that
