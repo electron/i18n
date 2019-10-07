@@ -48,16 +48,16 @@ Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son part
 ## Estructura de otros directorios
 
 * **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
-* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
+* **tools** - Scripts de ayuda usados por los archivos GN, a diferencia `script`, los scripts colocado aquí nunca deberían ser invocados directamente por los usuarios.
 * **proveedor** - Código de fuente de las dependencias de terceros, nosotros no usamos `third_party` como un nombre debido a que se confundiría con el mismo directorio en el arbol de código de Chromium.
 * **Nodos de módulo** - Nodos de módulo de terceros usados para compilar.
 * **afuera** - temporalmente afuera del directorio de `ninja`.
 * **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **external_binaries** - Binarios descargados de terceros los cuales no soportan la construcción con `gn`.
 
 ## Mantener los submódulos de Git actualizados
 
-El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Ocasionalmente podrás ver un mensaje como este cuando esté ejecutándose `git status`:
+El repositorio Electronico tiene unas dependencias distribuidas, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Ocasionalmente podrás ver un mensaje como este cuando esté ejecutándose `git status`:
 
 ```sh
 $ git status
