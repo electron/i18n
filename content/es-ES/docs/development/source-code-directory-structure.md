@@ -1,4 +1,4 @@
-# Estructura de directorios del código fuente
+# Estructura del directorio de código fuente
 
 El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
@@ -11,9 +11,8 @@ Electron
 ├── atom/ - Código fuente C++.
 |   ├── app/ - Código de entrada al sistema.
 |   ├── browser/ - El frontend incluyendo la ventana principal, la interfaz de usuario y todo lo relacionado al
-|   |   |          proceso main. This talks to the renderer to manage web
-|   |   |          pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
+|   |   |          proceso main. Esto habla con el renderizador para manejar páginas web.
+|   |   ├── ui/ - Implementación de la cosas de  interfaz de usuario para las diferentes plataformas.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
 |   |   |   ├── win/ - Windows GUI specific source code.
 |   |   |   └── x/ - X11 specific source code.
