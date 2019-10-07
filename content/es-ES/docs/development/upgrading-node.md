@@ -26,7 +26,7 @@ En resumidas cuentas, los principales pasos son:
 1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
 2. Crea una ramificación en https://github.com/electron/node: `electron-node-vX.X.X` la base en la que está ramificando es la etiqueta para la actualización deseada 
   - `vX.X.X` Debe usar una versión de Node compatible con nuestra actual versión de Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
+3. Re aplicar nuestras confirmaciones desde la versión anterior de Node que nosotros estábamos usando (`vY.Y.Y`) to `v.X.X.X` 
   - Revise la etiqueta de liberación y selecciona el rango de encomendares que necesitamos para volver a aplicar
   - Escoger el rango de encomendares: 
     1. Revisa los `vY.Y.Y` & `v.X.X.X`
@@ -46,11 +46,10 @@ $ CURRENT_NODE_VERSION=vX.Y.Z
 # Encuentre el último commit con el mensaje "deps: update V8 to <some version>"
 # Este commit corresponde a Node reseteando V8 a su estado inicial en el versión indicada.
 $ LAST_V8_UPDATE="$(git log --grep='^deps: update V8' --format='%H' -1 deps/v8)"
-# This creates a patch file containing all changes in deps/v8 from
-# $LAST_V8_UPDATE up to the current Node version, formatted in a way that
-# it will apply cleanly to the V8 repository (i.e. with `deps/v8`
-# stripped off the path and excluding the v8/gypfiles directory, which
-# isn't present in V8.
+# Esto crea un archivo patch que contiene todos los cambios en deps/v8 desde 
+# $LAST_V8_UPDATE encima de la versión actual de Node, formateado en una forma que 
+# será aplicado limpiamente al repositorio V8 (Por ejemplo, con `deps/v8` desplazando del camino y excluyendo los directorios v8/gypfiles).
+# los cuales no están presente en V8.
 $ git format-patch \
     --relative=deps/v8 \
     $LAST_V8_UPDATE..$CURRENT_NODE_VERSION \
@@ -60,11 +59,11 @@ $ git format-patch \
     > ../../electron/common/patches/v8/node_v8_patches.patch
 ```
 
-This list of patches will probably include one that claims to make the V8 API backwards-compatible with a previous version of V8. Unfortunately, those patches almost always change the V8 API in a way that is incompatible with Chromium.
+Esta lista de parches probablemente incluya uno reivindique para hacer que la API V8 sea compatible con versiones anteriores con una versión anterior de V8. Desafortunadamente, estos parches casi siempre cambian la API V8 de una manera incompatible con Chromium.
 
-It's usually easier to update Node to work without the compatibility patch than to update Chromium to work with the compatibility patch, so it's recommended to revert the compatibility patch and fix any errors that arise when compiling Node.
+Generalmente es más fácil actualizar Node para funcionar sin el parche de compatibilidad que actualizar Chromium para trabajar con el parche de compatibilidad, por lo que se recomienda revertir el parche de compatibilidad y corregir cualquier error que surja al compilar Node.
 
-## Actualiza el archivo `DEPS` de Electron
+## Actualizar el archivo `DEPS` de Electron
 
 Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
 
