@@ -2,9 +2,9 @@
 
 ## Discusión
 
-Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
+Chromium y Node.js ambos dependen de V8 y Electron solo contiene un copia simple de V8, por tanto es importante asegurarse que el versión de V8 elegida es compatible con la versión de construccion de Node.js y Chromium.
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+La actualización del nodo es mucho más fácil que actualizar Chromium, así que se producen menos conflictos si se actualiza primero Chromium, luego elige la versión del Node principal cuya versión de V8 está más cercana a la que contiene Chromium.
 
 Electron tiene su propio [Node fork](https://github.com/electron/node) con modificaciones para los detalles de construcción del V8 mencionados anteriormente y para exponer el API necesitado por Electron. Una vez que se elija la liberación del nodo ascendente, es colocado en una ramificación en la bifurcación del Nodo de Electron y cualquier parche del Nodo del Electron son colocados ahí.
 
@@ -18,8 +18,8 @@ En resumidas cuentas, los principales pasos son:
 
 1. Actualizar la bifurcación del Nodo de Electron a la versión deseada
 2. Hacerle un backport a los parches V8 del Nodo a nuestra copia V8
-3. Update the GN build files, porting changes from node's GYP files
-4. Update Electron's DEPS to use new version of Node
+3. Actualizar los archivos GN build, portando cambios de los archivos GYP de Node
+4. Actualizar DEPS de Electron para usar la nueva versión de Node
 
 ## Actualizando la [bifurcación](https://github.com/electron/node) del Nodo del Electrón
 
@@ -38,7 +38,7 @@ En resumidas cuentas, los principales pasos son:
 
 ## Actualizando Parches [V8](https://github.com/electron/node/src/V8)
 
-We need to generate a patch file from each patch that Node applies to V8.
+Nosotros necesitamos generar un archivo patch desde cada patch que Node aplica al V8.
 
 ```sh
 $ cd third_party/electron_node
