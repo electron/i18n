@@ -13,18 +13,17 @@ Electron
 |   ├── browser/ - El frontend incluyendo la ventana principal, la interfaz de usuario y todo lo relacionado al
 |   |   |          proceso main. Esto habla con el renderizador para manejar páginas web.
 |   |   ├── ui/ - Implementación de la cosas de  interfaz de usuario para las diferentes plataformas.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       |         including some utility functions and code to integrate node's
-|       |         message loop into Chromium's message loop.
+|   |   |   ├── cocoa/ - Código fuente específico de Cocoa.
+|   |   |   ├── win/ - Código fuente específico de Windows GUI.
+|   |   |   └── x/ - Código fuente especifico de X11.
+|   |   ├── api/ - La implementación de las APIs del proceso principal.
+|   |   ├── net/ - Código relacionado con la red.
+|   |   ├── mac/ - Código fuente especifico Mac  Objective-C.
+|   |   └── resources/ - Iconos, archivos dependiente de la plataforma, etc.
+|   ├── renderer/ - Código que corre en el proceso renderizador.
+|   |   └── api/ - La implementación de las APIs del proceso renderizador.
+|   └── common/ - Código que se usa por ambos procesos, main y el renderer, incluye algunos funciones útiles
+|       |         y código para integrar el bucle de mensaje de node dentro de bucle de mensaje de Chromium.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
 ├── chromium_src/ - Source code copied from Chromium. Vea abajo.
