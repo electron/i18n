@@ -81,4 +81,4 @@ Actualizar el archivo `DEPS` en la raíz de [electron/electron](https://github.c
   - Electron mantiene todos sus parches en el repositorio porque es más sencillo que mantener diferentes repositorios para parches por cada proyecto superior. 
     - Crashpad, Node.js, Chromium, Skia, etc. todos los parches se guardan en el mismo lugar
   - Construcción de Node: 
-    - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
+    - Mantenemos nuestros propios archivos de compilación GN para Node.js para hacer más fácil asegurar que todos se construye con las mismas banderas de compilador. Esto quiere decir que cada vez que actualizamos Node.js necesitamos hacer una modesta cantidad de trabajo para sincronizar los archivos GN con los archivos GYP upstream.
