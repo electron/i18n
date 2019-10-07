@@ -105,23 +105,23 @@ Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por 
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
+    <title>Revisión de Codec Propietario</title>
   </head>
   <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p>Revisar si Electron esta usando codecs propietarios cargando video de http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
     <p id="outcome"></p>
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
       video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
+          document.querySelector('#outcome').textContent = 'No se usa codecs propietarios, la fuente de vídeo emitida no soporta el evento de error.'
         } else {
-          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
+          document.querySelector('#outcome').textContent = `Error inesperado: ${target.error.code}`
         }
       })
       video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
+        document.querySelector('#outcome').textContent = 'Usando códecs propietarios, el vídeo comenzó a reproducirse.'
       })
     </script>
   </body>
