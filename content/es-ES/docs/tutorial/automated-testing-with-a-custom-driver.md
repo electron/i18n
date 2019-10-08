@@ -13,24 +13,24 @@ var env = { /* ... */ }
 var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
+// escucha por un mensaje IPC desde la aplicación
 appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// envía un mensaje IPC a la aplicación 
 appProcess.send({ my: 'message' })
 ```
 
 Desde dentro de la aplicación Electron, puedes escuchar mensajes y enviar respuestas usando la API de Node.js [process](https://nodejs.org/api/process.html):
 
 ```js
-// listen for IPC messages from the test suite
+// escuchar por mensajes IPC desde el suite de prueba
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// enviar un mensaje IPC al suite de prueba
 process.send({ my: 'message' })
 ```
 
