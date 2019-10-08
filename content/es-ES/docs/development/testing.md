@@ -2,7 +2,7 @@
 
 Nuestro objetivo es mantener la cobertura de código de electrón alto. Pedimos que todas la solicitudes de extracción requeridas no solo pasen todas las pruebas existentes, lo ideal seria añadir nuevas pruebas para cubrir los cambios en el código y nuevos escenarios. Asegurando que capturamos muchas rutas de código y casos de uso de Electrón es posible asegurar que todas las aplicaciones tengan menos errores.
 
-Este repositorio viene con reglas de borrado tanto para JavaScript como para C++ – así como pruebas de unidad e integración. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
+Este repositorio viene con reglas de borrado tanto para JavaScript como para C++ – así como pruebas de unidad e integración. Para aprender más sobre el estilo de código de Electron, por favor vea el documento [coding-style](coding-style.md).
 
 ## Borrador
 
@@ -18,8 +18,7 @@ No hay mucho de Python en este repositorio, pero también se rige por las reglas
 
 Para ejecutar todas las pruebas de unidad, ejecute `npm run test`. Las pruebas de unidad son una aplicación de Electrón(¡sorpresa!) que puede encontrarse en la carpeta de `spec`. Tenga en cuenta que tiene su propio `package.json` y que sus dependencias por lo tanto no se definen en el nivel superior `package.json`.
 
-To run only specific tests matching a pattern, run `npm run test --
--g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
+Para correr solo pruebas especificas que coincidan con un patrón, corra `npm run test -- -g=PATTERN`, reempleazando el `PATTERN` con una expresión regular que coinciden con los test que le gustaría correr. Como un ejemplo: Si solo quiere correr pruebas IPC, usted debería correr `npm run test -- -g ipc`.
 
 ### Probando en dispositivos Windows 10
 
