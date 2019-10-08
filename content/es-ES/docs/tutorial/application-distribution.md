@@ -119,7 +119,7 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde pondrá las cabeceras Node.js headers tanto como los símbolos
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+* `ELECTRON_RELEASE` - Establece a `true` y la parte cargada se ejecutará, deja intacto y `surf-build` hará las comprobaciones de tipo CI apropiadas para correr por cada pull request.
 * `CI` - Configurar a `true` o algo distinto hará que falle
 * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - configurar `C:\Temp` en Windows para evitar problemas con rutas muy largas
@@ -127,6 +127,6 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 1. En `script/upload.py`, se *debe* configurar `ELECTRON_REPO` a la bifurcación (`MYORG/electron`), especialmente si eres un contribuidor formal de Electron.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+2. `surf-build -r https://github.com/MYORG/electron -s TU_COMMIT -n 'surf-PLATFORM-ARCH'`
 
 3. Espere un tiempo muy, muy largo para que se complete la compilación.
