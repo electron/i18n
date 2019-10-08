@@ -6,24 +6,24 @@ Esta guía explica cómo integrar su aplicación en los entornos de esas computa
 
 ## Notificaciones
 
-See the [Notifications documentation](notifications.md).
+Ver la [Notifications documentation](notifications.md).
 
 ## Documentos recientes
 
-See [Recent Documents documentation](recent-documents.md).
+Ver [Recent Documents documentation](recent-documents.md).
 
 ## Barra de progreso
 
-See the [Progress Bar documentation](progress-bar.md).
+Ver la [Progress Bar documentation](progress-bar.md).
 
 ## Lanzador Unity
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Ver [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## Archivo representado para la ventana macOS
 
-See the [Represented File documentation](represented-file.md).
+Ver [Represented File documentation](represented-file.md).
 
 ## Arrastrando archivos fuera de la ventana
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+Ver [Native File Drag & Drop documentation](native-file-drag-drop.md).
