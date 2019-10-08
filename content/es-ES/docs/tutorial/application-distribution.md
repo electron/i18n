@@ -3,8 +3,8 @@
 Para distribuir su aplicación con Electron, necesita empaquetarla y darle una identidad. La manera más fáciul de llevarlo a cabo es usar alguna de las siguientes herramientas de empaquetado:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
-* [Electron-builder](https://github.com/electron-userland/electron-builder)
-* [Empaquetador de Electron](https://github.com/electron/electron-packager)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron/electron-packager)
 
 Estas herramientas tendrán en consideración todos los pasos que se necesitan para finalizar con una aplicación Electron lista para ser distribuida, a saber: empaquetado de su aplicación, identificar el ejecutable, configurar los íconos apropiados y opcionalmente crear los instaladores.
 
