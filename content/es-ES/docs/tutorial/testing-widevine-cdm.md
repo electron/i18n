@@ -6,17 +6,17 @@ Widevine Content Decryption Modules (CDMs) es la forma en que los servicios de s
 
 #### Nota sobre VMP
 
-As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
+A partir de [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), los siguientes pasos pueden ser sólo algunos de los pasos necesarios para habilitar Widevine; cualquier aplicación en o después de esa versión que pretenda usar el Widevine CDM puede necesitar firmarse utilizando una licencia obtenida de [Widevine](https://www.widevine.com/) en sí mismo.
 
 Por [Widevine](https://www.widevine.com/):
 
-> Chrome 59 (and later) includes support for Verified Media Path (VMP). VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
+> Chrome 59 (y superiores) incluyen soporte para Verified Media Path (VMP). VMP proporciona un método para verificar la autenticidad de una plataforma de dispositivos. Para las implementaciones de navegadores, esto proporcionará una señal adicional para determinar si una implementación basada en navegador es fiable y segura.
 > 
-> The proxy integration guide has been updated with information about VMP and how to issue licenses.
+> La guía de integración del proxy ha sido actualizada con información acerca de VMP y como y cómo emitir licencias.
 > 
-> Widevine recommends our browser-based integrations (vendors and browser-based applications) add support for VMP.
+> Widevine recomienda que nuestras integraciones basadas en el navegador (vendedores y aplicaciones basadas en el navegador) añadan soporte para VMP.
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+Para habilitar la reproducción de video con esta nueva restricción, ha sido creado [castLabs](https://castlabs.com/open-source/downstream/) un [fork](https://github.com/castlabs/electron-releases) que tiene implementado los cambios necesarios para habilitar Wedevine para ser reproducido en una aplicación Electron si uno ha obtenida las licencias necesarias desde widevine.
 
 ## Obtener la librería
 
