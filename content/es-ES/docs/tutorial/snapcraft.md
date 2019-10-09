@@ -58,7 +58,7 @@ Desde una terminal que tenga `snapcraft` en su `PATH`, ejecute `electron-install
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+Si tiene un pipeline de construcción existente, puede usar `electron-installer-snap` programáticamente. Para más información, ver el [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
@@ -69,7 +69,7 @@ snap(options)
 
 ## Usando un paquete de Debian existente
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft es capaz de tomar un archivo `.deb` existente y convertirlo en un archivo `.snap`. La creación de un a snap es configurado usando un archivo `snapcraft.yaml` que describe las fuentes, dependencias, descripción y otros bloques de construcción.
 
 ### Paso 1: Crear un paquete Debian
 
@@ -77,7 +77,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Para más información sobre las opciones de configuraciones disponibles, vea la [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Veamos un ejemplo:
 
 ```yaml
 name: myApp
@@ -122,7 +122,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Como puedes ver, el `snapcraft.yaml` le indica al sistema que lance un archivo llamado `electron-launch`. En este ejemplo, pasa la información al binario de la aplicación:
 
 ```sh
 #!/bin/sh
@@ -130,7 +130,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Alternativamente, si esta construyendo su `snap` con aislamiento `strict`, puede usar el comando `desktop-launch`:
 
 ```yaml
 apps:
