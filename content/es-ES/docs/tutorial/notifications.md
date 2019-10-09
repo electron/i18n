@@ -18,7 +18,7 @@ Si bien el código y la experiencia del usuario en los sistemas operativos son s
 
 ## Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu.
+* En Windows 10, un acceso directo a tú aplicación con el [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) debe ser instalado en el Start Menu.
 * On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Sin embargo, tenga en cuenta que no es necesario fijarlo a la pantalla de Inicio.
 * En Windows 7, las notificaciones funcionan a través de una implementación personalizada que se asemeja visualmente a la nativa en los sistemas más nuevos.
 
