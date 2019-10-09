@@ -105,7 +105,7 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ### ¿Còmo?
 
 ```js
-// Bad
+// Incorrecto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -117,7 +117,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// Correcto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
