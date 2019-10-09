@@ -1,10 +1,10 @@
 # Documentos Recientes (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows y macOS proveen acceso a una lista de documentos recientes abierto por la aplicación a través de JumpList or dock menu, respectivamente.
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Archivos Recientes de JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Menú de Aplicaciones:**
 
