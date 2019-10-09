@@ -13,7 +13,7 @@ const menu = new Menu()
 menu.append(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { console.log('hora de imprimir cosas') }
 }))
 ```
 
@@ -75,6 +75,6 @@ Mousetrap.bind('* a', () => { console.log('select all') })
 
 // ¡Código Konami!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('konami code')
+  console.log('código konami')
 })
 ```
