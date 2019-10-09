@@ -48,9 +48,9 @@ A continuación hay una tabla relacionado explícitamente los tipos de cambios c
 | Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
 | Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Tenga en cuenta que la mayoría de la actualizaciones de Chromium serán consideradas breaking. Las soluciones que puedan ser retro adaptadas probablemente serán adoptadas como parches.
 
-# Ramas estabilizadoras
+# Ramas de estabilización
 
 Las ramas estabilizadoras son ramas que corren paralelas a la maestra, tomando solo un compromiso escogido que esté relacionado con la seguridad o la estabilidad. Estas ramas nunca son combinadas con la maestra.
 
