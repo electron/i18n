@@ -30,7 +30,7 @@ Además, en Windows 8, la longitud máxima para el cuerpo de la notificación es
 
 Las versiones posteriores de Windows permiten notificaciones avanzadas, con plantillas personalizadas, imágenes y otros elementos flexibles. Para enviar esas notificaciones (ya sea desde el proceso principal o desde el procesador), use el módulo de usuario [electron-windows-notificaciones](https://github.com/felixrieseberg/electron-windows-notifications), que usa complementos de nodo nativos para enviar `ToastNotification` y objetos `TileNotification`.
 
-While notifications including buttons work with `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Mientras las notificaciones incluyen botones funcionan con `electron-windows-notifications`, las respuestas de manejo requieren el uso de [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), que ayuda al registro de los componentes COM requeridos y llama a tu aplicación Electron con los datos de usuario ingresados.
 
 ### Horas Silenciosas / Modo de Presentación
 
@@ -40,7 +40,7 @@ Esto le permite determinar de antemano si Windows enviará o no la notificación
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Las notificaciones son directas en macOS, pero usted debe ser conciente de [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Tenga en cuenta que las notificaciones están limitadas a 256 bytes de tamaño y se truncarán si supera ese límite.
 
