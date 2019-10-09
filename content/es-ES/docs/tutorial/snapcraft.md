@@ -16,11 +16,11 @@ En todos los casos. deberás de tener la herramienta `snapcraft` instalada. Te r
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Mientras que *is possible* instalar `snapcraft` en macOS usando Homebrew, no es posible construir paquetes `snap` y esta enfocado en administrar paquetes de la tienda.
 
 ## Usando `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. Puede instalarlo con:
+El módulo trabaja como [`electron-winstaller`](https://github.com/electron/windows-installer) y módulos similares en este ámbito está limitado para construir paquetes snap. Puede instalarlo con:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Paso 1: Empaqueta tu aplicación Electron
 
-Empaquetar la aplicación usando [electron-packager](https://github.com/electron/electron-packager) (o una herramienta similar). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Empaquetar la aplicación usando [electron-packager](https://github.com/electron/electron-packager) (o una herramienta similar). Asegúrese de eliminar los `node_modules` que no necesita en su aplicación final, ya que cualquier módulo que actualmente no necesite aumentará el tamaño de su aplicación.
 
 La salida debería verse más o menos de esta forma:
 
@@ -52,7 +52,7 @@ La salida debería verse más o menos de esta forma:
 
 ### Paso 2: Ejecutando `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+Desde una terminal que tenga `snapcraft` en su `PATH`, ejecute `electron-installer-snap` solo con el parámetro requerido `--src`, el cual es la ubicación de su aplicación empaquetada Electron que se creo en el primer paso.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
