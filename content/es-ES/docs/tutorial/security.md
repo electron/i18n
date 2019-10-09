@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
 
 Tu puedes haber visto pedidos de permiso mientras usas Chrome: Ellos avisan lo que sea que la página intente usar como una característica que el usuario tiene que aprobar manualmente (como notificaciones).
 
