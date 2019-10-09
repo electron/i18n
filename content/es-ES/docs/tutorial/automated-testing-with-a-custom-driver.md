@@ -13,24 +13,24 @@ var env = { /* ... */ }
 var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
+// escucha por un mensaje IPC desde la aplicación
 appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// envía un mensaje IPC a la aplicación 
 appProcess.send({ my: 'message' })
 ```
 
 Desde dentro de la aplicación Electron, puedes escuchar mensajes y enviar respuestas usando la API de Node.js [process](https://nodejs.org/api/process.html):
 
 ```js
-// listen for IPC messages from the test suite
+// escuchar por mensajes IPC desde el suite de prueba
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// enviar un mensaje IPC al suite de prueba
 process.send({ my: 'message' })
 ```
 
@@ -43,13 +43,13 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
+    // iniciar procesos hijos
+    env.APP_TEST_DRIVER = 1 // hazle saber a la aplicación que debe escuchar los mensajes
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
+    // manejar las respuestas rpc
     this.process.on('message', (message) => {
-      // pop the handler
+      // Destruye el manejador
       var rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
@@ -58,15 +58,15 @@ class TestDriver {
       else rpcCall.resolve(message.resolve)
     })
 
-    // wait for ready
+    // esperar a que este listo
     this.isReady = this.rpc('isReady').catch((err) => {
-      console.error('Application failed to start', err)
+      console.error('La aplicación fallo ', err)
       this.stop()
       process.exit(1)
     })
   }
 
-  // simple RPC call
+  // simple llamada RPC 
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
     // send rpc request

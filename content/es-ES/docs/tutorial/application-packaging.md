@@ -60,7 +60,7 @@ Use un módulo del archivo:
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Además puede mostrar una página web en un archivo `asar` con `BrowserWindow`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -123,7 +123,7 @@ Las APIs que requieren de un desempaquetado extra son:
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - Usado por `require` en módulos nativos
 
 ### Información estadística falsa de `fs.stat`
 

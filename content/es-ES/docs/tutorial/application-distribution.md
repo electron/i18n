@@ -3,8 +3,8 @@
 Para distribuir su aplicación con Electron, necesita empaquetarla y darle una identidad. La manera más fáciul de llevarlo a cabo es usar alguna de las siguientes herramientas de empaquetado:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
-* [Electron-builder](https://github.com/electron-userland/electron-builder)
-* [Empaquetador de Electron](https://github.com/electron/electron-packager)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron/electron-packager)
 
 Estas herramientas tendrán en consideración todos los pasos que se necesitan para finalizar con una aplicación Electron lista para ser distribuida, a saber: empaquetado de su aplicación, identificar el ejecutable, configurar los íconos apropiados y opcionalmente crear los instaladores.
 
@@ -119,7 +119,7 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde pondrá las cabeceras Node.js headers tanto como los símbolos
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
+* `ELECTRON_RELEASE` - Establece a `true` y la parte cargada se ejecutará, deja intacto y `surf-build` hará las comprobaciones de tipo CI apropiadas para correr por cada pull request.
 * `CI` - Configurar a `true` o algo distinto hará que falle
 * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - configurar `C:\Temp` en Windows para evitar problemas con rutas muy largas
@@ -127,6 +127,6 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 1. En `script/upload.py`, se *debe* configurar `ELECTRON_REPO` a la bifurcación (`MYORG/electron`), especialmente si eres un contribuidor formal de Electron.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+2. `surf-build -r https://github.com/MYORG/electron -s TU_COMMIT -n 'surf-PLATFORM-ARCH'`
 
 3. Espere un tiempo muy, muy largo para que se complete la compilación.

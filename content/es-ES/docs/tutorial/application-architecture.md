@@ -1,4 +1,4 @@
-# Arquitectura de Aplicación Electron
+# Arquitectura de una Aplicación Electron
 
 Antes de que podamos entrar a fondo en las APIs de Electron, necesitamos discutir los dos tipos de procesos disponibles en Electron. Son fundamentalmente diferentes e importantes de entender.
 
@@ -45,8 +45,7 @@ const win = new BrowserWindow()
 Desde que la comunicación entre procesos es posible, un proceso visualizador puede llamar el proceso principal para realizar tareas. Electron viene con un módulo llamado `remote` que expone las APIs usualmente solo disponibles en el proceso principal. Con el fin de crear un `BrowserWindow` desde un proceso visualizador, usaremos el remoto como un intermediario:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Esto trabajará en un proceso renderer, pero será `undefined` en el proceso principal
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -82,7 +81,7 @@ npm install --save aws-sdk
 Luego, en la aplicación Electron, haga un require y use el módulo como si estuviera construyendo una applicación Node.js:
 
 ```javascript
-// A ready-to-use S3 Client
+// Un cliente S3 listo para usar
 const S3 = require('aws-sdk/clients/s3')
 ```
 

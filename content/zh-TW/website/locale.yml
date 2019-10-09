@@ -13,7 +13,7 @@ nav:
   releases: 版本發佈
   search: 搜尋
   userland: 使用者園地
-  governance: Governance
+  governance: 治理
 keyboard_modal:
   title: 鍵盤快速鍵
   key: Key
@@ -32,7 +32,7 @@ docs:
   api_structures: API 結構
   advanced: 進階
   detailed: In Detail
-  custom_dom: Custom DOM Elements
+  custom_dom: 自訂 DOM 元素
   main_proc_modules: Main Process Modules
   renderer_proc_modules: Renderer Process Modules
   both_proc_modules: Modules for Both Process Types
@@ -53,8 +53,8 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>開始使用</b></a> Electron 建立 <a href='/docs/tutorial/first-app'>Quick Start 快速入門導引</a> 應用程式。"
     updates: "追蹤 Twitter 上的 <a href='https://twitter.com/electronjs'>@electronjs</a> 並訂閱 <a href='/blog'>Blog 摘要</a>以便<a href='https://twitter.com/electronjs'><b>了解最新消息</b></a>。"
     localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "加入 <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>，在 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 貼文或是拜訪 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> 可以<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>得到幫忙與回饋</b></a>。"
+    security: "<a href='mailto:security@electronjs.org'><b>將資安問題回報到</b></a>電子郵件信箱 <a href='mailto:security@electronjs.org'>security@electronjs.org</a>。"
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 來<a href='https://github.com/electron/electron/issues'><b>請求新增功能</b></a>。"
     code_of_conduct: "寄電子郵件到 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 可以回報<a href='mailto:coc@electronjs.org'><b>違反行為準則的行為</b></a>。"
@@ -146,6 +146,7 @@ apps:
   search_app: 依名稱、描述…篩選應用程式
   categories: 類別
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">建立 Pull Request</a> 加入您的應用程式。'
+  #App show page specific localization strings
   website: 網站
   repository: 儲存庫
   category: 類別
@@ -156,6 +157,7 @@ apps:
 blog:
   title: Electron 部落格
   description: 來自 Electron 團隊及社群的最新消息。
+  #Post show page specific localization strings
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
   help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
@@ -209,7 +211,7 @@ pages:
     title: Electron Fiddle
     description: 開始使用 Electron 的最簡單途徑
   '/governance':
-    title: Electron Governance
+    title: Electron 治理
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: 贊助者
@@ -228,39 +230,39 @@ landing:
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 governance:
-  title: Electron Governance
+  title: Electron 治理
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  wgs: 工作小組
   docstools:
-    title: Docs & Tools
+    title: 文件及工具
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
-    title: Outreach
+    title: 推廣
     description: Grows the Electron community
   releases:
     title: 版本發佈
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: 升級
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: 網站
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: 社群與安全
     description: Oversees removal/bans from community.
   security:
     title: 安全性
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
+    title: 管理
     description: The Administrative Working Group oversees the entire governance and project.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: 概述
+    associated_repos: 相關儲存庫
+    notes: 會議紀錄
   definitions:
-    title: Definitions
+    title: 定義
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
@@ -268,7 +270,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: 責任
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
