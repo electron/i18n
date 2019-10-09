@@ -13,7 +13,7 @@ nav:
   releases: 版本發佈
   search: 搜尋
   userland: 使用者園地
-  governance: Governance
+  governance: 治理
 keyboard_modal:
   title: 鍵盤快速鍵
   key: Key
@@ -146,6 +146,7 @@ apps:
   search_app: 依名稱、描述…篩選應用程式
   categories: 類別
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">建立 Pull Request</a> 加入您的應用程式。'
+  #App show page specific localization strings
   website: 網站
   repository: 儲存庫
   category: 類別
@@ -156,6 +157,7 @@ apps:
 blog:
   title: Electron 部落格
   description: 來自 Electron 團隊及社群的最新消息。
+  #Post show page specific localization strings
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
   help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
@@ -230,9 +232,9 @@ landing:
 governance:
   title: Electron Governance
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  wgs: 工作小組
   docstools:
-    title: Docs & Tools
+    title: 文件及工具
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
@@ -260,7 +262,7 @@ governance:
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
-    title: Definitions
+    title: 定義
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
@@ -268,7 +270,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: 責任
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
