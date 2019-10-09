@@ -103,21 +103,21 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
 
   // Muestra el nombre y precio de cada producto.
   products.forEach(product => {
-    console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
+    console.log(`El precio de  ${product.localizedTitle} es ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // Pregunta al usuario cual producto el/ella quiere comprar.
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
   // Compra el producto seleccionado.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
-      console.log('The product is not valid.')
+      console.log('El producto no es válido.')
       return
     }
 
-    console.log('The payment has been added to the payment queue.')
+    console.log('El pago se ha añadido a la cola de pagos.')
   })
 })
 ```
