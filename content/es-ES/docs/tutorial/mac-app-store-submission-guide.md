@@ -2,7 +2,7 @@
 
 Desde su V0.34.0, Electron permite introducir paquetes de aplicaciones a la Mac App Store (MAS). Esta guía provee información de: Como presentar tu aplicación y las limitaciones de la estructura del MAS.
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**Note:** Para enviar un aplicación a la App Store de Mac es necesario inscribirse en el [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), el cual cuesta dinero.
 
 ## Como presentar su aplicación
 
@@ -20,7 +20,7 @@ Antes de firmar su aplicación, necesita conocer la identificaicón del equipo d
 
 Después de los trabajos preparativos, puede empacar su aplicación siguiendo [Distribución de la aplicación](application-distribution.md), y después firmando su aplicación.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+Primero, usted tiene que agregar una llave `ElectronTeamID` al `Info.plist` de tu aplicación el cual tiene el ID de tu grupo como su valor:
 
 ```xml
 <plist version="1.0">
@@ -195,7 +195,7 @@ Vea la [documentación sobre la habilitación del acceso del usuario a archivos 
 
 ## Algoritmos criptográficos utilizados por Electron
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
+Dependiendo de los países en los que estás lanzando tu aplicación, puedes ser necesario proporcionar información sobre los algoritmos criptográficos utilizados en tu software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron usa los siguientes algoritmos criptográficos:
 
