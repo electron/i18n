@@ -8,7 +8,7 @@ En macOS y Linux, los detalles del plugin Pepper Flash pueden ser encontrado nav
 
 ## Agregar interruptor de Electron
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+Usted puede agregar directamente `--ppapi-flash-path` y `--ppapi-flash-version` a la línea de comando de Electron usando el método `app.commandLine.appendSwitch` antes evento ready de la aplicación. Además, activa la opción `plugins` de `BrowserWindow`.
 
 Por ejemplo:
 
@@ -16,7 +16,7 @@ Por ejemplo:
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Especifica la ruta a flash, suponiendo que es colocado en el mismo directorio con main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -31,7 +31,7 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// Opcional: Especifica la versión de flash, por ejemplo, v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
 app.on('ready', () => {
@@ -43,15 +43,15 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // algo más
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+También puede intentar cargar el plugin de Pepper Flash en lugar de enviar los plugins usted mismo, su ruta puede ser recibida llamando a `app.getPath('pepperFlashSystemPlugin')`.
 
 ## Habilite el complemento Flash en una `<webview>` etiqueta
 
-Add `plugins` attribute to `<webview>` tag.
+Agregue el atributo `plugins` al la etiqueta `<webview>`.
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
@@ -59,10 +59,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## Problemas
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Usted puede comprobar si el plugin Pepper Flasha sido cargado inspeccionando `navigator.plugins` en la consola devtools (aunque no se puede saber si la ruta del plugin es correcta).
 
 La arquitectura del complemento de Pepper Flash debe coincidir con la de Electron. En Windows, un error común es usar la versión de 32 bits del complemento Flash contra la versión de 64 bits de Electrón.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+En Windows la ruta pasada a `--ppapi-flash-path` tiene que usar `` como delimitador de ruta, usando el estilo de rutas POSIX no funcionará.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. Una forma de lograr esto, es usar [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Para algunas operaciones, como streaming de medios usando RTMP, es necesario conceder permisos más amplios a los reproductores de archivos `.swf`. Una forma de lograr esto, es usar [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
