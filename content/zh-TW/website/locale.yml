@@ -32,7 +32,7 @@ docs:
   api_structures: API 結構
   advanced: 進階
   detailed: In Detail
-  custom_dom: Custom DOM Elements
+  custom_dom: 自訂 DOM 元素
   main_proc_modules: Main Process Modules
   renderer_proc_modules: Renderer Process Modules
   both_proc_modules: Modules for Both Process Types
@@ -211,7 +211,7 @@ pages:
     title: Electron Fiddle
     description: 開始使用 Electron 的最簡單途徑
   '/governance':
-    title: Electron Governance
+    title: Electron 治理
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: 贊助者
@@ -249,13 +249,13 @@ governance:
     title: 網站
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: 社群與安全
     description: Oversees removal/bans from community.
   security:
     title: 安全性
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
+    title: 管理
     description: The Administrative Working Group oversees the entire governance and project.
   global:
     overview: Overview
