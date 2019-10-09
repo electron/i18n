@@ -102,9 +102,9 @@ Por cada cambio mayor y menor, debería esperar ver algo como lo siguiente:
 Un ejemplo del ciclo de vida en imágenes:
 
 - Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+- Una corrección de error viene al master que puede ser adoptado a la rama de lanzamiento. El parche es aplicado y una nueva beta es publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 - El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
-- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- Más tarde, se reveló un exploit de día cero y se aplica una solución a master. Adoptamos la solución a la línea `2-0-x` y liberamos `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
@@ -122,11 +122,11 @@ Como consideración futura, podemos introducir uno o ambos de los siguientes:
 
 Banderas de características son prácticas comunes en Chromium, y son bien establecidas en el ecosistema de diseño web. En el contexto de Electron, banderas de características o **ramas suaves** deben seguir las siguientes propiedades:
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+- está habilitado/deshabilitado en tiempo de ejecución o en tiempo de construcción, no soportamos el concepto de una bandera de característica alcance por solicitud
 - segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
-- feature flags are eventually removed after the feature is released
+- las banderas de características eventualmente son removidas después de que la característica es lanzada
 
-# Semantic Commits
+# Commits semánticos
 
 Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Comenzando con `2.0.0` necesitaremos retirar solicitudes adheridas a la especificación [Conventional Commits](https://conventionalcommits.org/), la cual se puede resumir como:
 
