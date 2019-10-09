@@ -1,4 +1,4 @@
-# Escribiendo tu primera App con Electron
+# Escribiendo tu primera aplicación Electron
 
 Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
 
@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // y carga el  index.html de la aplicación.
   win.loadFile('index.html')
 }
 
@@ -116,7 +116,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // y carga el index.html de la aplicación.
   win.loadFile('index.html')
 
   // Abre las herramientas de desarrollo (DevTools).
