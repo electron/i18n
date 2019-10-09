@@ -179,19 +179,17 @@ const mainWindow = new BrowserWindow({
 ```js
 // Preload script
 
-// Set a variable in the page before it loads
+// Establece una variable en la página antes de que sea cargado
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// La página cargada no podrá acceder a ella, sólo está disponible en esta contexto
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // Saldrá del sistema 'undefined' ya que window.foo sólo está disponible en el contexto principal
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // Saldrá del sistema 'bar' dado que window.bar esta disponible en este contexto 
   console.log(window.bar)
 })
 ```
@@ -276,10 +274,10 @@ CSP permite que el servidor dando contenido pueda restringir y controlar los rec
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
 ```plaintext
-// Bad
+// Incorrecto
 Content-Security-Policy: '*'
 
-// Good
+// Correcto
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
@@ -310,7 +308,7 @@ El mecanismo de entrega preferido de CSP es una cabecera HTTP, sin embargo no es
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) No establecer `allowRunningInsecureContent` a `true`
 
 *La recomendación por defecto es Electrón*
 
@@ -338,7 +336,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 8) Do Not Enable Experimental Features
+## 8) No Habilitar características experimentales
 
 *La recomendación por defecto es Electrón*
 
@@ -353,7 +351,7 @@ Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciend
 ### ¿Còmo?
 
 ```js
-// Bad
+// Incorrecto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -362,11 +360,11 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Correcto
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) No use `enableBlinkFeatures`
 
 *La recomendación por defecto es Electrón*
 
@@ -379,7 +377,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 ### ¿Còmo?
 
 ```js
-// Mal
+// Incoreccto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -388,11 +386,11 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Correcto
 const mainWindow = new BrowserWindow()
 ```
 
-## 10) Do Not Use `allowpopups`
+## 10) No use `allowpopups`
 
 *La recomendación por defecto es Electrón*
 
@@ -412,7 +410,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 <webview src="page.html"></webview>
 ```
 
-## 11) Verify WebView Options Before Creation
+## 11) Verificar las opciones de WebView antes de la creación
 
 Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
