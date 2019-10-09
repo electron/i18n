@@ -10,7 +10,7 @@ El Unity DE también tiene una función similar que le permite especificar la ba
 
 ![Barra de progreso de la barra de tareas](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-Los tres casos están cubiertos por la misma API - el método `setProgressBar()` disponible en estancias de `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+Los tres casos están cubiertos por la misma API - el método `setProgressBar()` disponible en estancias de `BrowserWindows`. Llame al método con un número entre `0` y `1` para indicar tu progreso. Si usted tiene una tarea de larga ejecución que actualmente está al 63% hacia la finalización, lo llamaríamos con `setProgressBar(0.63)`.
 
 Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
 
