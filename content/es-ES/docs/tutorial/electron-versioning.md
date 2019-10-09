@@ -130,17 +130,17 @@ Banderas de características son prácticas comunes en Chromium, y son bien esta
 
 Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Comenzando con `2.0.0` necesitaremos retirar solicitudes adheridas a la especificación [Conventional Commits](https://conventionalcommits.org/), la cual se puede resumir como:
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-- Commits that would result in a semver **minor** bump must start with `feat:`.
-- Commits that would result in a semver **patch** bump must start with `fix:`.
+- Los commits que resultarían en un **major** semver deben empezar su cuerpo con `BREAKING CHANGE:`.
+- Los commits que resultarían en un **minor** sember deben empezar con `feat:`.
+- Los commits que resultarían en un **patch** semver deben empezar con `fix:`.
 
 - Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- Es aceptable que algunos compromisos en una solicitud de pull no incluyan un prefijo semántico, siempre que el título de pull request contenga un mensaje semántico significativo.
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+- La rama `master` siempre contendrá la siguiente versión mayor `X.0.0-nightly.DATE` en su `package.json`
 - Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
 - Las ramas de versión *do*contienen la versión correcta en su `package.json`
 - Tan pronto como una rama de lanzamiento sea cortada par un versión mayor, la rama master debe ser adelantada a la siguiente versión mayor. Ejemplo `master` siempre es versionado como teóricamente la próxima rama de lanzamiento
