@@ -1,7 +1,7 @@
 # ProcessMetric Object
 
 * `pid` Integer - 프로세스의 ID
-* `type` String - Process type. One of the following values: 
+* `type` String - 프로세스 타입. 다음 값들 중 하나를 가짐: 
   * `Browser`
   * `Tab`
   * `Utility`
