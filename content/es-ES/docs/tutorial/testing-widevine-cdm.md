@@ -2,21 +2,21 @@
 
 En Electron usted puede usar la librería de Widevine CDM conectado con el navegador Chrome.
 
-Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Widevine Content Decryption Modules (CDMs) es la forma en que los servicios de streaming protegen el contenido utilizando vídeo HTML5 en los navegadores web sin depender de un plugin NPAPI como Flash o Silverlight. El soporte Widevine es un solución alternativa para los servicios de streaming que actualmente depende de Silverlight para la reproducción contenido de video protegidos por DRM. Esto permitirá a sitios web mostrar contenido de video protegidos con DRM en Firefox sin el uso de plugins NPAPI. El Widevine CDM corre en un sandbox open-source que proporciona mejor seguridad que los plugins NPAPI.
 
 #### Nota sobre VMP
 
-As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
+A partir de [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), los siguientes pasos pueden ser sólo algunos de los pasos necesarios para habilitar Widevine; cualquier aplicación en o después de esa versión que pretenda usar el Widevine CDM puede necesitar firmarse utilizando una licencia obtenida de [Widevine](https://www.widevine.com/) en sí mismo.
 
 Por [Widevine](https://www.widevine.com/):
 
-> Chrome 59 (and later) includes support for Verified Media Path (VMP). VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
+> Chrome 59 (y superiores) incluyen soporte para Verified Media Path (VMP). VMP proporciona un método para verificar la autenticidad de una plataforma de dispositivos. Para las implementaciones de navegadores, esto proporcionará una señal adicional para determinar si una implementación basada en navegador es fiable y segura.
 > 
-> The proxy integration guide has been updated with information about VMP and how to issue licenses.
+> La guía de integración del proxy ha sido actualizada con información acerca de VMP y como y cómo emitir licencias.
 > 
-> Widevine recommends our browser-based integrations (vendors and browser-based applications) add support for VMP.
+> Widevine recomienda que nuestras integraciones basadas en el navegador (vendedores y aplicaciones basadas en el navegador) añadan soporte para VMP.
 
-To enable video playback with this new restriction, [castLabs](https://castlabs.com/open-source/downstream/) has created a [fork](https://github.com/castlabs/electron-releases) that has implemented the necessary changes to enable Widevine to be played in an Electron application if one has obtained the necessary licenses from widevine.
+Para habilitar la reproducción de video con esta nueva restricción, ha sido creado [castLabs](https://castlabs.com/open-source/downstream/) un [fork](https://github.com/castlabs/electron-releases) que tiene implementado los cambios necesarios para habilitar Wedevine para ser reproducido en una aplicación Electron si uno ha obtenida las licencias necesarias desde widevine.
 
 ## Obtener la librería
 
@@ -45,7 +45,7 @@ const { app, BrowserWindow } = require('electron')
 // * `libwidevinecdm.dylib` en macOS,
 // * `widevinecdm.dll` en Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
-// The version of plugin can be got from `chrome://components` page in Chrome.
+// La versión del plugin puede ser obtenida desde la pagina `chrome://components` en Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null

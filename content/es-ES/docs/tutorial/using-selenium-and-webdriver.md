@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Una prueba simple para verificar una ventana visible es abriendo con un titulo
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,19 +24,19 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Check if the window is visible
+    // Revisa si la ventana es visible
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
+    // Verifica si la ventana esta visible
     assert.strictEqual(isVisible, true)
     // Get the window's title
     const title = await app.client.getTitle()
     // Verify the window's title
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Log any failures
-    console.error('Test failed', error.message)
+    // Registra cualquier fallo
+    console.error('Prueba fallida', error.message)
   }
-  // Stop the application
+  // Para la aplicación
   await app.stop()
 }
 
@@ -68,7 +68,7 @@ $ npm install selenium-webdriver
 
 ### 3. Conecte a ChromeDriver
 
-The usage of `selenium-webdriver` with Electron is the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+El uso de `selenium-webdriver` con Electron es el mismo con upstream, excepto que usted tiene que especificar manualmente como conectar chrome driver y donde se encuentra el binario de Electron:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
@@ -125,8 +125,8 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Use localhost como un servidor de chrome driver
+  port: 9515, // "9515" es el puerto abierto por chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
@@ -151,6 +151,6 @@ client
 
 ## Flujo de trabajo
 
-To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+Para probar su aplicación sin reconstruir Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) el fuente de su aplicación en el directorio de recursos de Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Alternativamente, pasa un argumento para ejecutar con su binario de Electron que apunta a la carpeta de tu aplicación. Esto elimina la necesidad de copiar-pegar tu aplicación en el directorio de recursos de Electron.

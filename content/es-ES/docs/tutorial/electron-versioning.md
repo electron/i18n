@@ -48,9 +48,9 @@ A continuación hay una tabla relacionado explícitamente los tipos de cambios c
 | Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
 | Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Tenga en cuenta que la mayoría de la actualizaciones de Chromium serán consideradas breaking. Las soluciones que puedan ser retro adaptadas probablemente serán adoptadas como parches.
 
-# Ramas estabilizadoras
+# Ramas de estabilización
 
 Las ramas estabilizadoras son ramas que corren paralelas a la maestra, tomando solo un compromiso escogido que esté relacionado con la seguridad o la estabilidad. Estas ramas nunca son combinadas con la maestra.
 
@@ -75,20 +75,20 @@ Sin importar lo que elija, periódicamente tendrá que golpear su versión en su
 
 El proceso es el siguiente:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, por ejemplo. `2.0.0-beta.1`. Después de la primera beta, las versiones beta que la sigan deben cumplir con las siguientes condiciones: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. p.e. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+1. Todas las lineas de lanzamientos mayores y menores empiezan con una serie de betas indicado por las etiquetas prerelease de semver `beta.N`, por ejemplo. `2.0.0-beta.1`. Después de la primera beta, las versiones beta que la sigan deben cumplir con las siguientes condiciones: 
+    1. El cambio es compatible con API hacia atrás (se permiten las deprecaciones)
+    2. El riesgo de cumplir con nuestro cronograma de estabilidad debe ser bajo.
+2. Si es necesario hacer cambios permitidos una vez que la versión es beta, se aplican los cambios y la etiqueta prerelease is encrementado, Por ejemplo `2.0.0-beta.2`.
+3. Si una versión beta en particular es *generally regarded* como estable, será reenviado como una versión estable, cambiando sólo la información de la versión. p.e. `2.0.0`. Después le primera versión estable, todos los cambios deben ser compatibles con versiones anteriores, correcciones de error o de seguridad.
+4. Si correcciones futura de errores o parches de seguridad se hacen deben una vez que la versión sea estable, esas correcciones son aplicadas y la versión *patch* es incrementada, Por ejemplo `2.0.1`.
 
 Específicamente, lo anterior significa:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+1. Admitir cambios no-rompibles de la API antes de la semana 3 en el ciclo beta está bien, incluso si esos cambios tienen el potencial de causar efectos secundarios moderados
+2. Admitir cambios marcados por la función, que no alteran de otra manera las rutas de código existentes, en la mayoría de los puntos del ciclo beta está bien. Los usuarios pueden habilitar explícitamente esos parámetros en sus aplicaciones.
 3. Admitting features of any sort after Week 3 in the beta cycle is 
 
-For each major and minor bump, you should expect to see something like the following:
+Por cada cambio mayor y menor, debería esperar ver algo como lo siguiente:
 
 ```plaintext
 2.0.0-beta.1
@@ -102,9 +102,9 @@ For each major and minor bump, you should expect to see something like the follo
 Un ejemplo del ciclo de vida en imágenes:
 
 - Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+- Una corrección de error viene al master que puede ser adoptado a la rama de lanzamiento. El parche es aplicado y una nueva beta es publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 - El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
-- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- Más tarde, se reveló un exploit de día cero y se aplica una solución a master. Adoptamos la solución a la línea `2-0-x` y liberamos `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
@@ -122,25 +122,25 @@ Como consideración futura, podemos introducir uno o ambos de los siguientes:
 
 Banderas de características son prácticas comunes en Chromium, y son bien establecidas en el ecosistema de diseño web. En el contexto de Electron, banderas de características o **ramas suaves** deben seguir las siguientes propiedades:
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+- está habilitado/deshabilitado en tiempo de ejecución o en tiempo de construcción, no soportamos el concepto de una bandera de característica alcance por solicitud
 - segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
-- feature flags are eventually removed after the feature is released
+- las banderas de características eventualmente son removidas después de que la característica es lanzada
 
-# Semantic Commits
+# Commits semánticos
 
 Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Comenzando con `2.0.0` necesitaremos retirar solicitudes adheridas a la especificación [Conventional Commits](https://conventionalcommits.org/), la cual se puede resumir como:
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-- Commits that would result in a semver **minor** bump must start with `feat:`.
-- Commits that would result in a semver **patch** bump must start with `fix:`.
+- Los commits que resultarían en un **major** semver deben empezar su cuerpo con `BREAKING CHANGE:`.
+- Los commits que resultarían en un **minor** sember deben empezar con `feat:`.
+- Los commits que resultarían en un **patch** semver deben empezar con `fix:`.
 
 - Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- Es aceptable que algunos compromisos en una solicitud de pull no incluyan un prefijo semántico, siempre que el título de pull request contenga un mensaje semántico significativo.
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+- La rama `master` siempre contendrá la siguiente versión mayor `X.0.0-nightly.DATE` en su `package.json`
 - Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
 - Las ramas de versión *do*contienen la versión correcta en su `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- Tan pronto como una rama de lanzamiento sea cortada par un versión mayor, la rama master debe ser adelantada a la siguiente versión mayor. Ejemplo `master` siempre es versionado como teóricamente la próxima rama de lanzamiento

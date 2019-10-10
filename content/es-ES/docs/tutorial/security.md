@@ -105,7 +105,7 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ### ¿Còmo?
 
 ```js
-// Bad
+// Incorrecto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -117,7 +117,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// Correcto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
@@ -179,24 +179,22 @@ const mainWindow = new BrowserWindow({
 ```js
 // Preload script
 
-// Set a variable in the page before it loads
+// Establece una variable en la página antes de que sea cargado
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// La página cargada no podrá acceder a ella, sólo está disponible en esta contexto
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // Saldrá del sistema 'undefined' ya que window.foo sólo está disponible en el contexto principal
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // Saldrá del sistema 'bar' dado que window.bar esta disponible en este contexto 
   console.log(window.bar)
 })
 ```
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) Gestionar las solicitudes de permiso de sesión desde el contenido remoto
 
 Tu puedes haber visto pedidos de permiso mientras usas Chrome: Ellos avisan lo que sea que la página intente usar como una característica que el usuario tiene que aprobar manualmente (como notificaciones).
 
@@ -276,10 +274,10 @@ CSP permite que el servidor dando contenido pueda restringir y controlar los rec
 El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
 ```plaintext
-// Bad
+// Incorrecto
 Content-Security-Policy: '*'
 
-// Good
+// Correcto
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
@@ -310,7 +308,7 @@ El mecanismo de entrega preferido de CSP es una cabecera HTTP, sin embargo no es
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) No establecer `allowRunningInsecureContent` a `true`
 
 *La recomendación por defecto es Electrón*
 
@@ -338,7 +336,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 8) Do Not Enable Experimental Features
+## 8) No Habilitar características experimentales
 
 *La recomendación por defecto es Electrón*
 
@@ -353,7 +351,7 @@ Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciend
 ### ¿Còmo?
 
 ```js
-// Bad
+// Incorrecto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -362,11 +360,11 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Correcto
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) No use `enableBlinkFeatures`
 
 *La recomendación por defecto es Electrón*
 
@@ -379,7 +377,7 @@ En general, probablemente hay buenas razones si una función no fue habilitada p
 ### ¿Còmo?
 
 ```js
-// Mal
+// Incoreccto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableBlinkFeatures: 'ExecCommandInJavaScript'
@@ -388,11 +386,11 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Bueno
+// Correcto
 const mainWindow = new BrowserWindow()
 ```
 
-## 10) Do Not Use `allowpopups`
+## 10) No use `allowpopups`
 
 *La recomendación por defecto es Electrón*
 
@@ -412,7 +410,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 <webview src="page.html"></webview>
 ```
 
-## 11) Verify WebView Options Before Creation
+## 11) Verificar las opciones de WebView antes de la creación
 
 Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
@@ -431,14 +429,14 @@ Antes que la etiqueta [`<webview>`](../api/webview-tag.md) sea adjuntada, Electr
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // Elimine los scripts de precarga si no se utilizan o verifique que su ubicación sea legítima.
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Disable Node.js integration
+    // Dishabilite la integración Node.js
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
+    // Verifique la URL que se está cargando
     if (!params.src.startsWith('https://example.com/')) {
       event.preventDefault()
     }
@@ -478,7 +476,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) Deshabilite o limite la creación de nuevas ventasnas
 
 Si tienes un conjunto de ventanas conocido, es una buena idea limitar la creación de ventanas adicionales en tu aplicación.
 
@@ -497,8 +495,8 @@ const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
   contents.on('new-window', async (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+    // En este ejemplo, preguntaremos al sistema operativo
+    // para abrir la url de este evento en el navegador prodeterminado.
     event.preventDefault()
 
     await shell.openExternal(navigationUrl)
@@ -506,7 +504,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Do not use `openExternal` with untrusted content
+## 14) No use `openExternal` con contenido no confiable
 
 El [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) de Shell permite abrir un protocolo URI dado con las utilidades nativas del escritorio. En macOS, a modo de ejemplo, esta función es similar a la utilidad de comando de terminal `open` y abrirá la aplicación especifica basado en la URI y en el tipo de archivo asociado.
 
@@ -517,13 +515,13 @@ El uso indebido de [`openExternal`](../api/shell.md#shellopenexternalurl-options
 ### ¿Còmo?
 
 ```js
-//  Bad
+// Incorrecto
 const { shell } = require('electron')
 shell.openExternal(USER_CONTROLLED_DATA_HERE)
 ```
 
 ```js
-//  Good
+//  Correcto
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
@@ -545,12 +543,12 @@ Deshabilitar el modulo `remote` elimina estos vectores de ataque. Activando el c
 ### ¿Còmo?
 
 ```js
-// Bad if the renderer can run untrusted content
+// Incorrecto si el renderer puede correr contenido no confiable
 const mainWindow = new BrowserWindow({})
 ```
 
 ```js
-// Good
+// Correcto
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: false
@@ -559,7 +557,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```html
-<!-- Malo si el renderizado no puede ejecutar contenido no confiable  -->
+<!-- Malo si el renderizador puede ejecutar contenido no confiable  -->
 <webview src="page.html"></webview>
 
 <!-- Bueno -->
@@ -579,7 +577,7 @@ Tenga en cuenta que la opción más segura es [fully disable the remote module](
 ### ¿Còmo?
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+const readOnlyFsProxy = require(/* ... */) // expone sólo la funcionalidad de lectura del archivo
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])

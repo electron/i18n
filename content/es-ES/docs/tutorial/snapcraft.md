@@ -16,11 +16,11 @@ En todos los casos. deberás de tener la herramienta `snapcraft` instalada. Te r
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Mientras que *is possible* instalar `snapcraft` en macOS usando Homebrew, no es posible construir paquetes `snap` y esta enfocado en administrar paquetes de la tienda.
 
 ## Usando `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. Puede instalarlo con:
+El módulo trabaja como [`electron-winstaller`](https://github.com/electron/windows-installer) y módulos similares en este ámbito está limitado para construir paquetes snap. Puede instalarlo con:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Paso 1: Empaqueta tu aplicación Electron
 
-Empaquetar la aplicación usando [electron-packager](https://github.com/electron/electron-packager) (o una herramienta similar). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Empaquetar la aplicación usando [electron-packager](https://github.com/electron/electron-packager) (o una herramienta similar). Asegúrese de eliminar los `node_modules` que no necesita en su aplicación final, ya que cualquier módulo que actualmente no necesite aumentará el tamaño de su aplicación.
 
 La salida debería verse más o menos de esta forma:
 
@@ -52,13 +52,13 @@ La salida debería verse más o menos de esta forma:
 
 ### Paso 2: Ejecutando `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+Desde una terminal que tenga `snapcraft` en su `PATH`, ejecute `electron-installer-snap` solo con el parámetro requerido `--src`, el cual es la ubicación de su aplicación empaquetada Electron que se creo en el primer paso.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+Si tiene un pipeline de construcción existente, puede usar `electron-installer-snap` programáticamente. Para más información, ver el [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
@@ -69,7 +69,7 @@ snap(options)
 
 ## Usando un paquete de Debian existente
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft es capaz de tomar un archivo `.deb` existente y convertirlo en un archivo `.snap`. La creación de un a snap es configurado usando un archivo `snapcraft.yaml` que describe las fuentes, dependencias, descripción y otros bloques de construcción.
 
 ### Paso 1: Crear un paquete Debian
 
@@ -77,7 +77,7 @@ Si aún no tienes listo un paquete `.deb`, usando `electron-installer-snap` podr
 
 ### Paso 2: Creando un snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Para más información sobre las opciones de configuraciones disponibles, vea la [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Veamos un ejemplo:
 
 ```yaml
 name: myApp
@@ -122,7 +122,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+Como puedes ver, el `snapcraft.yaml` le indica al sistema que lance un archivo llamado `electron-launch`. En este ejemplo, pasa la información al binario de la aplicación:
 
 ```sh
 #!/bin/sh
@@ -130,7 +130,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Alternativamente, si esta construyendo su `snap` con aislamiento `strict`, puede usar el comando `desktop-launch`:
 
 ```yaml
 apps:
