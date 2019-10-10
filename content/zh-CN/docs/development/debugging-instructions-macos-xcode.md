@@ -2,13 +2,13 @@
 
 ### 为调试源代码生成Xcode项目（无法从Xcode构建代码）
 
-Run `gn gen` with the --ide=xcode argument.
+运行 `gn gen` 并带上 --ide=xcode 参数
 
 ```sh
 $ gn gen out/Debug --ide=xcode
 ```
 
-This will generate the electron.ninja.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
+这会生成 electron.ninja.xcworkspace。 您需要打开这个工作区来设置断点和检查。
 
 See `gn help gen` for more information on generating IDE projects with GN.
 
