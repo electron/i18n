@@ -43,16 +43,16 @@ app.on('ready', () => {
 
 ## 可用的普通按键
 
-* `0` to `9`
-* `A` to `Z`
-* `F1` to `F24`
+* `0` 到 `9`
+* `A` 到 `Z`
+* `F1` 到 `F24`
 * 类似`~`, `!`, `@`, `#`, `$`的标点符号
 * `Plus`
 * `Space`
 * `Tab`
 * `大写锁定（Capslock）`
 * `数字锁定（Numlock）`
-* `Scrolllock`
+* `滚动锁定`
 * `Backspace`
 * `Delete`
 * `Insert`
