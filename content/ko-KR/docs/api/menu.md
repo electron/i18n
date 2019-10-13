@@ -90,7 +90,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### 인스턴스 이벤트
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+`new Menu`로 생성되거나 `Menu.buildFromTemplate`의 결과로 반환된 객체들은 다음과 같은 이벤트들을 발생시킵니다
 
 **참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
@@ -260,7 +260,7 @@ macOS는 Window나 Linux와는 완전히 다른 어플리케이션 메뉴 스타
 
 ### 표준 메뉴
 
-On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. 당신이 만든 메뉴가 일반적인 메뉴처럼 보이게 하기 위해서는, 메뉴의 `role`을 다음의 가이드 중 하나로 설정해야합니다. Electron은 설정을 인식하여, 표준 메뉴로 만들게 됩니다.
+MacOS에는 [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) 혹은 `Windows` 와 같은, 시스템에서 정의된 표준 메뉴들이 있습니다. 당신이 만든 메뉴가 일반적인 메뉴처럼 보이게 하기 위해서는, 메뉴의 `role`을 다음의 가이드 중 하나로 설정해야합니다. Electron은 설정을 인식하여, 표준 메뉴로 만들게 됩니다.
 
 * `window`
 * `help`
