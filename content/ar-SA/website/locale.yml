@@ -13,12 +13,12 @@ nav:
   releases: اﻹصدارات
   search: بحث
   userland: مساحة المستخدم
-  governance: Governance
+  governance: مدیریت
 keyboard_modal:
   title: Keyboard Shortcuts
   key: النوع
   action: النشاط
-  focus_search: Focus the search bar
+  focus_search: فوکوس روی نوار جستجو
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
   scroll_up: Select the previous search result
@@ -50,7 +50,7 @@ community:
   title: مجتمع Electron
   description: موارد للتواصل مع العاملين في Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>ابق على اطلاع</b></a> من خلال متابعتنا <a href='https://twitter.com/electronjs'>@electronjs</a> في تويتر والاشتراك في <a href='/blog'>المدونة</a>."
     localized_docs: "<a href='/languages'><b>اطلع على التوثيقات بلغتك الأم</b></a> من خلال زيارة <a href='/languages'>صفحة اللغات</a>."
     help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
@@ -146,6 +146,7 @@ apps:
   search_app: تصفية التطبيقات حسب الاسم والوصف وغير ذلك…
   categories: الاقسام
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">قم بعمل طلب سحب</a> لإضافة التطبيق الخاص بك.'
+  #App show page specific localization strings
   website: موقع الكتروني
   repository: مستودع
   category: الفئة
@@ -156,6 +157,7 @@ apps:
 blog:
   title: مدونة إلكترون
   description: آخر الأخبار من فريق ومجتمع إلكترون.
+  #Post show page specific localization strings
   feedback: هل لديك ملاحظات حول هذا الموضوع؟ دع Let <a href="https://twitter.com/electronjs">@electronjs</a> يعلم بأمرها.
   help: هل انت بحاجة للمساعدة، أم انك عثرت على خطأ؟ <a href="/contact">راسلنا</a>.
 clipboard:
