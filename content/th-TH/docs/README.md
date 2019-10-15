@@ -80,10 +80,10 @@ Please make sure that you use the documents that match your Electron version. �
   * [ผู้รับมอบฉันทะ](tutorial/installation.md#proxies)
   * [กระจกและแคชที่กำหนดเอง](tutorial/installation.md#custom-mirrors-and-caches)
   * [วิธีแก้ปัญหาเบื้องต้น](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
+* Versiones Electron & Comentarios de desarrollador 
+  * [Versiebeleidid](tutorial/electron-versioning.md)
+  * [Calendrier de release9996](tutorial/electron-timelines.md)
+  * [525678310522769](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
   * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
