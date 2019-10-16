@@ -2,7 +2,7 @@
 
 * `id` Number - 代表顯示區的唯一識別數字
 * `rotation` Number - 螢幕畫面的順時鐘旋轉角度，度數可以是 0、90、180 或 270。
-* `scaleFactor` Number - Output device's pixel scale factor.
+* `scaleFactor` Number - 輸出裝置的像素比例
 * `touchSupport` String - 可以是 `available`、`unavailable`、`unknown`。
 * `monochrome` Boolean - Whether or not the display is a monochrome display.
 * `accelerometerSupport` String - Can be `available`, `unavailable`, `unknown`.
