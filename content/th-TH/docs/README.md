@@ -126,7 +126,7 @@ Please make sure that you use the documents that match your Electron version. �
 * [รายการบนเมนู](api/menu-item.md)
 * [เน็ต](api/net.md)
 * [เน็ตล็อค](api/net-log.md)
-* [Notification](api/notification.md)
+* [การแจ้งเตือน](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
