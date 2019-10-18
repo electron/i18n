@@ -146,16 +146,18 @@ apps:
   search_app: Uygulamaları ada, açıklamaya vb. Göre filtreleyin…
   categories: Kategoriler
   add_app_link: 'Uygulamanızı eklemek için <a href="https://github.com/electron/electron-apps#readme"> Çekme İsteği Yapın </a>.'
+  #App show page specific localization strings
   website: Web sitesi
   repository: Veri Havuzu
   category: Kategori
-  downloads: İndirilenler
+  downloads: İndirilenlere
   keywords: Anahtar Kelimeler
   license: Lisans
   latest_release: En son sürüm
 blog:
   title: Electron Bloğu
   description: Electron takım ve topluluğundan en sonki haberler.
+  #Post show page specific localization strings
   feedback: Bu yayına geri bildiriminiz mi var? Twitter'da <a href="https://twitter.com/electronjs"> @electronjs </a> adresini bilgilendirin.
   help: Yardıma mı ihtiyacınız var ya da bir hata mı buldunuz? <a href="/contact"> Bize ulaşın </a>.
 clipboard:
