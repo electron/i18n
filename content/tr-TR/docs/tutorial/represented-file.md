@@ -2,13 +2,13 @@
 
 MacOS'taki bir pencere temsil edilen dosyasını ayarlayabilir, böylelikle dosyanın simgesi başlık çubuğunda gösterilebilir ve kullanıcılar Komut Tuşu'na veya Kontrol Tuşu'na tıkladığında açılır.
 
-Bir pencerenin düzenlenmiş durumunu ayarlayabilirsiniz, böylece dosya simgesi bu penceredeki belgenin değiştirilmiş olup olmadığını gösterebilir.
+You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
 
-**Temsil dosya açılan menüsü:**
+**Represented file popup menu:**
 
 ![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-Gösterilen pencerenin dosyasını ayarlamak için [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) ve [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) API'lerini kullanabilirsiniz:
+To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 
 ```javascript
 const { BrowserWindow } = require('electron')
