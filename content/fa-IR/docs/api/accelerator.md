@@ -1,4 +1,4 @@
-# Accelerator
+# شتابدهنده
 
 > Define keyboard shortcuts.
 
