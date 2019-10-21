@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# Guida di Stile Documentazione Electron
 
 Queste sono le linee guida per scrivere la documentazione di Electron.
 
@@ -104,35 +104,35 @@ Usando `autoUpdatet` come esempio:
 Usando le classi `Sessione` e `Cookie` come esempio:
 
 ```markdown
-# session
+# sessione
 
-## Methods
+## Metodi
 
-### session.fromPartition(partition)
+### session.fromPartition(partizione)
 
-## Static Properties
+## Proprietà Statiche
 
 ### session.defaultSession
 
-## Class: Session
+## Classe: Sessione
 
-### Instance Events
+### Istanza Eventi
 
-#### Event: 'will-download'
+#### Evento: 'will-download'
 
-### Instance Methods
+### Metodi Istanza
 
-#### `ses.getCacheSize()`
+#### 'ses.getCacheSize()'
 
-### Instance Properties
+### Proprietà Istanza
 
-#### `ses.cookies`
+### 'ses.cookies'
 
-## Class: Cookies
+## Classe: Cookies
 
-### Instance Methods
+### Metodi Istanza
 
-#### `cookies.get(filter, callback)`
+#### 'cookies.get(filter, callback)'
 ```
 
 ### Metodi
