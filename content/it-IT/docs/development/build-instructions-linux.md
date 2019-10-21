@@ -59,7 +59,7 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Similarmente per `arm64`, installa i seguenti:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
