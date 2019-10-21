@@ -138,7 +138,7 @@ npm uninstall -g electron
 
 Tuttavia, se si sta utilizzando il modulo integrato ma si riceve ancora questo errore, è molto probabile che si stia utilizzando il modulo nel processo sbagliato. Per esempio `elettron.app` può essere utilizzato solo nel processo principale, mentre `elettron.webFrame` è disponibile solo nei processi di rendering.
 
-## The font looks blurry, what is this and what can I do?
+## Il carattere sembra sfocato, che cos'è e cosa posso fare?
 
 Se [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) è disattivato, allora i font sugli schermi LCD possono sembrare sfocati. Esempio:
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+L'effetto è visibile solo su (alcuni?) schermi LCD. Anche se non vedi una differenza, alcuni dei tuoi utenti potrebbero. Sempre meglio impostare così lo sfondo, a meno che tu non abbia ragioni di non farlo.
 
 Nota che solo impostare lo sfondo nel CSS non ha l'effetto desiderato.
