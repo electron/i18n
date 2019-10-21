@@ -41,7 +41,7 @@ Le altre fasi di costruzione sono esattamente le stesse.
 
 ## Progetto Visual Studio
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+Per generare un progetto Visual Studio, puoi passare il parametro `-- ide=vs2017` a `gn gen`:
 
 ```powershell
 $ gn gen out/Debug --ide=vs2017
@@ -49,46 +49,46 @@ $ gn gen out/Debug --ide=vs2017
 
 ## Risoluzione dei problemi
 
-### Command xxxx not found
+### Comando xxxx non trovato
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Se hai incontrato un errore come `Comando xxxx non trovato` potresti provare ad usare la console `VS2015 Prompt dei Comandi` per eseguire gli script di costruzione.
 
-### Fatal internal compiler error: C1001
+### Errore fatale nel compilatore interno: C1001
 
 Assicurati di aver installato l'ultimo aggiornamento di Visual Studio.
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: impossibile aprire il file di input 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Prova a reinstallare Node.js 32 bit.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Errore: ENOENT, stat 'C:\Utenti\NOMEUTENTE\AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Creare questa directory [dovrebbe risolvere il problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp non è riconosciuto come comando interno o esterno
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Puoi ottenere questo errore se stai usando Git Bash per costruire, dovresti usare, invece, PowerShell o il Prompt dei Comandi VS2015.
 
-### cannot create directory at '...': Filename too long
+### impossibile creare la directory a '...' Nome file troppo lungo
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js ha alcuni [nomi di percorso estremamente lunghi](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), e per impostazione predefinita non gestisce i nomi di percorso lunghi in modo corretto (anche se windows li supporta). Questo dovrebbe correggerlo:
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### errore: uso dell'identificatore non dichiarato 'DefaultDelegateCheckMode'
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+Ciò può succedere durante la costruzione, quando gli Strumenti di Debug per Windows sono stati installati con il Kit Driver di Windows. Disinstalla il Kit Driver Windows ed installa gli Strumenti di Debug con i passaggi sopra descritti.
 
 ### Errore di importazione: nessun modulo denominato win32file
 
 Assicurati di aver installato `pywin32` con `pip install pywin32`.
 
-### Build Scripts Hang Until Keypress
+### Costruisci Script Hang Until Keypress
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+Questo bug è una "funzionalità" del prompt dei comandi di Windows. Succede quando si clicca all'interno della finestra del prompt con `QuickEdit` abilitato ed è inteso per consentire la selezione e la copia del testo di output in modo facile. Visto che ogni click accidentale metterà in pausa il processo di costruzione, potresti voler disabilitare questa funzionalità nelle proprietà del prompt dei comandi.
