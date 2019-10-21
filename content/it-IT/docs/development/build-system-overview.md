@@ -1,8 +1,8 @@
 # Panoramica sul sistema di compilazione
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron usa [GN](https://gn.googlesource.com/gn) per la generazione del progetto e [ninja](https://ninja-build.org/) per costruire. Le configurazioni del progetto possono essere trovate nei file `.gn` e `.gni`.
 
-## GN Files
+## File GN
 
 The following `gn` files contain the main rules for building Electron:
 
