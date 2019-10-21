@@ -110,4 +110,4 @@ I numeri delle versioni di V8 corrispondono sempre a quelli di Google Chrome. Ch
 
 ### webview
 
-I tag `webview` sono usati per incorporare contenuti 'guest' (come pagine web esterne) nella tua app Electron. Sono simili ad `iframe` ma differiscono nel fatto che ogni vista web viene eseguita in un processo separato. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+I tag `webview` sono usati per incorporare contenuti 'guest' (come pagine web esterne) nella tua app Electron. Sono simili ad `iframe` ma differiscono nel fatto che ogni vista web viene eseguita in un processo separato. Non ha alcuni permessi come la tua pagina web e tutte le interazioni tra la tua app ed i contenuti incorporati saranno asincroni. Questo mantiene la tua app al sicuro dal contenuto incorporato.
