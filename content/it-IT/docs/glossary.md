@@ -22,25 +22,25 @@ Input Method Editor. Un programma che consente agli utenti di immettere caratter
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Lingua di descrizione interfaccia. Scrivi le firme delle funzioni ed i tipi di dato in un formato che può essere usato per generare interfacce in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC sta per Comunicazione Inter-processo. Electron usa IPC per inviare messaggi JSON serializzati tra processi [principali](#main-process) e di [render](#renderer-process).
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+Una libreria condivisa che include il [modulo Contenuto Chromium](https://www.chromium.org/developers/content-module) e tutte le sue dipendenze (es. Blink, [V8](#v8), etc.). Anche riferito come "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### processo principale
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. Il processo principale è responsabile della creazione di ogni nuovo processo di rendering nell'app. L'intera API Node è integrata.
+Il processo principale, comunemente un file nominato `main.js` è il punto di accesso ad ogni app Electron. Controlla la vita dell'app, dall'apertura alla chiusura. Gestisce anche elementi nativi come il Menu, la Barra dei Menu, il Dock, il Tray, etc. Il processo principale è responsabile della creazione di ogni nuovo processo di rendering nell'app. L'intera API Node è integrata.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Ogni processo principale dell'app è specificato nella proprietà `principale` in `package.json`. Così `electron` sa quale file eseguire all'avvio.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+In Chromium, questo processo è definito come il "processo browser". Esso è rinominato in Electron per evitare confusione con i processi di render.
 
 Vedi anche: [processo](#process), [processo di rendering](#renderer-process)
 
