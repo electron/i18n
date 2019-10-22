@@ -66,6 +66,6 @@ Example Use Case:
 
 8. Modifica il VM come richiesto.
 
-9. Shut down the VM and then delete it in Azure.
+9. Spegni VM ed eliminala in Azure.
 
-10. Add the new image to the Appveyor Cloud settings or modify an existing image to point to the new VHD.
+10. Aggiungi la nuova immagine alle impostazioni Appveyor Cloud o modifica un'immagine esistente per puntare il nuovo VHD.
