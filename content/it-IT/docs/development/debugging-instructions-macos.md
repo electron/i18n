@@ -1,16 +1,16 @@
 # Debugging su macOS
 
-Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. Comunque, usando lldb, ed il codice sorgente di Electron, puoi abilitare il debug passo dopo passo con breakpoint interni al codice sorgente di Electron. Puoi anche usare [XCode per il debug](debugging-instructions-macos-xcode.md) se preferisci un'interfaccia grafica.
 
 ## Requisiti
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
+* **Una build di debug di Electron**: Il modo più semplice è di solito costruirlo da se, usando gli strumenti ed i prerequisiti elencati nelle [istruzioni di costruzione per macOS](build-instructions-macos.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Oltre ad Xcode, installa anche gli strumenti di linea di comando. Includono LLDB, il debugger predefinito in Xcode su Mac OS X. Supporta il debug di C, Objective-C e C++ su dispositivi desktop ed iOS e simulatori.
 
 ## Allegare a e Debug Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+Per iniziare una sessione di debug, apri il Terminale ed avvia `lldb` passando una build di debug di Electron come parametro.
 
 ```sh
 $ lldb ./out/Debug/Electron.app
@@ -20,11 +20,11 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 ### Impostare Breakpoint
 
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDB è un potente strumento e supporta multiple strategie per l'ispezione del codice. Per questa introduzione di base, supponiamo che si stia chiamando un comando da JavaScript che non si sta comportando correttamente - quindi vorresti rompere sulla controparte di questo comando C++ all'interno della sorgente di Electron.
 
 I file di codice rilevanti possono essere trovati in `./atom/`.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Supponiamo si voglia fare il debug di `app.setName()`, che è definito in `browser.cc` come `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
