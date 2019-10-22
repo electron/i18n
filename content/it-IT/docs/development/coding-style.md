@@ -9,16 +9,16 @@ Puoi eseguire `npm run lint` per mostrare ogni problema di stile rilevato da `cp
 * Concludi i file con una nuova riga.
 * Metti richieste nel seguente ordine: 
   * Costruito nei Moduli Nodo (come `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * Costruito in Moduli Electron (come `ipc`, `app`)
+  * Moduli Locali (usando percorsi relativi)
+* Metti proprietà di classe nel seguente ordine: 
+  * I metodi e le proprietà di classe (metodi avviati con una `@`)
+  * Metodi e proprietà istanza
+* Evita codice dipendente dalla piattaforma: 
+  * Usa `path.join()` per concatenare nomi file.
+  * Usa `os.tmpdir()` invece che `/tmp` quando ti server fare riferimento alla directory temporanea.
+* Usare un normale `restituisce` quando restituisce esplicitamente alla fine di una funzione. 
+  * Non `return null`, `return undefined`, `null` o `undefined`
 
 ## C++ e Python
 
