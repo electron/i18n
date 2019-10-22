@@ -72,13 +72,13 @@ E per cross-compilare per `arm` o `ia32` devi passare il parametro `target_cpu` 
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
-## Building
+## Costruzione
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Vedi [Istruzioni di Costruzione: GN](build-instructions-gn.md)
 
 ## Risoluzione dei problemi
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Errore Durante il Caricamento delle Librerie Condivise: libtingo.so.5
 
 Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
