@@ -1,16 +1,16 @@
 # Debugging su macOS
 
-Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. Comunque, usando lldb, ed il codice sorgente di Electron, puoi abilitare il debug passo dopo passo con breakpoint interni al codice sorgente di Electron. Puoi anche usare [XCode per il debug](debugging-instructions-macos-xcode.md) se preferisci un'interfaccia grafica.
 
-## Requirements
+## Requisiti
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Una build di debug di Electron**: Il modo più semplice è di solito costruirlo da se, usando gli strumenti ed i prerequisiti elencati nelle [istruzioni di costruzione per macOS](build-instructions-macos.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Oltre ad Xcode, installa anche gli strumenti di linea di comando. Includono LLDB, il debugger predefinito in Xcode su Mac OS X. Supporta il debug di C, Objective-C e C++ su dispositivi desktop ed iOS e simulatori.
 
-## Attaching to and Debugging Electron
+## Allegare a e Debug Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+Per iniziare una sessione di debug, apri il Terminale ed avvia `lldb` passando una build di debug di Electron come parametro.
 
 ```sh
 $ lldb ./out/Debug/Electron.app
@@ -18,26 +18,26 @@ $ lldb ./out/Debug/Electron.app
 Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
-### Setting Breakpoints
+### Impostare Breakpoint
 
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDB è un potente strumento e supporta multiple strategie per l'ispezione del codice. Per questa introduzione di base, supponiamo che si stia chiamando un comando da JavaScript che non si sta comportando correttamente - quindi vorresti rompere sulla controparte di questo comando C++ all'interno della sorgente di Electron.
 
-Relevant code files can be found in `./atom/`.
+I file di codice rilevanti possono essere trovati in `./atom/`.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Supponiamo si voglia fare il debug di `app.setName()`, che è definito in `browser.cc` come `Browser::SetName()`. Imposta il breakpoint usando il comando `breakpoint`, specificando file e riga da rompere:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+Poi, avvia Electron:
 
 ```sh
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+L'app sarà immediatamente sospesa, poiché Electron imposta il nome dell'app all'avvio:
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Per mostrare gli argomenti e le variabili locali per il frame corrente, esegui `frame variable` (o `fr v`), che ti mostrerà l'app che sta impostando correntemente il nome a "Electron".
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Per fare un singolo passo di livello sorgente nel thread attualmente selezionato, esegui `step` (o `s`). Questo ti porterebbe in `name_override_.empty()`. Per procedere e fare un passo avanti, esegui `next` (o `n`).
 
 ```sh
 (lldb) step
@@ -81,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Per finire il debug a questo punto, esegui `process continue`. Puoi anche continuare finché una certa riga è toccata in questo thread (`thread until 100`). Questo comando eseguirà il thread nel frame corrente finché raggiungerà la riga 100 in questo frame o si fermerà se lascia il frame corrente.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Ora, se apri gli strumenti sviluppatore di Electron e chiami `setName`, colpirai nuovamente il breakpoint.
 
-### Further Reading
+### Ulteriori Letture
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB è un potente strumento con una grande documentazione. Per saperne di più, considera la documentazione di debug di Apple, per esempio la [Struttura di Riferimento Comando LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o l'introduzione all'[Utilizzo LLDB come un Debugger Standalone](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+Puoi anche vedere il fantastico [manuale e tutorial](http://lldb.llvm.org/tutorial.html) di LLDB che spiegherà scenari di debug più complessi.

@@ -1,4 +1,4 @@
-# IpcRendererEvent Object extends `Event`
+# IpcRendererEvent Object estende `Event`
 
-* `sender` IpcRenderer - The `IpcRenderer` instance that emitted the event originally
-* `senderId` Integer - The `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+* `sender` IpcRenderer - L'istanza `IpcRenderer` che ha emesso l'evento in origine
+* `senderId` Intero - Il `webContents.id` che ha inviato il messaggio, puoi chiamare `event.sender.sendTo(event.senderId, ...)` per rispondere al messaggio, vedi [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) per ulteriori informazioni. Questo vale solo per messaggi inviati da un differente renderer. Messaggi inviati direttamente dal processo principale impostato `event.senderId` a `0`.

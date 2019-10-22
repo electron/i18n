@@ -1,27 +1,27 @@
 # Uso di clang-format nel codice C++
 
-[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) is a tool to automatically format C/C++/Objective-C code, so that developers don't need to worry about style issues during code reviews.
+[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html) è uno strumento per formattare automaticamente il codice C/C++/Objective-C, così che gli sviluppatori non abbiano bisogno di preoccuparsi di problemi di stile durante le revisioni del codice.
 
-It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
+Si raccomanda altamente di formattare il tuo codice modificato C++ prima di aprire le richieste di pull, che salveranno il tuo tempo e quello dei revisori.
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+Puoi installare `clang-format` e `git-clang-format` tramite `npm install -g clang-format`.
 
-To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Per formattare automaticamente un file secondo lo stile di codice Electron C++, esegui `clang-format -i path/to/electron/file.cc`. Funzionerà su macOS/Linux/Windows.
 
 Il flusso di lavoro per formattare il codice modificato:
 
 1. Apporta modifiche ai codici nel repository Electron.
-2. Run `git add your_changed_file.cc`.
-3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+2. Esegui `git add your_changed_file.cc`.
+3. Esegui `git-clang-format`, e probabilmente vorrai vedere le modifiche in `your_changed_file.cc`, queste modifiche sono generate da `clang-format`.
+4. Esegui `git add your_changed_file.cc`, e conferma la tua modifica.
+5. Ora il ramo è pronto per essere aperto come richiesta di pull.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Se vuoi formattare il codice modificato sulla tua ultima conferma git (TESTA), puoi eseguire `git-clang-format HEAD~1`. Vedi `git-clang-format -h` per ulteriori dettagli.
 
-## Editor Integration
+## Integrazione Editor
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Puoi anche integrare `clang-format` direttamente negli editor preferiti. Per ulteriori orientamenti sulla configurazione dell'integrazione dell'editor, vedi queste pagine:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
-- [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+- [Codice Visual Studio](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)

@@ -50,7 +50,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Attivazione dell'accessibilità](tutorial/accessibility.md#enabling-accessibility)
 * [Test e Debugging](tutorial/application-debugging.md) 
   * [Debuggare il Processo Principale](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debug del Processo Principale con Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Uso di Selenium e WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Test su sistemi Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Estensione DevTools](tutorial/devtools-extension.md)
@@ -70,7 +70,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Implementare un Server di Aggiornamento](tutorial/updates.md#deploying-an-update-server)
   * [Implementando gli Aggiornamenti nella Tua App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applicando Aggiornamenti](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Ottenere Supporto](tutorial/support.md)
 
 ## Tutorial dettagliati
 
@@ -80,16 +80,16 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
   * [Proxy](tutorial/installation.md#proxies)
   * [Personalizza Specchi e Cache](tutorial/installation.md#custom-mirrors-and-caches)
   * [Risoluzione dei problemi](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
+* Release di Electron & Feedback Sviluppatore 
   * [Gestione delle versioni](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+  * [Timeline di Rilascio](tutorial/electron-timelines.md)
+  * [Programma Feedback App](tutorial/app-feedback-program.md)
+* [Impacchettamento Codice Risorsa App con asar](tutorial/application-packaging.md) 
   * [Generare Archivi asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Usare Archivi asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitazioni](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Aggiungere File Scompattati agli Archivi asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Test del Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Uso del plugin Flash Pepper](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -109,7 +109,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
 * [Oggetto `File`](api/file-object.md)
 * [Tag `<webview>`](api/webview-tag.md)
 * [Funzione `Window. Open`](api/window-open.md)
-* [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
+* [Oggetto `BrowserWindowsProxy`](api/browser-window-proxy.md)
 
 ### Moduli del processo principale:
 
@@ -126,7 +126,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
 * [ElementoMenu](api/menu-item.md)
 * [rete](api/net.md)
 * [netLog](api/net-log.md)
-* [Notification](api/notification.md)
+* [Notifica](api/notification.md)
 * [Monitorapotenza](api/power-monitor.md)
 * [BloccaSalvaPotenza](api/power-save-blocker.md)
 * [protocollo](api/protocol.md)

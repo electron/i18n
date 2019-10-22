@@ -1,56 +1,56 @@
 # Stile Codice
 
-These are the style guidelines for coding in Electron.
+Queste sono le linee guida di stile per programmare in Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Puoi eseguire `npm run lint` per mostrare ogni problema di stile rilevato da `cpplint` ed `eslint`.
 
-## General Code
+## Codice Generale
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+* Concludi i file con una nuova riga.
+* Metti richieste nel seguente ordine: 
+  * Costruito nei Moduli Nodo (come `path`)
+  * Costruito in Moduli Electron (come `ipc`, `app`)
+  * Moduli Locali (usando percorsi relativi)
+* Metti proprietà di classe nel seguente ordine: 
+  * I metodi e le proprietà di classe (metodi avviati con una `@`)
+  * Metodi e proprietà istanza
+* Evita codice dipendente dalla piattaforma: 
+  * Usa `path.join()` per concatenare nomi file.
+  * Usa `os.tmpdir()` invece che `/tmp` quando ti server fare riferimento alla directory temporanea.
+* Usare un normale `restituisce` quando restituisce esplicitamente alla fine di una funzione. 
+  * Non `return null`, `return undefined`, `null` o `undefined`
 
-## C++ and Python
+## C++ e Python
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Per C++ e Python, seguiamo lo [Stile di Programmazione](https://www.chromium.org/developers/coding-style) di Chromium. Puoi usare [clang-format](clang-format.md) per formattare automaticamente il codice C++. Esiste anche uno script `script/cpplint.py` per verificare se tutti i file sono conformi.
 
 La versione Python che stiamo usando ora è Python 2.7.
 
-Il codice C ++ utilizza molte delle astrazioni e dei tipi di Chromium, quindi è così raccomandato di conoscerli. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. Il documento menziona alcuni tipi speciali, i tipi di ambito (che rilasciano automaticamente la loro memoria quando escono dal campo di applicazione), i meccanismi di registrazione, ecc.
+Il codice C ++ utilizza molte delle astrazioni e dei tipi di Chromium, quindi è così raccomandato di conoscerli. Un buon posto per iniziare è il documento [Importanti Astrazioni e Strutture di Dati](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) di Chromium. Il documento menziona alcuni tipi speciali, i tipi di ambito (che rilasciano automaticamente la loro memoria quando escono dal campo di applicazione), i meccanismi di registrazione, ecc.
 
 ## Documentazione
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* Scrivi lo stile di [osservazione](https://github.com/remarkjs/remark) markdown.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Puoi eseguire `npm run lint-docs` per assicurarti che le tue modifiche alla documentazione siano formattate corretamente.
 
 ## JavaScript
 
-* Write [standard](https://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+* Scrivi lo stile JavaScript [standard](https://npm.im/standard).
+* I nomi dei file dovrebbero essere concatenati con `-` invece che `_`, es. `file-name.js` piuttosto che `file_name.js` perché i nomi modulo in [github/atom](https://github.com/github/atom) sono di solito in formato `module-name`. Questa regola si applica solo ai file `.js`.
+* Usa la più nuova sintassi ES6/ES2015 dove appropriato 
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) per richieste ed altri costanti
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) per definire variabili
+  * [Funzioni freccia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) invece di `function () { }`
+  * <9>Lettere template</a> invece della concatenazione della stringa usando `+`
 
-## Naming Things
+## Nominare Cose
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Le API di Electron usano lo stesso schema di capitalizzazione di Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Quando il modulo stesso è una classe come `BrowserWindow`, usa `PascalCase`.
+* Quando il modulo è un insieme di API, come `globalShortcut`, usa `camelCase`.
+* Quando l'API è una proprietà d'oggetto, ed è complessa abbastanza da essere in un capitolo separato come `win.webContents`, usa `mixedCase`.
+* Per altre API non modulo, usa titoli naturali, come `<webview> Tag` o `Oggetto Processo`.
 
-Quando si crea una nuova API, è preferibile utilizzare le funzioni get e set invece dello stile di una funzione jQuery. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Quando si crea una nuova API, è preferibile utilizzare le funzioni get e set invece dello stile di una funzione jQuery. Per esempio, `.getText()` e `.setText(text)` sono preferiti a `.text([text])`. C'è una [discussione](https://github.com/electron/electron/issues/46) su questo.

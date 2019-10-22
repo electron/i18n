@@ -1,7 +1,7 @@
-# KeyboardEvent Object extends `Event`
+# KeyboardEvent Object estende `Event`
 
-* `ctrlKey` Boolean (optional) - whether the Control key was used in an accelerator to trigger the Event
-* `metaKey` Boolean (optional) - whether a meta key was used in an accelerator to trigger the Event
-* `shiftKey` Boolean (optional) - whether a Shift key was used in an accelerator to trigger the Event
-* `altKey` Boolean (optional) - whether an Alt key was used in an accelerator to trigger the Event
-* `triggeredByAccelerator` Boolean (optional) - whether an accelerator was used to trigger the event as opposed to another user gesture like mouse click
+* `ctrlKey` Booleano (opzionale) - se il tasto Control era usato in un acceleratore per innescare l'Evento
+* `metaKey` Booleano (opzionale) - se un tasto meta era usato in un acceleratore per innescare l'Evento
+* `shiftKey` Booleano (opzionale) - se un tasto Shift era usato in un acceleratore per innescare l'Evento
+* `altKey` Booleano (opzionale) - se un tasto Alt era usato in un acceleratore per innescare l'evento
+* `triggeredByAccelerator` Booleano (opzionale) - se un acceleratore era usato per innescare l'evento in contrapposizione al gesto di un altro utente come il click del mouse

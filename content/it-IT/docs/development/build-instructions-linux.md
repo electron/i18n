@@ -59,7 +59,7 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Similarmente per `arm64`, installa i seguenti:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
@@ -72,34 +72,34 @@ E per cross-compilare per `arm` o `ia32` devi passare il parametro `target_cpu` 
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
-## Building
+## Costruzione
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Vedi [Istruzioni di Costruzione: GN](build-instructions-gn.md)
 
 ## Risoluzione dei problemi
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Errore Durante il Caricamento delle Librerie Condivise: libtingo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+`clang` precostruito proverà a collegarsi a `libtinfo.so.5`. In base all'architettura dell'host, symlink a `libncurses` appropriate:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Advanced topics
+## Argomenti avanzati
 
 La configurazione di costruzione predefinita è destinata alle principali distribuzioni Linux desktop. Per creare una distribuzione o un dispositivo specifico, le seguenti informazioni potrebbero essere di aiuto.
 
-### Using system `clang` instead of downloaded `clang` binaries
+### Usando il sistema `clang` invece dei binari `clang` scaricati
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+Per impostazione predefinita Electron è costruito con binari [`clang`](https://clang.llvm.org/get_started.html) precostruiti forniti dal progetto Chromium. Se per qualche ragione vuoi costruire con il `clang` installato nel tuo sistema, puoi specificare l'argomento `clang_base_path` negli argomenti GN.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+Per esempio se hai installato `clang` sotto `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-### Using compilers other than `clang`
+### Usando compilatori diversi da `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+La costruzione di Electron con compilatori diversi da `clang` non è supportata.
