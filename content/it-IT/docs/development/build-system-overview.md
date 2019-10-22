@@ -25,7 +25,7 @@ Prova le tue modifiche conformi allo stile di codifica del progetto utilizzando:
 $ npm run lint
 ```
 
-Test functionality using:
+Test funzionalità usando:
 
 ```sh
 $ npm test
@@ -37,21 +37,21 @@ Ogni volta che si apportano modifiche al codice sorgente di Electron, è necessa
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Append `.only` to any `describe` or `it` function call:
+Puoi far si che la suit di prova sia eseguita più velocemente isolando il test specifico o il blocco su cui stai attualmente lavorando usando la funzionalità di [test esclusivo](https://mochajs.org/#exclusive-tests) di Mocha. Aggiungi `.only` ad ogni `describe` o la funzione di chiamata `it`:
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // ... solo i test in questo blocco saranno eseguiti
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Alternativamente, puoi usare l'opzione di `grep` di mocha per eseguire solo test corrispondenti il formato di espressione regolare dato:
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Test che includono moduli nativi (es. `runas`) non possono essere eseguiti con la build di debug (vedi [#2558](https://github.com/electron/electron/issues/2558) per dettagli), ma funzioneranno con la build di rilascio.
 
 Per eseguire i test con la versione di rilascio, utilizzare:
 
