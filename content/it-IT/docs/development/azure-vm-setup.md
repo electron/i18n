@@ -25,46 +25,46 @@ Example Use Case:
 
 3. Ottieni l'URI dell'immagine della macchina virtuale completa da Azure
     
-    - Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images 
-        - In the following list, look for the VHD path name you got from Appveyor and then click on it. 
-            - Copy the whole URL from the top of the subsequent window.
+    - Naviga verso Home < Profili Archiviazione < `$ACCT_NAME` < Blob < Immagini 
+        - Nell'elenco seguente, cerca il nome del percorso VHD che hai ottenutod a Appveyor e poi cliccaci. 
+            - Copia l'URL intero dalla parte superiore della finestra successiva.
 
-4. Copy the image using the [Copy Master Image PowerShell script](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
+4. Copia l'immagine usando lo [script Copy Master Image PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/copy-master-image-azure.ps1).
     
-    - It is essential to copy the VM because if you spin up a VM against an image that image cannot at the same time be used by AppVeyor.
-    - Use the storage account name, key, and URI obtained from Azure to run this script. 
-        - See Step 3 for URI & when prompted, press enter to use same storage account as destination.
-        - Use default destination container name `(images)`
-        - Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp. 
-            - Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
-    - Go into Azure and get the URI for the newly created image as described in a previous step
+    - Risulta essenziale copiare il VM perché se giri una VM contro un'immagine, questa non può essere contemporaneamente usata da AppVeyor.
+    - Usa il nome profilo d'archiviazione, la chiave e l'URI ottenuti da Azure per eseguire questo script. 
+        - Vedi Passaggio 3 per l'URI & quando richiesto, premi invio per usare lo stesso profilo di archiviazione come destinazione.
+        - Usa il nome del contenitore di destinazione predefinito `(immagini)`
+        - Inoltre, quando nomini la copia, usa un nome che indica cosa conterrà la nuova immagine (se è cambiata) ed il timbro di data. 
+            - Es. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
+    - Vai in Azure ed ottieni l'URI per l'immagine appena creata come descritto in un passaggio precedente
 
-5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
+5. Gira una nuova VM usando il [Create Master VM da VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
     
-    - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
-    - You will need the credential information available in the AppVeyor build cloud definition. 
-        - This includes: 
-            - Client ID
-            - Client Secret
-            - Tenant ID
-            - Subscription ID
-            - Resource Group
-            - Virtual Network
-    - You will also need to specify 
-        - Master VM name - just a unique name to identify the temporary VM
-        - Master VM size - use `Standard_F32s_v2`
-        - Master VHD URI - use URI obtained @ end of previous step
-        - Location use `East US`
+    - Da PowerShell, esegui il file `ps1` con `./create_master_vm_from_vhd.ps1`
+    - Avrai bisogno di informazioni di credenziali disponibili nella definizione della build del cloud AppVeyor. 
+        - Questo include: 
+            - ID Client
+            - Segreto Client
+            - ID Tenant
+            - ID Iscrizione
+            - Gruppo Risorsa
+            - Rete Virtuale
+    - Dovrai anche specificare 
+        - Nome Master VM - solo un nome unico per identificare la VM temporanea
+        - Dimensione Master VM - usa `Standard_F32s_v2`
+        - URI Master VHD - usa URI ottenuto @ fine del passaggio precedente
+        - Uso posizione `East US`
 
-6. Log back into Azure and find the VM you just created in Homee < Virtual Machines < `$YOUR_NEW_VM`
+6. Accedi in Azure e trova la VM appena creata in Home < Macchine Virtuali < `$YOUR_NEW_VM`
     
-    - You can download a RDP (Remote Desktop) file to access the VM.
+    - Puoi scaricare un file RDP (Desktop Remoto) per accedere al VM.
 
-7. Using Microsoft Remote Desktop, click `Connect` to connect to the VM.
+7. Usando Microsoft Remote Desktop, clicca `Connetti` per connettere al VM.
     
-    - Credentials for logging into the VM are found in LastPass under the `AppVeyor Enterprise master VM` credentials.
+    - Credenziali d'acceso nel VM si trovano in LastPass sotto le credenziali `AppVeyor Enterprise master VM`.
 
-8. Modify the VM as required.
+8. Modifica il VM come richiesto.
 
 9. Shut down the VM and then delete it in Azure.
 
