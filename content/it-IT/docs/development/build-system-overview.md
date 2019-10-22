@@ -4,20 +4,20 @@ Electron usa [GN](https://gn.googlesource.com/gn) per la generazione del progett
 
 ## File GN
 
-The following `gn` files contain the main rules for building Electron:
+I seguenti file <gn</code> contengono le regole principali per costruire Electron:
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` definisce come Electron stesso è costruito ed include le configurazioni predefinite per il collegamento con Chromium.
+* `build/args/{debug,release,all}.gn` contiene gli argomenti di costruzione predefiniti per costruire Electron.
 
-## Component Build
+## Build Componente
 
 Poiché Chromium è un progetto abbastanza ampio, la fase finale del collegamento può richiedere alcuni minuti, il che rende difficile lo sviluppo. Per risolvere questo problema, Chromium ha introdotto la "componente build", che crea ogni componente come una libreria condivisa separata, rendendo il collegamento molto veloce ma sacrificando la dimensione e le prestazioni del file.
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron eredita questa opzione di costruzione da Chromium. Nelle build `Debug`, il binario sarà collegato ad una versione della libreria condivisa dei componenti di Chromium per raggiungere un tempo di collegamento veloce; per le build `Release`, il binario sarà collegato alle versioni di libreria statica, così che possiamo avere la dimensione e la performance migliore possibile del binario.
 
-## Tests
+## Test
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** *questa sezione è obsoleta e contiene informazioni non più rilevanti all'electron costruito con GN.*
 
 Prova le tue modifiche conformi allo stile di codifica del progetto utilizzando:
 
