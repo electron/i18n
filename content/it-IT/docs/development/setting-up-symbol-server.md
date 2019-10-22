@@ -1,20 +1,20 @@
-# Setting Up Symbol Server in Debugger
+# Impostare Server Symbol nel Debugger
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
+I simboli di debug ti consentono di avere migliori sessioni di debug. Hanno informazioni sulle funzioni contenute in librerie eseguibili e dinamiche e ti forniscono informazioni per ottenere pile di chiamata pulite. Un Server Symbol consente al debugger di caricare simboli, binari e sorgenti corrette automaticamente senza forzare gli utenti a scaricare grandi file di debug. Il server funziona come il [server symbol di Microsoft](https://support.microsoft.com/kb/311503) quindi la documentazione potrà essere utile.
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Nota che poiché le build rilasciate di Electron sono altamente ottimizzate, il debug non è sempre facile. Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per le chiamata in entrate, di coda ed altre ottimizzazioni del compilatore. L'unica soluzione è costruire una build locale non ottimizzata.
 
-The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+L'URL server symbol ufficiale per Electron è https://electron-symbols.githubapp.com. Non puoi visitare questo URL direttamente, devi aggiungerlo al percorso symbol del tuo strumento di debug. Negli esempi sotto, una directory di cache locale è usata per evitare ripetutamente lo scaricamento del PDB dal server. Rimpiazza `c:\code\symbols` con una directory della cache appropriata sulla tua macchina.
 
-## Using the Symbol Server in Windbg
+## Usare il Server Symbol in Windbg
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Il percorso symbol Windbg è configurato con un valore stringa delimitato con caratteri asterisco. Per usare solo il server symbol di Electron, aggiungi la voce seguente al tuo percorso symbol (**Nota:** puoi rimpiazzare `c:\code\symbols` con qualsiasi directory scrivibile sul tuo computere, se preferisci aggiungere una posizione differente per i symbols scaricati):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Imposta questa stringa come `_NT_SYMBOL_PATH` nell'ambiente, usando i menu Windbg, o digitando il comando `.sympath`. Se desideri ottenere symbols dal server symbol Microsoft, dovresti prima elencare:
 
 ```powershell
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
