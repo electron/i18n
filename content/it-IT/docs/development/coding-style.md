@@ -1,14 +1,14 @@
 # Stile Codice
 
-These are the style guidelines for coding in Electron.
+Queste sono le linee guida di stile per programmare in Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Puoi eseguire `npm run lint` per mostrare ogni problema di stile rilevato da `cpplint` ed `eslint`.
 
-## General Code
+## Codice Generale
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
+* Concludi i file con una nuova riga.
+* Metti richieste nel seguente ordine: 
+  * Costruito nei Moduli Nodo (come `path`)
   * Built in Electron Modules (such as `ipc`, `app`)
   * Local Modules (using relative paths)
 * Place class properties in the following order: 
