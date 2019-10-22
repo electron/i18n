@@ -40,6 +40,6 @@ Puoi essere allegato a programmi multipli quando stai facendo il debug, ma solo 
 
 ## Usare ProcMon per Osservare un Processo
 
-Mentre Visual Studio è fantastico per ispezionare percorsi di codice specifici, la forza di ProcMon è realmente nell'osservare tutto ciò che le tue applicazioni stanno facendo con il sistema operativo - cattura File, Registri, Rete, Processi e dettagli di Profilazione dei processi. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Mentre Visual Studio è fantastico per ispezionare percorsi di codice specifici, la forza di ProcMon è realmente nell'osservare tutto ciò che le tue applicazioni stanno facendo con il sistema operativo - cattura File, Registri, Rete, Processi e dettagli di Profilazione dei processi. Tenta di registrare **tutti** gli eventi che si stanno verificando e può essere abbastanza schiacciante, ma se provi a capire cosa e come la tua applicazione sta operando al sistema operativo, può essere una preziosa risorsa.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+Per un'introduzione alle basi di ProcMon ed alle sue funzionalità di debug, vai a vedere [questo video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) fornito da Microsoft.
