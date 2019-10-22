@@ -20,10 +20,10 @@ Example Use Case:
 2. Get the Azure storage account key
     
     - Log into Azure using credentials stored in LastPass (under Azure Enterprise) and then find the storage account corresponding to the name found in AppVeyor. 
-        - Example, for `appveyorlibccbuilds` **Disk Storage Account Name** you'd look for `appveyorlibccbuilds` in the list of storage accounts @ Home < Storage Accounts 
-            - Click into it and look for `Access Keys`, and then you can use any of the keys present in the list.
+        - Esempio, per `appveyorlibccbuilds` **Nome Profilo Disco Archiviazione** cercate `appveyorlibccbuilds` nell'elenco di profili di archiviazione @ Home < Profili Archiviazione 
+            - Cliccaci e cerca le `Chiavi d'Accesso`, e poi potrai usare qualsiasi chiave presente nell'elenco.
 
-3. Get the full virtual machine image URI from Azure
+3. Ottieni l'URI dell'immagine della macchina virtuale completa da Azure
     
     - Navigate to Home < Storage Accounts < `$ACCT_NAME` < Blobs < Images 
         - In the following list, look for the VHD path name you got from Appveyor and then click on it. 
