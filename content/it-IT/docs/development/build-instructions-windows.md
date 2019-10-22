@@ -11,11 +11,11 @@ Segui le linee guida sotto per costruire Electron su Windows.
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (rimpiazza `2019` e `Community` con le tue versioni installate)
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
 * [Python 2.7.10 o superiore](http://www.python.org/download/releases/2.7/) 
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * Contrariamente alle istruzioni di configurazione `depot_tools` collegate sotto, avrai bisogno di usare il tuo Python installato localmente con almeno la versione 2.7.10 (con supporto per TLS 1.2). Per farlo, assicurati che in **PATH**, il tuo Python localmente installato venga prima della cartella `depot_tools`. Adesso `depot_tools` viene ancora con Python 2.7.6, che causerà il fallimento del comando `gclient` (vedi https://crbug.com/868864).
+  * [Python per Estensioni Windows /pywin32)](https://pypi.org/project/pywin32/#files) è anch'esso necessario per eseguire il processo di costruzione.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` file. 
+* Strumenti di Debug per Windows di Windows SDK 10.0.15063.468 se pianifichi di crearvi una distribuzione completa `symstore.exe` è usato per creare un negozio di simboli da `.pdb` file. 
   * Differenti versioni di SDK possono essere installate fianco a fianco. Per installare SDK, apri Visual Studio Installer, seleziona `Modifica` → `Componenti Individuali`, scendi e seleziona l'appropriato SDK Windows per installare. Un'altra opzione sarebbe di guardare al [Windows SDK ed emulatore archivio](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) e scaricare la versione standalone del SDK rispettivamente.
   * Gli Strumenti di Debug SDK devono anch'essi essere installati. Se l'SDK di Windows 10 era installato tramite il Visual Studio Installer, allora possono essere installati andando a: `Pannello di Controllo` → `Programmi` → `Programmi e Funzionalità` → Seleziona il "Kit di Sviluppo Software Windows" → `Cambia` → `Modifica` → Spunta "Strumenti di Debug per Windows" → `Modifica`. Oppure, puoi scaricare l'installatore SDK standalone ed usarlo per installare gli Strumenti di Debug.
 
