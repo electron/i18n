@@ -1,20 +1,20 @@
 # Debugging su Windows
 
-Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+Se si verificano arresti anomali o problemi in Electron che si ritiene non siano causati dall'applicazione JavaScript, ma invece da Electron stesso, il debug può essere un po 'complicato, specialmente per gli sviluppatori non utilizzati per il debug di nativi / C ++. Comunque, usando Visual Studio, GitHub è ospitato dal Server Electron Symbol, e il codice sorgente di Electron, puoi abilitare il debug passo dopo passo con i breakpoint interni al codice sorgente di Electron.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**Vedi anche**: C'è una ricchezza di informazioni sul debug di Chromium, gran parte delle quali si applica anche ad Electron, sul sito degli sviluppatori di Chromium: [Debug Chromium su Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
-## Requirements
+## Requisiti
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Una build di debug di Electron**: Il modo più semplice è di solito costruirlo da se, usando strumenti e prerequisiti elencati nelle [istruzioni di costruzione per Windows](build-instructions-windows.md). Mentre puoi allegare e fare il debug di Electron come puoi scaricarlo direttamente, potresti trovare che è pesantemente ottimizzato, rendendo il debug sostanzialmente più difficile: Il debugger non potrà mostrarti il contenuto di tutte le variabili ed il percorso di esecuzione può sembrare strano per la messa in linea, le chiamate di coda, ed altre ottimizzazioni del compilatore.
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio con Strumenti C++**: Le edizioni libere della comunità di Visual Studio 2013 e Visual Studio 2015 funzionano entrambe. Una volta installato, [configura Visual Studio per usare il server di GitHub Electron Symbol](setting-up-symbol-server.md). Abiliterà Visual Studio a guadagnare una migliore comprensione di ciò che succede dentro Electron, rendendo più facile presentare variabili in un formato umanamente leggibile.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: Lo [strumento gratuito SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) ti consente di ispezionare i parametri di processo, le voci file e le operazioni di registro.
 
-## Attaching to and Debugging Electron
+## Allegare a e Debug Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Per iniziare una sessione di debug, apri PowerShell/CMD ed esegui la tua build di debug di Electron, usando l'applicazione per aprirlo come parametro.
 
 ```powershell
 $ ./out/Debug/electron.exe ~/my-electron-app/
