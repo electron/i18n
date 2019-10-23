@@ -10,7 +10,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 ## Guías y tutoriales
 
-* [Acerca de Electron](tutorial/about.md)
+* [Sobre Electron](tutorial/about.md)
 * [Configurar el entorno de desarrollo](tutorial/development-environment.md) 
   * [Configurando macOS](tutorial/development-environment.md#setting-up-macos)
   * [Configurar Windows](tutorial/development-environment.md#setting-up-windows)
