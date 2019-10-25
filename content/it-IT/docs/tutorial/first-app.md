@@ -69,19 +69,19 @@ Esistono anche altri modi per installare Electron. Perfavore, consulta la [guida
 
 ## Sviluppo Electron in breve
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Le applicazioni Electron sono sviluppate in JavaScript utilizzando gli stessi principi e metodi utilizzati nello sviluppo di Node.js. Tutte le API e le funzionalità presenti in Electron sono accessibili tramite il modulo `electron`, che può essere richiesto come qualsiasi altro Modulo Node.js:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+Il modulo `electron` espone le caratteristiche nei namespaces. Ad esempio, il ciclo di vita dell'applicazione è gestito tramite `electron.app`, le finestre possono essere create usando la classe `electron.BrowserWindow`. Un semplice file `main.js` potrebbe attendere che l'applicazione sia pronta e aprire una finestra:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create la finestra del browser
+  // Crea la finestra del browser
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,14 +90,14 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // e carica l'index.html dell'app.
   win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+Il file `main.js` dovrebbe creare le finestre e gestire tutti gli eventi di sistema dell'applicazione. Una versione più completa dell'esempio precedente potrebbe aprire gli strumenti di sviluppo, gestire la finestra chiusa o ricreare finestre su macOS se l'utente fa clic sull'icona dell'app nel dock.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -116,7 +116,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // e carica l'index.html dell'app.
   win.loadFile('index.html')
 
   // Apre il Pannello degli Strumenti di Sviluppo.
@@ -188,11 +188,11 @@ Clona ed esegui il codice mostrato in questo tutorial utilizzando il repository 
 **Nota**: Avviare questo richiede [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
 
 ```sh
-# Clona la repository
+# Clona il repository
 $ git clone https://github.com/electron/electron-quick-start
-# Vai nella repository
+# Accedi al repository
 $ cd electron-quick-start
-# Installa le dependencies
+# Installa le dipendenze
 $ npm install
 # Avvia l'app
 $ npm start
