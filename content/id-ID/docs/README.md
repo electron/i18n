@@ -35,7 +35,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [pemberitahuan](tutorial/notifications.md)
   * [Dokumen Terkini](tutorial/recent-documents.md)
   * [Progres Aplikasi](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/macos-dock.md)
+  * [Menu Dock Kustom](tutorial/macos-dock.md)
   * [Windows Taskbar Kustom](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
