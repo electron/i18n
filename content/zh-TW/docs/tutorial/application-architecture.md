@@ -1,6 +1,6 @@
 # Electron 應用程式架構
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+在我們開始深入了解 Electron API 之前，我們需要先討論 Electron 的兩種程序。 They are fundamentally different and important to understand.
 
 ## 主處理序及畫面轉譯處理序
 
