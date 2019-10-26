@@ -1,4 +1,4 @@
-# dialog
+# диалоговые окна
 
 > Показывает стандартные диалоги для открытия и сохранения файлов, предупреждения и т.п.
 
@@ -169,7 +169,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
-**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+**Заметка:** На MacOS, рекомендуется асинхронная версия, чтобы избежать проблем при расширении и свёртывании окна.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
@@ -179,7 +179,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
+  * `message` Строка - содержимое сообщения.
   * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
@@ -202,7 +202,7 @@ Shows a message box, it will block the process until the message box is closed. 
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
+  * `message` Строка - содержимое сообщения.
   * `detail` String (optional) - Extra information of the message.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
@@ -264,7 +264,7 @@ On Windows the options are more limited, due to the Win32 APIs used:
 * The `message` argument is not used, as the OS provides its own confirmation dialog.
 * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
 
-## Sheets
+## "Листы"
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
