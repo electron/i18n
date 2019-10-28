@@ -31,6 +31,7 @@
   * [Използване на API на Електрон](tutorial/application-architecture.md#using-electron-apis)
   * [Използване на Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [Използване на родни Node.js модули](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Добавяне на функции към вашето приложение 
   * [Известия](tutorial/notifications.md)
   * [Последни документи](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@
 
 * [Обзор](api/synopsis.md)
 * [Обект Process](api/process.md)
-* [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Променливи на средата](api/environment-variables.md)
 * [5256783105227699](api/breaking-changes.md)
 
