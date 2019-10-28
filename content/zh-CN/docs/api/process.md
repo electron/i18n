@@ -26,7 +26,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `sandboxed`
+* `沙盒化`
 * `type`
 * `version`
 * `versions`
@@ -173,18 +173,18 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 返回 ` Object `:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `total` Integer - 系统可用的物理内存总量(Kb)。
+* `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
+* `swapTotal` Integer *Windows* *Linux* - 系统交换内存容量（单位：千字节）。
+* `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
 ### `process.getSystemVersion()`
 
 Returns `String` - The version of the host operating system.
 
-示例：
+示例
 
 * `macOS` -> `10.13.6`
 * `Windows` -> `10.0.17763`
@@ -202,10 +202,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+导致当前进程挂起的主线程。
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+将文件描述符的软限制设置为 ` maxDescriptors ` 或 OS 硬限制, 其中以当前进程较低的值为准。
