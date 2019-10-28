@@ -2,26 +2,73 @@
 
 破壊的な変更は変更の [一つ前のメジャーバージョン](../tutorial/electron-versioning.md#semver) についてここに文書化され、可能であれば非推奨の警告を JS コードに加えます。
 
-# `FIXME` コメント
+## `FIXME` コメント
 
 `FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
 
-# 予定されている破壊的なAPIの変更 (7.0)
+## 予定されている破壊的なAPIの変更 (7.0)
 
-## `shell.openExternalSync(url[, options])`
+### Node Headers URL
+
+これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。 Both will be supported for the foreseeable future but it is recommended that you switch.
+
+非推奨: https://atom.io/download/electron
+
+こちらに置換: https://electronjs.org/headers
+
+### `session.clearAuthCache(options)`
+
+The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// 非推奨
-shell.openExternalSync(url)
-// こちらに置換
-async function openThing (url) {
-  await shell.openExternal(url)
-}
+// Deprecated
+session.clearAuthCache({ type: 'password' })
+// Replace with
+session.clearAuthCache()
 ```
 
-# 予定されている破壊的なAPIの変更 (6.0)
+### `powerMonitor.querySystemIdleState`
 
-## `win.setMenu(null)`
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+### `powerMonitor.querySystemIdleTime`
+
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+### webFrame Isolated World APIs
+
+```js
+// Removed in Elecron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
+
+### Removal of deprecated `marked` property on getBlinkMemoryInfo
+
+This property was removed in Chromium 77, and as such is no longer available.
+
+## 予定されている破壊的なAPIの変更 (6.0)
+
+### `win.setMenu(null)`
 
 ```js
 // 非推奨
@@ -30,7 +77,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-## `contentTracing.getTraceBufferUsage()`
+### `contentTracing.getTraceBufferUsage()`
 
 ```js
 // 非推奨
@@ -43,7 +90,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-## レンダラープロセスの `electron.screen`
+### レンダラープロセスの `electron.screen`
 
 ```js
 // 非推奨
@@ -52,7 +99,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-## サンドボックス化したレンダラーの `require`
+### サンドボックス化したレンダラーの `require`
 
 ```js
 // 非推奨
@@ -76,7 +123,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-## `powerMonitor.querySystemIdleState`
+### `powerMonitor.querySystemIdleState`
 
 ```js
 // 非推奨
@@ -85,7 +132,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = getSystemIdleState(threshold)
 ```
 
-## `powerMonitor.querySystemIdleTime`
+### `powerMonitor.querySystemIdleTime`
 
 ```js
 // 非推奨
@@ -94,7 +141,16 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray`
+### `app.enableMixedSandbox`
+
+```js
+// Deprecated
+app.enableMixedSandbox()
+```
+
+Mixed-sandbox mode is now enabled by default.
+
+### `Tray`
 
 macOS Catalina 下では、以前の Tray 実装は破壊されています。 Apple のネイティブの代替実装は、強調表示動作の変更をサポートしていません。
 
@@ -104,9 +160,9 @@ tray.setHighlightMode(mode)
 // API は v7.0 で削除され、置換はできません
 ```
 
-# 予定されている破壊的なAPIの変更 (5.0)
+## 予定されている破壊的なAPIの変更 (5.0)
 
-## `new BrowserWindow({ webPreferences })`
+### `new BrowserWindow({ webPreferences })`
 
 以下の `webPreferences` オプションの初期値は、以下の記載された新しい初期値のために非推奨になっています。
 
@@ -130,11 +186,11 @@ const w = new BrowserWindow({
 
 `nativeWindowOpen` オプションで開かれる子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ Node.js integration が無効化されます。
 
-## 特権スキームレジストレーション
+### 特権スキームレジストレーション
 
 レンダラプロセス API `webFrame.setRegisterURLSchemeAsPrivileged` および `webFrame.registerURLSchemeAsBypassingCSP`、ならびにブラウザプロセス API `protocol.registerStandardSchemes` は削除されました 新しい API `protocol.registerSchemesAsPrivileged` が追加されました。これらは、必要な権限でカスタムスキームを登録するために使用する必要があります。 カスタムスキームは、アプリの準備が整う前に登録する必要があります。
 
-## webFrame Isolated World APIs
+### webFrame Isolated World APIs
 
 ```js
 // 非推奨
@@ -151,11 +207,30 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# 予定されている破壊的なAPIの変更 (4.0)
+## `webFrame.setSpellCheckProvider`
+
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
+```js
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
+  spellCheck: (text) => {
+    return !spellchecker.isMisspelled(text)
+  }
+})
+// Replace with
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
+  }
+})
+```
+
+## 予定されている破壊的なAPIの変更 (4.0)
 
 以下のリストには Electron 4.0 でなされた破壊的な API の変更が含まれています。
 
-## `app.makeSingleInstance`
+### `app.makeSingleInstance`
 
 ```js
 // 非推奨
@@ -169,7 +244,7 @@ app.on('second-instance', (event, argv, cwd) => {
 })
 ```
 
-## `app.releaseSingleInstance`
+### `app.releaseSingleInstance`
 
 ```js
 // 非推奨
@@ -178,7 +253,7 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-## `app.getGPUInfo`
+### `app.getGPUInfo`
 
 ```js
 app.getGPUInfo('complete')
@@ -186,15 +261,15 @@ app.getGPUInfo('complete')
 app.getGPUInfo('basic')
 ```
 
-## `win_delay_load_hook`
+### `win_delay_load_hook`
 
 Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
-# 破壊的な API の変更 (3.0)
+## 破壊的な API の変更 (3.0)
 
 以下のリストには Electron 3.0 での破壊的な API の変更が含まれています。
 
-## `app`
+### `app`
 
 ```js
 // 非推奨
@@ -207,7 +282,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // 非推奨なプロパティ
 ```
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // 非推奨
@@ -231,7 +306,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard
+### `clipboard
 `
 
 ```js
@@ -256,7 +331,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+### `crashReporter`
 
 ```js
 // 非推奨
@@ -273,7 +348,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // 非推奨
@@ -284,14 +359,14 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `プロセス`
+### `プロセス`
 
 ```js
 // 非推奨
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen`
+### `screen`
 
 ```js
 // 非推奨
@@ -300,7 +375,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+### `session`
 
 ```js
 // 非推奨
@@ -313,7 +388,7 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-## `Tray`
+### `Tray`
 
 ```js
 // 非推奨
@@ -327,7 +402,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+### `webContents`
 
 ```js
 // 非推奨
@@ -340,7 +415,7 @@ webContents.setSize(options)
 // この API は置換できません
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // 非推奨
@@ -354,7 +429,7 @@ webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // 削除されました
@@ -370,7 +445,7 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+### Node Headers URL
 
 これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。
 
@@ -378,11 +453,11 @@ webview.onkeyup = () => { /* handler */ }
 
 こちらに置換: https://atom.io/download/electron
 
-# 破壊的な API の変更 (2.0)
+## 破壊的な API の変更 (2.0)
 
 以下のリストには Electron 2.0 でなされた破壊的な API の変更が含まれています。
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // 非推奨
@@ -393,7 +468,7 @@ let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+### `menu`
 
 ```js
 // 削除されました
@@ -402,7 +477,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // 削除されました
@@ -416,11 +491,11 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `プロセス`
+### `プロセス`
 
 * `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 
-## `webContents`
+### `webContents`
 
 ```js
 // 削除されました
@@ -429,7 +504,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // 削除されました
@@ -438,7 +513,7 @@ webFrame.setZoomLevelLimits(1, 2)
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // 削除されました
@@ -447,10 +522,10 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## 重複する ARM アセット
+### 重複する ARM アセット
 
 どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる2つの同一な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
 
-*接頭子が付いていない*ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
+*接頭子が付いていない*ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 Starting at 2.0, the unprefixed file will no longer be published.
 
 詳細は、[6986](https://github.com/electron/electron/pull/6986) と [7189](https://github.com/electron/electron/pull/7189) を参照してください。
