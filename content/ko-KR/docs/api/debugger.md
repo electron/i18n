@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### Event: 'detach'
 
-반환:
+Returns:
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
@@ -44,7 +44,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 #### Event: 'message'
 
-반환:
+Returns:
 
 * `event` Event
 * `method` String - Method name.
@@ -52,7 +52,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 #### `debugger.attach([protocolVersion])`
 
@@ -62,7 +62,7 @@ Attaches the debugger to the `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Returns `Boolean` - 디버거가 `webContents` 에 연결되어 있는지 확인합니다.
 
 #### `debugger.detach()`
 
@@ -75,4 +75,4 @@ Detaches the debugger from the `webContents`.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
-Send given command to the debugging target.
+명령을 디버깅 대상으로 전송합니다.
