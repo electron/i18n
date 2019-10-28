@@ -63,7 +63,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 #### `cookies.get(filter)`
 
 * `filter` Objecto 
-  * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
+  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
   * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
@@ -74,27 +74,10 @@ Returns `Promise<Cookie[]>` - Una promesa que resulve un array de objetos cookie
 
 Envía una solicitud para obtener todas las cookies que coincidan con `filter`, y resuelve una promesa con la respuesta.
 
-#### `cookies.get(filter, callback)`
-
-* `filter` Objeto 
-  * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
-  * `name` Cadena (opcional) - Filtra las cookies por nombre.
-  * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
-  * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
-  * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
-  * `session` Booleano (opcional) - Filtra las cookies fuera de la sesión o cookies persistentes.
-* `callback` Function 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - un arreglo con objetos de cookies.
-
-Envía una solicitud para obtener todas las cookies que coinciden con `filter`, `callback` y será llamada con `callback(error, cookies)` cuando termine.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
-
 #### `cookies.set(details)`
 
-* `details` Object 
-  * `url` String - La url con la que asociar la cookie. La promesa será rechazada si la url no es válida.
+* `details` Objeto 
+  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
   * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
   * `domain` String (opcional) - El dominio de la cookie; esto se normalizara con un punto anterior para que también sean validos para subdominios. Vacío por defecto si se omite.
@@ -107,24 +90,6 @@ Returns `Promise<void>` - Una promesa que resuelve cuando la cookie ha sido esta
 
 Establece una cookie con `detalles`.
 
-#### `cookies.set(details, callback)`
-
-* `details` Object 
-  * `url` Cadena - La url para asociarla con la cookie.
-  * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
-  * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
-  * `domain` Cadena (opcional) - El dominio de la cookie. Por defecto estará vacío si se omite.
-  * `path` Cadena (opcional) - La ruta de la cookie. Por defecto estará vacío si se omite.
-  * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
-  * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
-  * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
-* `callback` Function 
-  * `error` Error
-
-Configura una cookie con `details`, `callback` y sera llamada con `callback(error)` cuando termine.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
-
 #### `cookies.remove(url, name)`
 
 * `url` Cadena - La URL asociada con la cookie.
@@ -134,26 +99,8 @@ Devuelve `Promise<void>` - Una promesa que se resuelve cuando la cookie ha sido 
 
 Elimina las cookies que coinciden con `url` y `name`
 
-#### `cookies.remove(url, name, callback)`
-
-* `url` Cadena - La URL asociada con la cookie.
-* `name` Cadena - El nombre de la cookie que será eliminada.
-* `callback` Función
-
-Elimina las cookies que coinciden con `url` and `name`, `callback` y serán llamadas con `callback()` cuando termine.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
-
 #### `cookies.flushStore()`
 
 Devuelve `Promise<void>` - Una promesa que se resuelve cuando el almacenamiento de la cookie ha sido borrado
 
 Escribe cualquier dato de cookies en el disco que no haya sido escrito.
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Función
-
-Escribe cualquier dato de cookies en el disco que no haya sido escrito.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
