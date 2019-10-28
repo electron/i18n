@@ -432,7 +432,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 * `text` String
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 フォーカスされた要素に `text` を挿入します。
 
@@ -466,7 +466,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
 
@@ -496,7 +496,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 * `channel` String
 * `...args` any[]
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -506,7 +506,7 @@ See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 * `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 入力 `event` をページに送ります。
 
@@ -537,7 +537,7 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputeven
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
@@ -546,7 +546,7 @@ Returns `Promise<void>`
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+戻り値 `Promise<void>`
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
