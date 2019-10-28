@@ -31,6 +31,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API 사용하기](tutorial/application-architecture.md#using-nodejs-apis)
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * 여러분의 앱에 기능 추가하기 
   * [알림(Notifications)](tutorial/notifications.md)
   * [최근 문서](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 * [개요](api/synopsis.md)
 * [프로세스 개체](api/process.md)
-* [크롬 명령 줄 스위치 지원](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [환경 변수](api/environment-variables.md)
 * [중요한 API 변화](api/breaking-changes.md)
 
