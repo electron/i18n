@@ -11,7 +11,7 @@
 * `options` (Object | String) - もし `options` が String の場合、リクエストURLとして解釈されます。もし Object の場合、以下のプロパティによるHTTPリクエストとして完全に指定されていることが期待されます。 
   * `method` String (任意) - HTTPリクエストメソッド。省略値は、GETメソッドです。
   * `url` String (任意) - リクエストURL。httpまたはhttpsとして指定されているプロトコルスキームを伴う完全な形式で指定しなければなりません。
-  * `session` Object (任意) - リクエストが関連付けられている [`Session`](session.md) のインスタンス。
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (任意) - リクエストが関連付けられている [`partition`](session.md) の名前。 省略値は、空の文字列です。 `session` オプションは、`partition` よりも優先されます。 そのため、`session` が明示的に指定されている場合、`partition` は無視されます。
   * `protocol` String (任意) - 'scheme:' という形式のプロトコルスキーム。 現在サポートされている値は、'http:' または 'https:' です。省略値は、'http:' です。
   * `host` String (任意) - ホスト名とポート番号を連結した 'hostname:port' として指定されたサーバーホスト。
@@ -110,7 +110,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 リダイレクトがあり、モードが `manual` のときに発生します。[`request.followRedirect`](#requestfollowredirect) を呼び出すことでリダイレクトが続行されます。
 
@@ -127,15 +127,15 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 #### `request.setHeader(name, value)`
 
 * `name` String - 追加するHTTPヘッダーの名前。
-* `value` Object - 追加するHTTPヘッダーの値。
+* `value` String - An extra HTTP header value.
 
-さらなるHTTPヘッダーを追加します。 ヘッダー名は小文字にされることなく、そのまま出力されます。 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
+さらなるHTTPヘッダーを追加します。 The header name will be issued as-is without lowercasing. 最初の書き込み前のみ呼び出すことができます。 最初の書き込み後にこのメソッドを呼び出すとエラーがスローされます。 渡された値が `String` 型でない場合、最終的な値を得るために `toString()` メソッドが呼び出されます。
 
 #### `request.getHeader(name)`
 
 * `name` String - 追加したヘッダーの名前を指定します。
 
-戻り値 `Object` - 先に設定した追加したヘッダーの名前の値。
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
