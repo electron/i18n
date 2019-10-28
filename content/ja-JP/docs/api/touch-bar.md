@@ -7,7 +7,7 @@
 ### `new TouchBar(options)` *（実験的）*
 
 * `options` オブジェクト 
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (任意)
 
 指定したアイテムの新しい Touch Bar を作成します。 `BrowserWindow.setTouchBar` でウインドウに `TouchBar` を追加することができます。
@@ -16,17 +16,55 @@
 
 **Tip:** Touch Bar 付きの MacBook をお持ちでない場合は、Touch Bar を使用するアプリの検証に [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) をご利用になれます。
 
+### Static Properties
+
+#### `TouchBarButton`
+
+A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
+
+#### `TouchBarColorPicker`
+
+A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
+
+#### `TouchBarGroup`
+
+A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
+
+#### `TouchBarLabel`
+
+A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
+
+#### `TouchBarPopover`
+
+A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
+
+#### `TouchBarScrubber`
+
+A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
+
+#### `TouchBarSegmentedControl`
+
+A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
+
+#### `TouchBarSlider`
+
+A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
+
+#### `TouchBarSpacer`
+
+A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
+
 ### インスタンスプロパティ
 
-`TouchBar` のインスタンスには以下のプロパティがあります。
+The following properties are available on instances of `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-設定すると、タッチバーの "esc" ボタンを置き換える `TouchBarItem`。 `null` に設定するとデフォルトの "esc" ボタンが復元されます。 この値を変更すると、タッチバーのエスケープアイテムがすぐに更新されます。
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
 ## サンプル
 
-ボタンといくつかのラベルで構成される、シンプルな TouchBar 向けスロットゲームのコード例を示します。
+Below is an example of a simple slot machine touch bar game with a button and some labels.
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
@@ -134,12 +172,12 @@ app.once('ready', () => {
 })
 ```
 
-### 上記のサンプルを実行する
+### Running the above example
 
-上記のサンプルを実行するには、(予めターミナルで適当なディレクトリを開いた上で) 以下の操作を行ってください。
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. 上記のコードを `touchbar.js` として保存する
 2. `npm install electron` と入力し、 Electron をインストールします
 3. `./node_modules/.bin/electron touchbar.js` と入力し、Electron でサンプルを実行する
 
-すると、 Electron のウィンドウと、 Touch Bar 上（あるいは Touch Bar エミュレータ上）で動作するサンプルアプリをご覧になる事ができるはずです。
+You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
