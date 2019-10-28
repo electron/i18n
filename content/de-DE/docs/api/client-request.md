@@ -11,7 +11,7 @@ Prozess: [Haupt](../glossary.md#main-process)
 * `options` (Object | String) - Wenn `options` ein String ist, wird dieser als die request URL interpretiert. Wenn es ein Objekt ist, wird erwartet das dieses ein HTTP anfrage komplett spezifiziert, mittels den folgenden Eigenschaften: 
   * `method` String (optional) - Die HTTP Anfrage Methode. Standardwert ist die GET Methode.
   * `url` String (optional) - Die angefragte URL. Muss in der absoluten Form angegeben werden, welche dem Protokoll Schema von HTTP oder HTTPS entspricht.
-  * `session` Object (optional) - Die zur Anfrage gehörende [`Session`](session.md) Instanz.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. Die `session` Option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
   * `protocol` String (optional) - Das Protokoll Schema im 'scheme:' Format. Die momentan unterstützten Werte sind 'http:' oder 'https:'. Standardwert ist 'http:'.
   * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
@@ -110,7 +110,7 @@ Rückgabewert:
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 Ausgelöst, wenn es eine Weiterleitung gibt und der Modus `manual` ist. Der Aufruf von [`request.followRedirect`](#requestfollowredirect) wird die Weiterleitung fortsetzen.
 
@@ -127,15 +127,15 @@ Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen 
 #### `request.setHeader(name, value)`
 
 * `name` String - Ein extra HTTP header Name.
-* `value` Object - Ein extra HTTP header Wert.
+* `value` String - An extra HTTP header value.
 
-Fügt einen extra HTTP header hinzu. Der Header-Name wird ausgestellt, da es ohne Standardspeicherort ist. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
+Fügt einen extra HTTP header hinzu. The header name will be issued as-is without lowercasing. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
 
 #### `request.getHeader(name)`
 
 * `name` String - Spezifiziert einen extra Header Namen.
 
-Gibt ein `Object` wieder - Den wert des davor gesetzten extra Header Namen.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
