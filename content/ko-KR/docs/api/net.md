@@ -44,7 +44,7 @@ app.on('ready', () => {
 
 ### `net.request(options)`
 
-* `options` (Object | String) - `ClientRequest` 생성자 옵션.
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 [`ClientRequest`](./client-request.md)를 반환합니다
 
