@@ -84,7 +84,7 @@ Assigning `src` its own value will reload the current page.
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-A `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+A `Boolean`. 当有此属性时, ` webview ` 中的访客页（guest page）将具有Node集成, 并且可以使用像 ` require ` 和 ` process ` 这样的node APIs 去访问低层系统资源。 Node 集成在访客页中默认是禁用的。
 
 ### `nodeintegrationinsubframes`
 
@@ -500,7 +500,7 @@ Returns `Promise<void>`
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
+示例请进传送门： [webContents.send](web-contents.md#contentssendchannel-args) 
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -566,7 +566,7 @@ Returns `Number` - The WebContents ID of this `webview`.
 
 ## DOM Events
 
-The following DOM events are available to the `webview` tag:
+`webview` 标签具有以下有效的 DOM 事件：
 
 ### Event: 'load-commit'
 
@@ -575,11 +575,11 @@ The following DOM events are available to the `webview` tag:
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+发生load 加载时触发。 这包括当前文档中的导航以及子框架文档级加载(subframe document-level loads)，但不包括异步资源加载。
 
 ### Event: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。（译者：网页加载的过程中，并不是所有的浏览器都是转圈圈，而且浏览器版本不同，加载效果也有可能不一样。其中 ie 和 chrome 是转圈圈，safari 是进度条，firefox是一个小点左右来回移动--20180103）
 
 ### Event: 'did-fail-load'
 
@@ -590,7 +590,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 
 
 ### Event: 'did-frame-finish-load'
 
@@ -661,7 +661,7 @@ webview.addEventListener('console-message', (e) => {
 
 返回:
 
-* `result` Object - 过滤器对象，包含过滤参数 
+* `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
@@ -736,7 +736,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+当发生页内导航时，触发该事件。
 
 当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
