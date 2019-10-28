@@ -31,56 +31,48 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
+### Événements d’instance
+
+#### Event: 'detach'
+
+Retourne :
+
+* `event` Événement
+* `reason` String - Reason for detaching debugger.
+
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+
+#### Event: 'message'
+
+Retourne :
+
+* `event` Événement
+* `method` String - Method name.
+* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+
+Emitted whenever the debugging target issues an instrumentation event.
+
 ### Méthodes d’instance
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (facultatif) - Version de protocole de débogage demandée.
+* `protocolVersion` String (optional) - Requested debugging protocol version.
 
-Attache le débogueur au `webContents`.
+Attaches the debugger to the `webContents`.
 
 #### `debugger.isAttached()`
 
-Retourne `Boolean` - Si un débogueur est attaché au `webContents`.
+Returns `Boolean` - Whether a debugger is attached to the `webContents`.
 
 #### `debugger.detach()`
 
-Détache le débogueur depuis le `webContents`.
-
-#### `debugger.sendCommand(method[, commandParams, callback])`
-
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` Object (facultatif) - Objet JSON avec les paramètres de la requête.
-* `callback` Function (facultatif) - Réponse 
-  * `error` Object - Message d'erreur indiquant l'échec de la commande.
-  * `result` Any - Réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant.
-
-Envoi une commande au débogueur.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Detaches the debugger from the `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` Object (facultatif) - Objet JSON avec les paramètres de la requête.
+* `commandParams` any (optional) - JSON object with request parameters.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
-Envoi une commande au débogueur.
-
-### Événements d’instance
-
-#### Événement : 'detach'
-
-* `event` Event
-* `reason` String - Motif du retrait du débogueur.
-
-Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque le `webContents` est fermé, soit lorsque devtools est invoqué pour le `webContents` rattaché.
-
-#### Événement : 'message'
-
-* `event` Événement
-* `method` String - Nom de la méthode.
-* `params` Object - Paramètres d'événements définis par l'attribut 'parameters' dans le protocole de débogage distant.
-
-Émis à chaque fois que la cible du débogueur envoie un événement d’instrumentation.
+Send given command to the debugging target.
