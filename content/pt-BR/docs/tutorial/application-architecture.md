@@ -89,4 +89,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Existe uma ressalva importante: módulos nativos do Node.js (ou seja, módulos que precisam ser compilados em código nativo antes de serem usados) precisam antes, é claro, ser compilados para poderem ser usados no Electron.
 
-A grande maioria dos módulos do Node.js *não* é nativa. Apenas 400 dos cerca de 650.000 módulos são nativos. No entanto, se você precisar de módulos nativos, consulte [este guia sobre como recompilá-los para o Electron](./using-native-node-modules.md).
+A grande maioria dos módulos do Node.js *não* é nativa. Only 400 out of the ~650,000 modules are native. No entanto, se você precisar de módulos nativos, consulte [este guia sobre como recompilá-los para o Electron](./using-native-node-modules.md).
