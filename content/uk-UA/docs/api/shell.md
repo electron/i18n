@@ -32,25 +32,12 @@ Returns `Boolean` - Whether the item was successfully opened.
 
 Open the given file in the desktop's default manner.
 
-### `shell.openExternalSync(url[, options])`
-
-* `url` String - Max 2081 characters on Windows, or the function returns false.
-* `options` Object (опціонально) 
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
-  * `workingDirectory` String (optional) - The working directory. *Windows*
-
-Returns `Boolean` - Whether an application was available to open the URL.
-
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
-
-**Припиняється підтримка**
-
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (опціонально) 
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
-  * `workingDirectory` String (optional) - The working directory. *Windows*
+  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) *Windows* - The working directory.
 
 Returns `Promise<void>`
 
@@ -66,7 +53,7 @@ Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Відтворює звуковий сигнал.
+Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
@@ -85,7 +72,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 * `shortcutPath` String
 
-Повертає [`ShortcutDetails`](structures/shortcut-details.md)
+Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
