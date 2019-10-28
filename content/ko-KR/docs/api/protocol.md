@@ -349,7 +349,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` 객체 (선택) 
+      * `uploadData` Object (선택) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
