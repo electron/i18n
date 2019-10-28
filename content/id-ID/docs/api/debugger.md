@@ -31,63 +31,48 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
+### Contoh peristiwa
+
+#### Event: 'detach'
+
+Mengembalikan:
+
+* `event` Sinyal
+* `reason` String - Reason for detaching debugger.
+
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+
+#### Event: 'message'
+
+Mengembalikan:
+
+* `event` Sinyal
+* `method` String - Method name.
+* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+
+Emitted whenever the debugging target issues an instrumentation event.
+
 ### Методы экземпляра
 
-#### `debugger.melmpirkan ( [protocolVersion] )`
+#### `debugger.attach([protocolVersion])`
 
-* ` protocolVersion </ 0>  String (opsional) - Versi protokol debug yang diminta</li>
-</ul>
+* `protocolVersion` String (optional) - Requested debugging protocol version.
 
-<p>Atasi debugger ke <code>isi web </ 0> .</p>
+Attaches the debugger to the `webContents`.
 
-<h4><code>debugger.adalah terlampir()`</h4> 
-  Mengembalikan ` Boolean </ 0> - Apakah debugger terpasang ke <code>isi web </ 0> .</p>
+#### `debugger.isAttached()`
 
-<h4><code>debugger.melepaskan ()`</h4> 
-  
-  Lepaskan debugger dari `isi web </ 0> .</p>
+Returns `Boolean` - Whether a debugger is attached to the `webContents`.
 
-<h4><code>debugger.kirim perintah (metode [, perintah Params, panggil kembali])`</h4> 
-  
-  * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-  * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
-<li><code>callback` Fungsi (opsional) - Respon 
-    * ` kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
-<li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
-  deskripsi perintah dalam protokol debugging jarak jauh.</li>
-</ul></li>
-</ul>
+#### `debugger.detach()`
 
-<p>Kirim perintah yang diberikan ke target debugging.</p>
+Detaches the debugger from the `webContents`.
 
-<p><strong><a href="modernization/promisification.md">Deprecated Soon</a></strong></p>
+#### `debugger.sendCommand(method[, commandParams])`
 
-<h4><code>debugger.sendCommand(method[, commandParams])`</h4> 
-      * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-      * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
-</ul>
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` any (optional) - JSON object with request parameters.
 
-<p>Returns <code>Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.</p> 
-        Kirim perintah yang diberikan ke target debugging.
-        
-        ### Instance Events
-        
-        #### Acara : 'melepaskan'
-        
-        * `event</ 0> Acara</li>
-<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
-</ul>
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
-<p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
- <code>isi web</ 0> ditutup atau devtools dipanggil untuk < web > konten < 0> yang dilampirkan </ 0> .</p>
-
-<h4>Acara : 'pesan'</h4>
-
-<ul>
-<li><code>acara` Acara
-        *  metode </ 0> String - nama metode.</li>
-<li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
- dalam protokol debugging jarak jauh.</li>
-</ul>
-
-<p>Emitted kapanpun terjadi debugging sasaran soal acara instrumentasi .</p>
+Send given command to the debugging target.
