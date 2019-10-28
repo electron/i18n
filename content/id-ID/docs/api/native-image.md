@@ -57,7 +57,7 @@ Saat ` PNG </ 0> dan <code> JPEG </ 0> format gambar yang didukung. <code> PNG <
 
 <p>Jika Anda ingin mendukung display dengan kepadatan DPI yang berbeda pada saat bersamaan, Anda dapat meletakkan gambar dengan ukuran berbeda di folder yang sama dan menggunakan nama file tanpa sufiks DPI. Sebagai contoh:</p>
 
-<pre><code class="text">gambar / ├── icon.png ├── icon@2x.png └── icon@3x.png
+<pre><code class="plaintext">gambar / ├── icon.png ├── icon@2x.png └── icon@3x.png
 `</pre> 
 
 ```javascript
@@ -149,11 +149,11 @@ Mengembalikan ` gambar asli </ 0></p>
  ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
  
  * `imageName` String
- * `hslShift` Number[]
+ * `hslShift` Number[] (optional)
  
  Mengembalikan ` gambar asli </ 0></p>
 
-<p>Creates a new <code>NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+<p>Creates a new <code>NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
  
  The `hslShift` is applied to the image with the following rules
  
@@ -187,7 +187,7 @@ Mengembalikan ` gambar asli </ 0></p>
 
 <h4><code>image.toJPEG(quality)`</h4> 
  
- * `kualitas`Integer (** wajib **) - Antara 0 - 100.
+ * `quality` Integer - Between 0 - 100.
  
  Mengembalikan`Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data dikodekan `JPEG`.
  
@@ -231,15 +231,19 @@ Mengembalikan ` gambar asli </ 0></p>
  
  Menandai gambar sebagai gambar template.
  
+ **[Tidak berlaku lagi](modernization/property-updates.md)**
+ 
  #### `image.isTemplateImage()`
  
- Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
+ Returns `Boolean` - Whether the image is a template image.
+ 
+ **[Tidak berlaku lagi](modernization/property-updates.md)**
  
  #### `image.crop(rect)`
  
  * `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong.
  
- Mengembalikan `NativeImage` - Gambar yang dipotong.
+ Returns `NativeImage` - The cropped image.
  
  #### `image.resize(options)`
  
@@ -252,15 +256,23 @@ Mengembalikan ` gambar asli </ 0></p>
     dipetakan ke algoritma yang sama pada platform tertentu.</li>
 </ul>
 
-<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
-
-<p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
-
-<h4><code>image.getAspectRatio()`</h4> 
-  Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
-
-<h4><code>image.addRepresentation(options)`</h4> 
+<p>Returns <code>NativeImage` - The resized image.</p> 
+  If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+  
+  #### `image.getAspectRatio()`
+  
+  Returns `Float` - The image's aspect ratio.
+  
+  #### `image.addRepresentation(options)`
   
   * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
   
-  Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
+  Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+  
+  ## Properti/peralatan
+  
+  ### `nativeImage.isMacTemplateImage` *macOS*
+  
+  A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+  
+  Please note that this property only has an effect on macOS.
