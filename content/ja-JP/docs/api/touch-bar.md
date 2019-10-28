@@ -56,15 +56,15 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBar`:
+`TouchBar` のインスタンスには以下のプロパティがあります。
 
 #### `touchBar.escapeItem`
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+設定すると、タッチバーの "esc" ボタンを置き換える `TouchBarItem`。 `null` に設定するとデフォルトの "esc" ボタンが復元されます。 この値を変更すると、タッチバーのエスケープアイテムがすぐに更新されます。
 
 ## サンプル
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+ボタンといくつかのラベルで構成される、シンプルな TouchBar 向けスロットゲームのコード例を示します。
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
@@ -172,12 +172,12 @@ app.once('ready', () => {
 })
 ```
 
-### Running the above example
+### 上記のサンプルを実行する
 
-To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
+上記のサンプルを実行するには、(予めターミナルで適当なディレクトリを開いた上で) 以下の操作を行ってください。
 
 1. 上記のコードを `touchbar.js` として保存する
 2. `npm install electron` と入力し、 Electron をインストールします
 3. `./node_modules/.bin/electron touchbar.js` と入力し、Electron でサンプルを実行する
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+すると、 Electron のウィンドウと、 Touch Bar 上（あるいは Touch Bar エミュレータ上）で動作するサンプルアプリをご覧になる事ができるはずです。
