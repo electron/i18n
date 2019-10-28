@@ -9,7 +9,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 * `pilihan` Benda 
   * `label` String (opsional) - Teks tombol.
   * `backgroundColor` String (opsional) - Tombol warna latar dalam format hex, i.e `#ABCDEF`.
-  * `ikon `[ NativeImage ](native-image.md) (opsional) - Ikon tombol.
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition`String (opsional) - Bisa jadi `left`,` right`atau`overlay`.
   * `klik`Fungsi (opsional) - Fungsi untuk memanggil saat tombol diklik.
 
