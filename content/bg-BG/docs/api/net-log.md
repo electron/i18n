@@ -24,7 +24,7 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 ### `netLog.startLogging(path[, options])`
 
 * `path` String - File path to record network logs.
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
