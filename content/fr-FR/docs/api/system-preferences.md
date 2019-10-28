@@ -48,7 +48,7 @@ Retourne :
 
 ### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Retourne `Boolean` - Si le système est en mode sombre.
 
 **Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
 
@@ -56,7 +56,7 @@ Returns `Boolean` - Whether the system is in Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Retourne `Boolean` - Si l'option Swipe entre les pages est activé.
 
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
@@ -64,21 +64,21 @@ Returns `Boolean` - Whether the Swipe between pages setting is on.
 * `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Record<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Record<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
@@ -127,7 +127,7 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Supprime l'abonnement avec `l'id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
