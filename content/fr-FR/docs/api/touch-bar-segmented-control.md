@@ -22,7 +22,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
     * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un tableau de segments à placer dans ce contrôle.
   * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. Lorsque le mode est multiple, cela sera le dernier élément sélectionné.
-  * `change` Function - Appelé lorsque l'utilisateur sélectionne un nouveau segment. 
+  * `change` Function (optional) - Called when the user selects a new segment. 
     * `selectedIndex` Integer - L'index du segment que l'utilisateur a sélectionné.
     * `isSelected` Boolean - Si après la selection de l'utilisateur, le segment est selectionné ou non.
 
