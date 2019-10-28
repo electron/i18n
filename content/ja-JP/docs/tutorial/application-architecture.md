@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 重要な注意点が1つあります。ネイティブな Node.js モジュール (ネイティブコードのコンパイルが必要なモジュール) は、Electron と一緒に使用するためにコンパイルする必要があります。
 
-Node.js モジュールの大部分はネイティブでは *ありません*。 ~650.000のモジュールのうち400個だけがネイティブです。 しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください。
+Node.js モジュールの大部分はネイティブでは *ありません*。 Only 400 out of the ~650,000 modules are native. しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください。
