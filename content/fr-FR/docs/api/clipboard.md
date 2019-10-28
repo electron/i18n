@@ -9,21 +9,20 @@ On Linux, there is also a `selection` clipboard. To manipulate it you need to pa
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Example String', 'selection')
-console.log(clipboard.readText('selection'))
+clipboard.writeText('Mon exemple', 'selection') console.log(clipboard.readText('selection'))
 ```
 
 ## Méthodes
 
-The `clipboard` module has the following methods:
+Le module `clipboard` dispose des méthodes suivantes :
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Remarque :** Les APIs expérimentales sont marquées comme telles et sont susceptibles d'être supprimés à l'avenir.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Retourne `String` - Le contenu du presse-papiers en tant que texte brut.
 
 ```js
 const { clipboard } = require('electron')
@@ -40,7 +39,7 @@ console.log(text)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+Écrit le `text` dans le presse-papiers au format texte brut.
 
 ```js
 const { clipboard } = require('electron')
@@ -53,7 +52,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Retourne `String` - Le contenu du presse-papiers en tant que balisage.
 
 ```js
 const { clipboard } = require('electron')
@@ -70,7 +69,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+Écrit le `markup` dans le presse-papiers.
 
 ```js
 const { clipboard } = require('electron')
@@ -82,20 +81,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Retourne [`NativeImage`](native-image.md) - Le contenu de l'image du presse-papiers.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+Écrit l'`image` dans le presse-papiers.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Retourne `String` - Le contenu presse-papiers en RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -112,7 +111,7 @@ console.log(rtf)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+Écrit le `text` dans le presse-papiers en RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -128,7 +127,7 @@ Retourne `Object`:
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Retourne un objet contenant les clés `title` et `url` représentant le marque-page du presse-papiers. La valeur des clés `title` et `url` sera une chaîne de caractères vide si le marque-page n'est pas disponible.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -136,9 +135,9 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Écrit le `title` et `url` dans le presse-papiers comme marque-page.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Remarque :** La plupart des applications sur Windows ne supportent pas le format marque-page, du coup vous pouvez utiliser `clipboard.write` pour écrire un marque-page et un texte de secours dans le presse-papiers.
 
 ```js
 const { clipboard } = require('electron')
