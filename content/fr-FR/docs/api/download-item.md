@@ -80,7 +80,7 @@ Cet API est seulement disponible dans la fonction de rappel de `will-download` d
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Retourne `String` - Le chemin d'accès pour le téléchargement. Ce sera soit le chemin définit par `downloadItem.setSavePath(path)` ou le chemin indiqué par la boîte de dialogue de sauvegarde.
 
 **[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
@@ -96,25 +96,25 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Met en pause le téléchargement.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Retourne `Boolean` - Si le téléchargement est en pause.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Reprend le téléchargement qui a été mis en pause.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Remarque :** Pour permettre la reprise des téléchargements, le serveur sur lequel vous téléchargez doit supporter les requêtes de plage (range requests) et doit fournir les en-têtes `Last-Modified` et `ETag`. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Retourne `Boolean` - Si le téléchargement peut être repris.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Annule le téléchargement.
 
 #### `downloadItem.getURL()`
 
@@ -122,37 +122,37 @@ Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Retourne `String` - Le mime type du fichier.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Retourne `Boolean` - Si le téléchargement à des gestures.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Retourne `String` - le nom du fichier du téléchargement.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Remarque :** Le nom du fichier n'est pas toujours le même que celui enregistré dans le disque local. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Retourne `Integer` - La taille totale en octets du téléchargement.
 
-If the size is unknown, it returns 0.
+Si la taille est inconnue, retourne 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Retourne `Integer` - Le nombre d'octets reçu du téléchargement.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Retourne `String` - Le champ Content-Disposition venant de l'en-tête de la réponse.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `cancelled` ou `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Remarque :** Les méthodes suivantes sont utiles spécifiquement pour relancer un téléchargement `cancelled` au redémarrage de la session.
 
 #### `downloadItem.getURLChain()`
 
@@ -160,15 +160,15 @@ Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Retourne `String` - La valeur de l'en-tête Last-Modified.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Retourne `String` - La valeur de l'en-tête ETag.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Retourne `Double` - Le nombre de secondes depuis l'époch UNIX lorsque le téléchargement s'est lancé.
 
 ### Propriétés d'instance
 
