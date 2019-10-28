@@ -18,7 +18,7 @@
   * `label` String (optional)
   * `sublabel` String (optional)
   * `toolTip` String (optional) *macOS* - Hover text for this menu item.
-  * `accelerator` [Accelerator](accelerator.md) (optional)
+  * `accelerator` [Accelerator](accelerator.md) (選用)
   * `icon` ([NativeImage](native-image.md) | String) (選用)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
