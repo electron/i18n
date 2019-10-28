@@ -8,15 +8,15 @@
 
 * `seçenekler` Nesnesi 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Bu kaydırıcıya yerleştirilecek bir dizi madde.
-  * `seç` Fonksiyon - Kullanıcı, son tıklanan öğe olmayan bir öğeyi tıklattığında çağrılır. 
+  * `seç` Function (optional) - Called when the user taps an item that was not the last tapped item. 
     * `selectedIndex` Integer - Kullanıcının seçtiği öğenin dizini.
-  * `vurgulamak` Fonksiyon - Kullanıcı herhangi bir öğeyi tıklattığında çağrılır. 
+  * `vurgulamak` Function (optional) - Called when the user taps any item. 
     * `highlightedIndex` Integer - Kullanıcının dokunduğu maddenin endeksi.
-  * `selectedStyle` String - Seçilen öğe stili. Varsayılan değer: `null`.
-  * `overlayStyle` String - Seçili yer paylaşım öğesi stili. Varsayılan değer: `null`.
-  * `showArrowButtons` Boolean - Varsayılan değer `false`.
-  * `mode` String - Varsayılan değer `free`.
-  * `continuous` Boolean - Varsayılan değer `true`.
+  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `mode` String (optional) - Defaults to `free`.
+  * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Örnek Özellikler
 
