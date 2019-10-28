@@ -31,7 +31,28 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Örnek yöntemleri
+### Örnek olayları
+
+#### Etkinlik: 'ayırmak'
+
+Dönüşler:
+
+* `event` Olay
+* `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
+
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+
+#### Etkinlik: 'mesaj'
+
+Dönüşler:
+
+* `olay` Olay
+* `method` String - Yöntem adı.
+* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+
+Emitted whenever the debugging target issues an instrumentation event.
+
+### Örnek yöntemler
 
 #### `debugger.attach([protocolVersion])`
 
@@ -47,40 +68,11 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
-#### `debugger.sendCommand(method[, commandParams, callback])`
-
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
-* `geri aramak` İşlev (opsiyonel) - Yanıt 
-  * `error` Nesne - Komutun Başarısız olduğunu gösteren hata mesajı.
-  * `result` Herhangi - Uzaktan Hata Ayıklama protokolünde komut açıklamasının "returns" özelliğiyle tanımlanan tepki.
-
-Verilen komutu hata ayıklama hedefine gönderin.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `debugger.sendCommand(method[, commandParams])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
+* `commandParams` any (optional) - JSON object with request parameters.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
 Verilen komutu hata ayıklama hedefine gönderin.
-
-### Örnek Events
-
-#### Etkinlik: 'ayırmak'
-
-* `event` Olay
-* `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
-
-Hata ayıklama oturumu sona erdiğinde yayan. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
-
-#### Etkinlik: 'mesaj'
-
-* `event` Olay
-* `method` String - Yöntem adı.
-* `params` Object - Olay parametreleri 'parametreler' özniteliği uzaktan hata ayıklama protokolünde.
-
-Hata ayıklama hedeflemesi enstrümantasyon olayında her zaman ortaya çıkar.
