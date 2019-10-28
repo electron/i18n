@@ -15,15 +15,15 @@ console.log(clipboard.readText('selection'))
 
 ## 메서드
 
-The `clipboard` module has the following methods:
+`clipboard` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**참고**: Experimental 마크가 붙은 API는 실험적인 기능이며 차후 최신 버전에서 제거될 수 있습니다.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Returns `String` - 일반 텍스트 형식의 클립보드의 내용.
 
 ```js
 const { clipboard } = require('electron')
@@ -40,7 +40,7 @@ console.log(text)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+클립보드에 `plain text`로 문자열을 씁니다.
 
 ```js
 const { clipboard } = require('electron')
@@ -53,7 +53,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Returns `String` - 마크업 형식의 클립보드의 내용.
 
 ```js
 const { clipboard } = require('electron')
@@ -70,7 +70,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+클립보드에 `markup`으로 씁니다.
 
 ```js
 const { clipboard } = require('electron')
@@ -82,20 +82,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Returns [`NativeImage`](native-image.md) - NativeImage 형식의 클립보드의 내용.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+클립보드에 `image`를 씁니다.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Returns `String` - RTF 형식의 클립보드 내용.
 
 ```js
 const { clipboard } = require('electron')
@@ -112,7 +112,7 @@ console.log(rtf)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+클립보드에 `text`를 RTF 형식으로 씁니다.
 
 ```js
 const { clipboard } = require('electron')
@@ -128,7 +128,7 @@ Returns `Object`:
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+클립보드로부터 북마크 형식으로 표현된 `title와 <code>url` 키를 담은 객체를 반환합니다. `title`과 `url` 값들은 북마크를 사용할 수 없을 때 빈 문자열을 포함합니다.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -136,9 +136,9 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+`title`과 `url`을 클립보드에 북마크 형식으로 씁니다.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**참고**: 윈도우의 대부분의 앱은 북마크 붙여넣기를 지원하지 않습니다. `clipboard.write` 를 통해 북마크와 대체 텍스트를 클립보드에 쓸 수 있습니다.
 
 ```js
 const { clipboard } = require('electron')
