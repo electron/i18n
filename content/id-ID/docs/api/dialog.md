@@ -238,9 +238,9 @@ API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi
 
 Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. Jika Anda memberikan argumen `browserWindow`, dialog akan dilampirkan ke jendela induk, membuatnya menjadi modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
 
 * Argumen `pesan` tidak digunakan, karena OS menyediakan dialog konfirmasinya sendiri.
 * Argumen `browserWindow` diabaikan karena tidak mungkin membuat modal dialog konfirmasi ini.
@@ -249,4 +249,4 @@ On Windows the options are more limited, due to the Win32 APIs used:
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Anda dapat memanggil `BrowserWindow.getCurrentWindow (). SetSheetOffset (offset)` untuk mengubah offset dari bingkai jendela tempat lembaran dilekatkan.
