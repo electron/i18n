@@ -146,6 +146,7 @@ apps:
   search_app: Filtrer les apps par nom, description, etc…
   categories: Catégories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Faîtes une Pull Request</a> pour ajouter votre application.'
+  #App show page specific localization strings
   website: Site web
   repository: Dépôt
   category: Catégorie
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Blog d'Electron
   description: Toutes les dernières nouvelles de l'équipe d'Electron et de la communauté.
+  #Post show page specific localization strings
   feedback: Un commentaire sur cet article ? Faîtes le savoir à <a href="https://twitter.com/electronjs">@electronjs</a> sur Twitter.
   help: Besoin d'aide ou un bug à partager ? <a href="/contact">Contactez-nous</a>.
 clipboard:
   copy: Copier
   copy_to_clipboard: Copier dans le presse-papiers
   copied: Copié
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: ou
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Gouvernance Electron
   description: Le système de gouvernance d'Electron est composé de groupes de travail qui supervisent différents aspects de l'écosystème d'Electron, et d'un groupe de travail administratif s'occupant de résoudre les conflits entre eux.
   wgs: Groupes de travail
-  docstools:
-    title: Documents & Outils
-    description: Supervise l'outillage orienté vers l'extérieur (p. ex., Fiddle, Forge), la documentation d'Electron sur le site Web, les dépôts <code>electron/*</code>, et la sensibilisation des groupes de mainteneurs aux modules tiers.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Sensibilisation
     description: Développement de la communauté Electron
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: Améliorations
     description: Supervise les mises à niveau des dépendances en amont, en particulier Chromium et Node.
-  website:
-    title: Site web
-    description: Supervise les implémentations technique, la conception et le design du site Web d'Electron et de l'outillage associé.
   cmsf:
     title: Communauté et sécurité
     description: Supervise le retrait ou le bannissement de la communauté.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Administratif
     description: Le groupe de travail administratif supervise l'ensemble de la gouvernance et du projet.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Vue d'ensemble
     associated_repos: Dépôts associés
