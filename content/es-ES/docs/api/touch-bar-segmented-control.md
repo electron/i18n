@@ -22,7 +22,7 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
     * `buttons` - Hace que los segmentos actúen como botones. Cada segmento puede ser presionado y liberado pero nunca ser marcado como activo.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un arreglo de elementos para colocar en este control.
   * `selectedIndex` Integer (opcional) - El índice del segmento actual seleccionado, se actualizará automáticamente con la interacción del usuario. Cuando el modo es múltiple, será el ultimo elemento seleccionado.
-  * `cambiar` Function - Es llamado cuando el usuario selecciona un nuevo segmento. 
+  * `cambiar` Function (optional) - Called when the user selects a new segment. 
     * `selectedIndex` Integer - El índice del elemento seleccionado por el usuario.
     * `isSelected` Boolean - Si el elemento es seleccionado o no como resultado de la selección del usuario.
 
