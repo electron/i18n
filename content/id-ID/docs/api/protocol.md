@@ -289,13 +289,13 @@ protocol.registerSchemesAsPrivileged([
               
               Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
               
-              ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
+              ### `protocol.interceptFileProtocol(skema, handler[,completion])`
               
               * `skema` String
               * `handler` Fungsi 
-                * `permintaan` Sasaran 
-                  * ` url </ 0> String</li>
-<li><code>headers` Record<String, String>
+                * `permintaan` Obyek 
+                  * `url` String
+                  * `headers` Record<String, String>
                   * `pengarah` String
                   * `method` String
                   * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
@@ -303,95 +303,92 @@ protocol.registerSchemesAsPrivileged([
 <li><code>callback` Fungsi 
                     * `fullPath` String
                 * `penyelesaian` Fungsi (opsional) 
-                  * ` error </ 0> Kesalahan</li>
+                  * Kesalahan `kesalahan`
+                
+                Sisipkan `skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.
+                
+                ### `protocol.interceptFileProtocol(skema, handler[,completion])`
+                
+                * `skema` String
+                * `handler` Fungsi 
+                  * `permintaan` Obyek 
+                    * `url` String
+                    * `headers` Record<String, String>
+                    * `pengarah` String
+                    * `method` String
+                    * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
-</ul>
-
-<p>Sisipkan <code>skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.</p> 
-                    ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
+<li><code>callback` Fungsi 
+                      * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+                  * `penyelesaian` Fungsi (opsional) 
+                    * Kesalahan `kesalahan`
+                  
+                  Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.
+                  
+                  ### `protocol.interceptBufferProtocol(skema, handler[, completion])`
+                  
+                  * `skema` String
+                  * `handler` Fungsi 
+                    * `permintaan` Obyek 
+                      * ` url </ 0> String</li>
+<li><code>headers` Record<String, String>
+                      * `pengarah` String
+                      * `method` String
+                      * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+                        * `penyangga` Buffer (opsional)
+                    * `penyelesaian` Fungsi (opsional) 
+                      * Kesalahan `kesalahan`
+                    
+                    Sisipkan `skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.
+                    
+                    ### `protocol.interceptHttpProtocol (skema, handler [, completion])`
                     
                     * `skema` String
                     * `handler` Fungsi 
                       * `permintaan` Obyek 
-                        * `url` String
-                        * `headers` Record<String, String>
+                        * ` url </ 0> String</li>
+<li><code>headers` Record<String, String>
                         * `pengarah` String
                         * `method` String
                         * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
-                          * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+                          * `redirectRequest` Obyek 
+                            * `url` String
+                            * `method` String (optional)
+                            * `session` Session | null (optional)
+                            * `uploadData` Objek (opsional) 
+                              * `contentType` String - jenis konten MIME.
+                              * `data` String - Konten yang akan dikirim.
                       * `penyelesaian` Fungsi (opsional) 
                         * Kesalahan `kesalahan`
                       
-                      Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.
+                      Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.
                       
-                      ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
+                      ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
                       
                       * `skema` String
                       * `handler` Fungsi 
                         * `permintaan` Obyek 
-                          * ` url </ 0> String</li>
-<li><code>headers` Record<String, String>
+                          * `url` String
+                          * `headers` Record<String, String>
                           * `pengarah` String
                           * `method` String
                           * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
-                            * `buffer` Buffer (optional)
+                            * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
                         * `penyelesaian` Fungsi (opsional) 
                           * Kesalahan `kesalahan`
                         
-                        Sisipkan `skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.
+                        Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
                         
-                        ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
+                        ### `protocol.uninterceptProtocol(skema[, penyelesaian])`
                         
                         * `skema` String
-                        * `handler` Fungsi 
-                          * `permintaan` Obyek 
-                            * ` url </ 0> String</li>
-<li><code>headers` Record<String, String>
-                            * `pengarah` String
-                            * `method` String
-                            * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
-</ul></li>
-<li><code>callback` Fungsi 
-                              * `redirectRequest` Sasaran 
-                                * ` url </ 0> String</li>
-<li><code>method` String (optional)
-                                * `session` Session | null (optional)
-                                * `uploadData` Objek (pilihan) 
-                                  * `contentType` String - jenis konten MIME.
-                                  * `data` String - Konten yang akan dikirim.
-                          * `penyelesaian` Fungsi (opsional) 
-                            * Kesalahan `kesalahan`
-                          
-                          Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.
-                          
-                          ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
-                          
-                          * `skema` String
-                          * `handler` Fungsi 
-                            * `permintaan` Obyek 
-                              * `url` String
-                              * `headers` Record<String, String>
-                              * `pengarah` String
-                              * `method` String
-                              * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
-</ul></li>
-<li><code>callback` Fungsi 
-                                * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-                            * `penyelesaian` Fungsi (opsional) 
-                              * Kesalahan `kesalahan`
-                            
-                            Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
-                            
-                            ### `protocol.uninterceptProtocol(scheme[, completion])`
-                            
-                            * `skema` String
-                            * `penyelesaian` Fungsi (opsional) 
-                              * ` error </ 0> Kesalahan</li>
-</ul></li>
-</ul>
-
-<p>Hapus interceptor dipasang untuk <code>skema` dan mengembalikan handler aslinya.</p>
+                        * `penyelesaian` Fungsi (opsional) 
+                          * Kesalahan `kesalahan`
+                        
+                        Hapus interceptor dipasang untuk `skema` dan mengembalikan handler aslinya.
