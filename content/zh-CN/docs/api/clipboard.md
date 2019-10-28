@@ -15,15 +15,15 @@ console.log(clipboard.readText('selection'))
 
 ## 方法
 
-The `clipboard` module has the following methods:
+` clipboard ` 对象具有以下方法:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+** 注意: **被标记为实验性的 api 将来可能被删除。
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+返回 ` String `- 剪贴板中的纯文本内容。
 
 ```js
 const { clipboard } = require('electron')
@@ -40,7 +40,7 @@ console.log(text)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+将 ` text ` 作为纯文本写入剪贴板。
 
 ```js
 const { clipboard } = require('electron')
@@ -53,7 +53,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+返回 ` String `- 剪贴板中的HTML内容。
 
 ```js
 const { clipboard } = require('electron')
@@ -70,7 +70,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+将 ` markup ` 写入剪贴板。
 
 ```js
 const { clipboard } = require('electron')
@@ -82,20 +82,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+返回 [` NativeImage `](native-image.md)- 剪贴板中的图像内容。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+将 ` image ` 写入剪贴板。
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+返回 ` String `- 剪贴板中的RTF内容。
 
 ```js
 const { clipboard } = require('electron')
@@ -112,7 +112,7 @@ console.log(rtf)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+向剪贴板中写入 RTF 格式的 `text`.
 
 ```js
 const { clipboard } = require('electron')
@@ -128,7 +128,7 @@ clipboard.writeRTF(rtf)
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+返回一个对象, 其中包含表示剪贴板中书签 `title` 和 `url` 。 当书签不可用时, ` title ` 和 ` url ` 值将为空字符串。
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -136,9 +136,9 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+将书签的 ` title ` 和 ` url ` 写入剪贴板。
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**注意**：Windows上的大多数应用程序不支持粘贴书签，因此您可以使用 `clipboard.write` 将书签和后备文本写入剪贴板。
 
 ```js
 const { clipboard } = require('electron')
