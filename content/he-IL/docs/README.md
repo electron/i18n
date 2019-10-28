@@ -31,6 +31,7 @@
   * [שימוש בפעולות ה־API של Electron](tutorial/application-architecture.md#using-electron-apis)
   * [שימוש בפעולות ה־API של Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [שימוש במודולים טבעיים של Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * הוספת תכונות לאפליקציה שלך 
   * [התראות](tutorial/notifications.md)
   * [מסמכים אחרונים](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [משתני סביבה](api/environment-variables.md)
 * [שינויים השוברים את ה־API](api/breaking-changes.md)
 
