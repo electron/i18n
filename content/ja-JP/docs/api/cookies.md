@@ -63,7 +63,7 @@ session.defaultSession.cookies.set(cookie)
 #### `cookies.get(filter)`
 
 * `フィルタ` Object 
-  * `url` String (任意) - `url` と関連付けられたクッキーを取得します。空は、すべてのURLのクッキーを取得することを意味します。
+  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (任意) - 名前でクッキーをフィルタリングします。
   * `domain` String (任意) - クッキーのドメインと一致するか、ドメインが `domains` のサブドメインであるクッキーを取得します。
   * `path` String (任意) - クッキーのパスが `path` と一致するクッキーを取得します。
@@ -74,86 +74,33 @@ session.defaultSession.cookies.set(cookie)
 
 `filter` に一致するすべての cookie を取得するリクエストを送り、そのレスポンスで Promise を解決します。
 
-#### `cookies.get(filter, callback)`
-
-* `filter` Object 
-  * `url` String (任意) - `url` と関連付けられたクッキーを取得します。空は、すべてのURLのクッキーを取得することを意味します。
-  * `name` String (任意) - 名前でクッキーをフィルタリングします。
-  * `domain` String (任意) - クッキーのドメインと一致するか、ドメインが `domains` のサブドメインであるクッキーを取得します。
-  * `path` String (任意) - クッキーのパスが `path` と一致するクッキーを取得します。
-  * `secure` Boolean (任意) - Secureプロパティでクッキーをフィルタリングします。
-  * `session` Boolean (任意) - セッションまたは永続的クッキーでフィルタリングします。
-* `callback` Function 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - クッキーオブジェクトの配列。
-
-`filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
-
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` String - クッキーに関連付けられるURL。url が無効な場合 promise は拒否されます。
-  * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
-  * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
-  * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。省略した場合、デフォルトは空です。
-  * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
-  * `secure` Boolean (任意) - クッキーにSecure属性がついているかどうか。省略値は、falseです。
-  * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
-  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
+  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
+  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
+  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 
-戻り値 `Promise<void>` - cookie が設定されたときに解決される Promise。
+Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
-cookie を `details` で設定します。
-
-#### `cookies.set(details, callback)`
-
-* `details` Object 
-  * `url` String - クッキーに関連付けられるURL。
-  * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
-  * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
-  * `domain` String (任意) - クッキーのドメイン。省略した場合、既定では空です。
-  * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
-  * `secure` Boolean (任意) - クッキーにSecure属性がついているかどうか。省略値は、falseです。
-  * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
-  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
-* `callback` Function 
-  * `error` Error
-
-`details` でクッキーを設定します。完了時に `callback(error)` で `callback` が呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
+Sets a cookie with `details`.
 
 #### `cookies.remove(url, name)`
 
-* `url` String - クッキーに関連付けられたURL。
-* `name` String - 削除するクッキーの名前。
+* `url` String - The URL associated with the cookie.
+* `name` String - The name of cookie to remove.
 
-戻り値 `Promise<void>` - cookie が削除されたときに解決される Promise。
+Returns `Promise<void>` - A promise which resolves when the cookie has been removed
 
-`url` と `name` が一致する cookie を削除します。
-
-#### `cookies.remove(url, name, callback)`
-
-* `url` String - クッキーに関連付けられたURL。
-* `name` String - 削除するクッキーの名前。
-* `callback` Function
-
-`url` と `name` に一致するクッキーを削除します。完了時に `callback()` で `callback` が呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
+Removes the cookies matching `url` and `name`
 
 #### `cookies.flushStore()`
 
-戻り値 `Promise<void>` - cookie ストアがフラッシュされたときに解決される Promise。
+Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
 
-未書き込みのクッキーのデータをディスクに書き込みます。
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-未書き込みのクッキーのデータをディスクに書き込みます。
-
-**[非推奨予定](modernization/promisification.md)**
+Writes any unwritten cookies data to disk.
