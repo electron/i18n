@@ -34,7 +34,7 @@ Alt pencerede yazdırma iletişim kutusunu çağırır.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Belirtilen başlangıç noktası ile alt pencereye bir mesaj gönderir veya `*` için başlangıç noktası seçeneği yoktur.
