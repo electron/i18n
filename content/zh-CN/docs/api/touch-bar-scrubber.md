@@ -8,15 +8,15 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `参数` 对象 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) 一个数组，表示 scrubber 里的项目。
-  * `select` 函数 - 当用户点了一个项目，但是不是上一次点击的项目时调用。 
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item. 
     * `selectedIndex` Integer - 用户选中项排序。
-  * `highlight` Function - 当用户点击某一项时调用. 
+  * `highlight` Function (optional) - Called when the user taps any item. 
     * highlightedIndex Integer - 用户选中项排序.
-  * ` selectedStyle ` String - 选中项样式. 默认为 `null`.
-  * ` overlayStyle ` String - 选中遮罩项样式. 默认为 ` null `.
-  * `showArrowButtons` Boolean - 默认为 `false`.
-  * `mode` String -默认为` free `。
-  * `continuous` Boolean - 默认为`true`。
+  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `mode` String (optional) - Defaults to `free`.
+  * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### 实例属性
 
