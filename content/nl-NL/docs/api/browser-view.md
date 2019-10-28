@@ -84,12 +84,12 @@ Returns `Boolean` - Whether the view is destroyed.
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` *Experimenteel*
 
 Returns [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Experimenteel*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
