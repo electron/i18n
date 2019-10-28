@@ -30,20 +30,20 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 
 Returns `Promise<void>` - resolves when the net log has begun recording.
 
-Starts recording network events to `path`.
+Beginnt die Aufzeichnung von Netzwerk Events in `path`.
 
 ### `netLog.stopLogging()`
 
 Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beendet net die Aufzeichnung automatisch wenn die App beendet wird.
 
 ## Eigenschaften
 
 ### `netLog.currentlyLogging` *Readonly*
 
-A `Boolean` property that indicates whether network logs are recorded.
+Eine `Boolean` Eigenschaft die anzeigt ob Netzwerk Logs aufgezeichnet werden.
 
 ### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
 
-A `String` property that returns the path to the current log file.
+Eine `String` Eigenschaft welche den Pfad zur aktuellen Log Datei zurückgibt.
