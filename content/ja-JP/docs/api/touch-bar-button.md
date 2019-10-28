@@ -9,7 +9,7 @@
 * `options` オブジェクト 
   * `label` String (任意) - ボタンのテキスト。
   * `backgroundColor` String (任意) - 16進数形式、即ち `#ABCDEF` のボタンの背景色。
-  * `icon` [NativeImage](native-image.md) (任意) - ボタンのアイコン。
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (任意) - `left`、`right`、`overlay` にできます。
   * `click` Function (任意) - ボタンがクリックされたときに呼ぶ関数。
 
