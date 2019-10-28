@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback) が使用できます。
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
 
@@ -151,6 +151,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## プロパティ
 
-### `remote.process`
+### `remote.process` *Readonly*
 
-メインプロセス内の `process` オブジェクト。これは `remote.getGlobal('process')` と同じですが、キャッシュされます。
+A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
