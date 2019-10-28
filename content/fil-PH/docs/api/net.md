@@ -44,7 +44,7 @@ Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
 ### `net.request(options)`
 
-* `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 Ang nagbabalik na [`ClientRequest`](./client-request.md)
 
