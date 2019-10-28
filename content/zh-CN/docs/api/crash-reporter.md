@@ -24,8 +24,9 @@ crashReporter.start({
 
 或者使用第三方托管的解决办法：
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 崩溃日志被保存在本地的应用特有的临时文件夹中。 对于`YourName`对象中的`productName`，崩溃报日志将被储存在临时文件夹中名为`YourName Crashes`的文件文件夹中。 在启动崩溃报告器之前，您可以通过调用`app.setPath('temp', 'my/custom/temp')` API来自定义这些临时文件的保存路径
 
@@ -38,11 +39,11 @@ crashReporter.start({
 * `options` Object 
   * `compannyame` 字符串
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
-  * `productName` 字符串(可选) - 默认为 `app.getName()`.
-  * `uploadToServer` 布尔型(可选) - 控制是否将崩溃日志发送给服务器，默认为`true`.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler` 布尔型(可选) - 默认为`false`.
-  * `extra` 对象(可选) - 一个随崩溃日志发送的对象. 只有字符串属性能够被正确发送. 不支持发送嵌套对象，且属性名称和属性值必须小于64个字符长度.
-  * ` crashesDirectory `String (可选)-用于临时存储 crashreports 的目录 (仅在崩溃报告器通过 ` process.crashReporter.start ` 启动时使用).
+  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. 只有字符串属性能够被正确发送. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 你需要调用任何其他的`crashReporter` API，您必须调用此方法. 在每个需要收集崩溃日志的进程 (主进程 / 渲染器进程) 中，也必须先调用此方法. 从不同的进程调用时, 可以传不同的配置给 ` crashReporter. start `。
 
