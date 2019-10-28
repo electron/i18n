@@ -44,13 +44,13 @@ Gamitin ang pinakamataas na bakante ng disk cache, na magagamit, sa byte.
 
 ## --js-flags=`flags`
 
-Tukuyin ang mga flag na nalampasan ng Node JS engine. ito ay kailangang malampasan habang gumagana ang electron. kung gusto mong gumana ang `flags` na pangunahing process.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Tingnan ang [Node documentation](https://nodejs.org/api/cli.html) o kaya paganahin ang `node --help` sa iyong terminal para sa listahan ng mga magagamit na flag. Bukod pa dito, paganahin ang `node --v8-options` para makita ang listahan ng mga flags na tumutukoy sa Node's V8 JavaScript engine.
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ Halimbawa:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-ang anumang `url` na nagtatapos sa `example.com`,`foobar.com`, `baz` ay isinaalang-alang Para sa pinagsama-samang pag papatunay. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
+ang anumang `url` na nagtatapos sa `example.com`,`foobar.com`, `baz` ay isinaalang-alang Para sa pinagsama-samang pag papatunay. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Ang kuwit ay nag hihiwalay sa listahan ng mga server para sa kung aling delegasyon ng mga kredensyal ay kinakailangan. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --ignore-certificate-errors
 
@@ -151,3 +151,7 @@ Binigyan ang kada-modyul ng mainam na antas ng V-logging para i-override ang hal
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` ay maaaring mabago ang antas ng logging sa lahat ng code na pinanggalingan ng files sa ilalim ng `foo/bar` directory.
 
 Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
