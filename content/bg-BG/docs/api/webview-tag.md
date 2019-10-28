@@ -790,7 +790,7 @@ Fired when the renderer process is crashed.
 
 Връща:
 
-* `name` String
+* `name` String - Име
 * `version` String
 
 Fired when a plugin process is crashed.
