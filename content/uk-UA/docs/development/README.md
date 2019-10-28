@@ -20,6 +20,5 @@
 * [Відлагоджування на Windows](debug-instructions-windows.md)
 * [Відлагоджування на macOS](debugging-instructions-macos.md)
 * [Налаштування Серверу Символів в Налагоджувачі](setting-up-symbol-server.md)
-* [Оновлення Chromium](upgrading-chromium.md)
-* [Оновлення Crashpad](upgrading-crashpad.md)
-* [Оновлення Node](upgrading-node.md)
+* [Patches](patches.md)
+* [Upgrading Node](upgrading-node.md)
