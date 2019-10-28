@@ -28,30 +28,30 @@
 
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - 预购商品ID
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retrieves the product descriptions.
+检索商品的描述
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+返回 `Boolean`, 用来判断用户是否可以发起支付.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+返回 `String`, 指收据路径.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+完成所有待处理的交易
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - 待完成交易的ISO标准日期格式
 
-Completes the pending transactions corresponding to the date.
+完成与日期对应的待处理事务
