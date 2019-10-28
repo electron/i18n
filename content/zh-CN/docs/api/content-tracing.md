@@ -40,9 +40,9 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Start recording on all processes.
+在所有进程上开始记录
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。
 
 If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
@@ -52,9 +52,9 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Stop recording on all processes.
+停止所有进程记录。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
 Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
