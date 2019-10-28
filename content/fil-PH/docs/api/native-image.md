@@ -233,7 +233,7 @@ Nagmamarka ng imahe bilang template image.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Nagbabalik `Boolean` - Kung ang imahe ay isang template image. 
 
 **[Deprecated](modernization/property-updates.md)**
 
@@ -241,25 +241,25 @@ Returns `Boolean` - Whether the image is a template image.
 
 * `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop.
 
-Returns `NativeImage` - The cropped image.
+Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (optional) - Default sa lapad ng imahe. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Posibleng halaga ay mga `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. Ito ay isinalin sa algorithm-specific na paraan na nag depende sa kapabilidad (CPU, GPU) sa pinagbatayan na platform. Ito ay posible sa lahat ng tatlong pamamaraan na mai-map sa parehong algorithm sa binigay na platform. 
 
-Returns `NativeImage` - The resized image.
+Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng aspeto ay mapapangalagaan sa imaheng binago ang laki.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - Ang scale factor para idagdag sa prinisentang imahe para. * `width` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `height` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `buffer` Buffer (optional) - Ang buffer ay naglalaman ng mga hilaw na datos ng larawan. * `dataURL` String (optional) - An data URL ay naglalaman ng alinman sa base 64 naka encode PNG o JPEG na imahe.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Magdagdag ng naka presentang larawan para sa tinutukoy na scale factor. Pwede rin itong gamitin para magdagdag ng ibang representasyong scale factor sa isang imahe. Pwede itong tawaging imaheng walang laman.
 
 ## Mga Katangian
 
