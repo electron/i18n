@@ -54,17 +54,18 @@ A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSli
 
 A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instansya
 
-The following properties are available on instances of `TouchBar`:
+Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`: 
 
-#### `touchBar.escapeItem`
+#### `touchBar.escapeItem
+ `
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting na`null` nagbabalik ng default "esc" button. Ang pagbabago ng value ay kaagad na nag nag-aapdeyt sa escape item sa touch bar.
 
 ## Halimbawa
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Sa ibaba ay halimbawa ng simpleng laro ng slot machine touch bar kasama ang button na may mga pangalan.
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
@@ -172,12 +173,12 @@ app.once('ready', () => {
 })
 ```
 
-### Running the above example
+### Pinapatakbo ang mga halimbawa sa taas.
 
-To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
+Upang mapagana ang halimbawa sa itaas, kailangan mong (ipalagay na nabuksan mo ang terminal sa lokasyon ng directory kung saan mo gustong mapagana ang halimbawa):
 
 1. I-save ang itaas na file sa iyong kompyuter bilang `touchbar.js`
 2. Mag instala ng Electron sa pamamagitan ng `npm mag instala ng electron`
 3. Patakbohin ang mga halimbawa sa loob ng Electron: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Makakakita ka ng bagong Electron window at ang aplikasyon na tumatakbo sa iyong touch bar (o touch bar emulator).
