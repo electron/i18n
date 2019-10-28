@@ -62,7 +62,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 * `language` String
 * `provider` Object 
-  * `spellCheck` Function. 
+  * `spellCheck` Function 
     * `words` String[]
     * `callback` Function 
       * `misspeltWords` String[]
@@ -91,28 +91,21 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS ソースコード。
 
-`css` をスタイルシートとしてドキュメント内に挿入します。
+Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+
+### `webFrame.removeInsertedCSS(key)`
+
+* `key` String
+
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
 * `text` String
 
 フォーカスされた要素に `text` を挿入します。
-
-### `webFrame.executeJavaScript(code[, userGesture, callback])`
-
-* `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
-  * `result` Any
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-ページ内の `code` を評価します。
-
-ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
-
-**[非推奨予定](modernization/promisification.md)**
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
@@ -125,60 +118,25 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
-  * `result` Any
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
-**[非推奨予定](modernization/promisification.md)**
-
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
 戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
 
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `csp` String
-
-イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
-
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `name` String
-
-イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
-
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `securityOrigin` String
-
-イソレートコンテキストのセキュリティオリジンを設定します。
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome extensions reserve the range of IDs in `[1 << 20, 1 << 29)`. You can provide any integer here.
 * `info` Object 
-  * `securityOrigin` String (任意) - 隔離された空間のためのセキュリティオリジン
-  * `csp` String (任意) - 隔離された空間のためのコンテンツセキュリティポリシー
-  * `name` String (任意) - 孤立した世界の名前。devtools で役に立ちます
+  * `securityOrigin` String (optional) - Security origin for the isolated world.
+  * `csp` String (optional) - Content Security Policy for the isolated world.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
 
-セキュリティのオリジン、コンテンツセキュリティポリシー、隔離された空間の名前を設定します。 注: `csp` が指定されている場合は、`securityOrigin` も指定する必要があります。
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -191,14 +149,14 @@ webFrame.setSpellCheckProvider('en-US', {
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-これが生成されます。
+This will generate:
 
 ```javascript
 {
@@ -216,50 +174,50 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.clearCache()`
 
-以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - フレーム要素の CSS セレクタ。
+* `selector` String - CSS selector for a frame element.
 
-戻り値 `WebFrame` - `selector` によって選択された `webFrame` のドキュメント。`selector` がフレームを選択していないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
+Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-戻り値 `WebFrame` - 与えられた `name` である `webFrame` の子。そのようなフレームが存在しないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
+Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 ルーティング ID は `WebFrame` インスタンス (`webFrame.routingId`) や、フレーム特有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) から取得できます。
+* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
 
-戻り値 `WebFrame` - 渡された `routingId` のもの。見つからなければ `null`。
+Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
 ## プロパティ
 
-### `webFrame.top`
+### `webFrame.top` *Readonly*
 
-`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener`
+### `webFrame.opener` *Readonly*
 
-`webFrame` が開かれたフレームを表す `WebFrame`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent`
+### `webFrame.parent` *Readonly*
 
-`webFrame` の親フレームを表す `WebFrame`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild`
+### `webFrame.firstChild` *Readonly*
 
-`webFrame` の最初の子フレームを表す `WebFrame`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling`
+### `webFrame.nextSibling` *Readonly*
 
-次の兄弟フレームを表す `WebFrame`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId`
+### `webFrame.routingId` *Readonly*
 
-現在のレンダラープロセスの一意なフレーム ID を表す `Integer`。同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
