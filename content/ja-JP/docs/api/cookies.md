@@ -78,29 +78,29 @@ session.defaultSession.cookies.set(cookie)
 
 * `details` Object 
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
+  * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
+  * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。省略した場合、デフォルトは空です。
+  * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
+  * `secure` Boolean (任意) - クッキーにSecure属性がついているかどうか。省略値は、falseです。
+  * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
+  * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+戻り値 `Promise<void>` - cookie が設定されたときに解決される Promise。
 
-Sets a cookie with `details`.
+cookie を `details` で設定します。
 
 #### `cookies.remove(url, name)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - クッキーに関連付けられたURL。
+* `name` String - 削除するクッキーの名前。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+戻り値 `Promise<void>` - cookie が削除されたときに解決される Promise。
 
-Removes the cookies matching `url` and `name`
+`url` と `name` が一致する cookie を削除します。
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+戻り値 `Promise<void>` - cookie ストアがフラッシュされたときに解決される Promise。
 
-Writes any unwritten cookies data to disk.
+未書き込みのクッキーのデータをディスクに書き込みます。
