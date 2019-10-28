@@ -66,114 +66,130 @@ app.on('ready', () => {
 
 #### 事件: 'click'
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-当该图标被点击时触发。
+Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
-当该图标被右击时触发。
+Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
-当该图标被双击时触发。
+Emitted when the tray icon is double clicked.
 
 #### Event: 'balloon-show' *Windows*
 
-当系统托盘图标气泡显示时，触发该事件。
+Emitted when the tray balloon shows.
 
 #### Event: 'balloon-click' *Windows*
 
-当系统托盘气泡被点击时，触发该事件。
+Emitted when the tray balloon is clicked.
 
 #### Event: 'balloon-closed' *Windows*
 
-当系统托盘气泡因为超时被关闭或者用户手动关闭时，触发该事件。
+Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
 #### Event: 'drop' *macOS*
 
-当有任何拖动项拖到该任务栏图标上时，触发该事件。
+Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
+
+返回:
 
 * `event` Event
 * `files` String[] - 拖至任务栏图标上的文件的路径。
 
-当有任何文件被拖到该任务栏图标上时，触发该事件。
+Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
+
+返回:
 
 * `event` Event
 * `text` String - 拖至任务栏图标上的文字内容。
 
-当有任何文字被拖到该任务栏图标上时，触发该事件。
+Emitted when dragged text is dropped in the tray icon.
 
 #### Event: 'drag-enter' *macOS*
 
-当有任何拖动操作进入（拖动未结束）该任务栏图标时，触发该事件。
+Emitted when a drag operation enters the tray icon.
 
 #### Event: 'drag-leave' *macOS*
 
-当有任何拖动操作离开该任务栏图标时，触发该事件。
+Emitted when a drag operation exits the tray icon.
 
 #### Event: 'drag-end' *macOS*
 
-当有任何拖动操作在托盘或其他地方结束时，触发该事件。
+Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-当鼠标进入该任务栏图标时，触发该事件。
+Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - 事件的位置信息。
-
-当鼠标离开该任务栏图标时，触发该事件。
-
-#### Event: 'mouse-move' *macOS*
+返回:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-当鼠标在该任务栏图标上移动时，触发该事件。
+Emitted when the mouse exits the tray icon.
+
+#### Event: 'mouse-move' *macOS* *Windows*
+
+返回:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - 事件的位置信息。
+
+Emitted when the mouse moves in the tray icon.
 
 ### 实例方法
 
-`Tray` 类拥有以下方法:
+The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-立即销毁该任务栏图标
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-设置`image`作为托盘中显示的图标
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-在 macOS 中，设置`image`作为托盘图标被按下时显示的图标
+Sets the `image` associated with this tray icon when pressed on macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-设置鼠标指针在托盘图标上悬停时显示的文本
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -183,39 +199,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - 高亮模式选项，以下为可选值 
-  * `selection` - 当托盘图标本点击或托盘的上下文菜单打开时高亮显示托盘图标，这是mode的默认值
-  * `always` - 总是高亮托盘图标
-  * `never` - 从不高亮托盘图标
-
-设置托盘图标背景 (蓝色) 高亮的时机
-
-**[过时的](breaking-changes.md#tray)**
-
-**Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
@@ -231,34 +215,34 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (可选) -
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-显示一个托盘气球通知.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (可选)
-* `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-设置这个图标的内容菜单
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-以`Object`类型返回托盘图标的`bounds`
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-返回 `Boolean` -判断托盘图标是否被销毁
+Returns `Boolean` - Whether the tray icon is destroyed.
