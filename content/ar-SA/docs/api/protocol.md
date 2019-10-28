@@ -286,14 +286,14 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` دالة 
   * `request` الكائنات 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` دالة 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
