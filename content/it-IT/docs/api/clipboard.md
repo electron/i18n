@@ -9,21 +9,21 @@ On Linux, there is also a `selection` clipboard. To manipulate it you need to pa
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Stringa di esempio', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Metodi
 
-The `clipboard` module has the following methods:
+Il modulo di `Appunti` ha i seguenti metodi:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** Le API sperimentali sono contrassegnate come tali e potrebbero essere rimosse in futuro.
 
 ### `clipboard.readText([tipo])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Restituisce la `stringa` - il contenuto degli Appunti come testo normale.
 
 ```js
 const { clipboard } = require('electron')
@@ -40,7 +40,7 @@ console.log(text)
 * `testo` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+Scrive il `testo` negli Appunti come testo normale.
 
 ```js
 const { clipboard } = require('electron')
@@ -53,7 +53,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Restituisce la `stringa` - il contenuto negli Appunti come markup.
 
 ```js
 const { clipboard } = require('electron')
@@ -70,7 +70,7 @@ console.log(html)
 * `markup` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+Scrive il `markup` negli appunti.
 
 ```js
 const { clipboard } = require('electron')
@@ -82,20 +82,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Restituisce [`NativeImage`](native-image.md) - l'immagine contenuta negli appunti.
 
 ### `clipboard.writeImage(image[, tipo])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+Scrive la `image` negli appunti.
 
 ### `clipboard.readRTF([tipo])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Restituisce la `stringa` - il contenuto negli Appunti come RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -112,7 +112,7 @@ console.log(rtf)
 * `testo` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+Scrive il `testo` negli Appunti come RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -123,12 +123,12 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `Titolo` Stringa
 * `url` Stringa
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del segnaposto negli appunti. I valori di `titolo` e `url` saranno vuoti quando i bookmark non sono disponibili.
 
 ### `clipboard.writeBookmark(title, url[, tipo])` *macOS* *Windows*
 
@@ -136,7 +136,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` Stringa
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Scrivere il `titolo` e `url` negli appunti come un segnaposto.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
