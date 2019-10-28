@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `nuova BrowserView([options])` *Sperimentale*
 
 * `options` Object (opzionale) 
   * `webPreferences` Object (opzionale) - Vedi [BrowserWindow](browser-window.md).
@@ -90,6 +90,6 @@ Ritorna [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
 
 * `color` String - Colore nel formato `#aarrggbb` o `#argb`. Il canale alpha é opzionale.
