@@ -44,7 +44,7 @@ app.on('ready', () => {
 
 ### `net.request(options)`
 
-* `options` (Object | String) - `ClientRequest` 构造函数的选项.
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 返回 [`ClientRequest`](./client-request.md)
 
