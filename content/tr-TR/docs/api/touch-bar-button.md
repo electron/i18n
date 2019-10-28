@@ -9,7 +9,7 @@
 * `seçenekler` Nesnesi 
   * `label` String (İsteğe bağlı) - Görüntülenecek metin.
   * `backgroundColor` String (isteğe bağlı) - Düğme arkaplan rengi hex formatında, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Buton simgesi.
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (isteğe bağlı) - `left`, `right` yada `overlay` olabilir.
   * `click` Fonksiyon (isteğe bağlı) - Tuşa tıklandığında aranan fonksiyon.
 
