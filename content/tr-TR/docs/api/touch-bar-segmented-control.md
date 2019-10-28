@@ -22,7 +22,7 @@
     * `buttons` - Segmentlerin buton gibi davranmasını sağlar, her segment tıklanabilir ve bırakılabilir fakat hiçbir zaman aktif olarak işaretlenmez.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Bu denetimin içine yerleştirilmiş bir dizi segment.
   * `selectedIndex` Tamsayı (opsiyonel) - Hali hazırda seçili olan segmentin dizini, kullanıcı etkileşimi ile otomatik olarak güncelleyecek. Mod çoklu olduğunda o son seçilen öge olacak.
-  * `değiştir` Fonksiyon - Kullanıcı yeni bir segment seçtiğinde çağırılır. 
+  * `değiştir` Function (optional) - Called when the user selects a new segment. 
     * `selectedIndex` Tamsayı - Kullanıcının seçtiği segmentin dizini.
     * `isSelected` Boole - Kullanıcı seçiminin sonucu olarak segmentin seçilip seçilmediği.
 
