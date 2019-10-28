@@ -32,61 +32,48 @@ Devuelve `Boolean` - Si el elemento se abrió o no con éxito.
 
 Abre el archivo determinado en el escritorio por defecto.
 
-### `shell.openExternalSync(url[, options])`
-
-* `url` String - Máximo 2081 caracteres en Windows, o la función retorna falso.
-* `opciones` Object (opcional) 
-  * `activate` Boolean (opcional) - `true` para llevar la aplicación abierta al primer plano. Por defecto es `true`. *macOS*
-  * `workingDirectory` String (opcional) - El directorio de trabajo. *Windows*
-
-Devuelve `Boolean` - Si una aplicación estaba disponible para abrir la URL.
-
-Abra la URL del protocolo externo dado en la forma predeterminada del escritorio. (Por ejemplo, mailto: URL en el agente de correo predeterminado del usuario).
-
-**Cambiar**
-
 ### `shell.openExternal(url[, options])`
 
-* `url` String - Máximo 2081 caracteres en windows.
-* `opciones` Objecto (opcional) 
-  * `activate` Boolean (opcional) - `true` para llevar la aplicación abierta al primer plano. Por defecto es `true`. *macOS*
-  * `workingDirectory` String (opcional) - El directorio de trabajo. *Windows*
+* `url` String - Max 2081 characters on windows.
+* `opciones` Object (opcional) 
+  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) *Windows* - The working directory.
 
-Devuelve `Promise<void>`
+Returns `Promise<void>`
 
-Abra la URL del protocolo externo dado de la forma predeterminada del escritorio. (Por ejemplo, mailto: URLs en el agente de correo predeterminado del usuario).
+Abra la URL del protocolo externo dado en la forma predeterminada del escritorio. (Por ejemplo, mailto: URL en el agente de correo predeterminado del usuario).
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` Cadena
 
-Devuelve `Boolean` - Si el elemento se movió o no con éxito a la papelera.
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
-Mueve el archivo determinado a la papelera y devuelve un valor boleano para la operación.
+Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-Reproduce el sonido bip.
+Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (opcional) - Por defecto `create`, puede ser uno de los siguientes: 
-  * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
-  * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
-  * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.
+* `operation` String (optional) - Default is `create`, can be one of following: 
+  * `create` - Creates a new shortcut, overwriting if necessary.
+  * `update` - Updates specified properties only on an existing shortcut.
+  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Devuelve `Boolean` - Si el acceso directo fue creado con éxito.
+Returns `Boolean` - Whether the shortcut was created successfully.
 
-Crea o actualiza un enlace de acceso directo a `shortcutPath`.
+Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Devuelve [`ShortcutDetails`](structures/shortcut-details.md)
+Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resuelve el enlace de acceso directo a `shortcutPath`.
+Resolves the shortcut link at `shortcutPath`.
 
-Aparecerá una excepción cuando ocurre cualquier error.
+An exception will be thrown when any error happens.
