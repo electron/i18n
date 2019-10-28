@@ -62,15 +62,15 @@ Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 
 #### Kaganapan: 'will-download'
 
-Pagbabalik:
+Magbabalik ng:
 
 * `event` na Kaganapan
 * `item` na [DownloadItem](download-item.md)
 * `webContents` na [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Inilalabas kung ang Electron ay magda-download ng `item` sa `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Ang pagtawag sa `event.preventDefault()` ay magkakansela sa download at ang `aytem` ay hindi maaaring magamit hanggang sa susunod na tik ng proseso.
 
 ```javascript
 const { session } = require('electron')
@@ -84,9 +84,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### Event: 'preconnect' *Experimental*
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `preconnectUrl` String - The URL being requested for preconnection by the renderer.
 * `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
 
@@ -94,7 +94,7 @@ Emitted when a render process requests preconnection to a URL, generally due to 
 
 ### Mga Pamamaraan ng Instance
 
-The following methods are available on instances of `Session`:
+Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
 #### `ses.getCacheSize()`
 
@@ -104,11 +104,11 @@ Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
-Clears the session’s HTTP cache.
+Inaalis ang HTTP na cache ng sesyon.
 
 #### `ses.clearStorageData([options])`
 
-* `pagpipilian` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -117,22 +117,22 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Nagsusulat ng anumang di-nakusulat na DOMStorage na datos sa disk.
 
 #### `ses.setProxy(config)`
 
 * `config` Bagay 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` na String - Ang URL na may kaugnayan sa PAC na file.
+  * `proxyRules` na String - Mga panuntunan na nagsasad kung aling mga proxy ang gagamitin.
+  * `proxyBypassRules` na String - Mga panuntunan na nagpapahiwatig kung aling mga URL ay dapat mag-bypass ang mga setting ng proxy.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
-Sets the proxy settings.
+Nagtatakda ng mga settings ng proxy.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na opsyon ay hindi pinansin at `pacScript` na konpigurasyon ay inilalapat.
 
-The `proxyRules` has to follow the rules below:
+Ang `proxyRules` ay dapat sumunod sa mga panuntunan sa ibaba:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -144,43 +144,43 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 Halimbawa:
 
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
+* `http=foopy:80;ftp=foopy2` - Gamitin ang HTTP proxy `foopy:80` para sa `http://` na mga URL, at HTTP proxy `foopy2:80` para sa `ftp://` na mga URL.
+* `foopy:80` - Gamitin ang HTTP proxy `foopy:80` para sa lahat ng mga URL.
+* `foopy:80,bar,direct://` - Gamitin ang HTTP proxy `foopy:80` para sa lahat ng mga URL, pumunta sa `bar` kapag ang `foopy:80` ay hindi magagamit, at pagkatapos, gamitin nang walang proxy.
+* `socks4://foopy` - Gamitin ang SOCKS v4 proxy `foopy:1080` sa lahat ng mga URL.
+* `http=foopy,socks5://bar.com` - Gamitin ang HTTP na proxy `foopy` para sa http na mga URL, at pumunta sa SOCKS5 proxy na `bar.com` kung ang `foopy` ay hindi magagamit.
+* `http=foopy,direct://` - Gamitin ang HTTP na proxy `foopy` para sa http Una mga URL, at gamitin nang walang proxy kung ang `foopy` ay hindi magagamit.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwit na inilirawan sa ibaba:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  Itugma ang lahat ng mga hostname na tumugma sa pattern ng HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Itugma ang isang partikular na domain suffix.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Mga halimbawa: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Itugma ang mga URL na mga IP address na literal.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Itugma ang anumang URL na para sa IP literal na nabibilang sa pagitan ng binigay na saklaw. Ang saklaw ng IP ay tinukoy gamit ang CIDR na notasyon.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Mga Halimbawa: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay tumutugma sa isa sa: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
@@ -190,35 +190,35 @@ Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` na String - Ang lokasyon ng pag-download.
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Nagtatakda ng download saving na direktoryo. Bilang default, ang download na direktoryo ay ang`Downloads` sa ilalim ng kaukulang app na folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `pagpipilian` Bagay 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+* `options` Bagay 
+  * `offline` na Boolean (opsyonal) - Kung tularan ba ang network outage. Naka-default sa false.
+  * `latency` na Doble (opsyonal) - RTT sa ms. Naka-default sa 0 na siyang magpapatigil sa latency throttling.
+  * `downloadThroughput` na Doble (opsyonal) - Bilis ng pag-download sa Bps. Naka-default sa 0 na siyang magpapatigil sa download throttling.
+  * `uploadThroughput` na Doble (opsyonal) - Bilis ng upload sa Bps. Naka-default sa 0 na siyang magpapatigil sa upload throttling.
 
-Emulates network with the given configuration for the `session`.
+Ginagaya ang network na may nakalaang konfigurasyon para sa `sesyon`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// Para i-emulate ang GPRS na koneksyon na may 50kbps na throughput at 500 ms na latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// Para i-emulate ang network na outage.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.preconnect(options)` *Experimental*
 
-* `pagpipilian` Bagay 
+* `options` Bagay 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -226,25 +226,25 @@ Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon`. Nagrereset para sa orihinal na konfigurasyon ng network.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Punsyon 
+* `proc` Function 
   * `kahilingan` Bagay 
-    * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
-  * `callback` Punsyon 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `0` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `hostname` na String
+    * `certificate` na [Sertipiko](structures/certificate.md)
+    * `verificationResult` na String - Resulta ng pagpapatunay mula sa chromium.
+    * `errorCode` na Integer - code ng kamalian.
+  * `callback` Function 
+    * `verificationResult` Integer - Ang halaga ay maaring isa sa mga error na code ng sertipiko na mula [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa mga error na code sa sertipiko, ang mga sumusunod na mga espesyal na code ay magagamit. 
+      * `0` - Nagpapahiwatig ng tagumpay at nagpapatigil sa pagpapatunay ng Certificate Transparency.
+      * `-2` - Nagpapahiwatig sa kabiguan.
+      * `-3` - Gumagamit ng resulta ng pagpapatunay galing sa chromium.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Nagtatakda ng sertipikong verify proc para sa `session`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang pagpapatunay ng sertipiko ng server ay hinihiling. Ang pagtawag sa `callback(0)` ay tumatanggap sa sertipiko, pagtawag sa `callback(-2)` ang magtatanggi nito.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Ang pagtawag sa `setCertificateVerifyProc(null)` ay magbabalik sa certificate verify proc sa default.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -263,17 +263,17 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `tagahawak` Function | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
-  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Punsyon 
-    * `permissionGranted` Boolean - Allow or deny the permission.
+  * `webContents` na [WebContents](web-contents.md) - WebContents na naghihingi ng pahintulot. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `pahintulot` na String - Enum ng 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `callback` Function 
+    * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
   * `ang mga detalye` Object - Some properties are only available on certain permission types. 
     * `externalURL` String (optional) - The url of the `openExternal` request.
     * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
+Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
 
 ```javascript
 const { session } = require('electron')
@@ -288,7 +288,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `tagahawak` Punsyon<boolean> | null 
+* `tagahawak` Function<boolean> | null 
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -315,62 +315,62 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 Returns `Promise<void>` - Resolves when the operation is complete.
 
-Clears the host resolver cache.
+Nililinis ang cache ng tagalutas ng host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Dinamikong itinatakda kung lagi bang magpadala ng mga kredensyal para sa HTTP NTLM o makipagpulungan para pagpapatunay.
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// isaalang-alang ang kahit anong url na nagtatapos sa `example.com`, `foobar.com`, `baz`
+// para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// isaalang-alang ang lahat ng mga url para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` na String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` na String (opsyonal)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Nag-override sa `userAgent` at `acceptLanguages` para sa sesyong ito.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Ang `acceptLanguages` ay dapat pinaghiwalay ng kuwit na isinaayos na listahan ng mga code ng lengwahe, bilang halimbawa `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Ito ay hindi makakapekto sa umiiral na `WebContents`, at ang bawat `WebContents` ay makakagamit ng `webContents.setUserAgent` para i-override ang malawakang-sesyon na tagagamit na ahente.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 
 #### `ses.getBlobData(identifier)`
 
-* `identifier` String - Valid UUID.
+* `identifier` na String - Tamang UUID.
 
 Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `pagpipilian` Bagay 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+* `options` Bagay 
+  * `path` na String - Ganap na path ng download.
+  * `urlChain` na String[] - kompletong URL na chain para sa download.
+  * `mimeType` na String (opsyonal)
+  * `offset` na Integer - Pagsimulang saklaw para sa download.
+  * `length` na Integer - Kabuuang haba ng download.
+  * `lastModified` na String - Last-Modified na halaga ng header.
+  * `eTag` na String - ETag na halaga ng header.
+  * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -386,7 +386,7 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Mga Katangian ng Instance
 
-The following properties are available on instances of `Session`:
+Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
 #### `ses.cookies` *Readonly*
 
