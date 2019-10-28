@@ -31,7 +31,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Когато зареждате страница директно в прозореца, потребителите може да видят, че страницата се зарежда на части, което не е добре за родно/native приложение. За да накарате прозореца да се покаже без визуално премигване, има две решения за различните ситуации.
 
-## Using `ready-to-show` event
+## Използване на събитие `ready-to-show`
 
 Когато зареждате страницата, събитието `ready-to-show` ще бъде излъчено, когато рендиращият процес е рендирал страницата за първи път ако прозореца не е бил вече показан. Показването на прозореца след това събитие няма да има визуално премигване:
 
@@ -491,7 +491,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `name` String - Име
 
 Remove a Chrome extension by name.
 
@@ -517,7 +517,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` String - Име
 
 Remove a DevTools extension by name.
 
@@ -1411,4 +1411,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
