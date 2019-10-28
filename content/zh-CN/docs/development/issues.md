@@ -1,12 +1,12 @@
 # Electron中的问题
 
-* [如何贡献一个Issue](#how-to-contribute-in-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [请求一般的帮助](#asking-for-general-help)
 * [提交漏洞报告](#submitting-a-bug-report)
 * [鉴定漏洞报告](#triaging-a-bug-report)
 * [解决漏洞报告](#resolving-a-bug-report)
 
-## 如何贡献一个Issue
+## How to Contribute to Issues
 
 对于任何问题，个人可以通过三种方式贡献：
 
@@ -61,7 +61,7 @@ Your best chance of getting this bug looked at quickly is to provide a REPOSITOR
 
 如果你确信你发现了Electron中的漏洞，请尽力填这份表单。
 
-要评估报告需要的两个最重要的部分是漏洞的描述和重现它的简单测试样例。 一个可以被重现的漏洞更容易被修复。
+要评估报告需要的两个最重要的部分是漏洞的描述和重现它的简单测试样例。 It is easier to fix a bug if it can be reproduced.
 
 参见 [如何创建一个最小的，完整的和可验证的例子](https://stackoverflow.com/help/mcve)。
 
@@ -71,7 +71,7 @@ Your best chance of getting this bug looked at quickly is to provide a REPOSITOR
 
 没有任何内容和详细信息的简单回复是无用的而且不专业的。 在很多情况下，这些恢复是烦人而且不友好的。
 
-我们鼓励贡献者共同解决问题并互相帮助取得进展。 如果您遇到觉得包含无效或不正确信息的问题，请使用更多详细信息指出您*为什么*觉得此问题含有无效或不正确信息，并愿意接受您可能是错误的。 通过这样做，我们可以更快地得到正确的结果。
+我们鼓励贡献者共同解决问题并互相帮助取得进展。 If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. 通过这样做，我们可以更快地得到正确的结果。
 
 ## 解决漏洞报告
 
