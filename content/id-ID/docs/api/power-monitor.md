@@ -4,18 +4,17 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 Sebagai contoh:
 
 ```javascript
-const electron = require ('elektron')
-const { app } = elektron
+const { app, powerMonitor } = require('electron')
 
-app.on ('siap', () => {
-  electron.powerMonitor.on ('suspend', () => {
-    console.log ('Sistemnya akan tertidur')
-  })
+app.on('ready', () => {
+  powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
+  })
 })
 ```
 
@@ -54,21 +53,6 @@ Emitted as soon as the systems screen is unlocked.
 ## Metode
 
 The `powerMonitor` module has the following methods:
-
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(Deprecated)*
-
-* `idleThreshold` Integer
-* `callback` Fungsi 
-  * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
-
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
-
-### `powerMonitor.querySystemIdleTime(callback)` *(Deprecated)*
-
-* `callback` Fungsi 
-  * `idleTime` Integer - Idle time in seconds
-
-Calculate system idle time in seconds.
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
