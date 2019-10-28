@@ -62,7 +62,7 @@ Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi v
 
 * `language` String
 * `provider` Bagay 
-  * `spellCheck` Punsyon 
+  * `spellCheck` Function 
     * `words` String[]
     * `callback` Function 
       * `misspeltWords` String[]
@@ -103,7 +103,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `text` String 
 
 Pagsingit `text` para sa nakapukos na elemento.
 
@@ -140,7 +140,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
