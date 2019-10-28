@@ -790,7 +790,7 @@ Fired when the renderer process is crashed.
 
 Returns:
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `version` String
 
 Fired when a plugin process is crashed.
