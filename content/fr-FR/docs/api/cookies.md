@@ -78,13 +78,13 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 * `details` Objet 
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `name` String (facultatif) - Le nom du cookie. Vide par défaut si omis.
+  * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `path` String (facultatif) - Le chemin d'accès du cookie. Vide par défaut si omis.
+  * `secure` Boolean (facultatif) - Si le cookie doit être marqué comme sécurisé. False par défaut.
+  * `httpOnly` Boolean (facultatif) - Si le cookie doit être marqué comme HTTP uniquement. False par défaut.
+  * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
@@ -92,8 +92,8 @@ Sets a cookie with `details`.
 
 #### `cookies.remove(url, name)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - L'url associée au cookie.
+* `name` String - Le nom du cookie à supprimer.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been removed
 
@@ -103,4 +103,4 @@ Removes the cookies matching `url` and `name`
 
 Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
 
-Writes any unwritten cookies data to disk.
+Écrit toutes les données des cookies non écrites sur le disque.
