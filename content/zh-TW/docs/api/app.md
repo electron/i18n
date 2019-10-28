@@ -289,7 +289,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Emitted whenever there is a GPU info update.
 
-### Event: 'gpu-process-crashed'
+### 事件: 'gpu-process-crashed'
 
 回傳:
 
@@ -308,7 +308,7 @@ Emitted when the GPU process crashes or is killed.
 
 Emitted when the renderer process of `webContents` crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### 事件: 'accessibility-support-changed' *macOS* *Windows*
 
 回傳:
 
@@ -473,7 +473,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 
 ### `app.show()` *macOS*
 
@@ -500,7 +500,7 @@ Returns `String` - The current application directory.
     * `$XDG_CONFIG_HOME` or `~/.config` on Linux
     * `~/Library/Application Support` on macOS
   * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-  * `cache`
+  * `快取`
   * `temp` Temporary directory.
   * `exe` The current executable file.
   * `module` The `libchromiumcontent` library.
@@ -520,11 +520,11 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* 上是 48x48, *Windows* 上是 32x32，不支援 *macOS*。
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
@@ -564,7 +564,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 * `name` String
 
-Overrides the current application's name.
+重寫當前應用程式的名稱。
 
 **[已被取代](modernization/property-updates.md)**
 
@@ -594,13 +594,13 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-Clears the recent documents list.
+清除最近使用的文件清單。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -617,8 +617,8 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -627,8 +627,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean`
 
@@ -906,7 +906,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -1018,7 +1018,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder([options])` *macOS*
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
