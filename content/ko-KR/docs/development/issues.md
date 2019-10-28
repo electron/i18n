@@ -1,12 +1,12 @@
 # Electron 이슈
 
-* [이슈에 기여하는 방법](#how-to-contribute-in-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [일반적인 도움받기](#asking-for-general-help)
 * [버그 신고하기](#submitting-a-bug-report)
 * [버그 보고서 작성](#triaging-a-bug-report)
 * [버그 리포트 해결](#resolving-a-bug-report)
 
-## 이슈에 기여하는 방법
+## How to Contribute to Issues
 
 어떤 이슈든, 개인이 근본적으로 기여할수 있는 3가지 방법이 있습니다.:
 
@@ -62,7 +62,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 만약 여러분이 Electron의 버그를 찾았다고 확신하시면, 이 양식을 당신의 최고의 기술을 이용해 채워주세요.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
@@ -72,7 +72,7 @@ It's common for open issues to involve discussion. Some contributors may have di
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## 버그 리포트 해결
 
