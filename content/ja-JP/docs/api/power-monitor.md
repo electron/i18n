@@ -4,16 +4,15 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 例:
 
 ```javascript
-const electron = require('electron')
-const { app } = electron
+const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
+  powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
 })
@@ -55,31 +54,16 @@ app.on('ready', () => {
 
 `powerMonitor` モジュールには以下のメソッドがあります。
 
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(非推奨)*
-
-* `idleThreshold` Integer
-* `callback` Function 
-  * `idleState` String - `active`, `idle`, `locked`, `unknown` にできます。
-
-システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。 `callback` はいくつかのシステムでは同期的に呼ばれ、`idleState` 引数はシステムの状態を表します。 `locked` はサポートしているシステムでのみ利用可能です。
-
-### `powerMonitor.querySystemIdleTime(callback)` *(非推奨)*
-
-* `callback` Function 
-  * `idleTime` Integer - アイドルしている秒
-
-システムのアイドル時間を計算します。
-
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
 * `idleThreshold` Integer
 
-戻り値 `String` - システムの現在の状態。`active`、`idle`、`locked` または `unknown` のいずれかです。
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-システムのアイドル状態を算出します。`idleThreshold` は、アイドル状態と見なされるまでの時間 (秒単位) です。`locked` は、サポートされているシステムでのみ利用できます。
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
-戻り値 `Integer` - アイドル状態の秒数
+Returns `Integer` - Idle time in seconds
 
-システムのアイドル時間を計算します。
+Calculate system idle time in seconds.
