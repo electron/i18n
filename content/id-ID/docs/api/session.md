@@ -55,66 +55,47 @@ Peristiwa berikut tersedia pada contoh `Sesi`:
 
 #### Perihan: 'akan-terunduh'
 
+Mengembalikan:
+
 * `event` Sinyal
 * `barang` [unduhbarang](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Terpencar ketika Elektron akan men-download `barang` di `webContents`.
+Emitted when Electron is about to download `item` in `webContents`.
 
-Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
+Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
 ```javascript
 const { session } = require('electron') session.defaultSession.on (' akan-download', (acara, item, webContents) = > {event.preventDefault() require('request')(item.getURL(), (data) = > {require('fs').writeFileSync ('/ di suatu tempat', data)})})
 ```
 
+#### Event: 'preconnect' *Experimental*
+
+Mengembalikan:
+
+* `event` Sinyal
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+
+Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+
 ### Metode contoh
 
-Metode berikut tersedia pada contoh `Sesi`:
-
-#### `ses.getCacheSize(panggilanbalik)`
-
-* `panggilan balik` Fungsi 
-  * `ukuran`Bilangan Bulat - Ukuran cache yang digunakan dalam bytes.
-  * `error` Integer - The error code corresponding to the failure.
-
-Callback dipanggil dengan ukuran cache sesi saat ini.
-
-**[Deprecated Soon](modernization/promisification.md)**
+The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize()`
 
 Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
-#### `ses.clearCache(callback)`
-
-* `callback` Function - Called when operation is done. 
-  * `error` Integer - The error code corresponding to the failure.
-
-Membersihkan sesi-sesi HTTP cache.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.clearCache()`
 
 Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
-Membersihkan sesi-sesi HTTP cache.
-
-#### `ses.clearStorageData([options,] callback)`
-
-* `pilihan-pilihan` Objek (pilihan) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
-
-Clears the storage data for the current session.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
-* `pilihan` Objek (opsional) 
+* `pilihan` Objek (pilihan) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -123,86 +104,22 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 
 #### `ses.flushStorageData()`
 
-Menulis data DOMStorage yang tidak tertulis ke disk.
-
-#### `ses.setProxy(config, panggilan kembali)`
-
-* `konfigurasi` Obyek 
-  * `pacScript` Senar - URL yang terkait dengan file PAC.
-  * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
-  * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
-* `callback` Fungsi - Disebut saat operasi selesai.
-
-Mengatur pengaturan proxy.
-
-Ketika `pacScript` dan `proxyRules` disediakan bersama, `proxyRules` pilihan diabaikan dan `pacScript` konfigurasi diterapkan.
-
-`proxyRules` harus mengikuti aturan di bawah ini:
-
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
-
-Sebagai contoh:
-
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - GunakanHTTP proxy `foopy:80` untuk semua URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` untuk semua URLs, gagal untuk `bar` if `foopy:80` tidak tersedia, dan setelah itu tidak menggunakan proxy.
-* `socks4://foopy` - Gunakan SOCKS v4 proxy `foopy:1080` untuk semua URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
-
-The `proxyBypassRules` is a comma separated list of rules described below:
-
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
-  
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    Cocokkan akhiran domain tertentu.
-    
-    Examples: ".google.com", ".com", "http://.google.com"
-
-* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  Mencocokkan URL yang literal alamat IP.
-  
-  Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
-
-* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
-  
-  Contoh: "192.168.1.1/16", "fefe:13::abc / 33".
-
-* `<local>`
-  
-  Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
-
-**[Deprecated Soon](modernization/promisification.md)**
+Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config)`
 
-* `konfigurasi` Obyek 
-  * `pacScript` Senar - URL yang terkait dengan file PAC.
-  * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
-  * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
+* `config` Sasaran 
+  * `pacScript` String - The URL associated with the PAC file.
+  * `proxyRules` String - Rules indicating which proxies to use.
+  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
-Mengatur pengaturan proxy.
+Sets the proxy settings.
 
-Ketika `pacScript` dan `proxyRules` disediakan bersama, `proxyRules` pilihan diabaikan dan `pacScript` konfigurasi diterapkan.
+When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-`proxyRules` harus mengikuti aturan di bawah ini:
+The `proxyRules` has to follow the rules below:
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -215,9 +132,9 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 Sebagai contoh:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - GunakanHTTP proxy `foopy:80` untuk semua URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` untuk semua URLs, gagal untuk `bar` if `foopy:80` tidak tersedia, dan setelah itu tidak menggunakan proxy.
-* `socks4://foopy` - Gunakan SOCKS v4 proxy `foopy:1080` untuk semua URLs.
+* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
+* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
 * `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
@@ -232,112 +149,128 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Cocokkan akhiran domain tertentu.
+    Match a particular domain suffix.
     
     Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Mencocokkan URL yang literal alamat IP.
+  Match URLs which are IP address literals.
   
-  Contoh: "127.0.1", "[0:0::1]", "[:: 1]", "http://[::1]:99"
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  Cocokkan URL yang ada pada literatur IP yang ada di kisaran yang diberikan Kisaran IP ditentukan dengan menggunakan notasi CIDR.
+  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  Contoh: "192.168.1.1/16", "fefe:13::abc / 33".
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
-
-#### `ses.resolveProxy (url, callback)`
-
-* `url` URL
-* `callback` Fungsi 
-  * `proxy` String
-
-Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `callback(proxy)` ketika permintaan dilakukan.
-
-**[Deprecated Soon](modernization/promisification.md)**
+  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Returns `Promise<string>` - Resolves with the proxy information for `url`.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `jalan` String - lokasi download.
+* `path` String - The download location.
 
-Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
+Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
-#### `ses.enableNetworkEmulation (pilihan)`
+#### `ses.enableNetworkEmulation(options)`
 
 * `pilihan` Obyek 
-  * `offline` Boolean (opsional) - Apakah untuk meniru jaringan listrik. Default ke false.
-  * `latensi` Kamar Double (opsional) - RTT di ms. default untuk 0 yang akan menonaktifkan latency throttling.
-  * `downloadThroughput` Double (opsional) - Kecepatan download di Bps. Default ke 0 yang akan menonaktifkan download throttling.
-  * `uploadThroughput` Kamar Double (opsional) - Upload tingkat di Bps. defaultnya adalah 0 yang akan menonaktifkan upload throttling.
+  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
-Emulasikan jaringan dengan konfigurasi yang diberikan untuk `sesi`.
+Emulates network with the given configuration for the `session`.
 
 ```javascript
-Untuk meniru sambungan GPRS dengan 50kbps throughput dan 500 ms latency.
+// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
-}) / / untuk meniru pemadaman jaringan.
+})
+
+// To emulate a network outage.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
+#### `ses.preconnect(options)` *Experimental*
+
+* `pilihan` Sasaran 
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+
+Preconnects the given number of sockets to an origin.
+
 #### `ses.disableNetworkEmulation()`
 
-Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi jaringan asli.
+Disables any network emulation already active for the `session`. Resets to the original network configuration.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Fungsi 
-  * `permintaan` Obyek 
-    * `nama host` String
+  * `permintaan` Sasaran 
+    * `hostname` String
     * `sertifikat` [Sertifikat](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
   * `callback` Fungsi 
-    * `verificationResult` Bulat - nilai dapat menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `0` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - menunjukkan kegagalan.
-      * `-3` - menggunakan hasil verifikasi dari kromium.
+      * `-2` - Indicates failure.
+      * `-3` - Uses the verification result from chromium.
 
-Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc(request, callback)` setiap kali ada sertifikat server verifikasi diminta. Memanggil `callback(0)` menerima sertifikat, panggilan `callback(-2)` menolak itu.
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
-Memanggil `setCertificateVerifyProc(null)` akan kembali kembali ke default sertifikat verifikasi proc.
+Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
 ```javascript
-const { BrowserWindow } = require('electron') membiarkan memenangkan = win.webContents.session.setCertificateVerifyProc BrowserWindow() baru ((request, callback) = > {const { hostname } = permintaan jika (hostname === 'github.com') {callback(0)} lain {callback(-2)}})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+
+win.webContents.session.setCertificateVerifyProc((request, callback) => {
+  const { hostname } = request
+  if (hostname === 'github.com') {
+    callback(0)
+  } else {
+    callback(-2)
+  }
+})
 ```
 
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents meminta izin. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
-  * `izin` String - Enum 'media', 'geolocation', 'pemberitahuan', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
+  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Fungsi 
-    * `permissionGranted` Boolean - mengizinkan atau menolak izin.
+    * `permissionGranted` Boolean - Allow or deny the permission.
   * `rincian` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String (Optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
-Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya. To clear the handler, call `setPermissionRequestHandler(null)`.
+Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
-const { session } = require('electron') session.fromPartition('some-partition').setPermissionRequestHandler ((webContents, izin, callback) = > {jika (webContents.getURL() === 'beberapa-host' & & izin === 'pemberitahuan') {}     kembali callback(false) / / ditolak.
-  } callback(true)})
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return callback(false) // denied.
+  }
+
+  callback(true)
+})
 ```
 
 #### `ses.setPermissionCheckHandler(handler)`
@@ -365,91 +298,66 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache(callback)`
-
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
-
-Menghapus cache resolver host.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-#### `ses.clearHostResolverCache ()`
+#### `ses.clearHostResolverCache()`
 
 Returns `Promise<void>` - Resolves when the operation is complete.
 
-Menghapus cache resolver host.
+Clears the host resolver cache.
 
-#### `ses.allowNTLMCredentialsForDomains(domain)`
+#### `ses.allowNTLMCredentialsForDomains(domains)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
-const { session } = require('electron') / / mempertimbangkan setiap url yang diakhiri dengan 'example.com', 'foobar.com', 'baz' / / untuk otentikasi Terpadu.
-session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz') / / mempertimbangkan semua Url untuk otentikasi Terpadu.
+const { session } = require('electron')
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
+session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
+
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
-#### `ses.setUserAgent (userAgent [, acceptLanguages])`
+#### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (opsional)
+* `acceptLanguages` String (optional)
 
-Menggantikan `userAgent` dan `acceptLanguages` untuk sesi ini.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-`AcceptLanguages` harus koma terpisah daftar bahasa kode, misalnya `"En-US, fr, de, ko, zh-CN, ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dapat menggunakan `webContents.setUserAgent` untuk menimpa agen sesi pengguna.
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-Mengembalikan `String` - user agent untuk sesi ini.
-
-#### `ses.getBlobData (pengenal, callback)`
-
-* `pengenal` String - UUID berlaku.
-* `callback` Fungsi 
-  * `hasil` Luapan penyangga - gumpalan data.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier)`
 
-* `pengenal` String - UUID berlaku.
+* `identifier` String - Valid UUID.
 
 Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `pilihan` Obyek 
-  * `jalan` String - path absolut download.
-  * `urlChain` String [] - URL lengkap jaringan untuk men-download.
-  * `mimeType` String (opsional)
-  * `offset` Bulat - rentang mulai untuk men-download.
-  * `panjang` Bulat - panjang Total download.
-  * `lastModified` String - header Last-Modified nilai.
-  * `eTag` String - ETag header nilai.
-  * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
+* `pilihan` Sasaran 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options, panggilan kembali)`
+#### `ses.clearAuthCache(options)`
 
-* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Fungsi - Disebut saat operasi selesai.
-
-Membersihkan cache otentikasi HTTP sesi.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-#### `ses.clearAuthCache(options)` *(deprecated)*
-
-* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
-
-#### `ses.clearAuthCache()`
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -465,19 +373,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh-contoh dari `sesi`:
+The following properties are available on instances of `Session`:
 
-#### `ses.cookies`
+#### `ses.cookies` *Readonly*
 
-Sebuah objek [cookie](cookies.md) sesi ini.
+A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest`
+#### `ses.webRequest` *Readonly*
 
-Sebuah objek [WebRequest](web-request.md) sesi ini.
+A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.Protocol`
+#### `ses.protocol` *Readonly*
 
-Sebuah objek [protokol](protocol.md) untuk sesi ini.
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -494,9 +402,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog`
+#### `ses.netLog` *Readonly*
 
-A [NetLog](net-log.md) object for this session.
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
