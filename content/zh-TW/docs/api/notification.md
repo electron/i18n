@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *試驗中*
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
@@ -140,7 +140,7 @@ A `Boolean` property representing whether the notification has a reply action.
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
-### Playing Sounds
+### 播放聲音
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
