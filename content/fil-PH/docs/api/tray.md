@@ -61,99 +61,99 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
 #### Event: 'klik'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
-Emitted when the tray icon is clicked.
+Emitted kapag nag click ang tray icon.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
-Emitted when the tray icon is right clicked.
+Emitted kapag nai-right click ang tray icon.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-Pagbabalik:
+Pagbabalik ng:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
-Emitted when the tray icon is double clicked.
+Emitted kapag ang tray icon ay na double-click.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitted kapag ang tray balloon ay naipapakita.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitted kapag ang tray balloon ay naiclick.
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Emitted kapag ang tray ballon ay nakasirado dahil ang timeout o ang gumagamit ng mano-mano ang nagsasara nito.
 
 #### Event: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
-Emitted when dragged files are dropped in the tray icon.
+Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `text` String -ang mga binitiwang text string.
 
-Emitted when dragged text is dropped in the tray icon.
+Emitted kapag ang dragged text ay ibinagsak sa tray icon.
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Emitted kapag ang drag operation ay pumapasok sa tray icon.
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Emitted kapag ang drag operation ay lumabas sa tray icon.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lugar.
 
 #### Event: 'mouse-enter' *macOS*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
-Emitted when the mouse enters the tray icon.
+Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
-Emitted when the mouse exits the tray icon.
+Emitted kapag ang mouse ay lumalabas sa tray icon.
 
 #### Event: 'mouse-move' *macOS* *Windows*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -162,29 +162,29 @@ Emitted when the mouse moves in the tray icon.
 
 ### Mga Pamamaraan ng Instance
 
-The `Tray` class has the following methods:
+Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Agad na sumisira sa tray icon.
 
 #### `tray.setImage(image)`
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this tray icon.
+Nagseset sa `image` na may kaugnayan sa tray icon na ito.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Nagseset sa hover text para sa tray icon na ito.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -204,40 +204,40 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` *macOS* 
 
 Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `pagpipilian` Bagay 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+* `options` Bagay 
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Nagdidisplay ng isang tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - Ang posisyon ng pop up.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+May lilitaw na context menu sa tray icon. Kapag ang `menu`ay nakapasa, ang`menu`ay maipapakita sa halip na tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan ng default,.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Nagseset ng context menu para sa icon na ito.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Nagbabalik[`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Ang `bounds`ng tray icon na ito bilang isang`Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Nagbabalik`Boolean` -Kahit pa ang tray icon ay nawasak.
