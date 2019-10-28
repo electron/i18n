@@ -66,199 +66,183 @@ app.on('ready', () => {
 
 #### イベント: 'click'
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 * `position` [Point](structures/point.md) - イベントの位置。
 
-tray アイコンがクリックされたときに発行されます。
+Emitted when the tray icon is clicked.
 
 #### イベント: 'right-click' *macOS* *Windows*
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
-tray アイコンが右クリックされたときに発行されます。
+Emitted when the tray icon is right clicked.
 
 #### イベント: 'double-click' *macOS* *Windows*
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
-tray アイコンがダブルクリックされたときに発行されます。
+Emitted when the tray icon is double clicked.
 
 #### イベント: 'balloon-show' *Windows*
 
-tray バルーンを表示するときに発行されます。
+Emitted when the tray balloon shows.
 
 #### イベント: 'balloon-click' *Windows*
 
-tray バルーンがクリックされたときに発行されます。
+Emitted when the tray balloon is clicked.
 
 #### イベント: 'balloon-closed' *Windows*
 
-tray バルーンが、タイムアウトかユーザの手動で、閉じられたときに発行されます。
+Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
 #### イベント: 'drop' *macOS*
 
-tray アイコン上に何かのドラッグされたアイテムがドロップされたときに発行されます。
+Emitted when any dragged items are dropped on the tray icon.
 
 #### イベント: 'drop-files' *macOS*
+
+戻り値:
 
 * `event` Event
 * `files` String[] - ドロップされたファイルのパス。
 
-tray アイコン上にドラッグされたファイルがドロップされたときに発行されます。
+Emitted when dragged files are dropped in the tray icon.
 
 #### イベント: 'drop-text' *macOS*
+
+戻り値:
 
 * `event` Event
 * `text` String - ドロップされたテキスト文字列。
 
-tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
+Emitted when dragged text is dropped in the tray icon.
 
 #### イベント: 'drag-enter' *macOS*
 
-ドラッグ操作が tray アイコン内に入ったときに発行されます。
+Emitted when a drag operation enters the tray icon.
 
 #### イベント: 'drag-leave' *macOS*
 
-ドラッグ操作が tray アイコン内から出たときに発行されます。
+Emitted when a drag operation exits the tray icon.
 
 #### イベント: 'drag-end' *macOS*
 
-ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
+Emitted when a drag operation ends on the tray or ends at another location.
 
 #### イベント: 'mouse-enter' *macOS*
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-マウスが tray アイコン内に入ったときに発行されます。
+Emitted when the mouse enters the tray icon.
 
 #### イベント: 'mouse-leave' *macOS*
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - イベントの位置。
-
-マウスが tray アイコン内から出たときに発行されます。
-
-#### イベント: 'mouse-move' *macOS*
+戻り値:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-マウスが tray アイコン内で動いたときに発行されます。
+Emitted when the mouse exits the tray icon.
+
+#### Event: 'mouse-move' *macOS* *Windows*
+
+戻り値:
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - イベントの位置。
+
+Emitted when the mouse moves in the tray icon.
 
 ### インスタンスメソッド
 
-`Tray` クラスは以下のメソッドを持ちます。
+The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-tray アイコンを即座に削除します。
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-この tray アイコンに関連付けられた `image` を設定します。
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-macOS において、この tray アイコンが押されたときの関連付けられた `image` を設定します。
+Sets the `image` associated with this tray icon when pressed on macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-この tray アイコンのホバーテキストを設定します。
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-ステータスバー内の tray アイコンの隣に表示されるタイトル (ANSI カラーサポート) を設定します。
+Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
-戻り値 `String` - ステータスバーの tray アイコンの隣に表示されるタイトル
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - 以下の値のうちの一つの、強調表示モード。 
-  * `selection` - tray アイコンがクリックされ、コンテキストメニューも開かれたとき、それを強調表示します。これはデフォルトです。
-  * `always` - tray アイコンを常に強調表示します。
-  * `never` - tray アイコンを強調表示することはありません。
-
-tray のアイコンの背景を、いつ青く強調表示するかを設定します。
-
-**[非推奨](breaking-changes.md#tray)**
-
-**注釈:** ウインドウの見た目が変更されたときは、`'never'` と `'always'` 間をトグル切り替えすることで、`highlightMode` を [`BrowserWindow`](browser-window.md) で使用できます。
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/自分の/アイコンへの/パス')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
+Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
 * `ignore` Boolean
 
-ダブルクリックイベントを無視するよう設定します。これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
-この値はデフォルトで false にセットされます。
+This value is set to false by default.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-戻り値 `Boolean` - ダブルクリックイベントが無視されているかどうか。
+Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (任意) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-tray のバルーンを表示します。
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (任意)
-* `position` [Point](structures/point.md) (任意) - ポップアップ位置。
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-tray アイコンのコンテキストメニューをポップアップします。`menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-`position` は Windows でのみ有効で、省略値は (0, 0) です。
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-このアイコンのコンテキストメニューを設定します。
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-`Object` としてのこの tray アイコンの `bounds`。
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-戻り値 `Boolean` - tray アイコンが破棄されたかどうか。
+Returns `Boolean` - Whether the tray icon is destroyed.
