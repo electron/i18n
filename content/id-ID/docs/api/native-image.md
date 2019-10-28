@@ -235,7 +235,7 @@ Mengembalikan ` gambar asli </ 0></p>
  
  #### `image.isTemplateImage()`
  
- Returns `Boolean` - Whether the image is a template image.
+ Mengembalikan `Boolean` - Apakah gambar itu adalah gambar template.
  
  **[Tidak berlaku lagi](modernization/property-updates.md)**
  
@@ -243,7 +243,7 @@ Mengembalikan ` gambar asli </ 0></p>
  
  * `rect` [Rectangle](structures/rectangle.md) - Area gambar yang akan dipotong.
  
- Returns `NativeImage` - The cropped image.
+ Mengembalikan `NativeImage` - Gambar yang dipotong.
  
  #### `image.resize(options)`
  
@@ -256,20 +256,20 @@ Mengembalikan ` gambar asli </ 0></p>
     dipetakan ke algoritma yang sama pada platform tertentu.</li>
 </ul>
 
-<p>Returns <code>NativeImage` - The resized image.</p> 
-  If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
-  
-  #### `image.getAspectRatio()`
-  
-  Returns `Float` - The image's aspect ratio.
-  
-  #### `image.addRepresentation(options)`
+<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
+
+<p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
+
+<h4><code>image.getAspectRatio()`</h4> 
+  Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+
+<h4><code>image.addRepresentation(options)`</h4> 
   
   * `pilihan ` Objek  * `scaleFactor `Double- Faktor skala untuk menambahkan representasi gambar untuk. * `width` Integer (opsional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `height` Integer (optional) - Default ke 0. Diperlukan jika buffer bitmap    ditentukan sebagai `buffer`. * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah. * `dataURL` String (opsional) - URL data berisi basis 64    dikodekan gambar PNG atau JPEG.
   
-  Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+  Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
   
-  ## Properti/peralatan
+  ## properti
   
   ### `nativeImage.isMacTemplateImage` *macOS*
   
