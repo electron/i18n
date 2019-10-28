@@ -1,10 +1,10 @@
 # contentTracing
 
-> パフォーマンスボトルネックや遅い操作を見つけるため、Chromiumのコンテンツモジュールからトレースデータを収集します。
+> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
 プロセス: [Main](../glossary.md#main-process)
 
-このモジュールにはWebインターフェースは含まれないため、結果を閲覧するために `chrome://tracing/` をChromeブラウザーで開いて、生成されたファイルをロードする必要があります。
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
 **注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
@@ -12,20 +12,15 @@
 const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
-
-  contentTracing.startRecording(options, () => {
+  (async () => {
+    await contentTracing.startRecording({
+      include_categories: ['*']
+    })
     console.log('Tracing started')
-
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Tracing data recorded to ' + path)
+  })()
 })
 ```
 
@@ -33,85 +28,41 @@ app.on('ready', () => {
 
 `contentTracing` モジュールには以下のメソッドがあります。
 
-### `contentTracing.getCategories(callback)`
-
-* `callback` Function 
-  * `categories` String[]
-
-カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
-
-一度、すべての子プロセスが `getCategories` リクエストを受諾したら、カテゴリグループの配列で `callback` が呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
-
 ### `contentTracing.getCategories()`
 
-戻り値 `Promise<String[]>` - すべての子プロセスが `getCategories` リクエストを受諾したとき、そのカテゴリグループの配列で解決されます。
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
-
-### `contentTracing.startRecording(options, callback)`
-
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
-* `callback` Function
-
-すべてのプロセスで記録を開始します。
-
-EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
+Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
-戻り値 `Promise<void>` - すべての子プロセスが `startRecording` リクエストを受諾したときに解決されます。
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-すべてのプロセスで記録を開始します。
+Start recording on all processes.
 
-EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。
+Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
 
-### `contentTracing.stopRecording(resultFilePath, callback)`
+If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
-* `resultFilePath` String
-* `callback` Function 
-  * `resultFilePath` String
+### `contentTracing.stopRecording([resultFilePath])`
 
-すべてのプロセスで記録を停止します。
+* `resultFilePath` String (optional)
 
-子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
+Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-一度、すべての子プロセスが `startRecording` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
+Stop recording on all processes.
 
-空でない場合は `resultFilePath`、そうでない場合、一時ファイルにトレースデータは書き込まれます。実際のファイルパスは `null` でない場合、`callback` に渡されます。
+Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-**[非推奨予定](modernization/promisification.md)**
-
-### `contentTracing.stopRecording(resultFilePath)`
-
-* `resultFilePath` String
-
-戻り値 `Promise<String>` - すべての子プロセスが `stopRecording` リクエストを受諾したとき、そのトレースデータを含むファイルで解決されます。
-
-すべてのプロセスで記録を停止します。
-
-子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
-
-トレースデータは空でない `resultFilePath` もしくは一時ファイルへと書き込まれます。
-
-### `contentTracing.getTraceBufferUsage(callback)`
-
-* `callback` Function 
-  * Object 
-    * `value` Number
-    * `percentage` Number
-
-完全な形式のパーセンテージとして、トレースバッファーのプロセス間の最大使用率を取得します。TraceBufferUsageの値が確定したとき、`callback` が呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
+Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-戻り値 `Promise<Object>` - トレースバッファの最大使用率の `value` と `percentage` を含むオブジェクトで実行されます。
+Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
 
-完全な形式のパーセンテージとして、トレースバッファのプロセス間の最大使用率を取得します。
+* `value` Number
+* `percentage` Number
+
+Get the maximum usage across processes of trace buffer as a percentage of the full state.
