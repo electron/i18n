@@ -34,7 +34,7 @@
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Надсилає повідомлення дочірньому вікну з визначеним джерелом чи `*`, якщо його нема.
