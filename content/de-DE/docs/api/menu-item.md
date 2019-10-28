@@ -46,8 +46,8 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 The `role` property can have following values:
 
-* `undo`
-* `redo`
+* `hiermit machen Sie die Aktion rückgängig.`
+* `hiermit wiederholen Sie die Aktion.`
 * `cut`
 * `copy`
 * `paste`
