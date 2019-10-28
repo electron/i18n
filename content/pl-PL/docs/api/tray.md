@@ -189,7 +189,7 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Ustawia tekst w dymku ikony w zasobniku systemowym.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -216,11 +216,11 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (opcjonalne) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Wyświetla dymek w zasobniku systemowym.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
