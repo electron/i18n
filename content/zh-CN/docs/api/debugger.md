@@ -31,14 +31,14 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### 实例事件
+### 事件
 
 #### Event: 'detach'
 
 返回:
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - 分离调试器的原因
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
@@ -47,7 +47,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 返回:
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - 方法名.
 * `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
@@ -56,23 +56,23 @@ Emitted whenever the debugging target issues an instrumentation event.
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (optional) - 需要调试的协议的版本
 
-Attaches the debugger to the `webContents`.
+添加调试器到 `webContents` 。
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+从 `webContents` 里分离调试器.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
 * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (optional) - JSON object with request parameters.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+返回 `Promise<any>` - 一个 promise，远程调试协议中的命令描述的“returns”属性定义的响应，或者显示命令失败的错误消息。
 
-Send given command to the debugging target.
+向调试目标发送给定的命令。
