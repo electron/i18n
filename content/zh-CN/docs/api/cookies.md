@@ -78,29 +78,29 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 * `details` Object 
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
+  * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
+  * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。未指定时默认为空。
+  * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
+  * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
+  * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
+  * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+返回 `Promise<void>` - cookie 设置时解析的一个 promise。
 
-Sets a cookie with `details`.
+用 `details` 去设置一个 cookie。
 
 #### `cookies.remove(url, name)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* ` url `String - 与 cookie 关联的 URL。
+* ` name `String - cookie 名称。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+返回 `Promise<void>` - cookie 移除时解析的的一个 promise。
 
-Removes the cookies matching `url` and `name`
+移除与`url` 和 `name`匹配的 cookie。
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+返回 `Promise<void>` - 一个在 cookie 写入时解析的 promise。
 
-Writes any unwritten cookies data to disk.
+写入所有未写入磁盘的 cookie。
