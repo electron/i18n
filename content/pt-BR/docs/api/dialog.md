@@ -239,9 +239,9 @@ Esse API pode ser chamado com segurança antes de que o evento `ready` que é em
 
 Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+No macOS, esse método exibe um dialog modal que apresenta uma mensagem e informação de certificado, dando ao usuário a opção de confiar/importar o certificado. Se você fornecer um argumento `browserWindow` o dialog será acoplado à janela parent, fazendo-a modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
 * Como o macOS fornece o seu próprio diálogo de confirmação o argumento `message` não é usado.
 * O argumento `browserWindow` é ignorado já que não é possível fazer essa confirmação um diálogo modal.
@@ -250,4 +250,4 @@ On Windows the options are more limited, due to the Win32 APIs used:
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Você pode chamar `BrowserWindow.getCurrentWindow().setSheetOffset (offset)`para mudar o offset da janela aonde os diálogos (sheets) estão acoplados.
