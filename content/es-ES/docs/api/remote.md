@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** Para lo contrario (acceder al renderer process desde el main process), puede usar [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** El módulo remote puede ser deshabilitado por razones de seguridad en los siguientes contextos:
 
@@ -151,6 +151,6 @@ Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el
 
 ## Propiedades
 
-### `remote.process`
+### `remote.process` *Readonly*
 
-El objeto `process` en el proceso principal. Este es igual a `remote.getGlobal('process')` pero está almacenado en caché.
+A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
