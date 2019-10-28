@@ -31,7 +31,7 @@ Para criar uma janela sem frame ou uma janela transparente de formato arbitrári
 
 Ao carregar a pagina na janela diretamente, os usuários podem visualizar o carregamento incremental da página, o que não é uma boa experiência para um aplicativo nativo. Para fazer com que a janela seja exibida sem um flash visual, existem duas soluções para diferentes situações.
 
-## Using `ready-to-show` event
+## Utilizando o evento `ready-to-show`
 
 Enquanto a página é carregada, o evento `ready-to-show` será disparado quando o processo de renderização estiver renderizado completamente a página pela primeira vez, caso a janela ainda não tenha sido exibida. Exibindo a janela após este evento não resultará em um flash visual:
 
@@ -47,9 +47,9 @@ Este evento geralmente é emitido depois do evento `did-finish-load`, porém par
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
-## Setting `backgroundColor`
+## Configurando `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Para um aplicativo complexo, o evento `ready-to-show` poderia ser emitido tarde demais, fazendo com que o aplicativo aparente lentidão. Neste caso, é recomendado exibir a janela imediatamente e utilizar a propriedade `backgroundColor` com cor semelhante a cor de fundo do seu aplicativo:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -58,11 +58,11 @@ let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Note que mesmo para aplicativos que utilizam o evento `ready-to-show`, é recomendado informar a propriedade `backgroundColor` para fazer com que o aplicativo passe a sensação de um aplicativo nativo.
 
-## Parent and child windows
+## Janelas parent e child
 
-By using `parent` option, you can create child windows:
+Ao utilizar a opção `parent`, é possível criar janelas secundarias:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,11 +73,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+A janela secundaria (`child`) sempre será exibida em frente a janela principal (`top`).
 
-## Modal windows
+## Janelas Modais
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Uma janela modal é uma janela secundaria que desabilita a janela principal, para criar uma janela moda, você deve especificar ambas opções `parent` e `modal`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -89,18 +89,18 @@ child.once('ready-to-show', () => {
 })
 ```
 
-## Page visibility
+## Visibilidade de página
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+A [API de visibilidade de página](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funciona da seguinte forma:
 
 * Em todas as plataformas, o estado de visibilidade verifica quando a janela é ocultada/minimizada ou não.
 * Adicionalmente, no macOS, o estado de visibilidade também verifica o estado de oclusão da janela. Se a janela estive obstruída (ou seja, completamente coberta) por outra janela, o estado de visibilidade será `hidden`. Em outras plataformas, o estado de visibilidade será `hidden` somente quando a janela for minimizada ou explicitamente ocultada com o método `win.hide()`.
 * Se um `BrowserWindow` é criado com a propriedade `show: false`, a visibilidade inicial será `visible` independente da janela estar de fato ocultada.
 * Se a propriedade `backgroundThrottling` estive desativado, o estado de visibilidade continuará `visible` mesmo que a janela esteja minimizada, ocultada ou escondida.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+É recomendado que você pause operações "caras" quando o estado de visibilidadade for `hidden` com o objetivo de minimizar o consumo de energia.
 
-## Platform notices
+## Avisos de plataformas
 
 * No macOS, janelas modal serão exibidas como "folhas" vinculadas a janela principal.
 * No macOS, as janelas secundarias manterão a posição relativa com a janela principal quando a mesma se mover, enquanto que no Windows e Linux as janelas secundarias não se movem.
@@ -115,7 +115,7 @@ Processo: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a opção `options`.
 
 ### `new BrowserWindow([options])`
 
@@ -159,7 +159,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por padrão é `false`. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+  * `titleBarStyle` String (optional) - The style of window title bar. Default is `padrão`. Possible values are: 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
@@ -239,7 +239,7 @@ Retorna:
 * `title` String
 * `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
+Emitido quando o documento mudou seu título, chamando `event.preventDefault()` impedirá que o título da janela nativa mude. `explicitSet` is false when title is synthesized from file URL.
 
 #### Evento: 'close'
 
@@ -708,7 +708,7 @@ Enters or leaves simple fullscreen mode.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
-#### `win.isSimpleFullScreen()` *macOS*
+#### `win.isSimpleFullScreen()` no *macOS*
 
 Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
 
@@ -740,7 +740,7 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 
 Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
 
-#### `win.closeFilePreview()` *macOS*
+#### `win.closeFilePreview()` no *macOS*
 
 Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
@@ -767,7 +767,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+Retorna [`Rectangle`](structures/rectangle.md) - Os `limites` da janela como `Objeto`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -1050,7 +1050,7 @@ Unhooks all of the window messages.
 
 Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
 
-#### `win.getRepresentedFilename()` *macOS*
+#### `win.getRepresentedFilename()` no *macOS*
 
 Returns `String` - The pathname of the file the window represents.
 
@@ -1060,7 +1060,7 @@ Returns `String` - The pathname of the file the window represents.
 
 Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
 
-#### `win.isDocumentEdited()` *macOS*
+#### `win.isDocumentEdited()` no *macOS*
 
 Returns `Boolean` - Whether the window's document has been edited.
 
@@ -1241,7 +1241,7 @@ Sets the properties for the window's taskbar button.
 
 **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
 
-#### `win.showDefinitionForSelection()` *macOS*
+#### `win.showDefinitionForSelection()` no *macOS*
 
 Same as `webContents.showDefinitionForSelection()`.
 
@@ -1347,23 +1347,23 @@ Returns `BrowserWindow[]` - All child windows.
 
 Controls whether to hide cursor when typing.
 
-#### `win.selectPreviousTab()` *macOS*
+#### `win.selectPreviousTab()` no *macOS*
 
 Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.selectNextTab()` *macOS*
+#### `win.selectNextTab()` no *macOS*
 
 Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.mergeAllWindows()` *macOS*
+#### `win.mergeAllWindows()` no *macOS*
 
 Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
-#### `win.moveTabToNewWindow()` *macOS*
+#### `win.moveTabToNewWindow()` no *macOS*
 
 Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
-#### `win.toggleTabBar()` *macOS*
+#### `win.toggleTabBar()` no *macOS*
 
 Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
@@ -1411,4 +1411,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** A API BrowserView atualmente é experimental e pode mudar ou ser removida em versões futuras do Electron.
