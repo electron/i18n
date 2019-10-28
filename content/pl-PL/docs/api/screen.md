@@ -41,7 +41,7 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
 
 ## Zdarzenia
 
-The `screen` module emits the following events:
+Moduł `screen` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'display-added'
 
@@ -50,7 +50,7 @@ Zwraca:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Emitowane, gdy `newDisplay` został dodany.
 
 ### Zdarzenie: 'display-removed'
 
@@ -59,7 +59,7 @@ Zwraca:
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Emitowane, gdy `oldDisplay` został usunięty.
 
 ### Zdarzenie: 'display-metrics-changed'
 
@@ -73,21 +73,21 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ## Metody
 
-The `screen` module has the following methods:
+Moduł `screen` posiada następujące metody:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Zwraca [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+Bieżącą pozycję bezwzględną wskaźnika myszy.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Zwraca [`Display`](structures/display.md) - ekran główny.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Zwraca [`Display[]`](structures/display.md) - tablicę obiektów Display, które są obecnie dostępne.
 
 ### `screen.getDisplayNearestPoint(point)`
 
@@ -105,7 +105,7 @@ Returns [`Display`](structures/display.md) - The display that most closely inter
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Zwraca [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -113,7 +113,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Zwraca [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
