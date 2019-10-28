@@ -33,9 +33,9 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 ### 現在のサポート対象バージョン
 
+* 7.x.y
 * 6.x.y
 * 5.x.y
-* 4.x.y
 
 ### End-of-life
 
@@ -57,7 +57,7 @@ macOS 向けには 64bit バイナリのみが提供されます。対応する 
 
 Windows 7以降に対応しています。Vista以前のOSはサポートされておらず、動作もしません。
 
-Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 ARM デバイス用の Windows 上で Electron アプリケーションを実行することは、ia32 バイナリを使用することによって可能です。
+Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
 
 ### Linux
 
