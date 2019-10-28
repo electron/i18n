@@ -140,13 +140,13 @@ A `Boolean` property representing whether the notification has a reply action.
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
-### Playing Sounds
+### サウンドの再生
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 カスタムサウンドファイルに加えて、(システム環境設定 > サウンド にある) デフォルトサウンドのいずれかを使用することができます。 サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
 
 * `~/ライブラリ/Sounds`
 * `/ライブラリ/Sounds`
 * `/ネットワーク/ライブラリ/Sounds`
 * `/システム/ライブラリ/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+より詳しくは、[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) ドキュメントを参照して下さい。
