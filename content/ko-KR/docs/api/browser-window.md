@@ -31,7 +31,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 윈도우 창에 직접 페이지를 로딩 할때, 사용자는 페이지가 조금씩 로드되는 것을 볼 수 있다. 이러한 점은 네이티브 앱에서 보여주기에는 좋지 않은 방식이다. 윈도우창에 Visual Flash 없이 보여주는 방법은 각기 다른 상황에 따른 두가지 방법이 있다.
 
-## Using `ready-to-show` event
+## `ready-to-show` 이벤트를 사용하기
 
 페이지가 로딩될 때, 만약 윈도우가 아직 화면에 표시되지 않았고 최초로 renderer process 가 해당 페이지 렌더링을 완료할 때, `ready-to-show` 이벤트가 발생한다. 이벤트 발생 후 해당 윈도우는 Visual Flash 없이 표시된다.
 
@@ -47,9 +47,9 @@ win.once('ready-to-show', () => {
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
-## Setting `backgroundColor`
+## `backgroundColor` 설정
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+복잡한 app에서는 `ready-to-show` 이벤트가 너무 늦게 발생해서, 앱이 느린 것처럼 보일 수 있다. 이런 경우, 윈도우를 즉시 보여주고 `backgroundColor`를 background에서 종료(close)하도록 사용하는 방식이 권장된다.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -59,11 +59,11 @@ win.loadURL('https://github.com')
 
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+앱이 `ready-to-show`이벤트를 사용하고 있더라도, 여전히 app이 native에 가깝게 보이도록 하기 위해서 `backgroundColor`을 설정하기를 권장한다.
 
 ## Parent and child windows
 
-By using `parent` option, you can create child windows:
+`parent` 옵션을 사용하여, 자식 윈도우(child windows)를 생성할 수 있다:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -74,11 +74,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+`자식` 윈도우는 항상 `top` 윈도우의 위에 표시된다.
 
 ## Modal windows
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+modal 윈도우는 비활성화 가능한 부모 윈도우의 자식 윈도우이다. modal 윈도우를 생성하기 위해서는, `parent`와 `modal`옵션을 모두 사용해야 한다. :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -92,16 +92,16 @@ child.once('ready-to-show', () => {
 
 ## Page visibility
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)의 동작방식은 다음과 같다. :
 
 * 모든 플랫폼에서, 표시 상태는 윈도우가 숨김처리, 최소화되거나 그렇지 않은 경우를 나타낸다.
 * 추가적으로 macOS에서는, 윈도우의 occlusion 상태도 나타냅니다. 윈도우가 다른 윈도우에 의해 occluded (예: fully covered)됐을 시, 표시 상태는 `hidden`이 됩니다. 다른 플랫폼에서는 윈도우가 최소화 혹은 `win.hide()`에 의해 명시적으로 숨김처리 됐을 때만, 숨김 상태가 `hidden`이 됩니다.
 * `BrowserWindow`가 `show:false` 옵션과 함께 생성된 경우 실제로는 숨김처리됐음에도 불구하고, 표시 상태는 `visible`이 됩니다.
 * `backgroundThrottling`이 비활성화 상태이면, 윈도우가 최소화, occluded, 혹은 숨김처리 되더라도 표시 상태는 `visible`인 상태로 남아있습니다.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+소비 전력을 최소화하기 위해서 표시 상태가`hidden`상태일 때, 비용이 큰 동작은 멈추는 게 권장된다.
 
-## Platform notices
+## 플랫폼별 참고 사항
 
 * MacOS의 modal 윈도우는 부모 윈도우에 붙은 시트처럼 표시된다.
 * MacOS에서 부모 윈도우가 움직일 때, 자식 윈도우는 부모 윈도우의 상대적 위치를 유지한다. 반면 Windows와 Linux에서 자식 윈도우는 움직이지 않는다.
@@ -112,11 +112,11 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스:[Main](../glossary.md#main-process)
+프로세스: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+`BrowserWindow`는 `options`로 설정된 네이티브 속성과 함께, 새로운 <0>BrowserWindow</0>를 생성한다.
 
 ### `new BrowserWindow([options])`
 
@@ -170,7 +170,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. 기본값은 `false`이다.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (optional) - Settings of web page's features. 
+  * `webPreferences` Object (선택) - 웹 페이지 기능의 설정입니다. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. 기본값은 `false`이다. More about this can be found in [Multithreading](../tutorial/multithreading.md).
@@ -228,29 +228,29 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### 인스턴스 이벤트
 
-Objects created with `new BrowserWindow` emit the following events:
+`new BrowserWindow`으로 생성된 오브젝트에서는 다음의 이벤트가 발생합니다:
 
 **참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
 #### 이벤트: 'page-title-updated'
 
-반환:
+Returns:
 
 * `event` Event
 * `title` String
 * `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
+문서의 타이틀이 변경될때 발생하고, `event.preventDefault()`는 네이티브 윈도우의 타이틀이 변경되는 것을 방지합니다. `explicitSet` is false when title is synthesized from file URL.
 
 #### 이벤트: 'close'
 
-반환:
+Returns:
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+윈도우를 닫을때 발생합니다. DOM의 `beforeunload` 와 `unload` 이벤트 전에 발생합니다. `event.preventDefault()`를 호출하면 닫기를 취소합니다.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 예시:
+일반적으로 `beforeunload` 핸들러를 사용하여 창을 닫아야하는지 여부를 결정할 수 있습니다. 이 핸들러는 창을 다시로드 할 때도 호출됩니다. 일렉트론에서 `undefined` 외의 다른 값을 리턴하는 것으로 닫기를 취소합니다. 예시:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -263,7 +263,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다.*
 
 #### Event: 'closed'
 
@@ -321,7 +321,7 @@ Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' *macOS* *Windows*
 
-반환:
+Returns:
 
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
@@ -336,7 +336,7 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' *Windows*
 
-반환:
+Returns:
 
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
@@ -382,7 +382,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' *Windows* *Linux*
 
-반환:
+Returns:
 
 * `event` Event
 * `command` String
@@ -421,7 +421,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `direction` String
@@ -430,7 +430,7 @@ Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`
 
 #### Event: 'rotate-gesture' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `rotation` Float
@@ -491,7 +491,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Remove a Chrome extension by name.
 
@@ -517,7 +517,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Remove a DevTools extension by name.
 
@@ -538,7 +538,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -616,7 +616,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Instance Methods (인스턴스 메소드)
+### 인스턴스 메서드
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -1411,4 +1411,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**참고:** BrowserView API는 현재 실험 단계이며, 차후 일렉트론이 릴리즈 되면 변경되거나 제거될 수 있습니다.
