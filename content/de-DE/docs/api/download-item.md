@@ -170,7 +170,7 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Instance Properties
+### Instanz Eigenschaften
 
 #### `downloadItem.savePath`
 
