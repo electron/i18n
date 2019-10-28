@@ -26,32 +26,32 @@
 * `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
 
-Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
+戻り値 `Promise<Boolean>` - プロダクトが有効で支払いキューに追加されている場合は、`true` を返します。
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+`purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - 取得する製品の識別子。
 
-Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
+戻り値 `Promise<Product[]>` - [`Product`](structures/product.md) オブジェクトの配列で実行されます。
 
-Retrieves the product descriptions.
+製品説明を探します。
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+戻り値 `Boolean` - ユーザが支払いできるかどうか。
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+戻り値 `String` - 領収書へのパス。
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+すべての保留中の取引を完了させます。
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - 取引を終える ISO 形式の日付。
 
-Completes the pending transactions corresponding to the date.
+日付に対応するすべての保留中の取引を完了させます。
