@@ -140,7 +140,7 @@ A `Boolean` property representing whether the notification has a reply action.
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
-### Playing Sounds
+### Odtwarzanie Dźwięków
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
@@ -149,4 +149,4 @@ On macOS, you can specify the name of the sound you'd like to play when the noti
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Zobacz dokumentacje [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) po więcej informacji.
