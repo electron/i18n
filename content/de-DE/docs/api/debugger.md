@@ -37,8 +37,8 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Rückgabewert:
 
-* `event` Event
-* `reason` String - Reason for detaching debugger.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>reason` String - Reason for detaching debugger.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
@@ -46,13 +46,13 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Rückgabewert:
 
-* `event` Event
-* `method` String - Method name.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>method` String - Method name.
 * `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Instance Methods
+### Instanz Methoden
 
 #### `debugger.attach([protocolVersion])`
 
