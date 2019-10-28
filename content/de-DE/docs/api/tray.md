@@ -72,7 +72,7 @@ Rückgabewert:
 * `bounds` [Rechteck](structures/rectangle.md) - Die Grenzen des Tray-Symbols.
 * `position` [Punkt](structures/point.md) - Die Position des Events.
 
-Emitted when the tray icon is clicked.
+Wird beim Klicken des Tray Icons gesendet.
 
 #### Ereignis: 'right-click' *macOS* *Windows*
 
@@ -81,7 +81,7 @@ Rückgabewert:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rechteck](structures/rectangle.md) - Die Grenzen des Tray-Symbols.
 
-Emitted when the tray icon is right clicked.
+Wird durch einen Rechts Klick auf das Tray Icon gesendet.
 
 #### Ereignis: 'double-click' *macOS* *Windows*
 
@@ -189,13 +189,13 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Legt den Hover-Text für dieses Tray-Symbol fest.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Legt den Titel fest, der neben dem Tray Icon in der Statusleiste angezeigt wird (Unterstütz ANSI-Farben).
 
 #### `tray.getTitle()` *macOS*
 
@@ -224,18 +224,18 @@ Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menü (optional)
+* `position` [Punkt](structures/point.md) (optional) - Die Pop-up-Position.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+Die `position` ist nur unter Windows verfügbar und ist standardmäßig (0, 0).
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Legt das Kontextmenü für dieses Symbol fest.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
