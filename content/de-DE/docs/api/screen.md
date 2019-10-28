@@ -63,7 +63,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Rückgabewert:
+Returns:
 
 * `event` Event
 * `display` [Display](structures/display.md)
