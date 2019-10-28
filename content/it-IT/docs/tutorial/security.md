@@ -96,7 +96,7 @@ browserWindow.loadURL('https://example.com')
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. L'obiettivo è di limitare la forza che tu garantisci al contenuto remoto, ciò rendendo drammaticamente più difficile per un malintenzionato di danneggiare l'utente, dovrebbero guadagnare l'abilità di eseguire JavaScript sul tuo sito.
 
-Dopo ciò, puoi garantire permessi aggiuntivi per host specifici. Per esempio, se stai aprendo una FinestraBrowser puntata a 'https://example.com/, puoi dare a questo sito esattamente le abilità che necessiti, ma nient'altro.
+Dopo ciò, puoi garantire permessi aggiuntivi per host specifici. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
 
 ### Perchè?
 
