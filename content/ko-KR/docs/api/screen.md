@@ -45,7 +45,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-반환:
+Returns:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -54,7 +54,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-반환:
+Returns:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -63,7 +63,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `display` [Display](structures/display.md)
