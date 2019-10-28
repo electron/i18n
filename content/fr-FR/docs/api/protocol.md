@@ -328,7 +328,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (facultatif)
 * `completion` Function (facultatif) 
   * `error` Error
 
