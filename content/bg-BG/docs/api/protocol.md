@@ -286,14 +286,14 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `обратно повикване` Функция 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
