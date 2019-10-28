@@ -6,6 +6,8 @@ Proses: [Main](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## Platform Notices
 
 Saat ini, hanya di macOS dan Windows Yang masih mendukung. Tidak ada dukungan untuk pembaharuan automatis pada linux, sehingga disarankan untuk menggunakan paket distribusi manejer untuk memperbaharui aplikasi anda.
@@ -30,27 +32,27 @@ Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host fi
 
 ## Events
 
-Objek `autoUpdater` mengirimkan sinyal berikut:
+Objek `autoUpdater` memancarkan peristiwa berikut:
 
 ### Sinyal: 'Error'
 
-Mengirimkan:
+Pengembalian:
 
 * Kesalahan `kesalahan`
 
-Dikirimkan saat ada kesalahan saat mengupdate.
+Emitted saat ada error saat mengupdate.
 
 ### Sinyal: 'check-for-update'
 
-Dikirimkan saat memeriksa apakah update telah dimulai.
+Emitted saat memeriksa apakah update telah dimulai.
 
 ### Sinyal: 'update-available'
 
-Dikirimkan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
+dibunyikan saat ada update yang tersedia. Pembaruan diunduh secara otomatis.
 
 ### Sinyal: 'update-not-available'
 
-Dikirimkan saat tidak ada update yang tersedia.
+Emitted saat tidak ada update yang tersedia.
 
 ### Sinyal: 'update-download'
 
@@ -64,7 +66,7 @@ Pengembalian:
 
 Emitted saat update telah didownload.
 
-`releaseName` hanya tersedia pada Windows.
+Di Windows saja `releaseName` tersedia.
 
 **Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
@@ -82,7 +84,7 @@ Objek `autoUpdater` memiliki metode berikut:
 
 * `pilihan` Objek 
   * ` url </ 0> String</li>
-<li><code>headers` Object (optional) *macOS* - HTTP request headers.
+<li><code>headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Menetapkan `url` dan menginisialisasi updater otomatis.
