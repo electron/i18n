@@ -41,7 +41,7 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
 
 ## Événements
 
-The `screen` module emits the following events:
+Le module `screen` émet les événements suivants :
 
 ### Événement : 'display-added'
 
@@ -50,7 +50,7 @@ Retourne :
 * `event` Événement
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Émis lorsque `newDisplay` a été ajouté.
 
 ### Événement : 'display-removed'
 
@@ -59,7 +59,7 @@ Retourne :
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Émis lorsque `oldDisplay` a été retiré.
 
 ### Événement 'display-metrics-changed'
 
@@ -69,43 +69,43 @@ Retourne :
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Émis lorsqu’un ou plusieurs métrics changent dans un `display`. `changedMetrics` est un tableau de chaîne de caractères décrivant les modifications. Les modifications possibles sont `bounds`, `workArea`, `scaleFactor` et `rotation`.
 
 ## Méthodes
 
-The `screen` module has the following methods:
+Le module `screen` dispose des méthodes suivantes :
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Retourne [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+La position absolue du pointeur de la souris.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Retourne [`Display`](structures/display.md) - L'écran principal.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Retourne [`Display[]`](structures/display.md) - Un tableau d'écrans qui sont actuellement disponibles.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Retourne [`Display`](structures/display.md) - L'écran le plus proche du point spécifié.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les limites d'intersection données.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Retourne [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -113,7 +113,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Retourne [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
