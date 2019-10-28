@@ -15,7 +15,7 @@ console.log(clipboard.readText('selection'))
 
 ## Metody
 
-The `clipboard` module has the following methods:
+Moduł `clipboard` posiada następujące metody:
 
 **Note:** Experimental APIs are marked as such and could be removed in future.
 
