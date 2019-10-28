@@ -53,7 +53,7 @@ Apple Retina ekranları gibi yüksek DPI desteğine sahip platformlarda, yüksek
 
 Aynı anda farklı DPI yoğunluklarına sahip görüntüleri desteklemek istiyorsanız, farklı boyutlardaki görüntüleri aynı dizine koyun ve dosya isimlerini DPI son ekleri olmadan kullanın. Örneğin:
 
-```text
+```plaintext
 images/
 ├── icon.png
 ├── icon@2x.png
@@ -147,11 +147,11 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` Dizge
-* `hslShift` Number[]
+* `hslShift` Number[] (optional)
 
 `NativeImage` döndürür
 
-NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. Olası değerlerin bir listesi için [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) bölümüne bakın.
+NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
 `hslShift` görüntü uygulaması aşağıdaki gibi uygulanır
 
@@ -185,7 +185,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toJPEG(quality)`
 
-* `quality` tamsayı (**required**) - 0 - 100 arasında.
+* `quality` Integer - Between 0 - 100.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `JPEG` kodlanmış verisini içeririr.
 
@@ -229,9 +229,13 @@ Returns `Boolean` - Whether the image is empty.
 
 Görüntüyü şablon görüntüsü olarak işaretler.
 
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
 `Boolean` - Görüntünün şablon görüntüsü olup olmadığını gösterir.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
@@ -256,3 +260,11 @@ Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde m
 * `options` obje * `scaleFactor` Çift - Gösterilen resimdeki ölçek faktörü. `width` tamsayı (isteğe bağlı) - Varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. `height` Tamsayı (İsteğe bağlı) - varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. * `buffer` Arabellek (isteğe bağlı) - Ham resim verilerini içeren arabelleği ifade eder. * `dataURL` Dizi (isteğe bağlı) - Taban 64 lük sistem ile kodlanmış JPEG ve PNG resmi içeren URL.
 
 Belirli ölçek faktörü için bir görüntü gösterimi ekleyin. Bu kullanılabilir görüntüye açıkca farklı ölçek faktörü gösterimleri eklemek için kullanılabilir. Bu boş görüntülerde çağrılabilir.
+
+## Özellikler
+
+### `nativeImage.isMacTemplateImage` *macOS*
+
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+
+Please note that this property only has an effect on macOS.
