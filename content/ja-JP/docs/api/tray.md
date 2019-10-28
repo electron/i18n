@@ -72,7 +72,7 @@ app.on('ready', () => {
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 * `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the tray icon is clicked.
+tray アイコンがクリックされたときに発行されます。
 
 #### イベント: 'right-click' *macOS* *Windows*
 
@@ -81,7 +81,7 @@ Emitted when the tray icon is clicked.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
-Emitted when the tray icon is right clicked.
+tray アイコンが右クリックされたときに発行されます。
 
 #### イベント: 'double-click' *macOS* *Windows*
 
@@ -90,23 +90,23 @@ Emitted when the tray icon is right clicked.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
-Emitted when the tray icon is double clicked.
+tray アイコンがダブルクリックされたときに発行されます。
 
 #### イベント: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+tray バルーンを表示するときに発行されます。
 
 #### イベント: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+tray バルーンがクリックされたときに発行されます。
 
 #### イベント: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+tray バルーンが、タイムアウトかユーザの手動で、閉じられたときに発行されます。
 
 #### イベント: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+tray アイコン上に何かのドラッグされたアイテムがドロップされたときに発行されます。
 
 #### イベント: 'drop-files' *macOS*
 
@@ -115,7 +115,7 @@ Emitted when any dragged items are dropped on the tray icon.
 * `event` Event
 * `files` String[] - ドロップされたファイルのパス。
 
-Emitted when dragged files are dropped in the tray icon.
+tray アイコン上にドラッグされたファイルがドロップされたときに発行されます。
 
 #### イベント: 'drop-text' *macOS*
 
@@ -124,19 +124,19 @@ Emitted when dragged files are dropped in the tray icon.
 * `event` Event
 * `text` String - ドロップされたテキスト文字列。
 
-Emitted when dragged text is dropped in the tray icon.
+tray アイコン上にドラッグされたテキストがドロップされたときに発行されます。
 
 #### イベント: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+ドラッグ操作が tray アイコン内に入ったときに発行されます。
 
 #### イベント: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+ドラッグ操作が tray アイコン内から出たときに発行されます。
 
 #### イベント: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+ドラッグ操作が、tray 上か他の場所で終了したときに発行されます。
 
 #### イベント: 'mouse-enter' *macOS*
 
@@ -145,7 +145,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse enters the tray icon.
+マウスが tray アイコン内に入ったときに発行されます。
 
 #### イベント: 'mouse-leave' *macOS*
 
@@ -154,7 +154,7 @@ Emitted when the mouse enters the tray icon.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse exits the tray icon.
+マウスが tray アイコン内から出たときに発行されます。
 
 #### Event: 'mouse-move' *macOS* *Windows*
 
@@ -163,86 +163,86 @@ Emitted when the mouse exits the tray icon.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
-Emitted when the mouse moves in the tray icon.
+マウスが tray アイコン内で動いたときに発行されます。
 
 ### インスタンスメソッド
 
-The `Tray` class has the following methods:
+`Tray` クラスは以下のメソッドを持ちます。
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+tray アイコンを即座に削除します。
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+この tray アイコンに関連付けられた `image` を設定します。
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+macOS において、この tray アイコンが押されたときの関連付けられた `image` を設定します。
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+この tray アイコンのホバーテキストを設定します。
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+ステータスバー内の tray アイコンの隣に表示されるタイトル (ANSI カラーサポート) を設定します。
 
 #### `tray.getTitle()` *macOS*
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+戻り値 `String` - ステータスバーの tray アイコンの隣に表示されるタイトル
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+ダブルクリックイベントを無視するよう設定します。これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
 
-This value is set to false by default.
+この値はデフォルトで false にセットされます。
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+戻り値 `Boolean` - ダブルクリックイベントが無視されているかどうか。
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (任意) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+tray のバルーンを表示します。
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (任意)
+* `position` [Point](structures/point.md) (任意) - ポップアップ位置。
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+tray アイコンのコンテキストメニューをポップアップします。`menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` は Windows でのみ有効で、省略値は (0, 0) です。
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+このアイコンのコンテキストメニューを設定します。
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+`Object` としてのこの tray アイコンの `bounds`。
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+戻り値 `Boolean` - tray アイコンが破棄されたかどうか。
