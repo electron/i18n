@@ -15,15 +15,15 @@ console.log(clipboard.readText('selection'))
 
 ## Methoden
 
-The `clipboard` module has the following methods:
+Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Notiz:** Experimentelle Schnittstellen sind mit "Experimentell" markiert und könnten in der Zukunft wegfallen.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Klartext vor.
 
 ```js
 const { clipboard } = require('electron')
@@ -40,7 +40,7 @@ console.log(text)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+Schreibt den `text` als Klartext in die Zwischenablage.
 
 ```js
 const { clipboard } = require('electron')
@@ -53,7 +53,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Auszeichnungssprache (markup language) vor.
 
 ```js
 const { clipboard } = require('electron')
@@ -70,7 +70,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+Schreibt `markup` in die Zwischenablage.
 
 ```js
 const { clipboard } = require('electron')
@@ -82,20 +82,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Gibt ein [`NativeImage`](native-image.md) zurück - Der Inhalt des Bildes liegt in der Zwischenablage vor.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+Schreibt das `image` in die Zwischenablage.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt im Rich Text Format (RTF) vor.
 
 ```js
 const { clipboard } = require('electron')
@@ -112,7 +112,7 @@ console.log(rtf)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+Schreibt den `text` im Rich Text Format (RTF) in die Zwischenablage.
 
 ```js
 const { clipboard } = require('electron')
@@ -129,16 +129,16 @@ Gibt das `Object` zurück:
 * ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Returns an Object containing <code>title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.</p> 
+<p>Gibt ein Objekt, dass die Keys <code>title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.</p> 
   ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
   
   * `title` String
   * ` URL </ 0>  Zeichenfolge</li>
 <li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
   
-  Writes the `title` and `url` into the clipboard as a bookmark.
+  Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
   
-  **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+  **Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
   
   ```js
   const { clipboard } = require('electron')
