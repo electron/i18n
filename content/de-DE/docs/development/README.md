@@ -21,4 +21,4 @@ Dieses Handbuch wendet sich an Entwickler des Electron Projekts. Guides zur App-
 * [Debugging in macOS](debugging-instructions-macos.md)
 * [Einen Symbol Server im Debugger einrichten](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Upgrading Node](upgrading-node.md)
+* [Node upgraden](upgrading-node.md)
