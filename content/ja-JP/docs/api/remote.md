@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+**注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture) が使用できます。
 
 **注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
 
