@@ -46,7 +46,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 Retorna:
 
-* `event` Event
+* Evento `event`
 * `method` String - Method name.
 * `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
@@ -56,17 +56,17 @@ Emitted whenever the debugging target issues an instrumentation event.
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (opcional) - Versão do protocolo de debugging solicitado.
 
-Attaches the debugger to the `webContents`.
+Anexa o debugger à `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Retorna um `Boolean` - que mostra se o debugger está anexado à `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Retira o debugger de `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
