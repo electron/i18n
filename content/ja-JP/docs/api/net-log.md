@@ -30,20 +30,20 @@ app.on('ready', async () => {
 
 Returns `Promise<void>` - resolves when the net log has begun recording.
 
-Starts recording network events to `path`.
+`path` へネットワークイベントの記録を開始する。
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+戻り値 `Promise<String>` - ネットワークログが記録されたファイルパスで実行されます。
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
 
 ## プロパティ
 
 ### `netLog.currentlyLogging` *Readonly*
 
-A `Boolean` property that indicates whether network logs are recorded.
+ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
 
 ### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
 
-A `String` property that returns the path to the current log file.
+現在のログファイルへのパスを返す `String` プロパティ。
