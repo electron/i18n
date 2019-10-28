@@ -10,29 +10,29 @@ Processus : [Principal](../glossary.md#main-process)
 
 ## Avertissement sur les plateformes
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Actuellement, seuls MacOS et Windows sont supportés. Il n' y a pas de support intégré pour la mise à jour automatique sous Linux, il est donc recommandé d'utiliser le gestionnaire de paquetages de la distribution pour mettre à jour votre application.
 
-In addition, there are some subtle differences on each platform:
+En outre, il y a quelques différences subtiles sur chaque plateforme :
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+Sur macOS, le module `autoUpdater` repose sur [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), ce qui signifie que vous n'avez pas besoin d'une installation spécifique pour le faire fonctionner. Pour les besoins du côté serveur, vous pouvez lire [Le support du serveur](https://github.com/Squirrel/Squirrel.Mac#server-support). Notez que l'[App Transport Securité](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) s'applique à toutes les demandes formulées dans le cadre du processus de mise à jour. Les applications qui ont besoin de désactiver l'ATS peut ajouter la clé `NSAllowsArbitraryLoads` à leur fichier plist.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**Remarque :** Votre application doit être signée pour pouvoir se mettre à jour automatiquement sur macOS. Il s'agit d'une exigence de `Squirrel.Mac`.
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+Sur Windows, vous devrez installer votre application sur la machine de l'utilisateur avant de pouvoir utiliser `autoUpdater`. Il est donc recommandé d'utiliser [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) ou le package [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) pour générer un installateur Windows.
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+En utilisant [electron-winstaller](https://github.com/electron/windows-installer) ou [electron-forge](https://github.com/electron-userland/electron-forge), assurez-vous de ne pas essayer de mettre à jour votre application [à sa première exécution](https://github.com/electron/windows-installer#handling-squirrel-events) (voir aussi [cette question pour plus d'information](https://github.com/electron/electron/issues/7155)). Il est également recommandé d'utiliser [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) pour avoir les raccourcis bureau pour votre application.
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+L'installateur généré avec Squirrel va créer une icône de raccourci avec un [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) dans le format `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`. Voici deux exemples : `com.squirrel.slack.Slack` et `com.squirrel.code.Code`. Vous devez utiliser le même ID pour votre application qu'avec l'API `app.setAppUserModelId`, sinon Windows ne sera pas en mesure d'épingler correctement votre application dans la barre des tâches.
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. Vous pouvez lire les documents de [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) pour obtenir plus de détails sur le fonctionnement de Squirrel.Windows.
 
 ## Événements
 
-The `autoUpdater` object emits the following events:
+L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
@@ -40,19 +40,19 @@ Retourne :
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Émis lorsqu’il y a une erreur pendant la mise à jour.
 
 ### Événement : 'checking-for-update'
 
-Emitted when checking if an update has started.
+Émis lors de la vérification du commencement d'une mise à jour.
 
 ### Événement : 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
 
 ### Événement : 'update-not-available'
 
-Emitted when there is no available update.
+Émis quand il n’y a aucune mise à jour disponible.
 
 ### Événement : 'update-downloaded'
 
@@ -64,21 +64,21 @@ Retourne :
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Émis lorsqu'une mise à jour a été téléchargée.
 
-On Windows only `releaseName` is available.
+Sur Windows, seulement `releaseName` est disponible.
 
 **Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Événement : 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Cet événement est émis après qu'un utilisateur appelle `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Quand cette API est appelée, l'événement `before-quit` n'est pas émis avant que toutes les fenêtres soient fermées. Ainsi vous devriez écouter cet évènement si vous voulez effectuer des actions avant que les fenêtres soient fermées et qu'un processus est entrain d'être arrêté, est écouter aussi `before-quit`.
 
 ## Méthodes
 
-The `autoUpdater` object has the following methods:
+L'objet `autoUpdater` dispose des méthodes suivantes :
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -87,20 +87,20 @@ The `autoUpdater` object has the following methods:
   * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (facultatif) *macOS* - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
 
-Sets the `url` and initialize the auto updater.
+Définit l'`url` et initialise l'auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Retourne `String` - L'URL de flux des mises à jour.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d’utiliser cette API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
 **Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
