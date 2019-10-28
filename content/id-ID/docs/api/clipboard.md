@@ -15,111 +15,105 @@ console.log(clipboard.readText('selection'))
 
 ## Methods
 
-The `clipboard` module has the following methods:
+The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+<p><strong> Catatan: </ 0> API Eksperimental ditandai seperti itu dan dapat dihapus di masa mendatang.</p>
 
-### `clipboard.readText ( [type] )`
+<h3><code>clipboard.readText ( [type] )`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Mengembalikan ` String </ 0> - Konten di clipboard sebagai teks biasa.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 clipboard.writeText('hello i am a bit of text!')
 
 const text = clipboard.readText()
 console.log(text)
 // hello i am a bit of text!'
-```
+`</pre> 
 
 ### `clipboard.menulis tek (teks [, tipe])`
 
 * `teks` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+Menuliskan ` teks </ 0> ke clipboard sebagai teks biasa.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 const text = 'hello i am a bit of text!'
 clipboard.writeText(text)
-```
+`</pre> 
 
 ### `clipboard.readHTML ( [type] )`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Mengembalikan ` String </ 0> - Konten di clipboard sebagai markup.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 clipboard.writeHTML('<b>Hi</b>')
 const html = clipboard.readHTML()
 
 console.log(html)
 // <meta charset='utf-8'><b>Hi</b>
-```
+`</pre> 
 
 ### `clipboard.menulisHTML (markup [, tipe])`
 
 * ` markup </ 0>  String</li>
 <li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+Menulis ` markup </ 0> ke clipboard.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 clipboard.writeHTML('<b>Hi</b')
-```
+`</pre> 
 
 ### `clipboard.readImage ( [type] )`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Mengembalikan ` NativeImage </ 0> - Konten gambar di clipboard.</p>
 
-### `clipboard.writeImage (gambar [, tipe])`
+<h3><code>clipboard.writeImage (gambar [, tipe])`</h3> 
 
 * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 <li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+Menulis ` gambar </ 0> ke clipboard.</p>
 
-### `clipboard.readRTF ( [type] )`
+<h3><code>clipboard.readRTF ( [type] )`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Mengembalikan ` String </ 0> - Konten di clipboard sebagai RTF.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
 
 const rtf = clipboard.readRTF()
 console.log(rtf)
 // {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
-```
+`</pre> 
 
 ### `clipboard.writeRTF (teks [, jenis])`
 
 * `teks` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+Menuliskan ` teks </ 0> ke clipboard di RTF.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
 clipboard.writeRTF(rtf)
-```
+`</pre> 
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -129,51 +123,50 @@ Mengembalikan `Objek`:
 <li><code> url </ 0> Tali</li>
 </ul>
 
-<p>Returns an Object containing <code>title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.</p> 
-  ### ` clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
+<p>Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
+
+<h3><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
 
 <ul>
 <li><code> judul </ 0> String</li>
-<li><code>url` Tali</li> 
-  
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.</ul> 
-  
-  Writes the `title` and `url` into the clipboard as a bookmark.
-  
-  **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
-  
-  ```js
-  const { clipboard } = require('electron')
-  
-  clipboard.writeBookmark({
-    text: 'https://electronjs.org',
-    bookmark: 'Electron Homepage'
-  })
-  ```
-  
-  ### `clipboard.readFindText()` *macOS*
-  
-  Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
-  
-  This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
-  
-  ### `clipboard.writeFindText(text)` * macos*
-  
-  * `teks` String
-  
-  Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
-  
-  ### `clipboard.clear ( [type] )`
-  
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Membersihkan konten clipboard.
-  
-  ### `clipboard.availableFormats ( [type] )`
-  
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Mengembalikan ` String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
+<li><code>url` Tali
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Menulis ` judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
+
+<p><strong> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
+
+<pre><code class="js">const { clipboard } = require('electron')
+
+clipboard.writeBookmark({
+  text: 'https://electronjs.org',
+  bookmark: 'Electron Homepage'
+})
+`</pre> 
+
+### `clipboard.readFindText()` *macOS*
+
+Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+
+This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+
+### `clipboard.writeFindText(text)` * macos*
+
+* `teks` String
+
+Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+
+### `clipboard.clear ( [type] )`
+
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Membersihkan konten clipboard.
+
+### `clipboard.availableFormats ( [type] )`
+
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Mengembalikan ` String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
 
 <pre><code class="js">const { clipboard } = require('electron')
 
@@ -181,14 +174,14 @@ const formats = clipboard.availableFormats()
 console.log(formats)
 // [ 'text/plain', 'text/html' ]
 `</pre> 
-  
-  ### ` clipboard.has (format [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
+
+### ` clipboard.has (format [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
 <li><code>type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.</li> </ul> 
-  
-  Pengembalian ` Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
+
+Pengembalian ` Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
 
 <pre><code class="js">const { clipboard } = require('electron')
 
@@ -196,8 +189,8 @@ const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
 // 'true' or 'false
 `</pre> 
-  
-  ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
+
+### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
@@ -223,34 +216,34 @@ const ret = clipboard.readBuffer('public.utf8-plain-text')
 console.log(buffer.equals(out))
 // true
 `</pre> 
-  
-  ### ` clipboard.writeBuffer (format, buffer [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
+
+### ` clipboard.writeBuffer (format, buffer [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
 <li><code>penyangga` Buffer</li> 
-  
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.</ul> 
-  
-  Menulis ` penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
+
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.</ul> 
+
+Menulis ` penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
 
 <pre><code class="js">const { clipboard } = require('electron')
 
 const buffer = Buffer.from('writeBuffer', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 `</pre> 
-  
-  ### `clipboard.write (data [, type])`
-  
-  * `data` Obyek 
-    * ` teks </ 0>  String (opsional)</li>
+
+### `clipboard.write (data [, type])`
+
+* `data` Obyek 
+  * ` teks </ 0>  String (opsional)</li>
 <li><code> html </ 0>  String (opsional)</li>
 <li><code> gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code> rtf </ 0>  String (opsional)</li>
 <li><code>bookmark` String (optional) - The title of the URL at `text`.
-  * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
-  
-  Menulis ` data </ 0> ke clipboard.</p>
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+
+Menulis ` data </ 0> ke clipboard.</p>
 
 <pre><code class="js">const { clipboard } = require('electron')
 
