@@ -389,7 +389,7 @@ Returns:
 * `url` String
 * `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` פונקציה 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -403,7 +403,7 @@ Returns:
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` פונקציה 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emitted when a client certificate is requested.
@@ -425,7 +425,7 @@ Returns:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` פונקציה 
   * `username` String
   * `password` String
 
@@ -540,7 +540,7 @@ Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` פונקציה 
   * `deviceName` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -1414,7 +1414,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function 
+* `callback` פונקציה 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
