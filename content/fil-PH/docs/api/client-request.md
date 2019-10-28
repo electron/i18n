@@ -14,7 +14,7 @@ Context | Request Context
 * `pagpipilian` (Object | String) - Kung `mga opsyon` ay isang String, nangangahulugang hiling ng URL. Kung ito ay isang object, inaasahang ganap na tumutukoy ang isang HTTP mag-request sa pamamagitan ng sumusunod na: 
   * `method` String (opsyonal) - Paraan ng HTTP request. Mga defaults sa GET na paraan.
   * `url` String (opsyonal) - Ang request ng URL. Dapat maibigay ang ganap na anyo ng pamamaraan ng protocol na tinutukoy bilang http or https. 
-  * `session` Object (opsyonal) - Ang [`Session`](session.md) halimbawa kung saan nauugnay ang request.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
   * `protocol` String (opsyonal) - Ang pamamaraan ng protocol sa 'scheme:' form. Kasalukuyang suportadong values ay 'http:' o 'https:'. Defaults sa 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
@@ -113,7 +113,7 @@ Ibinabalik ang:
 * `statusCode` Integer
 * `method` na String
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`request.followRedirect`](#requestfollowredirect) ay magpapatuloy sa redirection.
 
@@ -130,15 +130,15 @@ Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag
 #### `request.setHeader(name, value)`
 
 * `name` String - Isang extra na HTTP header name.
-* `value` Object - Isang extra na HTTP header value.
+* `value` String - An extra HTTP header value.
 
-Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
+Nagdadagdag ng extra HTTP header. The header name will be issued as-is without lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
 
 #### `request.getHeader(name)`
 
 * `name` String - Tumukoy ng dugtong na pangalan ng header.
 
-Returns `Object` - Ang value ng nauunang dugtong na pangalan ng header.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
