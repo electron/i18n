@@ -10,7 +10,7 @@ Crea un nuevo menú.
 
 ### Métodos Estáticos
 
-La clase `menú` tiene los siguientes métodos estáticos:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -52,7 +52,7 @@ Usted puede además adjuntar otros campos al elemento del `template` y se convie
 
 El objeto`menu` tiene los siguientes métodos de instancia:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `opciones` Objecto (opcional) 
   * `window` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
@@ -131,10 +131,12 @@ Ejemplo de la creación del menú de la aplicación en el proceso principal con 
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },
@@ -149,7 +151,7 @@ const template = [
   }] : []),
   // { role: 'fileMenu' }
   {
-    label: 'Archivo',
+    label: 'File',
     submenu: [
       isMac ? { role: 'close' } : { role: 'quit' }
     ]
