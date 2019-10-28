@@ -2,19 +2,19 @@
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
-## `FIXME` comments
+## `FIXME` na mga comment
 
 The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
 
 ## Planned Breaking API Changes (7.0)
 
-### Node Headers URL
+### Mga URL ng Node Header 
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules. Both will be supported for the foreseeable future but it is recommended that you switch.
+Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native. Both will be supported for the foreseeable future but it is recommended that you switch.
 
 Deprecated: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+Palitan ng: https://electronjs.org/headers
 
 ### `session.clearAuthCache(options)`
 
@@ -269,7 +269,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `ang app`
+### `app`
 
 ```js
 // Deprecated
@@ -282,7 +282,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-### `Kulayan ang bintana`
+### `Ang Browser ng Window`
 
 ```js
 // Deprecated
@@ -309,7 +309,7 @@ window.on('app-command', (e, cmd) => {
 ### `iipit sa tabla`
 
 ```js
-// Deprecated
+/ Deprecated
 clipboard.readRtf()
 // Replace with
 clipboard.readRTF()
@@ -330,7 +330,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-### `crashReporter`
+### `kalabog ng tagapagbalita`
 
 ```js
 // Deprecated
@@ -444,19 +444,19 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-### Node Headers URL
+### Mga URL ng Node Header 
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native.
 
 Deprecated: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Palitan ng: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-### `Kulayan ang bintana`
+### `Ang Browser ng Window`
 
 ```js
 // Deprecated
@@ -521,7 +521,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Duplicate ARM Assets
+### Gayahin ang mga ARM Asset
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
