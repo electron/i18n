@@ -70,32 +70,16 @@ const constraints = {
 
 O módulo `desktopCapturer` tem os seguintes métodos:
 
-### `desktopCapturer.getSources(options, callback)`
-
-* `opções` Object 
-  * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
-* `callback` Function 
-  * `error` Error
-  * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
-
-Inicia a coleta de informações sobre todas as fontes de mídia de desktop disponíveis, e chamadas à `callback(error, sources)` quando concluído.
-
-`sources` é um array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa uma tela ou uma janela individual que pode ser capturada.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object 
+* `opções` Object 
   * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
-### Caveats
+## Caveats
 
 `navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
 
