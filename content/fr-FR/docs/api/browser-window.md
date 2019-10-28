@@ -31,7 +31,7 @@ Pour créer une fenêtre sans chrome, ou une fenêtre transparente en forme arbi
 
 Lors du chargement d'une page dans la fenêtre, les utilisateurs peuvent voir une page se charger au fur et à mesure, ce qui n'est pas bon pour une app native. Pour charger la page en évitant ce problème, il y a deux solutions en fonction de la situation.
 
-## Using `ready-to-show` event
+## À l'aide de l'événement `ready-to-show`
 
 Pendant le chargement de la page, l'événement `ready-to-show` sera émis lorsque le process de rendu aura rendu la page pour la première fois si la fenêtre n'a pas encore été rendue. Afficher la page une fois que l'event a été trigger rendra la page sans ce processus de chargement au fur et à mesure:
 
@@ -47,9 +47,9 @@ Cet événement est généralement émis après l’événement `did-finish-load
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
-## Setting `backgroundColor`
+## Régler `backgroundColor`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Pour une application complexe, l’événement `ready-to-show` pourrait être émis trop tard, donnant une impression de lenteur. Dans ce cas, il est recommandé d'afficher la fenêtre immédiatement et d'utiliser un `backgroundColor` proche de la couleur de fond de votre application :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -58,11 +58,11 @@ let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Notez que même pour les applications qui utilisent l'évènement `ready-to-show`, il est toujours recommandé de définir `backgroundColor` pour avoir un rendu plus naturel.
 
-## Parent and child windows
+## Fenêtres parent et enfant
 
-By using `parent` option, you can create child windows:
+En utilisant l'option `parent`, vous pouvez créer une fenêtre enfant:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,11 +73,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+La fenêtre `child` sera toujours au dessus de la fenêtre `top`.
 
-## Modal windows
+## Fenêtres modales
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Une fenêtre modale est une fenêtre enfant qui désactive la fenêtre parent. Pour créer une fenêtre modale, il faut définir les options `parent` et `modal` :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -89,25 +89,25 @@ child.once('ready-to-show', () => {
 })
 ```
 
-## Page visibility
+## Visibilité de la page
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+L'[API de visibilité de la page](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) fonctionne comme ci-dessous :
 
 * Sur toutes les plateformes, l'état de visibilité détécte si la fenêtre est cachée/minimisée ou pas.
 * De plus, sur macOS, l'état de visibilité détécte également l'état d'occlusion de la fenêtre. Si la fenêtre est occluée (c'est-à-dire entièrement recouverte) par une autre fenêtre, l'état de visibilité sera `hidden`. Sur les autres plateformes, l'état de visibilité sera `hidden` seulement lorsque la fenêtre est minimisée ou cachée explicitement avec `win.hide()`.
 * Si une `BrowserWindow` est crée avec `show:false`, l'état de visibilité initial sera `visible` même si la fenêtre est cachée.
 * Si `backgroundThrottling` est désactivé, l'état de visibilité restera `visible` même si la fenêtre est minimisée, obstruée ou cachée.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Il est recommandé de mettre en pause les opérations coûteuse lorsque l'état de visibilité est `hidden` afin de minimiser la consommation d'énergie.
 
-## Platform notices
+## Avertissement sur les plateformes
 
 * Sur macOS, les fenêtres modales seront affichés comme des feuilles attachées à la fenêtre parent.
 * Sur macOS, la fenêtre enfant va garder la position relative à la fenêtre parent lorsque la fenêtre parent bouge. Sur Windows et Linux, la fenêtre enfant ne bougera pas.
 * Sur Linux, le type des fenêtre modales sera changé par `dialog`.
 * Sur Linux, beaucoup d'environnements bureau ne peuvent pas cacher une fenêtre modale.
 
-## Class: BrowserWindow
+## Classe : BrowserWindow
 
 > Créer et contrôle des fenêtres navigateur.
 
@@ -115,7 +115,7 @@ Processus : [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies par les `options`.
 
 ### `new BrowserWindow([options])`
 
@@ -146,14 +146,14 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `icon` ([NativeImage](native-image.md) | String) (facultatif) - L'icône de la fenêtre. Sur Windows, il est recommandé d'utiliser le format `ICO` pour un rendu optimal. Si non défini, l'icone de l’exécutable sera utilisé.
   * `show` Boolean (facultatif) -Détermine si la fenêtre doit s'afficher ou non à la création. La valeur par défaut est `true`.
   * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. La valeur par défaut est `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
+  * `frame` Boolean (facultatif) - Spécifier `false` pour créer une [fenêtre sans bordure](frameless-window.md). La valeur par défaut est `true`.
+  * `parent` BrowserWindow (facultatif) - Spécifier la fenêtre parent. La valeur par défaut est `null`.
+  * `modal` Boolean (optionnel) - Si c'est une fenêtre modale ou non. Fonctionne uniquement lorsque la fenêtre est une fenêtre enfant. La valeur par défaut est `false`.
+  * `acceptFirstMouse` Boolean (facultatif) - Si la vue accepte un seul événement de souris qui active simultanément la fenêtre. La valeur par défaut est `false`.
+  * `disableAutoHideCursor` Boolean (facultatif) - Si vous voulez cacher le curiseur lors de la saisie. La valeur par défaut est `false`.
+  * `autoHideMenuBar` Boolean (facultatif) - Masquer automatiquement la barre de menu ) moins que la touche `Alt` soit enfoncée. La valeur par défaut est `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Par défaut la valeur est `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
@@ -172,7 +172,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `webPreferences` Object (optional) - Settings of web page's features. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. La valeur par défaut est `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Par défaut la valeur est `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Par défaut la valeur est `false`. Plus d'informations peuvent être trouvée dans [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
@@ -215,9 +215,9 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+Lorsque l'on définie une taille minimum ou maximum pour la fenêtre avec `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, cela contraint les utilisateurs uniquement. Cela ne vous empêche pas de passer une taille qui ne suit pas les contraintes de tailles à `setBounds`/`setSize` ou au constructeur de `BrowserWindow`.
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+Les valeurs et comportements possibles de l'option `type` dépendent de la plateforme. Les valeurs possibles sont :
 
 * Sur Linux, les types possible sont `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * Sur macOS, les types possibles sont `desktop`, `textured`. 
@@ -227,7 +227,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### Événements d’instance
 
-Objects created with `new BrowserWindow` emit the following events:
+Les objets crées avec `new BrowserWindow` émettent les évennements suivants :
 
 **Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
@@ -239,7 +239,7 @@ Retourne :
 * `title` String
 * `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
+Émis lorsque le document a changé son titre, appeler `event.preventDefault()` empêchera le titre de la fenêtre native de changer. `explicitSet` is false when title is synthesized from file URL.
 
 #### Événement : 'close'
 
@@ -247,9 +247,9 @@ Retourne :
 
 * `event` Événement
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeler `event.preventDefault()` annulera la fermeture.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Par exemple :
+Normalement, vous voudriez utiliser le gestionnaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. Dans Electron, n'importe quelle valeur retournée autre que `undefined` annulera la fermeture. Par exemple :
 
 ```javascript
 window.onbeforeunload = (e) => {   console.log('I do not want to be closed')  
@@ -262,15 +262,15 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***Note**: Il y a une subtile différence entre le comportement de `window.onbeforeunload = handler` et `window.addEventListener('beforeunload', handler)`. Il est recommendé de toujours spécifier l' `event.returnValue` explicitement, plutôt que de seulement retourner une valeur, cette méthode fonctionne mieux avec Electron.*
 
 #### Événement : 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Émis lorsque la fenêtre est fermée. Après avoir reçu cet évènement, vous devriez enlever la référence à la fenêtre et éviter de l'utiliser à nouveau.
 
 #### Événement : 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Émis lorsque la session va se terminer à cause d'un redémarrage, une extinction forcée ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
@@ -282,41 +282,41 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Événement : 'blur'
 
-Emitted when the window loses focus.
+Émis lorsque la fenêtre perd le focus.
 
 #### Événement : 'focus'
 
-Emitted when the window gains focus.
+Émis lorsque la fenêtre obtient le focus.
 
 #### Événement : 'show'
 
-Emitted when the window is shown.
+Émis lorsque la fenêtre est affichée.
 
 #### Événement : 'hide'
 
-Emitted when the window is hidden.
+Émis lorsque la fenêtre est masquée.
 
 #### Événement : 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Émis lorsque la page web à été chargée (tout en n'étant pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### Événement : 'maximize'
 
-Emitted when window is maximized.
+Émis lorsque la fenêtre est agrandie.
 
 #### Événement : 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Émis lorsque la fenêtre quitte un état maximisé.
 
 #### Événement : 'minimize'
 
-Emitted when the window is minimized.
+Émis lorsque la fenêtre est réduite.
 
 #### Événement : 'restore'
 
-Emitted when the window is restored from a minimized state.
+Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
 
 #### Événement : 'will-resize' *macOS* *Windows*
 
@@ -325,13 +325,13 @@ Retourne :
 * `event` Événement
 * `newBounds` [`Rectangle`](structures/rectangle.md) - La taille donnée à la fenêtre ciblée.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+Émis avant que la fenêtre ne soit redimensionnée. Appeler `event.preventDefault()` empêchera la fenêtre d'être redimensionnée.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Événement : 'resize'
 
-Emitted after the window has been resized.
+Émis après que la fenêtre soit redimensionnée.
 
 #### Event: 'will-move' *Windows*
 
@@ -346,21 +346,21 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 #### Événement : 'move'
 
-Emitted when the window is being moved to a new position.
+Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-**Note**: On macOS this event is an alias of `moved`.
+**Note** : Sous macOS, cet événement est un alias de `moved`.
 
 #### Événement : 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
 #### Événement : 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Émis lorsque la fenêtre passe à un état de plein écran.
 
 #### Événement : 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Émis lorsque la fenêtre revient d'un état de plein écran.
 
 #### Événement : 'enter-html-full-screen'
 
@@ -408,15 +408,15 @@ The following app commands are explicitly supported on Linux:
 
 #### Événement : 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Émis lorsque l’événement scroll de la souris a commencé.
 
 #### Événement : 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Émis lorsque l’événement scroll de la souris est terminée.
 
 #### Événement : 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 
 #### Événement : 'swipe' *macOS*
 
@@ -436,13 +436,13 @@ Retourne :
 
 Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
-#### Event: 'sheet-begin' *macOS*
+#### Événement : 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Émis lorsque la fenêtre ouvre une feuille.
 
-#### Event: 'sheet-end' *macOS*
+#### Événement : 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Émis lorsque la fenêtre a fermé une feuille.
 
 #### Événement : 'new-window-for-tab' *macOS*
 
@@ -476,7 +476,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Retourne `BrowserWindow` - La fenêtre avec l'`id` donné.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -492,7 +492,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Supprime une extension Chrome avec le nom donné.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -631,11 +631,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Ramène la fenêtre au premier plan.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Supprime le focus de la fenêtre.
 
 #### `win.isFocused()`
 
@@ -647,73 +647,73 @@ Returns `Boolean` - Whether the window is destroyed.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Affiche la fenêtre et la ramène au premier plan.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Affiche la fenêtre, mais ne la ramène pas au premier plan.
 
 #### `win.hide()`
 
-Hides the window.
+Masque la fenêtre.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Retourne `Boolean` - Si la fenêtre est visible pour l'utilisateur ou non.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Retourne `Boolean` - Si la fenêtre actuelle est une fenêtre modale ou non.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Maximise la taille de la fenêtre. Cela affichera également (mais pas au premier-plan) la fenêtre si elle n’est pas déjà affichée.
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Réduit la fenêtre à sa taille initiale.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Retourne `Boolean` - Si la taille de la fenêtre est maximisée ou non.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimise la fenêtre. Sur certaines plateformes la fenêtre réduite sera affichée dans le Dock.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaure la fenêtre depuis l'état réduit à son état précédent.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Retourne `Boolean` - Si la taille de la fenêtre est minimisée ou non.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Définit si la fenêtre doit être en mode plein écran.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Retourne `Boolean` - Si la fenêtre est en plein écran ou non.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Entre ou sort du mode plein-écran simple.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Le mode plein-écran simple émule le comportement en plein-écran natif trouvé sur les versions de Mac OS X antérieures à Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Retourne `Boolean` - Si la fenêtre est en mode plein-écran simple (pré-Lion) ou non.
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Retourne `Boolean` - Si la fenêtre est dans son état normal (ni maximisée, ni minimisée, ni en plein écran).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -728,7 +728,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). La valeur par défaut est `#FFF` (white).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
@@ -789,7 +789,7 @@ Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of t
 
 * `enable` Boolean
 
-Disable or enable the window.
+Active ou désactive la fenêtre.
 
 #### `win.isEnabled()`
 
@@ -805,7 +805,7 @@ Resizes the window to `width` and `height`. If `width` or `height` are below any
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Retourne `Integer[]` - Contient la largeur et la hauteur de la fenêtre.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -845,7 +845,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -859,7 +859,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -907,7 +907,7 @@ On Linux always returns `true`.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Définit si le bouton agrandir/zoom de la fenêtre active/désactive le mode plein écran ou maximise la fenêtre.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -921,7 +921,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -943,15 +943,15 @@ Sets whether the window should show always on top of other windows. After settin
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Retourne `Boolean` - Si la fenêtre est toujours au-dessus des autres fenêtres ou non.
 
 #### `win.moveTop()`
 
-Moves window to top(z-order) regardless of focus
+Déplace la fenêtre sur le dessus (dans l'ordre z) peu importe qu'elle ait le focus ou non
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Déplace la fenêtre vers le centre de l’écran.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -959,28 +959,28 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (facultatif) *macOS*
 
-Moves window to `x` and `y`.
+Déplace la fenêtre à la position `x` et `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Retourne `Integer[]` - Contient la position actuelle de la fenêtre.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Remplace le titre de la fenêtre native par `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Retourne `String` - le titre de la fenêtre native.
 
 **Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (facultatif)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -988,8 +988,7 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
-win.setSheetOffset(toolbarRect.height)
+let toolbarRect = document.getElementById('toolbar').getBoundingClientRect() win.setSheetOffset(toolbarRect.height)
 ```
 
 #### `win.flashFrame(flag)`
@@ -1008,7 +1007,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entre ou quitte le mode kiosk.
 
 #### `win.isKiosk()`
 
@@ -1248,7 +1247,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Change l'icône de la fenêtre.
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
@@ -1292,13 +1291,13 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 Sets whether the window should be visible on all workspaces.
 
-**Note:** This API does nothing on Windows.
+**Remarque :** Cette API ne fonctionne pas sous Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Remarque **: Cette API retourne toujours false sur Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
@@ -1334,25 +1333,25 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Retourne `BrowserWindow` - La fenêtre parent.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Retourne `BrowserWindow[]` - Toutes les fenêtres enfants.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Contrôle s'il faut masquer le curseur lors de la saisie.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Sélectionne l'onglet précédent lorsque les onglets natifs sont activés et il y a d'autres onglets dans la fenêtre.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Sélectionne l'onglet suivant lorsque les onglets natifs sont activés et il y a d'autres onglets dans la fenêtre.
 
 #### `win.mergeAllWindows()` *macOS*
 
@@ -1392,7 +1391,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Expérimental*
 
 Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
 
@@ -1406,8 +1405,8 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` *Expérimental*
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Remarque :** L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
