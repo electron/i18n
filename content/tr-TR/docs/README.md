@@ -31,6 +31,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Electron API'lerini Kullanma](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API'lerini Kullanma](tutorial/application-architecture.md#using-nodejs-apis)
   * [Yerli Node.js Modüllerini Kullanma](tutorial/using-native-node-modules.md)
+  * [Performans Stratejileri](tutorial/performance.md)
 * Uygulamanıza Özellikler Ekleme 
   * [Bildirimler](tutorial/notifications.md)
   * [Son Günlerdeki Dokümanlar](tutorial/recent-documents.md)
@@ -83,7 +84,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * Electron Sürümleri & Geliştirici geri bildirimi 
   * [Sürüm oluşturma ilkesi](tutorial/electron-versioning.md)
   * [Sürüm zaman çizelgeleri](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
+  * [Uygulama Geri Bildirim Programı](tutorial/app-feedback-program.md)
 * [Asar ile kaynak kodu paketlemek](tutorial/application-packaging.md) 
   * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
@@ -100,7 +101,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 
 * [Konu Özeti](api/synopsis.md)
 * [İşlem Nesnesi](api/process.md)
-* [Desteklenen Chrome Komut Satırı Anahtarları](api/chrome-command-line-switches.md)
+* [Desteklenen Komut Satırı Anahtarları](api/command-line-switches.md)
 * [Ortam Değişkenleri](api/environment-variables.md)
 * [API değişiklikleri](api/breaking-changes.md)
 
@@ -133,7 +134,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [Dokunma Çubuğu](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
