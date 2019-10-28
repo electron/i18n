@@ -34,7 +34,7 @@
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Отправляет сообщение дочернему окну с указанием родительского окна или `*` - без указания.
