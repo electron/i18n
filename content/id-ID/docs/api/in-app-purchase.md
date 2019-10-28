@@ -28,30 +28,30 @@ Modul `inAppPurchase` memiliki fungsi sebagai berikut:
 
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Anda harus menunggu even `transactions-updated` sesegera mungkin dan tentu saja sebelum memanggil `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - Pengenal produk yang akan didapatkan.
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retrieves the product descriptions.
+Mendapatkan deskripsi produk.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Mengembalikan `Boolean`, apakah pengguna bisa melakukan pembayaran.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Mengembalikan `String`, lokasi untuk menyimpan stuk transaksi.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Menyelesaikan semua transaksi yang tertunda.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - Tanggal transaksi selesai dalam format ISO.
 
-Completes the pending transactions corresponding to the date.
+Selesaikan setiap transaksi tertunda.
