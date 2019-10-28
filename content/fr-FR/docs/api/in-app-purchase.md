@@ -21,58 +21,37 @@ Retourne :
 
 Le module `inAppPurchase` possède les méthodes suivantes :
 
-### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
-
-* `productID` String - Les identifiants du produit à acheter. (L'identifiant de `com.example.app.product1` est `product1`).
-* `quantity` Integer (optionnel) - Le nombre d'items que l'utilisateur veut acheter.
-* `callback` Function (optionnel) - La fonction de retour appellée lorsque le paiement est ajouté au `PaymentQueue`. 
-  * `isProductValid` Boolean - Détermine si le produit est valide et ajouté à la file de paiements.
-
-Tu devrais écouter l'événement `transactions-updated` dès que possible et surement avant d'appeler `purchaseProduct`.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-### `inAppPurchase.purchaseProduct(productID, quantity)`
+### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
 * `productID` String - Les identifiants du produit à acheter. (L'identifiant de `com.example.app.product1` est `product1`).
 * `quantity` Integer (optionnel) - Le nombre d'items que l'utilisateur veut acheter.
 
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-Tu devrais écouter l'événement `transactions-updated` dès que possible et surement avant d'appeler `purchaseProduct`.
-
-### `inAppPurchase.getProducts(productIDs, callback)`
-
-* `productIDs` String[] - Les identifiants des produits à recevoir.
-* `callback` Function - La fonction de retour appelée avec le produit ou un tableau vide si le produit n'existe pas. 
-  * `products` Product[] - Tableau d'objets [`Product`](structures/product.md)
-
-Retourne les descriptions des produits.
-
-**[Deprecated Soon](modernization/promisification.md)**
+You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - Les identifiants des produits à recevoir.
+* `productIDs` String[] - The identifiers of the products to get.
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retourne les descriptions des produits.
+Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Retourne un `Boolean`, qui dit si l'utilisateur peut faire un paiement.
+Returns `Boolean`, whether a user can make a payment.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Retourne une `String`, l'URL du reçu.
+Returns `String`, the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Termine toutes les transactions en cours.
+Completes all pending transactions.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - La date sous format ISO de la fin de la transaction.
+* `date` String - The ISO formatted date of the transaction to finish.
 
-Termine les transactions correspondantes à la date.
+Completes the pending transactions corresponding to the date.
