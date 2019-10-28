@@ -6,7 +6,7 @@ Quá trình: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Nó như một cửa sổ con, ngoại trừ vị trí của nó thì tương đối với cửa sổ sở hữu nó. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
 
-## Ví dụ
+### Ví dụ
 
 ```javascript
 // Trong tiến trình main.
@@ -73,16 +73,22 @@ Returns `Boolean` - Whether the view is destroyed.
 #### `view.setAutoResize(options)` *Đang thử nghiệm*
 
 * `options` Object 
-  * `width` Boolean - Nếu `true`, chiều ngang của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
-  * `height` Boolean - Nếu `true`, chiều dọc của view sẽ dài ra và ngắn lại theo chiều ngang của cửa sổ. Mặc định là `false`.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Đang thử nghiệm*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Điều chỉnh kích cỡ và di chuyển view.
+
+#### `view.getBounds()` *Experimental*
+
+Returns [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` *Đang thử nghiệm*
 
