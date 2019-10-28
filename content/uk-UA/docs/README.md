@@ -31,6 +31,7 @@
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Додавання Функцій до Вашого Застосунку 
   * [Сповіщення](tutorial/notifications.md)
   * [Останні Документи](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@
 
 * [Короткий Огляд](api/synopsis.md)
 * [Обробка Об'єктів](api/process.md)
-* [Підтримувані Параметри Командного Рядка Chrome](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
 * [Зміни API](api/breaking-changes.md)
 
