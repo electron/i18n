@@ -41,37 +41,37 @@ Returns `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.moveItemToTrash(fullPath)`
+### `shell.moveItemUntukSampah(JalurPenuh)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah.
 
-Move the given file to trash and returns a boolean status for the operation.
+Pindahkan file yang diberikan ke sampah dan mengembalikan status boolean untuk pengoperasiannya.
 
-### `shell.beep()`
+### `Shell.beep()`
 
-Play the beep sound.
+Bermain suara bip.
 
-### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
+### `shell.writeShortcutLink (shortcutPath [, operasi], pilihan)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
-* `options` [ShortcutDetails](structures/shortcut-details.md)
+* `operasi` String (opsional) - Default adalah `membuat`, bisa jadi salah satu dari berikut ini: 
+  * `buat` - membuat shortcut baru, Timpa jika diperlukan.
+  * `update` - update ditentukan properti hanya pada tombol cepat yang ada.
+  * `menggantikan` - menimpa tombol cepat yang ada, gagal jika tidak ada jalan pintas.
+* `pilihan` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Membuat atau memperbarui tautan pintasan di `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Kembali [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Menyelesaikan link pintasan di `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Pengecualian akan dilemparkan ketika terjadi kesalahan.
