@@ -30,7 +30,7 @@ app.on('ready', () => {
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+戻り値 `Promise<String[]>` - すべての子プロセスが `getCategories` リクエストを受諾したとき、そのカテゴリグループの配列で解決されます。
 
 Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
@@ -38,11 +38,11 @@ Get a set of category groups. The category groups can change as new code paths a
 
 * `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+戻り値 `Promise<void>` - すべての子プロセスが `startRecording` リクエストを受諾したときに解決されます。
 
-Start recording on all processes.
+すべてのプロセスで記録を開始します。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。
 
 If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
@@ -52,17 +52,17 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Stop recording on all processes.
+すべてのプロセスで記録を停止します。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
 Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+戻り値 `Promise<Object>` - トレースバッファの最大使用率の `value` と `percentage` を含むオブジェクトで実行されます。
 
 * `value` Number
 * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+完全な形式のパーセンテージとして、トレースバッファのプロセス間の最大使用率を取得します。
