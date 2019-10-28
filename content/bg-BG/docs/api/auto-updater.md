@@ -6,31 +6,33 @@
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## Известия от платформата
 
-В момента се поддържат само macOS и Windows. Няма вградена поддръжка за auto-updater на Linux, така че е препоръчително да се използва мениджъра на доставения пакет, за да актуализирате вашето приложение.
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-В допълнение има някои фините разлики за всяка платформа:
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
-На macOS `autoUpdater` модула е изграден върху [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) т.е. нямате нужда от специални настройки за да работи. За изисквания, от страна на сървъра можете да прочетете [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Обърнете внимание, че [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (АТС) се прилага за всички искания, направени като част от процеса на актуализиране. Приложения, за които трябва да изключите ATS може да добавите `NSAllowsArbitraryLoads` ключ към тяхното plist на приложението.
+On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
 
-**Забележка:** Вашето приложение трябва да бъде подписано за автоматични актуализации на macOS. Това е изискване на `Squirrel.Mac`.
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
-На Windows, трябва да инсталирате приложението си в машината на потребителя, преди да използвате `autoUpdater`, така че е препоръчително да използвате [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) или пакета [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) за генериране на Windows installer.
+On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
 
-Когато използвате [electron-winstaller](https://github.com/electron/windows-installer) или [electron-forge](https://github.com/electron-userland/electron-forge) се уверете, че не се опитвате да актуализирате вашето приложение [първият път, когато стартира](https://github.com/electron/windows-installer#handling-squirrel-events) (също виж [този въпрос за повече информация](https://github.com/electron/electron/issues/7155)). Препоръчително е още да използвате [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup), за да имате кратки пътища от работния плот към вашето приложение.
+When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
 
-Инсталаторът, генериран с Squirrel ще създаде кратък път с [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)във формат `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, примери са `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Трябва да използвате същото ID на вашето приложение с `app.setAppUserModelId` API, в противен случай Windows няма да може да постави вашето приложение коректно в линията на задачите.
+The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
 
-За разлика от Squirrel.Mac, Windows може да поддържа обновявания на S3 или всеки друг статичен файл. Можете да прочетете документа [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows), за да получите повече детайли относно как Squirrel.Windows работи.
+Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
 
 ## Събития
 
-Обектът `autoUpdater` излъчва следните събития:
+The `autoUpdater` object emits the following events:
 
 ### Събитие: 'error'
 
@@ -38,19 +40,19 @@
 
 * `error` Error
 
-Излъчено, когато има грешка при обновяване.
+Emitted when there is an error while updating.
 
 ### Събитие: 'checking-for-update'
 
-Излъчено, при проверка на стартирало обновяване на приложението.
+Emitted when checking if an update has started.
 
 ### Събитие: 'update-available'
 
-Излъчено, когато има достъпно обновяване. Обновяването бива свалено автоматично.
+Emitted when there is an available update. The update is downloaded automatically.
 
 ### Събитие: 'update-not-available'
 
-Излъчено, когато няма достъпно обновяване.
+Emitted when there is no available update.
 
 ### Събитие: 'update-downloaded'
 
@@ -62,9 +64,9 @@
 * `releaseDate` Date
 * `updateURL` String
 
-Излъчено, когато обновяването е свалено.
+Emitted when an update has been downloaded.
 
-Само на Windows е налично `releaseName`.
+On Windows only `releaseName` is available.
 
 **Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
@@ -76,28 +78,28 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## Методи
 
-Обектът `autoUpdater` има следните методи:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
 * `опции` Object 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Поставя `url` и инициализира автоматичното обновяване.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Връща `String` - Текущият URL на обновяването.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Пита сървъра за налично обновяване. Трябва да извикате `setFeedURL` преди да използвате този API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Връща приложението и инсталира обновяването, след като е било свалено. Може да бъде извикано само след като `update-downloaded` е било излъчено.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
