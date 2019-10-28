@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-在Electron中，`DownloadItem` 是一个代表下载项目的`EventEmitter`。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
@@ -74,11 +74,15 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - 设置下载项目的保存文件路径。
 
-该API仅能在`will-download` 方法的回调中使用。 如果用户没有通过API设置保存路径，Electron将使用默认方式来确定保存路径（通常会提示保存对话框）。
+该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
-返回 `String` - 下载项目的保存路径。这将是通过`downloadItem.setSavePath(path)`设置的路径，或从显示的保存对话框中选择的路径。
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -92,7 +96,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-暂停下载。
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
@@ -102,66 +106,74 @@ Returns `Boolean` - Whether the download is paused.
 
 Resumes the download that has been paused.
 
-**笔记：** 为了支持断点下载，必须要从支持范围内请求下载，并且提供`Last-Modified` 和 `ETag`的值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-返回`Boolean` - 下载是否可以恢复。
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-取消下载操作。
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-返回`String` - 从中​​下载项目的源URL。
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-返回`String` - MIME类型的文件。
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-返回`Boolean` - 下载是否具有用户手势。
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-返回`String` - 下载项目的文件名。
+Returns `String` - The file name of the download item.
 
-**笔记：**文件名与本地磁盘中保存的实际文件名不尽相同。 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-返回`Integer` - 下载项目的总大小（以字节为单位）。
+Returns `Integer` - The total size in bytes of the download item.
 
-如果大小未知，则返回0。
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-返回`Integer` - 下载项目的接收字节。
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-返回`String` - 响应头中的Content-Disposition字段。
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
-返回 `String` - 表示当前状态。可能是 `progressing`, `completed`, `cancelled` 或者 `interrupted`。
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**笔记：** 以下方法特别有助于在会话重新启动时恢复取消的项目。
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-返回String [] - 包含任何重定向的项目的完整url链。
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-返回String - Last-Modified的值。
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-返回String - ETag的值。
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-返回`Double` - 自下载开始时的UNIX纪元以来的秒数。
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+
+### 实例属性
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
