@@ -20,6 +20,5 @@ Estes guias destinam-se a pessoas que trabalham no projeto Electron. Para guias 
 * [Depuração no Windows](debug-instructions-windows.md)
 * [Depuração no macOS](debugging-instructions-macos.md)
 * [Configuração para servidor de símbolos no Depurador](setting-up-symbol-server.md)
-* [Atualizando o Chromium](upgrading-chromium.md)
-* [Atualizando Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Atualizando NodeJS](upgrading-node.md)
