@@ -2,7 +2,7 @@
 
 > HTTP/HTTPS isteklerininin cevaplarını halleder.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `IncomingMessage`, [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) arayüzünü gerçekler, bundan dolayı bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dır.
 
@@ -46,7 +46,7 @@ HTTP yanıt mesajı temsil eden bir `Katar`.
 
 #### `response.headers`
 
-HTTP başlıklarını temsil eden bir `Obje`. `headers` objesi aşağıdaki gibi formatlanır:
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * Tüm başlıklar küçük harflerde olmalıdır.
 * Her bir başlık adı, başlık nesnesinde bir dizi değerli özellik üretir.
