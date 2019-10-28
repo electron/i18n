@@ -21,4 +21,4 @@ Deze handleidingen zijn bedoeld voor mensen die aan het Electron project werken.
 * [Foutopsporing op MacOS](debugging-instructions-macos.md)
 * [Symbol Server instellen in Debugger](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Upgrading Node](upgrading-node.md)
+* [Node updaten](upgrading-node.md)
