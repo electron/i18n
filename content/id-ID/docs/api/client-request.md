@@ -11,7 +11,7 @@ Proses: [Main](../glossary.md#main-process)
 * `pilihan` (Objek | String) - jika `pilihan` adalah sebuah String, hal itu ditafsirkan sebagai URL permintaan. Jika ini adalah obyek, diharapkan untuk sepenuhnya menentukan permintaan HTTP melalui sifat sebagai berikut: 
   * `metode` String (opsional) - metode permintaan HTTP. Default untuk metode GET.
   * `URL` String (opsional) - URL permintaan. Harus diberikan dalam bentuk mutlak dengan skema protokol ditetapkan sebagai http atau https.
-  * `sesi` Objek (opsional) - contoh [`sesi`](session.md) yang permintaan tersebut terkait.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partisi` String (opsional) - nama [`partisi`](session.md) yang permintaan tersebut terkait. Default untuk string kosong. Opsi `sesi` berlaku pada `partisi`. Dengan demikian jika `sesi` secara eksplisit ditetapkan, `partisi` diabaikan.
   * `protokol` String (opsional) - skema protokol dalam bentuk ' skema:'. Nilai-nilai yang didukung saat ini ' http:' atau ' https:'. Default ' http:'.
   * `tuan rumah` String (opsional) - server host disediakan sebagai sebuah gabungan dari nama host dan port nomor 'hostname:port'.
@@ -94,7 +94,7 @@ Kembali:
 * `statusCode` Bilangan bulat
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Objek
+* `responseHeaders` Record<String, String[]>
 
 Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.followRedirect`](#requestfollowredirect) akan melanjutkan dengan pengalihan.
 
@@ -111,15 +111,15 @@ Menggunakan chunked pengkodean sangat dianjurkan jika Anda perlu mengirim permin
 #### `request.setHeader (nama, nilai)`
 
 * `nama` String - nama header HTTP tambahan.
-* `nilai` Objek - HTTP header nilai ekstra.
+* `value` String - An extra HTTP header value.
 
-Menambahkan tambahan HTTP header. Nama header akan dikeluarkan sebagaimana adanya tanpa lowercasing. Itu bisa disebut hanya sebelum menulis pertama. Memanggil metode ini setelah menulis pertama akan melempar kesalahan. Jika tidak melewati nilai `String`, metode `toString ()` akan dipanggil untuk mendapatkan nilai akhir.
+Menambahkan tambahan HTTP header. The header name will be issued as-is without lowercasing. Itu bisa disebut hanya sebelum menulis pertama. Memanggil metode ini setelah menulis pertama akan melempar kesalahan. Jika tidak melewati nilai `String`, metode `toString ()` akan dipanggil untuk mendapatkan nilai akhir.
 
 #### `request.getHeader(name)`
 
 * `nama` String - menentukan nama tambahan header.
 
-Mengembalikan `objek` - nilai nama header tambahan yang sebelumnya ditata.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
