@@ -73,7 +73,7 @@ La etiqueta de `webview` tiene los siguientes atributos:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Regresa el URL visible. Escribir a este atributo inicia un alto nivel de navegación.
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
 Asignarle a `src` su propio valor reiniciará la página actual.
 
@@ -85,7 +85,7 @@ El atributo `src` puede aceptar data de URL, como `data:text/plain,Hello, world!
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-Cuando este atributo esté presente, la página de invitado en `webview` tendrá integración de nodo y puede usar nodos APIs como `require` y `process` para acceder a bajos niveles de recursos de sistemas. La integración de nodo está desactivada por defecto en la página de invitado.
+A `Boolean`. When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `nodeintegrationinsubframes`
 
@@ -93,7 +93,7 @@ Cuando este atributo esté presente, la página de invitado en `webview` tendrá
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Opción experimental para habilitar el suporte de NodeJS en sub-frames tal como iframes dentro de `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. Todas sus precargas se cargarán por cada iframe, pude usar `process.isMainFrame` para determinar si estás en el frame principal o no. Esta opción está deshailitada por defecto en la pagina de invitado.
 
 ### `enableremotemodule`
 
@@ -101,7 +101,7 @@ Opción experimental para habilitar el suporte de NodeJS en sub-frames tal como 
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá acceso al módulo [`remote`](remote.md). El módulo remote está habilitado por defecto.
+A `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `complementos`
 
@@ -109,7 +109,7 @@ Cuando este atributo es `false` la pagina de invitado en `webview` no tendrá ac
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-Cuando este atributo está presente, la página de invitado en `webview` podrá usar complementos del buscador. Los complementos están desactivados por defecto.
+A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `precarga`
 
@@ -117,11 +117,11 @@ Cuando este atributo está presente, la página de invitado en `webview` podrá 
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Especifica un guión que será cargado antes que otros guiones sean ejecutados en la página de invitado. El protocolo de guiones de URL deben ser `file:` o `asar:`, porque será cargado por `require` en la página de invitado debajo de la capucha.
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. El protocolo de guiones de URL deben ser `file:` o `asar:`, porque será cargado por `require` en la página de invitado debajo de la capucha.
 
 Cuando la página de invitado no tiene integración de nodo, este guión todavía tendrá acceso a todos los nodos APIs, pero los objetos globales inyectados por Nodo serán eliminados luego de que el guión haya finalizado de ejecutarse.
 
-**Note:** Esta opción aparecerá como `preloadURL` (not `preload`) en el evento `webPreferences`, específicamente al evento `will-attach-webview`.
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -129,7 +129,7 @@ Cuando la página de invitado no tiene integración de nodo, este guión todaví
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Establece el URL de referencia para la página de invitado.
+A `String` that sets the referrer URL for the guest page.
 
 ### `useragent`
 
@@ -137,7 +137,7 @@ Establece el URL de referencia para la página de invitado.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Establece el agente de usuario para la página de invitado antes que la página sea navegada a eso. Una vez que la página sea cargada, usa el método `setUserAgent` para cambiar el agente de usuario.
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -145,7 +145,7 @@ Establece el agente de usuario para la página de invitado antes que la página 
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-Cuando este atributo está presente, la página de invitado tendrá la seguridad web desactivada. La seguridad web está activada por defecto.
+A `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -154,7 +154,7 @@ Cuando este atributo está presente, la página de invitado tendrá la seguridad
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
+A `String` that sets the session used by the page. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
 
 Este valor solo puede ser modificado antes que la primera navegación, ya que la sesión de un proceso de renderizado activo no puede cambiar. Intentos subsecuentes de modificar el valor fallarán con la excepción de DOM.
 
@@ -164,7 +164,7 @@ Este valor solo puede ser modificado antes que la primera navegación, ya que la
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-Cuando este atributo está presente, la página de invitados tendrá permitido abrir nuevas ventanas. Las ventanas emergentes están desactivadas por defecto.
+A `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -172,7 +172,7 @@ Cuando este atributo está presente, la página de invitados tendrá permitido a
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-Una lista de cuerdas que especifica la preferencias de la web para ser colocados en la vista de la web, separado por `,`. La lista completa de cuerdas preferenciales soportadas puede ser encontradas en [BrowserWindow](browser-window.md#new-browserwindowoptions).
+A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. La lista completa de cuerdas preferenciales soportadas puede ser encontradas en [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
 La cuerda sigue el mismo formato que las cuerdas que aparecen en `window.open`. Un nombre por sí mismo es dado a `true` por valores booleanos. Una preferencia puede ser establecida por otro valor incluyendo un `=`, seguido por el valor. Valores especiales como `yes` y `1` son interpretados como `true`, mientras que `no` y `0` son interpretados como `false`.
 
@@ -182,7 +182,7 @@ La cuerda sigue el mismo formato que las cuerdas que aparecen en `window.open`. 
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Una lista de cadenas que especifican las preferencias de blink para ser activadas, separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
 
 ### `disableblinkfeatures`
 
@@ -190,7 +190,7 @@ Una lista de cadenas que especifican las preferencias de blink para ser activada
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Una lista de cadenas que especifican las cadenas de blink para ser desactivadas, separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
 
 ## Métodos
 
@@ -315,20 +315,17 @@ Devuelve `String` - El agente usuario para la página de invitado.
 
 * `css` Cadena
 
-Inyecta CSS en la página de invitado.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
-* `code` Cadena de caracteres
-* `userGesture` Boolean (opcional) - Predeterminado `false`.
-* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
-  * `resultado` Cualquiera
+### `<webview>.removeInsertedCSS(key)`
 
-Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
+* `llave` Cadena
 
-Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-**[Próximamente desaprobado](modernization/promisification.md)**
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -436,6 +433,8 @@ Ejecuta el comando de edición `replaceMisspelling` en página.
 
 * `texto` String
 
+Returns `Promise<void>`
+
 Inserta `texto` en el elemento enfocado.
 
 ### `<webview>.findInPage(text[, options])`
@@ -450,7 +449,7 @@ Inserta `texto` en el elemento enfocado.
 
 Devuelve `Integer` - El id de la solicitud usado para la solicitud.
 
-Empieza una solicitud para encontrar todas las coincidencias para el `text` en la página web. El resultado de la petición puede ser obtenido por suscripción al evento [`found-in-page`](webview-tag.md#event-found-in-page).
+Empieza una solicitud para encontrar todas las coincidencias para el `text` en la página web. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -459,7 +458,7 @@ Empieza una solicitud para encontrar todas las coincidencias para el `text` en l
   * `keepSelection` - Traduce la selección en una selección normal.
   * `activateSelection` - Enfoca y hace clic en el nodo de selección.
 
-Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
@@ -468,9 +467,11 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 
-Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
+Returns `Promise<void>`
 
-### `<webview>.printToPDF(options, callback)`
+Prints `webview`'s web page. Same as `webContents.print([options])`.
+
+### `<webview>.printToPDF(options)`
 
 * `opciones` Object 
   * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
@@ -478,36 +479,10 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
   * `printBackground` Boolean (opcional) - Si se imprime o no el fondo CSS.
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
-  * `error` Error
-  * `data` Buffer
-
-Imprime la página web de `webview` como un PDF, al igual que `webContents.printToPDF(options, callback)`.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
-
-### `<webview>.printToPDF(opciones)`
-
-* `opciones` Object 
-  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Usa 0 para el margen por defecto, 1 para no margen, y dos para el margen máximo.
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (opcional) - Si se va a imprimir o no el fondo CSS.
-  * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
-  * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
 Imprime la página web de `webview` como PDF, Igual como `webContents.printToPDF(options)`.
-
-### `<webview>.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. La `image` es una instancia de [NativeImage](native-image.md) que almacena datos de la instantánea. Omitir `rect` capturará toda la página visible.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
@@ -517,26 +492,30 @@ Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.
 
 Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
 
-### `<webview>.send(channel[, arg1][, arg2][, ...])`
+### `<webview>.send(channel, ...args)`
 
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. El proceso renderizador puede manejar el mensaje escuchando el evento `channel` con el módulo [`ipcRenderer`](ipc-renderer.md).
+Returns `Promise<void>`
 
-Ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para ejemplos.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+
+See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` Objeto
+* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+
+Returns `Promise<void>`
 
 Envía un input `event` a la página.
 
-Ver [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) para una descripción detallada del objeto `event`.
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Factor Zoom.
 
 Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
@@ -559,12 +538,16 @@ Devuelve `Number` - el nivel de zoom actual.
 * `minimumLevel` Número
 * `maximumLevel` Número
 
+Returns `Promise<void>`
+
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
 ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Número
 * `maximumLevel` Número
+
+Returns `Promise<void>`
 
 Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
 
@@ -574,30 +557,30 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
-Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuando este módulo esta deshabilitado.
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ### `<webview>.getWebContentsId()`
 
-Devuelve `Number` - El ID de WebContents de este `webview`.
+Returns `Number` - The WebContents ID of this `webview`.
 
-## Eventos DOM
+## DOM Events
 
-Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
+The following DOM events are available to the `webview` tag:
 
-### Evento: 'load-commit'
+### Event: 'load-commit'
 
 Devuelve:
 
 * `url` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
-Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Evento: 'did-finish-load'
 
-Disparado cuando la navegación es terminada, i.e. el girador del tabulador dejará de girar, y el evento `onload` es discapacitado.
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Evento: 'did-fail-load'
 
@@ -606,31 +589,31 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
-Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Evento: 'did-frame-finish-load'
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
-Disparado cuando un frame ha terminado la navegación.
+Fired when a frame has done navigation.
 
 ### Evento: 'did-start-loading'
 
-Corresponde a los puntos en tiempo cuando el girador del tabulador empieza a girar.
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### Evento: 'did-stop-loading'
 
-Corresponde a los puntos en tiempo cuando el girador del tabulador termina de girar.
+Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Evento: 'dom-ready'
 
-Disparado cuando el documento en el frame dado es cargado.
+Fired when document in the given frame is loaded.
 
-### Evento: "page-title-updated"
+### Evento: 'page-title-updated'
 
 Devuelve:
 
@@ -645,15 +628,15 @@ Devuelve:
 
 * `favicons` Cadena[] - Arreglo para URLs.
 
-Disparado cuando la página recibe urls de favicon.
+Fired when page receives favicon urls.
 
 ### Evento: "enter-html-full-screen"
 
-Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
+Fired when page enters fullscreen triggered by HTML API.
 
 ### Evento: "leave-html-full-screen"
 
-Disparado cuando la página deja la pantalla completa activada por HTML API.
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### Evento: 'console-message'
 
@@ -664,9 +647,9 @@ Devuelve:
 * `line` Íntegro
 * `sourceId` Cadena
 
-Disparado cuando la ventana invitada entra un mensaje de consola.
+Fired when the guest window logs a console message.
 
-El siguiente código ejemplo sigue con todos los mensajes guardados a la consola embebedora sin preocupación por el nivel de guardado u otras propiedades.
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -679,14 +662,14 @@ webview.addEventListener('console-message', (e) => {
 
 Devuelve:
 
-* `resultado` Object 
+* `resultado` Objeto 
   * `requestId` Íntegro
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
-  * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](#webviewfindinpagetext-options).
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -705,11 +688,11 @@ Devuelve:
 * `url` String
 * `frameName` String
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - Las opciones que deberían ser usadas para la creación del nuevo [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
+Fired when the guest page attempts to open a new browser window.
 
-El siguiente código ejemplo abre el nuevo url en el buscador por defecto del sistema.
+The following example code opens the new url in system's default browser.
 
 ```javascript
 const { shell } = require('electron')
@@ -731,11 +714,11 @@ Devuelve:
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
-Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-Tampoco es emitido durante la navegación en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Evento: 'did-navigate'
 
@@ -743,7 +726,7 @@ Devuelve:
 
 * `url` String
 
-Emitido cuando la navegación es finalizada.
+Emitted when a navigation is done.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -751,18 +734,18 @@ Este evento no es emitido para navegaciones dentro de la página, como hacerle c
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
-Emitido cuando una navegación dentro de la página sucede.
+Emitted when an in-page navigation happened.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Evento: 'close'
+### Evento: "close"
 
-Disparado cuando la página de invitado intenta cerrarse.
+Fired when the guest page attempts to close itself.
 
-El siguiente código ejemplo navega el `webview` a `about:blank` cuando el invitado intenta cerrase.
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -776,11 +759,11 @@ webview.addEventListener('close', () => {
 Devuelve:
 
 * `channel` Cadena
-* `args` Arreglo
+* `args` any[]
 
-Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte entre la página de invitado y la página del integrador:
+With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
 
 ```javascript
 // In embedder page.
@@ -802,7 +785,7 @@ ipcRenderer.on('ping', () => {
 
 ### Evento: 'crashed'
 
-Disparado cuando el proceso de renderizado se cierra.
+Fired when the renderer process is crashed.
 
 ### Evento: 'plugin-crashed'
 
@@ -811,11 +794,11 @@ Devuelve:
 * `name` String
 * `version` Cadena
 
-Disparado cuando el proceso de plugin se cae.
+Fired when a plugin process is crashed.
 
 ### Evento: 'destroyed'
 
-Disparado cuando el WebContents es destrozado.
+Fired when the WebContents is destroyed.
 
 ### Evento: 'media-started-playing'
 
@@ -829,9 +812,9 @@ Emitido cuando la media es pausada o ha terminado de reproducirse.
 
 Devuelve:
 
-* `themeColor` Cadena
+* `themeColor` String
 
-Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a encontrar una etiqueta meta:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
