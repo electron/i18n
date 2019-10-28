@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 ### `new Menu()`
 
@@ -10,7 +10,7 @@ Creates a new menu.
 
 ### Metode Statice
 
-The `menu` class has the following static methods:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -48,11 +48,11 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Instance Methods
+### Metode de Instanță
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `opțiuni` Object -Obiect (opțional) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
@@ -110,7 +110,7 @@ Returns:
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Instance Properties
+### Propietățile inițiale
 
 `menu` objects also have the following properties:
 
@@ -131,10 +131,12 @@ An example of creating the application menu in the main process with the simple 
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },
