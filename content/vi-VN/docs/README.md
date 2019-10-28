@@ -31,6 +31,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Sử dụng APIs của Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Sử dụng Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Sử dụng các Module Native của Node](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Thêm các tính năng vào app của bạn 
   * [Các thông báo](tutorial/notifications.md)
   * [Tài liệu gần đây](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 
 * [Tóm tắt](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Các Chrome Command Line Switch được hỗ trợ](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Các biến môi trường (Environment Variables)](api/environment-variables.md)
 * [Những thay đổi API](api/breaking-changes.md)
 
