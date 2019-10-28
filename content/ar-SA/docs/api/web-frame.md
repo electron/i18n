@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `provider` الكائنات 
-  * `spellCheck` Function 
+  * `spellCheck` دالة 
     * `words` String[]
     * `callback` دالة 
       * `misspeltWords` String[]
@@ -186,7 +186,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
