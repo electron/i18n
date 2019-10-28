@@ -1,12 +1,12 @@
 # Isu Dalam Elektron
 
-* [Bagaimana cara berkonstribusi di Isu](#how-to-contribute-in-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [Pertanyaan Umum](#asking-for-general-help)
 * [Mengirimkan Laporan Bug](#submitting-a-bug-report)
 * [Mendahulukan Laporan Bug](#triaging-a-bug-report)
 * [Memecahkan Laporan Bug](#resolving-a-bug-report)
 
-## Bagaimana cara berkonstribusi di Isu
+## How to Contribute to Issues
 
 Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkontribusi:
 
@@ -60,7 +60,7 @@ $ npm start || electron .
 
 Jika anda yakin bahwa anda telah menemukan Bug di electron, mohon isi formulir ini sesuai kemampuan terbaik anda.
 
-Dua hal yang paling penting dari informasi yang dibutuhkan untuk mengevaluasi laporan adalah Sebuah penjelasan tentang Bug dan sebuah tes kasus yang simpel untuk membuatnya kembali. Lebih mudah untuk memperbaiki Sebuah Bug jika Bug tersebut dapat direproduksi kembali.
+Dua hal yang paling penting dari informasi yang dibutuhkan untuk mengevaluasi laporan adalah Sebuah penjelasan tentang Bug dan sebuah tes kasus yang simpel untuk membuatnya kembali. It is easier to fix a bug if it can be reproduced.
 
 Lihat [ Bagaimana cara membuat contoh yang minimal, komplit dan yang bisa di verifikasi ](https://stackoverflow.com/help/mcve).
 
@@ -70,7 +70,7 @@ Ini hal yang wajar untuk membuka isu dan memulai diskusi. Beberapa kontributor m
 
 Respon singkat yang menyediakan baik itu penambahan konteks maupun mendukung detail, dianggap tidak bermanfaat ataupun profesional. Terlalu banyak, respon juga mengganggu dan kurang menyenangkan.
 
-Kontributor sangat disarankan untuk memecahkan isu secara bersama dan membantu satu sama lain dalam membuat perkembangan. Jika mendapat sebuah isu yang anda rasa tidak valid, atau mengandung informasi yang tidak benar, jelaskan *mengapa* anda merasa seperti itu dengan konteks pendukung tambahan, dan mampu meyakinkan bahwa anda salah. Dengan melakukan hal tersebut, kita sering mencapai solusi permasalahan yang benar dan cepat.
+Kontributor sangat disarankan untuk memecahkan isu secara bersama dan membantu satu sama lain dalam membuat perkembangan. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Dengan melakukan hal tersebut, kita sering mencapai solusi permasalahan yang benar dan cepat.
 
 ## Memecahkan Laporan Bug
 
