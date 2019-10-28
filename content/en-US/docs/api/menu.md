@@ -10,7 +10,7 @@ Creates a new menu.
 
 ### Static Methods
 
-The `menu` class has the following static methods:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -65,7 +65,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `options` Object (optional)
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
@@ -152,10 +152,12 @@ simple template API:
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },

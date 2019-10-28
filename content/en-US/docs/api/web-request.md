@@ -97,11 +97,11 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
   * `callback` Function
     * `response` Object
       * `cancel` Boolean (optional)
-      * `requestHeaders` Object (optional) - When provided, request will be made
+      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made
   with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending
@@ -124,7 +124,7 @@ The `callback` has to be called with an `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
 
 The `listener` will be called with `listener(details)` just before a request is
 going to be sent to the server, modifications of previous `onBeforeSendHeaders`
@@ -146,11 +146,11 @@ response are visible by the time this listener is fired.
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
   * `callback` Function
     * `response` Object
       * `cancel` Boolean (optional)
-      * `responseHeaders` Object (optional) - When provided, the server is assumed
+      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed
         to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding
         `responseHeaders` to change header status otherwise original response
@@ -175,7 +175,7 @@ The `callback` has to be called with an `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean - Indicates whether the response was fetched from disk
       cache.
     * `statusCode` Integer
@@ -204,7 +204,7 @@ and response headers are available.
     * `ip` String (optional) - The server IP address that the request was
       actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
 
 The `listener` will be called with `listener(details)` when a server initiated
 redirect is about to occur.
@@ -223,7 +223,7 @@ redirect is about to occur.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
