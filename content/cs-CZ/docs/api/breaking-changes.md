@@ -269,7 +269,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `appka`
+### `app`
 
 ```js
 // Deprecated
