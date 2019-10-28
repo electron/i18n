@@ -258,7 +258,7 @@ governance:
     title: 管理
     description: 行政工作组监督整个治理和项目。
   api:
-    title: API
+    title: 应用开发接口（API）
     description: Oversees public API design based on project principles.
   global:
     overview: 概览
