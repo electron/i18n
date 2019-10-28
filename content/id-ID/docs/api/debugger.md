@@ -33,46 +33,47 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 ### Contoh peristiwa
 
-#### Event: 'detach'
+#### Acara : 'melepaskan'
 
-Mengembalikan:
+Pengembalian:
 
-* `event` Sinyal
-* `reason` String - Reason for detaching debugger.
+* `event` Event
+* ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+</ul>
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+<p>Emitted when the debugging session is terminated. This happens either when
+<code>webContents` is closed or devtools is invoked for the attached `webContents`.</p> 
+    #### Acara : 'pesan'
+    
+    Pengembalian:
+    
+    * `event` Sinyal
+    * ` metode </ 0> String - nama metode.</li>
+<li><code>params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+    
+    Emitted whenever the debugging target issues an instrumentation event.
+    
+    ### Metode Instance
+    
+    #### `debugger.melmpirkan ( [protocolVersion] )`
+    
+    * ` protocolVersion </ 0>  String (opsional) - Versi protokol debug yang diminta</li>
+</ul>
 
-#### Event: 'message'
+<p>Atasi debugger ke <code>isi web </ 0> .</p>
 
-Mengembalikan:
+<h4><code>debugger.adalah terlampir()`</h4> 
+        Mengembalikan ` Boolean </ 0> - Apakah debugger terpasang ke <code>isi web </ 0> .</p>
 
-* `event` Sinyal
-* `method` String - Method name.
-* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+<h4><code>debugger.melepaskan ()`</h4> 
+        
+        Lepaskan debugger dari `isi web </ 0> .</p>
 
-Emitted whenever the debugging target issues an instrumentation event.
-
-### Методы экземпляра
-
-#### `debugger.attach([protocolVersion])`
-
-* `protocolVersion` String (optional) - Requested debugging protocol version.
-
-Attaches the debugger to the `webContents`.
-
-#### `debugger.isAttached()`
-
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
-
-#### `debugger.detach()`
-
-Detaches the debugger from the `webContents`.
-
-#### `debugger.sendCommand(method[, commandParams])`
-
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` any (optional) - JSON object with request parameters.
-
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
-
-Send given command to the debugging target.
+<h4><code>debugger.sendCommand(method[, commandParams])`</h4> 
+        
+        * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+        * `commandParams` any (optional) - JSON object with request parameters.
+        
+        Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+        
+        Kirim perintah yang diberikan ke target debugging.
