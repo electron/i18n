@@ -13,8 +13,8 @@ Electron
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
 |   |   |          pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
+|   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
+|   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
 |   |   |   ├── win/ - Windows GUI specific source code.
 |   |   |   └── x/ - X11 specific source code.
 |   |   ├── api/ - The implementation of the main process APIs.
@@ -47,7 +47,7 @@ Electron
 
 ## `/chromium_src`
 
-I file in `/chromium_src` sono di solito parti di Chromium che non appartengono al livello dei contenuti. Per esempio, nell'implementazione delle Pepper API abbiamo bisogno di connessioni implementate in maniera del tutto simile a quella adottata dalla distribuzione ufficiale di Chrome. Avremmo potuto compilare le parti più importanti dei sorgenti come parte di [libcc](../glossary.md#libchromiumcontent) ma molto spesso non abbiamo bisogno di tutte le funzionalità (alcune in effetti sembrano codice proprietario, con funzioni di analisi statistica), così abbiamo preso alcune parti del codice. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+I file in `/chromium_src` sono di solito parti di Chromium che non appartengono al livello dei contenuti. Per esempio, nell'implementazione delle Pepper API abbiamo bisogno di connessioni implementate in maniera del tutto simile a quella adottata dalla distribuzione ufficiale di Chrome. Avremmo potuto compilare le parti più importanti dei sorgenti includendole in [libcc](../glossary.md#libchromiumcontent) ma molto spesso non abbiamo bisogno di tutte le funzionalità (alcune in effetti sembrano codice proprietario, con funzioni di analisi statistica), così abbiamo preso solo alcune parti del codice. Queste avrebbero potuto essere implementate come patch di libcc, ma quando furono scritte uno degli obiettivi principali di libcc era di avere patch di dimensioni molto ridotte, mentre i cambiamenti apportati a chromium_src sono di solito importanti. Inoltre le patch non sarebbero mai entrate a far parte della distribuzione principale, a differenza delle altre patch di libcc che manteniamo abitualmente.
 
 ## Structure of Other Directories
 
