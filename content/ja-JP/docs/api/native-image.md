@@ -233,7 +233,7 @@ console.log(image)
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+戻り値 `Boolean` - 画像がテンプレート画像かどうか。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -241,25 +241,25 @@ Returns `Boolean` - Whether the image is a template image.
 
 * `rect` [Rectangle](structures/rectangle.md) - 画像をトリミングする領域。
 
-Returns `NativeImage` - The cropped image.
+戻り値 `NativeImage` - トリミングされた画像。
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズした画像の希望する画質。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
 
-Returns `NativeImage` - The resized image.
+戻り値 `NativeImage` - リサイズされた画像。
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+`height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+戻り値 `Float` - イメージのアスペクト比。
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - 画像を表現する際の拡大倍率。 * `width` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `height` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `buffer` Buffer (任意) - 生の画像データを含むバッファ。 * `dataURL` String (任意) - Base64 でエンコードされた PNG または JPEG 画像を含むデータURL。
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。
 
 ## プロパティ
 
