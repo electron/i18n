@@ -10,29 +10,29 @@
 
 ## 跨平台提醒
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
 
-In addition, there are some subtle differences on each platform:
+此外，每个平台都有一些细微的差别:
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+在macOS上, `autoUpdater`模块建立在 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac)上,这意味着你不需要任何特殊的设置来使它工作。 对于服务器端要求, 你可以阅读 [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). 注意[App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) 适用于所有请求作为更新过程的一部分。</0> 如需禁用ATS的应用程序可以在其应用程序的plist中添加 `NSAllowsArbitraryLoads`属性。
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**注意:** 你的应用程序必须签署 macOS 自动更新。 这是 `Squirrel.Mac` 的要求。
 
 ### Windows
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+在 Windows 上, 你必须使用安装程序将你的应用装到用户的计算机上才能使用`autoUpdater`, 所以比较推荐的方法是用 [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge)或 [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) 模块来生成Windows安装程序。
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+当使用 [electron-winstaller](https://github.com/electron/windows-installer) 或 [electron-forge](https://github.com/electron-userland/electron-forge) 时，确保不要在[第一次运行](https://github.com/electron/windows-installer#handling-squirrel-events)时更新你的应用程序 (详情参阅 [这个问题的更多信息](https://github.com/electron/electron/issues/7155)). 还建议使用 [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) 来创建应用程序的桌面快捷方式。
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+使用Squirrel生成的安装程序将以`com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`,的格式创建一个带有[Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的快捷图标,例子是 `com.squirrel.slack.Slack` 和 `com.squirrel.code.Code`.。 你应该在自己的应用中使用 `app.setAppUserModelId` API 方法设置相同的 API和ID，不然 Windows 将不能正确地把你的应用固定在任务栏上。
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)的文档来获得更多详细信息。
 
 ## 事件
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` 对象会触发以下的事件:
 
 ### Event: 'error'
 
@@ -40,19 +40,19 @@ The `autoUpdater` object emits the following events:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+当更新发生错误的时候触发。
 
 ### Event: 'checking-for-update'
 
-Emitted when checking if an update has started.
+当开始检查更新的时候触发。
 
 ### Event: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+当发现一个可用更新的时候触发，更新包下载会自动开始。
 
 ### Event: 'update-not-available'
 
-Emitted when there is no available update.
+当没有可用更新的时候触发。
 
 ### Event: 'update-downloaded'
 
@@ -64,21 +64,21 @@ Emitted when there is no available update.
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+在更新下载完成的时候触发。
 
-On Windows only `releaseName` is available.
+在 Windows 上只有 `releaseName` 是有效的。
 
 **Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
 
 ### Event: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+此事件是在用户调用`quitAndInstall()`之后发出的。
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+当此API被调用时，会在所有窗口关闭之前发出 `before-quit` 事件。 因此，如果您希望在关闭窗口进程退出之前执行操作，则应该侦听此事件，以及侦听 `before-quit`。
 
 ## 方法
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` 对象具有以下方法:
 
 ### `autoUpdater.setFeedURL(选项)`
 
@@ -87,20 +87,20 @@ The `autoUpdater` object has the following methods:
   * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
-Sets the `url` and initialize the auto updater.
+设置检查更新的 `url`，并且初始化自动更新。
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+返回 `String` - 获取当前更新的 Feed 链接.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+向服务端查询现在是否有可用的更新。在调用这个方法之前，必须要先调用 `setFeedURL`。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+在下载完成后，重启当前的应用并且安装更新。这个方法应该仅在 `update-downloaded` 事件触发后被调用。
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
 **Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
