@@ -6,7 +6,7 @@
 
 `BrowserView` Може бути використаний для вставки додаткового веб контенту у [`BrowserWindow`](browser-window.md). По cуті він є дочірнім вікном, за винятком того, що позиціонується відносно батьківського вікна. Він покликаний бути альтернативою тегу `webview`.
 
-## Приклад
+### Приклад
 
 ```javascript
 // В головному процесі.
@@ -73,16 +73,22 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` *Експериментальний*
 
 * `options` Object 
-  * `width` Boolean - Якщо `true`, ширина вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
-  * `width` Boolean - Якщо `true`, висота вигляду буде збільшуватися і зменшуватися разом з вікном. `false` за замовчуванням.
-  * `horizontal` Boolean - Якщо `true`, позиція вигляду по x і ширина буде рости і зменшуватися пропорційно вікна. `false` за замовчуванням.
-  * `vertical` Boolean - Якщо `true`, позиція вигляду по y і висота буде рости і зменшуватися пропорційно вікна. `false` за замовчуванням.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Експериментальний*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Змінює розмір і рухає вигляд до переданої межі відносно вікна.
+
+#### `view.getBounds()` *Експериментальний*
+
+Повертає [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` *Експериментальний*
 
