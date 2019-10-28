@@ -14,7 +14,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 處理序: [主處理序](../glossary.md#main-process)
 
-`Notification` 是個 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)。
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *試驗中*
 
-* `options` Object 
+* `options` 物件 (選用) 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
@@ -102,7 +102,45 @@ If the notification has been shown before, this method will dismiss the previous
 
 Dismisses the notification.
 
-### 播放聲音
+### 物件屬性
+
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+
+### Playing Sounds
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
