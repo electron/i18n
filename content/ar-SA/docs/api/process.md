@@ -214,7 +214,7 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 Causes the main thread of the current process hang.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### ماك أوس لينكس
 
 * `maxDescriptors` Integer
 
