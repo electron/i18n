@@ -66,114 +66,130 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'click'
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 * `position` [Point](structures/point.md) - la position de l’événement.
 
-Émis lorsque l’utilisateur clique sur l’icône.
+Emitted when the tray icon is clicked.
 
 #### Événement : 'right-click' *macOS* *Windows*
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
-Émis lorsque l’utilisateur fait un clique droit sur l’icône.
+Emitted when the tray icon is right clicked.
 
 #### Événement : 'double-click' *macOS* *Windows*
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
-Émis lorsque l’utilisateur double clique sur l’icône.
+Emitted when the tray icon is double clicked.
 
 #### Événement : 'balloon-show' *Windows*
 
-Émis lorsque le ballon de la barre d’État s’affiche.
+Emitted when the tray balloon shows.
 
 #### Événement : 'balloon-click' *Windows*
 
-Émis lorsque l’utilisateur clique sur le ballon de la barre d'État.
+Emitted when the tray balloon is clicked.
 
 #### Événement : 'balloon-closed' *Windows*
 
-Émis lorsque le ballon de la barre d’État est fermé en raison du délai d’attente dépassé ou de l’utilisateur le ferme manuellement.
+Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
 #### Événement : 'drop' *macOS*
 
-Émis lorsque un ou des éléments sont glissés et déposés sur l’icône.
+Emitted when any dragged items are dropped on the tray icon.
 
 #### Événement : 'drop-files' *macOS*
+
+Retourne :
 
 * `event` Événement
 * `files` String[] - les chemins d’accès des fichiers déposés.
 
-Émis lorsque des fichiers sont glissés et déposés sur l’icône.
+Emitted when dragged files are dropped in the tray icon.
 
 #### Événement : 'drop-text' *macOS*
+
+Retourne :
 
 * `event` Événement
 * `text` String - le texte déposé.
 
-Émis lorsqu'un texte est déposé sur l’icône.
+Emitted when dragged text is dropped in the tray icon.
 
 #### Événement : 'drag-enter' *macOS*
 
-Émis lorsqu’une opération glisser entre dans la zone de l’icône.
+Emitted when a drag operation enters the tray icon.
 
 #### Événement : 'drag-leave' *macOS*
 
-Émis lorsqu’une opération glisser sort de la zone de l’icône.
+Emitted when a drag operation exits the tray icon.
 
 #### Événement : 'drag-end' *macOS*
 
-Émis lorsqu’une opération glisser se termine sur l'icône ou à un autre emplacement.
+Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Événement : 'mouse-enter' *macOS*
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
-Émis lorsque la souris entre dans la zone de l’icône.
+Emitted when the mouse enters the tray icon.
 
 #### Événement : 'mouse-leave' *macOS*
 
-* `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - la position de l’événement.
-
-Émis lorsque la souris sort de la zone de l’icône.
-
-#### Événement : 'mouse-move' *macOS*
+Retourne :
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
-Émis lorsque la souris bouge dans la zone de l’icône.
+Emitted when the mouse exits the tray icon.
+
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Retourne :
+
+* `event` [KeyboardEvent](structures/keyboard-event.md)
+* `position` [Point](structures/point.md) - la position de l’événement.
+
+Emitted when the mouse moves in the tray icon.
 
 ### Méthodes d’instance
 
-La classe `Tray` dispose des méthodes suivantes :
+The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-Détruit l’icône immédiatement.
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Définit l’`image` associée à l'icône.
+Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
+Sets the `image` associated with this tray icon when pressed on macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Définit le texte au survol pour l'icône.
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -183,82 +199,50 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - mode de surbrillance avec l'une des valeurs suivante : 
-  * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
-  * `always` - Toujours mettre en surbrillance l’icône.
-  * `never` - Jamais mettre en surbrillance l’icône.
-
-Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
-
-**[Déprécié ](breaking-changes.md#tray)**
-
-**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
 * `ignore` Boolean
 
-Définie l'option pour ignorer les événements de double clic. Ignorer ces évènements vous permet de détecter chaque simple clic sur l’icône dans la barre des tâches.
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
-Cette valeur est définie à <0>false</0> par défaut.
+This value is set to false by default.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Retourne un `Boolean` - Si oui ou non les événènements de double clic seront ignorés.
+Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | String) (optionnel)
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-Affiche une bulle dans la barre d'État.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (facultatif)
-* `position` [Point](structures/point.md) (facultatif) - Position du menu.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Définit le menu contextuel de l'icône.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Retourne `Boolean` - si l’icône est détruite.
+Returns `Boolean` - Whether the tray icon is destroyed.
