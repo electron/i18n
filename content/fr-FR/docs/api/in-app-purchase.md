@@ -28,30 +28,30 @@ Le module `inAppPurchase` possède les méthodes suivantes :
 
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Tu devrais écouter l'événement `transactions-updated` dès que possible et surement avant d'appeler `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - Les identifiants des produits à recevoir.
 
 Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-Retrieves the product descriptions.
+Retourne les descriptions des produits.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Retourne un `Boolean`, qui dit si l'utilisateur peut faire un paiement.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Retourne une `String`, l'URL du reçu.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Termine toutes les transactions en cours.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - La date sous format ISO de la fin de la transaction.
 
-Completes the pending transactions corresponding to the date.
+Termine les transactions correspondantes à la date.
