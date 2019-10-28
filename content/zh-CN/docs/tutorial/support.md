@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### 当前支持的版本
 
+* 7.x.y
 * 6.x.y
 * 5.x.y
-* 4.x.y
 
 ### End-of-life
 
@@ -57,7 +57,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 仅支持 Windows 7 或更高版本, 旧版操作系统已不再支持(并且无法运行).
 
-为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 如果在ARM版Windows上使用Electron的话调用ia32库就行了。
+为Windows系统提供`ia32` (`x86`) 和 `x64` (`amd64`) 两种二进制版本。 [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
 
 ### Linux
 
