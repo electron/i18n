@@ -24,8 +24,9 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 Or use a 3rd party hosted solution:
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
 
@@ -38,11 +39,11 @@ Or use a 3rd party hosted solution:
 * `seçenekler` Obje 
   * `companyName` String
   * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
-  * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
-  * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
-  * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
-  * `crashesDirectory` Dizge (isteğe bağlı) - Kilitleme raporlarını geçici olarak saklamak için dizin (yalnızca kilitlenme raporlayıcı `process.crashReporter.start` başlatıldığında kullanılır).
+  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Sadece katar tipinde özellikler düzgün şekilde yollanır. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
