@@ -56,15 +56,15 @@ A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpa
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBar`:
+在`TouchBar`的实例中有以下属性可用：
 
 #### `touchBar.escapeItem`
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+`TouchBarItem`设置的内容将替换掉Touch bar中的“esc”按钮 将该项设为`null`以使用默认的"esc"按钮 修改这个值将立即更新Touch bar中的返回按钮
 
 ## 示例
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+下面是一个带有一个按钮和若干文本的简易Touch bar老虎机游戏示例
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
@@ -172,12 +172,12 @@ app.once('ready', () => {
 })
 ```
 
-### Running the above example
+### 运行以上示例
 
-To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
+要运行上面的示例，您需要 (假设您已经在将要运行该示例的目录中打开了一个终端)：
 
 1. 将上述文件保存到您的电脑上，并命名为 `touchbar.js`
 2. 通过 `npm install electron` 来安装 Electron
 3. 在 Electron 中运行示例：`./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+接下来这个应用会在你的Touch bar (或者Touch bar模拟器) 上运行，你将能看到一个Electron窗口
