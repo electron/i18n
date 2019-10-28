@@ -66,4 +66,4 @@ Calculate the system idle state. `idleThreshold` is the amount of time (in secon
 
 Returns `Integer` - Idle time in seconds
 
-Calculate system idle time in seconds.
+计算系统空闲时间以秒为单位。
