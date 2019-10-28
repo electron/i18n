@@ -53,7 +53,7 @@ Por exemplo se `icon.png` é uma imagem normal que possui resolução padrão, e
 
 Se você deseja ter o suporte para telas com diferentes densidades de DPI ao mesmo tempo, você pode colocar imagens de diferentes tamanhos na mesma pasta e usar o nome do arquivo sem os sufixos de DPI. Como por exemplo:
 
-```text
+```plaintext
 images/
 ├── icon.png
 ├── icon@2x.png
@@ -147,11 +147,11 @@ Cria uma nova instância `NativeImage` a partir do `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
-* `hslShift` Number[]
+* `hslShift` Number[] (optional)
 
 Retorna `NativeImage`
 
-Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona para o dado nome da Imagem. Veja [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para uma lista dos possíveis valores.
+Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona para o dado nome da Imagem. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
 O `hslShift` é aplicado à imagem com as seguintes regras
 
@@ -185,7 +185,7 @@ Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_b
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**Necessário**) - Entre 0 - 100.
+* `quality` Integer - Between 0 - 100.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `JPG` da imagem.
 
@@ -229,30 +229,42 @@ Retorna [`Size`](structures/size.md)
 
 Marca a imagem como uma imagem padrão.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
-Retorna `Boolean` - sendo a imagem uma imagem padrão ou não.
+Returns `Boolean` - Whether the image is a template image.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md) - A área da imagem a ser cortada.
 
-Retorna `NativeImage` - A imagem cortada.
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
 
-Retorna `NativeImage` - A imagem redimensionada.
+Returns `NativeImage` - The resized image.
 
-Se apenas o `height` ou o `width` forem definidos então a atual proporção de tela da imagem será preservada na imagem redimensionada.
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 
-Retorna `Float` - A proporção de tela da imagem.
+Returns `Float` - The image's aspect ratio.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - O fator de escala a ser adicionado à representação da imagem. * `width` Integer (optional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `height` Integer (opcional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `buffer` Buffer (opcional) - O buffer contendo os dados crus (sem alteração) da imagem. * `dataURL` String (opcional) - O URL dos dados contendo tanto um PNG codificado em base 64 ou uma imagem JPEG.
 
-Adiciona uma imagem de representação para um específico fator de escala. Esse pode ser usado para adicionar explicitamente representações de fatores de escala diferentes para uma imagem. Isso pode ser chamado em imagens vazias.
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+
+## Propriedades
+
+### `nativeImage.isMacTemplateImage` *macOS*
+
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+
+Please note that this property only has an effect on macOS.
