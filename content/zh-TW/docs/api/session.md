@@ -108,7 +108,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -158,25 +158,25 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  範例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
     Match a particular domain suffix.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    範例: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
   Match URLs which are IP address literals.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  範例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  範例: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
@@ -205,18 +205,18 @@ Sets download saving directory. By default, the download directory will be the `
 Emulates network with the given configuration for the `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// 模擬 GPRS 連線，頻寬限制為 50kbps 並有 500 ms 延遲。
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// 模擬網路中斷。
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)` *試驗中*
 
 * `options` Object 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -279,7 +279,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 拒絕。
   }
 
   callback(true)
@@ -325,18 +325,17 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 整合驗證結尾是 `example.com`, `foobar.com`, `baz` 的 url。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 整合驗證所有 url。
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (選用)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -359,7 +358,7 @@ Returns `Promise<Buffer>` - resolves with blob data.
 * `options` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
+  * `mimeType` String (選用)
   * `offset` Integer - Start range for the download.
   * `length` Integer - Total length of the download.
   * `lastModified` String - Last-Modified header value.
