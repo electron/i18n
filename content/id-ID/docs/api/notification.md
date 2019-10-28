@@ -14,10 +14,9 @@ Jika Anda ingin menampilkan Notifikasi dari proses renderer, Anda harus mengguna
 
 Proses: [Main](../glossary.md#main-process)
 
-` Pemberitahuan </ 0> adalah
- <a href="https://nodejs.org/api/events.html#events_class_events_eventemitter"> acara Emitter </ 1> .</p>
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-<p>Ini menciptakan baru <code> Pemberitahuan </ 0> dengan sifat asli yang ditetapkan oleh <code> Pilihan </ 0> .</p>
+Ini menciptakan baru ` Pemberitahuan </ 0> dengan sifat asli yang ditetapkan oleh <code> Pilihan </ 0> .</p>
 
 <h3>Metode Statis</h3>
 
@@ -30,7 +29,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <h3><code> Pemberitahuan baru ( [pilihan] ) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
-<li><code>pilihan` Benda 
+<li><code>pilihan` Objek (pilihan) 
 
 * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
 <li><code>subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
@@ -112,15 +111,51 @@ is closed.</p>
   
   Dismisses the notification.
   
-  ### Memutar Suara
+  ### Instance Properties
   
-  Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, `App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
-
-<ul>
-<li><code>~ / Perpustakaan / Suara`</li> 
+  #### `notification.title`
   
+  A `String` property representing the title of the notification.
+  
+  #### `notification.subtitle`
+  
+  A `String` property representing the subtitle of the notification.
+  
+  #### `notification.body`
+  
+  A `String` property representing the body of the notification.
+  
+  #### `notification.replyPlaceholder`
+  
+  A `String` property representing the reply placeholder of the notification.
+  
+  #### `notification.sound`
+  
+  A `String` property representing the sound of the notification.
+  
+  #### `notification.closeButtonText`
+  
+  A `String` property representing the close button text of the notification.
+  
+  #### `notification.silent`
+  
+  A `Boolean` property representing whether the notification is silent.
+  
+  #### `notification.hasReply`
+  
+  A `Boolean` property representing whether the notification has a reply action.
+  
+  #### `notification.actions`
+  
+  A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+  
+  ### Playing Sounds
+  
+  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  
+  * `~ / Perpustakaan / Suara`
   * `/ Perpustakaan / Suara`
   * `/ Jaringan / Perpustakaan / Suara`
-  * `/ Sistem / Perpustakaan / Suara`</ul> 
+  * `/ Sistem / Perpustakaan / Suara`
   
-  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
+  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
