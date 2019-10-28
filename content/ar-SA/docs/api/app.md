@@ -500,7 +500,7 @@ Returns `String` - The current application directory.
     * `$XDG_CONFIG_HOME` or `~/.config` on Linux
     * `~/Library/Application Support` on macOS
   * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-  * `cache`
+  * `الكاش`
   * `temp` Temporary directory.
   * `exe` The current executable file.
   * `module` The `libchromiumcontent` library.
@@ -539,7 +539,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -562,7 +562,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.setName(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Overrides the current application's name.
 
@@ -818,7 +818,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` الكائنات 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Function 
+* `callback` دالة 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -1019,7 +1019,7 @@ Returns `Boolean` - Whether the application is currently running from the system
 ### `app.moveToApplicationsFolder([options])` *macOS*
 
 * `options` Object (optional) 
-  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+  * `conflictHandler` دالة<boolean> (optional) - A handler for potential conflict in move failure. 
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
