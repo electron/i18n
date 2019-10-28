@@ -312,7 +312,7 @@ Emitted when the unresponsive web page becomes responsive again.
 Връща:
 
 * `event` Събитие
-* `name` String
+* `name` String - Име
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -387,9 +387,9 @@ Emitted when DevTools is focused / opened.
 
 * `event` Събитие
 * `url` String
-* `error` String - The error code.
+* `error` String - Кодът на грешката.
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `обратно повикване` Функция 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -403,14 +403,14 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `event` Събитие
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `обратно повикване` Функция 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Излъчено, когато е поискан клиентски сертификат.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
@@ -420,12 +420,12 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Function 
+  * `isProxy` Булев
+  * `схема` Низ
+  * `домакин` Низ
+  * `порт` Цяло число
+  * `царство` Низ
+* `обратно повикване` Функция 
   * `потребителско име` Низ
   * `парола` Низ
 
@@ -540,7 +540,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 * `event` Събитие
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `обратно повикване` Функция 
   * `deviceId` String - Идентификационен номер на устройството
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -721,7 +721,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -741,7 +741,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -882,7 +882,7 @@ Returns `String` - The user agent for this web page.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1072,7 +1072,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1414,7 +1414,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
