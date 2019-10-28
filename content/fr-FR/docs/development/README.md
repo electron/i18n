@@ -20,6 +20,5 @@ Ces guides sont destinés aux personnes travaillant sur le projet Electron lui-m
 * [Débogage sur Windows](debug-instructions-windows.md)
 * [Débogage sur macOS](debugging-instructions-macos.md)
 * [Configuration du serveur de symboles dans le déboggueur](setting-up-symbol-server.md)
-* [Mettre à jour Chromium](upgrading-chromium.md)
-* [Mettre à jour Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Mettre à jour Node](upgrading-node.md)
