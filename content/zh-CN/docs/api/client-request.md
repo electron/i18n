@@ -11,7 +11,7 @@
 * `参数` (Object | String) -如果 `选项` 是一个String类型, 它被解释为请求的URL. 如果它是一个Object类型, 那么它可以通过以下属性指定一个HTTP请求: 
   * `method` String (可选) - HTTP请求方法. 默认为GET方法.
   * `url` String (可选) - 请求的URL. 必须在指定了http或https的协议方案的独立表单中提供.
-  * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (可选) - 与请求相关联的[`partition`](session.md)名称. 默认为空字符串. `session`选项优先于`partition`选项. 因此, 如果`session`是显式指定的, 则`partition`将被忽略.
   * `protocol` String (可选) - 在"scheme:"表单中的协议方案. 目前支持的值为'http:' 或者'https:'. 默认为'http:'.
   * `host` String (可选) - 作为连接提供的服务器主机,主机名和端口号'hostname:port'.
@@ -110,7 +110,7 @@ request.on('login', (authInfo, callback) => {
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 当发出重定，并且模式为 `manuals(手动)`时触发。调用[`request.followRedirect`](#requestfollowredirect) 将持续重定向
 
@@ -127,15 +127,15 @@ request.on('login', (authInfo, callback) => {
 #### `request.setHeader(name, value)`
 
 * `name` String - 额外的 HTTP 头名称.
-* `value` Object - 额外的 HTTP 头的值.
+* `value` String - An extra HTTP header value.
 
-添加一个额外的 HTTP 头。 头名称发出时是大写的. 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
+添加一个额外的 HTTP 头。 The header name will be issued as-is without lowercasing. 它只能在第一次写入之前调用。 在第一次写入后调用此方法将引发错误。 如果传递的值不是 ` String `, 则会调用 ` toString () ` 方法来获取最终值。
 
 #### `request.getHeader(name)`
 
 * `name` String - 指定一个额外的头名称.
 
-返回 ` Object `-以前设置的额外标头名称的值。
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
