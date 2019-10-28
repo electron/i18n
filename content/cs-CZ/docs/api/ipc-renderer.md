@@ -64,7 +64,7 @@ Send a message to the main process asynchronously via `channel` and expect an as
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
-For example:
+Například:
 
 ```javascript
 // Renderer process
