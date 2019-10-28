@@ -31,7 +31,7 @@ To create a window without chrome, or a transparent window in arbitrary shape, y
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
-## Using `ready-to-show` event
+## `ready-to-show` event gebruiken
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
@@ -47,7 +47,7 @@ This event is usually emitted after the `did-finish-load` event, but for pages w
 
 Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
-## Setting `backgroundColor`
+## `backgroundColor` instellen
 
 For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
@@ -100,7 +100,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-## Platform notices
+## Platform kennisgevingen
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -249,7 +249,7 @@ Geeft terug:
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Bijvoorbeeld:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -981,7 +981,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (optioneel)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -1381,7 +1381,7 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Experimenteel*
 
 * `touchBar` TouchBar | null
 
@@ -1389,26 +1389,26 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Experimenteel*
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Experimenteel*
 
 Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
 
-#### `win.addBrowserView(browserView)` *Experimental*
+#### `win.addBrowserView(browserView)` *Experimenteel*
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` *Experimental*
+#### `win.removeBrowserView(browserView)` *Experimenteel*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` *Experimenteel*
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Let op:** De BrowserView API is momenteel experimenteel en kan mogelijk veranderen of verwijderd worden in toekomstige Electron uitgaves.
