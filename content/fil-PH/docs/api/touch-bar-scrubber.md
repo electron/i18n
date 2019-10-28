@@ -8,15 +8,15 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
 
 * `options` Bagay 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Isang hanay ng mga aytem na ilalagay sa scrubber na ito.
-  * `select` Function - Itinatawag kapag ang tagagamit ay pumindot sa isang aytem na hinding panghuling napindot. 
+  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item. 
     * `selectedIndex` na Integer - Ang index ng aytem na pinili ng tagagamit.
-  * `highlight` Function - Itinatawag kapag ang tagagamit ay pumipindot sa kahit anong aytem. 
+  * `highlight` Function (optional) - Called when the user taps any item. 
     * `highlightedIndex` na Integer - Ang index ng aytem na ginalaw ng user.
-  * `selectedStyle` na String - Napiling istilo ng aytem. Naka-default sa `null`.
-  * `overlayStyle` na String - Piling istilo ng overlay na aytem. Naka-default sa `null`.
-  * `showArrowButtons` na Boolean - Nakadefault sa `false`.
-  * `mode` na String - Naka-default sa `free`.
-  * `continuous` na Boolean - Nakadefault sa `true`.
+  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `mode` String (optional) - Defaults to `free`.
+  * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Mga Katangian ng Instance
 
