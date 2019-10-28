@@ -6,6 +6,8 @@
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## Platform Bildirimleri
 
 Şu an için sadece macOS ve Windows desteklenmektedir. Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
@@ -34,7 +36,7 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 ### Event: 'error'
 
-Dönüşler:
+Returns:
 
 * `error` Error
 
@@ -82,7 +84,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 * `options` Obje 
   * `url` Dize
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`'i belirler ve otomatik güncelleyici başlar.
