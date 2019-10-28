@@ -20,6 +20,5 @@
 * [Windows에서 Electron 디버깅하기](debug-instructions-windows.md)
 * [MacOS 에서 디버깅하기](debugging-instructions-macos.md)
 * [디버거에서 디버그 심볼 서버 설정](setting-up-symbol-server.md)
-* [Chromium 업그레이드](upgrading-chromium.md)
-* [크래시패드 업그레이드](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Node 업그레이드](upgrading-node.md)
