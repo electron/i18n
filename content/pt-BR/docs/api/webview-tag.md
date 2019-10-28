@@ -661,7 +661,7 @@ webview.addEventListener('console-message', (e) => {
 
 Retorna:
 
-* `result` Object 
+* `resultado` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
