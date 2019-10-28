@@ -1,5 +1,5 @@
 # Объект ProcessMemoryInfo
 
-* `residentSet` Integer *Linux* и *Windows* - объем памяти, который в текущий момент прикреплен к фактической физической ОЗУ, в килобайтах.
-* `private` Integer - объем памяти, не разделяемый с другими процессами, такими как куча JS или содержимое HTML, в килобайтах.
+* `residentSet` Integer *Linux* *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
+* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
 * `shared` Integer - объем памяти, разделяемый между процессами, обычно потребляемый самим кодом Electron, в килобайтах.
