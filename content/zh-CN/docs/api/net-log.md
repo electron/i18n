@@ -7,8 +7,8 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async function () {
-  netLog.startLogging('/path/to/net-log')
+app.on('ready', async () => {
+  await netLog.startLogging('/path/to/net-log')
   // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
@@ -21,33 +21,29 @@ app.on('ready', async function () {
 
 ## 方法
 
-### `netLog.startLogging(path)`
+### `netLog.startLogging(path[, options])`
 
 * `path` String - 记录网络日志的文件路径。
+* `参数` Object (可选) 
+  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
+  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
-开始记录网络事件日志到 `path`。
+Returns `Promise<void>` - resolves when the net log has begun recording.
 
-### `netLog.stopLogging([callback])`
-
-* `callback` Function (可选) 
-  * `path` String - 记录网络日志的文件路径。
-
-停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
-
-**[即将弃用](modernization/promisification.md)**
+Starts recording network events to `path`.
 
 ### `netLog.stopLogging()`
 
 Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
 
-停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
+Stops recording network events. If not called, net logging will automatically end when app quits.
 
 ## 属性
 
-### `netLog.currentlyLogging`
+### `netLog.currentlyLogging` *Readonly*
 
-`Boolean` 类型的属性，指示网络日志是否被记录。
+A `Boolean` property that indicates whether network logs are recorded.
 
-### `netLog.currentlyLoggingPath`
+### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
 
-`String` 类型的属性，返回当前的日志文件路径。
+A `String` property that returns the path to the current log file.
