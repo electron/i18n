@@ -6,6 +6,8 @@
 
 **참고 자료: [애플리케이션에 업데이트를 구현하는 방법에 대한 자세한 가이드](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## 플랫폼 참고 사랑
 
 현재 macOS와 Windows만 지원됩니다. 리눅스에는 자동 업데이터를 위한 내장 지원이 없으므로, app을 업데이트하기 위해 배포판의 패키지 관리자를 이용하는 것이 좋습니다.
@@ -54,7 +56,7 @@ Returns:
 
 ### Event: 'update-downloaded'
 
-Returns:
+반환:
 
 * `event` Event
 * `releaseNotes` String
@@ -82,7 +84,7 @@ Windows에서는 `releaseName`만 사용이 가능합니다.
 
 * `options` Object 
   * `url` String
-  * `headers` Object (선택적) *macOS* - HTTP 요청 헤더.
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 `url`을 설정하고 자동 업데이터를 초기화합니다.
