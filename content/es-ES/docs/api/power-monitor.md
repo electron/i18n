@@ -4,16 +4,15 @@
 
 Process: [Main](../glossary.md#main-process)
 
-No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 Por ejemplo:
 
 ```javascript
-const electron = require('electron')
-const { app } = electron
+const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
+  powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
 })
@@ -55,31 +54,16 @@ Emitido tan pronto como el sistema desbloquea la pantalla.
 
 El modulo `powerMonitor` tiene los siguientes métodos:
 
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(Deprecated)*
-
-* `idleThreshold` Integer
-* `callback` Function 
-  * `idleState` String - Puede ser `active`, `idle`, `locked` o `unknown`
-
-Calcule el estado de reposo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo. `callback` será llamada de forma sincrónica en algunos sistemas y con un argumento `idleState` que describe el estado del sistema. `locked` está disponible en sistemas soportado únicamente.
-
-### `powerMonitor.querySystemIdleTime(callback)` *(Deprecated)*
-
-* `callback` Function 
-  * `idleTime` Integer - Tiempo inactivo en segundos
-
-Calcular tiempo inactivo del sistema en segundos.
-
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
 * `idleThreshold` Integer
 
-Devuelve `String` - El estado actual del sistema. Puede ser `active`, `idle`, `locked` o `unknown`.
+Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
 
-Calcular el estado inactivo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo. `locked` esta habilitado en sistemas soportados unicamente.
+Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
 
 ### `powerMonitor.getSystemIdleTime()`
 
-Devuelve `Integer` - Tiempo inactivo en segundos
+Returns `Integer` - Idle time in seconds
 
-Calcular tiempo inactivo del sistema en segundos.
+Calculate system idle time in seconds.
