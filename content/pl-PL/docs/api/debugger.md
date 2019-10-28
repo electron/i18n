@@ -31,9 +31,9 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Zdarzenia instancji
+### Wydarzenia instancji
 
-#### Event: 'detach'
+#### Zdarzenie: 'detach'
 
 Zwraca:
 
@@ -42,7 +42,7 @@ Zwraca:
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### Zdarzenie: 'message'
 
 Zwraca:
 
