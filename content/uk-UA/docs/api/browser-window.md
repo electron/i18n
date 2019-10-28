@@ -31,7 +31,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Коли сторінка завантажується прямо у вікні, користувач може бачити її поступово, що не є гарною практикою для нативного застосунку. Щоб відобразити вікно без візуального спалаху, є два рішення для різних ситуацій.
 
-### Використання події `ready-to-show`
+## Використання події `ready-to-show`
 
 Під час завантаження сторінки, подія `ready-to-show` буде викликана, коли процес рендерингу перший раз збере сторінку, якщо вікно ще не показано. Відображення вікна після цієї події не буде мати візуального спалаху:
 
@@ -45,7 +45,9 @@ win.once('ready-to-show', () => {
 
 Ця подія зазвичай викликається після події `did-finish-load`, але для сторінок з віддаленими ресурсами, вона може бути викликана перед `did-finish-load`.
 
-### Встановлення кольору фону (`backgroundColor`)
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+
+## Встановлення кольору фону (`backgroundColor`)
 
 Для складного застосунку, подія `ready-to-show` може бути викликана занадто пізно, роблячи застосунок помітно повільним. В такому випадку рекомендовано показувати вікно негайно і використовувати `backgroundColor` для встановлення кольору фону застосунку:
 
@@ -73,7 +75,7 @@ top.show()
 
 Дочірнє (`child`) вікно завжди відображається поверх верхнього (`top`) вікна.
 
-### Модальні вікна
+## Модальні вікна
 
 Модальне вікно - це дочірнє вікно, що відключає батьківське вікно. Щоб створити модельне вікно, ви повинні встановити `parent` та `modal` параметри:
 
@@ -87,7 +89,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Видимість сторінки
+## Видимість сторінки
 
 [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) працює наступним чином:
 
@@ -98,7 +100,7 @@ child.once('ready-to-show', () => {
 
 Рекомендовано призупиняти складні операції, коли стан видимості є `hidden` для зменшення споживання енергії.
 
-### Зауваження
+## Зауваження
 
 * На macOS модальні вікна будуть відображені як сторінки прикріплені до батьківського вікна.
 * На macOS дочірні вікна будуть зберігати відносну позицію до батьківського вікна. якщо воно рухається, тоді як на Windows та Linux дочірнє вікно не рухається.
@@ -111,7 +113,7 @@ child.once('ready-to-show', () => {
 
 Процес: [Main](../glossary.md#main-process)
 
-`BrowserWindow` це [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Він створює нове `BrowserWindow` з нативними властивостями, визначеними в `options`.
 
@@ -120,8 +122,8 @@ child.once('ready-to-show', () => {
 * `options` Object (опціонально) 
   * `width` Integer (опціонально) - Ширина вікна в пікселях. За замовчуванням `800`.
   * `height` Integer (опціонально) - Висота вікна в пікселях. За замовчуванням `600`.
-  * `x` Integer (опціонально) (**обов'язково** якщо використовується y) - Ліве зміщення вікна від екрану. За замовчуванням вікно центрується.
-  * `y` Integer (опціонально) (**обов'язково** якщо використовується x) - Зміщення вікна від верху екрану. За замовчуванням вікно центрується.
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (опціонально) - `width` та `height` будуть використовуватися як розміри веб-сторінки, що означає що фактичні розміри вікна будуть включати розміри рамки і будуть трошки більшими. За замовчуванням `false`.
   * `center` Boolean (опціонально) - Показати вікно в центрі екрану.
   * `minWidth` Integer (опціонально) - Мінімальна ширина вікна. За замовчуванням `0`.
@@ -143,18 +145,19 @@ child.once('ready-to-show', () => {
   * `title` String (опціонально) - Заголовок вікна за замовчуванням. За зімовчуванням `"Electron"`. Якщо визначений HTML тег `<title>` в файлі HTML, який завантажено за допомогою `loadURL()`, ця властивість буде проігнорована.
   * `icon` ([NativeImage](native-image.md) | String) (опціонально) - Піктограма вікна. На Windows рекомендовано використовувати `ICO` піктограми, щоб отримати найкращі візуальні ефекти, ви також можете залишити її невизначеною, тоді використається піктограма виконуваного файлу.
   * `show` Boolean (опціонально) - Чи показувати вікно після створення. За замовчуванням `true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. За замовчуванням `true`.
   * `frame` Boolean (опціонально) - Вкажіть `false` для створення [Вікна без Рамки](frameless-window.md). За замовчуванням `true`.
   * `parent` BrowserWindow (опціонально) - Вкажіть батьківське вікно. За замовчуванням `null`.
   * `modal` Boolean (опціонально) - Чи вікно є модальним. Працює тільки якщо вікно є дочірнім. За замовчуванням `false`.
   * `acceptFirstMouse` Boolean (опціонально) - Чи веб-вигляд приймає подію кліку мишки, яка активує вікно. За замовчуванням `false`.
   * `disableAutoHideCursor` Boolean (опціонально) - Чи ховати курсор під час вводу. За замовчуванням `false`.
   * `autoHideMenuBar` Boolean (опціонально) - Автоматично ховати панель меню, якщо кнопка `Alt` натиснута. За замовчуванням `false`.
-  * `enableLargerThanScreen` Boolean (опціонально) - Дозволяти робити вікно більшим за екран. За замовчуванням `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. За замовчуванням `false`.
   * `backgroundColor` String (опціонально) - Колір фону вікна, як шістнадцяткове значення, як `#66CD00` чи `#FFF` чи `#80FFFFFF` (альфа в форматі #AARRGGBB підтримується якщо `transparent` встановлено в `true`). За замовчуванням `#FFF` (білий).
   * `hasShadow` Boolean (опціонально) - Чи має вікно мати тінь. Реалізовано тільки на macOS. За замовчуванням `true`.
   * `opacity` Number (опціонально) - Встановити початкову непрозорість вікна, між 0.0 (повність прозоре) та 1.0 (повністю непрозоре). Реалізовано тільки на Windows та macOS.
   * `darkTheme` Boolean (опціонально) - Примусово використовувати темну тему для вікна, працює тільки на деяких середовищах GTK+3. За замовчуванням `false`.
-  * `transparent` Boolean (опціонально) - Робить вікно [прозорим](frameless-window.md). За замовчуванням `false`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). За замовчуванням `false`. On Windows, does not work unless the window is frameless.
   * `type` String (опціонально) - Тип вікна, за замовчуванням нормальне вікно. Дивись детальніше нижче.
   * `titleBarStyle` String (опціонально) - Стиль панелі заголовка вікна. За замовчуванням `default`. Можливі значення: 
     * `default` - Стандартна непрозора Mac панель заголовків.
@@ -163,7 +166,7 @@ child.once('ready-to-show', () => {
     * `customButtonsOnHover` Boolean (опціонально) - Малювати кастомізовані кнопки керування на безрамковому вікні macOS. Ці кнопки не будуть відображатися, якщо на не наводити на верхній лівий край вікна. Ці кастомізовані кнопки запобігають проблемам з подіями мишки, які виникають з стандартними кнопками вікна. **Примітка:** Ця властивість поки тестується.
   * `fullscreenWindowTitle` Boolean (опціонально) - Показує заголовок на панелі заголовку в повноекранному режимі на macOS для всіх `titleBarStyle` варіантів. За замовчуванням `false`.
   * `thickFrame` Boolean (опціонально) - Використовувати стиль `WS_THICKFRAME` для безрамкових вікон на Windows, який додає стандартну рамку вікну. Встановіть в `false`, щоб видалити тінь та анімацію вікна. За замовчуванням `true`.
-  * `vibrancy` String (опціонально) - Додати тип ефекту вібрації вікна, тільки на macOS. Може бути `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` чи `ultra-dark`. Майте на увазі, що використання `frame: false` в поєднанні з значенням вібрації також вимагає використання не звичайних `titleBarStyle`.
+  * `vibrancy` String (опціонально) - Додати тип ефекту вібрації вікна, тільки на macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (опціонально) - Контролює поведінку на macOS при кліку на зелену кнопку на панелі чи при кліку на Window > Zoom елемент меню. Якщо `true`, вікно виросте до обраної ширини веб-сторінки при масштабуванні, `false` спричинить масштабування до ширини екрану. Це також вплине на поведінку при виклиці безпосередньо `maximize()`. За замовчуванням `false`.
   * `tabbingIdentifier` String (опціонально) - Назва групи вкладок, дозволяє відкривати вікно як нативну вкладку на macOS 10.12+. Вікна з такими самими ідентифікаторами вкладок будуть згруповані разом. Це такоє додає нативну кнопку нової вкладки до панель вкладок вашого вікна та дозволяє вашому `app` та вікну отримувати подію `new-window-for-tab`.
   * `webPreferences` Object (опціонально) - Налаштування особливостей веб-сторінки. 
@@ -236,7 +239,7 @@ child.once('ready-to-show', () => {
 * `title` String
 * `explicitSet` Boolean
 
-Викликається коли документ змінює заголовок, виклик `event.preventDefault()` буде запобігати зміні нативного заголовку вікна. `explicitSet` дорівнює false коли заголовок синтезовано з посилання.
+Викликається коли документ змінює заголовок, виклик `event.preventDefault()` буде запобігати зміні нативного заголовку вікна. `explicitSet` is false when title is synthesized from file URL.
 
 #### Подія: 'close'
 
@@ -297,6 +300,8 @@ window.onbeforeunload = (e) => {
 #### Подія: 'ready-to-show'
 
 Викликається коли веб-сторінка зрендерена (поки не показується) і може бути відображена без візуального спалаху.
+
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### Подія: 'maximize'
 
@@ -397,7 +402,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-Наступні команди явно підтримуються на Linux:
+The following app commands are explicitly supported on Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -422,6 +427,15 @@ win.on('app-command', (e, cmd) => {
 * `direction` String
 
 Викликаєтсья відбувається жест трома пальцями. Можливі напрямки: `up`, `right`, `down`, `left`.
+
+#### Event: 'rotate-gesture' *macOS*
+
+Повертає:
+
+* `event` Event
+* `rotation` Float
+
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Подія: 'sheet-begin' *macOS*
 
@@ -485,7 +499,7 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getExtensions()`
 
-Повертає `Object` - Ключами є назви розширень і кожне значення є об'єктом, що містить властивості `name` і `version`.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
@@ -511,7 +525,7 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Повертає `Object` - Ключами є назви розширень і кожне значення є об'єктом, що містить властивості `name` і `version`.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 Щоб перевірити чи розширення DevTools встановлено, ви можете виконати наступне:
 
@@ -535,15 +549,72 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents`
+#### `win.webContents` *Readonly*
 
 Об'єкт `WebContents`, який належить даному вікну. Всі пов'язані з веб-сторінкою події та операції будуть виконуватися через нього.
 
 Дивись [документацію `webContents`](web-contents.md) для інформації про методи та події.
 
-#### `win.id`
+#### `win.id` *Readonly*
 
-`Integer`, яке представляє унікальний ID вікна.
+A `Integer` property representing the unique ID of the window.
+
+#### `win.autoHideMenuBar`
+
+A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.minimizable`
+
+A `Boolean` property that determines whether the window can be manually minimized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.maximizable`
+
+A `Boolean` property that determines whether the window can be manually maximized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.fullScreenable`
+
+A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+#### `win.resizable`
+
+A `Boolean` property that determines whether the window can be manually resized by user.
+
+#### `win.closable`
+
+A `Boolean` property that determines whether the window can be manually closed by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.movable`
+
+A `Boolean` property that determines Whether the window can be moved by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+Властивість `Boolean`, яка визначає чи вікно виключене з меню застосунків Windows. `false` за замовчуванням.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```
 
 ### Методи Екземпляра
 
@@ -648,7 +719,7 @@ win.loadURL('https://github.com')
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - Співвідношення сторін для певної частини контенту.
-* `extraSize` [Size](structures/size.md) - Додатковий розмір, який не повинен включатися при збереженні співвідношення сторін.
+* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
 
 Це примусить вікна зберігати співвідношення сторін. Додатковий розмір дозволить розробнику мати простір, визнайчений в пікселях, не включений розрахунки пропорцій. Це API вже бере до уваги різницю між розміром вікна та розміром контенту.
 
@@ -675,7 +746,7 @@ win.loadURL('https://github.com')
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (опціонально) *macOS*
 
 Змінює розмір та переміщує вікно до наданих меж. Будь-які налаштування, що не надані залишаться без змін.
@@ -720,6 +791,10 @@ console.log(win.getBounds())
 * `enable` Boolean
 
 Блокує чи розблоковує вікно.
+
+#### `win.isEnabled()`
+
+Returns Boolean - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -773,9 +848,13 @@ console.log(win.getBounds())
 
 Встановлює чи користувач може вручну змінювати розміри вікна.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isResizable()`
 
 Повертає `Boolean` - Чи користувач може вручну змінювати розміри вікна.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -783,11 +862,15 @@ console.log(win.getBounds())
 
 Встановлює чи користувач може переміщувати вікно. На Linux не робить нічого.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isMovable()` *macOS* *Windows*
 
 Повертає `Boolean` - Чи користувач може переміщувати вікно.
 
 На Linux завжди повертає `true`.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -795,11 +878,15 @@ console.log(win.getBounds())
 
 Встановлює чи користувач може вручну згортати вікно. На Linux не робить нічого.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isMinimizable()` *macOS* *Windows*
 
 Повертає `Boolean` - Чи користувач може вручну згортати вікно
 
 На Linux завжди повертає `true`.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -807,11 +894,15 @@ console.log(win.getBounds())
 
 Встановлює чи користувач може вручну максимізувати вікно. На Linux не робить нічого.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isMaximizable()` *macOS* *Windows*
 
 Повертає `Boolean` - Чи користувач може вручну максимізувати вікно.
 
 На Linux завжди повертає `true`.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -819,9 +910,13 @@ console.log(win.getBounds())
 
 Встановлює чи кнопка розгорнути/масштабувати перемикає повноекранний режим чи максимізує вікно.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isFullScreenable()`
 
 Повертає `Boolean` - Чи кнопка розгорнути/масштабувати перемикає повноекранний режим чи максимізує вікно.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -829,16 +924,20 @@ console.log(win.getBounds())
 
 Встановлює чи користувач може вручну закривати вікно. На Linux не робить нічого.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isClosable()` *macOS* *Windows*
 
 Повертає `Boolean` - Чи користувач може вручну закривати вікно.
 
 На Linux завжди повертає `true`.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/documentation/appkit/nswindow/level) для деталей.
+* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 * `relativeLevel` Integer (опціонально) *macOS* - Кількість шарів, на яку потрібно підняти вікно в порівнянні з `level`. За замовчуванням `0`. Зверніть увагу, що Apple не рекомендує налаштування шарів вище за 1 над `screen-saver`.
 
 Встановлює чи вікно повинно завжди бути поверх інших вікон. Після встановлення цього, вікно все ще звичайне вікно, не вікно-інструмент, на яке не можна встановити фокус.
@@ -969,16 +1068,6 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.blurWebView()`
 
-#### `win.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (опціонально) - Межі для захоплення
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-Захоплює знімок сторінки в межах `rect`. Після цього буде викликано `callback` з `callback(image)`. `image` екземпляр [NativeImage](native-image.md), який зберігає дані змінку. Якщо не передати `rect`, буде захоплено всю видиму сторінку.
-
-**[Незабаром застаріє](modernization/promisification.md)**
-
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (опціонально) - Межі для захоплення
@@ -991,11 +1080,11 @@ win.setSheetOffset(toolbarRect.height)
 
 * `url` String
 * `options` Object (опціонально) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опціонально) - HTTP Referrer посилання.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (опціонально) - User agent відправника запиту.
   * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опціонально)
-  * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
+  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
 
 Повертає `Promise<void>` - проміс буде виконано коли сторінка завершить завантаження (дивись [`did-finish-load`](web-contents.md#event-did-finish-load)), якщо завантаження не успішне проміс буде проігноровано (дивись [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -1031,7 +1120,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (опціонально) 
-  * `query` Object (опціонально) - Передається в `url.format()`.
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (опціонально) - Передається в `url.format()`.
   * `hash` String (опціонально) - Передається в `url.format()`.
 
@@ -1063,7 +1152,7 @@ win.loadURL('http://localhost:8000/post', {
 
 Видаляє рядок прогресу, якщо прогрес < 0; Змінюється в невизначений режим, якщо прогрес > 1.
 
-На Linux, пітримується тільки середовищем Unity, потрібно визначити назву файлу `*.desktop` для поля `desktopName` в `package.json`. За промовчанням, визначиться в `app.getName().desktop`.
+На Linux, пітримується тільки середовищем Unity, потрібно визначити назву файлу `*.desktop` для поля `desktopName` в `package.json`. By default, it will assume `{app.name}.desktop`.
 
 На Windows можна передавати режими. Допустимими значеннями є `none`, `normal`, `indeterminate`, `error`, та `paused`. Якщо викликати `setProgressBar` без режиму (але з допустимим значенням), буде застосовано `normal`.
 
@@ -1088,11 +1177,11 @@ win.loadURL('http://localhost:8000/post', {
 
 * `opacity` Number - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
 
-Задає непрозорість вікна. На Linux не робить нічого.
+Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
-#### `win.getOpacity()` *Windows* *macOS*
+#### `win.getOpacity()`
 
-Повертає `Number` - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
 
 #### `win.setShape(rects)` *Windows* *Linux* *Експериментальний*
 
@@ -1178,9 +1267,13 @@ win.loadURL('http://localhost:8000/post', {
 
 Якщо панель меню вже відображається, виклик `setAutoHideMenuBar(true)` не приховає її негайно.
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 #### `win.isMenuBarAutoHide()`
 
 Повертає `Boolean` - Якщо панель меню автоматично приховується.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1226,15 +1319,17 @@ win.loadURL('http://localhost:8000/post', {
 
 На macOS встановлює sharingType NSWindow в NSWindowSharingNone. На Windows викликає SetWindowDisplayAffinity з `WDA_MONITOR`.
 
-#### `win.setFocusable(focusable)` *Windows*
+#### `win.setFocusable(focusable)` *macOS* *Windows*
 
 * `focusable` Boolean
 
 Змінює чи вікно може мати фокус.
 
+On macOS it does not remove the focus from the window.
+
 #### `win.setParentWindow(parent)`
 
-* `parent` BrowserWindow
+* `parent` BrowserWindow | null
 
 Встановлює `parent` як батьківське вікно поточного, передавання `null` перетворить поточне в вікно верхнього рівня.
 
@@ -1280,13 +1375,15 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Може бути `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` чи `ultra-dark`. Дивіться [документацію macOS ](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для деталей.
+* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Дивіться [документацію macOS ](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для деталей.
 
 Додає ефект вібрації до вікна браузера. При передаванні `null` або пустого рядка буде видалено ефект.
 
+Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Експериментальний*
 
-* `touchBar` TouchBar
+* `touchBar` TouchBar | null
 
 Встановлює шаблон touchBar для почотного вікна. Зазначення `null` чи `undefined` очищує панель дотиків. Цей метод має ефект тільки, якщо машина має панель дотиків та запущена на macOS 10.12.1+.
 
@@ -1294,7 +1391,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setBrowserView(browserView)` *Експериментальний*
 
-* `browserView` [BrowserView](browser-view.md). Прикріпляє browserView до вікна. Якщо якісь інші browserViews були прикріплені, вони будуть усунуті.
+* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *Експериментальний*
 
@@ -1312,27 +1409,6 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.getBrowserViews()` *Експериментальний*
 
-Повертає масив `BrowserView`, які було прикліплено за допомогою addBrowserView чи setBrowserView.
+Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
 **Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.
-
-### Властивості (Properties)
-
-#### `win.excludedFromShownWindowsMenu` *macOS*
-
-Властивість `Boolean`, яка визначає чи вікно виключене з меню застосунків Windows. `false` за замовчуванням.
-
-```js
-const win = new BrowserWindow({ height: 600, width: 600 })
-
-const template = [
-  {
-    role: 'windowmenu'
-  }
-]
-
-win.excludedFromShownWindowsMenu = true
-
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
-```
