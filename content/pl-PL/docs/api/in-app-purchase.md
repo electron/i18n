@@ -40,11 +40,11 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Zwraca wartość `Boolean`, niezależnie od tego, czy użytkownik może dokonać płatności.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Zwraca `String`, ścieżkę do paragonu.
 
 ### `inAppPurchase.finishAllTransactions()`
 
