@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([options])` *試驗中*
 
 * `options` 物件 (選用) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
@@ -90,6 +90,6 @@ Resizes and moves the view to the supplied bounds relative to the window.
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *試驗中*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
