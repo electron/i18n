@@ -76,7 +76,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 #### `cookies.set(details)`
 
-* `details` Obiekt 
+* `detale` Obiekt 
   * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
