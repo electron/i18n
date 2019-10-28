@@ -45,7 +45,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Mengembalikan:
+Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>newDisplay` [Display](structures/display.md)
@@ -54,7 +54,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` Sinyal
 * `oldDisplay` [Display](structures/display.md)
@@ -63,7 +63,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Mengembalikan:
+Pengembalian:
 
 * `peristiwa` Peristiwa
 * `display` [Display](structures/display.md)
