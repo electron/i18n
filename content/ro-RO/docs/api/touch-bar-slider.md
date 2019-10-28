@@ -14,7 +14,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `change` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider.
 
-### Instance Properties
+### Propietățile inițiale
 
 The following properties are available on instances of `TouchBarSlider`:
 
