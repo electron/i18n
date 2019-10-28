@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-`DownloadItem` è un `EventEmitter` che rappresenta un elemento scaricato in Electron. Esso è usato nell'evento `will-download` della classe `Session`, e consente agli utenti di controllare l'elemento scaricato.
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Esso è usato nell'evento `will-download` della classe `Session`, e consente agli utenti di controllare l'elemento scaricato.
 
 ```javascript
 // Nel processo principale(main).
@@ -74,11 +74,15 @@ L'oggetto `downloadItem` ha i seguenti metodi:
 
 * `path` String - Imposta il percorso del file salvato dell'elemento scaricato.
 
-L'API è disponibile solo nella funzione callback `will-download` della sessione. Se l'utente non imposta il percorso di salvataggio tramite l'API, Electron userà la routine originale per determinare il percorso di salvataggio (Solitamente inserito tramite un save dialog).
+L'API è disponibile solo nella funzione callback `will-download` della sessione. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
-Restituisce `String` - Il percorso di salvataggio dell'elemento scaricato. Questo sarà o il percorso impostato tramite `downloadItem.setSavePath(path)` o il percorso selezionato dal save dialog mostrato.
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -92,76 +96,84 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Mette in pausa il download.
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
-Restituisce `Boolean` - Se il download è in pausa.
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Riprende il download che è stato messo in pausa.
+Resumes the download that has been paused.
 
-**Nota:** Per abilitare la ripresa dei downloads il server da cui stai scaricando deve supportare una serie di richieste e fornire entrambi i valori di intestazione `Last-Modified` e `ETag`. Altrimenti `resume()` respingerà i bytes precedentemente ricevuti e riavvia il download dall'inizio.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-Restituisce `Boolean` - Quando il download può essere ripreso.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Annulla l'operazione di download.
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Restituisce `String` - L'url originario da cui si è scaricato l'elemento.
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-Restituisce `String` - Mime type the file.
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-Restituisce `Boolean` - Se il download ha una user gesture.
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-Restituisce `String` - Nome del file scaricato.
+Returns `String` - The file name of the download item.
 
-**Nota:** Il nome del file non sempre è lo stesso di quello effettivamente salvato su disco locale. Se l'utente cambia il nome del file proposto nella finestra di salvataggio, l'attuale nome del file sarà differente.
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-Restituisce `Integer` - La dimensione totale in byte del download.
+Returns `Integer` - The total size in bytes of the download item.
 
-Se la dimensione è sconosciuta, restituirà 0.
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Restituisce `Integer` - I byte ricevuti del download.
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Restituisce `String` - Campo Content-Disposition ottenuta dall'intestazione della risposta.
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
-Restituisce `String` - Lo stato corrente. Può essere `progressing`, `completed`, `cancelled` o `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Nota:** I seguenti metodi sono utili specificatamente per riprendere un elemento in stato `cancelled` quando la sessione è riavviata.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-Restituisce `String[]` - La catena completa degli url inclusi ogni redirect.
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Restituisce `String` - Valore dell'instestazione Last-Modified.
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-Restituisce `String` - Valore dell'intestazione ETag.
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-Restituisce `Double` - Numero di secondi dall'epoca UNIX da quando il download è stato avviato.
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+
+### Proprietà Istanza
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
