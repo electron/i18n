@@ -24,8 +24,9 @@ Untuk menyiapkan server untuk menerima dan memproses laporan kerusakan, Anda dap
 
 Or use a 3rd party hosted solution:
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 Laporan kerusakan disimpan secara lokal di folder direktori khusus aplikasi. Untuk `nama produk </ 0> dari <code> nama kamu </ 0> , laporan kerusakan akan disimpan dalam folder bernama <code> nama Crash kamu </ 0> di dalam direktori temp. Anda dapat menyesuaikan lokasi direktori sementara ini untuk aplikasi Anda dengan memanggil <code> app.setPath ( 'temp', '/ my / custom / temp') </ 0> 
 API sebelum memulai reporter kecelakaan.</p>
@@ -39,11 +40,11 @@ API sebelum memulai reporter kecelakaan.</p>
 * `pilihan` Objek 
   * `companyName` String
   * ` submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
-<li><code> nama product</ 0>  String (opsional) - Default ke <code> app.getName () </ 0> .</li>
-<li><code> ungkah ke Server </ 0>  Boolean (opsional) - Apakah laporan kerusakan harus dikirim ke server Default adalah <code> true </ 0> .</li>
-<li><code> mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
-<li><code> ekstra </ 0> Objek (opsional) - Objek yang dapat Anda tentukan yang akan dikirim bersamaan dengan laporan. Hanya properti string yang dikirim dengan benar. Objek bersarang tidak didukung dan nama dan nilai properti harus panjangnya kurang dari 64 karakter.</li>
-<li><code>crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+<li><code>productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * ` mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
+<li><code>extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Hanya properti string yang dikirim dengan benar. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Anda diminta untuk memanggil metode ini sebelum menggunakan API ` crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
 Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai </ 0> saat memanggil dari berbagai proses.</p>
