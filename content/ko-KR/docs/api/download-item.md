@@ -96,7 +96,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+다운로드를 일시 정지합니다.
 
 #### `downloadItem.isPaused()`
 
@@ -104,7 +104,7 @@ Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+일시 정지된 다운로드를 다시 재개합니다.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
@@ -114,7 +114,7 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+다운로드를 취소합니다.
 
 #### `downloadItem.getURL()`
 
@@ -138,7 +138,7 @@ Returns `String` - The file name of the download item.
 
 Returns `Integer` - The total size in bytes of the download item.
 
-If the size is unknown, it returns 0.
+만약 크기를 알 수 없으면 0을 반환합니다.
 
 #### `downloadItem.getReceivedBytes()`
 
@@ -170,7 +170,7 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `downloadItem.savePath`
 
