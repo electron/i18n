@@ -9,7 +9,7 @@ On Linux, there is also a `selection` clipboard. To manipulate it you need to pa
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('範例字串', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
