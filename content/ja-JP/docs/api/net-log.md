@@ -7,9 +7,9 @@
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async function () {
-  netLog.startLogging('/path/to/net-log')
-  // いくつかのネットワークイベントのあと
+app.on('ready', async () => {
+  await netLog.startLogging('/path/to/net-log')
+  // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
@@ -21,33 +21,29 @@ app.on('ready', async function () {
 
 ## メソッド
 
-### `netLog.startLogging(path)`
+### `netLog.startLogging(path[, options])`
 
 * `path` String - ネットワークログを記録するファイルパス。
+* `options` Object (任意) 
+  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
+  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
-`path` へネットワークイベントの記録を開始する。
+Returns `Promise<void>` - resolves when the net log has begun recording.
 
-### `netLog.stopLogging([callback])`
-
-* `callback` Function (任意) 
-  * `path` String - ネットワークログが記録されたファイルパス。
-
-ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
-
-**[非推奨予定](modernization/promisification.md)**
+Starts recording network events to `path`.
 
 ### `netLog.stopLogging()`
 
-戻り値 `Promise<String>` - ネットワークログが記録されたファイルパスで実行されます。
+Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
 
-ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
+Stops recording network events. If not called, net logging will automatically end when app quits.
 
 ## プロパティ
 
-### `netLog.currentlyLogging`
+### `netLog.currentlyLogging` *Readonly*
 
-ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
+A `Boolean` property that indicates whether network logs are recorded.
 
-### `netLog.currentlyLoggingPath`
+### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
 
-現在のログファイルへのパスを返す `String` プロパティ。
+A `String` property that returns the path to the current log file.
