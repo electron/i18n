@@ -32,27 +32,14 @@ shell.openExternal('https://github.com')
 
 指定したファイルをデスクトップの既定の方法で開きます。
 
-### `shell.openExternalSync(url[, options])`
-
-* `url` String - Windows では最大2081文字、そうでなければ関数は false を返します。
-* `options` Object (任意) 
-  * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
-  * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
-
-戻り値 `Boolean` - URL を開くためにアプリケーションが利用可能かどうか。
-
-デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
-
-**非推奨**
-
 ### `shell.openExternal(url[, options])`
 
-* `url` String - Windows では最大2081文字です。
+* `url` String - Max 2081 characters on windows.
 * `options` Object (任意) 
-  * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
-  * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
+  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) *Windows* - The working directory.
 
-戻り値 `Promise<void>`
+Returns `Promise<void>`
 
 デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
 
@@ -60,33 +47,33 @@ shell.openExternal('https://github.com')
 
 * `fullPath` String
 
-戻り値 `Boolean` - アイテムが正常にゴミ箱に移動されたかどうか.
+Returns `Boolean` - Whether the item was successfully moved to the trash.
 
-指定されたファイルをゴミ箱に移動し、操作の状態の Boolean を返します。
+Move the given file to trash and returns a boolean status for the operation.
 
 ### `shell.beep()`
 
-通知音を再生します。
+Play the beep sound.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (任意) - 省略値は `create`。以下のいずれかにできます。 
-  * `create` - 新しいショートカットを作成し、必要であれば上書きします。
-  * `update` - 既にあるショートカットのみを、指定したプロパティで更新します。
-  * `replace` - 既にあるショートカットを上書きし、存在しなければ失敗します。
+* `operation` String (optional) - Default is `create`, can be one of following: 
+  * `create` - Creates a new shortcut, overwriting if necessary.
+  * `update` - Updates specified properties only on an existing shortcut.
+  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-戻り値 `Boolean` - ショートカットが正常に作成されたかどうか.
+Returns `Boolean` - Whether the shortcut was created successfully.
 
-`shortcutPath` のショートカットリンクを作成か更新します。
+Creates or updates a shortcut link at `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-戻り値 [`ShortcutDetails`](structures/shortcut-details.md)
+Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
-`shortcutPath` のショートカットリンクを解決します。
+Resolves the shortcut link at `shortcutPath`.
 
-エラーが発生すると、例外がスローされます。
+An exception will be thrown when any error happens.
