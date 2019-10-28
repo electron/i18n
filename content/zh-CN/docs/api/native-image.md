@@ -240,7 +240,7 @@ Returns [`Size`](structures/size.md)
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+返回 ` Boolean `-图像是否为模板图像。
 
 **[过时的](modernization/property-updates.md)**
 
@@ -248,27 +248,27 @@ Returns `Boolean` - Whether the image is a template image.
 
 * ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域.
 
-Returns `NativeImage` - The cropped image.
+返回 ` NativeImage `-裁剪的图像。
 
 #### `image.resize(options)`
 
 * ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认值为图片高度. * `quality` String (optional) 所要设置的图片质量。 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
-Returns `NativeImage` - The resized image.
+返回 ` NativeImage `-裁剪的图像。
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+返回 `Float` - 图像的长宽比.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
 
-## Properties
+## 属性
 
 ### `nativeImage.isMacTemplateImage` *macOS*
 
