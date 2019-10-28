@@ -37,7 +37,7 @@ Ibinabalik ang:
 
 ### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
@@ -48,7 +48,7 @@ Pagbabalik:
 
 ### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Ibinabalik ang `Boolean` - Kapag ang sistema ay naka-Dark Mode.
 
 **Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
 
@@ -56,7 +56,7 @@ Returns `Boolean` - Whether the system is in Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina ay naka-on.
 
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
@@ -64,21 +64,21 @@ Returns `Boolean` - Whether the Swipe between pages setting is on.
 * `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` na String
 * `userInfo` Record<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `event` na String
 * `userInfo` Record<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
@@ -90,11 +90,11 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Returns `Number` - The ID of this subscription
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
+Nagsa-subscribe sa pansariling mga paalala ng macOS, ang `callback` ay tatawagin gamit ang `callback(event, userInfo)` kapag ang katumbas na `event` ay nangyayari. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala. The `object` is the sender of the notification, and only supports `NSString` values for now.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+Ang `id` ng nagsa-subscribe ay ibinabalik, pwede itong gamitin sa pag-unsubscribe sa `event`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificationCenter`, ang mga halimbawang halaga ng `event` ay:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -111,7 +111,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 Returns `Number` - The ID of this subscription
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
@@ -127,13 +127,13 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Tinatanggal ang nagsa-subscribe kasama ang `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
@@ -152,9 +152,9 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Ang ilang mga sikat na `key` at `type` ay:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -170,11 +170,11 @@ Some popular `key` and `type`s are:
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` na String
 
-Set the value of `key` in `NSUserDefaults`.
+Itakda ang halaga ng `key` sa `NSUserDefaults`.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
 
-Some popular `key` and `type`s are:
+Ang ilang mga sikat na `key` at `type` ay:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -182,13 +182,13 @@ Some popular `key` and `type`s are:
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Ibinabalik ang `Boolean` - `true` kapag ang [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) ay pinagana, at ang `false` kapag hindi.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Ang isang halimbawa ng paggamit nito sa pag-alam kung dapat bang maglikha ka ng isang transparent na window o hindi (ang mga transparent na window ay hindi gumagana nang maayos kapag ang DWM na komposisyon ay hindi pinagana):
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
@@ -214,7 +214,7 @@ if (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+Ibinabalik ang `String` - Ang kasulukuyang kagustuhang accent na kulay ng mga tagagamit sa buong sistema na anyong RGBA hexadecimal.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -295,7 +295,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexadecimal ng RGB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -406,7 +406,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 ### `systemPreferences.getAnimationSettings()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
