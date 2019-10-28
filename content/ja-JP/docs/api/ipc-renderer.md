@@ -84,13 +84,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+`channel` を介して同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+メインプロセスは [`ipcMain`](ipc-main.md) オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
@@ -98,15 +98,15 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+`channel` を介して `webContentsId` のウインドウにメッセージを送ります。
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send` に似ていますが、イベントはメインプロセスの代わりにホストページの `<webview>` に送信されます。
 
 ## イベントオブジェクト
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+`callback` に渡された `event` オブジェクトに関するドキュメントは、[`ipc-renderer-event`](structures/ipc-renderer-event.md) 構造体ドキュメントにあります。
