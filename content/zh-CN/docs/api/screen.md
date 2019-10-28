@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -12,23 +12,20 @@
 
 创建填充整个屏幕的窗口的示例:
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
-
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
     <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
-    app.on('ready', () =&gt; {
-      let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+    app.on('ready', () => {
+      let displays = screen.getAllDisplays()
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     
@@ -44,7 +41,7 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
 
 ## 事件
 
-`screen`模块触发以下事件:
+The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
@@ -53,7 +50,7 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-当新的窗口`newDisplay`被添加的时候触发。
+Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
@@ -62,7 +59,7 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-当旧的窗口`oldDisplay`被移除的时候触发。
+Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
@@ -72,43 +69,43 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-当`display`中的一个或多个值发生改变时发出。 `changedMetrics`是描述更改信息的字符串数组。 可能改变的值有`bounds`, `workArea`, `scaleFactor` 和 `rotation`.
+Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## 方法
 
-`screen`模块有以下方法:
+The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-返回 [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
-当前鼠标的绝对位置。
+The current absolute position of the mouse pointer.
 
 ### `screen.getPrimaryDisplay()`
 
-返回主窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-返回一个窗口数组[`Display[]`](structures/display.md)，表示当前可用的窗口。
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-返回离指定点最近的一个窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `point` [Point](structures/point.md)
 
-返回 [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -116,7 +113,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-返回 [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
