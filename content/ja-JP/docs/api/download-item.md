@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`DownloadItem` は、Electronでダウンロードアイテムを表す `EventEmitter` です。 これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
 
 ```javascript
 // メインプロセス
@@ -74,94 +74,106 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - ダウロードアイテムを保存するファイルパスを設定します。
 
-このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electronは、保存先のパスを決定するために、独自のルーチンを使用します (通常は保存ダイアログを表示します)。
+このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
-戻り値 `String` - ダウンロードアイテムの保存先のパス。これは、`downloadItem.setSavePath(path)` 経由で設定されたパスか、表示された保存ダイアログで選択されたパスのいずれかです。
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
 * `options` SaveDialogOptions - ファイル保存ダイアログのオプションを設定します。 このオブジェクトは `options` パラメータ([`dialog.showSaveDialog()`](dialog.md)の)と同じプロパティを持ちます。
 
-この API により、ユーザはデフォルトでダウンロードアイテム用に開く保存ダイアログのカスタムオプションを設定できます。 この API はセッションの `will-download` コールバック関数内でのみ使用できます。
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-戻り値 `SaveDialogOptions` - `downloadItem.setSaveDialogOptions(options)`によってその前に設定されたオブジェクトを返す。
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 
-ダウンロードを一時停止します。
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
-戻り値 `Boolean` - ダウンロードが一時停止しているかどうか。
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-一時停止されたダウンロードを再開します。
+Resumes the download that has been paused.
 
-**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-戻り値 `Boolean` - ダウンロードを再開できるかどうか。
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-ダウンロード操作をキャンセルします。
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-戻り値 `String` - アイテムがダウンロードされた元のURL。
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-戻り値 `String` - ファイルのMIMEタイプ。
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-戻り値 `Boolean` - ダウンロードにユーザージェスチャがあるかどうか。
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-戻り値 `String` - ダウンロードアイテムのファイル名。
+Returns `String` - The file name of the download item.
 
-**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-戻り値 `Integer` - ダウンロードアイテムのバイト単位での合計サイズ。
+Returns `Integer` - The total size in bytes of the download item.
 
-サイズが不明な場合、0を返します。
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-戻り値 `Integer` - ダウンロードアイテムの受信したバイト数。
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-戻り値 `String` - レスポンスヘッダーのContent-Dispositionフィールド。
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
-戻り値 `String` - 現在の状態。`progressing`、`completed`、`cancelled` または `interrupted` のいずれかです。
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**注:** 以下のメソッドは、セッションが再開されたときに `cancelled` アイテムを再開するのに特に有用です。
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-戻り値 `String[]` - すべてのリダイレクトを含むアイテムの完全なURLチェーン。
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-戻り値 `String` - Last-Modifiedのヘッダーの値。
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-戻り値 `String` - ETagのヘッダーの値。
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-戻り値 `Double` - ダウンロードが開始されたUNIXエポックからの秒数。
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+
+### インスタンスプロパティ
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
