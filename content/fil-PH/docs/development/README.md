@@ -20,6 +20,5 @@ These guides are intended for people working on the Electron project itself. For
 * [Paghanap at Pag-aayos ng Problema sa Windows (Debugging)](debug-instructions-windows.md)
 * [Pagde-debug sa macOS](debugging-instructions-macos.md)
 * [Pagtatakda ng Simbolong Server sa Debugger](setting-up-symbol-server.md)
-* [Pagpapaganda ng Chromium](upgrading-chromium.md)
-* [Pag-upgrade ng Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Pag-upgrade ng node](upgrading-node.md)
