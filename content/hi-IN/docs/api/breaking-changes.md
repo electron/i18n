@@ -2,19 +2,19 @@
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
-## `FIXME` comments
+## `FIXME` टिप्पणियाँ
 
 The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
 
 ## Planned Breaking API Changes (7.0)
 
-### Node Headers URL
+### नोड हेडर्स युआरएल
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules. Both will be supported for the foreseeable future but it is recommended that you switch.
+यह युआरएल एक `.npmrc` फाइल में `disturl` की तरह निर्दिष्ट है या मूल नोड मोडयुल्स का निर्माण करने के दौरान `--dist-url` कमांड लाइन फ्लैग की तरह | Both will be supported for the foreseeable future but it is recommended that you switch.
 
-Deprecated: https://atom.io/download/electron
+निरस्त: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+इससे बदलें: https://electronjs.org/headers
 
 ### `session.clearAuthCache(options)`
 
@@ -309,42 +309,42 @@ window.on('app-command', (e, cmd) => {
 ### `क्लिपबोर्ड`
 
 ```js
-// Deprecated
+// निरस्त
 clipboard.readRtf()
-// Replace with
+// इससे बदलें
 clipboard.readRTF()
-
-// Deprecated
-clipboard.writeRtf()
-// Replace with
+ 
+// निरस्त
+clipboard.writeRtf() 
+// इससे बदलें
 clipboard.writeRTF()
+ 
+// निरस्त
+clipboard.readHtml() 
+// इससे बदलें
+clipboard.readHTML() 
 
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
-
-// Deprecated
-clipboard.writeHtml()
-// Replace with
+// निरस्त
+clipboard.writeHtml() 
+// इससे बदलें
 clipboard.writeHTML()
 ```
 
 ### `क्रेश रिपोर्टर`
 
 ```js
-// Deprecated
+// निरस्त
 crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  autoSubmit: true
-})
-// Replace with
+   companyName: 'Crashly',
+   submitURL: 'https://crash.server.com',
+   autoSubmit: true 
+}) 
+// इससे बदलें
 crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  uploadToServer: true
-})
+   companyName: 'Crashly',
+   submitURL: 'https://crash.server.com',
+   uploadToServer: true
+ })
 ```
 
 ### `मूल छवि`
@@ -390,14 +390,14 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `ट्रे`
 
 ```js
-// Deprecated
+// निरस्त
 tray.setHighlightMode(true)
-// Replace with
+// इससे बदलें
 tray.setHighlightMode('on')
 
-// Deprecated
+// निरस्त
 tray.setHighlightMode(false)
-// Replace with
+// इससे बदलें
 tray.setHighlightMode('off')
 ```
 
@@ -444,13 +444,13 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-### Node Headers URL
+### नोड हेडर्स युआरएल
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+यह युआरएल एक `.npmrc` फाइल में `disturl` की तरह निर्दिष्ट है या मूल नोड मोडयुल्स का निर्माण करने के दौरान `--dist-url` कमांड लाइन फ्लैग की तरह |
 
-Deprecated: https://atom.io/download/atom-shell
+निरस्त: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+इससे बदलें: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 
@@ -459,15 +459,15 @@ The following list includes the breaking API changes made in Electron 2.0.
 ### `ब्राउज़र विंडो`
 
 ```js
-// Deprecated
+// निरस्त
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// इससे बदलें
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-### `menu`
+### `मेन्यु`
 
 ```js
 // Removed
@@ -521,7 +521,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Duplicate ARM Assets
+### अतिरिक्त ऐआरएम एसेट्स
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
