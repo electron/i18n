@@ -33,7 +33,7 @@ The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数 
+* `listener` Function 
   * `...args` any[]
 
 为特定的 channel 从监听队列中删除特定的 listener 监听者.
@@ -84,13 +84,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 * `channel` String
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+返回 `any` - 由 [`ipcMain`](ipc-main.md) 处理程序发送过来的值。
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
+通过 `channel` 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+主进程可以使用 `ipcMain` 监听 [channel](ipc-main.md)来接收这些消息，并通过 `event.returnValue `设置回复消息。
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
@@ -105,7 +105,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+就像 `ipcRenderer.send`，不同的是消息会被发送到 host 页面上的 `<webview>` 元素，而不是主进程。
 
 ## 事件对象
 
