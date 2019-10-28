@@ -236,17 +236,17 @@ dialog.showOpenDialog(mainWindow, {
   * `certificate` [Certificate](structures/certificate.md) - 信頼/インポートする証明書。
   * `message` String - ユーザーに表示するメッセージ。
 
-Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+戻り値 `Promise<void>` - 証明書信頼ダイアログが表示されると実行されます。
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+macOSでは、これはメッセージと証明書情報を表示するモーダルダイアログを表示し、ユーザーに証明書を信頼/インポートする選択肢を提供します。 `browserWindow` の引数を指定すると、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Windowsでは、使用されているWin32 APIのため、オプションはより限定的です。
 
 * OSが独自の確認ダイアログを提供しているため、`message` の引数は使用されません。
 * この確認ダイアログをモーダル表示にすることができないため、`browserWindow` の引数は無視されます。
 
 ## シート
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+macOS では、`browserWindow` パラメータに [`BrowserWindow`](browser-window.md) の参照を指定した場合、ダイアログは、ウインドウにアタッチされたシートとして表示されます。ウインドウを指定しない場合、モーダルで表示されます。
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+`BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼び出すことで、シートがアタッチされるウインドウフレームからのオフセットを変更することができます。
