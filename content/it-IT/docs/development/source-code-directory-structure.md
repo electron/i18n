@@ -1,14 +1,14 @@
 # Struttura della cartella del codice sorgente
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Il codice sorgente di Electron è suddiviso in più blocchi, per lo più adottando le medesime convenzioni di Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-processo di Chromium per una migliore comprensione del codice sorgente.
 
-## Structure of Source Code
+## Struttura del codice sorgente
 
 ```diff
 Electron
-├── atom/ - C++ source code.
+├── atom/ - Codice sorgente C++.
 |   ├── app/ - System entry code.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
@@ -28,7 +28,7 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Codice sorgente preso da Chromium. Vedi sotto.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
 ├── docs/ - Documentations.
@@ -47,7 +47,7 @@ Electron
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+I file in `/chromium_src` sono di solito parti di Chromium che non appartengono al livello dei contenuti. Per esempio, nell'implementazione delle Pepper API abbiamo bisogno di connessioni implementate in maniera del tutto simile a quella adottata dalla distribuzione ufficiale di Chrome. Avremmo potuto compilare le parti più importanti dei sorgenti come parte di [libcc](../glossary.md#libchromiumcontent) ma molto spesso non abbiamo bisogno di tutte le funzionalità (alcune in effetti sembrano codice proprietario, con funzioni di analisi statistica), così abbiamo preso alcune parti del codice. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Structure of Other Directories
 
