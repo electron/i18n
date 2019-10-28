@@ -27,7 +27,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `arch`
 * `platform`
 * `sandboxed`
-* `typ`
+* `type`
 * `version`
 * `versions`
 * `mas`
