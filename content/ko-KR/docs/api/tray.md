@@ -66,7 +66,7 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -76,7 +76,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -85,7 +85,7 @@ Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -110,7 +110,7 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
@@ -119,7 +119,7 @@ Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -140,7 +140,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -149,7 +149,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -158,7 +158,7 @@ Emitted when the mouse exits the tray icon.
 
 #### Event: 'mouse-move' *macOS* *Windows*
 
-반환:
+Returns:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
