@@ -1,4 +1,4 @@
-# Notification
+# Mitteilung
 
 > Create OS desktop notifications
 
@@ -56,7 +56,7 @@ Rückgabewert:
 <p>Emitted when the notification is shown to the user, note this could be fired
 multiple times as a notification can be shown multiple times through the
 <code>show()` method.</p> 
-  #### Event: 'click'
+  #### Ereignis: 'click'
   
   Rückgabewert:
   
@@ -108,7 +108,7 @@ is closed.</p>
   
   Dismisses the notification.
   
-  ### Instance Properties
+  ### Instanz Eigenschaften
   
   #### `notification.title`
   
