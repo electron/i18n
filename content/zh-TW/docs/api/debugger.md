@@ -33,7 +33,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 ### 物件事件
 
-#### Event: 'detach'
+#### 事件: 'detach'
 
 回傳:
 
@@ -42,12 +42,12 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### 事件: 'message'
 
 回傳:
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - 方法名稱。
 * `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
