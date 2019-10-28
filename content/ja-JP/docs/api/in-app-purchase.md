@@ -21,58 +21,37 @@
 
 `inAppPurchase` モジュールには以下のメソッドがあります。
 
-### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
-
-* `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
-* `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
-* `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 
-  * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
-
-`purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
-
-**[非推奨予定](modernization/promisification.md)**
-
-### `inAppPurchase.purchaseProduct(productID, quantity)`
+### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
 * `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
 
-戻り値 `Promise<Boolean>` - プロダクトが有効で支払いキューに追加されている場合は、`true` を返します。
+Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
-`purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
-
-### `inAppPurchase.getProducts(productIDs, callback)`
-
-* `productIDs` String[] - 取得する製品の識別子。
-* `callback` Function - コールバックは製品のリストで呼ばれます。製品が存在しない場合は空の配列です。 
-  * `products` Product[] - [`Product`](structures/product.md) オブジェクトの配列。
-
-製品説明を探します。
-
-**[非推奨予定](modernization/promisification.md)**
+You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - 取得する製品の識別子。
+* `productIDs` String[] - The identifiers of the products to get.
 
-戻り値 `Promise<Product[]>` - [`Product`](structures/product.md) オブジェクトの配列で実行されます。
+Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
 
-製品説明を探します。
+Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-戻り値 `Boolean` - ユーザが支払いできるかどうか。
+Returns `Boolean`, whether a user can make a payment.
 
 ### `inAppPurchase.getReceiptURL()`
 
-戻り値 `String` - 領収書へのパス。
+Returns `String`, the path to the receipt.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-すべての保留中の取引を完了させます。
+Completes all pending transactions.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - 取引を終える ISO 形式の日付。
+* `date` String - The ISO formatted date of the transaction to finish.
 
-日付に対応するすべての保留中の取引を完了させます。
+Completes the pending transactions corresponding to the date.
