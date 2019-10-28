@@ -63,7 +63,7 @@ Aşağıdaki metodlar `Cookies` sınıfının örneklerinde mevcut:
 #### `cookies.get(filter)`
 
 * `Filtre` Object 
-  * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
+  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
   * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker.
   * `path` Katar (opsiyonel) - `path` ile eşleşen çerezleri çeker.
@@ -74,27 +74,10 @@ Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie object
 
 Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
 
-#### `cookies.get(filter, callback)`
-
-* `Filtre` Obje 
-  * `url` Katar (Opsiyonel) - `url` ile bağıntılı çerezleri çeker. Eğer boş girilirse tüm çerezler çekilir.
-  * `name` Katar (opsiyonel) - Çerezleri isme göre filtrele.
-  * `domain` Katar (opsiyonel) - `domains` ile eşleşen domain'lerin çerezlerini çeker.
-  * `path` Katar (opsiyonel) - `path` ile eşleşen çerezleri çeker.
-  * `secure` Boolean (opsiyonel) - Secure özelliği olan çerezleri çeker.
-  * `session` Boolean (opsiyonel) - Oturumu ya da kalıcı çerezleri filtreler.
-* `geri aramak` Function 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - Çerez objeleri dizisi.
-
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `cookies.set(details)`
 
-* `details` Nesne 
-  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
+* `details` Obje 
+  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
@@ -107,24 +90,6 @@ Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
 Sets a cookie with `details`.
 
-#### `cookies.set(details, callback)`
-
-* `details` Nesne 
-  * `url` Katar - Çerezin ilişkilendirileceği url.
-  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `path` Katar (opsiyonel) - Çerezin geçerli olduğu dizin. Değer girilmezse boş atanır.
-  * `secure` Katar (opsiyonel) - Çerez güvenli olarak işaretlensin mi? Varsayılan değeri False.
-  * `httpOnly` Boolean (opsiyonel) - Çerez httpOnly olarak işaretlensin mi? Varsayılan değeri False.
-  * `expirationDate` Double (opsiyonel) - UNIX epoch başlangıcından itibaren saniyeler cinsinden çerezin geçerliliğini yitirme süresi. Eğer boş geçilirse, çerez bir oturum çerezi olarak algılanır ve farklı oturumlar arasında kalıcı olmaz.
-* `geri aramak` Function 
-  * `error` Error
-
-`details<code> ile bir çerez ataması yapar, tamamlandığında <code>callback(error)` çağırılır.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `cookies.remove(url, name)`
 
 * `url` String - URL ile ilişkilendirilen çerez.
@@ -134,26 +99,8 @@ Returns `Promise<void>` - A promise which resolves when the cookie has been remo
 
 Removes the cookies matching `url` and `name`
 
-#### `cookies.remove(url, name, callback)`
-
-* `url` String - URL ile ilişkilendirilen çerez.
-* `name` Katar - Silinecek çerezin ismi.
-* `callback` Function
-
-`url` ve `name` ile eşleşen çerezleri siler, işlem tamamlandığında `callback`, `callback()` şeklinde çağırılır.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `cookies.flushStore()`
 
 Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
 
 Yazılmamış çerezlerı disk'e yazar.
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-Yazılmamış çerezlerı disk'e yazar.
-
-**[Deprecated Soon](modernization/promisification.md)**
