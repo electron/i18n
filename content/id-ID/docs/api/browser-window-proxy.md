@@ -34,7 +34,7 @@ Meminta dialog cetak pada jendela anak.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Mengirim pesan ke jendela anak dengan asal yang ditentukan atau ` * </ 0> untuk no
