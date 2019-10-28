@@ -17,19 +17,20 @@
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
-  * `accelerator` [Accelerator](accelerator.md) (任意)
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
+  * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
-  * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
-  * `acceleratorWorksWhenHidden` Boolean (任意) - 省略値は `true` で、`false` のときは、アイテムが表示されていない場合にアクセラレータがアイテムをトリガーするのを防ぎます。 *macOS*
-  * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
-  * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `registerAccelerator` Boolean (任意) - false の場合、アクセラレータはシステムに登録されませんが、それでも表示はされます。 省略値は true です。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - `submenu` 型メニューアイテムを指定する必要があります。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できます。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換されます。
-  * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
-  * `before` String[] (任意) - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
-  * `after` String[] (任意) - このアイテムをIDが指すアイテムの後に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
-  * `beforeGroupContaining` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの前に、そのグループの配置を宣言する手段を提供します。
-  * ` afterGroupContaining ` String[] (任意) - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの後に、そのグループの配置を宣言する手段を提供します。
+  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
+  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 **注釈:** アクセラレータは、Windows と Linux でアイテムが非表示になっている場合は常に機能するため、`acceleratorWorksWhenHidden` は macOS 専用として指定されています。 これはネイティブの macOS 開発では可能なので、オプションを無効にするオプションをユーザーに提供するためにユーザーに公開されます。 このプロパティは macOS High Sierra 10.13 以降でのみ利用可能です。
 
@@ -120,7 +121,7 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 
 #### `menuItem.type`
 
-そのアイテムの種類を示す `String`。
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 
 #### `menuItem.accelerator`
 
-セットされている場合、アイテムの Accelerator を示す `String` (任意)。
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -138,32 +139,36 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 
 アイテムの副ラベルを示す `String`。このプロパティは動的に変更できます。
 
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
+
 #### `menuItem.enabled`
 
-アイテムが有効かどうかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `menuItem.visible`
 
-アイテムが見えるかどうかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `menuItem.checked`
 
-アイテムがチェックされたかどうかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-`checkbox` メニューアイテムは、選択された時に `checked` プロパティをオンかオフにトグル切り替えします。
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-`radio` メニューアイテムは、クリックされると `checked` がオンになり、同じメニュー内の隣接するアイテムすべてのこのプロパティをオフにします。
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-更なる動作は、`click` 関数の追加で可能です。
+You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
-アクセラレータをシステムに登録する必要があるのか、ただ表示するだけなのかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
 
 #### `menuItem.commandId`
 
-アイテムの連続する一意な id を示す `Number`。
+A `Number` indicating an item's sequential unique id.
 
 #### `menuItem.menu`
 
-そのアイテムが属する `Menu`。
+A `Menu` that the item is a part of.
