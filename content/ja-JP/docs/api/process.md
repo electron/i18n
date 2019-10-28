@@ -163,26 +163,26 @@ Returns an object with Blink memory information. It can be useful for debugging 
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+戻り値 `Promise<ProcessMemoryInfo>` - [ProcessMemoryInfo](structures/process-memory-info.md) で実行されます
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。この API は app の ready の後に呼び出さなければなりません。
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium は macOS には `residentSet` の値を提供しません。 これは直近の使用されていないページを macOS がメモリ内で圧縮するためです。 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
 
 ### `process.getSystemMemoryInfo()`
 
 戻り値 `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `total` Integer - システムで利用可能な物理メモリの合計量 (キロバイト)。
+* `free` Integer - アプリケーションまたはディスクキャッシュで使用されていないメモリの合計量。
+* `swapTotal` Integer *Windows* *Linux* - システムが使用できるスワップメモリの合計量 (キロバイト)。
+* `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+戻り値 `String` - ホストのオペレーティングシステムのバージョン。
 
 例:
 
@@ -190,22 +190,22 @@ Returns `String` - The version of the host operating system.
 * `Windows` -> `10.0.17763`
 * `Linux` -> `4.15.0-45-generic`
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**注釈:** `os.release()` とは異なり、macOS ではカーネルバージョンではなく実際のオペレーティングシステムのバージョンを返します。
 
 ### `process.takeHeapSnapshot(filePath)`
 
 * `filePath` String - 出力ファイルのパス
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
 
 V8ヒープを取得して、`filePath`にそれを保存します。
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+現在のプロセスのメインスレッドでハングを発生させます。
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+ファイルディスクリプタのソフトリミットを、`maxDescriptors` または OS のハードリミットの、いずれか低い方に設定します。
