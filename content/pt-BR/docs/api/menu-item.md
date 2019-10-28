@@ -17,15 +17,16 @@ Veja [`Menu`](menu.md) para exemplos.
   * `type` String (opcional) - Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
-  * `accelerator` [Accelerator](accelerator.md) (opcional) - Atalho
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
+  * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
-  * `enabled` Boolean (optional) - Se falso, o item do menu vai ser não-clicável e cinza.
-  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
-  * `visible` Boolean (opcional) - Se falso, o item do menu será inteiramente escondido.
-  * `checked` Boolean (opcinal) - Deve ser especificado apenas para `checkbox` ou `radio` tipos de item de menu.
-  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
+  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (opcional) - Unico em um menu. Se definido, pode então ser utilizado como uma referencia para esse item pelo atributo de posição.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
@@ -120,7 +121,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`,
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -138,23 +139,27 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 
 A `String` indicating the item's sublabel, this property can be dynamically changed.
 
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
+
 #### `menuItem.enabled`
 
-Um `Boolean` indicando se o item está ativo, essa propriedade pode ser alterada dinamicamente.
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `menuItem.visible`
 
-Um `Boolean` indicando se o item está visível, essa propriedade pode ser alterada dinamicamente.
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `menuItem.checked`
 
-Um `Boolean` indicando se o item está ativo ou não, essa propriedade pode ser alterada dinamicamente.
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-Um item do menu de um `checkbox` irá mudar a propriedade `checked` para ativa ou não quando selecionada.
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-Um item do menu de um `radio` irá ativar a sua propriedade `checked` quando clicado, e irá desativar essa propriedade para todos os itens adjacentes no mesmo menu.
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-Você pode adicionar uma função `click` para comportamentos adicionais.
+You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
