@@ -6,7 +6,7 @@
 
 `BrowserView` 被用来让 [`BrowserWindow`](browser-window.md) 嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
-## 示例
+### 示例
 
 ```javascript
 // 在主进程中.
@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([可选])` *实验功能*
+### `new BrowserView([options])` *Experimental*
 
 * `参数` Object (可选) 
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
@@ -73,10 +73,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` *实验功能*
 
 * `options` Object 
-  * `width` Boolean - 如果为`true`，视图宽度跟随窗口变化. 默认为 `false`.
-  * `height` Boolean - 如果为`true`，视图高度跟随窗口变化. 默认为 `false`.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *实验功能*
 
@@ -84,6 +84,12 @@ view.webContents.loadURL('https://electronjs.org')
 
 调整视图的大小，并将它移动到窗口边界
 
-#### `view.setBackgroundColor(color)` *实验功能*
+#### `view.getBounds()` *Experimental*
+
+返回 [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
+
+#### `view.setBackgroundColor(color)` *Experimental*
 
 * `color` String - 颜色值格式为 `#aarrggbb` 或 `#argb`, 透明度为可选参数.
