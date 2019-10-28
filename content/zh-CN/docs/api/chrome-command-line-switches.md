@@ -44,13 +44,13 @@ app.on('ready', () => {
 
 ## --js-flags=`flags`
 
-指定传递给Node JS引擎的标志. 如果你想在主进程中启用`flags`, 则必须在启动Electron时传递.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-访问[Node documentation](https://nodejs.org/api/cli.html)文档或者在终端中运行`node --help`命令查看可用的标志列表. 此外，还可以运行`node --v8-options`来查看与Node的V8 JavaScript引擎特定相关的flags列表。
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. 没有`*`前缀，则url必须完全匹配.
+则任何以`example.com`, `foobar.com`, `baz`结尾的`url`, 都需要考虑集成验证. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-需要身份验证的服务器的逗号分隔列表. 没有`*`前缀则url必须完全匹配.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --ignore-certificate-errors
 
@@ -151,3 +151,7 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 例如, `*/foo/bar/*=2`会改变`foo/bar`目录下源文件的所有代码的日志等级.
 
 这个开关只有在`--enable-logging`也被传递时才起效.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
