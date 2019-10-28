@@ -9,7 +9,7 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 * `opciones` Object 
   * `Etiqueta` cadena (opcional) - Texto del fondo.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
-  * `icono` [imagen nativa](native-image.md) (opcional) - ícono en el fondo.
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `posición del ícono` Cadena (opcional) - Puede ser `izquierda`, `derecha` o `superpuesto`.
   * `click` Función (opcional) - Función a llamar cuando se hace click en el fondo.
 
