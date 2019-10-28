@@ -102,9 +102,10 @@ Not: `-webkit-app-region: drag`'ın geliştirici araçları açıkken sorun yaş
 
 Tüm pencereyi sürüklenebilir yapmak için, `-webkit-app-region: drag`'i `body` tarzında ekleyebilirsiniz:
 
-<pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt;<body style="-webkit-app-region: drag">
-</body>&lt;/body&gt;
-</code></pre>
+```html
+<body style="-webkit-app-region: drag"><body style="-webkit-app-region: drag">
+</body></body>
+```
 
 Ve tüm pencereyi sürüklenebilir yapmışsanız, düğmeleri sürüklenemez olarak işaretlemeniz gerektiğini unutmayın, aksi halde kullanıcıların onlara tıklaması imkansız olacaktır:
 
