@@ -81,7 +81,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 
 #### Event: 'did-frame-finish-load'
 
-반환:
+Returns:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -127,7 +127,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -160,7 +160,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 #### Event: 'will-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -188,7 +188,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'will-redirect'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -205,7 +205,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -220,7 +220,7 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 #### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -233,7 +233,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-frame-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -249,7 +249,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -263,7 +263,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -292,7 +292,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -309,10 +309,10 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * `event` Event
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -323,7 +323,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-반환:
+Returns:
 
 * `event` Event
 * `input` Object - Input properties. 
@@ -362,7 +362,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'zoom-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `zoomDirection` String - Can be `in` or `out`.
@@ -383,11 +383,11 @@ Emitted when DevTools is focused / opened.
 
 #### 이벤트: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - 에러 코드.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` 함수 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -398,7 +398,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### 이벤트: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` URL
@@ -412,7 +412,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Event: 'login'
 
-반환:
+Returns:
 
 * `event` Event
 * `request` Object 
@@ -435,7 +435,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `result` Object 
@@ -470,7 +470,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -479,7 +479,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String
@@ -536,7 +536,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-반환:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -569,7 +569,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-반환:
+Returns:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -701,7 +701,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 #### Event: 'remote-get-current-web-contents'
 
-반환:
+Returns:
 
 * `event` IpcMainEvent
 
@@ -709,7 +709,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 #### Event: 'remote-get-guest-web-contents'
 
-반환:
+Returns:
 
 * `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
@@ -721,7 +721,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -741,7 +741,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -882,7 +882,7 @@ Returns `String` - The user agent for this web page.
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -1072,7 +1072,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1118,12 +1118,12 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
-  * `margins` 객체 (선택) 
+  * `margins` Object (선택) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -1136,7 +1136,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
   * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` 객체 (선택) 
+  * `dpi` Object (선택) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
 * `callback` Function (optional) 
