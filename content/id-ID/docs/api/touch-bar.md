@@ -54,17 +54,17 @@ A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSli
 
 A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
-### Instance Properties
+### Contoh properti
 
-The following properties are available on instances of `TouchBar`:
+Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Atur ke `null` untuk mengembalikan default "esc" tombol. Mengubah nilai segera update item keluar di bar sentuhan.
 
 ## Contoh
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Berikut adalah contoh sederhana bar sentuhan pada mesin slot permainan dengan tombol dan beberapa label.
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
@@ -172,7 +172,7 @@ app.once('ready', () => {
 })
 ```
 
-### Running the above example
+### Menjalankan contoh di atas
 
 To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
@@ -180,4 +180,4 @@ To run the example above, you'll need to (assuming you've got a terminal open in
 2. Instal elektron melalui `npm menginstal elektron`
 3. Jalankan contoh di dalam elektron: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Anda harus melihat jendela baru elektron dan aplikasi yang berjalan di bar sentuhan Anda (atau bar sentuhan emulator).
