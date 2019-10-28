@@ -31,42 +31,42 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Halimbawa ng mga Event
+### Mga Halimbawa ng "Events"
 
-#### Event: 'detach'
+#### Pangyayari: 'pagtanggal'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
-* `reason` String - Reason for detaching debugger.
+* `kaganapan` Kaganapan
+* `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### Pangyayari: 'mensahe'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
-* `method` String - Method name.
+* `method` String - Pangalan ng sistematikong paraan.
 * `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
 
-### Instance Methods
+### Mga Pamamaraan ng Instance
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (opsyunal) - Ang hiling na bersyon ng sistematikong panuntunan para sa "debugging".
 
-Attaches the debugger to the `webContents`.
+Idikit ang "debugger" sa `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Pagbabalik sa `Boolean` - Kung ang "debugger" ay nakadikit sa `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Pagtanggal ng "debugger" galing sa `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
@@ -75,4 +75,4 @@ Detaches the debugger from the `webContents`.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
-Send given command to the debugging target.
+Ipadala ang binigay na "command" sa "debugging target".
