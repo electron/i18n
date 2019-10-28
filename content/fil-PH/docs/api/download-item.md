@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-`DownloadItem` ay isang `EventEmitter` na kumakatawan sa "download item" sa Elektron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
 
 ```javascript
 // Sa mga pangunahing proseso.
@@ -74,11 +74,15 @@ Ang `downloadItem` ay may mga sumusunod na paraan:
 
 * `path` String - Itakda ang lokasyon o direktoryo o tinatawag ding "path", ng pinanatiling payl ng "download item".
 
-Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. Kung ang gumagamit ay hindi nagtakda ng "save path" sa pamamagitan ng API, ang Elektron ay gagamit ng karaniwang gawain nito upang matukoy ang "save path" (Kadalasang ginagawa sa "save dialog").
+Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
-Pagbabalik ng `String` - Ang "save path" ng "download item". Ito ay maaaring itinakdang lokasyon ng payl o "path", sa pamamagitan ng `downloadItem.setSavePath(path)` o ang piniling lokasyon o direktoryo ng payl galing sa ipinakitang "save dialog".
+Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -92,17 +96,17 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pansamantalang paghinto ng "download".
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
-Pagbabalik sa `Boolean` - Kahit pa ang "download" ay pansamantalang nakahinto.
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
+Resumes the download that has been paused.
 
-**Paalala:** Para mapagana ang mga "download" na muling prinoseso, ang "server" kung saan pinoproseso ang "download" ay dapat suportahan ng mga saklaw na kahilingan at magbigay pareho ang mga halaga ng "header" na `Last-Modified` at `ETag`. Kung hindi man, ang `resume()` ay ihihinto ang pagtanggap ng nakaraang "bytes" at muling uumpisahan ang "download".
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
@@ -110,58 +114,66 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Paghinto ng operasyon ng "download".
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Pagbabalik ng `String` - Ang orihinal na "url" kung saan galing ang "downloaded item".
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-Pagbabalik ng `String` - Ang uri ng payl na nanggagaya.
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-Pagbabalik ng `Boolean` - Kapag ang "download" ay may kilos ng gumagamit.
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-Pagbabalik ng `String` - Ang pangalan ng payl ng "download item".
+Returns `String` - The file name of the download item.
 
-**Paalala:** Ang pangalan ng payl ay hindi parating pareho sa isang aktwal na pinanatili sa lokal na "disc". Kung ang gumagamit ay nagsagawa ng pagbabago sa pangalan ng payl sa pinoproseso na "download" na nananatili sa "dialog", ang aktwal na pangalan sa payl ay magbabago din.
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-Pagbabalik ng `Integer` - Ang kabuuang sukat ng "bytes" ng "download item".
+Returns `Integer` - The total size in bytes of the download item.
 
-Kung hindi alam ang sukat, ito ay magbabalik sa 0.
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Pagbabalik ng `Integer` - Ang "bytes" na natanggap sa download item.
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Pagbabalik ng `String` - Ang Content-Disposition galing sa tugon ng "header".
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
 Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Note:** Ang mga sumusunod na paraan ay kapaki-pakinabang lalo na para paganahing muli ang aytem na `cancelled` kapag ang sesyon ay muling inumpisahan.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-Pagbabalik ng `String[]` - Ang kumpletong "url" ng aytem kasama ang kahit anong mga muling dinirekta.
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Pagbabalik ng `String` - Ang halaga ng Last-Modified header.
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-Pagbabalik ng `String` - Ang halaga ng "ETag header".
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-Pagbabalik ng `Double` - Bilang ng mga segundo simula ang "UNIX epoch" kapag ang "download" ay nag-umpisa.
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+
+### Instance Properties
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
