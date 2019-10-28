@@ -46,7 +46,7 @@
 
 #### `response.headers`
 
-表示响应HTTP头的 `Object`。 `headers` 对象的格式如下所示：
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * 所有的头文件名是小写的。
 * 每个头名称在头对象上生成一个数组值属性。
