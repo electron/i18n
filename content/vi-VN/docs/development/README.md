@@ -20,6 +20,5 @@ These guides are intended for people working on the Electron project itself. For
 * [Gỡ lỗi trên Windows](debug-instructions-windows.md)
 * [Debugging on macOS](debugging-instructions-macos.md)
 * [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
-* [Nâng cấp Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Upgrading Node](upgrading-node.md)
