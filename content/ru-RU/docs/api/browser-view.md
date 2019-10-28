@@ -6,7 +6,7 @@
 
 `BrowserView` может использоваться для встраивания дополнительного веб-контента в [`BrowserWindow`](browser-window.md). Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
-## Пример
+### Пример
 
 ```javascript
 // В основном процессе.
@@ -46,7 +46,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 Возвращает `BrowserView` - вид, с заданным `id`.
 
-### Свойства экземпляра
+### Instance Properties
 
 Объекты, созданные с помощью `new BrowserView`, имеют следующие свойства:
 
@@ -73,16 +73,22 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` *Экспериментально*
 
 * `options` Object 
-  * `width` Boolean - если `true`, то ширина будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
-  * `height` Boolean - если `true`, то высота будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Экспериментально*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Изменяет и перемещает вид в предоставленные границы, относительно окна.
+
+#### `view.getBounds()` *Experimental*
+
+Возвращает [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` *Экспериментально*
 
