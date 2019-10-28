@@ -294,8 +294,8 @@ protocol.registerSchemesAsPrivileged([
                         * `scheme` String
                         * `handler` Funktion 
                           * `request` Object 
-                            * `url` String
-                            * `headers` Record<String, String>
+                            * ` URL </ 0>  Zeichenfolge</li>
+<li><code>headers` Record<String, String>
                             * `referrer` String
                             * `method` String
                             * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -355,8 +355,8 @@ protocol.registerSchemesAsPrivileged([
                                         * `uploadData` [UploadData[]](structures/upload-data.md)
                                       * `callback` Funktion 
                                         * `redirectRequest` Object 
-                                          * `url` String
-                                          * `method` String (optional)
+                                          * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String (optional)
                                           * `session` Session | null (optional)
                                           * `uploadData` Objekt (optional) 
                                             * `contentType` String - MIME type of the content.
