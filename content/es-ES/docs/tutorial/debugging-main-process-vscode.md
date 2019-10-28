@@ -14,13 +14,13 @@ $ code electron-quick-start
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Depurar el Proceso Principal",
+      "name": "Debug Main Process",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
       "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
       },
       "args" : ["."],
       "outputCapture": "std"
