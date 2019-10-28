@@ -15,45 +15,43 @@ console.log(clipboard.readText('selection'))
 
 ## Methods
 
-The `clipboard` module has the following methods:
+و ` الحافظة </ 0> وحدة لديها الطرق التالية:</p>
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+<p><strong>Note:</strong> Experimental APIs are marked as such and could be removed in future.</p>
 
-### `clipboard.readText ([نوع])`
+<h3><code>clipboard.readText ([نوع])`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+إرجاع ` String </ 0> - المحتوى الموجود في الحافظة كنص عادي.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 clipboard.writeText('hello i am a bit of text!')
 
 const text = clipboard.readText()
 console.log(text)
 // hello i am a bit of text!'
-```
+`</pre> 
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+يكتب النص ` </ 0> في الحافظة كنص عادي.</p>
 
-```js
-const { clipboard } = require('electron')
+<pre><code class="js">const { clipboard } = require('electron')
 
 const text = 'hello i am a bit of text!'
 clipboard.writeText(text)
-```
+`</pre> 
 
 ### `clipboard.readHTML ( [نوع] )`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+<<> سلسلة </ 0> - المحتوى الموجود في الحافظة كنص عادي.
 
 ```js
 const { clipboard } = require('electron')
