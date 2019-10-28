@@ -1,4 +1,4 @@
 # كائن استهلاك المعالج
 
 * `percentCPUUsage` عدد - النسبة المئوية لوحدة المعالجة المركزية المستخدمة منذ الاستعلام الاخير getCPUUsage. الاستدعاء الأول يرجع 0.
-* `idleWakeupsPerSecond` رقم - متوسط عدد ال dle cpu wakeups في الثانية منذ آخر إستعلام لـ getCPUUsage. أول إستعلام يعيد 0. دائماً يعيد 0 في ويندوز.
+* `idleWakeupsPerSecond` Number - The number of average idle CPU wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.
