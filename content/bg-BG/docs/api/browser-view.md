@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([опции])` *Experimental*
 
 * `опции` Object (по избор) 
   * `webPreferences` Object (по избор) - виж [BrowserWindow](browser-window.md).
