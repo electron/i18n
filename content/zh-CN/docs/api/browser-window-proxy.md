@@ -34,7 +34,7 @@ Eval子窗口中的代码
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 调通过指定位置或用`*`来代替不明位置，向子窗口发送信息
