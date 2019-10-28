@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### Currently supported versions
 
+* 7.x.y
 * 6.x.y
 * 5.x.y
-* 4.x.y
 
 ### End-of-life
 
@@ -57,7 +57,7 @@ MacOS에는 64 비트 바이너리만 제공되며, 최소 버전은 macOS 10.10
 
 Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니다(그리고 동작하지 않음).
 
-32비트 `ia32` (`x86`) 와 64비트 `x64` (`amd64`) 바이너리가 둘다 제공됩니다. Electron 애플리케이션을 ia32 바이너리를 사용해 ARM 기반 윈도우에서 실행하는 것이 가능합니다.
+32비트 `ia32` (`x86`) 와 64비트 `x64` (`amd64`) 바이너리가 둘다 제공됩니다. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
 
 ### Linux
 
