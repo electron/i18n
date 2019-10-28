@@ -17,15 +17,16 @@
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
-  * `accelerator` [Accelerator](accelerator.md) (可选)
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
+  * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
-  * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
-  * `acceleratorWorksWhenHidden` Boolean（可选） - 默认为`true`，当设置为`false`时，菜单项隐藏后将无法触发该选项的快捷键。 *macOS*
-  * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
-  * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
-  * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
+  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
+  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
+  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
@@ -120,7 +121,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-`String` 表示菜单项的类型
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.accelerator`
 
-`String` （可选）表示菜单项的快捷键。
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -138,23 +139,27 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 
 A `String` indicating the item's sublabel, this property can be dynamically changed.
 
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
+
 #### `menuItem.enabled`
 
-一个 ` Boolean ` 类型的值, 指示是否启用该项, 该属性可以动态改变
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `menuItem.visible`
 
-一个 ` Boolean ` 类型的值, 指示该项是否可见, 该属性可以动态改变。
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `menuItem.checked`
 
-一个 ` Boolean ` 类型的值, 指示是否选中该项, 该属性可以动态改变。
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-` checkbox ` 菜单项将在选中时切换 ` checked ` 的开关属性。
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-`单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-你可以为其他行为添加`click`函数。
+You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
