@@ -9,15 +9,15 @@ On Linux, there is also a `selection` clipboard. To manipulate it you need to pa
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Halimbawa String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Mga Paraan
 
-The `clipboard` module has the following methods:
+Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Note:** Eksperimental na APIs ay minarkahan bilang tulad at pwedeng maalis sa hinaharap. 
 
 ### `clipboard.readText([i-type])
 
@@ -25,7 +25,7 @@ The `clipboard` module has the following methods:
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
 ```js
 const { clipboard } = require('electron')
@@ -44,7 +44,7 @@ console.log(text)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+Pagsulat ng `text` as klipboard bilang tekstong walang format.
 
 ```js
 const { clipboard } = require('electron')
@@ -57,7 +57,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
 
 ```js
 const { clipboard } = require('electron')
@@ -76,7 +76,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+Pagsulat ng `markup` sa klipboard. 
 
 ```js
 const { clipboard } = require('electron')
@@ -90,7 +90,7 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
 
 ### `clipboard.writeImage(image[ ,i-type])
 
@@ -99,7 +99,7 @@ Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+Pagsulat `image` sa klipboard.
 
 ### `clipboard.readRTF([i-type])
 
@@ -107,7 +107,7 @@ Writes `image` to the clipboard.
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -124,7 +124,7 @@ console.log(rtf)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+Pagsulat ng `text` sa klipboard bilang RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -135,12 +135,12 @@ clipboard.writeRTF(rtf)
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `title` String
 * `url` Tali
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa bookmark sa klipbord. Ang `title` and `url` values ay walang laman na string kapag ang bookmark ay hindi magagamit. 
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -148,9 +148,9 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` Tali
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Note:** Karamihan ng apps sa Windows ay hindi sumusuporta sa pasting bookmarks para sa kanila kaya pwede kang gumamit ng `clipboard.write` para sumulat ng kapwa bookmark at fallback na texsto sa klipboard.
 
 ```js
 const { clipboard } = require('electron')
