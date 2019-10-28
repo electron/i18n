@@ -40,9 +40,9 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Start recording on all processes.
+Simulan ang pagtatala ng lahat ng mga proseso. 
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording.
 
 If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
@@ -52,9 +52,9 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Stop recording on all processes.
+Itigil ang pagtatala ng mga proseso. 
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
 Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
