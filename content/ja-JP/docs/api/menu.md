@@ -10,7 +10,7 @@
 
 ### 静的メソッド
 
-`Menu`クラスは以下の静的メソッドを持ちます。
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -52,7 +52,7 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 `menu` オブジェクトには以下のメソッドがあります。
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `options` Object (任意) 
   * `window` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
@@ -131,10 +131,12 @@ menu のアイテムが入った配列 `MenuItem[]`。
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },
