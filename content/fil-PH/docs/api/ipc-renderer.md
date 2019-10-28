@@ -33,7 +33,7 @@ Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listene
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Punsyon 
+* `listener` Function 
   * `...args` anuman[]
 
 Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
@@ -84,13 +84,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 * `channel` String
 * `...args` anuman[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+Magbabalik ng `any` - Ang halaga ay ipinadala pabalik sa pamamagitan ng tagahawak ng [`ipcMain`](ipc-main.md).
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
+Magpadala ng mensahe sa pangunahing proseso ng magkasabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
 The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
@@ -105,7 +105,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `channel` String
 * `...args` anuman[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahagi sa pahina ng host sa halip na sa pangunahing proseso.
 
 ## Ang bagay ng event
 
