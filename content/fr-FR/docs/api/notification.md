@@ -14,7 +14,7 @@ SI vous voulez afficher des notifications depuis un processus de rendu, vous dev
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
@@ -28,7 +28,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `options` Object (facultatif) 
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
@@ -102,13 +102,51 @@ Si la notification a déjà été affichée auparavant, cette méthode rejettera
 
 Rejette la notification.
 
-### Lire un son
+### Propriétés d'instance
 
-Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peuvent être utilisés, en plus des fichiers audio personnalisés. Assurez-vous que le fichier audio soit copié dans l'"app bundle" (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+
+### Playing Sounds
+
+On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.
+See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
