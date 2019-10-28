@@ -34,7 +34,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
 
 ```sh
-export SCCACHE_BUCKET="electronjs-sccache"
+export SCCACHE_BUCKET="electronjs-sccache-ci"
 export SCCACHE_TWO_TIER=true
 ```
 
@@ -57,6 +57,7 @@ If you intend to `git pull` or `git push` from the official `electron` repositor
 $ cd src/electron
 $ git remote remove origin
 $ git remote add origin https://github.com/electron/electron
+$ git checkout master
 $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
@@ -219,21 +220,11 @@ gclient sync -f --with_branch_heads --with_tags
     </p>
     
     <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
-# Installieren Sie die Testmodule mit den generierten Headern
-$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 </code></pre>
     
     <p>
-      Dann führen Sie Electron mit <code>electron/spec</code> als Argument aus:
+      You can now <a href="testing.md#unit-tests">run the tests</a>.
     </p>
-    
-    <pre><code class="sh"># auf Mac:
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# auf Windows:
-$ ./out/Debug/electron.exe electron/spec
-# auf Linux:
-$ ./out/Debug/electron electron/spec
-</code></pre>
     
     <p>
       Wenn Sie etwas debuggen kann es hilfreich sein einige zusätzlichen Flaggen zu der Electron Binärdatei zu übergeben:
