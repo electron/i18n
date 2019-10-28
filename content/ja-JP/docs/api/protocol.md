@@ -281,7 +281,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
+戻り値 `Promise<Boolean>` - `scheme` のハンドラがすでに存在するかどうかを示すブール値が入ります。
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -328,7 +328,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (任意)
 * `completion` Function (任意) 
   * `error` Error
 
