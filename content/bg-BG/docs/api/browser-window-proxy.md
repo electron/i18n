@@ -34,7 +34,7 @@
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Изпраща съобщение до новия прозорец с определен произход или `*` ако няма предпочитание към произхода.
