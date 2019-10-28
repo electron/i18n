@@ -286,16 +286,16 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Punsyon 
+* `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Record<String, String>
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
+  * `callback` Function 
     * `filePath` String
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -349,7 +349,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` Tali
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Bagay (opsyonal) 
+      * `ang uploadData` Na Bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
 * `pagkumpleto` Function (opsyonal) 
@@ -377,7 +377,7 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` na String
-* `ang pagkumpleto` Function (opsyonal) 
+* `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
