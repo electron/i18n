@@ -28,7 +28,7 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 ### `new Notification([options])` *실험적*
 
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `title` String - 알림 윈도우가 표시될 때 상단에 나타나는, 알림의 타이틀입니다.
   * `subtitle` String (옵션) *macOS* - 알림의 부제목으로써, 타이틀의 아래에 표시됩니다.
   * `body` String - 알림의 body에 표시되는 문자열로서, title 혹은 subtitle의 아래에 표시됩니다.
@@ -102,7 +102,7 @@ If the notification has been shown before, this method will dismiss the previous
 
 알림창을 닫습니다.
 
-### Instance Properties
+### Instance Properties (인스턴스 속성)
 
 #### `notification.title`
 
@@ -140,13 +140,13 @@ A `Boolean` property representing whether the notification has a reply action.
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
-### Playing Sounds
+### 사운드 재생
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+macOS에서는, 알림이 표시될 때 재생하고싶은 특정한 알림음을 지정할 수 있습니다. 모든 기본 알림음(System Preferences > Sound)을 사용할 수 있으며, 사용자 정의 사운드 파일을 사용할 수 있습니다. 사운드 파일이 app 경로 아래(예: `YourApp.app/Contents/Resources`), 혹은 다음 경로들 중 하나에 복사되어있는지 확인하세요:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) 문서에서 더 자세한 정보를 확인할 수 있습니다.
