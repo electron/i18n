@@ -31,6 +31,7 @@
   * [استفاده از API های الکترونی](tutorial/application-architecture.md#using-electron-apis)
   * [استفاده از API های Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * اضافه کردن ویژگی ها به برنامه شما 
   * [اطلاعیه](tutorial/notifications.md)
   * [اسناد اخیر](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [Synopsis](api/synopsis.md)
 * [شیء فرآیند](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 
