@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-이모듈을 이용 하시려면 `app`의`ready`이벤트가 방사돼기를 기다려야 합니다.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -12,23 +12,20 @@
 
 An example of creating a window that fills the whole screen:
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
-
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
     <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
-    app.on('ready', () =&gt; {
-      let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+    app.on('ready', () => {
+      let displays = screen.getAllDisplays()
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     
@@ -48,7 +45,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+반환:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -57,7 +54,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -66,7 +63,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+반환:
 
 * `event` Event
 * `display` [Display](structures/display.md)
