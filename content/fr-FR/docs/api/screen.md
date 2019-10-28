@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready` du module `app` soit émis.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -12,23 +12,20 @@ Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready`
 
 Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
-
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
     <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
-    app.on('ready', () =&gt; {
-      let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+    app.on('ready', () => {
+      let displays = screen.getAllDisplays()
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     
@@ -44,16 +41,16 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
 
 ## Événements
 
-Le module `screen` émet les événements suivants :
+The `screen` module emits the following events:
 
 ### Événement : 'display-added'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 * `newDisplay` [Display](structures/display.md)
 
-Émis lorsque `newDisplay` a été ajouté.
+Emitted when `newDisplay` has been added.
 
 ### Événement : 'display-removed'
 
@@ -62,7 +59,7 @@ Retourne :
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)
 
-Émis lorsque `oldDisplay` a été retiré.
+Emitted when `oldDisplay` has been removed.
 
 ### Événement 'display-metrics-changed'
 
@@ -72,43 +69,43 @@ Retourne :
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Émis lorsqu’un ou plusieurs métrics changent dans un `display`. `changedMetrics` est un tableau de chaîne de caractères décrivant les modifications. Les modifications possibles sont `bounds`, `workArea`, `scaleFactor` et `rotation`.
+Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Méthodes
 
-Le module `screen` dispose des méthodes suivantes :
+The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Retourne [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
-La position absolue du pointeur de la souris.
+The current absolute position of the mouse pointer.
 
 ### `screen.getPrimaryDisplay()`
 
-Retourne [`Display`](structures/display.md) - L'écran principal.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Retourne [`Display[]`](structures/display.md) - Un tableau d'écrans qui sont actuellement disponibles.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Retourne [`Display`](structures/display.md) - L'écran le plus proche du point spécifié.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les limites d'intersection données.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `point` [Point](structures/point.md)
 
-Retourne [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -116,7 +113,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Retourne [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
