@@ -89,9 +89,9 @@ window.open = customWindowOpen
 
 Cosas importantes que notar en el script precargado:
 
-- A pesar de que el renderizador en caja de arena no tiene Node.js ejecutándose, todavía tiene acceso a un entorno limitado parecido a node: `Buffer`, `process`, `setImmediate` y `require` están disponible.
+- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
 - El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`.
-- El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. De echo, browserify ya es utilizado por Electron para proveer a ambiente parecido a node para el scrip de precarga.
+- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
@@ -122,9 +122,7 @@ Se pueden agregar más si se necesitan para exponer más APIs de Electron en el 
 
 Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. Nosotros todavía no estamos seguros de las implicaciones de seguridad al exponer algunas APIs renderer de Electron a un script de precarga, pero aquí hay algunas cosas a considerar antes de renderizar contenido no confiable:
 
-- Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
-- Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
+- A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
+- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
 
 Dado que el renderizado de contenido no confiable en Electron sigue siendo un territorio inexplorado, las APIs expuestas al script de pre carga del sandbox deben ser consideradas más inestables que el resto de las APIs de Electron, y pueden tener cambios repentinos para solucionar problemas de seguridad.
-
-Una mejora planificada que debería incrementar mucho la seguridad es bloquear los mensajes IPC de los renderizadores de la caja de arena por defecto, permitiendo al proceso principal definir un grupo de mensajes que el renderizador está autorizado para enviar.
