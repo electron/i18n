@@ -930,7 +930,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Bijvoorbeeld:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -1006,7 +1006,7 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` *Experimental*
+### `app.enableSandbox()` *Experimenteel*
 
 Enables full sandbox mode on the app.
 
@@ -1030,7 +1030,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-For example:
+Bijvoorbeeld:
 
 ```js
 app.moveToApplicationsFolder({
