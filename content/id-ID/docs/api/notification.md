@@ -29,7 +29,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <h3><code> Pemberitahuan baru ( [pilihan] ) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
-<li><code>pilihan` Objek (pilihan) 
+<li><code>pilihan` Objek (opsional) 
 
 * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan.</li>
 <li><code>subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
@@ -111,7 +111,7 @@ is closed.</p>
   
   Dismisses the notification.
   
-  ### Instance Properties
+  ### Contoh properti
   
   #### `notification.title`
   
@@ -149,13 +149,15 @@ is closed.</p>
   
   A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
   
-  ### Playing Sounds
+  ### Memutar Suara
   
-  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, `App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
+
+<ul>
+<li><code>~ / Perpustakaan / Suara`</li> 
   
-  * `~ / Perpustakaan / Suara`
   * `/ Perpustakaan / Suara`
   * `/ Jaringan / Perpustakaan / Suara`
-  * `/ Sistem / Perpustakaan / Suara`
+  * `/ Sistem / Perpustakaan / Suara`</ul> 
   
-  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
