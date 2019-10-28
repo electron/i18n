@@ -10,55 +10,62 @@ Prozess: [Haupt](../glossary.md#main-process)
 
 ## Plattform-Hinweise
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Derzeit wird nur macOS und Windows unterstützt. Es gibt keine eingebaute Unterstützung des Auto-Updaters für Linux, deshalb empfehlen wir, dass benutzen eines Distributionsmanagers, um die App automatisch zu aktualisieren.
 
-In addition, there are some subtle differences on each platform:
+Außerdem gibt es auf jeder Plattform einige subtile Unterschiede:
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+Unter MacOS basiert das `autoUpdater` Modul auf [ Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), was bedeutet daß keine spezifische Konfiguration vonnöten ist. Für serverseitige Anforderungen können Sie [Serverunterstützung](https://github.com/Squirrel/Squirrel.Mac#server-support) lesen. Beachten Sie, dass  App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel ` NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
+ .</p>
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+<p><strong> Hinweis: </ 0> Ihre Anwendung muss für automatische Updates auf macOS signiert sein . Dies ist eine Voraussetzung von <code> Squirrel.Mac </ 1> .</p>
 
-### Windows
+<h3>Windows</h3>
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+<p>Unter Windows müssen Sie Ihre App auf dem Computer eines Benutzers installieren, bevor Sie den <code> autoUpdater </ 0> verwenden können. Daher wird empfohlen, das
+ <a href="https://github.com/electron/windows-installer"> Elektron-winstaller </ 1> , <a href="https://github.com/electron-userland/electron-forge"> Elektron zu verwenden -forge </ 2> oder das <a href="https://github.com/electron/grunt-electron-installer"> grunt-electron-installer </ 3> -Paket, um ein Windows- Installationsprogramm zu generieren .</p>
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+<p>Wenn Sie <a href="https://github.com/electron/windows-installer"> electron-winstaller </ 0> oder <a href="https://github.com/electron-userland/electron-forge"> electron-forge </ 1> verwenden , versuchen Sie nicht, Ihre App <a href="https://github.com/electron/windows-installer#handling-squirrel-events"> beim ersten Mal zu aktualisieren </ 2> (Siehe auch <3 > dieses Problem für weitere Informationen </ 3> ).
+ Es wird auch empfohlen, <a href="https://github.com/mongodb-js/electron-squirrel-startup"> electron-squirrel-startup </ 0> zu verwenden, um Desktop-Verknüpfungen für Ihre App zu erhalten.</p>
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+<p>Das mit Squirrel erstellte Installationsprogramm erstellt ein Verknüpfungssymbol mit einer
+ <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx"> Anwendungsbenutzermodell-ID </ 0> im Format
+ <code> com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE </ 1> , Beispiele sind
+ <code> com.squirrel .slack.Schwarz </ 1> und <code> com.squirrel.code.Code </ 1> . Sie müssen dieselbe ID für Ihre App mit der <code> app.setAppUserModelId </ 0>  API verwenden , da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann .</p>
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+<p>Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten.
+Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Windows"> Squirrel.Windows </ 0> lesen , um mehr über die Funktionsweise von Squirrel.Windows zu erfahren.</p>
 
-## Veranstaltungen
+<h2>Veranstaltungen</h2>
 
-The `autoUpdater` object emits the following events:
+<p>Das <code> autoUpdater </ 0> -Objekt gibt die folgenden Ereignisse aus:</p>
 
-### Ereignis : "Fehler
+<h3>Ereignis : "Fehler</h3>
 
-Rückgabewert:
+<p>Returns:</p>
 
-* ` Fehler </ 0> Fehler</li>
+<ul>
+<li><code> Fehler </ 0> Fehler</li>
 </ul>
 
-<p>Emitted when there is an error while updating.</p>
+<p>Wird gesendet, wenn beim Aktualisieren ein Fehler auftritt.</p>
 
 <h3>Ereignis : "Nach Updates suchen"</h3>
 
-<p>Emitted when checking if an update has started.</p>
+<p>Wird gesendet, wenn geprüft wird, ob ein Update gestartet wurde.</p>
 
 <h3>Ereignis : 'Update-verfügbar'</h3>
 
-<p>Emitted when there is an available update. The update is downloaded
-automatically.</p>
+<p>Wird gesendet, wenn ein Update verfügbar ist. Das Update wird automatisch heruntergeladen.</p>
 
 <h3>Ereignis : "Update nicht verfügbar"</h3>
 
-<p>Emitted when there is no available update.</p>
+<p>Wird gesendet, wenn kein Update verfügbar ist.</p>
 
 <h3>Ereignis : 'Update-Download'</h3>
 
-<p>Rückgabewert:</p>
+<p>Kehrt zurück:</p>
 
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>
@@ -68,42 +75,44 @@ automatically.</p>
 <li><code> updateURL </ 0>  String</li>
 </ul>
 
-<p>Emitted when an update has been downloaded.</p>
+<p>Wird gesendet, wenn ein Update heruntergeladen wurde.</p>
 
-<p>On Windows only <code>releaseName` is available.</p> 
-  **Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
-  
-  ### Ereignis: 'before-quit-for-update'
-  
-  This event is emitted after a user calls `quitAndInstall()`.
-  
-  When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
-  
-  ## Methoden
-  
-  The `autoUpdater` object has the following methods:
-  
-  ### `autoUpdater.setFeedURL(options)`
-  
-  * `optionen` Object 
-    * ` URL </ 0>  Zeichenfolge</li>
+<p>Unter Windows ist nur <code> releaseName </ 0> verfügbar.</p>
+
+<p><strong>Beachte:</strong> Es ist nicht notwendig dieses Ereignis zu bearbeiten. Ein erfolgreich
+heruntergeladenes Update wird immer noch beim nächsten Start der App angewendet.</p>
+
+<h3>Ereignis: 'before-quit-for-update'</h3>
+
+<p>This event is emitted after a user calls <code>quitAndInstall()`.</p> 
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
+## Methoden
+
+Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
+
+<h3><code>autoUpdater.setFeedURL(options)`</h3> 
+
+* `optionen` Object 
+  * ` URL </ 0>  Zeichenfolge</li>
 <li><code>headers` Record<String, String> (optional) *macOS* - HTTP request headers.
-    * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
-  
-  Sets the `url` and initialize the auto updater.
-  
-  ### `autoUpdater.getFeedURL ()`
-  
-  Returns `String` - The current update feed URL.
-  
-  ### `autoUpdater.checkForUpdates ()`
-  
-  Asks the server whether there is an update. You must call `setFeedURL` before using this API.
-  
-  ### `autoUpdater.quitAndInstall()`
-  
-  Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
-  
-  Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
-  
-  **Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+
+Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
+
+<h3><code>autoUpdater.getFeedURL ()`</h3> 
+
+Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
+
+<h3><code>autoUpdater.checkForUpdates ()`</h3> 
+
+Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
+
+<h3><code>autoUpdater.quitAndInstall()`</h3> 
+
+Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem ` update-downloaded </ 0> ausgegeben wurde.</p>
+
+<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
