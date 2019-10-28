@@ -87,11 +87,11 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
   * `callback` Function 
     * `response` Object 
       * `cancel` Boolean (可选)
-      * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
+      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
 
 一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
@@ -110,7 +110,7 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
 
 在请求发送到服务器之前，`listener`将以`listener(details)`的形式被调用，在该侦听器被出发前，上一个对 `onBeforeSendHeaders` 响应的修改是可见的。
 
@@ -129,11 +129,11 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
   * `callback` Function - 回调函数 
     * `response` Object 
       * `cancel` Boolean (可选)
-      * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
+      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
@@ -153,7 +153,7 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean - 表明响应是取自硬盘缓存。
     * `statusCode` Integer
     * `statusLine` String
@@ -177,7 +177,7 @@ Some examples of valid `urls`:
     * `statusCode` Integer
     * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
 
 当服务器的初始重定向即将发生时，将以 `listener(details)`的方式调用`listener`。
 
@@ -194,7 +194,7 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
