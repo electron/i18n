@@ -20,6 +20,5 @@ Queste guide sono destinate alle persone che lavorano al progetto stesso di Elec
 * [Debugging su Windows](debug-instructions-windows.md)
 * [Debugging su macOS](debugging-instructions-macos.md)
 * [Impostazione Simbolo Server nel Debugger](setting-up-symbol-server.md)
-* [Aggiornamento di Chromium](upgrading-chromium.md)
-* [Aggiornamento di Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Aggiornando Node](upgrading-node.md)
