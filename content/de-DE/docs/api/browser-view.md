@@ -46,7 +46,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Instance Properties
+### Instanz Eigenschaften
 
 Objects created with `new BrowserView` have the following properties:
 
@@ -58,7 +58,7 @@ A [`WebContents`](web-contents.md) object owned by this view.
 
 A `Integer` representing the unique ID of the view.
 
-### Instance Methods
+### Instanz Methoden
 
 Objects created with `new BrowserView` have the following instance methods:
 
@@ -90,6 +90,6 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Experimentell*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
