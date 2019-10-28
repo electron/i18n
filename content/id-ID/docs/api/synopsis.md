@@ -24,9 +24,9 @@ Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan 
 
 ```html
 & lt; DOCTYPE html & gt;
-&lt;html&gt;
-&lt;body&gt;
-&lt;script&gt;
+<html>
+<body>
+<script>
   const { app } = membutuhkan ('elektron'). remote
   console.log (app.getVersion ())
 </ 2>
