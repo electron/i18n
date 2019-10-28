@@ -24,7 +24,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
   * `tombol` - membuat segmen bertindak sebagai tombol, setiap segmen dapat ditekan dan dirilis tapi tidak pernah ditandai aktif.
 * `segmen` [[SegmentedControlSegment]](structures/segmented-control-segment.md) - serangkaian segmen untuk menempatkan di kontrol ini.
 * `selectedIndex` Bulat (opsional) - indeks dari segmen yang dipilih, akan diperbarui secara otomatis dengan interaksi pengguna. Bila beberapa itu akan terakhir item yang dipilih.
-* `perubahan` Fungsi - disebut ketika pengguna memilih segmen baru. 
+* `perubahan` Function (optional) - Called when the user selects a new segment. 
   * `selectedIndex` Bulat - indeks dari segmen pengguna yang dipilih.
   * `isSelected` Boolean - baik yang merupakan pengguna pilihan segmen yang dipilih atau tidak.</li> </ul> 
 
