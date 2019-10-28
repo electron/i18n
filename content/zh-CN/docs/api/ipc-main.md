@@ -79,7 +79,7 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.handle(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数<Promise<void> | any> 
+* `listener` Function<Promise<void> | any> 
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
@@ -106,7 +106,7 @@ The `event` that is passed as the first argument to the handler is the same as t
 ### `ipcMain.handleOnce(channel, listener)`
 
 * `channel` String
-* `listener` Function - 回调函数<Promise<void> | any> 
+* `listener` Function<Promise<void> | any> 
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
