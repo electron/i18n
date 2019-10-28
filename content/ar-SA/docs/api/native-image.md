@@ -261,7 +261,7 @@ Returns `Float` - The image's aspect ratio.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
-## الخصائص
+## Properties
 
 ### `nativeImage.isMacTemplateImage` *macOS*
 
