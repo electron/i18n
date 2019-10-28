@@ -37,7 +37,7 @@ The `systemPreferences` object emits the following events:
 
 ### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
 
-반환:
+Returns:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
