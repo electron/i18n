@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -12,23 +12,20 @@
 
 Tüm ekranı kaplayan bir pencere oluşturmanın örneği:
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
-
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
     <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
-    app.on('ready', () =&gt; {
-      let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+    app.on('ready', () => {
+      let displays = screen.getAllDisplays()
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     
@@ -44,7 +41,7 @@ app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisp
 
 ## Etkinlikler
 
-`ekran` modülü aşağıdaki olayları yayar:
+The `screen` module emits the following events:
 
 ### Etkinlik: 'görünüm-eklendi'
 
@@ -53,7 +50,7 @@ Dönüşler:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-`newDisplay` eklendiğinde ortaya çıkar.
+Emitted when `newDisplay` has been added.
 
 ### Olay: 'Görünüm-kaldırıldı'
 
@@ -62,7 +59,7 @@ Dönüşler:
 * `olay` Olay
 * `oldDisplay` [Display](structures/display.md)
 
-`oldDisplay` kaldırıldığında yayılır.
+Emitted when `oldDisplay` has been removed.
 
 ### Etkinlik: 'display-metrics-changed'
 
@@ -72,43 +69,43 @@ Dönüşler:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetrics`, değişiklikleri açıklayan dizeler dizgisidir. Olası değişiklikler `bounds`, `workArea`, `scaleFactor` ve `rotation`'dir.
+Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Metodlar
 
-`ekran` modülü aşağıdaki olayları içerir:
+The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-[`Point`](structures/point.md) geri alır
+Returns [`Point`](structures/point.md)
 
-Fare işaretçisinin geçerli mutlak konumu.
+The current absolute position of the mouse pointer.
 
 ### `screen.getPrimaryDisplay()`
 
-[`Ekran`](structures/display.md) Dödürür - Birincil görüntü.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-[`Görüntü[]`](structures/display.md) Dödürür - Şu anda mevcut ekran görüntüleri dizisi.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `nokta` [Nokta](structures/point.md)
 
-[`Görüntü`](structures/display.md) Dödürür - Belirtilen noktaya en yakın ekran.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
 
-[`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `nokta` [Nokta](structures/point.md)
 
-[`Point`](structures/point.md) geri alır
+Returns [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -116,7 +113,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `nokta` [Nokta](structures/point.md)
 
-[`Point`](structures/point.md) geri alır
+Returns [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
