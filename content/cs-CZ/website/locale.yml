@@ -146,6 +146,7 @@ apps:
   search_app: Filtrujte aplikace podle jména, popisu, atd…
   categories: Kategorie
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Vytvoř Pull Request</a> pro přidání své aplikace.'
+  #App show page specific localization strings
   website: Webová stránka
   repository: Repozitář
   category: Kategorie
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Electron Blog
   description: Všechny nejnovější zprávy z týmu Electron a komunity.
+  #Post show page specific localization strings
   feedback: Máte něco k tomuto příspěvku? Jděte na Twitter <a href="https://twitter.com/electronjs">@electronjs</a>.
   help: Potřebujete pomoct nebo jste našli chybu? <a href="/contact">Kontaktujte nás</a>.
 clipboard:
   copy: Kopírovat
   copy_to_clipboard: Kopírovat do schránky
   copied: Zkopírováno
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: or
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Electron Governance
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
-  docstools:
-    title: Dokumenty a nástroje
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Outreach
     description: Grows the Electron community
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: Vylepšení
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
-  website:
-    title: Webová stránka
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Komunita a bezpečnost
     description: Oversees removal/bans from community.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Administrativní
     description: The Administrative Working Group oversees the entire governance and project.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Přehled
     associated_repos: Associated Repositories
