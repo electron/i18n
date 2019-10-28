@@ -233,7 +233,7 @@ Marca a imagem como uma imagem padrão.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Retorna `Boolean` - sendo a imagem uma imagem padrão ou não.
 
 **[Deprecated](modernization/property-updates.md)**
 
@@ -241,25 +241,25 @@ Returns `Boolean` - Whether the image is a template image.
 
 * `rect` [Rectangle](structures/rectangle.md) - A área da imagem a ser cortada.
 
-Returns `NativeImage` - The cropped image.
+Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
 
-Returns `NativeImage` - The resized image.
+Retorna `NativeImage` - A imagem redimensionada.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Se apenas o `height` ou o `width` forem definidos então a atual proporção de tela da imagem será preservada na imagem redimensionada.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Retorna `Float` - A proporção de tela da imagem.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - O fator de escala a ser adicionado à representação da imagem. * `width` Integer (optional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `height` Integer (opcional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `buffer` Buffer (opcional) - O buffer contendo os dados crus (sem alteração) da imagem. * `dataURL` String (opcional) - O URL dos dados contendo tanto um PNG codificado em base 64 ou uma imagem JPEG.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Adiciona uma imagem de representação para um específico fator de escala. Esse pode ser usado para adicionar explicitamente representações de fatores de escala diferentes para uma imagem. Isso pode ser chamado em imagens vazias.
 
 ## Propriedades
 
