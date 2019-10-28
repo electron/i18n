@@ -38,99 +38,99 @@ Modul `Tray` memancarkan peristiwa berikut:
 
 #### Acara : 'klik'
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 * `posisi` [Point](structures/point.md) - posisi acara.
 
-Emitted when the tray icon is clicked.
+Emitted saat ikon baki diklik.
 
 #### Event: klik 'kanan' *macOS* *Windows*
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
-Emitted when the tray icon is right clicked.
+Dibunyikan ketika ikon tray benar diklik.
 
 #### Event: 'Klik dua kali' *macOS* *Windows*
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
-Emitted when the tray icon is double clicked.
+Dipancarkan saat ikon baki diklik dua kali.
 
 #### Event: 'balon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitted saat balon baki menunjukkan.
 
 #### Event: 'klik-balloon' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitted saat balon nampan diklik.
 
 #### Event: 'balon-tertutup' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Dipancarkan ketika balon nampan ditutup karena timeout atau pengguna secara manual menutup itu.
 
 #### Event: 'turun' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
 
 #### Event: 'drop-file' *macOS*
 
-Mengembalikan:
+Pengembalian:
 
 * `event` Acara
 * `file` String [] - path file menjatuhkan.
 
-Emitted when dragged files are dropped in the tray icon.
+Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' *macOS*
 
-Mengembalikan:
+Pengembalian:
 
 * `acara` Acara
 * `teks` String - string teks menjatuhkan.
 
-Emitted when dragged text is dropped in the tray icon.
+Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
 
 #### Event: 'Masukkan tarik' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Event: 'drag-meninggalkan' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Dibunyikan apabila operasi tarik keluar ikon tray.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
 
 #### Event: 'masuk mouse' *macOS*
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
-Emitted when the mouse enters the tray icon.
+Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Acara: 'pindah' *macOS*
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
-Emitted when the mouse exits the tray icon.
+Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Event: 'mouse-move' *macOS* *Windows*
 
-Mengembalikan:
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -139,29 +139,29 @@ Emitted when the mouse moves in the tray icon.
 
 ### Metode Instance
 
-The `Tray` class has the following methods:
+Itu `net` modul memiliki metode berikut:
 
 #### `tray.destroy ()`
 
-Destroys the tray icon immediately.
+Segera hancurkan ikon baki.
 
 #### `tray.setImage(image)`
 
 * `gambar` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Mengatur `gambar` yang terkait dengan ikon baki ini.
 
 #### `tray.setPressedImage(gambar) ` *macos*
 
 * `gambar` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Mengatur ` gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Menyetel teks hover untuk ikon baki ini.
 
 #### `tray.setTitle(judul) ` *macos*
 
@@ -173,7 +173,7 @@ Sets the hover text for this tray icon.
 <h4><code> tray.getTitle () </ 0>  <em> macos </ 1></h4>
 
 <p>Returns <code>String` - the title displayed next to the tray icon in the status bar</p> 
-  #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+  #### `tray.setIgnoreDoubleClickEvents(ignore)` * macos*
   
   * `mengabaikan` Boolean
   
@@ -181,40 +181,40 @@ Sets the hover text for this tray icon.
   
   This value is set to false by default.
   
-  #### `tray.getIgnoreDoubleClickEvents()` *macOS*
-  
-  Returns `Boolean` - Whether double click events will be ignored.
+  #### ` tray.getIgnoreDoubleClickEvents () </ 0>  <em> macos </ 1></h4>
+
+<p>Returns <code>Boolean` - Whether double click events will be ignored.</p> 
   
   #### `tray.displayBalloon(options)` *Windows*
   
-  * `pilihan` Sasaran 
-    * `icon` ([NativeImage](native-image.md) | String) (optional) -
-    * ` judul</ 0>  String</li>
+  * `pilihan` Obyek 
+    * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
+    * ` judul </ 0> String</li>
 <li><code>content` String
   
-  Displays a tray balloon.
+  Menampilkan balon baki.
   
   #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
   
-  * `menu` Menu (optional)
-  * `position` [Point](structures/point.md) (optional) - The pop up position.
+  * ` teks ` String (opsional)
+  * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
   
-  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+  Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
   
-  The `position` is only available on Windows, and it is (0, 0) by default.
+  Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
   
-  #### `tray.setContextMenu(menu)`
+  #### `tray.setContextMenu (menu)`
   
-  * `menu` Menu | null
+  * `menu` Menu | batal
   
-  Sets the context menu for this icon.
+  Menetapkan menu konteks untuk ikon ini.
   
-  #### `tray.getBounds()` *macOS* *Windows*
+  #### `tray.getBounds()` *macOS * * Windows*
   
   Kembali [`Rectangle`](structures/rectangle.md)
   
-  The `bounds` of this tray icon as `Object`.
+  `Batas` dari ikon baki ini sebagai `Objek`.
   
   #### `tray.isDestroyed()`
   
-  Returns `Boolean` - Whether the tray icon is destroyed.
+  Mengembalikan `Boolean` - Apakah ikon baki rusak.
