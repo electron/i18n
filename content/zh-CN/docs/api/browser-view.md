@@ -23,7 +23,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `new BrowserView([可选])` *实验功能*
 
 * `参数` Object (可选) 
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
@@ -84,12 +84,12 @@ view.webContents.loadURL('https://electronjs.org')
 
 调整视图的大小，并将它移动到窗口边界
 
-#### `view.getBounds()` *Experimental*
+#### `view.getBounds()` *实验功能*
 
 返回 [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this BrowserView instance as `Object`.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *实验功能*
 
 * `color` String - 颜色值格式为 `#aarrggbb` 或 `#argb`, 透明度为可选参数.
