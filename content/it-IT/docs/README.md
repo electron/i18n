@@ -101,7 +101,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
 
 * [Sinossi](api/synopsis.md)
 * [Oggetto Process](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Opzioni della linea di comando supportate](api/command-line-switches.md)
 * [Variabili di ambiente](api/environment-variables.md)
 * [Cambiamenti API](api/breaking-changes.md)
 
