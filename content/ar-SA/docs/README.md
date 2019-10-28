@@ -31,6 +31,7 @@
   * [باستخدام إلكترون APIs](tutorial/application-architecture.md#using-electron-apis)
   * [باستخدام Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [باستخدام Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * إضافة ميزات إلى تطبيقك 
   * [الإشعارات](tutorial/notifications.md)
   * [المستندات الأخيرة](tutorial/recent-documents.md)
@@ -99,7 +100,7 @@
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 * [كسر تغييرات API](api/breaking-changes.md)
 
