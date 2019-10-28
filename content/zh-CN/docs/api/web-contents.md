@@ -88,15 +88,15 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when a frame has done navigation.
+当框架完成导航（navigation）时触发
 
 #### Event: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+当tab中的旋转指针（spinner）开始旋转时，就会触发该事件。
 
 #### Event: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+当tab中的旋转指针（spinner）结束旋转时，就会触发该事件。
 
 #### 事件: 'dom-ready'
 
@@ -104,7 +104,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 * `event` Event
 
-Emitted when the document in the given frame is loaded.
+一个框架中的文本加载完成后触发该事件。
 
 #### 事件： 'page-title-updated'
 
@@ -123,7 +123,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 * `event` Event
 * `favicons` String[] - 由连接组成的数组。
 
-Emitted when page receives favicon urls.
+当页面获取到favicon的连接时，触发该事件。
 
 #### Event: 'new-window'
 
@@ -134,14 +134,14 @@ Emitted when page receives favicon urls.
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
 * `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+当页面请求打开地址为 ` url ` 的新窗口时触发。可以通过 ` window.open ` 或外部链接 (如 `<a target='_blank'>`) 触发。
 
-By default a new `BrowserWindow` will be created for the `url`.
+默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. 例如：
+调用`event.preventDefault()`事件，可以阻止Electron自动创建新的[`BrowserWindow`](browser-window.md)实例。 调用`event.preventDefault()` 事件后，你还可以手动创建新的[`BrowserWindow`](browser-window.md)实例，不过接下来你必须用`event.newGuest`方法来引用[`BrowserWindow`](browser-window.md)实例，如果你不这样做，则可能会产生异常。 例如：
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
@@ -171,7 +171,7 @@ This event will not emit when the navigation is started programmatically with AP
 
 It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` will prevent the navigation.
+调用`event.preventDefault()`将阻止导航。
 
 #### Event: 'did-start-navigation'
 
@@ -297,7 +297,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+当渲染进程崩溃或被结束时触发
 
 #### 事件: 'unresponsive'
 
@@ -315,26 +315,26 @@ Emitted when the renderer process crashes or is killed.
 * `name` 字符串
 * `version` String
 
-Emitted when a plugin process has crashed.
+当有插件进程崩溃时触发
 
 #### Event: 'destroyed'
 
-Emitted when `webContents` is destroyed.
+当`webContents`被销毁时，触发该事件。
 
 #### Event: 'before-input-event'
 
 返回:
 
 * `event` Event
-* `input` Object - Input properties. 
-  * `type` String - Either `keyUp` or `keyDown`.
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+* `input` Object - Input属性. 
+  * `type` String - 可以是 `keyUp` ，或者 `keyDown`.
+  * `key` String - 等同于 [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` code ` String - 等同于 [KeyboardEvent. code ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` isAutoRepeat ` String - 等同于 [KeyboardEvent. repeat ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` shift ` String - 等同于 [KeyboardEvent.shiftKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` control ` String - 等同于 [KeyboardEvent. controlKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` alt ` String - 等同于 [KeyboardEvent. altKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  * ` meta ` String - 等同于 [KeyboardEvent. metaKey ](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
 
 Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
@@ -387,14 +387,14 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - 错误码.
 * `certificate` [证书](structures/certificate.md)
-* `callback` Function - 回调函数 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
+* `callback` Function 
+  * `isTrusted` Boolean - 用于显示证书是否可信。
 
-Emitted when failed to verify the `certificate` for `url`.
+`证书`的`链接`验证失败时，触发该事件。
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+使用方式与[`app`的`certificate-error`](app.md#event-certificate-error)的事件相同。
 
 #### 事件: 'select-client-certificate'
 
@@ -403,49 +403,49 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `event` Event
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 当一个客户证书被请求的时候发出。
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+使用方式与[`app`的`select-client-certificate`](app.md#event-select-client-certificate)的事件相同。
 
 #### 事件: "login"
 
 返回:
 
 * `event` Event
-* `request` Object - 过滤器对象，包含过滤参数 
+* `request` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object - 过滤器对象，包含过滤参数 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `username` String
   * `password` String
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+使用方式与[`app`的`login`](app.md#event-login)的事件相同。
 
 #### Event: 'found-in-page'
 
 返回:
 
 * `event` Event
-* `result` Object - 过滤器对象，包含过滤参数 
+* `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - 当前匹配位置。
   * `matches` Integer - 符合匹配条件的元素个数。
   * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+如果调用[`webContents.findInPage`]有返回时，会触发这一事件。
 
 #### Event: 'media-started-playing'
 
@@ -485,10 +485,10 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 * `type` String
 * `image` [NativeImage](native-image.md) (可选)
 * `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
+* `size` [Size](structures/size.md) (可选) - `image`大小。
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+当鼠标指针改变的时候触发。 Type参数值包含：`default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` 或 `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
@@ -497,9 +497,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 返回:
 
 * `event` Event
-* `params` Object - 过滤器对象，包含过滤参数 
-  * `x` Integer - x coordinate.
-  * `y` Integer - y coordinate.
+* `params` Object 
+  * `x` Integer - x 坐标。
+  * `y` Integer - y 坐标。
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
@@ -534,13 +534,13 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### 事件: 'select-bluetooth-device'
 
 返回:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `deviceId` String 设备Id
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -589,7 +589,7 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+当在开发者工具中命令webContents重新加载时，触发该事件。
 
 #### Event: 'will-attach-webview'
 
@@ -612,7 +612,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+当`<webview>`被挂载到页面内容中时，触发该事件。
 
 #### Event: 'console-message'
 
@@ -721,7 +721,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. 调
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -741,7 +741,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
@@ -758,7 +758,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-Would require code like this
+需要运行以下代码：
 
 ```js
 win.loadFile('src/index.html')
@@ -772,7 +772,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Returns `String` - 当前页面的URL.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -785,23 +785,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+返回 `String` - 当前页面的标题.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+返回 `Boolean` -判断页面是否被销毁
 
 #### `contents.focus()`
 
-Focuses the web page.
+页面聚焦
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+返回 `Boolean` - 判断页面是否聚焦
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+返回 `Boolean` - 判断页面是否正在加载资源
 
 #### `contents.isLoadingMainFrame()`
 
@@ -817,19 +817,19 @@ Stops any pending navigation.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+刷新当前页面
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+忽略缓存强制刷新页面
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+返回`Boolean`，是否可以返回到上一个页面
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+返回`Boolean` ，是否可以进入下一个页面
 
 #### `contents.canGoToOffset(offset)`
 
@@ -843,11 +843,11 @@ Clears the navigation history.
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+使浏览器回退到上一个页面。
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+使浏览器前进到下一个页面。
 
 #### `contents.goToIndex(index)`
 
@@ -869,20 +869,20 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+重写该页面的user agent
 
 **[过时的](modernization/property-updates.md)**
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+返回 `String` - 当前页面的user agent.
 
 **[过时的](modernization/property-updates.md)**
 
 #### `contents.insertCSS(css[, options])`
 
 * `css` String
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
@@ -930,7 +930,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *实验功能*
 
 * `ignore` Boolean
 
@@ -940,13 +940,13 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+使当前页面音频静音
 
 **[过时的](modernization/property-updates.md)**
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+返回 `Boolean` -判断页面是否被静音
 
 **[过时的](modernization/property-updates.md)**
 
@@ -1008,19 +1008,19 @@ Returns `Promise<void>`
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+在页面中执行`undo`编辑命令。
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+在页面中执行` redo `编辑命令。
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+在页面中执行` cut `编辑命令。
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+在页面中执行` copy `编辑命令。
 
 #### `contents.copyImageAt(x, y)`
 
@@ -1031,35 +1031,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+在页面中执行` paste `编辑命令。
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+在页面中执行` pasteAndMatchStyle `编辑命令。
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+在页面中执行` delete `编辑命令。
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+在页面中执行` selectAll `编辑命令。
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+在页面中执行` unselect `编辑命令。
 
 #### `contents.replace(text)`
 
 * `text` String
 
-Executes the editing command `replace` in web page.
+在页面中执行` replace `编辑命令。
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+在页面中执行` replaceMisspelling `编辑命令。
 
 #### `contents.insertText(text)`
 
@@ -1072,7 +1072,7 @@ Returns `Promise<void>`
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1112,9 +1112,9 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+获取系统打印机列表
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+返回 [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
@@ -1294,26 +1294,26 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+关闭开发者工具。
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+返回`Boolean` - 开发者工具是否处于开启状态。
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+返回`Boolean` - 开发者工具是否处于当前执行状态。
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+切换开发工具
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+开始检查位于(`x`, `y`) 的元素。
 
 #### `contents.inspectSharedWorker()`
 
@@ -1399,11 +1399,11 @@ ipcMain.on('ping', (event) => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Enable device emulation with the given parameters.
+允许设备模拟给定参数。
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+禁止`webContents.enableDeviceEmulation`允许的模拟设备
 
 #### `contents.sendInputEvent(inputEvent)`
 
@@ -1413,8 +1413,8 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function - 回调函数 
+* ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1430,7 +1430,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object - 过滤器对象，包含过滤参数 
+* `item` Object 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1571,7 +1571,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` *Readonly*
 
-A `Integer` representing the unique ID of this WebContents.
+`Integer`类型，代表WebContents的唯一标识（unique ID）。
 
 #### `contents.session` *Readonly*
 
