@@ -47,33 +47,33 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Retourne `Boolean` - Si l'élément s'est bien déplacé dans la poubelle.
 
-Move the given file to trash and returns a boolean status for the operation.
+Déplace le fichier donné dans la poubelle et retourne un booléen.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Émet un signal sonore.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operation` String (facultatif) - La valeur par défaut est `create`, peut être une des valeurs suivantes : 
+  * `create` - Créer un nouveau raccourci, écrase si besoin.
+  * `update` - Met à jour les propriétés seulement sur un raccourci existant.
+  * `replace` - Remplace un raccourci existant, échoue si le raccourci n'existe pas.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Retourne `Boolean` - Si le raccourci a été créé avec succès.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Créer ou met à jour un lien raccourci à `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Retourne [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Résout le lien raccourci à `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Une exception sera levée lorsqu’une erreur se produit.
