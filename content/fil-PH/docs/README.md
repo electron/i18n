@@ -31,6 +31,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
   * [Paggamit ng Electron APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Paggamit ng Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Paggamit ng katutubong Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Pagdagdag ng features sa iyong aplikasyon 
   * [Mga Paalala](tutorial/notifications.md)
   * [Kasalukuyang dokumento](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 
 * [Sinopsis](api/synopsis.md)
 * [Mga pangprocessong bagay](api/process.md)
-* [Suportadong mga Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Nagbabago sa kapaligiran](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 
