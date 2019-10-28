@@ -119,7 +119,7 @@ protocol.registerSchemesAsPrivileged([
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
@@ -142,7 +142,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (選用)
@@ -173,7 +173,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
@@ -291,7 +291,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String
@@ -308,7 +308,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
@@ -325,10 +325,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (選用)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -342,14 +342,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` 物件 (選用) 
+      * `uploadData` Object (選用) 
         * `contentType` String - 內容的 MIME 類型。
         * `data` String - 要傳送的內容。
 * `completion` Function (選用) 
