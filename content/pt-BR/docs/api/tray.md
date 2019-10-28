@@ -66,6 +66,8 @@ The `Tray` module emits the following events:
 
 #### Event: 'click'
 
+Retorna:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
@@ -74,12 +76,16 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
+Retorna:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
+
+Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -104,12 +110,16 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
+Retorna:
+
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
+
+Retorna:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -130,6 +140,8 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
+Retorna:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
@@ -137,12 +149,16 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
+Retorna:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Retorna:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -183,39 +199,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` no *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
-
-Sets when the tray's icon background becomes highlighted (in blue).
-
-**[Deprecated](breaking-changes.md#tray)**
-
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/caminho/para/o/icone')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
@@ -225,14 +209,14 @@ Sets the option to ignore double click events. Ignoring these events allows you 
 
 This value is set to false by default.
 
-#### `tray.getIgnoreDoubleClickEvents()` no *macOS*
+#### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
 Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
@@ -245,7 +229,7 @@ Displays a tray balloon.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-`position` está apenas disponível no Windows, sendo (0, 0) por padrão.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
