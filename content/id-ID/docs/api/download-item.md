@@ -4,8 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-` DownloadItem </ 0> adalah <code> acara Emitter </ 0> yang mewakili item unduhan di Elektron .
-Ini digunakan dalam event <code> will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Ini digunakan dalam event ` will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
 
 <pre><code class="javascript">// Pada proses utama.
 const { BrowserWindow } = require('electron')
@@ -62,12 +61,17 @@ Emitted saat download dalam status terminal. Ini termasuk unduhan yang selesai, 
 </ul>
 
 <p>API hanya tersedia dalam sesi <code> akan mengunduh </ 0> fungsi callback.
-Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunakan rutinitas asli untuk menentukan jalur simpan (Biasanya meminta dialog simpan).</p>
+If user doesn't set the save path via the API, Electron will use the original
+routine to determine the save path; this usually prompts a save dialog.</p>
 
-<h4><code>downloadItem.getSavePath ()`</h4> 
-    Mengembalikan ` String </ 0> - Jalur penyimpanan item unduhan. Ini akan menjadi jalur yang ditetapkan melalui <code> downloadItem.setSavePath (jalur) </ 0> atau jalur yang dipilih dari dialog simpan yang ditunjukkan.</p>
-
-<h4><code>downloadItem.setSaveDialogOptions(options)`</h4> 
+<p><strong><a href="modernization/property-updates.md">Deprecated</a>: use the <code>savePath` property instead.</strong></p> 
+    #### `downloadItem.getSavePath ()`
+    
+    Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+    
+    **[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+    
+    #### `downloadItem.setSaveDialogOptions(options)`
     
     * `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
     
@@ -79,77 +83,84 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
     
     #### `download Item.jedah ()`
     
-    Jeda unduhan.
+    Pauses the download.
     
     #### `downloadItem.fi jeda ()`
     
-    Mengembalikan ` Boolean </ 0> - Apakah unduhan dijeda.</p>
-
-<h4><code>downloadItem.lanjut ()`</h4> 
+    Returns `Boolean` - Whether the download is paused.
     
-    Melanjutkan pengunduhan yang telah dijeda.
+    #### `downloadItem.lanjut ()`
     
-    ** Catatan: </ 0> Untuk mengaktifkan download ulang server yang Anda unduh harus mendukung permintaan jangkauan dan memberikan nilai header ` Last-Modified </ 1> dan <code> ETag </ 1> . Jika tidak <code> lanjut () </ 0> akan memberhentikan byte yang telah diterima sebelumnya dan memulai kembali unduhan dari awal.</p>
-
-<h4><code>download Item.bisa lanjut ()`</h4> 
+    Resumes the download that has been paused.
+    
+    **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+    
+    #### `download Item.bisa lanjut ()`
     
     Returns `Boolean` - Whether the download can resume.
     
     #### `download Item.batal ()`
     
-    Membatalkan operasi unduh.
+    Cancels the download operation.
     
     #### `downloadItem.dapatkan Url ()`
     
-    Mengembalikan ` String </ 0> - Urutan asal tempat item tersebut didownload.</p>
-
-<h4><code>downloadItem.dapatkan tipe pantonim ()`</h4> 
+    Returns `String` - The origin URL where the item is downloaded from.
     
-    Mengembalikan ` String </ 0> - Jenis file mime.</p>
-
-<h4><code>downloadItem. Telah mengguna sikap ()`</h4> 
+    #### `downloadItem.dapatkan tipe pantonim ()`
     
-    Mengembalikan ` Boolean </ 0> - Apakah pengunduhan memiliki isyarat pengguna.</p>
-
-<h4><code>downloadItem.dapatkan nama file ()`</h4> 
+    Returns `String` - The files mime type.
     
-    Mengembalikan ` String </ 0> - Nama file dari item unduhan.</p>
-
-<p><strong> Catatan: </ 0> Nama file tidak selalu sama dengan yang sebenarnya tersimpan di 
-disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta, nama sebenarnya dari file yang tersimpan akan berbeda.</p>
-
-<h4><code>downloadItem.dpatkan Total Byte ()`</h4> 
+    #### `downloadItem. Telah mengguna sikap ()`
     
-    Mengembalikan ` Integer </ 0> - Ukuran total dalam byte dari item unduhan.</p>
-
-<p>Jika ukurannya tidak diketahui, ia mengembalikan 0.</p>
-
-<h4><code>downloadItem.dapat di terima Byte()`</h4> 
+    Returns `Boolean` - Whether the download has user gesture.
     
-    Mengembalikan `Integer` - byte yang diterima dari item unduhan.
+    #### `downloadItem.dapatkan nama file ()`
+    
+    Returns `String` - The file name of the download item.
+    
+    **Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+    
+    #### `downloadItem.dpatkan Total Byte ()`
+    
+    Returns `Integer` - The total size in bytes of the download item.
+    
+    If the size is unknown, it returns 0.
+    
+    #### `downloadItem.dapat di terima Byte()`
+    
+    Returns `Integer` - The received bytes of the download item.
     
     #### `downloadItem.getContentDisposition ()`
     
-    Mengembalikan ` String </ 0> - Bidang Content-Disposition dari header tanggapan.</p>
-
-<h4><code>downloadItem.getState ()`</h4> 
+    Returns `String` - The Content-Disposition field from the response header.
+    
+    #### `downloadItem.getState ()`
     
     Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
     
-    **Catatan:** Metode berikut berguna secara khusus untuk melanjutkan a `membatalkan` item saat sesi dimulai ulang.
+    **Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
     
     #### `downloadItem.getURLChain ()`
     
-    Mengembalikan ` String [] </ 0> - Rantai url lengkap item termasuk pengalihan apa pun.</p>
-
-<h4><code>downloadItem.getLastModifiedTime ()`</h4> 
+    Returns `String[]` - The complete URL chain of the item including any redirects.
     
-    Mengembalikan ` String </ 0> - Nilai header Terakhir-Diubah.</p>
-
-<h4><code>downloadItem.getETag ()`</h4> 
+    #### `downloadItem.getLastModifiedTime ()`
     
-    Mengembalikan ` String </ 0> - nilai header ETag.</p>
-
-<h4><code>downloadItem.getStartTime ()`</h4> 
+    Returns `String` - Last-Modified header value.
     
-    Mengembalikan  Ganda </ 0> - Jumlah detik sejak zaman UNIX saat unduhan dimulai.</p>
+    #### `downloadItem.getETag ()`
+    
+    Returns `String` - ETag header value.
+    
+    #### `downloadItem.getStartTime ()`
+    
+    Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+    
+    ### Instance Properties
+    
+    #### `downloadItem.savePath`
+    
+    A `String` property that determines the save file path of the download item.
+    
+    The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
