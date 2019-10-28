@@ -1,12 +1,12 @@
 # Mga Isyu sa Electron
 
-* [Paano Makapag-ambag sa mga Isyu](#paano-makapag-ambag-sa-mga-isyu)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [Paghingi ng Pangkalahatang Tulong](#paghihingi-ng-pangkalahatang-tulong)
 * [Pagsusumite ng isang Ulat ukol sa Bug](#pagsusumite-ng-isang-ulat-ukol-sa-bug)
 * [Pagta-triage ng isang Ulat ukol sa Bug](#pata-triage-ng-isang-ulat-ukol-sa-bug)
 * [Paglulutas ng isang Ulat ukol sa Bug](#paglulutas-ng-isang-ulat-ukol-sa-bug)
 
-## Paano Makapag-ambag sa mga Isyu
+## How to Contribute to Issues
 
 Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indibidwal ay makapag-ambag:
 
@@ -60,7 +60,7 @@ $ npm start || electron.
 
 Kung naniniwala ka na nakshanap ka ng isang bug sa Elektron, pakiusap punan mo ang form na ito sa abot ng iyong makakaya.
 
-Ang dalawang pinakamahahalagang piraso ng impormasyon na kailangan upang masuri ang ulat ay isang paglalarawan ng bug at isang simpleng kaso ng pagsusuri upang muling likhain ito. Madaling mag-ayos ng isang bug kung maaari itong paramihin.
+Ang dalawang pinakamahahalagang piraso ng impormasyon na kailangan upang masuri ang ulat ay isang paglalarawan ng bug at isang simpleng kaso ng pagsusuri upang muling likhain ito. It is easier to fix a bug if it can be reproduced.
 
 Tingnan ang [Paano makagawa ng isang Minimal, Kumpleto, at Mapapatunayang halimbawa](https://stackoverflow.com/help/mcve).
 
@@ -70,7 +70,7 @@ Karaniwan ito para sa mga bukas na isyu upang makasali sa diskusyon. Ilan sa mga
 
 Ang mga Terse na kasagutan na nagbibigay ng wala sa karagdagang konteksto o ang pagsuporta sa mga detalye ay hindi kapaki-pakinabang o propesyonal. Sa nakararami, ang mga tugong ito ay nakakainis at hindi makaibigan.
 
-Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. Kung nakatagpo ka ng isang isyu na pakiramdam mo ay hindi wasto, o naglalaman ng maling impormasyon, ipaliwanag *bakit* nakakaramdam ka ng ganito nang may kasamang karagdagang sumusuportang konteksto, at handang maging kumbinsido na ikaw ay posibleng nagkamali. Sa paggawa nito, madalas naming maaabot ang tamang kinalalabasan sa mas mabilis na paraan.
+Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Sa paggawa nito, madalas naming maaabot ang tamang kinalalabasan sa mas mabilis na paraan.
 
 ## Paglulutas ng isang Ulat ukol sa Bug
 
