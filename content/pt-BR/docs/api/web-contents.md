@@ -123,7 +123,7 @@ Retorna:
 * `event` Event
 * `favicons` String[] - Array de URLs.
 
-Emitted when page receives favicon urls.
+Emitido quando a página recebe urls de favicon.
 
 #### Evento: 'new-window'
 
@@ -387,7 +387,7 @@ Retorna:
 
 * `event` Evento
 * String `url`
-* `error` String - The error code.
+* `error` String - O código do erro.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -438,7 +438,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Retorna:
 
 * `event` Event
-* `result` Object 
+* `resultado` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -1085,7 +1085,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `Ação` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
