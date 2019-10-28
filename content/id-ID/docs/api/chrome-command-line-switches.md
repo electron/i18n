@@ -44,13 +44,13 @@ Pasukan ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
 
 ## --js-bendera `bendera` =
 
-Menentukan bendera dilewatkan ke mesin Node JS. Itu harus disampaikan ketika mulai elektron jika Anda ingin mengaktifkan `bendera` dalam proses utama.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ elektron--js-bendera = "--harmony_proxies--harmony_collections" Anda-app
 ```
 
-Lihat [dokumentasi Node](https://nodejs.org/api/cli.html) atau menjalankan `simpul--bantuan` di terminal Anda untuk daftar tersedia bendera. Selain itu, menjalankan `simpul--v8-opsi` untuk melihat daftar bendera yang secara khusus mengacu pada mesin V8 JavaScript Node.
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server =`alamat: port`
 
@@ -104,11 +104,11 @@ Sebagai contoh:
 --auth-server-whitelist='*example.com, * foobar.com, * baz'
 ```
 
-kemudian setiap `url` yang berakhir dengan `example.com`, `foobar.com`, `baz` akan dipertimbangkan untuk otentikasi Terpadu. Tanpa `*` awalan url yang sama persis.
+kemudian setiap `url` yang berakhir dengan `example.com`, `foobar.com`, `baz` akan dipertimbangkan untuk otentikasi Terpadu. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist =`url`
 
-Dipisahkan dengan koma daftar server yang delegasi kredensial pengguna diperlukan. Tanpa `*` awalan url yang sama persis.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --mengabaikan-sertifikat-kesalahan
 
@@ -151,3 +151,7 @@ Memberikan setiap modul tingkat V-logging maksimal untuk menimpa nilai yang dibe
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Misalnya `* / foo/bar / * = 2` akan mengubah tingkat pendataan untuk semua kode dalam sumber file di bawah direktori `foo bar`.
 
 Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
