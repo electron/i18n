@@ -1,6 +1,6 @@
 on:
   schedule:
-  - cron: 0 */6 * * *
+    - cron: "00 20 * * *"
 
 name: Update source content
 
