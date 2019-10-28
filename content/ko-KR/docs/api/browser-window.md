@@ -31,7 +31,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 윈도우 창에 직접 페이지를 로딩 할때, 사용자는 페이지가 조금씩 로드되는 것을 볼 수 있다. 이러한 점은 네이티브 앱에서 보여주기에는 좋지 않은 방식이다. 윈도우창에 Visual Flash 없이 보여주는 방법은 각기 다른 상황에 따른 두가지 방법이 있다.
 
-### `ready-to-show` 이벤트를 사용하기
+## Using `ready-to-show` event
 
 페이지가 로딩될 때, 만약 윈도우가 아직 화면에 표시되지 않았고 최초로 renderer process 가 해당 페이지 렌더링을 완료할 때, `ready-to-show` 이벤트가 발생한다. 이벤트 발생 후 해당 윈도우는 Visual Flash 없이 표시된다.
 
@@ -45,9 +45,11 @@ win.once('ready-to-show', () => {
 
 이 이벤트는 보통 `did-finish-load` 이벤트 뒤에 발생하지만, remote resources가 많은 페이지에서는 `did-finish-load` 이벤트 전에 발생할 수 있다.
 
-### `backgroundColor` 설정
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
-복잡한 app에서는 `ready-to-show` 이벤트가 너무 늦게 발생해서, 앱이 느린 것처럼 보일 수 있다. 이런 경우, 윈도우를 즉시 보여주고 `backgroundColor`를 background에서 종료(close)하도록 사용하는 방식이 권장된다.
+## Setting `backgroundColor`
+
+For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -57,11 +59,11 @@ win.loadURL('https://github.com')
 
 ```
 
-앱이 `ready-to-show`이벤트를 사용하고 있더라도, 여전히 app이 native에 가깝게 보이도록 하기 위해서 `backgroundColor`을 설정하기를 권장한다.
+Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
 ## Parent and child windows
 
-`parent` 옵션을 사용하여, 자식 윈도우(child windows)를 생성할 수 있다:
+By using `parent` option, you can create child windows:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -72,11 +74,11 @@ child.show()
 top.show()
 ```
 
-`자식` 윈도우는 항상 `top` 윈도우의 위에 표시된다.
+The `child` window will always show on top of the `top` window.
 
-### Modal windows
+## Modal windows
 
-modal 윈도우는 비활성화 가능한 부모 윈도우의 자식 윈도우이다. modal 윈도우를 생성하기 위해서는, `parent`와 `modal`옵션을 모두 사용해야 한다. :
+A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,18 +90,18 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+## Page visibility
 
-[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)의 동작방식은 다음과 같다. :
+The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
 * 모든 플랫폼에서, 표시 상태는 윈도우가 숨김처리, 최소화되거나 그렇지 않은 경우를 나타낸다.
 * 추가적으로 macOS에서는, 윈도우의 occlusion 상태도 나타냅니다. 윈도우가 다른 윈도우에 의해 occluded (예: fully covered)됐을 시, 표시 상태는 `hidden`이 됩니다. 다른 플랫폼에서는 윈도우가 최소화 혹은 `win.hide()`에 의해 명시적으로 숨김처리 됐을 때만, 숨김 상태가 `hidden`이 됩니다.
 * `BrowserWindow`가 `show:false` 옵션과 함께 생성된 경우 실제로는 숨김처리됐음에도 불구하고, 표시 상태는 `visible`이 됩니다.
 * `backgroundThrottling`이 비활성화 상태이면, 윈도우가 최소화, occluded, 혹은 숨김처리 되더라도 표시 상태는 `visible`인 상태로 남아있습니다.
 
-소비 전력을 최소화하기 위해서 표시 상태가`hidden`상태일 때, 비용이 큰 동작은 멈추는 게 권장된다.
+It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### 플랫폼별 참고 사항
+## Platform notices
 
 * MacOS의 modal 윈도우는 부모 윈도우에 붙은 시트처럼 표시된다.
 * MacOS에서 부모 윈도우가 움직일 때, 자식 윈도우는 부모 윈도우의 상대적 위치를 유지한다. 반면 Windows와 Linux에서 자식 윈도우는 움직이지 않는다.
@@ -110,19 +112,19 @@ child.once('ready-to-show', () => {
 
 > 브라우저 윈도우를 생성하고 제어합니다.
 
-프로세스: [Main](../glossary.md#main-process)
+프로세스:[Main](../glossary.md#main-process)
 
-`BrowserWindow`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)이다.
+`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-`BrowserWindow`는 `options`로 설정된 네이티브 속성과 함께, 새로운 <0>BrowserWindow</0>를 생성한다.
+It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (선택) 
   * `width` Integer (선택) - 윈도우의 넓이이며, 단위는 픽셀이다. 기본값은 `800`이다.
   * `height` Integer (선택) - 윈도우의 높이이며, 단위는 픽셀이다. 기본값은 `600`이다.
-  * `x` Integer (선택) (y를 사용한다면 **반드시 선언되어야**한다.) - 화면상에서 표시되는 윈도우의 좌측 시작지점이다. 기본값은 윈도우의 중앙지점이다.
-  * `y` Integer (선택) (x를 사용한다면 **반드시 선언되어야**한다.) - 화면상에서 표시되는 윈도우의 상단 시작지점이다. 기본값은 윈도우의 중앙지점이다.
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (선택) - 실제 윈도우의 크기는 윈도우 프레임의 크기를 포함해서 살짝 크기 때문에, `width`와 `height`를 웹 페이지의 크기로 사용하고자 할 때 사용한다. 기본값은 `false`이다.
   * `center` Boolean (선택) - 윈도우를 화면의 중심에 표시한다.
   * `minWidth` Integer (선택) - 윈도우의 최소 넓이를 지정한다. 기본값은 `0`이다.
@@ -144,18 +146,19 @@ child.once('ready-to-show', () => {
   * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. Default is `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. 기본값은 `false`이다.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 기본값은 `false`이다. On Windows, does not work unless the window is frameless.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
     * `default` - Results in the standard gray opaque Mac title bar.
@@ -164,10 +167,10 @@ child.once('ready-to-show', () => {
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
+  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. 기본값은 `false`이다.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (선택) - 웹 페이지 기능의 설정입니다. 
+  * `webPreferences` Object (optional) - Settings of web page's features. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. 기본값은 `false`이다. More about this can be found in [Multithreading](../tutorial/multithreading.md).
@@ -225,7 +228,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### 인스턴스 이벤트
 
-`new BrowserWindow`으로 생성된 오브젝트에서는 다음의 이벤트가 발생합니다:
+Objects created with `new BrowserWindow` emit the following events:
 
 **참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
@@ -237,7 +240,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 * `title` String
 * `explicitSet` Boolean
 
-문서의 타이틀이 변경될때 발생하고, `event.preventDefault()`는 네이티브 윈도우의 타이틀이 변경되는 것을 방지합니다. 타이틀이 file url로부터 합성될때 `explicitSet`는 false입니다.
+Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
 
 #### 이벤트: 'close'
 
@@ -245,9 +248,9 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 * `event` Event
 
-윈도우를 닫을때 발생합니다. DOM의 `beforeunload` 와 `unload` 이벤트 전에 발생합니다. `event.preventDefault()`를 호출하면 닫기를 취소합니다.
+Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-일반적으로 `beforeunload` 핸들러를 사용하여 창을 닫아야하는지 여부를 결정할 수 있습니다. 이 핸들러는 창을 다시로드 할 때도 호출됩니다. 일렉트론에서 `undefined` 외의 다른 값을 리턴하는 것으로 닫기를 취소합니다. 예시:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. 예시:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -260,7 +263,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***참고**: `window.onbeforeunload = handler` 와 `window.addEventListener('beforeunload', handler)`의 동작에는 약간의 차이가 있습니다. 전자가보다 일관되게 일렉트론 내에서 작동하므로 항상 값을 반환하는 대신 `event.returnValue`를 명시 적으로 설정하는 것이 좋습니다.*
+***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
 
 #### Event: 'closed'
 
@@ -298,6 +301,8 @@ Emitted when the window is hidden.
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+
 #### Event: 'maximize'
 
 Emitted when window is maximized.
@@ -316,7 +321,7 @@ Emitted when the window is restored from a minimized state.
 
 #### Event: 'will-resize' *macOS* *Windows*
 
-Returns:
+반환:
 
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
@@ -331,7 +336,7 @@ Emitted after the window has been resized.
 
 #### Event: 'will-move' *Windows*
 
-Returns:
+반환:
 
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
@@ -368,7 +373,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'always-on-top-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
@@ -377,7 +382,7 @@ Emitted when the window is set or unset to show always on top of other windows.
 
 #### Event: 'app-command' *Windows* *Linux*
 
-Returns:
+반환:
 
 * `event` Event
 * `command` String
@@ -397,7 +402,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explictly supported on Linux:
+The following app commands are explicitly supported on Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -416,12 +421,21 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+
+#### Event: 'rotate-gesture' *macOS*
+
+반환:
+
+* `event` Event
+* `rotation` Float
+
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Event: 'sheet-begin' *macOS*
 
@@ -477,7 +491,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* PrinterInfo Object
+* `name` String
 
 Remove a Chrome extension by name.
 
@@ -485,7 +499,7 @@ Remove a Chrome extension by name.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -503,7 +517,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* PrinterInfo Object
+* `name` String
 
 Remove a DevTools extension by name.
 
@@ -511,7 +525,7 @@ Remove a DevTools extension by name.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 To check if a DevTools extension is installed you can run the following:
 
@@ -524,7 +538,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties (인스턴스 속성)
+### Instance Properties
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -535,17 +549,74 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents`
+#### `win.webContents` *Readonly*
 
 A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
-#### `win.id`
+#### `win.id` *Readonly*
 
-A `Integer` representing the unique ID of the window.
+A `Integer` property representing the unique ID of the window.
 
-### 인스턴스 메서드
+#### `win.autoHideMenuBar`
+
+A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.minimizable`
+
+A `Boolean` property that determines whether the window can be manually minimized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.maximizable`
+
+A `Boolean` property that determines whether the window can be manually maximized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.fullScreenable`
+
+A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+#### `win.resizable`
+
+A `Boolean` property that determines whether the window can be manually resized by user.
+
+#### `win.closable`
+
+A `Boolean` property that determines whether the window can be manually closed by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.movable`
+
+A `Boolean` property that determines Whether the window can be moved by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```
+
+### Instance Methods (인스턴스 메소드)
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -648,7 +719,7 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
@@ -675,7 +746,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
@@ -720,6 +791,10 @@ Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of t
 * `enable` Boolean
 
 Disable or enable the window.
+
+#### `win.isEnabled()`
+
+Returns Boolean - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -773,9 +848,13 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 Sets whether the window can be manually resized by user.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isResizable()`
 
 Returns `Boolean` - Whether the window can be manually resized by user.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -783,11 +862,15 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMovable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -795,11 +878,15 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMinimizable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -807,11 +894,15 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMaximizable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -819,9 +910,13 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -829,16 +924,20 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isClosable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -969,16 +1068,6 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.blurWebView()`
 
-#### `win.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` 함수 
-  * `image` [NativeImage](native-image.md)
-
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-**[곧 중단 예정](modernization/promisification.md)**
-
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
@@ -991,11 +1080,11 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 * `url` String
 * `options` Object (선택) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -1031,7 +1120,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (선택) 
-  * `query` Object (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
@@ -1063,7 +1152,7 @@ Sets progress value in progress bar. Valid range is [0, 1.0].
 
 Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `{app.name}.desktop`.
 
 On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
 
@@ -1088,11 +1177,11 @@ Returns `Boolean` - Whether the window has a shadow.
 
 * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
-#### `win.getOpacity()` *Windows* *macOS*
+#### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
@@ -1178,9 +1267,13 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1226,15 +1319,17 @@ Prevents the window contents from being captured by other apps.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
-#### `win.setFocusable(focusable)` *Windows*
+#### `win.setFocusable(focusable)` *macOS* *Windows*
 
 * `focusable` Boolean
 
 Changes whether the window can be focused.
 
+On macOS it does not remove the focus from the window.
+
 #### `win.setParentWindow(parent)`
 
-* `parent` BrowserWindow
+* `parent` BrowserWindow | null
 
 Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
@@ -1280,13 +1375,15 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
+Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
-* `touchBar` TouchBar
+* `touchBar` TouchBar | null
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
@@ -1294,7 +1391,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *Experimental*
 
@@ -1312,27 +1409,6 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.getBrowserViews()` *Experimental*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**참고:** BrowserView API는 현재 실험 단계이며, 차후 일렉트론이 릴리즈 되면 변경되거나 제거될 수 있습니다.
-
-### 속성
-
-#### `win.excludedFromShownWindowsMenu` *macOS*
-
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
-
-```js
-const win = new BrowserWindow({ height: 600, width: 600 })
-
-const template = [
-  {
-    role: 'windowmenu'
-  }
-]
-
-win.excludedFromShownWindowsMenu = true
-
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
-```
+**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
