@@ -28,7 +28,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Nesne (isteğe bağlı) 
+* `options` Obje (opsiyonel) 
   * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir.
@@ -102,7 +102,7 @@ Bildirim daha önce gösterilmişse, bu yöntem önceden gösterilen bildirimi r
 
 Bildirimleri yoksay.
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 #### `notification.title`
 
@@ -140,13 +140,13 @@ A `Boolean` property representing whether the notification has a reply action.
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
-### Playing Sounds
+### Çalınan sesler
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Varsayılan seslerden herhangi biri ( Sistem tercihleri altında > Ses) özel ses dosyalarına ekstra olarak kullanılabilir. Ses dosyalarının uygulama paketi altında (e.g., `YourApp.app/Contents/Resources`) yada aşağıdaki yerlerden birinde kopyalanmış olduğundan emin olun:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Daha fazla bilgi için [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) dosyalarına bakın.
