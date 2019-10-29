@@ -87,10 +87,10 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 戻り値:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - レンダラーによって事前接続に要求されている URL。
+* `allowCredentials` Boolean - レンダラーが接続に資格情報を含めることを要求している場合は true です (詳細については、[仕様](https://w3c.github.io/resource-hints/#preconnect) を参照してください)。
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+一般的に [リソースヒント](https://w3c.github.io/resource-hints/) が原因で、レンダリングプロセスが URL への事前接続を要求したときに生成されます。
 
 ### インスタンスメソッド
 
@@ -186,7 +186,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `url` URL
 
-Returns `Promise<String>` - Resolves with the proxy information for `url`.
+戻り値 `Promise<String>` - `url` のプロキシ情報で実行されます。
 
 #### `ses.setDownloadPath(path)`
 
@@ -219,10 +219,10 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 #### `ses.preconnect(options)` *実験的*
 
 * `options` Object 
-  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
-  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+  * `url` String - 事前接続の URL。ソケットを開くのに関連するのはオリジンのみです。
+  * `numSockets` Number (任意) - 事前接続するソケットの数。 1 から 6 でなければなりません。省略値は 1 です。
 
-Preconnects the given number of sockets to an origin.
+指定された数のソケットをオリジンに事前接続します。
 
 #### `ses.disableNetworkEmulation()`
 
@@ -268,8 +268,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
-    * `externalURL` String (optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (任意) - `openExternal` リクエストの URL。
+    * `mediaTypes` String[] (任意) - 要求されている、複数のメディアアクセスのタイプ。要素は `video` か `audio` にできます
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
@@ -388,17 +388,17 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` *読み出し専用*
 
-A [`Cookies`](cookies.md) object for this session.
+このセッションの [`Cookies`](cookies.md) オブジェクト。
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` *読み出し専用*
 
-A [`WebRequest`](web-request.md) object for this session.
+このセッションの [`WebRequest`](web-request.md) オブジェクト。
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` *読み出し専用*
 
-A [`Protocol`](protocol.md) object for this session.
+このセッションの [`Protocol`](protocol.md) オブジェクト。
 
 ```javascript
 const { app, session } = require('electron')
@@ -415,9 +415,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` *読み出し専用*
 
-A [`NetLog`](net-log.md) object for this session.
+このセッションの [`NetLog`](net-log.md) オブジェクト。
 
 ```javascript
 const { app, session } = require('electron')
