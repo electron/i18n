@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)` *Sperimentale*
 
 * `options` Oggetto 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -233,7 +233,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function 
   * `richiesta` Oggetto 
     * `hostname` String
-    * `certificate` [Certificato](structures/certificate.md)
+    * `certificato` [Certificato](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
   * `callback` Function 
