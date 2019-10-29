@@ -121,7 +121,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config)`
 
-* `config` Object 
+* `config` Obiect 
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -196,7 +196,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -218,7 +218,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)` *Experimental*
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -231,7 +231,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
@@ -356,7 +356,7 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
