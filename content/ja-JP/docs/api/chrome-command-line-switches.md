@@ -104,11 +104,11 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 Without `*` prefix the URL has to match exactly.
+末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 `*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+ユーザーの資格情報の委任が必要となるサーバーのコンマ区切りのリストです。`*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
 
 ## --ignore-certificate-errors
 
@@ -154,4 +154,4 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Chromium サンドボックスを無効にします。既定では有効です。テストにのみ使用するようにしてください。
