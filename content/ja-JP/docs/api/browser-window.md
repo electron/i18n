@@ -145,19 +145,19 @@ child.once('ready-to-show', () => {
   * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
   * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。省略値は、`true` です。
-  * `paintWhenInitiallyHidden` Boolean (任意) - `show` が `false` で作成されたばかりのときに、レンダラーをアクティブにするかどうか。 In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. 省略値は `true` です。
+  * `paintWhenInitiallyHidden` Boolean (任意) - `show` が `false` で作成されたばかりのときに、レンダラーをアクティブにするかどうか。 `show: false` での `document.visibilityState` が最初のロードで正しく機能するには、これを `false` に設定する必要があります。 これを `false` に設定すると、`ready-to-show` イベントが発生しなくなります。 省略値は `true` です。
   * `frame` Boolean (任意) - [Frameless Window](frameless-window.md) を生成する場合、`false` に指定します。省略値は、`true` です。
   * `parent` BrowserWindow (任意) - 親ウインドウを指定します。省略値は、`null` です。
   * `modal` Boolean (任意) - モーダルウインドウかどうか。ウインドウが子ウインドウのときだけ機能します。 省略値は、`false` です。
   * `acceptFirstMouse` Boolean (任意) - ウインドウをアクティブにした単発のマウスダウンイベントを同時にWebビューが受け付けるかどうか。省略値は、`false` です。
   * `disableAutoHideCursor` Boolean (任意) - 入力中にカーソルを非表示にするかどうか。 省略値は、`false` です。
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. 省略値は、`false` です。
+  * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は、`false` です。
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
   * `hasShadow` Boolean (任意) - ウインドウが影をもっているかどうか。これはmacOSでのみ実装されています。省略値は、`true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 省略値は、`false` です。 On Windows, does not work unless the window is frameless.
+  * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
   * `type` String (任意) - ウインドウのタイプで、省略値は通常のウインドウです。この詳細は以下を参照してください。
   * `titleBarStyle` String (任意) - ウインドウのタイトルバーのスタイル。 省略値は、 `default`です。取りうる値: 
     * `default` - 標準の灰色不透明なMacのタイトルバーになります。
@@ -166,7 +166,7 @@ child.once('ready-to-show', () => {
     * `customButtonsOnHover` Boolean (任意) - macOS フレームレスウインドウで、カスタムの閉じる、最小化ボタンを描画します。 これらのボタンはウインドウの左上にマウスカーソルを置かないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** このオプションは、現在、実験的なものです。
   * `fullscreenWindowTitle` Boolean (任意) - macOSのフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
-  * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+  * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
   * `zoomToPageWidth` Boolean (任意) - macOSで、optionキーを押下しながら緑の信号ボタンをクリックしたり、ウインドウ > ズーム のメニュー項目をクリックしたりしたときの動作を制御します。 `true` の場合、ズームしたとき、ウインドウはWebページの最適な幅に拡大されます。`false` だと、画面の幅にズームされます。 これは、`maximize()` を直接呼び出したときの動作にも影響を与えます。 省略値は、`false` です。
   * `tabbingIdentifier` String (任意) - タブのグループ名で、macOS 10.12以上の場合、ネイティブのタブとしてウインドウを開くことができます。 同一のタブ識別子を持つウインドウは、一緒にグループ化されます。 これはネイティブのタブボタンをウインドウのタブバーに追加し、`app` とウインドウが `new-window-for-tab` イベントを受け取ることができるようになります。
   * `webPreferences` Object (任意) - Webページの機能設定。 
@@ -239,7 +239,7 @@ child.once('ready-to-show', () => {
 * `title` String
 * `explicitSet` Boolean
 
-ドキュメントのタイトルが変更されたときに発生します。`event.preventDefault()` を呼び出すことで、ネイティブウインドウのタイトルが変更されるのをキャンセルできます。 `explicitSet` is false when title is synthesized from file URL.
+ドキュメントのタイトルが変更されたときに発生します。`event.preventDefault()` を呼び出すことで、ネイティブウインドウのタイトルが変更されるのをキャンセルできます。 タイトルがファイルの URL から合成された場合、`explicitSet` は false です。
 
 #### イベント: 'close'
 
@@ -402,7 +402,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explicitly supported on Linux:
+Linux 上では以下のアプリコマンドが明示的にサポートされます。
 
 * `browser-backward`
 * `browser-forward`
@@ -428,14 +428,14 @@ The following app commands are explicitly supported on Linux:
 
 3本指でのスワイプで発生します。とりうる方向は、`up`、`right`、`down`、`left` です。
 
-#### Event: 'rotate-gesture' *macOS*
+#### イベント: 'rotate-gesture' *macOS*
 
 戻り値:
 
 * `event` Event
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+トラックパッドの回転ジェスチャで発生します。 回転ジェスチャーが終了するまで継続的に発生します。 各イベントの `rotation` 値は、最後の発生から回転した角度です。 回転ジェスチャで最後に発行されたイベントは、常に `0` の値になります。 反時計回りの回転値は正であり、時計回りの回転値は負です。
 
 #### イベント: 'sheet-begin' *macOS*
 
@@ -499,7 +499,7 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+戻り値 `Record<String, ExtensionInfo>` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
 **注:** このAPIは `app` モジュールの `ready` イベントが発生する前には呼び出すことはできません。
 
@@ -525,7 +525,7 @@ Returns `Record<String, ExtensionInfo>` - The keys are the extension names and e
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+戻り値 `Record<string, ExtensionInfo>` - キーは拡張機能の名前で、それぞれの値は、`name` と `version` プロパティを含むObjectです。
 
 開発者ツールの拡張機能がインストールされているかを確認するには、以下のように実行することで可能です。
 
@@ -549,21 +549,21 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` *Readonly*
+#### `win.webContents` *読み出し専用*
 
 このウインドウが所有している `WebContents` オブジェクト。すべてのWebページ関連のイベントと操作はこれを介して行われます。
 
 [`webContents` ドキュメント](web-contents.md) でメソッドやイベントについて参照してください。
 
-#### `win.id` *Readonly*
+#### `win.id` *読み出し専用*
 
-A `Integer` property representing the unique ID of the window.
+`Integer` 型のプロパティです。そのウインドウの一意な ID を表します。
 
 #### `win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+`Boolean` 型のプロパティです。ウィンドウメニューバーが自動的に非表示になるかどうかを決定します。セットされると、ユーザーが `Alt` キーを単独で押したときにのみメニューバーが表示されます。
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+メニューバーが既に表示されている場合、このプロパティを `true` にセットしてもすぐに非表示にはなりません。
 
 #### `win.minimizable`
 
