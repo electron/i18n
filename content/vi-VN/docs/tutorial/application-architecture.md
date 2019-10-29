@@ -2,7 +2,7 @@
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
-## Main and Renderer Processes
+## Tiến trình chính và tiến trình kết xuất
 
 In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Sử dụng Node.js APIs
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
