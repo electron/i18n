@@ -287,7 +287,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 
 * `scheme` String
 * `handler` Function 
-  * `request` Об'єкт 
+  * `request` Object 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -345,7 +345,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Об'єкт 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
