@@ -41,7 +41,7 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
 
 ## Etkinlikler
 
-The `screen` module emits the following events:
+`ekran` modülü aşağıdaki olayları yayar:
 
 ### Etkinlik: 'görünüm-eklendi'
 
@@ -50,7 +50,7 @@ Dönüşler:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+`newDisplay` eklendiğinde ortaya çıkar.
 
 ### Olay: 'Görünüm-kaldırıldı'
 
@@ -59,53 +59,53 @@ Dönüşler:
 * `olay` Olay
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+`oldDisplay` kaldırıldığında yayılır.
 
 ### Etkinlik: 'display-metrics-changed'
 
-Dönüşler:
+Returns:
 
 * `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetrics`, değişiklikleri açıklayan dizeler dizgisidir. Olası değişiklikler `bounds`, `workArea`, `scaleFactor` ve `rotation`'dir.
 
 ## Metodlar
 
-The `screen` module has the following methods:
+`ekran` modülü aşağıdaki olayları içerir:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+[`Point`](structures/point.md) geri alır
 
-The current absolute position of the mouse pointer.
+Fare işaretçisinin geçerli mutlak konumu.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+[`Ekran`](structures/display.md) Dödürür - Birincil görüntü.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+[`Görüntü[]`](structures/display.md) Dödürür - Şu anda mevcut ekran görüntüleri dizisi.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `nokta` [Nokta](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+[`Görüntü`](structures/display.md) Dödürür - Belirtilen noktaya en yakın ekran.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+[`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `nokta` [Nokta](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+[`Point`](structures/point.md) geri alır
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -113,7 +113,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `nokta` [Nokta](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+[`Point`](structures/point.md) geri alır
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
