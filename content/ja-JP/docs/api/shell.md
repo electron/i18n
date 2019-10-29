@@ -36,8 +36,8 @@ shell.openExternal('https://github.com')
 
 * `url` String - Windows では最大2081文字です。
 * `options` Object (任意) 
-  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
-  * `workingDirectory` String (optional) *Windows* - The working directory.
+  * `activate` Boolean (任意) *macOS* - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。
+  * `workingDirectory` String (任意) *Windows* - 作業ディレクトリ。
 
 戻り値 `Promise<void>`
 
