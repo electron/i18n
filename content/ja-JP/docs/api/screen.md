@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+`app` モジュールの `ready` イベントが発生するまでは、このモジュールは使用できません。
 
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
