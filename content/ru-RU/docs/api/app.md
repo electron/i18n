@@ -92,7 +92,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `url` String
 
-Происходит, когда пользователь хочет открыть URL-адрес из приложения. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Происходит, когда пользователь хочет открыть URL-адрес из приложения. Файл Вашего приложения `Info.plist` должнен определять схему URL в ключе `CFBundleURLTypes` и установить `NSPrincipalClass` в `AtomApplication`.
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
