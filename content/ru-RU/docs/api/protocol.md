@@ -350,8 +350,8 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `method` String (optional)
       * `session` Session | null (optional)
       * `uploadData` Object (опционально) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` String - тип содержимого MIME.
+        * `data` String - Содержимое для отправки.
 * `completion` Function (необязательно) 
   * `error` Error
 
