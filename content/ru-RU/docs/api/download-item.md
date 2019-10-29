@@ -96,7 +96,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Приостановить скачивание.
 
 #### `downloadItem.isPaused()`
 
@@ -170,7 +170,7 @@ Returns `String` - ETag header value.
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
 
-### Свойства экземпляра
+### Instance Properties
 
 #### `downloadItem.savePath`
 
