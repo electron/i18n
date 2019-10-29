@@ -91,15 +91,15 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS ソースコード。
 
-Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+戻り値 `String` - 挿入された CSS のキー。後で `webFrame.removeInsertedCSS(key)` を介して CSS を削除するために使用できます。
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
 ### `webFrame.removeInsertedCSS(key)`
 
 * `key` String
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `webFrame.insertCSS(css)` から返されるキーによって識別されます。
 
 ### `webFrame.insertText(text)`
 
