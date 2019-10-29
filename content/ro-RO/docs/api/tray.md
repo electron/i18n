@@ -215,7 +215,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
