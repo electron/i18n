@@ -42,7 +42,6 @@ Ang output ay dapat magmukhang halos katulad nito:
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app
