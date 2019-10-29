@@ -165,8 +165,8 @@ clipboard:
   copy_to_clipboard: Копировать в буфер обмена
   copied: Скопировано
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Запустить
+  launch_in_fiddle: Запустить в Fiddle
 or: или
 pages:
   '/':
@@ -237,8 +237,8 @@ governance:
   description: Система управления Electron состоит из рабочих групп, которые осуществляют контроль за различными аспектами экосистемы Electron, и административной рабочей группы, которая отвечает за урегулирование конфликтов между ними.
   wgs: Рабочие группы
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: Экосистема
+    description: Наблюдает за проектами, которые упрощают разработку приложений Electron.
   outreach:
     title: Охват
     description: Увеличивает сообщество Electron
@@ -259,7 +259,7 @@ governance:
     description: Административная рабочая группа осуществляет надзор за всем процессом управления и проектом.
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: Курирует разработку общедоступного API, основанного на принципах проекта.
   global:
     overview: Обзор
     associated_repos: Связанные репозитории
