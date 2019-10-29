@@ -415,11 +415,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Returns:
 
 * `event` Event
-* `request` Object 
+* `request` Obiect 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Obiect 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -438,7 +438,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Returns:
 
 * `event` Event
-* `result` Object 
+* `result` Obiect 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -497,7 +497,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Returns:
 
 * `event` Event
-* `params` Object 
+* `params` Obiect 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -718,7 +718,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 
 ### Metode de Instanță
 
-#### `contents.loadURL(url[, options])`
+#### `contents.loadURL(url, ["optiuni"-options])`
 
 * `url` String
 * `opțiuni` Object -Obiect (opțional) 
@@ -1158,7 +1158,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -1389,7 +1389,7 @@ ipcMain.on('ping', (event) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Obiect 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1430,7 +1430,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Obiect 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
