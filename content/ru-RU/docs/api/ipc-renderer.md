@@ -90,7 +90,7 @@ Send a message to the main process synchronously via `channel`, you can also sen
 
 The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Примечание:** Отправка синхронного сообщения будет блокировать все процессы визуализации, если вы не знаете что делаете никогда не используйте его.
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
