@@ -147,11 +147,11 @@ console.log(image)
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` Number[] (任意)
 
 戻り値 `NativeImage`
 
-指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 使用可能な値のリストは、[`システムアイコン`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) を参照してください。
 
 `hslShift` は以下のルールで画像に適用されます。
 
@@ -185,7 +185,7 @@ console.log(image)
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer - Between 0 - 100.
+* `quality` Integer - 0 - 100 の間です。
 
 戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -265,6 +265,6 @@ console.log(image)
 
 ### `nativeImage.isMacTemplateImage` *macOS*
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+`Boolean` 型のプロパティです。その画像が [テンプレート画像](https://developer.apple.com/documentation/appkit/nsimage/1520017-template) と見なされるかどうかを決定します。
 
-Please note that this property only has an effect on macOS.
+このプロパティは macOS にのみ影響することに注意してください。
