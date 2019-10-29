@@ -4,26 +4,26 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+На Linux также есть `selection` буфер обмена. Чтобы им воспользоваться, Вам нужно передать `selection` в каждый метод:
 
 ```javascript
 const { clipboard } = require('electron')
 
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Пример строки', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Методы
 
-The `clipboard` module has the following methods:
+Модуль `clipboard` имеет следующие методы:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Примечание:** Экспериментальные API помечены и могут быть удалены в будущем.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as plain text.
+Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
 
 ```js
 const { clipboard } = require('electron')
@@ -40,7 +40,7 @@ console.log(text)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard as plain text.
+Записывает `text` в буфер обмена как обычный текст.
 
 ```js
 const { clipboard } = require('electron')
@@ -53,7 +53,7 @@ clipboard.writeText(text)
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as markup.
+Возвращает `String` - содержимое в буфере обмена в виде разметки.
 
 ```js
 const { clipboard } = require('electron')
@@ -70,7 +70,7 @@ console.log(html)
 * `markup` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `markup` to the clipboard.
+Записывает `markup` в буфер обмена.
 
 ```js
 const { clipboard } = require('electron')
@@ -82,20 +82,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes `image` to the clipboard.
+Записывает `image` в буфер обмена.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Returns `String` - The content in the clipboard as RTF.
+Возвращает `String` - содержимое в буфере обмена в виде RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -112,7 +112,7 @@ console.log(rtf)
 * `text` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `text` into the clipboard in RTF.
+Записывает `text` в буфер обмена как RTF.
 
 ```js
 const { clipboard } = require('electron')
@@ -128,7 +128,7 @@ clipboard.writeRTF(rtf)
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Возвращает объект, содержащий ключи `title` и `url`, представляющие закладку в буфере обмена. Значения `title` и `url` будут пустыми строками, когда закладки недоступны.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -136,9 +136,9 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` String
 * `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Записывает `title` и `url` в буфер обмена, как закладку.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Примечание:** Большинство приложений на Windows не поддерживают размещение закладок в них, так что Вы можете использовать `clipboard.write`, чтобы записать и закладку и резервный текст в буфер обмена.
 
 ```js
 const { clipboard } = require('electron')
