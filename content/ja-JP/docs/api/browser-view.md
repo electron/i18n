@@ -73,10 +73,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` *実験的*
 
 * `options` Object 
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
+  * `width` Boolean (任意) - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `height` Boolean (任意) - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `horizontal` Boolean (任意) - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。既定値は `false` です。
+  * `vertical` Boolean (任意) - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。既定値は `false` です。
 
 #### `view.setBounds(bounds)` *実験的*
 
@@ -88,7 +88,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this BrowserView instance as `Object`.
+`Object` としてのこの BrowserView インスタンスの `bounds`。
 
 #### `view.setBackgroundColor(color)` *実験的*
 
