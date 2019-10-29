@@ -30,7 +30,7 @@ app.on('ready', () => {
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+Возвращает `Promise<String[]>` - возвращает массив групп категорий, как только все дочерние процессы признают запрос `getCategories`
 
 Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
@@ -38,11 +38,11 @@ Get a set of category groups. The category groups can change as new code paths a
 
 * `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+Возвращает `Promise<void>` - возвращается, как только все дочерние процессы признают запрос `startRecording`.
 
-Start recording on all processes.
+Начинает запись во всех процессах.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording.
 
 If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
@@ -52,9 +52,9 @@ If a recording is already running, the promise will be immediately resolved, as 
 
 Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Stop recording on all processes.
+Останавливает запись во всех процессах.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
 Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
