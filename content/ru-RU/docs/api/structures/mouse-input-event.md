@@ -1,11 +1,11 @@
-# MouseInputEvent Object extends `InputEvent`
+# Объект MouseInputEvent расширяет `InputEvent`
 
-* `type` String - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` or `mouseMove`.
+* `type` String - Тип события, может быть `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` или `mouseMove`.
 * `x` Integer
 * `y` Integer
-* `button` String (optional) - The button pressed, can be `left`, `middle`, `right`.
-* `globalX` Integer (optional)
-* `globalY` Integer (optional)
-* `movementX` Integer (optional)
-* `movementY` Integer (optional)
-* `clickCount` Integer (optional)
+* `button` String (опционально) - Кнопка нажата, может быть `left`, `middle`, `right`.
+* `globalX` Integer (опционально)
+* `globalY` Integer (опционально)
+* `movementX` Integer (опционально)
+* `movementY` Integer (опционально)
+* `clickCount` Integer (опционально)
