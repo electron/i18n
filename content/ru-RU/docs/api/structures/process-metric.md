@@ -17,7 +17,7 @@
 * `sandboxed` Boolean (optional) *macOS* *Windows* - Является ли процесс песочницей на уровне ОС.
 * `integrityLevel` String (опционально) *Windows* - Одно из следующих значений: 
   * `ненадёжный`
-  * `low`
-  * `medium`
-  * `high`
+  * `низкий`
+  * `средний`
+  * `высокий`
   * `unknown`
