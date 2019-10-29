@@ -8,7 +8,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## L'invio di messaggi
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-args) for more information.
+È anche possibile inviare messaggi dal processo principale per il processo di rendering, vedere [webContents.send](web-contents.md#contentssendchannel-args) per ulteriori informazioni.
 
 * Quando si invia un messaggio, il nome dell'evento è il `channel`(canale).
 * Per rispondere a un messaggio sincrono, è necessario impostare `event.returnValue`.
