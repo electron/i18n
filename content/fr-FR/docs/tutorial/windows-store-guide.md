@@ -42,7 +42,6 @@ La sortie devrait ressembler à peu près à ceci :
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app
