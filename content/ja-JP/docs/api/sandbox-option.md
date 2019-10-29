@@ -123,6 +123,6 @@ browserify バンドルを作成してプリロードスクリプトとして使
 まだ実験的な機能なので、`sandbox` オプションは慎重に使用してください。 プリロードスクリプトにいくつかの Electron レンダラー API を公開することによるセキュリティの影響をまだ確認していませんが、信頼できないコンテンツをレンダリングする前に考慮すべき点がいくつかあります。
 
 - [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) も有効になっていないと、プリロードスクリプトは信頼できないコードに誤って特権 API をリークする可能性があります。
-- V8 エンジンのいくつかのバグで、悪意のあるコードがレンダラープリロード API にアクセスし、`remote` モジュールを介してシステムに完全にアクセスできるようにする可能性があります。 したがって、[`remote` モジュールを無効にすることを強くお勧めします](../tutorial/security.md#15-disable-the-remote-module)。 If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
+- V8 エンジンのいくつかのバグで、悪意のあるコードがレンダラープリロード API にアクセスし、`remote` モジュールを介してシステムに完全にアクセスできるようにする可能性があります。 したがって、[`remote` モジュールを無効にすることを強くお勧めします](../tutorial/security.md#15-disable-the-remote-module)。 無効化できない場合は、`remote` モジュールを選択して [フィルタリング](../tutorial/security.md#16-filter-the-remote-module) する必要があります。
 
 信頼できないコンテンツを Electron で描画することはまだ未知の領域なので、サンドボックスプリロードスクリプトに公開されている API は他の Electron API よりも不安定であるとみなされ、セキュリティ上の問題を修正するための変更が行われる可能性があります。
