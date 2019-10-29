@@ -27,7 +27,7 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 * `arch`
 * `platform`
 * `sandboxed`
-* `tipo`
+* `type`
 * `version`
 * `versions`
 * `mas`
@@ -153,7 +153,7 @@ Devuelve un objeto con estadísticas de pila V8. Tenga en cuenta que todas las e
 
 ### `process.getBlinkMemoryInfo()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -163,26 +163,26 @@ Returns an object with Blink memory information. It can be useful for debugging 
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+Devuelve `Promise<ProcessMemoryInfo>` - Resuelve con un [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Devuelve un objeto conteniendo las estadísticas de uso de la memoria del proceso actual. Tenga en cuenta que todas las estadísticas son reportadas en Kilobytes. Esta Api debería ser llamada después que la aplicación este lista.
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium no provee el valor `residentSet` para macOS. Esto es porque macOS realiza compresión en memoria que no han sido utilizadas recientemente. Como resultado, el valor del tamaño del conjunto de residentes no es lo que uno esperaría. Memoria `private` es más representativo del uso real de la memoria de precompresión del proceso en macOS.
 
 ### `process.getSystemMemoryInfo()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
+* `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
+* `swapTotal` Integer *Windows* *Linux* - La cantidad total de memoria de swap en Kilobytes disponible para el sistema.
+* `swapFree` Integer *Windows* *Linux* - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+Devuelve `String` - La versión de sistema operativo del host.
 
 Ejemplos:
 
@@ -190,22 +190,22 @@ Ejemplos:
 * `Windows` -> `10.0.17763`
 * `Linux` -> `4.15.0-45-generic`
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**Note:** Devuelve la versión actual del sistema en lugar de la versión del kernel en macOS deferente a `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 
 * `filePath` String - Ruta al archivo de salida.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Devuelve `Boolean` - Indica si la instantánea ha sido creada correctamente.
 
 Toma una instantánea de la pila V8 y la guarda en `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Hace que el hilo principal del proceso actual se caiga.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
-* `maxDescriptors` Integer
+* `maxDescriptors` Entero
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Ajusta el limite suave del descriptor del documento a `maxDescriptors` o el límite duro OS, cual sea menor para el proceso actual.
