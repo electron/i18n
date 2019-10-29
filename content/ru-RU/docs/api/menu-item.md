@@ -163,12 +163,12 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+`Boolean` указывает, следует ли регистрировать ускоритель с системой или только что отобразить, это свойство может быть динамически изменено.
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+`Номер` с указанием уникального последовательного идентификатора элемента.
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+`Меню`, частью которого является элемент.
