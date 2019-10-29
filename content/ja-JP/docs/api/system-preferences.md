@@ -420,14 +420,14 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。 アプリケーションの macOS 外観設定を決定します。 これは [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) の値に対応します。 これを設定すると、システムのデフォルトと `getEffectiveAppearance` の値が上書きされます。
 
-Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
+設定可能な値は `dark` か `light` です。戻り値に取りうる値は `dark`、`light`、および `unknown`。
 
-This property is only available on macOS 10.14 Mojave or newer.
+このプロパティは macOS 10.14 Mojave 以降でのみ利用可能です。
 
-### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
+### `systemPreferences.effectiveAppearance` *macOS* *読み出し専用*
 
 `String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
 
-Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+[NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を返します。
 
 Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
