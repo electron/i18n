@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
+`DownloadItem` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しており、Electron でのダウンロードアイテムを表します。 これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
 
 ```javascript
 // メインプロセス
@@ -74,15 +74,15 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - ダウロードアイテムを保存するファイルパスを設定します。
 
-このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[非推奨](modernization/property-updates.md): 代わりに `savePath` プロパティを使用してください。**
 
 #### `downloadItem.getSavePath()`
 
 戻り値 `String` - ダウンロードアイテムの保存先のパス。これは、`downloadItem.setSavePath(path)` 経由で設定されたパスか、表示された保存ダイアログで選択されたパスのいずれかです。
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[非推奨](modernization/property-updates.md): 代わりに `savePath` プロパティを使用してください。**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -118,7 +118,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+戻り値 `String` - アイテムがダウンロードされた元の URL。
 
 #### `downloadItem.getMimeType()`
 
@@ -156,7 +156,7 @@ Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+戻り値 `String[]` - すべてのリダイレクトを含むアイテムの完全な URL チェーン。
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -174,6 +174,6 @@ Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+`String` 型のプロパティです。ダウンロードアイテムを保存するファイルパスを決定します。
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+このプロパティは、セッションの `will-download` コールバック関数内でのみ利用可能です。 ユーザがこのプロパティを経由して保存先のパスを設定しない場合、Electron は、保存先のパスを決定するために独自のルーチンを使用します。通常は保存ダイアログを表示します。
