@@ -570,7 +570,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-반환:
+Returns:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -594,7 +594,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 
@@ -623,7 +623,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-반환:
+Returns:
 
 * `favicons` String[] - Array of URLs.
 
@@ -639,7 +639,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-반환:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -682,7 +682,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-반환:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -707,7 +707,7 @@ webview.addEventListener('new-window', async (e) => {
 
 ### Event: 'will-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -721,7 +721,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -731,7 +731,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -755,7 +755,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-반환:
+Returns:
 
 * `channel` String
 * `args` any[]
@@ -788,9 +788,9 @@ Fired when the renderer process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -821,7 +821,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `url` String
 
