@@ -44,7 +44,6 @@ npm install --save-dev electron-installer-snap
         ├── libgcrypt.so.11
         ├── libnode.so
         ├── locales
-        ├── natives_blob.bin
         ├── resources
         ├── v8_context_snapshot.bin
         └── version
