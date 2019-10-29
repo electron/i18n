@@ -92,7 +92,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `event` Event
 * `url` String
 
-ユーザがアプリケーションでURLを開こうとしたときに発生します。 Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+ユーザがアプリケーションでURLを開こうとしたときに発生します。 アプリケーションの `Info.plist` ファイルで `CFBundleURLTypes` キーの中に URL スキームを定義し、`NSPrincipalClass` に `AtomApplication` を設定しなければなりません。
 
 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -111,7 +111,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` unknown - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -142,7 +142,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
 
@@ -152,7 +152,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
@@ -285,9 +285,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-info-update'
+### イベント: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+GPU 情報の更新がある場合に発生します。
 
 ### イベント: 'gpu-process-crashed'
 
@@ -296,7 +296,7 @@ Emitted whenever there is a GPU info update.
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+GPU プロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
 ### イベント: 'renderer-process-crashed'
 
@@ -485,7 +485,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 アプリがロギングするディレクトリを設定または作成します。これは `app.getPath()` や `app.setPath(pathName, newPath)` で操作できます。
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+`path` 引数なしで `app.setAppLogsPath()` を呼び出すと、このディレクトリは、*macOS* では `~/Library/Logs/アプリ名` に、*Linux* と *Windows* では `userData` ディレクトリ内に設定されます。
 
 ### `app.getAppPath()`
 
@@ -493,7 +493,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name: 
+* `name` String - 以下のパスを名前で要求することができます。 
   * `home` ユーザのホームディレクトリ。
   * `appData` 既定のユーザ毎のアプリケーションデータディレクトリ。 
     * Windowsの場合、`%APPDATA%`
@@ -515,7 +515,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。失敗した場合、`Error` がスローされます。
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+`app.setAppLogsPath()` を呼び出すよりも先に `app.getPath('logs')` が呼び出された場合、`path` 引数なしで `app.setAppLogsPath()` を呼び出すのに等しい、デフォルトのログディレクトリが作成されます。
 
 ### `app.getFileIcon(path[, options])`
 
@@ -556,7 +556,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 戻り値 `String` - アプリケーションの `package.json` ファイルで名前として設定された現在のアプリケーション名。
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
+通常、`package.json` の `name` フィールドは、npm のモジュール仕様に基づいて小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -580,7 +580,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+戻り値 `String` - 2文字の [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国名コードで、ユーザーの OS のロケールを示します。この値はネィティブの OS API から取得します。
 
 **注意:** ロケールの国コードを取得できなかった場合、これは空文字列を返します。
 
@@ -1089,7 +1089,7 @@ A [`Dock`](./dock.md) object that allows you to perform actions on your app icon
 
 A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
+通常、`package.json` の `name` フィールドは、npm のモジュール仕様に基づいて小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
 
 ### `app.userAgentFallback`
 
