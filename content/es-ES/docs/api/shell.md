@@ -34,12 +34,12 @@ Abre el archivo determinado en el escritorio por defecto.
 
 ### `shell.openExternal(url[, options])`
 
-* `url` String - Max 2081 characters on windows.
+* `url` String - Máximo 2081 caracteres en windows.
 * `opciones` Object (opcional) 
   * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
   * `workingDirectory` String (optional) *Windows* - The working directory.
 
-Returns `Promise<void>`
+Devuelve `Promise<void>`
 
 Abra la URL del protocolo externo dado en la forma predeterminada del escritorio. (Por ejemplo, mailto: URL en el agente de correo predeterminado del usuario).
 
@@ -47,33 +47,33 @@ Abra la URL del protocolo externo dado en la forma predeterminada del escritorio
 
 * `fullPath` Cadena
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Devuelve `Boolean` - Si el elemento se movió o no con éxito a la papelera.
 
-Move the given file to trash and returns a boolean status for the operation.
+Mueve el archivo determinado a la papelera y devuelve un valor boleano para la operación.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Reproduce el sonido bip.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operation` String (opcional) - Por defecto `create`, puede ser uno de los siguientes: 
+  * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
+  * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
+  * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Devuelve `Boolean` - Si el acceso directo fue creado con éxito.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Crea o actualiza un enlace de acceso directo a `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Devuelve [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Resuelve el enlace de acceso directo a `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Aparecerá una excepción cuando ocurre cualquier error.
