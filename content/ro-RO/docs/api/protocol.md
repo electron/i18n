@@ -115,7 +115,7 @@ protocol.registerSchemesAsPrivileged([
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -138,7 +138,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -153,7 +153,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Exemplu:
 
 ```javascript
 const { protocol } = require('electron')
@@ -169,7 +169,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -188,14 +188,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` Obiect 
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
@@ -215,7 +215,7 @@ For POST requests the `uploadData` object must be provided.
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -230,7 +230,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Example:
+Exemplu:
 
 ```javascript
 const { protocol } = require('electron')
@@ -287,7 +287,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -304,7 +304,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -321,7 +321,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
@@ -338,14 +338,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` Obiect 
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
@@ -361,7 +361,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` String
