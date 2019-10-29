@@ -87,11 +87,11 @@ Some examples of valid `urls`:
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
   * `callback` Function 
     * `response` Objet 
       * `cancel` Boolean)
-      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
@@ -110,7 +110,7 @@ The `callback` has to be called with an `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
 
 The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
@@ -129,11 +129,11 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
   * `callback` Function 
     * `response` Objet 
       * `cancel` Boolean)
-      * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
@@ -153,7 +153,7 @@ The `callback` has to be called with an `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
@@ -177,7 +177,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `statusCode` Integer
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
@@ -194,7 +194,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String

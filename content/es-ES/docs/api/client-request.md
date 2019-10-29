@@ -11,7 +11,7 @@ Process: [Main](../glossary.md#main-process)
 * `opciones` (Objecto | Cadena) - Si `opciones` es una cadena, es interpretada como la URL de la solicitud. Si es un objeto, se espera que especifique una olicitud HTTP por medio de las siguientes propiedades: 
   * `método` Cadena (opcional) - El método de la solicitud HTTP. por defenteto al método GET.
   * `url` Cadena (opcional) - La URL solicitada. Debe proporcionarse en la forma absoluta con el esquema de protocolo especificado como http o https.
-  * `sesion` Objecto (opcional) - La instancia de [`Sesión`](session.md) en la cual está asociada la solicitud.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
   * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
   * `host` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre del host:puerto".
@@ -110,7 +110,7 @@ Devuelve:
 * `Estatus de código` entero
 * `method` String
 * `Redirigir Url` Cadena
-* `headers de respuesta` objeto
+* `responseHeaders` Record<String, String[]>
 
 Emitido cuando hay una redirección y el modo es `manual`. Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.
 
@@ -127,15 +127,15 @@ Utilizar codificación empaquetada es fuertemente recomendado si no necesita env
 #### `request.setHeader(name, value)`
 
 * `nombre` Cadena - Un nombre de encabezado HTTP extra.
-* `valor` Objecto - Un valor de encabezado HTTP extra.
+* `value` String - An extra HTTP header value.
 
-Añade otro encabezado HTTP. El nombre del encabezado será publicado como es sin minúsculas. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
+Añade otro encabezado HTTP. The header name will be issued as-is without lowercasing. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
 
 #### `request.getHeader(name)`
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Devuelve `objeto` - el valor de un nombre de encabezado extra configurado anteriormente.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 

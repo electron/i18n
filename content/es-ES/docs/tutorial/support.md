@@ -33,9 +33,9 @@ Todas las versiones soportadas aceptarán peticiones de pull requests externas a
 
 ### Versiones soportadas actualmente
 
+* 7.x.y
 * 6.x.y
 * 5.x.y
-* 4.x.y
 
 ### Fin de vida
 
@@ -57,7 +57,7 @@ Sólo se proporcionan binarios de 64bit para macOS, y la versión mínima de mac
 
 Windows 7 y posteriores son soportados, sistemas operativos más viejos no lo son (y no funcionan).
 
-Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. La ejecución de aplicaciones de Electrón en Windows para dispositivos ARM es posible utilizando el binario ia32.
+Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
 
 ### Linux
 

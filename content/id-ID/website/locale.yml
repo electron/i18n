@@ -146,6 +146,7 @@ apps:
   search_app: Filter apps by name, description, etc…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  #App show page specific localization strings
   website: Situs Web
   repository: Repositori
   category: Category
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Halaman elektron
   description: Semua berita terbaru dari tim dan komunitas Elektron.
+  #Post show page specific localization strings
   feedback: Punya umpan balik untuk posting ini? Beritahu <a href="https://twitter.com/electronjs">@electronjs</a> di Twitter.
   help: Butuh bantuan atau menemukan bug? <a href="/contact">Hubungi kami</a>.
 clipboard:
   copy: Salinan
   copy_to_clipboard: Menyalin ke clipboard
   copied: Disalin
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: atau
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Tata Kelola Electron
   description: Sistem tata kelola Elektron terdiri dari Kelompok Kerja yang mengawasi berbagai aspek ekosistem Elektron, dan ada satu kelompok kerja Administratif yang berfungsi untuk menyelesaikan konflik di antara aspek tersebut.
   wgs: Kelompok Kerja
-  docstools:
-    title: Dokumen & Peralatan
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Diluar Jangkauan
     description: Menumbuhkan komunitas Elektron
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: Upgrade
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
-  website:
-    title: Situs Web
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Komunitas & Keselamatan
     description: Oversees removal/bans from community.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Administratif
     description: Kelompok Kerja Administratif mengawasi seluruh tata kelola dan proyek.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Sekilas
     associated_repos: Repositori Terkait

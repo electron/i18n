@@ -32,25 +32,12 @@ Retourne `Boolean` - Si l'élément s'est bien ouvert.
 
 Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
-### `shell.openExternalSync(url[, options])`
-
-* `url` String - Max 2081 characters on Windows, or the function returns false.
-* `options` Object (facultatif) 
-  * `activate` Boolean (optionnel) - `true` pour amener l'application ouverte au premier plan. Vaut par défaut `true`. *macOS*
-  * `workingDirectory` String (optionnel) - Le répertoire de travail. *Windows*
-
-Returns `Boolean` - Whether an application was available to open the URL.
-
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
-
-**Déprécié **
-
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (facultatif) 
-  * `activate` Boolean (optionnel) - `true` pour amener l'application ouverte au premier plan. Vaut par défaut `true`. *macOS*
-  * `workingDirectory` String (optionnel) - Le répertoire de travail. *Windows*
+  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) *Windows* - The working directory.
 
 Returns `Promise<void>`
 

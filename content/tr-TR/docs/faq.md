@@ -138,9 +138,9 @@ npm uninstall -g electron
 
 Bununla birlikte, yerleşik modülü kullanıyorsanız ancak yine de bu hatayı alıyorsanız büyük bir ihtimalle modülü yanlış süreç ile kullanıyorsunuzdur. Örneğin ` electron.app ` yalnızca ana süreçte kullanılabilirken, ` electron.webFrame ` yalnızca oluşturucu süreçlerinde kullanılabilir.
 
-## The font looks blurry, what is this and what can I do?
+## Yazı tipi bulanık görünüyor, bu nedir ve ne yapabilirim?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+Eğer [ alt piksel kenar yumuşatmayı ](http://alienryderflex.com/sub_pixel/) devre dışı bırakırsa, LCD ekranlardaki yazı tipleri bulanık görünebilir. Örnek:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 

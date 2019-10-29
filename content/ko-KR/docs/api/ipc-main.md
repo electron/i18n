@@ -4,11 +4,11 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-`ipcMain` 모듈은 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 클래스의 인스턴스입니다. main 프로세스를 사용할 때 renderer 프로세스(웹페이지)가 보내는 메시지를 동기적 혹은 비동기적으로 처리합니다. renderer가 보내는 메시지는 이 모듈로 내보내게 됩니다.
+The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). main 프로세스를 사용할 때 renderer 프로세스(웹페이지)가 보내는 메시지를 동기적 혹은 비동기적으로 처리합니다. renderer가 보내는 메시지는 이 모듈로 내보내게 됩니다.
 
 ## 메시지 보내기
 
-main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 가능한데 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)를 보세요.
+main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 가능한데 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-args)를 보세요.
 
 * 메시지를 보낼 때 이벤트 이름은 `channel`입니다.
 * 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
@@ -72,10 +72,56 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (optional)
 
 지정한 `channel`의 listener들을 제거합니다.
 
-## Event 객체
+### `ipcMain.handle(channel, listener)`
+
+* `channel` String
+* `listener` 함수<Promise<void> | any> 
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+
+If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+
+```js
+// Main process
+ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
+  const result = await somePromise(...args)
+  return result
+})
+
+// Renderer process
+async () => {
+  const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
+  // ...
+}
+```
+
+The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+
+### `ipcMain.handleOnce(channel, listener)`
+
+* `channel` String
+* `listener` 함수<Promise<void> | any> 
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+
+### `ipcMain.removeHandler(channel)`
+
+* `channel` String
+
+Removes any handler for `channel`, if present.
+
+## IpcMainEvent object
 
 The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+
+## IpcMainInvokeEvent object
+
+The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.

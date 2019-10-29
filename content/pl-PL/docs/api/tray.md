@@ -66,6 +66,8 @@ Moduł `Tray` emituje następujące zdarzenia:
 
 #### Zdarzenie: 'click'
 
+Zwraca:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
@@ -74,12 +76,16 @@ Emitted when the tray icon is clicked.
 
 #### Zdarzenie: 'right-click' *macOS* *Windows*
 
+Zwraca:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
 Emitted when the tray icon is right clicked.
 
 #### Zdarzenie: 'double-click' *macOS* *Windows*
+
+Zwraca:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
@@ -104,12 +110,16 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Zdarzenie: 'drop-files' *macOS*
 
+Zwraca:
+
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Zdarzenie: 'drop-text' *macOS*
+
+Zwraca:
 
 * `event` Event
 * `text` String - the dropped text string.
@@ -130,6 +140,8 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Zdarzenie: 'mouse-enter' *macOS*
 
+Zwraca:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
@@ -137,12 +149,16 @@ Emitted when the mouse enters the tray icon.
 
 #### Zdarzenie: 'mouse-leave' *macOS*
 
+Zwraca:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
 
 Emitted when the mouse exits the tray icon.
 
-#### Zdarzenie: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Zwraca:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - The position of the event.
@@ -183,39 +199,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `tryb` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
-
-Sets when the tray's icon background becomes highlighted (in blue).
-
-**[Deprecated](breaking-changes.md#tray)**
-
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

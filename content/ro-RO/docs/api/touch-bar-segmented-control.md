@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `segmentStyle` String (optional) - Style of the segments: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
@@ -22,11 +22,11 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment. 
+  * `change` Function (optional) - Called when the user selects a new segment. 
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 
-### Instance Properties
+### Propietățile inițiale
 
 The following properties are available on instances of `TouchBarSegmentedControl`:
 

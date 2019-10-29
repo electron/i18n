@@ -14,6 +14,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `hang()`
 * `getCreationTime()`
 * `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
@@ -52,15 +53,15 @@ process.once('loaded', () => {
 
 ## 属性
 
-### `process.defaultApp`
+### `process.defaultApp` *Readonly*
 
 `Boolean`类型， 当作为参数传递给默认应用程序启动应用时，该属性在主进程中为` true `，否则为` undefined `。
 
-### `process.isMainFrame`
+### `process.isMainFrame` *Readonly*
 
 `Boolean`类型， 当前渲染器为主渲染器时为`true`。如果你需要获取当前渲染器的ID你需要使用`webFrame.routingId` 。
 
-### `process.mas`
+### `process.mas` *Readonly*
 
 ` Boolean `类型，为 Mac App Store 生成, 此属性为 ` true `, 对于其他生成，则为 ` undefined `。
 
@@ -76,11 +77,11 @@ process.once('loaded', () => {
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. 将其设置为`true`将会禁用弃用警告。
 
-### `process.resourcesPath`
+### `process.resourcesPath` *Readonly*
 
 ` String ` 类型， 表示资源目录的路径。
 
-### `process.sandboxed`
+### `process.sandboxed` *Readonly*
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -96,19 +97,19 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
-### `process.type`
+### `process.type` *Readonly*
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome`
+### `process.versions.chrome` *Readonly*
 
 ` string `，一个表示 Chrome 版本的字符串。
 
-### `process.versions.electron`
+### `process.versions.electron` *Readonly*
 
 ` string `，一个表示 Electron 版本的字符串。
 
-### `process.windowsStore`
+### `process.windowsStore` *Readonly*
 
 `Boolean`。如果应用运行于 Windows 商店(appx)，该属性为`true`，否则为 `undefined`。
 
@@ -150,6 +151,16 @@ Indicates the creation time of the application. The time is represented as numbe
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
+### `process.getBlinkMemoryInfo()`
+
+返回 ` Object `:
+
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
+
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
@@ -175,11 +186,9 @@ Returns `String` - The version of the host operating system.
 
 示例
 
-| 平台      | Version             |
-| ------- | ------------------- |
-| macOS   | `10.13.6`           |
-| Windows | `10.0.17763`        |
-| Linux   | `4.15.0-45-generic` |
+* `macOS` -> `10.13.6`
+* `Windows` -> `10.0.17763`
+* `Linux` -> `4.15.0-45-generic`
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 

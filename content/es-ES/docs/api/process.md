@@ -14,6 +14,7 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 * `hang()`
 * `getCreationTime()`
 * `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
@@ -52,15 +53,15 @@ process.once('loaded', () => {
 
 ## Propiedades
 
-### `process.defaultApp`
+### `process.defaultApp` *Readonly*
 
 Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `true` en el proceso principal, en el caso contrario es `undefined`.
 
-### `process.isMainFrame`
+### `process.isMainFrame` *Readonly*
 
 Un `Boolean`, `true` cuando el contexto actual del render es el frame "main" renderer. Si usted quiere el ID del frame actual debería usar `webFrame.routingId`.
 
-### `process.mas`
+### `process.mas` *Readonly*
 
 Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
 
@@ -76,11 +77,11 @@ Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no
 
 Un `Boolean` que controla si las advertencias de deprecación son mostrados en `stderr` o no cuando las APIs anteriores basadas en callback convertidas a Promises son invocadas usando callbacks. Configurando esto en `true` se habilitaran las advertencias de deprecación.
 
-### `process.resourcesPath`
+### `process.resourcesPath` *Readonly*
 
 Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
-### `process.sandboxed`
+### `process.sandboxed` *Readonly*
 
 Un `Boolean`. Cuando el proceso de renderer se ejecuta en modo sandbox esta propiedad es `true`, de lo contrario es `undefined`.
 
@@ -96,19 +97,19 @@ Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen
 
 Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
-### `proceso.tipo`
+### `process.type` *Readonly*
 
 Un `String` representando el tipo actual del proceso, puede ser `"browser"` (ejemplo main processl), `"renderer"`, o `"worker"` (ejemplo web worker).
 
-### `proceso.vesiones.chrome`
+### `process.versions.chrome` *Readonly*
 
 Una `cadena` representando la versión de cadena de Chrome.
 
-### `proceso.versiones.electron`
+### `process.versions.electron` *Readonly*
 
 Una `cadena` representando la versión de cadena de Electron.
 
-### `proceso.tiendaWindows`
+### `process.windowsStore` *Readonly*
 
 Un `Booleano`. si la aplicación está siendo ejecutada como una aplicación de la tienda Windows (appx), esta propiedad es `verdad`, de otra manera es `indefinida`.
 
@@ -150,6 +151,16 @@ Devuelve `Objeto`:
 
 Devuelve un objeto con estadísticas de pila V8. Tenga en cuenta que todas las estadísticas se reportan en Kilobytes.
 
+### `process.getBlinkMemoryInfo()`
+
+Devuelve `Objeto`:
+
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
+
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 Devuelve `Promise<ProcessMemoryInfo>` - Resuelve con un [ProcessMemoryInfo](structures/process-memory-info.md)
@@ -175,11 +186,9 @@ Devuelve `String` - La versión de sistema operativo del host.
 
 Ejemplos:
 
-| Plataforma | Versión             |
-| ---------- | ------------------- |
-| macOS      | `13.13.6`           |
-| Windows    | `10.0.17763`        |
-| Linux      | `4.15.0-45-generic` |
+* `macOS` -> `10.13.6`
+* `Windows` -> `10.0.17763`
+* `Linux` -> `4.15.0-45-generic`
 
 **Note:** Devuelve la versión actual del sistema en lugar de la versión del kernel en macOS deferente a `os.release()`.
 

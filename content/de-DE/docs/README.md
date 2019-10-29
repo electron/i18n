@@ -31,6 +31,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Electron's APIs benutzen](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js APIs verwenden](tutorial/application-architecture.md#using-nodejs-apis)
   * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Features zu deiner App hinzufügen 
   * [Benachrichtigungen](tutorial/notifications.md)
   * [Zuletzt verwendete Dokumente](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 
 * [Übersicht](api/synopsis.md)
 * [Prozess-Objekt](api/process.md)
-* [Unterstützte Chrome-Befehlszeilenoptionen](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
 * [Breaking API Veränderungen](api/breaking-changes.md)
 

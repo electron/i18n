@@ -31,6 +31,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
   * [Usando Electro APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Usando Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usando Módulos Nativos do Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Adicionando Recursos para Seu Aplicativo 
   * [Notificações](tutorial/notifications.md)
   * [Documentos Recentes](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 
 * [Sinopse](api/synopsis.md)
 * [Processamento de Objeto](api/process.md)
-* [Suporte ao Terminal de Comando do Chrome](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Variáveis de Ambiente](api/environment-variables.md)
 * [Alterações na API](api/breaking-changes.md)
 

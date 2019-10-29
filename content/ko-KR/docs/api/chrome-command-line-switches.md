@@ -44,13 +44,13 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 
 ## --js-flags=`flags`
 
-Node JS 엔진에 지정한 플래그를 전달합니다. `flags`를 메인 프로세스에서 활성화하고자 한다면, Electron이 시작되기 전에 스위치를 전달해야 합니다.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-가능한 플래그 목록은 [Node 문서](https://nodejs.org/api/cli.html)를 보거나 터미널에서 <0>node --help</0> 명령을 실행하세요. 또한, 구체적으로 노드의 V8 자바스크립트 엔진과 관련있는 플래그의 목록을 보려면 <0>node --v8-options</0> 를 실행하세요. 
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ A comma-separated list of servers for which integrated authentication is enabled
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --ignore-certificate-errors
 
@@ -151,3 +151,7 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.

@@ -20,13 +20,13 @@ Imposta questa stringa come `_NT_SYMBOL_PATH` nell'ambiente, usando i menu Windb
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-## Using the symbol server in Visual Studio
+## Usare il server dei simboli in Visual Studio
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
 ## Troubleshooting: Symbols will not load
 
-Type the following commands in Windbg to print why symbols are not loading:
+Digita i seguenti comandi in Windbg per visualizzare il motivo del mancato caricamento dei simboli:
 
 ```powershell
 > !sym noisy

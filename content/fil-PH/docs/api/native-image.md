@@ -53,7 +53,7 @@ Halimbawa kung `icon.png` ay normal na imahe na may istandard na resolusyon, sam
 
 Kung gusto mong suportahan ang mga display na nayy magkaibang mga DPI na density ng sabayan, pwede kang maglagay ng imahe na may iba-ibang sukat sa parehong folder at gamitin ang filename nang walang mga DPI suffix. Halimbawa:
 
-```text
+```plaintext
 imahe/
 ├── icon.png
 ├── icon@2x.png
@@ -147,11 +147,11 @@ Gumagawa ng bagong `NativeImage` na instance mula sa `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` na String
-* `hslShift` Number[]
+* `hslShift` Number[] (optional)
 
 Nagbabalik ng `NativeImage`
 
-Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. Tingnan ang [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para sa listahan ng mga posibleng halaga.
+Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
 Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 
@@ -185,7 +185,7 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Integer - Between 0 - 100.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng`JPEG` encoded data
 
@@ -229,9 +229,13 @@ Nagbabalik [`Size`](structures/size.md)
 
 Nagmamarka ng imahe bilang template image. 
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
 Nagbabalik `Boolean` - Kung ang imahe ay isang template image. 
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
@@ -256,3 +260,11 @@ Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 * `options` Object * `scaleFactor` Double - Ang scale factor para idagdag sa prinisentang imahe para. * `width` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `height` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `buffer` Buffer (optional) - Ang buffer ay naglalaman ng mga hilaw na datos ng larawan. * `dataURL` String (optional) - An data URL ay naglalaman ng alinman sa base 64 naka encode PNG o JPEG na imahe.
 
 Magdagdag ng naka presentang larawan para sa tinutukoy na scale factor. Pwede rin itong gamitin para magdagdag ng ibang representasyong scale factor sa isang imahe. Pwede itong tawaging imaheng walang laman.
+
+## Mga Katangian
+
+### `nativeImage.isMacTemplateImage` *macOS*
+
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+
+Please note that this property only has an effect on macOS.

@@ -26,25 +26,33 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` Event
 
-### イベント: 'inverted-color-scheme-changed' *Windows*
+### Event: 'inverted-color-scheme-changed' *Windows* *Deprecated*
 
 戻り値:
 
 * `event` Event
 * `invertedColorScheme` Boolean - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) が使用されている場合は `true`、それ以外の場合は `false` です。
 
-### イベント: 'high-contrast-color-scheme-changed' *Windows*
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-戻り値：
+### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
+
+戻り値:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
 
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+
 ## メソッド
 
-### `systemPreferences.isDarkMode()` *macOS*
+### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 
 戻り値 `Boolean` - システムがダークモードかどうか。
+
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -53,7 +61,7 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (任意) - サブスクライブ中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
@@ -61,14 +69,14 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` Record<String, any>
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` Record<String, any>
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
@@ -77,11 +85,12 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 戻り値 `Number` - この登録のID。
 
-対応する `event` が発生したときに、macOS のネイティブ通知を監視し、`callback` が `callback(event, userInfo)` で呼ばれます。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
+対応する `event` が発生したときに、macOS のネイティブ通知を監視し、`callback` が `callback(event, userInfo)` で呼ばれます。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。 The `object` is the sender of the notification, and only supports `NSString` values for now.
 
 `event` の登録を解除するために使用できる、監視者の `id` が返されます。
 
@@ -97,7 +106,8 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 戻り値 `Number` - この登録のID。
 
@@ -108,7 +118,8 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 `subscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` を使用します。 これは `NSWorkspaceDidActivateApplicationNotification` といったイベントに必要です。
 
@@ -132,7 +143,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列
+* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
 アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
 
@@ -299,15 +310,21 @@ const alpha = color.substr(6, 2) // "dd"
   * `red`
   * `yellow`
 
+Returns `String` - The standard system color formatted as `#RRGGBBAA`.
+
 「コントラストを上げる」や「透明度を下げる」など、鮮やかさやアクセシビリティ設定の変更に自動的に適応する標準のシステムカラーの1つを返します。 詳しくは、[Apple のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)をご覧ください。
 
-### `systemPreferences.isInvertedColorScheme()` *Windows*
+### `systemPreferences.isInvertedColorScheme()` *Windows* *Deprecated*
 
 戻り値 `Boolean` - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) がアクティブの場合は `true`、それ以外の場合は `false` です。
 
-### `systemPreferences.isHighContrastColorScheme()` *Windows*
+**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+
+### `systemPreferences.isHighContrastColorScheme()` *macOS* *Windows* *Deprecated*
 
 戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
+
+**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
@@ -315,25 +332,33 @@ const alpha = color.substr(6, 2) // "dd"
 
 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を取得します。
 
-Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
+Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
 
-### `systemPreferences.getAppLevelAppearance()` *macOS*
+**[非推奨](modernization/property-updates.md)**
+
+### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
 
 戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
 
 [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) に割り当てられている、アプリケーションに必要であることを宣言した macOS の外観設定を取得します。 この値を設定するには `setAppLevelAppearance` API が使用できます。
 
-### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
+**[非推奨](modernization/property-updates.md)**
+
+### `systemPreferences.setAppLevelAppearance(appearance)` *macOS* *Deprecated*
 
 * `appearance` String | null - `dark` か `light` にできます
 
 アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
+
+**[非推奨](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
 戻り値 `Boolean` - このデバイスが Touch ID を使用できるかどうか。
 
 **注意:** この API は Sierra 10.12.2 より古い macOS システムでは `false` を返します。
+
+**[非推奨](modernization/property-updates.md)**
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
@@ -388,3 +413,21 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 * `prefersReducedMotion` Boolean - ユーザーがプラットフォーム API に基づいてモーションの削減を望むかどうかが決定されます。
 
 システムアニメーション設定を持つオブジェクトを返します。
+
+## プロパティ
+
+### `systemPreferences.appLevelAppearance` *macOS*
+
+A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
+
+Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
+
+This property is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
+
+A `String` property that can be `dark`, `light` or `unknown`.
+
+Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください

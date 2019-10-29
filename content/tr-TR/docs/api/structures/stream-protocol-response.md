@@ -1,5 +1,5 @@
 # StreamProtocolResponse Nesnesi
 
-* `statusCode` Sayı - HTTP yanıt kodu.
-* `headers` Nesne - Yanıt başlıklarını içeren bir nesne.
-* `data` ReadableStream - Yanıt gövdesini temsil eden bir okunabilir Node.js akışı.
+* `statusCode` Number (optional) - The HTTP response code.
+* `headers` Record<String, String | String[]> (optional) - An object containing the response headers.
+* `data` ReadableStream | null - A Node.js readable stream representing the response body.

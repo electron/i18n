@@ -2,7 +2,7 @@
 
 > Register a custom protocol and intercept existing protocol requests.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -115,13 +115,14 @@ protocol.registerSchemesAsPrivileged([
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -137,8 +138,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -151,7 +153,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Exemplu:
 
 ```javascript
 const { protocol } = require('electron')
@@ -167,13 +169,14 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -185,20 +188,18 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` Obiect 
       * `url` String
-      * `method` String
-      * `session` Object (optional)
-      * `uploadData` Object -Obiect (opțional) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+      * `method` String (optional)
+      * `session` Session | null (optional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -214,9 +215,9 @@ For POST requests the `uploadData` object must be provided.
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -229,7 +230,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Example:
+Exemplu:
 
 ```javascript
 const { protocol } = require('electron')
@@ -276,16 +277,6 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme, callback)`
-
-* `scheme` String
-* `callback` Function 
-  * `handled` Boolean
-
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `protocol.isProtocolHandled(scheme)`
 
 * `scheme` String
@@ -296,8 +287,9 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -312,13 +304,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -328,8 +321,9 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -344,17 +338,17 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` Obiect 
       * `url` String
-      * `method` String
-      * `session` Object (optional)
+      * `method` String (optional)
+      * `session` Session | null (optional)
       * `uploadData` Object -Obiect (opțional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -367,9 +361,9 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` Obiect 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)

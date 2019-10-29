@@ -6,7 +6,7 @@ Process: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
-### Instance Methods
+### Metode de Instanță
 
 The `BrowserWindowProxy` object has the following instance methods:
 
@@ -34,14 +34,14 @@ Invokes the print dialog on the child window.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 
 In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
 
-### Instance Properties
+### Propietățile inițiale
 
 The `BrowserWindowProxy` object has the following instance properties:
 

@@ -46,7 +46,7 @@ Uma `String` representa a mensagem de estado HTTP.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * Todos os nomes de cabeçalho são em minúsculas.
 * Cada nome de cabeçalho produz uma propriedade de valor de matriz no objeto de cabeçalho.

@@ -96,7 +96,7 @@ browserWindow.loadURL('https://example.com')
 
 Es primordial que no active la integración Node.js en ningún renderizador ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), o [`<webview>`](../api/webview-tag.md)) que carga contenido remote. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
-Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si estás abriendo un BrowserWindow direccionado a `https://example.com/", puedes darle a esa página web las habilidades exactas que necesita, pero no más.
+Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
 
 ### ¿Por què?
 

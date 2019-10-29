@@ -87,11 +87,11 @@ Algunos ejemplos de `urls` válidas:
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
-    * `Encabezado de solicitud` Objecto
+    * `requestHeaders` Record<string, string>
   * `callback` Function 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
-      * `Encabezados de solicitud` Objecto (opcional) - Cuando se provean, las solicitudes serán hechas con este encabezado.
+      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
 
 El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
 
@@ -110,7 +110,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `sourceId` Cadena
     * `referrer` Cadena
     * `fecha y hora` Doble
-    * `Encabezado de solicitud` Objecto
+    * `requestHeaders` Record<string, string>
 
 El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
 
@@ -129,11 +129,11 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
     * `Estatus de código` entero
-    * `headers de respuesta` objeto
+    * `responseHeaders` Record<string, string> (optional)
   * `callback` Function 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
-      * `Encabezados de respuesta` Objecto (opcional) - Cuando se provean, el servidor se asume que será respondido con estos encabezados.
+      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
 
 El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
@@ -153,7 +153,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
-    * `headers de respuesta` objeto
+    * `responseHeaders` Record<string, string> (optional)
     * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
     * `Estatus de código` entero
     * `linea de estatus` Cadena
@@ -177,7 +177,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `Estatus de código` entero
     * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
     * `Desde cache` Booleano
-    * `headers de respuesta` objeto
+    * `responseHeaders` Record<string, string> (optional)
 
 El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
 
@@ -194,7 +194,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
-    * `headers de respuesta` objeto
+    * `responseHeaders` Record<string, string> (optional)
     * `Desde cache` Booleano
     * `Estatus de código` entero
     * `linea de estatus` Cadena

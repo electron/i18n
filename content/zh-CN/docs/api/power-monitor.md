@@ -4,16 +4,15 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 例如：
 
 ```javascript
-const electron = require('electron')
-const { app } = electron
+const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
+  powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
 })
@@ -54,21 +53,6 @@ app.on('ready', () => {
 ## 方法
 
 `电源监视器` 模块具有以下方法：
-
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(Deprecated)*
-
-* `idleThreshold` Integer
-* `callback` Function 
-  * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
-
-计算系统空闲状态。 `idleThreshold` is the amount of time (in seconds) before considered idle. `回调函数` 将在一些系统上同步 ，并与 `idleState` 参数相同，描述系统的状态。 `锁定` 是 仅可用于支持的系统。
-
-### `powerMonitor.querySystemIdleTime(callback)` *(Deprecated)*
-
-* `callback` Function 
-  * `idleTime` Integer - 空闲秒数
-
-计算系统空闲时间以秒为单位。
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 

@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
@@ -12,22 +12,19 @@
 
 以下は画面全体を埋めるウインドウを作成する例です。
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
-
-    <br />別の例として外部ディスプレイへのウィンドウ作成を示します。
+    <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
     app.on('ready', () => {
-      let displays = electron.screen.getAllDisplays()
+      let displays = screen.getAllDisplays()
       let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })

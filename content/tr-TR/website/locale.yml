@@ -164,6 +164,9 @@ clipboard:
   copy: Copy
   copy_to_clipboard: Panoya Kopyala
   copied: Kopyalandı
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: ya da
 pages:
   '/':
@@ -233,9 +236,9 @@ governance:
   title: Electron Yönetimi
   description: Electron yönetim sistemi, Electron ekosisteminin farklı yönlerini denetleyen Çalışma Gruplarından ve aralarındaki çatışmaları çözmek için çalışan bir İdari çalışma grubundan oluşur.
   wgs: Çalışma Grupları
-  docstools:
-    title: Belgeler ve Araçlar
-    description: Dışarıya odaklanmış takımları (örneğin, Fiddle, Forge), web sitesindeki Electron dokümantasyonunu ve <code> electron / * </code> depolarını ve bakımcının 3. parti modüllerine erişimini yönetir.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Sosyal Yardım
     description: Electron Topluluğunu Büyüt
@@ -245,9 +248,6 @@ governance:
   upgrades:
     title: Yükseltmeler
     description: Yukarı havza bağımlılıklarının yükseltmelerini denetler; özellikle Chromium ve Node.
-  website:
-    title: Web sitesi
-    description: Electron web sitesinin teknik uygulamasını, tasarımını ve stilini ve ilgili takımları denetler.
   cmsf:
     title: Topluluk ve Güvenlik
     description: Topluluktan çıkarılmasını / yasaklanmasını denetler.
@@ -257,6 +257,9 @@ governance:
   admins:
     title: İdari
     description: İdari Çalışma Grubu tüm yönetim ve projeyi denetler.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Genel Bakış
     associated_repos: İlişkili Depolar

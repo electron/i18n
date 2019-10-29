@@ -63,7 +63,7 @@ session.defaultSession.cookies.set(cookie)
 #### `cookies.get(filter)`
 
 * `filter` Object - 过滤器对象，包含过滤参数 
-  * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
+  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * ` name `String (可选) - 按名称筛选 cookie。
   * `domain` String (optional) - 检索与域名或者 `domain` 子域名匹配的cookie。
   * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
@@ -74,27 +74,10 @@ session.defaultSession.cookies.set(cookie)
 
 Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
 
-#### `cookies.get(filter, callback)`
-
-* `过滤` Object 
-  * ` url `String (可选) - 检索与 ` url ` 关联的 cookie。空意味着检索所有 url 的 cookie。
-  * ` name `String (可选) - 按名称筛选 cookie。
-  * `domain` String (optional) - 检索与域名或者 `domain` 子域名匹配的cookie。
-  * ` path `String (可选) - 检索路径与 ` path ` 匹配的 cookie。
-  * ` secure `Boolean (可选) - 通过其Secure 属性筛选 cookie。
-  * ` session `Boolean (可选) - 筛选出session 内可用或持久性 cookie。
-* `callback` Function - 回调函数 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - 返回的cookie 对象数组.
-
-发送一个请求获取所有匹配 `filter` 对象条件的cookie，回调函数将在请求结束后以 `callback(error, cookies)` 的形式被调用。
-
-**[即将弃用](modernization/promisification.md)**
-
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` 字符串 - 与 cookie 对应的 url。如果 url 不可用，promise将被拒绝。
+  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
   * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
   * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。未指定时默认为空。
@@ -107,24 +90,6 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 用 `details` 去设置一个 cookie。
 
-#### `cookies.set(details, callback)`
-
-* `details` Object 
-  * ` url `String - 与 cookie 关联的 url。
-  * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
-  * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
-  * ` domain `String (可选) - cookie 的域名。如果省略, 则默认为空。
-  * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
-  * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
-  * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
-  * ` expirationDate `Double (可选) - cookie 的到期日期，类型为时间戳，单位为秒。 如果省略, 则 cookie 将成为会话 cookie, 并且不会在会话之间保留。
-* `callback` Function 
-  * `error` Error
-
-设置一个以` details `对象为模型的cookie，回调函数将在设置执行后以` callback(error) `形式被调用。
-
-**[即将弃用](modernization/promisification.md)**
-
 #### `cookies.remove(url, name)`
 
 * ` url `String - 与 cookie 关联的 URL。
@@ -134,26 +99,8 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 移除与`url` 和 `name`匹配的 cookie。
 
-#### `cookies.remove(url, name, callback)`
-
-* ` url `String - 与 cookie 关联的 URL。
-* ` name `String - cookie 名称。
-* `callback` Function
-
-删除与 ` url ` 和 ` name ` 相匹配的 cookie, 回调函数将在执行完成时被调用。
-
-**[即将弃用](modernization/promisification.md)**
-
 #### `cookies.flushStore()`
 
 返回 `Promise<void>` - 一个在 cookie 写入时解析的 promise。
 
 写入所有未写入磁盘的 cookie。
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-写入所有未写入磁盘的 cookie。
-
-**[即将弃用](modernization/promisification.md)**

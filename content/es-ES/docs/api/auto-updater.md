@@ -6,6 +6,8 @@ Proceso: [principal](../glossary.md#main-process)</0>
 
 **Puede Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## Noticias de la plataforma
 
 Actualmente, solo macOS y Windows están soportados. No hay soporte para auto actualizaciones en Linux, por lo que es recomendable que use el gestor de paquetes de la distribución para actualizar su aplicación.
@@ -82,7 +84,7 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 
 * `options` Object 
   * `url` String
-  * `headers` Object (opcional) *macOS* - Cabeceras de petición HTTP.
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (opcional) *macOS* - `json` o `default`, ver el [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README para más información.
 
 Configura el `url` e inicializa la actualización automática.

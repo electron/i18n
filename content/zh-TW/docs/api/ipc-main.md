@@ -4,11 +4,11 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
 ## 傳送訊息
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-args) for more information.
 
 * When sending a message, the event name is the `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
@@ -72,10 +72,56 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` String (選用)
 
 Removes listeners of the specified `channel`.
 
-## Event 物件
+### `ipcMain.handle(channel, listener)`
+
+* `channel` String
+* `listener` Function<Promise<void> | any> 
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+
+If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+
+```js
+// Main process
+ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
+  const result = await somePromise(...args)
+  return result
+})
+
+// Renderer process
+async () => {
+  const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
+  // ...
+}
+```
+
+The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+
+### `ipcMain.handleOnce(channel, listener)`
+
+* `channel` String
+* `listener` Function<Promise<void> | any> 
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+
+### `ipcMain.removeHandler(channel)`
+
+* `channel` String
+
+Removes any handler for `channel`, if present.
+
+## IpcMainEvent object
 
 The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+
+## IpcMainInvokeEvent object
+
+The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.

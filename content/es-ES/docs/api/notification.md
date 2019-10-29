@@ -14,7 +14,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 Process: [Main](../glossary.md#main-process)
 
-`Notification` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Crea una nueva `Notification` con propiedades nativas como las configuradas por `options`.
 
@@ -28,7 +28,7 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
 
 ### `new Notification([options])` *Experimental*
 
-* `opciones` Objeto 
+* `opciones` Objecto (opcional) 
   * `title` String - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación.
   * `subtitle` String (opcional) *macOS* - Un subtítulo para la notificación, la cual aparecerá debajo del título.
   * `body` String - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo.
@@ -101,6 +101,44 @@ Si la notificación ha sido mostrada con anterioridad, este método descartará 
 #### `notification.close()`
 
 Descarta la notificación.
+
+### Propiedades de Instancia
+
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
 ### Reproducción de Sonidos
 

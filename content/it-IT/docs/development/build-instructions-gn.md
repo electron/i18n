@@ -15,7 +15,7 @@ Check the build prerequisites for your platform before proceeding
 You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. Questa impostazione comunica a `depot_tools` di utilizzare la versione attualmente installata di Visual Studio (per default `depot_tools` cercherà di scaricare una versione accessibile ai soli utenti interni di Google).
 
 ## Cached builds (optional step)
 
@@ -34,7 +34,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
 
 ```sh
-export SCCACHE_BUCKET="electronjs-sccache"
+export SCCACHE_BUCKET="electronjs-sccache-ci"
 export SCCACHE_TWO_TIER=true
 ```
 
@@ -57,6 +57,7 @@ If you intend to `git pull` or `git push` from the official `electron` repositor
 $ cd src/electron
 $ git remote remove origin
 $ git remote add origin https://github.com/electron/electron
+$ git checkout master
 $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
@@ -71,7 +72,7 @@ $ git pull
 $ gclient sync -f
 ```
 
-## Building
+## Costruzione
 
 ```sh
 $ cd src
@@ -211,7 +212,7 @@ gclient sync -f --with_branch_heads --with_tags
     </p>
     
     <h2>
-      Tests
+      Test
     </h2>
     
     <p>
@@ -219,21 +220,11 @@ gclient sync -f --with_branch_heads --with_tags
     </p>
     
     <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
-# Install the test modules with the generated headers
-$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 </code></pre>
     
     <p>
-      Then, run Electron with <code>electron/spec</code> as the argument:
+      You can now <a href="testing.md#unit-tests">run the tests</a>.
     </p>
-    
-    <pre><code class="sh"># on Mac:
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
-$ ./out/Debug/electron.exe electron/spec
-# on Linux:
-$ ./out/Debug/electron electron/spec
-</code></pre>
     
     <p>
       If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:

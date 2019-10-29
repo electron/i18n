@@ -6,6 +6,8 @@
 
 **Дивіться також: [Детальна інструкція як налаштувати процес оновлення вашого застосунку](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## Зауваження
 
 Наразі, підтримуються тільки macOS та Windows. Немає вбудованої підтримки для автооновлення на Linux, тому рекомендовано використовувати наданий пакетний менеджер для оновлення вашого застосунку.
@@ -82,7 +84,7 @@
 
 * `options` Object 
   * `url` String
-  * `headers` Object (опціонально) *macOS* - хедери HTTP запиту.
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (опціонально) *macOS* - `json` чи `default`, дивись [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для детальнішої інформації.
 
 Встановлює `url` та ініціалізує автоновлення.

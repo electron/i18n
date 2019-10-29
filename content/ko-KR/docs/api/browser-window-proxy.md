@@ -34,7 +34,7 @@ unload 이벤트를 호출하지 않고, 자식 윈도우를 강제로 종료합
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 지정된 origin과 함께 메시지를 보냅니다. 별도의 origin이 지정되어 있지 않다면 `*`을 작성합니다.

@@ -6,7 +6,7 @@ Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 O `BroswerView- VizualizareABrowser-ului` poate fi folosită la încorporarea de conținut web adițional în [`BrowserWindow-FereastraBrowser-ului`](browser-window.md). Acționează ca o fereastră copil, cu excepția că este relativ poziționată lângă propia sa fereastră. A fost creat ca o alternativă la eticheta `wedview-vizualizareweb`.
 
-## Exemplu
+### Exemplu
 
 ```javascript
 // În procesul principal-main.
@@ -72,18 +72,23 @@ Forțează închiderea priveliștei, evenimentele `unload` și `beforeunload` nu
 #### `view.setAutoResize(options)` *Experimental*
 
 * `opțiuni` Obiect 
-  * `width-lățime` Boolean - Dacă `true-adevărat`, lățimea priveliștei va crește și se contractă împreună cu fereastra. `false-fals` din fabrică.
-  * `height-înălțime` Boolean - Dacă `true-adevărat`, înălțimea priveliștii va crește și se va contracta împreună cu fereastra. `false-fals` din fabrică.
-  * `horizontal-orizontal` Boolean - Dacă `true-adevărat`, poziția x a priveliștii și lățimea vor crește și contracta proporțional cu fereastra.`false-fals` din fabrică.
-  * `vertical` Boolean - Dacă `true-adevărat`, poziția y și înălțimea priveliștii vor crește și contracta proporțional cu fereastra. `false-fals<0> din fabrică.</li>
-</ul></li>
-</ul>
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
-<h4><code>view.setBounds(bounds)` *Experimental*</h4> 
-    * `bounds` [Rectangle](structures/rectangle.md)
-    
-    Redimensionează și mută vederea în limitele furnizate în raport cu fereastra.
-    
-    #### `view.setBackgroundColor(color)` *Experimental*
-    
-    * `color` String - Șir - Culoare în formatele `#aarrggbb` sau `#argb`. Canalul alpha este opțional.
+#### `view.setBounds(bounds)` *Experimental*
+
+* `bounds` [Rectangle](structures/rectangle.md)
+
+Redimensionează și mută vederea în limitele furnizate în raport cu fereastra.
+
+#### `view.getBounds()` *Experimental*
+
+Returns [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
+
+#### `view.setBackgroundColor(color)` *Experimental*
+
+* `color` String - Șir - Culoare în formatele `#aarrggbb` sau `#argb`. Canalul alpha este opțional.

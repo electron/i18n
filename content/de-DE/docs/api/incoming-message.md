@@ -24,7 +24,7 @@ Gibt an dass der Body der Antwort endet.
 
 Ausgegeben wenn eine Anfrage während einer laufenden HTTP Transaktion abgebrochen wurde.
 
-#### Event: 'error'
+#### Ereignis : "Fehler
 
 Rückgabewert:
 
@@ -32,7 +32,7 @@ Rückgabewert:
 
 Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Instance Properties
+### Instanz Eigenschaften
 
 An `IncomingMessage` instance has the following readable properties:
 
@@ -46,7 +46,7 @@ A `String` representing the HTTP status message.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * All header names are lowercased.
 * Each header name produces an array-valued property on the headers object.

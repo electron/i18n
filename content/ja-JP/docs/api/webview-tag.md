@@ -72,7 +72,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/"></webview>
 ```
 
-見える URL を返します。 この属性に書き込むと、トップレベルのナビゲーションが開始されます。
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
 `src` に独自の値を代入すると、現在のページがリロードされます。
 
@@ -84,7 +84,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
+A `Boolean`. この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-NodeJS サポートを有効にする実験的な機能です。これは `webview` 内の iframe のようなサブフレーム内でサポートされます。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。 デフォルトではゲストページ内のこのオプションは無効化されています。
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。 デフォルトではゲストページ内のこのオプションは無効化されています。
 
 ### `enableremotemodule`
 
@@ -100,7 +100,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
+A `Boolean`. この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
 
 ### `plugins`
 
@@ -108,7 +108,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-この属性が存在する場合、`webview` 内のゲストページはブラウザのプラグインを使用することができます。プラグインはデフォルトでは無効です。
+A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `preload`
 
@@ -116,11 +116,11 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-ゲストのページで他のスクリプトを実行する前に読み込まれるスクリプトを指定します。 スクリプトの URL のプロトコルは、`file:` または `asar:` のいずれかでなければなりません。これは、ゲストページ内で `require` によってロードされるためです。
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. スクリプトの URL のプロトコルは、`file:` または `asar:` のいずれかでなければなりません。これは、ゲストページ内で `require` によってロードされるためです。
 
 ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
-**注釈:** このオプションは、`will-attach-webview` イベントに指定された `webPreferences` に `preloadURL` (`preload` ではない) として表示されます。
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -128,7 +128,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-ゲストページの参照先 URL を設定します。
+A `String` that sets the referrer URL for the guest page.
 
 ### `useragent`
 
@@ -136,7 +136,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-ページがナビゲートされる前にゲストページ用のユーザーエージェントを設定します。 一度ページがロードされた場合は、`setUserAgent` メソッドを使用してユーザーエージェントを変更します。
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -144,7 +144,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-この属性が存在すると、ゲストページでウェブセキュリティが無効になります。ウェブセキュリティはデフォルトで有効になっています。
+A `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -153,7 +153,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 `partition` が設定されていない場合は、アプリのデフォルトのセッションが使用されます。
+A `String` that sets the session used by the page. `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 `partition` が設定されていない場合は、アプリのデフォルトのセッションが使用されます。
 
 アクティブなレンダラープロセスのセッションは変更できないため、この値は最初のナビゲーションの前にのみ変更できます。 その後の値の変更は、DOM 例外によって失敗します。
 
@@ -163,7 +163,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-この属性が存在すると、ゲストページは新しいウィンドウを開くことが許可されます。 ポップアップはデフォルトで無効になっています。
+A `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -171,7 +171,7 @@ NodeJS サポートを有効にする実験的な機能です。これは `webvi
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-webview で設定するウェブ環境設定を指定する `,` 区切りの文字列リスト。 サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
+A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
 
 この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 特殊な値として、`yes` と `1` は `true` として解釈され、`no` と `0` は `false` として解釈されます。
 
@@ -181,7 +181,7 @@ webview で設定するウェブ環境設定を指定する `,` 区切りの文�
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-有効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ webview で設定するウェブ環境設定を指定する `,` 区切りの文�
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-無効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ## メソッド
 
@@ -314,20 +314,17 @@ webview.addEventListener('dom-ready', () => {
 
 * `css` String
 
-ゲストページへ CSS を注入します。
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
-* `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
-  * `result` Any
+### `<webview>.removeInsertedCSS(key)`
 
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+* `key` String
 
-ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 `requestFullScreen` のようなユーザの操作を必要とする HTML API は、このオプションを自動化に利用できます。
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-**[非推奨予定](modernization/promisification.md)**
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -435,6 +432,8 @@ webview.addEventListener('dom-ready', () => {
 
 * `text` String
 
+戻り値 `Promise<void>`
+
 フォーカスされた要素に `text` を挿入します。
 
 ### `<webview>.findInPage(text[, options])`
@@ -467,23 +466,9 @@ webview.addEventListener('dom-ready', () => {
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 
+戻り値 `Promise<void>`
+
 `webview` のウェブページを印刷します。`webContents.print([options])` と同じです。
-
-### `<webview>.printToPDF(options, callback)`
-
-* `options` Object 
-  * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
-  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
-  * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
-  * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
-  * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
-* `callback` Function 
-  * `error` Error
-  * `data` Buffer
-
-`webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options, callback)` と同じです。
-
-**[非推奨予定](modernization/promisification.md)**
 
 ### `<webview>.printToPDF(options)`
 
@@ -498,16 +483,6 @@ webview.addEventListener('dom-ready', () => {
 
 `webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options)` と同じです。
 
-### `<webview>.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-`rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
-
-**[非推奨予定](modernization/promisification.md)**
-
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
@@ -516,22 +491,26 @@ webview.addEventListener('dom-ready', () => {
 
 `rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
-### `<webview>.send(channel[, arg1][, arg2][, ...])`
+### `<webview>.send(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
+戻り値 `Promise<void>`
+
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは [`ipcRenderer`](ipc-renderer.md) モジュールで `channel` イベントをリッスンしてメッセージを処理できます。
 
-サンプルについては [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
+サンプルについては [webContents.send](web-contents.md#contentssendchannel-args) を参照して下さい。
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` Object
+* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+
+戻り値 `Promise<void>`
 
 入力 `event` をページに送ります。
 
-`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) を参照してください。
+`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) を参照してください。
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -558,12 +537,16 @@ webview.addEventListener('dom-ready', () => {
 * `minimumLevel` Number
 * `maximumLevel` Number
 
+戻り値 `Promise<void>`
+
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
 ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
+
+戻り値 `Promise<void>`
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
@@ -581,7 +564,7 @@ webview.addEventListener('dom-ready', () => {
 
 戻り値 `Number` - この `webview` の WebContents ID。
 
-## DOM イベント
+## DOM Events
 
 `webview` タグでは、以下の DOM イベントを使用できます。
 
@@ -682,7 +665,7 @@ webview.addEventListener('console-message', (e) => {
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
   * `matches` Integer - マッチの個数。
-  * `selectionArea` Object - 最初のマッチ領域の座標。
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
 [`webview.findInPage`](#webviewfindinpagetext-options) リクエストの結果が有効なときに発行されます。
@@ -704,7 +687,7 @@ console.log(requestId)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` Object - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
+* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 ゲストページが新しいブラウザウィンドウを開くときに発生します。
 
@@ -775,7 +758,7 @@ webview.addEventListener('close', () => {
 戻り値:
 
 * `channel` String
-* `args` Array
+* `args` any[]
 
 ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
 

@@ -53,7 +53,7 @@ Apple Retina ディスプレイのような高解像度をサポートしてい�
 
 同時に異なるピクセル密度のディスプレイをサポートしたい場合、同じフォルダ内に異なるサイズの画像を置き、DPI 接尾子無しでファイル名を使用して下さい。
 
-```text
+```plaintext
 images/
 ├── icon.png
 ├── icon@2x.png
@@ -147,11 +147,11 @@ console.log(image)
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
-* `hslShift` Number[]
+* `hslShift` Number[] (optional)
 
 戻り値 `NativeImage`
 
-指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 使用可能な値のリストは、[`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) を参照してください。
+指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
 `hslShift` は以下のルールで画像に適用されます。
 
@@ -185,7 +185,7 @@ console.log(image)
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**必須**) - 0 ~ 100。
+* `quality` Integer - Between 0 - 100.
 
 戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -229,9 +229,13 @@ console.log(image)
 
 画像をテンプレート画像としてマークします。
 
+**[非推奨](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
 戻り値 `Boolean` - 画像がテンプレート画像かどうか。
+
+**[非推奨](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
@@ -256,3 +260,11 @@ console.log(image)
 * `options` Object * `scaleFactor` Double - 画像を表現する際の拡大倍率。 * `width` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `height` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `buffer` Buffer (任意) - 生の画像データを含むバッファ。 * `dataURL` String (任意) - Base64 でエンコードされた PNG または JPEG 画像を含むデータURL。
 
 特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。
+
+## プロパティ
+
+### `nativeImage.isMacTemplateImage` *macOS*
+
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+
+Please note that this property only has an effect on macOS.

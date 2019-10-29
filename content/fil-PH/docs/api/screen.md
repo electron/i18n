@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -12,23 +12,20 @@ Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready`
 
 Isang halimbawa ng paglikha ng isang window na pupuno sa buong screen:
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
-
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
     <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
-    app.on('ready', () =&gt; {
-      let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+    app.on('ready', () => {
+      let displays = screen.getAllDisplays()
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     
@@ -57,7 +54,7 @@ Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Ibinabalik ang:
+Pagbabalik ng:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -66,7 +63,7 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Ibinabalik ang:
+Magbabalik ng:
 
 * `event` na Pangyayari
 * `display` [Display](structures/display.md)

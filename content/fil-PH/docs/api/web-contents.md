@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-`WebContents ` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay responsable sa pag-render at pagkontrol sa isang web page at bagay na ari-arian ng [`BrowserWindow`](browser-window.md). Isang halimbawa ng pag-access sa `webContents` bagay:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay responsable sa pag-render at pagkontrol sa isang web page at bagay na ari-arian ng [`BrowserWindow`](browser-window.md). Isang halimbawa ng pag-access sa `webContents` bagay:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,32 +63,46 @@ Ibinabalik ang:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Ang kaganapang ito ay tulad ng `did-finish-load` ngunit inilalabas kapag nabigo ang pag load o kinansela, hal. `window.stop() ` ay ginagamit. Ang buong listahan ng mga error code at ang kanilang mga kahulugan ay magagamit [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+This event is like `did-finish-load` but emitted when the load failed. Ang buong listahan ng mga error code at ang kanilang mga kahulugan ay magagamit [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Event: 'did-fail-provisional-load'
 
 Ibinabalik ang:
 
 * `event` na Pangyayari
-* `isMainFrame` Boolean
+* `pagkakamalingCode`kabuuan
+* `Paglalarawan ng pagkakamali`tali
+* `napatunayan sa Url`tali
+* `ay pangunahing kuwadro` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+
+#### Kaganapan: 'ginawa-frame-finish-load'
+
+Magbabalik ng:
+
+* `event` Event
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
 Napalabas kapag ang frame ay nagawa na ang nabigasyon.
 
-#### Event: 'did-start-loading'
+#### Kaganapan: 'did-start-loading'
 
 Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay nagsimulang umikot.
 
-#### Event: 'did-stop-loading'
+#### Kaganapan: 'did-stop-loading'
 
 Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay tumigil sa pagikot.
 
 #### Kaganapan: 'dom-ready'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
-* `event` Event
+* `kaganapan` Kaganapan
 
 Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
@@ -96,7 +110,7 @@ Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` Event
 * `title` String
 * `explicitSet` Boolean
 
@@ -115,11 +129,11 @@ Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
 Ibinabalik ang:
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
-* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `Mga karagdagang tampok` String [] - Ang di-karaniwang mga tampok (mga tampok na hindi hinahawakan sa pamamagitan ng Kromo o Elektron) na ibinigay sa `window.open()`.
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
@@ -146,9 +160,9 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 #### Kaganapan: 'mag-navigate'
 
-Ibinabalik ang:
+Ibabalik:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Tali
 
 Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
@@ -163,7 +177,7 @@ Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `isInPlace` Boolean
 * `ay pangunahing kuwadro` Boolean
@@ -176,7 +190,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Tali
 * `isInPlace` Boolean
 * `ay pangunahing kuwadro` Boolean
@@ -191,7 +205,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Ibinabalik ang:
+Ibinabalik:
 
 * `kaganapan` kaganapan
 * `url` Tali
@@ -237,7 +251,7 @@ Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad n
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `url` Tali
 * `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
@@ -251,7 +265,7 @@ Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngun
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` Ang event
 
 Naipalalabas kapag ang `beforeunload` ay sinusubukan ng tagahawak ng kaganapan na kanselahin ang pag-unload ng pahina.
 
@@ -280,7 +294,7 @@ manalo.webContents.on('will-prevent-unload', (kaganapan) => {
 
 Ibinabalik ang:
 
-* `event` Ang event
+* `kaganapan` kaganapan
 * `killed` Ang Boolean
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
@@ -297,7 +311,7 @@ Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `event` Ang event
 * `name` String
 * `Bersyon` Pisi
 
@@ -311,7 +325,7 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 
 Ibinabalik ang:
 
-* `event` Ang event
+* `kaganapan` kaganapan
 * `input` Bagay - Input properties. 
   * `uri` Pisi - Alinman `keyUp` o `keyDown`.
   * `susi` Pisi - Katumbas ng [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -345,6 +359,15 @@ Ay lalabas kapag pumasok ang window ng isang full-screen na estado ayy na-trigge
 #### Event: 'leave-html-full-screen'
 
 Ay lalabas kung ang window ay aalis na sa full-screen na estado ay na-trigger ng HTML API.
+
+#### Event: 'zoom-changed'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `zoomDirection` String - Can be `in` or `out`.
+
+Emitted when the user is requesting to change the zoom level using the mouse wheel.
 
 #### Kaganapan: 'devtools-binuksan'
 
@@ -419,7 +442,7 @@ Ibinabalik ang:
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
   * `tugma` Integer - Bilang ng Mga Tugma.
-  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
 Naipalalabas kapag ang resulta ay magagamit para sa [`webContents.findInPage`] humiling.
@@ -434,16 +457,16 @@ Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 #### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
+
 Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil sa nakakaharap ng isang meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
-
-Ibinabalik ang:
-
-* `kaganapan` kaganapan
-* `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
 
 #### Kaganapan: 'update-target-url'
 
@@ -573,8 +596,8 @@ Binubuwag kapag ang window ng devtools ay nagtuturo sa webContents na kargahan m
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
-* `webPreferences` Layunin - Ang mga kagustuhan sa web na gagamitin ng bisita ng pahina. Ang bagay na ito ay maaaring mabago upang ayusin ang mga kagustuhan para sa bisita ng pahina.
-* `params` Layunin - Ang iba pang mga `<webview>` parameter tulad ng `src` URL. Ang bagay na ito ay maaaring baguhin upang ayusin ang mga parameter ng pahina ng bisita.
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Naipalalabas kapag `<webview>` ang mga nilalaman ng web ay naka-attach sa mga nilalaman ng web na ito. Pagtawag sa `kaganapan.preventDefault()` ay sirain ang pahina ng bisita.
 
@@ -645,7 +668,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` IpcMainEvent
 * `moduleName` String
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -654,7 +677,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` IpcMainEvent
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -663,7 +686,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` IpcMainEvent
 * `moduleName` String
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -672,7 +695,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` IpcMainEvent
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
@@ -680,7 +703,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` IpcMainEvent
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
@@ -688,7 +711,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -705,7 +728,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
 Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
 
@@ -719,7 +742,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Na Bagay (opsyonal) 
-  * `query` Object (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
@@ -848,15 +871,23 @@ Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 Naka-override ang ahenteng gumagamit para sa pahina ng web na ito.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `mga nilalaman.getUserAgent()`
 
 Ibinabalik`Pisi` - Ang ahenteng gumagamit para sa pahina ng web na ito.
 
-#### `mga nilalaman.insertCSS(css)`
+**[Deprecated](modernization/property-updates.md)**
+
+#### `contents.insertCSS(css[, options])`
 
 * `css` Pisi
+* `options` Na Bagay (opsyonal) 
+  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Mga pagturok ng CSS sa kasalukuyang pahina ng web.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
 contents.on('did-finish-load', function () {
@@ -864,28 +895,20 @@ contents.on('did-finish-load', function () {
 })
 ```
 
-#### `mga nilalaman.executeJavaScript(code[, userGesture, mulingtumawag])`
+#### `contents.removeInsertedCSS(key)`
 
-* `code` String
-* `userGesture` Boolean (opsyonal) - Default ay `huwad`.
-* `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
-  * `result` Any
+* `key` String
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Sinusuri ang mga `code` sa pahina.
-
-Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaari lamang nananawagan ng kilos mula sa gumagamit. Ang pagtatakda ng `userGesture` sa `totoo` ay alisin ang limitasyon na ito.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-contents.executeJavaScript ('fetch("https://jsonplaceholder.typicode.com/users/1").
-pagkatapos(resp => resp.json())', totoo)
-  . pagkatapos((resulta) => {
-    console.log(resulta) // Ang magiging JSON na bagay mula sa pagkuha ng tawag
-  })
+contents.on('did-finish-load', async function () {
+  const key = await contents.insertCSS('html, body { background-color: #f00; }')
+  contents.removeInsertedCSS(key)
+})
 ```
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
@@ -897,6 +920,8 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 Sinusuri ang mga `code` sa pahina.
 
 Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaari lamang nananawagan ng kilos mula sa gumagamit. Ang pagtatakda ng `userGesture` sa `totoo` ay alisin ang limitasyon na ito.
+
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript ('fetch("https://jsonplaceholder.typicode.com/users/1").
@@ -918,9 +943,13 @@ Huwag pansinin ang mga shorcut menu ng aplikasyon habang ang mga nilalaman ng we
 
 I-mute ang audio sa kasalukuyang web na page.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `mga nilalaman.ng AudioMuted()`
 
 Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
@@ -932,9 +961,13 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `contents.getZoomFactor()`
 
 Returns `Number` - the current zoom factor.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `mga nilalaman.setZoomLevel(antas)`
 
@@ -942,14 +975,20 @@ Returns `Number` - the current zoom factor.
 
 Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit. The formula for this is `scale := 1.2 ^ level`.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `mga nilalaman.setVisualZoomLevelLimits(pinakamababang antas, pinakamataas na antas)`
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
+
+Returns `Promise<void>`
 
 Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 
@@ -963,6 +1002,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
+
+Returns `Promise<void>`
 
 Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
 
@@ -1025,6 +1066,8 @@ Pinapatupad ang utos sa pag-edit ` palitan ang maling pagbaybay ` sa web page.
 
 * `text` String
 
+Returns `Promise<void>`
+
 Pagsingit `text` para sa nakapukos na elemento.
 
 #### `mga nilalaman.findInPage (teksto [, mga pagpipilian])`
@@ -1060,16 +1103,6 @@ const requestId = webContents.findInPage('api')
 console.log(requestId)
 ```
 
-#### `mga nilalaman.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
@@ -1088,34 +1121,41 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 * `options` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
-  * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `margins` Na Bagay (opsyonal) 
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Na Bagay (opsyonal) 
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
 * `callback` Function (opsyonal) 
   * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
 
-Nagpiprint ng pahina ng web sa mga window. Kapag ang `tahimik` ay naka-set sa `totoo`, ang Elektron ay pipiliin ang sistema ng default na printer kung ang `deviceName` ay walang laman at ang mga default na magtatakda para sa pag-print.
-
-Pagtawag sa `window.print()` sa pahina ng web ay katumbas ng pagtawag sa `webContents.print({ silent: false, printBackground: false, deviceName: '' })`.
+Nagpiprint ng pahina ng web sa mga window. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-#### `contents.printToPDF(options, callback)`
+Example usage:
 
-* `options` Bagay 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
-  * `error` Error
-  * `data` Buffer
-
-Ang pagpiprint ng pahina ng web ng window bilang PDF kasama ng kromo sa pag preview ng imprenta ng pasadyang mga nagtatakda.
-
-Ang `callback` ay tatawagan na may `callback(error, data)` sa pagkumpleto. Ang `data` ay isang `Buffer` na naglalaman ng nabuong datos ng PDF.
-
-**[Deprecated Soon](modernization/promisification.md)**
+```js
+const options = { silent: true, deviceName: 'My-Printer' }
+win.webContents.print(options, (success, errorType) => {
+  if (!success) console.log(errorType)
+})
+```
 
 #### `contents.printToPDF(options)`
 
@@ -1284,7 +1324,7 @@ Opens the developer tools for the shared worker context.
 
 Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng manggagawa.
 
-#### `contents.send(channel[, arg1][, arg2][, ...])`
+#### `contents.send(channel, ...args)`
 
 * `channel` String
 * `...args` anuman[]
@@ -1322,7 +1362,7 @@ app.on('ready', () => {
 </html>
 ```
 
-#### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+#### `contents.sendToFrame(frameId, channel, ...args)`
 
 * `frameId` Integer
 * `channel` String
@@ -1366,39 +1406,11 @@ Paganahin ang aparato pagtulad sa ibinigay na mga parameter.
 
 Huwag paganahin ang pagtulad ng aparato na pinagana ng `webContents.enableDeviceEmulation`.
 
-#### `mga nilalaman.sendInputEvent(kaganapan)`
+#### `contents.sendInputEvent(inputEvent)`
 
-* `event` Bagay 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
-  * `modifier` String[] - Isang hanay ng mga modifier ng kaganapan, maaaring isama `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock` `numLock`, `kaliwa`, `kanan`.
+* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 Nagpapadala ng input na `event` sa page. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
-
-Para sa mga kaganapan sa keyboard, ang `kaganapan` ang bagay ay mayroon ding mga sumusunod na katangian:
-
-* `keyCode` String (**kinakailangan**) - Ang karakter na ipapadala bilang kaganapan ng keyboard. Dapat lamang gamitin ang wastong mga key code [Accelerator](accelerator.md).
-
-Para sa mga kaganapan ng mouse, ang `kaganapan` ang bagay na mayroon ding mga sumusunod na katangian:
-
-* `x` Integer (**kailangan**)
-* `y` Integer (**kailangan**)
-* `pindutan` String - Ang pindutan ng pinindot, ay maaaring `kaliwa`, `gitna`, `kanan`.
-* `globalX` Integer
-* `globalY` Integer
-* `movementX` Integer
-* `movementY` Integer
-* `clickCount` Integer
-
-Para sa `mouseWheel` kaganapan, ang `kaganapan` ay mayroon ding mga sumusunod na katangian:
-
-* `deltaX` Integer
-* `deltaY` Integer
-* `wheelTicksX` Integer
-* `wheelTicksY` Integer
-* `accelerationRatioX` Integer
-* `accelerationRatioY` Integer
-* `hasPreciseScrollingDeltas` Boolean
-* `canScroll` Boolean
 
 #### `mga nilalaman.beginFrameSubscription([onlyDirty ,]tumawagmuli)`
 
@@ -1420,7 +1432,7 @@ End subscribing for frame presentation events.
 #### `contents.startDrag(item)`
 
 * `item` Bagay 
-  * `file` String or `files` Array - The path(s) to the file(s) being dragged.
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
@@ -1476,9 +1488,13 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
+**[Deprecated](modernization/property-updates.md)**
+
 #### `contents.getFrameRate()`
 
 Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+
+**[Deprecated](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
@@ -1528,24 +1544,50 @@ Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`
 
 ### Katangian ng pagkakataon
 
-#### `contents.id`
+#### `contents.audioMuted`
+
+A `Boolean` property that determines whether this page is muted.
+
+#### `contents.userAgent`
+
+A `String` property that determines the user agent for this web page.
+
+#### `contents.zoomLevel`
+
+A `Number` property that determines the zoom level for this web contents.
+
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+
+#### `contents.zoomFactor`
+
+A `Number` property that determines the zoom factor for this web contents.
+
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+
+#### `contents.frameRate`
+
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+
+Only applicable if *offscreen rendering* is enabled.
+
+#### `contents.id` *Readonly*
 
 A `Integer` representing the unique ID of this WebContents.
 
-#### `contents.session`
+#### `contents.session` *Readonly*
 
 A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents`
+#### `contents.hostWebContents` *Readonly*
 
 A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents`
+#### `contents.devToolsWebContents` *Readonly*
 
 A `WebContents` of DevTools for this `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger`
+#### `contents.debugger` *Readonly*
 
-A [Debugger](debugger.md) instance for this webContents.
+A [`Debugger`](debugger.md) instance for this webContents.

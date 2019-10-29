@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 Jest jedno ważne zastrzeżenie: natywne moduły Node.js muszą zostać przekompilowane, by móc je wykorzystać w Electronie.
 
-Zdecydowana większość modułów Node.js *to nie* moduły natywne. Tylko około 400 z ~650.000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).
+Zdecydowana większość modułów Node.js *to nie* moduły natywne. Tylko około 400 z ~650,000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).

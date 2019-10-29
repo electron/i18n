@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -12,23 +12,20 @@
 
 创建填充整个屏幕的窗口的示例:
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const electron = require('electron') const { app, BrowserWindow } = electron
+```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
 
-let win
-
-app.on('ready', () => { const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
     <br />Another example of creating a window in the external display:
     
     ```javascript
-    const electron = require('electron')
-    const { app, BrowserWindow } = require('electron')
+    const { app, BrowserWindow, screen } = require('electron')
     
     let win
     
-    app.on('ready', () =&gt; {
-      let displays = electron.screen.getAllDisplays()
-      let externalDisplay = displays.find((display) =&gt; {
+    app.on('ready', () => {
+      let displays = screen.getAllDisplays()
+      let externalDisplay = displays.find((display) => {
         return display.bounds.x !== 0 || display.bounds.y !== 0
       })
     

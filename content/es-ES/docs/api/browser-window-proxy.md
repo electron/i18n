@@ -34,7 +34,7 @@ Invoca en cuadro de diálogo en la ventana secundaria.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Envía un mensaje a la ventana secundaria con el origen específicado o `*` sin origen de preferencia.

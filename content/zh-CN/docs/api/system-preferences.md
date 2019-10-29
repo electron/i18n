@@ -26,25 +26,33 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Event: 'inverted-color-scheme-changed' *Windows* *Deprecated*
 
 返回:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-### Event: 'high-contrast-color-scheme-changed' *Windows*
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
 
 返回:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+
 ## 方法
 
-### `systemPreferences.isDarkMode()` *macOS*
+### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 
 返回`Boolean`，表示系统是否处于Dark模式
+
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -53,7 +61,7 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
@@ -61,14 +69,14 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` Record<String, any>
 
 发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Object
+* `userInfo` Record<String, any>
 
 发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
@@ -77,11 +85,12 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 返回 `Number` - 该订阅的 ID
 
-订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
+订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。 The `object` is the sender of the notification, and only supports `NSString` values for now.
 
 返回订阅的 ` id `, 可用于取消该订阅的 `event`.
 
@@ -97,7 +106,8 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 返回 `Number` - 该订阅的 ID
 
@@ -108,7 +118,8 @@ console.log(systemPreferences.isDarkMode())
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Object
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 与 `subscribeNotification`一样, 但使用`NSWorkspace.sharedWorkspace.notificationCenter`。 这对事件 `NSWorkspaceDidActivateApplicationNotification` 是必需的。
 
@@ -132,7 +143,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - 用户默认选项集 (`key: value`)
+* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
 在应用的`NSUserDefaults`配置项中添加其它默认设置。
 
@@ -299,15 +310,21 @@ This API is only available on macOS 10.14 Mojave or newer.
   * `red`
   * `yellow`
 
+Returns `String` - The standard system color formatted as `#RRGGBBAA`.
+
 Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
-### `systemPreferences.isInvertedColorScheme()` *Windows*
+### `systemPreferences.isInvertedColorScheme()` *Windows* *Deprecated*
 
 Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
 
-### `systemPreferences.isHighContrastColorScheme()` *Windows*
+**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+
+### `systemPreferences.isHighContrastColorScheme()` *macOS* *Windows* *Deprecated*
 
 Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
+
+**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
@@ -315,25 +332,33 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
+需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
 
-### `systemPreferences.getAppLevelAppearance()` *macOS*
+**[过时的](modernization/property-updates.md)**
+
+### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
 
 返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
 
 Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
 
-### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
+**[过时的](modernization/property-updates.md)**
+
+### `systemPreferences.setAppLevelAppearance(appearance)` *macOS* *Deprecated*
 
 * `appearance` String | null - 可以是 `dark` 或 `light`
 
 设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
+
+**[过时的](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
 Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 **NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
+
+**[过时的](modernization/property-updates.md)**
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
@@ -388,3 +413,21 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 * `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
 
 Returns an object with system animation settings.
+
+## 属性
+
+### `systemPreferences.appLevelAppearance` *macOS*
+
+A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
+
+Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
+
+This property is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
+
+A `String` property that can be `dark`, `light` or `unknown`.
+
+Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。

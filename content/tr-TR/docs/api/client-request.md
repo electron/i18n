@@ -11,7 +11,7 @@
 * `seçenekler` (Object | String) - Eğer `seçenekler` bir String ise o, bir istek URL olarak yorumlanır. Eğer bir object ise bir HTTP isteğini aşağıdaki özellikler ile tam olarak belirtmesi beklenir: 
   * `method` String (isteğe bağlı) - HTTP istek metodu. Varsayılan GET metodudur.
   * `url` String (isteğe bağlı) - İstek URL'si. Belirtilen http veya https protokol şeması ile mutlak formunda kesinlikle sağlanmalıdır.
-  * `session` Object (isteğe bağlı) - İlişkili olduğu istek ile [`Session`](session.md) örneği.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
   * `protocol` String (isteğe bağlı) - 'scheme:' formunda protokol şeması. Şu anda desteklenen değerler 'http:' veya 'https:'dir. Varsayılan 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
@@ -110,7 +110,7 @@ Dönüşler:
 * `statusCode` Integer
 * `method` Dizi
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowredirect)'i çağırmak yönlendirme ile devam edecektir.
 
@@ -127,15 +127,15 @@ Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem
 #### `request.setHeader(name, value)`
 
 * `name` String - İlave HTTP başlık adı.
-* `value` Object - İlave HTTP başlık adı.
+* `value` String - An extra HTTP header value.
 
-İlave bir HTTP başlığı ekler. Başlık adı, karakter küçültmesi yapmadan verilir. Sadece ilk yazmadan önce çağrılabilir. Bu yöntemi ilk yazmadan sonra aramak hata atacaktır. Verilen değer `String` değil ise, `toString()` metoduyla son değer elde edilir.
+İlave bir HTTP başlığı ekler. The header name will be issued as-is without lowercasing. Sadece ilk yazmadan önce çağrılabilir. Bu yöntemi ilk yazmadan sonra aramak hata atacaktır. Verilen değer `String` değil ise, `toString()` metoduyla son değer elde edilir.
 
 #### `request.getHeader(name)`
 
 * `name` Dize - İlave bir başlık adı belirtin.
 
-Returns `Object` - Öncesinde ilave olarak ayarlanan başlık adının değeri.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 

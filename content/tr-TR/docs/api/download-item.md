@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`DownloadItem` Electron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
 
 ```javascript
 // Ana süreçte.
@@ -74,11 +74,15 @@ Dönüşler:
 
 * `path` String - indirme öğesinin dosya kaydetme yolunu ayarlayın.
 
-API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. Kullanıcı API aracılığıyla kaydetme yolunu ayarlamazsa, Electron kaydetme yolunu belirlemek için orijinal rutinleri kullanacaktır. (Genellikle bir kaydetme diyaloğı çıkarır).
+API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
 İndirilen öğenin kaydedilecek yolunu `String` olarak döndürür. Bu ya `downloadItem.setSavePath(path)` ile ayarlanmış yol olacak yada kaydetme diyaloğunda görünen seçilmiş yol olacak.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -114,7 +118,7 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.getURL()`
 
-Öğenin nereden indirildiğine dair orjinal url'sini `String` olarak döndürür.
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +156,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Herhangi bir yeniden yönlendirme de dahil olmak üzere öğenin tam url zincirini `String[]` olarak döndürür.
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -165,3 +169,11 @@ ETag başlık değerini `String` olarak döndürür.
 #### `downloadItem.getStartTime()`
 
 UNIX zaman başlangıcından indirmenin başlatıldığı zamana kadar geçen saniye sayısını `Double` türünde döndürür.
+
+### Örnek özellikleri
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.

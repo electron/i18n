@@ -11,7 +11,7 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <h4>Acara : 'data'</h4>
 
-<p>Mengembalikan:</p>
+<p>Pengembalian:</p>
 
 <ul>
 <li><code> bingkai</ 0>  penyangga- Sejumlah data dari respon tubuh.</li>
@@ -29,14 +29,14 @@ antarmuka <a href="https://nodejs.org/api/stream.html#stream_readable_streams"> 
 
 <h4>Acara: 'kesalahan'</h4>
 
-<p>Mengembalikan:</p>
+<p>Pengembalian:</p>
 
 <p>Kesalahan <code> kesalahan </ 0> - Biasanya memegang string kesalahan yang mengidentifikasi penyebab kegagalan akar.</p>
 
 <p>Emitted saat terjadi kesalahan saat streaming data respon acara. Misalnya, jika server menutup yang mendasari sementara respon masih streaming, sebuah event <code> kesalahan</ 0>  akan dipancarkan pada objek respon dan acara <code> tutup </ 0> selanjutnya akan mengikuti permintaan. objek.
 </p>
 
-<h3>Instance Properties</h3>
+<h3>Contoh properti</h3>
 
 <p>Contoh <code> datang pesan </ 0> memiliki properti yang mudah dibaca berikut ini:</p>
 
@@ -50,15 +50,13 @@ A `String` mewakili the HTTP status message.
 
 #### `Tanggapan`
 
-Sebuah ` Objek </ 0> mewakili header respon HTTP. The <code> header </ 0> objek diformat sebagai berikut:</p>
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
-<ul>
-<li>Semua nama header diturunkan.</li>
-<li>Setiap nama header menghasilkan properti bernilai array pada objek header.</li>
-<li>Setiap nilai header didorong ke dalam array yang terkait dengan nama kopinya.</li>
-</ul>
+* Semua nama header diturunkan.
+* Setiap nama header menghasilkan properti bernilai array pada objek header.
+* Setiap nilai header didorong ke dalam array yang terkait dengan nama kopinya.
 
-<h4><code>respon.http Versi`</h4> 
+#### `respon.http Versi`
 
 Sebuah ` String </ 0> yang menunjukkan nomor versi protokol HTTP . Nilai tipikal adalah '1.0' atau '1.1'. Selain itu <code> httpVersionMajor </ 0> dan <code> httpVersionMinor </ 0> adalah dua properti yang dapat dibaca Integer yang mengembalikan masing-masing bilangan utama HTTP dan versi minor.</p>
 

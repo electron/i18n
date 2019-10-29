@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 返回:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` unknown *macOS*
 
 当 Electron 完成初始化时被触发。 在 macOS 中, 如果从通知中心中启动，那么 `launchInfo` 中的 `userInfo` 包含用来打开应用程序的 `NSUserNotification` 信息。 你可以通过调用 `app.isReady()` 方法来检查此事件是否已触发。
 
@@ -92,7 +92,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `url` String
 
-当用户想要在应用中打开一个 URL 时发出。 应用程序的 ` Info. plist ` 文件必须在 ` CFBundleURLTypes ` 项中定义 url 方案, 并将 ` NSPrincipalClass ` 设置为 ` AtomApplication `。
+当用户想要在应用中打开一个 URL 时发出。 Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -111,7 +111,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* ` userInfo `Object-包含由其他设备上的活动存储的应用程序特定状态。
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 想要恢复时触发。 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
@@ -142,7 +142,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* ` userInfo `Object-存储的应用程序特定状态。
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 当来自不同设备的活动通过 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 成功恢复后触发。
 
@@ -152,7 +152,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* ` userInfo `Object-存储的应用程序特定状态。
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 当 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 即将通过另一个设备恢复时触发。 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则，操作会失败，并且触发 `continue-activity-error`
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Event: 'gpu-process-crashed'
 
 返回:
@@ -292,7 +296,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-当 gpu 进程崩溃或被杀时触发。
+Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ app.exit(0)
 
 显示所有被隐藏的应用窗口。需要注意的是，这些窗口不会自动获取焦点。
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - You can request the following paths by the name: 
+  * `home` 用户的 home 文件夹（主目录）
+  * `appData` 当前用户的应用数据文件夹，默认对应： 
+    * `%APPDATA%` Windows 中
+    * `$XDG_CONFIG_HOME` or `~/.config` Linux 中
+    * `~/Library/Application Support` macOS 中
+  * `userData` 储存你应用程序设置文件的文件夹，默认是 `appData` 文件夹附加应用的名称
+  * `缓存`
+  * `temp` 临时文件夹
+  * ` exe `当前的可执行文件
+  * `module` The `libchromiumcontent` 库
+  * `desktop` 当前用户的桌面文件夹
+  * `documents` 用户文档目录的路径
+  * `downloads` 用户下载目录的路径
+  * `music` 用户音乐目录的路径
+  * `pictures` 用户图片目录的路径
+  * `videos` 用户视频目录的路径
+  * ` logs `应用程序的日志文件夹
+  * `pepperFlashSystemPlugin` Pepper Flash 插件的系统版本的完成路径。
 
 返回 `String` - 以 `name` 参数指定的文件夹或文件路径。当失败时抛出 `Error` 。
 
-你可以通过名称请求以下的路径:
-
-* `home` 用户的 home 文件夹（主目录）
-* `appData` 当前用户的应用数据文件夹，默认对应： 
-  * `%APPDATA%` Windows 中
-  * `$XDG_CONFIG_HOME` or `~/.config` Linux 中
-  * `~/Library/Application Support` macOS 中
-* `userData` 储存你应用程序设置文件的文件夹，默认是 `appData` 文件夹附加应用的名称
-* `temp` 临时文件夹
-* ` exe `当前的可执行文件
-* `module` The `libchromiumcontent` 库
-* `desktop` 当前用户的桌面文件夹
-* `documents` 用户文档目录的路径
-* `downloads` 用户下载目录的路径
-* `music` 用户音乐目录的路径
-* `pictures` 用户图片目录的路径
-* `videos` 用户视频目录的路径
-* ` logs `应用程序的日志文件夹
-* `pepperFlashSystemPlugin` Pepper Flash 插件的系统版本的完成路径。
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Object (可选) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 中无效
-* `callback` Function 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-读取文件的关联图标。
-
-On *Windows*, there are 2 kinds of icons:
-
-* 与某些文件扩展名相关联的图标, 比如 `. mp3 ` ，`. png ` 等。
-* 文件本身就带图标，像是 `.exe`, `.dll`, `.ico`
-
-在 *Linux* 和 *macOS* 系统中，图标取决于和应用程序绑定的 文件 mime 类型
-
-**[即将弃用](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -558,7 +539,7 @@ On *Windows*, there are 2 kinds of icons:
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` 字符串
 * `path` String
 
 重写 `name` 的路径为 `path`，一个特定的文件夹或者文件。 If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
@@ -575,13 +556,17 @@ On *Windows*, there are 2 kinds of icons:
 
 返回 ` String `-当前应用程序的名称, 它是应用程序的 ` package. json ` 文件中的名称。
 
-根据 npm 的命名规则, 通常 `package.json` 中的 `name` 字段是一个短的小写字符串。 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+
+**[过时的](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` 字符串
 
 设置当前应用程序的名字
+
+**[过时的](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ On *Windows*, there are 2 kinds of icons:
 
 ### `app.getLocaleCountryCode()`
 
-返回 `string` - 用户操作系统的本地双字节 [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国家代码。该值来自本地操作系统API。
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **注意：** 当无法检测本地国家代码时，它返回空字符串。
 
@@ -657,7 +642,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 * `tasks` [Task[]](structures/task.md) - 由 `Task` 对象组成的数组
 
-将 `tasks` 添加到 Windows 中 JumpList 功能的 [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) 分类中。
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks` 是 [`Task`](structures/task.md) 对象组成的数组
 
@@ -670,11 +655,11 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - `JumpListCategory` 对象组成的数组
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 设置或删除应用程序的自定义跳转列表，并返回以下字符串之一：
 
@@ -798,7 +783,7 @@ if (!gotTheLock) {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - 应用程序特定状态，供其他设备使用
+* `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (可选) - 如果在恢复设备上未安装合适的应用程序，则会在浏览器中加载网页。 该格式必须是 `http` 或 `https`。
 
 创建一个 ` NSUserActivity ` 并将其设置为当前活动。 该活动之后可以[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)到另一个设备。
@@ -809,14 +794,16 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-
 使当前的[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)用户活动无效。
+
+### `app.resignCurrentActivity()` *macOS*
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
-* `userInfo` Object - 应用程序特定状态，供其他设备使用
+* `userInfo` any - App-specific state to store for use by another device.
 
 当其类型与 ` type ` 匹配时更新当前活动, 将项目从 ` 用户信息 ` 合并到其当前 ` 用户信息 ` 字典中。
 
@@ -826,7 +813,7 @@ if (!gotTheLock) {
 
 改变当前应用的 [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 为 `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Object 
   * `certificate` String - pkcs12 文件的路径
@@ -850,17 +837,19 @@ if (!gotTheLock) {
 
 ### `app.getAppMetrics()`
 
-返回 [`ProcessMetric[]`](structures/process-metric.md): 包含所有与应用相关的进程的内存和CPU的使用统计的 `ProcessMetric` 对象的数组。
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
 返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - 值可以是基本信息的`basic`，也可以是完整信息的`complete`
+* `infoType` String - Can be `basic` or `complete`.
 
-返回 ` Promise`
+Returns `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). 这包括 `chrome://gpu` 页面上显示的版本和驱动程序信息。
 
@@ -903,9 +892,13 @@ machineModelVersion: '11.5' }
 
 **注意:** 联合启动器需要`.desktop`文件的存在和工作， 获得更多信息请阅读 [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
+**[过时的](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Returns `Integer` - 获取计数器提醒(badge) 中显示的当前值
+
+**[过时的](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -959,7 +952,7 @@ app.setLoginItemSettings({
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
-<p><strong><a href="modernization/property-updates.md">即将弃用</a></strong></p>
+<p><strong><a href="modernization/property-updates.md">过时的</a></strong></p>
 
 <h3><code>app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*</h3> 
 
@@ -971,9 +964,9 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
-**[即将弃用](modernization/property-updates.md)**
+**[过时的](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 显示应用程序关于面板选项。这些选项可以被 `app.setAboutOptions(options)`覆盖。
 
@@ -983,22 +976,23 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
-  * `version` String (可选) - 应用程序版本号。*macOS*
-  * `credits` String (可选) - 作者信息。*macOS*
-  * ` website ` String (可选) - 应用网站。*Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
 设置 "关于" 面板选项。 这将覆盖应在MacOS系统中应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Show the platform's native emoji picker.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
@@ -1013,39 +1007,6 @@ stopAccessingSecurityScopedResource()
 
 开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (optional) - 给开关设置的值
-
-通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.appendArgument(value)`
-
-* ` value `String - 要追加到命令行的参数
-
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
-
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - 命令行开关
-
-返回`Boolean` - 命令行开关是否打开。
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - 命令行开关
-
-返回 `String` - 命令行开关值。
-
-**Note:** When the switch is not present or has no value, it returns empty string.
-
 ### `app.enableSandbox()` *实验功能*
 
 在应用程序上启用完全沙盒模式。
@@ -1056,79 +1017,40 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 返回 ` Boolean `- 应用程序当前是否在系统应用程序文件夹运行。 可以搭配 ` app. moveToApplicationsFolder () `使用
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Object (可选) 
+  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
 
 默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 错误中的信息应该是信息性的，并告知具体问题。
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将抛出错误。 The message in the error should be informative and tell you exactly what went wrong.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (可选) - 可以为`critical` 或 `informational`. 默认值为 `informational`
+例如：
 
-当传入的是 `critical` 时, dock 中的应用将会开始弹跳, 直到这个应用被激活或者这个请求被取消。
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-当传入的是 `informational` 时, dock 中的图标只会弹跳一秒钟。但是, 这个请求仍然会激活, 直到应用被激活或者请求被取消。
-
-返回 `Integer` 这个请求的 ID
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-取消这个 ` id ` 对应的请求。
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-如果 filePath 位于 Downloads 文件夹中，则弹出下载队列。
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-设置应用在 dock 中显示的字符串。
-
-### `app.dock.getBadge()` *macOS*
-
-返回 `String` - 应用在 dock 中显示的字符串。
-
-### `app.dock.hide()` *macOS*
-
-隐藏 dock 中的图标。
-
-### `app.dock.show()` *macOS*
-
-Returns `Promise<void>` - Resolves when the dock icon is shown.
-
-### `app.dock.isVisible()` *macOS*
-
-Returns `Boolean` - Whether the dock icon is visible.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-设置应用程序的[Dock 菜单](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)。
-
-### `app.dock.getMenu()` *macOS*
-
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-设置`image`作为应用在 dock 中显示的图标
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## 属性
-
-### `app.applicationMenu`
-
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1140,15 +1062,41 @@ See [Chromium's accessibility docs](https://www.chromium.org/developers/design-d
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**注意:** 联合启动器需要`.desktop`文件的存在和工作， 获得更多信息请阅读 [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher)。
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. 通常还应该指定一个 ` productName ` 字段, 是首字母大写的完整名称，用于表示应用程序的名称。Electron 会优先使用这个字段作为应用名。
+
 ### `app.userAgentFallback`
 
 A `String` which is the user agent string Electron will use as a global fallback.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
-
-### `app.isPackaged`
-
-返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

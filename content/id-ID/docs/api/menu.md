@@ -10,9 +10,9 @@ Membuat menu baru.
 
 ### Metode Statis
 
-Kelas ` menu </ 0> memiliki metode statis berikut:</p>
+The `Menu` class has the following static methods:
 
-<h4><code>Menu.setApplicationMenu(menu)`</h4> 
+#### `Menu.setApplicationMenu(menu)`
 
 * `menu` Menu | null
 
@@ -55,7 +55,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 The `menu` object has the following instance methods:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `pilihan` Objek (opsional) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
@@ -134,10 +134,12 @@ Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },

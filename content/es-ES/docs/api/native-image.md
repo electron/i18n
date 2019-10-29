@@ -53,7 +53,7 @@ Por ejemplo, si `icon.png` es una imagen normal que tiene una resolución están
 
 Si se desea soportar pantallas con distintas densidades PPP al mismo tiempo, se pueden poner imágenes con distintos tamaños en la misma carpeta y usar el nombre del archivo sin los sufijos PPP. Por ejemplo:
 
-```text
+```plaintext
 images/
 ├── icon.png
 ├── icon@2x.png
@@ -147,11 +147,11 @@ Crea una nueva instancia `NativeImage` desde `dataURL`.
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
-* `hslShift` Number[]
+* `hslShift` Number[] (optional)
 
 Devuelve `NativeImage`
 
-Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. Ver [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) para una lista de posibles valores.
+Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el nombre especificado. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
@@ -185,7 +185,7 @@ Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_
 
 #### `image.toJPEG(quality)`
 
-* `quality` Entero (**required**) - Entre 0 - 100.
+* `quality` Integer - Between 0 - 100.
 
 Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)que contiene la información codificada de la imagen `JPEG`.
 
@@ -229,9 +229,13 @@ Devuelve [`Size`](structures/size.md)
 
 Marca la imagen como una imagen de plantilla.
 
+**[Cambiar](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
 Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
+
+**[Cambiar](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
@@ -256,3 +260,11 @@ Devuelve `Float` - La relación de aspecto de la imagen.
 * `options` Objeto * `scaleFactor` Doble - El factor de escala para agregar la representación de la imagen. * `width` Entero (opcional) - Por defecto es 0. Es necesario si un búfer de mapa de bits se especifica como `buffer`. * `height` Entero (opcional) - Por defecto es 0. Es necesario si un búfer de mapa de bits se especifica como `buffer`. `buffer` Buffer (opcional) - El búfer que contiene los datos sin procesar de la imagen. `dataURL` Cadena (opcional) - El URL de información que contiene ya sea una imagen JPEG o PNG codificada en base64.
 
 Añade una representación de imagen para un factor de escala específico. Esto puede utilizarse para agregar explícitamente distintas representaciones de factor de escala a una imagen. Este puede ser llamado en imágenes vacías.
+
+## Propiedades
+
+### `nativeImage.isMacTemplateImage` *macOS*
+
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+
+Please note that this property only has an effect on macOS.

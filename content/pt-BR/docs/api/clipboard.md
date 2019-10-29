@@ -4,17 +4,11 @@
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-O exemplo a seguir mostra como gravar uma sequência de caracteres para a área de transferência:
-
-```javascript
-const { clipboard } = require('electron')
-clipboard.writeText('Exemplo de string')
-```
-
 No Linux, há também uma área de transferência `selection`. Para manipulá-la você precisa passar `selection` para cada método:
 
 ```javascript
 const { clipboard } = require('electron')
+
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -27,55 +21,105 @@ O módulo `clipboard` possui os seguintes métodos:
 
 ### `clipboard.readText([type])`
 
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Retorna `String` - o conteúdo da área de transferência como texto sem formatação.
+
+```js
+const { clipboard } = require('electron')
+
+clipboard.writeText('hello i am a bit of text!')
+
+const text = clipboard.readText()
+console.log(text)
+// hello i am a bit of text!'
+```
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escreve o `text` na área de transferência como texto sem formatação.
 
+```js
+const { clipboard } = require('electron')
+
+const text = 'hello i am a bit of text!'
+clipboard.writeText(text)
+```
+
 ### `clipboard.readHTML([type])`
 
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Retorna `String` - o conteúdo da área de transferência como marcação.
+
+```js
+const { clipboard } = require('electron')
+
+clipboard.writeHTML('<b>Hi</b>')
+const html = clipboard.readHTML()
+
+console.log(html)
+// <meta charset='utf-8'><b>Hi</b>
+```
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escreve `markup` na área de transferência.
 
+```js
+const { clipboard } = require('electron')
+
+clipboard.writeHTML('<b>Hi</b')
+```
+
 ### `clipboard.readImage([type])`
 
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Retorna [`Nativeimage`](native-image.md) - o conteúdo da imagem na área de transferência.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escreve `image` na área de transferência.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Retorna `String` - o conteúdo da área de transferência como RTF.
+
+```js
+const { clipboard } = require('electron')
+
+clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+
+const rtf = clipboard.readRTF()
+console.log(rtf)
+// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+```
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escreve o `text` na área de transferência em RTF.
+
+```js
+const { clipboard } = require('electron')
+
+const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
+clipboard.writeRTF(rtf)
+```
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -90,14 +134,16 @@ Retorna um Objeto que contém as chaves `title` e `url` representando o bookmark
 
 * `title` String
 * String `url`
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Escreve o `title` e o `url` na área de transferência como um bookmark.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
-clipboard.write({
+const { clipboard } = require('electron')
+
+clipboard.writeBookmark({
   text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
@@ -105,36 +151,49 @@ clipboard.write({
 
 ### `clipboard.readFindText()` no *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+
+This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` no *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
+
+```js
+const { clipboard } = require('electron')
+
+const formats = clipboard.availableFormats()
+console.log(formats)
+// [ 'text/plain', 'text/html' ]
+```
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
-```javascript
+```js
 const { clipboard } = require('electron')
-console.log(clipboard.has('<p>selection</p>'))
+
+const hasFormat = clipboard.has('<p>selection</p>')
+console.log(hasFormat)
+// 'true' or 'false
 ```
 
 ### `clipboard.read(format)` *Experimental*
@@ -149,13 +208,32 @@ Returns `String` - Reads `format` type from the clipboard.
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
+```js
+const { clipboard } = require('electron')
+
+const buffer = Buffer.from('this is binary', 'utf8')
+clipboard.writeBuffer('public.utf8-plain-text', buffer)
+
+const ret = clipboard.readBuffer('public.utf8-plain-text')
+
+console.log(buffer.equals(out))
+// true
+```
+
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
 * `format` String
 * `buffer` Buffer
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Writes the `buffer` into the clipboard as `format`.
+
+```js
+const { clipboard } = require('electron')
+
+const buffer = Buffer.from('writeBuffer', 'utf8')
+clipboard.writeBuffer('public.utf8-plain-text', buffer)
+```
 
 ### `clipboard.write(data[, type])`
 
@@ -164,12 +242,30 @@ Writes the `buffer` into the clipboard as `format`.
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (opcional) - Pode ser `selection` ou `clipboard`. `selection` só está disponível no Linux.
-
-```javascript
-const { clipboard } = require('electron')
-clipboard.write({ text: 'test', html: '<b>test</b>' })
-```
+  * `bookmark` String (optional) - The title of the URL at `text`.
+* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
 
 Writes `data` to the clipboard.
+
+```js
+const { clipboard } = require('electron')
+
+clipboard.write({
+  text: 'test',
+  html: '<b>Hi</b>',
+  rtf: '{\\rtf1\\utf8 text}',
+  bookmark: 'a title'
+})
+
+console.log(clipboard.readText())
+// 'test'
+
+console.log(clipboard.readHTML())
+// <meta charset='utf-8'><b>Hi</b>
+
+console.log(clipboard.readRTF())
+// '{\\rtf1\\utf8 text}'
+
+console.log(clipboard.readBookmark())
+// { title: 'a title', url: 'test' }
+```

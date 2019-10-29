@@ -14,6 +14,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `hang()`
 * `getCreationTime()`
 * `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
@@ -52,15 +53,15 @@ process.once('loaded', () => {
 
 ## Mga Katangian
 
-### `proseso.defaultApp`
+### `process.defaultApp` *Readonly*
 
 Ang `Boolean`. Kung ang app ay nagsimula sa pamamagitan ng ipinapasa bilang parametro sa default app, ang katangiang ito ay `totoo` sa pangunahing proseso, kunghindiman ito ay `malabo`
 
-### `process.isMainFrame`
+### `process.isMainFrame` *Readonly*
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `proseso.mas`
+### `process.mas` *Readonly*
 
 Ang `Boolean`. Para sa itinayo na Mac App Store, ang propyedad na ito ay `totoo`, para sa ibang initayo ito ay `malabo`.
 
@@ -76,11 +77,11 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `proseso.pinagkukunanPath`
+### `process.resourcesPath` *Readonly*
 
 Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
-### `process.sandboxed`
+### `process.sandboxed` *Readonly*
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -96,19 +97,19 @@ Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stder
 
 Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `proseso.uri`
+### `process.type` *Readonly*
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `proseso.bersyon.chrome`
+### `process.versions.chrome` *Readonly*
 
 Ang `String` nagrepresenta sa bersyon ng Chrome string.
 
-### `proseso.bersyon.electron`
+### `process.versions.electron` *Readonly*
 
 Ang `String` nag representang bersyon ng Electron string.
 
-### `proseso.windowsStore`
+### `process.windowsStore` *Readonly*
 
 Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
 
@@ -150,6 +151,16 @@ Nagbabalik ng mga `bagay`:
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
+### `process.getBlinkMemoryInfo()`
+
+Nagbabalik ng mga `bagay`:
+
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
+
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+
 ### `proseso.getProsesoMemoryaInfo()`
 
 Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
@@ -175,11 +186,9 @@ Returns `String` - The version of the host operating system.
 
 Mga Halimbawa:
 
-| Platform | Version             |
-| -------- | ------------------- |
-| macOS    | `10.13.6`           |
-| Windows  | `10.0.17763`        |
-| Linux    | `4.15.0-45-generic` |
+* `macOS` -> `10.13.6`
+* `Windows` -> `10.0.17763`
+* `Linux` -> `4.15.0-45-generic`
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 

@@ -4,7 +4,7 @@
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
-Ang modyul ng `ipcRenderer` ay ang instansya ng uri ng [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay nagbibigay ng ilang mga pamamaraan kaya maaari kang magpadala ng magkasabay at sabay-sabay na mga mensahe mula sa proseso ng pagsalin (pahina ng web) patungo sa pangunahing proseso. Maaari ka ring makatanggap ng kasagutan mula sa pangunahing proseso.
+The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay nagbibigay ng ilang mga pamamaraan kaya maaari kang magpadala ng magkasabay at sabay-sabay na mga mensahe mula sa proseso ng pagsalin (pahina ng web) patungo sa pangunahing proseso. Maaari ka ring makatanggap ng kasagutan mula sa pangunahing proseso.
 
 Tingnan ang [ipcMain](ipc-main.md) para sa mga halimbawa ng code.
 
@@ -33,7 +33,8 @@ Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listene
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `...args` anuman[]
 
 Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
@@ -43,16 +44,42 @@ Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para 
 
 Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
-### `ipcRenderer.send(channel[, arg1][,arg2][, ...])`
+### `ipcRenderer.send(channel, ...args)`
 
 * `channel` String
 * `...args` anuman[]
 
-Magpadala ng mensahe sa pangunahing proseso ng magkahiwalay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
+Magpadala ng mensahe sa pangunahing proseso ng magkahiwalay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
-### `ipcRenderer.sendSync(channel[,arg1][,arg2][, ...])`
+### `ipcRenderer.invoke(channel, ...args)`
+
+* `channel` String
+* `...args` anuman[]
+
+Returns `Promise<any>` - Resolves with the response from the main process.
+
+Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+
+The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+
+Halimbawa:
+
+```javascript
+// Renderer process
+ipcRenderer.invoke('some-name', someArgument).then((result) => {
+  // ...
+})
+
+// Main process
+ipcMain.handle('some-name', async (event, someArgument) => {
+  const result = await doSomeWork(someArgument)
+  return result
+})
+```
+
+### `ipcRenderer.sendSync(channel, ...args)`
 
 * `channel` String
 * `...args` anuman[]
@@ -65,7 +92,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
-### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
 * `webContentsId` Number
 * `channel` String
@@ -73,7 +100,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 Sends a message to a window with `webContentsId` via `channel`.
 
-### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
+### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` String
 * `...args` anuman[]

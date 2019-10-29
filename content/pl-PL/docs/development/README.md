@@ -20,6 +20,5 @@ Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. P
 * [Debugowanie na systemie Windows](debug-instructions-windows.md)
 * [Debugowanie na systemie macOS](debugging-instructions-macos.md)
 * [Ustawianie Serwera Symboli w Debuggerze](setting-up-symbol-server.md)
-* [Aktualizowanie Chromium](upgrading-chromium.md)
-* [Aktualizowanie Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Aktualizowanie Node](upgrading-node.md)

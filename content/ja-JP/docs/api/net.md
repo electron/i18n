@@ -44,7 +44,7 @@ app.on('ready', () => {
 
 ### `net.request(options)`
 
-* `options` (Object | String) - `ClientRequest` のコンストラクタのオプション。
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 戻り値 [`ClientRequest`](./client-request.md)
 

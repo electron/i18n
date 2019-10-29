@@ -70,22 +70,6 @@ const constraints = {
 
 El módulo `desktopCapturer` tiene los siguientes métodos:
 
-### `desktopCapturer.getSources(options, callback)`
-
-* `opciones` Object 
-  * `types` String[] - Un arreglo de cadenas que crea una lista de los tipos de fuentes de escritorio para ser capturadas. Los tipos disponibles son `screen` y `window`.
-  * `thumbnailSize` [Size](structures/size.md) (opcional) - El tamaño de la miniatura de la fuente al cual deber ser escalado. Por defecto es `150` x `150`. Establecer ancho o alto a 0 cuando no necesitas las miniaturas. Esto guardara el tiempo de procesamiento requerido para capturar el contenido de cada ventana y pantalla.
-  * `fetchWindowIcons` Boolean (opcional) - Establece a true para activar la obtención de los iconos de ventana. El valor por defecto es falso. Cuando es false la propiedad appIcon de las fuentes devuelve null. Mismo si una fuente tiene el tipo pantalla.
-* `callback` Function 
-  * `error` Error
-  * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
-
-Inicia la recopilación de información sobre todas las fuentes de escritorio disponibles, y llama a `callback(error, sources)`cuando haya terminado.
-
-`sources`es un arreglo de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md). Cada`DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
-
 ### `desktopCapturer.getSources(options)`
 
 * `opciones` Object 
@@ -95,7 +79,7 @@ Inicia la recopilación de información sobre todas las fuentes de escritorio di
 
 Devuelve `Promise<DesktopCapturerSource[]>` - Resuelve con un array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
 
-### Advertencias
+## Advertencias
 
 `navigator.mediaDevices.getUserMedia` no trabaja en macOS para captura de audio debido a una limitación fundamental porque las aplicaciones que quieren acceder al audio del sistema requieren un [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, y por extensión Electron, no proporciona esto.
 

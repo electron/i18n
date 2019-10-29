@@ -53,7 +53,7 @@ console.log(appIcon)
 
 如果希望同时支持不同 DPI 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 DPI 后缀的文件名。例如:
 
-```text
+```plaintext
 images/
 ├── icon.png
 ├── icon@2x.png
@@ -150,11 +150,11 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
-* `hslShift` Number[]
+* `hslShift` Number[] (optional)
 
 返回 `NativeImage`
 
-从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 可以使用的值, 请参见 [` NSImageName `](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) 文档。
+从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
 使用以下规则将`hslShift`应用于图像
 
@@ -189,7 +189,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toJPEG(quality)`
 
-* ` quality ` Integer (** 必需 **)-介于 0-100 之间。
+* `quality` Integer - Between 0 - 100.
 
 返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -236,9 +236,13 @@ Returns [`Size`](structures/size.md)
 
 将图像标记为模板图像。
 
+**[过时的](modernization/property-updates.md)**
+
 #### `image.isTemplateImage()`
 
 返回 ` Boolean `-图像是否为模板图像。
+
+**[过时的](modernization/property-updates.md)**
 
 #### `image.crop(rect)`
 
@@ -263,3 +267,11 @@ Returns [`Size`](structures/size.md)
 * `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
 添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
+
+## 属性
+
+### `nativeImage.isMacTemplateImage` *macOS*
+
+A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+
+Please note that this property only has an effect on macOS.

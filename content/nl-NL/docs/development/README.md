@@ -20,6 +20,5 @@ Deze handleidingen zijn bedoeld voor mensen die aan het Electron project werken.
 * [Foutopsporing op Windows](debug-instructions-windows.md)
 * [Foutopsporing op MacOS](debugging-instructions-macos.md)
 * [Symbol Server instellen in Debugger](setting-up-symbol-server.md)
-* [Chromium updaten](upgrading-chromium.md)
-* [Crashpad updaten](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Node updaten](upgrading-node.md)

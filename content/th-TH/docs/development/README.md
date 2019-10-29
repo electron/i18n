@@ -20,6 +20,5 @@
 * [แก้จุดบกพร่อง บน Windows](debug-instructions-windows.md)
 * [แก้จุดบกพร่อง บน macOS](debugging-instructions-macos.md)
 * [การตั้งค่าเซิร์ฟเวอร์ในตัวดีบักเกอร์](setting-up-symbol-server.md)
-* [อัพเกรด Chromium](upgrading-chromium.md)
-* [อัพเกรด Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [อัพเกรด Node](upgrading-node.md)

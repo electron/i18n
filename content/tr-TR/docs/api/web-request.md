@@ -87,11 +87,11 @@ Some examples of valid `urls`:
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
   * `geri aramak` Function 
     * `response` Nesne 
       * `cancel` Boolean (isteğe bağlı)
-      * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu başlıklarla birlikte yapılacaktır.
+      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
 
 Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. Bu, bir sunucuya TCP bağlantısı yapıldığında ortaya çıkabilir ancak öncesinde herhangi bir http verisi gönderilmiştir.
 
@@ -110,7 +110,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
-    * `requestHeaders` Object
+    * `requestHeaders` Record<string, string>
 
 Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` ile birlikte çağırılacak. `onBeforeSendHeaders` yanıtlarının önceki değişiklikleri bu listener'ın işi bitinceye kadar görülür.
 
@@ -129,11 +129,11 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Tamsayı
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
   * `geri aramak` Function 
     * `response` Nesne 
       * `cancel` Boolean (isteğe bağlı)
-      * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu başlıklara cevap verecektir.
+      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
 İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
@@ -153,7 +153,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
     * `statusCode` Tamsayı
     * `statusLine` String
@@ -177,7 +177,7 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
     * `statusCode` Tamsayı
     * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
 
 Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `listener(details)` ile birlikte çağırılacaktır.
 
@@ -194,7 +194,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `responseHeaders` Record<string, string> (optional)
     * `fromCache` Boolean
     * `statusCode` Tamsayı
     * `statusLine` String

@@ -117,11 +117,12 @@ protocol.registerSchemesAsPrivileged([
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String (可选)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -139,6 +140,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -169,11 +171,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `data` String (可选)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -187,18 +190,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String
-      * `session` Object (可选)
-      * `uploadData` Object (可选) 
-        * `contentType` String - 内容的MIME类型。
-        * `data` String - 要发送的内容。
+      * `method` String (optional)
+      * `session` Session | null (optional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -216,7 +217,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -276,16 +277,6 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 取消对自定义`scheme`的注册
 
-### `protocol.isProtocolHandled(scheme, callback)`
-
-* `scheme` String
-* `callback` Function 
-  * `handled` Boolean
-
-`callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
-
-**[即将弃用](modernization/promisification.md)**
-
 ### `protocol.isProtocolHandled(scheme)`
 
 * `scheme` String
@@ -295,13 +286,14 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function - 回调函数 
+* `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `filePath` String
 * `completion` Function (可选) 
   * `error` Error
@@ -314,11 +306,12 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
-    * `data` String (可选)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -330,6 +323,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -343,21 +337,21 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String
-      * `session` Object (可选)
+      * `method` String (optional)
+      * `session` Session | null (optional)
       * `uploadData` Object (可选) 
         * `contentType` String - 内容的MIME类型。
-        * `data` String - 发送内容。
+        * `data` String - 要发送的内容。
 * `completion` Function (可选) 
   * `error` Error
 
@@ -369,7 +363,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)

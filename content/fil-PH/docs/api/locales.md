@@ -10,7 +10,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang am             | Ay Amharic                 |
 | ang ar             | Ay Arabic                  |
 | ang az             | Ay Azerbaijani             |
-| 7661ang be         | Ay Belarusian              |
+| ang be             | Ay Belarusian              |
 | ang bg             | Ay Bulgarian               |
 | ang bh             | Ay Bihari                  |
 | ang bn             | Ay Bengali                 |
@@ -107,7 +107,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang sd             | Ay Sindhi                  |
 | ang sh             | Ay Serbo-Croatian          |
 | ang si             | Ay Sinhalese               |
-| 4846ang sk         | Ay Slovak                  |
+| 0429ang sk         | Ay Slovak                  |
 | ang sl             | Ay Slovenian               |
 | ang sn             | Ay Shona                   |
 | ang so             | Ay Somali                  |

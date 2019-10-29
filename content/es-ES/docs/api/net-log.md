@@ -7,9 +7,9 @@ Process: [Main](../glossary.md#main-process)
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async function () {
-  netLog.startLogging('/path/to/net-log')
-  // Despues de algunos eventos de red
+app.on('ready', async () => {
+  await netLog.startLogging('/path/to/net-log')
+  // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
@@ -21,33 +21,29 @@ Vea [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) para re
 
 ## Métodos
 
-### `netLog.startLogging(path)`
+### `netLog.startLogging(path[, options])`
 
 * `path` String - Ruta de archivo para guardar los registros de red.
+* `opciones` Objecto (opcional) 
+  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
+  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+
+Returns `Promise<void>` - resolves when the net log has begun recording.
 
 Comienza la agravación de eventos de red en `path`.
-
-### `netLog.stopLogging([callback])`
-
-* `callback` Function (opcional) 
-  * `path` String - Ruta de archivo en el cual se guardo los registros de red.
-
-Detener la grabación de los eventos de red. Si no se llama, la grabación de los registros de red terminará automáticamente cuando la aplicación se cierre.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `netLog.stopLogging()`
 
 Devuelve `Promise<String>` - resuelve con una rula de archivo en la que se registraron los registros de red.
 
-Parar la grabación de eventos de red. Si no se llama, el registro de red automáticamente terminara cuando la aplicación se cierre.
+Detener la grabación de los eventos de red. Si no se llama, la grabación de los registros de red terminará automáticamente cuando la aplicación se cierre.
 
 ## Propiedades
 
-### `netLog.currentlyLogging`
+### `netLog.currentlyLogging` *Readonly*
 
 Un propiedad `Boolean` que indica si los registros de red están configurados o no.
 
-### `netLog.currentlyLoggingPath`
+### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
 
 Un propiedad `String` que devuelve la ruta del archivo de registro actual.

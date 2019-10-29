@@ -2,7 +2,7 @@
 
 > Manipulate the child browser window
 
-Process: [Renderer](../glossary.md#renderer-process)
+Proces: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
@@ -34,7 +34,7 @@ Invokes the print dialog on the child window.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.

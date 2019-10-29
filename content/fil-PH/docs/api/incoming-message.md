@@ -46,7 +46,7 @@ Isang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
 
 #### `response.headers`
 
-Isang `Object` na syang kumakatawan sa pagtugon ng "HTTP headers". Ang "`headers` object" ay nakaayos ayon sa mga sumusunod:
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * Ang lahat ng pangalan ng "header" ay dapat gumamit ng maliliit na titik.
 * Ang bawat pangalan ng "header" ay gagawa ng katangian ng "array-valued" sa "header's object".

@@ -146,6 +146,7 @@ apps:
   search_app: Filtrează aplicații după nume, descriere, etc…
   categories: Categorii
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Fă un pull request</a> pentru a-ți adăuga aplicația.'
+  #App show page specific localization strings
   website: Sait web
   repository: Depozitar
   category: Categorie
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Blog Electron
   description: Cele mai recente știri de la echipa și comunitatea Electron.
+  #Post show page specific localization strings
   feedback: Ai feedback despre acest articol? Informează <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter.
   help: Ai nevoie de ajutor sau ai găsit o eroare? <a href="/contact">Contactează-ne</a>.
 clipboard:
   copy: Copiază
   copy_to_clipboard: Copiere în clipboard
   copied: Copiat
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: sau
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Electron Governance
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
-  docstools:
-    title: Docs & Tools
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Outreach
     description: Grows the Electron community
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: Upgrades
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
-  website:
-    title: Sait web
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Community & Safety
     description: Oversees removal/bans from community.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Administrative
     description: The Administrative Working Group oversees the entire governance and project.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Overview
     associated_repos: Associated Repositories

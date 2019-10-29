@@ -34,7 +34,7 @@ Invoca il dialogo di stampa sulla finestra figlia.
 
 #### `win.postaMessaggio(messaggio, bersaglioOrigine)`
 
-* `messaggio` Stringa
+* `message` any
 * `Originebersaglio` Stringa
 
 Invia un messaggio alla finestra figlia con l'origine specificata o `*` per nessuna preferenza d'origine.

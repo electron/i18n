@@ -38,6 +38,8 @@ Modul `Tray` memancarkan peristiwa berikut:
 
 #### Acara : 'klik'
 
+Pengembalian:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -46,12 +48,16 @@ Emitted saat ikon baki diklik.
 
 #### Event: klik 'kanan' *macOS* *Windows*
 
+Pengembalian:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
 
 Dibunyikan ketika ikon tray benar diklik.
 
 #### Event: 'Klik dua kali' *macOS* *Windows*
+
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray.
@@ -76,12 +82,16 @@ Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
 
 #### Event: 'drop-file' *macOS*
 
+Pengembalian:
+
 * `event` Acara
 * `file` String [] - path file menjatuhkan.
 
 Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' *macOS*
+
+Pengembalian:
 
 * `acara` Acara
 * `teks` String - string teks menjatuhkan.
@@ -102,6 +112,8 @@ Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi la
 
 #### Event: 'masuk mouse' *macOS*
 
+Pengembalian:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
@@ -109,12 +121,16 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 #### Acara: 'pindah' *macOS*
 
+Pengembalian:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
-#### Event: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Pengembalian:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisi` [Point](structures/point.md) - posisi acara.
@@ -156,41 +172,7 @@ Menyetel teks hover untuk ikon baki ini.
 
 <h4><code> tray.getTitle () </ 0>  <em> macos </ 1></h4>
 
-<ul>
-<li><code> judul </ 0> String</li>
-</ul>
-
 <p>Returns <code>String` - the title displayed next to the tray icon in the status bar</p> 
-  #### `tray.setHighlightMode(mode)` * macos*
-  
-  * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
-    * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
-    * `selalu` - Selalu sorot ikon baki.
-    * `tidak pernah` - Jangan menyorot ikon baki.
-  
-  Menyetel saat latar belakang ikon baki disorot (berwarna biru).
-  
-  **[Tidak berlaku lagi](breaking-changes.md#tray)**
-  
-  **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
-  
-  ```javascript
-  const { BrowserWindow, Tray } = require ('electron')
-  
-  const win = new BrowserWindow ({ width: 800, height: 600 })
-  const tray = new Tray ('/ path / to / my / icon')
-  
-  tray.on ('klik', () = > {
-    win.isVisible ()? win.hide (): win.show ()
-  })
-  win.on ('show', () = > {
-    tray.setHighlightMode ('selalu')
-  })
-  win.on ('hide', () = > {
-    tray.setHighlightMode ('tidak pernah')
-  })
-  ```
-  
   #### `tray.setIgnoreDoubleClickEvents(ignore)` * macos*
   
   * `mengabaikan` Boolean

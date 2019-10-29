@@ -99,7 +99,7 @@ Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda jug
 <p>Untuk membuat seluruh jendela menjadi seret, Anda dapat menambahkan gaya <code> -webkit-app-region: drag </ 0> sebagai
  <code> body </ 0> :</p>
 
-<pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt; 
+<pre><code class="html"><body style="-webkit-app-region: drag"> 
 </ 0>
 `</pre> 
     

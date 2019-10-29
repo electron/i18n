@@ -46,7 +46,7 @@ HTTPステータスメッセージを表す `String`。
 
 #### `response.headers`
 
-HTTPレスポンスヘッダを表す `Object`。`headers` オブジェクトは、以下のようにフォーマットされます。
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * すべてのヘッダ名は小文字です。
 * 各ヘッダー名ごとに配列の値を返すプロパティがヘッダーオブジェクトに生成されます。

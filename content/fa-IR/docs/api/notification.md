@@ -14,7 +14,7 @@
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-`اعلان` یک [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter) می باشد.
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ایجاد یک `اعلان` جدید با ویژگی های محلی توسط `options` می باشد.
 
@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` شئ 
+* `options` Object (optional) 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
@@ -101,6 +101,44 @@ If the notification has been shown before, this method will dismiss the previous
 #### `notification.close()`
 
 Dismisses the notification.
+
+### Instance Properties
+
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
 ### Playing Sounds
 

@@ -1,5 +1,5 @@
 # StreamProtocolResponse Object
 
-* `statusCode` Number - رمز الاستجابة HTTP.
-* ` ترويسات` Object - الموضوع يحتوي على ترويسات الاستجابة.
-* ` بيانات` ReadableStream - Node.js مسار مقروء يمثل إستجابة الجسم.
+* `statusCode` Number (optional) - The HTTP response code.
+* `headers` Record<String, String | String[]> (optional) - An object containing the response headers.
+* `data` ReadableStream | null - A Node.js readable stream representing the response body.

@@ -34,7 +34,7 @@ Appelle la boîte de dialogue Impression sur la fenêtre enfant.
 
 #### `win.postMessage(message, targetOrigin)`
 
-* `message` String
+* `message` any
 * `targetOrigin` String
 
 Envoie un message à la fenêtre enfant avec l'origine spécifié ou `*` pour aucune préférence d'origine.

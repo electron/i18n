@@ -31,6 +31,7 @@ Please make sure that you use the documents that match your Electron version. �
   * [วิธีการใช้อินเตอร์เฟสของ Electron](tutorial/application-architecture.md#using-electron-apis)
   * [วิธีการใช้อินเตอร์เฟสของ Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [วิธีการใช้เนทีฟโมดูลของ Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * การเพิ่มฟีสเจอร์บนแอพของคุณ 
   * [การแจ้งเตือน](tutorial/notifications.md)
   * [บทความปัจจุบัน](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Please make sure that you use the documents that match your Electron version. �
 
 * [บทย่อ](api/synopsis.md)
 * [กระบวนการของวัตถุ](api/process.md)
-* [รองรับการสลับคำสั่งของ Chrome](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 * [ทำลายการเปลี่ยนแปลง API](api/breaking-changes.md)
 

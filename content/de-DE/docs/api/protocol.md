@@ -117,11 +117,12 @@ protocol.registerSchemesAsPrivileged([
 * `handler` Funktion 
   * `request` Object 
     * ` URL </ 0>  Zeichenfolge</li>
-<li><code>referrer` String
+<li><code>headers` Record<String, String>
+    * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funktion 
-    * `filePath` String (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (optional) 
   * ` Fehler </ 0> Fehler</li>
 </ul></li>
@@ -140,7 +141,8 @@ protocol.registerSchemesAsPrivileged([
     * `handler` Funktion 
       * `request` Object 
         * ` URL </ 0>  Zeichenfolge</li>
-<li><code>referrer` String
+<li><code>headers` Record<String, String>
+        * `referrer` String
         * `method` String
         * `uploadData` [UploadData[]](structures/upload-data.md)
       * `callback` Funktion 
@@ -171,11 +173,12 @@ protocol.registerSchemesAsPrivileged([
         * `handler` Funktion 
           * `request` Object 
             * ` URL </ 0>  Zeichenfolge</li>
-<li><code>referrer` String
+<li><code>headers` Record<String, String>
+            * `referrer` String
             * `method` String
             * `uploadData` [UploadData[]](structures/upload-data.md)
           * `callback` Funktion 
-            * `data` String (optional)
+            * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
         * `completion` Function (optional) 
           * ` Fehler </ 0> Fehler</li>
 </ul></li>
@@ -190,18 +193,16 @@ protocol.registerSchemesAsPrivileged([
             * `handler` Funktion 
               * `request` Object 
                 * ` URL </ 0>  Zeichenfolge</li>
-<li><code>headers` Object
+<li><code>headers` Record<String, String>
                 * `referrer` String
                 * `method` String
                 * `uploadData` [UploadData[]](structures/upload-data.md)
               * `callback` Funktion 
                 * `redirectRequest` Object 
                   * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
-                  * `session` Object (optional)
-                  * `uploadData` Objekt (optional) 
-                    * `contentType` String - MIME type of the content.
-                    * `data` String - Content to be sent.
+<li><code>method` String (optional)
+                  * `session` Session | null (optional)
+                  * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
             * `completion` Function (optional) 
               * ` Fehler </ 0> Fehler</li>
 </ul></li>
@@ -220,7 +221,7 @@ protocol.registerSchemesAsPrivileged([
                 * `handler` Funktion 
                   * `request` Object 
                     * ` URL </ 0>  Zeichenfolge</li>
-<li><code>headers` Object
+<li><code>headers` Record<String, String>
                     * `referrer` String
                     * `method` String
                     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -282,16 +283,6 @@ protocol.registerSchemesAsPrivileged([
 </ul>
 
 <p>Unregisters the custom protocol of <code>scheme`.</p> 
-                        ### `protocol.isProtocolHandled(scheme, callback)`
-                        
-                        * `scheme` String
-                        * `callback` Funktion 
-                          * `handled` Boolean
-                        
-                        The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
-                        
-                        **[Deprecated Soon](modernization/promisification.md)**
-                        
                         ### `protocol.isProtocolHandled(scheme)`
                         
                         * `scheme` String
@@ -304,7 +295,8 @@ protocol.registerSchemesAsPrivileged([
                         * `handler` Funktion 
                           * `request` Object 
                             * ` URL </ 0>  Zeichenfolge</li>
-<li><code>referrer` String
+<li><code>headers` Record<String, String>
+                            * `referrer` String
                             * `method` String
                             * `uploadData` [UploadData[]](structures/upload-data.md)
                           * `callback` Funktion 
@@ -321,11 +313,12 @@ protocol.registerSchemesAsPrivileged([
                             * `handler` Funktion 
                               * `request` Object 
                                 * ` URL </ 0>  Zeichenfolge</li>
-<li><code>referrer` String
+<li><code>headers` Record<String, String>
+                                * `referrer` String
                                 * `method` String
                                 * `uploadData` [UploadData[]](structures/upload-data.md)
                               * `callback` Funktion 
-                                * `data` String (optional)
+                                * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
                             * `completion` Function (optional) 
                               * ` Fehler </ 0> Fehler</li>
 </ul></li>
@@ -338,7 +331,8 @@ protocol.registerSchemesAsPrivileged([
                                 * `handler` Funktion 
                                   * `request` Object 
                                     * ` URL </ 0>  Zeichenfolge</li>
-<li><code>referrer` String
+<li><code>headers` Record<String, String>
+                                    * `referrer` String
                                     * `method` String
                                     * `uploadData` [UploadData[]](structures/upload-data.md)
                                   * `callback` Funktion 
@@ -355,15 +349,15 @@ protocol.registerSchemesAsPrivileged([
                                     * `handler` Funktion 
                                       * `request` Object 
                                         * ` URL </ 0>  Zeichenfolge</li>
-<li><code>headers` Object
+<li><code>headers` Record<String, String>
                                         * `referrer` String
                                         * `method` String
                                         * `uploadData` [UploadData[]](structures/upload-data.md)
                                       * `callback` Funktion 
                                         * `redirectRequest` Object 
                                           * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
-                                          * `session` Object (optional)
+<li><code>method` String (optional)
+                                          * `session` Session | null (optional)
                                           * `uploadData` Objekt (optional) 
                                             * `contentType` String - MIME type of the content.
                                             * `data` String - Content to be sent.
@@ -379,7 +373,7 @@ protocol.registerSchemesAsPrivileged([
                                         * `handler` Funktion 
                                           * `request` Object 
                                             * ` URL </ 0>  Zeichenfolge</li>
-<li><code>headers` Object
+<li><code>headers` Record<String, String>
                                             * `referrer` String
                                             * `method` String
                                             * `uploadData` [UploadData[]](structures/upload-data.md)

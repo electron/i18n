@@ -2,9 +2,11 @@
 
 > Enable apps to automatically update themselves.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Platform Notices
 
@@ -80,9 +82,9 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Sets the `url` and initialize the auto updater.

@@ -24,8 +24,9 @@ Para configurar un servidor que acepte y procese los informes de fallos, se pued
 
 O utilice una solución alojada por terceros:
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 Los informes de fallos se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de fallos serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de fallos.
 
@@ -38,11 +39,11 @@ El módulo `crashReporter` tiene los siguientes métodos:
 * `options` Objeto 
   * `companyName` String
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
-  * `productName` String (opcional) - Por defecto es `app.getName()`.
-  * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
-  * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. No se admiten objetos anidados y los nombres de propiedades y valores tener menos de 64 caracteres.
-  * `crashesDirectory` String (opcional) - Directorio para almacenar temporalmente los informes de errores (solo se usa cuando el proceso de notificación de errores se inicia a través de `process.crashReporter.start`).
+  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Solo las propiedades de la cadena son enviadas correctamente. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Es necesario llamar este método antes de utilizar cualquier otra API `crashReporter` y en cada proceso (main/renderer) del cual se quiera recopilar los informes de fallos. Se puede pasar diferentes opciones al `crashReporter.start` al llamar desde diferentes procesos.
 

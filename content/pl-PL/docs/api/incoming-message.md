@@ -6,7 +6,7 @@ Proces: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Zdarzenia instancji
+### Wydarzenia instancji
 
 #### Zdarzenie: 'data'
 
@@ -46,7 +46,7 @@ A `String` representing the HTTP status message.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * All header names are lowercased.
 * Each header name produces an array-valued property on the headers object.

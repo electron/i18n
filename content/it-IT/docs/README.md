@@ -31,6 +31,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Usare API di Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Usare API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Aggiungere Funzioni Alla Tua App 
   * [Notifiche](tutorial/notifications.md)
   * [Documenti Recenti](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Questi tutorial individuali espandono su topic discussi nella guida sopra.
 
 * [Sinossi](api/synopsis.md)
 * [Oggetto Process](api/process.md)
-* [Opzioni di Chrome supportate da riga di comando](api/chrome-command-line-switches.md)
+* [Opzioni della linea di comando supportate](api/command-line-switches.md)
 * [Variabili di ambiente](api/environment-variables.md)
 * [Cambiamenti API](api/breaking-changes.md)
 

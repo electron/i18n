@@ -66,6 +66,8 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'click'
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 * `position` [Point](structures/point.md) - la position de l’événement.
@@ -74,12 +76,16 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'right-click' *macOS* *Windows*
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
 
 Émis lorsque l’utilisateur fait un clique droit sur l’icône.
 
 #### Événement : 'double-click' *macOS* *Windows*
+
+Retourne :
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône.
@@ -104,12 +110,16 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'drop-files' *macOS*
 
+Retourne :
+
 * `event` Événement
 * `files` String[] - les chemins d’accès des fichiers déposés.
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
 #### Événement : 'drop-text' *macOS*
+
+Retourne :
 
 * `event` Événement
 * `text` String - le texte déposé.
@@ -130,6 +140,8 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'mouse-enter' *macOS*
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
@@ -137,12 +149,16 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'mouse-leave' *macOS*
 
+Retourne :
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
 
 Émis lorsque la souris sort de la zone de l’icône.
 
-#### Événement : 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Retourne :
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - la position de l’événement.
@@ -183,39 +199,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - mode de surbrillance avec l'une des valeurs suivante : 
-  * `selection` - Met en surbrillance l'icône de la barre d'État lorsqu'il est cliqué et quand son menu contextuel est ouvert. C'est la valeur par défaut.
-  * `always` - Toujours mettre en surbrillance l’icône.
-  * `never` - Jamais mettre en surbrillance l’icône.
-
-Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
-
-**[Déprécié ](breaking-changes.md#tray)**
-
-**Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

@@ -1,12 +1,12 @@
 # Elektrondaki Sorunlar
 
-* [Sorunlara nasıl müdahil olunur](#how-to-contribute-in-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [Genel Yardım İsteğinde Bulunmak](#asking-for-general-help)
 * [Hata raporu gönderme](#submitting-a-bug-report)
 * [Bir hata raporu düzenle](#triaging-a-bug-report)
 * [Bir hata raporu çözümlendir](#resolving-a-bug-report)
 
-## Sorunlara nasıl müdahil olunur
+## How to Contribute to Issues
 
 Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem vardır:
 
@@ -63,7 +63,7 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
     
     Elektron'da bir hata bulduğunuzu düşünüyorsanız, lütfen bu formu en iyi şekilde doldurun.
     
-    Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. Yeniden üretilebiliyorsa, bir hatayı düzeltmek daha kolaydır.
+    Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. It is easier to fix a bug if it can be reproduced.
     
     Bkz. [ Minimum, Tam ve Doğrulanabilir örnek nasıl oluşturulur?](https://stackoverflow.com/help/mcve).
     
@@ -73,7 +73,7 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
     
     Ne çok kısa açıklamalar ne de çok fazla ayrıntı pek işe yaramaz ve profesyonelce olmaz. Çoğu kimseye bu tür tutumu sinir bozucu ve düşmanca bulur.
     
-    Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. Geçersiz olduğunu düşündüğünüz veya hatalı bilgi içeren bir sorunla karşılaşırsanız, ek destek bölümünde *neden* böyle düşündüğünüz açıklayın ve yanlış olabileceğinizi kabullenmeyi de göz önünde bulundurun. Bunu yaparak, çoğunlukla doğru sonuca daha hızlı ulaşabiliriz.
+    Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Bunu yaparak, çoğunlukla doğru sonuca daha hızlı ulaşabiliriz.
     
     ## Bir hata raporu çözümlendir
     

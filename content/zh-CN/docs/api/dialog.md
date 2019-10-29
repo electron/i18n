@@ -4,11 +4,11 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-显示用于选择多个文件和目录的对话框的示例:
+An example of showing a dialog to select multiple files:
 
 ```javascript
 const { dialog } = require('electron')
-console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
 这个对话框是从Electron的主线程上打开的。如果要使用渲染器进程中的对话框对象, 可以使用remote来获得:
@@ -40,7 +40,7 @@ console.log(dialog)
     * ` noResolveAliases `* macOS *-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。
     * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
-  * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
 
@@ -87,13 +87,12 @@ dialog.showOpenDialogSync(mainWindow, {
     * ` noResolveAliases `* macOS *-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。
     * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
-  * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
-* `callback` Function (可选)
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
-Returns `Promise<Object>` - Resolve wih an object containing the following:
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` 必须启用才能捕获数据。
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
@@ -161,7 +160,7 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
     * `canceled` Boolean - whether or not the dialog was canceled.
-    * `filePath` String (optional) If the dialog is canceled this will be `undefined`.
+    * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
     * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
     
 
@@ -181,10 +180,10 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
   * `title` String (可选) - message box 的标题，一些平台不显示.
   * `message` String - message box 的内容.
   * `detail` String (可选) - 额外信息.
-  * `checkboxLabel` String (可选) - 如果提供了If provided, 消息框将包含带有给定标签的复选框。 只有使用 `callback` 时，才能检查复选框的状态。
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (可选) - checkbox 的初始值，默认值为 `false`.
   * `icon` ([NativeImage](native-image.md) | String) (可选)
-  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 如果不存在这样的标记按钮，并且该选项没有设置，那么 `0` 将用作返回值或回调响应。
+  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 
@@ -204,10 +203,10 @@ Returns `Integer` - the index of the clicked button.
   * `title` String (可选) - message box 的标题，一些平台不显示.
   * `message` String - message box 的内容.
   * `detail` String (可选) - 额外信息.
-  * `checkboxLabel` String (可选) - 如果提供了If provided, 消息框将包含带有给定标签的复选框。 只有使用 `callback` 时，才能检查复选框的状态。
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (可选) - checkbox 的初始值，默认值为 `false`.
   * `icon` [NativeImage](native-image.md) (可选)
-  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 如果不存在这样的标记按钮，并且该选项没有设置，那么 `0` 将用作返回值或回调响应。
+  * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
   * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 
@@ -230,23 +229,6 @@ Shows a message box, it will block the process until the message box is closed.
 显示一个显示错误消息的模态对话框。
 
 这个API可以在 `app` 模块触发 `ready` 事件之前被安全地调用，它通常用在启动时报告错误。 在 Linux 上, `ready` 事件之前调用这个API, 消息将被发送到stderr, 并且不会出现GUI对话框。
-
-### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
-
-* `browserWindow` [BrowserWindow](browser-window.md) (可选)
-* `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - 信任/导入的证书
-  * `message` String - 要向用户显示的消息
-* `callback` Function
-
-在macOS中, 将弹出一个用于展示消息与证书信息并向用户提供信任/导入证书的选项的模态对话框。 如果提供 ` browserWindow ` 参数, 则该对话框将附加到父窗口, 使其成模态框。
-
-在Windows中, 受限于Win32 API，可选项变得更为有限:
-
-* `message` 参数无效，因为操作系统提供了自身的确认对话框。
-* `browserWindow` 参数被忽略，因此无法成为模态对话框。
-
-**[即将弃用](modernization/promisification.md)**
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
 

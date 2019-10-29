@@ -10,7 +10,7 @@ Lumilikha ng isang bagong menu.
 
 ### Mga istatikong pamamaraan
 
-Ang klaseng `menu` ay mayroong mga sumusunod na mga istatikong pamamaraan:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -52,7 +52,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `mga opsyon` Na Bagay (opsyonal) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
@@ -131,10 +131,12 @@ Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa s
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },

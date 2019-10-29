@@ -31,6 +31,7 @@ There are questions that are asked quite often. Check this out before creating a
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Adding Features to Your App 
   * [Notifications](tutorial/notifications.md)
   * [Recent Documents](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 

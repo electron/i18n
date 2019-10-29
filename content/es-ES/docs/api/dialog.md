@@ -4,11 +4,11 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-Un ejemplo de mostrar un cuadro de diálogo para seleccionar múltiples archivos y directorios:
+An example of showing a dialog to select multiple files:
 
 ```javascript
 const { dialog } = require('electron')
-console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
 El dialogo es abierto en el proceso principal de Electron. Si quiere usar el objeto diálogo para un proceso renderizado, recuerde accederlo usando el comando remoto:
@@ -40,7 +40,7 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `noResolveAliases`*macOS*-Desactiva la resolución rutas de alias automático (symlink). Los alias seleccionados devolverán las rutas de los alias en vez de su ruta objetivo.
     * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
-  * `securityScopedBookmarks` Boolean (opcional) *macOS* *MAS* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Devuelve `String[] | undefined`, la ruta del archivo elegido por el usuario, si el diálogo es cancelado devuelve `undefined`.
 
@@ -87,13 +87,12 @@ dialog.showOpenDialogSync(mainWindow, {
     * `noResolveAliases`*macOS*-Desactiva la resolución rutas de alias automático (symlink). Los alias seleccionados devolverán las rutas de los alias en vez de su ruta objetivo.
     * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
-  * `securityScopedBookmarks` Boolean (opcional) *macOS* *MAS* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store.
-* `retrocallback` Funcion (opcional)
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
-Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo los siguiente:
+Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
 * `canceled` Boolean - si el diálogo fue o no cancelado.
-* `filePaths` String[] (opcional) - Un array de rutas de archivos elegidos por el usuario. Si el dialogo es cancelado sera un array vacío.
+* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (opcional) *macOS* *mas* - Un array que coincide con el array `filePaths` de cadenas codificadas en base64 que contiene datos de seguridad del marcador de ambito. `securityScopedBookmarks` debe estar activado para ser poblado.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
@@ -161,7 +160,7 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
 
     * `canceled` Boolean - si el dialogo a sido cancelado o no.
-    * `filePath` String (opcional) el el diálogo es cancelado esto va a ser `undefined`.
+    * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
     * `bookmark` String (opcional) _macOS_ _mas_ - Cadena codificada en Base64 que contiene marcadores de ámbito de seguridad para el archivo guardado. `securityScopedBookmarks` bebe estar activado para que esto este presente.
     
 
@@ -181,10 +180,10 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
-  * `checkboxLabel` Cadena (opcional) - Si es proveído, la caja de mensaje será incluido en una caja de chequeo con la etiqueta dada. El estado de la caja puede ser inspeccionado solo cuando se usa `callback`.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (opcional) - Inicial estado de chequeo de la caja. `false` por defecto.
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
-  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `0` será usado como un valor de retorno o una respondida de llamada de vuelta.
+  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 
@@ -204,10 +203,10 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
   * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
   * `message` Cadena - Contenido de la caja de mensaje.
   * `detail` Cadena (opcional) - Información extra del mensaje.
-  * `checkboxLabel` Cadena (opcional) - Si es proveído, la caja de mensaje será incluido en una caja de chequeo con la etiqueta dada. El estado de la caja puede ser inspeccionado solo cuando se usa `callback`.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (opcional) - Inicial estado de chequeo de la caja. `false` por defecto.
   * `icon` [NativeImage](native-image.md) (opcional)
-  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `0` será usado como un valor de retorno o una respondida de llamada de vuelta.
+  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 
@@ -229,23 +228,6 @@ El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana p
 Muestra un diálogo de modalidad que muestra un error de mensaje.
 
 Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `app` emite, es usualmente usado a reportar errores en las etapas tempranas del inicio. Si llamado antes de la aplicación `ready` evento en Linux, el mensaje será emitido a stderr, y no aparecerá diálogo GUI.
-
-### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
-
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
-* `opciones` Object 
-  * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
-  * `message` Cadena - El mensaje a mostrar al usuario.
-* `callback` Función
-
-En macOS, esto muestra un diálogo modelo que muestra un mensaje e información certificada, y da al usuario la opción de confiar/importar el certificado. Si tú provees un argumento `browserWindow` el diálogo será adjuntado a la ventana parental, haciéndolo un modelo.
-
-En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
-
-* El argumento `message` no es usado, como el OS provee su propio diálogo de confirmación.
-* El argumento `browserWindow` es ignorado ya que no es posible hacer este diálogo modelo de confirmación.
-
-**[Próximamente desaprobado](modernization/promisification.md)**
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
 

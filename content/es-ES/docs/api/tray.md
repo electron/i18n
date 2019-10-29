@@ -66,6 +66,8 @@ El módulo `Tray` emite los siguientes eventos:
 
 #### Evento: "click"
 
+Devuelve:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 * `position` [Point](structures/point.md) - La posición del evento.
@@ -74,12 +76,16 @@ Emitido cuando se hace clic en el icono de bandeja.
 
 #### Evento: "right-click"*macOS* *Windows*
 
+Devuelve:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
 Emitido cuando se hace clic derecho en el icono de bandeja.
 
 #### Evento: "double-click"*macOS* *Windows*
+
+Devuelve:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
@@ -104,12 +110,16 @@ Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 
 #### Evento: 'drop-files' *macOS*
 
+Devuelve:
+
 * `event` Event
 * `files` String[] - Las rutas de los archivos dejados en la bandeja.
 
 Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 
 #### Evento: 'drop-text' *macOS*
+
+Devuelve:
 
 * `evento` Evento
 * `text` Cadena - la cadena del texto dejado.
@@ -130,6 +140,8 @@ Emitido cuando termina una operación de arrastre en la bandeja o termina en otr
 
 #### Evento: 'mouse-enter' *macOS*
 
+Devuelve:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
@@ -137,12 +149,16 @@ Emitido cuando el ratón entra en el icono de la bandeja.
 
 #### Evento: 'mouse-leave' *macOS*
 
+Devuelve:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
 Emitido cuando el ratón sale del icono de la bandeja.
 
-#### Evento: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Devuelve:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
@@ -183,39 +199,7 @@ Establece el título mostrado al lado de la bandeja de icono en la barra de esta
 
 #### `tray.getTitle()` *macOS*
 
-* `title` Cadena
-
 Devuelve `String` - el título mostrado junto al icono de la bandeja en la barra de estado
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` Cadena - Modo de resaltado con uno de los siguientes valores: 
-  * `selection` - Resalta el icono de la bandeja cuando se hace clic sobre él y también cuando se abre su menú de contexto. Esta es la opción por defecto.
-  * `always` - Siempre resalta el icono de la bandeja.
-  * `never` - Nunca resalta el icono de la bandeja.
-
-Establece cuando se resalta (en azul) el fondo del icono de la bandeja.
-
-**[Cambiar](breaking-changes.md#tray)**
-
-**Nota:** Puede utilizarse `highlightMode` con una [`BrowserWindow`](browser-window.md) al alternar entre los modos `'never'` y `'always'` cuando la visibilidad de la ventana cambia.
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

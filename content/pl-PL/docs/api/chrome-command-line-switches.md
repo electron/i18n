@@ -44,13 +44,13 @@ Wymuś użycie maksymalnego miejsca na dysku dla pamięci podręcznej wyrażonej
 
 ## --js-flags=`flags`
 
-Określa flagi przekazywane do silnika Node JS. Musi być przekazane podczas uruchamiania Electron'a, jeśli chcesz włączyć `flagi` w głównym procesie.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Zobacz więcej w [dokumentacji Node'a](https://nodejs.org/api/cli.html) albo uruchom komendę `node --help` w wierszu poleceń aby zobaczyć listę dostępnych flag. Dodatkowo wpisz polecenie `node --v8-options`, aby zobaczyć listę flag które odnoszą się do silnika Node V8 JavaScript.
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ Na przykład:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --ignore-certificate-errors
 
@@ -151,3 +151,7 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.

@@ -21,18 +21,7 @@
 
 `inAppPurchase` 模块包含以下方法：
 
-### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
-
-* `productID` String - 预付款商品的ID (`com.example.app.product1` 的ID是 `product1`).
-* `quantity` Integer (可选) - 用户所要购买的商品数量.
-* `callback` Function (可选) - 当购买事件被推到 PaymentQueue中时触发这个回调函数. 
-  * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
-
-在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
-
-**[即将弃用](modernization/promisification.md)**
-
-### `inAppPurchase.purchaseProduct(productID, quantity)`
+### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
 * `productID` String - 预付款商品的ID (`com.example.app.product1` 的ID是 `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
@@ -40,16 +29,6 @@
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
 在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
-
-### `inAppPurchase.getProducts(productIDs, callback)`
-
-* `productIDs` String[] - 预购商品ID
-* `callback` Function - 当商品不存在时，被商品对象或空数组调用的回调 
-  * `products` Product[] - [`Product`](structures/product.md) 对象的数据
-
-检索商品的描述
-
-**[即将弃用](modernization/promisification.md)**
 
 ### `inAppPurchase.getProducts(productIDs)`
 

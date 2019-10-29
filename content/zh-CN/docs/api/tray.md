@@ -66,6 +66,8 @@ app.on('ready', () => {
 
 #### 事件: 'click'
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 * `position` [Point](structures/point.md) - 事件的位置信息。
@@ -74,12 +76,16 @@ app.on('ready', () => {
 
 #### Event: 'right-click' *macOS* *Windows*
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
 
 当该图标被右击时触发。
 
 #### Event: 'double-click' *macOS* *Windows*
+
+返回:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - 系统托盘图标的边界。
@@ -104,12 +110,16 @@ app.on('ready', () => {
 
 #### Event: 'drop-files' *macOS*
 
+返回:
+
 * `event` Event
 * `files` String[] - 拖至任务栏图标上的文件的路径。
 
 当有任何文件被拖到该任务栏图标上时，触发该事件。
 
 #### Event: 'drop-text' *macOS*
+
+返回:
 
 * `event` Event
 * `text` String - 拖至任务栏图标上的文字内容。
@@ -130,6 +140,8 @@ app.on('ready', () => {
 
 #### Event: 'mouse-enter' *macOS*
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
@@ -137,12 +149,16 @@ app.on('ready', () => {
 
 #### Event: 'mouse-leave' *macOS*
 
+返回:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
 当鼠标离开该任务栏图标时，触发该事件。
 
-#### Event: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+返回:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - 事件的位置信息。
@@ -183,39 +199,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - 高亮模式选项，以下为可选值 
-  * `selection` - 当托盘图标本点击或托盘的上下文菜单打开时高亮显示托盘图标，这是mode的默认值
-  * `always` - 总是高亮托盘图标
-  * `never` - 从不高亮托盘图标
-
-设置托盘图标背景 (蓝色) 高亮的时机
-
-**[过时的](breaking-changes.md#tray)**
-
-**Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

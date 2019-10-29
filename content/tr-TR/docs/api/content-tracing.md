@@ -1,10 +1,10 @@
 # contentTracing
 
-> Performans darboğazlarını ve yavaş işlemleri bulmak için Chromium'un içerik modülünden izleme verilerini toplar.
+> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
 İşlem: [Ana](../glossary.md#main-process)
 
-Bu modül web arabirimi içermez o yüzden sonuçları görüntülemek için `chrome://tracing/` bunu Chrome tarayıcısında açın ve oluşturulan dosyayı yükleyin.
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
 **Not:** Uygulama modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
@@ -12,20 +12,15 @@ Bu modül web arabirimi içermez o yüzden sonuçları görüntülemek için `ch
 const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
-
-  contentTracing.startRecording(options, () => {
+  (async () => {
+    await contentTracing.startRecording({
+      include_categories: ['*']
+    })
     console.log('Tracing started')
-
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Tracing data recorded to ' + path)
+  })()
 })
 ```
 
@@ -33,37 +28,15 @@ app.on('ready', () => {
 
 `contentTracing` modülü aşağıdaki metodları içerir:
 
-### `contentTracing.getCategories(callback)`
-
-* `geri aramak` Function 
-  * `categories` Dizi[]
-
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `contentTracing.getCategories()`
 
 Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-### `contentTracing.startRecording(options, callback)`
-
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
-* `callback` Function
-
-Tüm işlemler kaydetmeye başlayın.
-
-Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar. Bütün alt süreçler `startRecording` isteğini onayladıktan sonra `callback` çağırılır.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
@@ -71,47 +44,25 @@ Tüm işlemler kaydetmeye başlayın.
 
 Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar.
 
-### `contentTracing.stopRecording(resultFilePath, callback)`
+If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
-* `resultFilePath` Dizi
-* `geri aramak` Function 
-  * `resultFilePath` Dizi
+### `contentTracing.stopRecording([resultFilePath])`
 
-Kayıt işlemini tüm süreçlerde durdurur.
+* `resultFilePath` String (optional)
 
-Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
-
-Bütün alt süreçler, `stopRecording` isteğini onayladıktan sonra, `callback`, izlenen verileri içeren bir dosyayla çağrılır.
-
-Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFilePath` içerisine yazılır. Eğer gerçek dosya yolu `null` değil ise `callback`'e geçirilir.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-### `contentTracing.stopRecording(resultFilePath)`
-
-* `resultFilePath` Dizi
-
-Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
 Kayıt işlemini tüm süreçlerde durdurur.
 
-Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
+Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
-
-### `contentTracing.getTraceBufferUsage(callback)`
-
-* `geri aramak` Function 
-  * Nesne 
-    * `value` numara
-    * `percentage` numara
-
-İzleme arabelleği işlemlerindeki maksimum kullanımı tam durum yüzdesi olarak alın. TraceBufferUsage değeri belirlendiğinde `callback` çağırılır.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
 Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+* `value` numara
+* `percentage` numara
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state.

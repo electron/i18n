@@ -26,25 +26,33 @@ Devuelve:
 
 * `event` Event
 
-### Evento: 'color-invertido-esquema-cambiado' *Windows*
+### Event: 'inverted-color-scheme-changed' *Windows* *Deprecated*
 
 Devuelve:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondos oscuros) se esta usando, de otra manera `false`.
 
-### Evento: 'high-contrast-color-scheme-changed' *Windows*
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
 
 Devuelve:
 
 * `event` Evento
 * `highContrastColorScheme` Boolean - `true` si un tema de alto contraste es esta empezando a usar, de otra manera `false`.
 
+**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+
 ## Métodos
 
-### `Preferenciasdesistema.esModoOscuro()` *macOS*
+### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
+
+**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+
+**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -53,7 +61,7 @@ Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
 * `evento` Cadena
-* `userInfo` Objeto
+* `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (Opcional) - `true` para publicar inmediatamente incluso cuando la aplicación esta inactiva.
 
 Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
@@ -61,14 +69,14 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `evento` Cadena
-* `userInfo` Objeto
+* `userInfo` Record<String, any>
 
 Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `evento` Cadena
-* `userInfo` Objeto
+* `userInfo` Record<String, any>
 
 Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
@@ -77,11 +85,12 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 * `evento` Cadena
 * `callback` Function 
   * `evento` Cadena
-  * `userInfo` Objeto
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 Devuelve `Number` - El ID de la suscripción
 
-Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones. The `object` is the sender of the notification, and only supports `NSString` values for now.
 
 El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
@@ -97,7 +106,8 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 * `evento` Cadena
 * `callback` Function 
   * `evento` Cadena
-  * `userInfo` Objeto
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 Devuelve `Number` - El ID de la suscripción
 
@@ -108,7 +118,8 @@ Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defec
 * `evento` Cadena
 * `callback` Function 
   * `evento` Cadena
-  * `userInfo` Objeto
+  * `userInfo` Record<String, unknown>
+  * `object` String
 
 Igual que `subscribeNotification`, pero utiliza `NSWorkspace.sharedWorkspace.notificationCenter`. Esto es necesario para eventos como `NSWorkspaceDidActivateApplicationNotification`.
 
@@ -132,7 +143,7 @@ Igual que `unsubscribeNotification`, pero remueve el subscriptor desde `NSWorksp
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object -un diccionario de valores predeterminados de usuario (`key: value`)
+* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
 
 Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplicación.
 
@@ -299,15 +310,21 @@ Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RG
   * `rojo`
   * `amarillo`
 
+Returns `String` - The standard system color formatted as `#RRGGBBAA`.
+
 Devuelve uno de los varios colores estándar del sistema que se adaptan automáticamente a la vibración y los cambios en los ajustes de accesibilidad como "Aumentar contraste" y "reducir transparencia". Ver [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) para mas detalles.
 
-### `systemPreferences.isInvertedColorScheme()` *Windows*
+### `systemPreferences.isInvertedColorScheme()` *Windows* *Deprecated*
 
 Returns `Boolean` - `true` si un esquema de color invertido (un esquema de color de alto contraste con texto claro y fondo oscuro) está activo. De otra manera `false`.
 
-### `systemPreferences.isHighContrastColorScheme()` *Windows*
+**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
+
+### `systemPreferences.isHighContrastColorScheme()` *macOS* *Windows* *Deprecated*
 
 Devuelve `Boolean` - `true` si un tema de alto contraste está activo, si no `false`.
+
+**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
@@ -315,25 +332,33 @@ Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Por favor, tenga en cuenta que hasta que Electron es construido con el SDK 10.14, la `effectiveAppearance` de tu aplicación será por defecto ´light´ y no heredará la preferencia del sistema oprativo. Mientras tanto para que su aplicación herede la preferencia del sistema operativo debes establecer la clave `NSRequiresAquaSystemAppearance` en tus aplicaciones `Info.plist` a `false`. Si estas usando `electron-packager` o `electron-forge` solo establece la opción de empaquetador `enableDarwinDarkMode` a `true`. Consulte la [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
+Por favor, tenga en cuenta que hasta que Electron es construido con el SDK 10.14, la `effectiveAppearance` de tu aplicación será por defecto ´light´ y no heredará la preferencia del sistema oprativo. Mientras tanto para que su aplicación herede la preferencia del sistema operativo debes establecer la clave `NSRequiresAquaSystemAppearance` en tus aplicaciones `Info.plist` a `false`. Si estas usando `electron-packager` o `electron-forge` solo establece la opción de empaquetador `enableDarwinDarkMode` a `true`. Consulte la [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
 
-### `systemPreferences.getAppLevelAppearance()` *macOS*
+**[Cambiar](modernization/property-updates.md)**
+
+### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
 
 Devuelve`String` | `null` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene la configuración de apariencia de macOS que has declarado que desea para su aplicación, mapea a [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Puedes usar la API `setAppLevelAppearance` para establecer este valor.
 
-### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
+**[Cambiar](modernization/property-updates.md)**
+
+### `systemPreferences.setAppLevelAppearance(appearance)` *macOS* *Deprecated*
 
 * `appearance` String | null - Puede ser `dark` o `light`
 
 Establece la configuración por defecto para su aplicación, esto debe sobrescribir el valor predeterminado del sistema y sobrescribir el valor de `getEffectiveAppearance`.
+
+**[Cambiar](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
 Devuelve `Boolean` - si este dispositivo tiene la habilidad para usar Touch ID.
 
 **NOTE:** Esta API retornará `false` en sistemas macOS mas viejos que Sierra 10.12.2.
+
+**[Cambiar](modernization/property-updates.md)**
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
@@ -388,3 +413,21 @@ Devuelve `Objeto`:
 * `prefiere ReducdMotion` Boolean - Determina si el usuario desea un movimiento reducido basado en APIs de la plataforma.
 
 Devuelve un objeto con las configuraciones del sistema de animación.
+
+## Propiedades
+
+### `systemPreferences.appLevelAppearance` *macOS*
+
+A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
+
+Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
+
+This property is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
+
+A `String` property that can be `dark`, `light` or `unknown`.
+
+Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+Por favor, tenga en cuenta que hasta que Electron es construido con el SDK 10.14, la `effectiveAppearance` de tu aplicación será por defecto ´light´ y no heredará la preferencia del sistema oprativo. Mientras tanto para que su aplicación herede la preferencia del sistema operativo debes establecer la clave `NSRequiresAquaSystemAppearance` en tus aplicaciones `Info.plist` a `false`. Si estas usando `electron-packager` o `electron-forge` solo establece la opción de empaquetador `enableDarwinDarkMode` a `true`. Consulte la [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.

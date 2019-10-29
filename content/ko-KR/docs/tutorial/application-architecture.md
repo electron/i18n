@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 1 개의 중요 한 경고는: 네이티브 Node.js 모듈 (즉, 사용 하기 전에 네이티브 코드의 컴파일 해야 하는 모듈)은 Electron에서 사용하기위해 컴파일해야합니다. 
 
-Node.js 모듈의 대부분은 네이티브가 *아닙니다*. ~650.000 모듈중 400모듈만 네이티브입니다. 그러나, 네이티브 모듈을 사용해야하면, [this guide on how to recompile them for Electron](./using-native-node-modules.md)를 참조 하십시오.
+Node.js 모듈의 대부분은 네이티브가 *아닙니다*. ~650,000 모듈중 400모듈만 네이티브입니다. 그러나, 네이티브 모듈을 사용해야하면, [this guide on how to recompile them for Electron](./using-native-node-modules.md)를 참조 하십시오.
