@@ -241,7 +241,7 @@ Returns `Boolean` - Whether the image is a template image.
 
 * `rect` [Rectangle](structures/rectangle.md) - область изображения до которой нужно обрезать.
 
-Returns `NativeImage` - The cropped image.
+Возвращает `NativeImage` - обрезанное изображение.
 
 #### `image.resize(options)`
 
@@ -253,7 +253,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Возвращает `Float` - пропорции изображения.
 
 #### `image.addRepresentation(options)`
 
