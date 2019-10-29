@@ -65,7 +65,7 @@ console.log(webContents)
 
 このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
 
-#### Event: 'did-fail-provisional-load'
+#### イベント: 'did-fail-provisional-load'
 
 戻り値:
 
@@ -77,7 +77,7 @@ console.log(webContents)
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+このイベントは `did-fail-load` に似ていますが、ロードがキャンセルされたときに発行されます (例えば `window.stop()` が呼び出されたときなど)。
 
 #### イベント: 'did-frame-finish-load'
 
@@ -133,7 +133,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 
@@ -360,7 +360,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
-#### Event: 'zoom-changed'
+#### イベント: 'zoom-changed'
 
 戻り値:
 
