@@ -72,7 +72,7 @@ Devuelve:
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 * `position` [Point](structures/point.md) - La posición del evento.
 
-Emitted when the tray icon is clicked.
+Emitido cuando se hace clic en el icono de bandeja.
 
 #### Evento: "right-click"*macOS* *Windows*
 
@@ -81,7 +81,7 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
-Emitted when the tray icon is right clicked.
+Emitido cuando se hace clic derecho en el icono de bandeja.
 
 #### Evento: "double-click"*macOS* *Windows*
 
@@ -90,23 +90,23 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja.
 
-Emitted when the tray icon is double clicked.
+Emitido cuando se hace doble clic en el icono de bandeja.
 
 #### Evento: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitido cuando se muestra el globo de bandeja.
 
 #### Evento: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitido cuando se hace clic en el globo de bandeja.
 
 #### Evento: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Emitido cuando se cierra el globo de bandeja debido al tiempo de expiración o cuando el usuario lo cierra manualmente.
 
 #### Evento: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 
 #### Evento: 'drop-files' *macOS*
 
@@ -115,7 +115,7 @@ Devuelve:
 * `event` Event
 * `files` String[] - Las rutas de los archivos dejados en la bandeja.
 
-Emitted when dragged files are dropped in the tray icon.
+Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 
 #### Evento: 'drop-text' *macOS*
 
@@ -124,19 +124,19 @@ Devuelve:
 * `evento` Evento
 * `text` Cadena - la cadena del texto dejado.
 
-Emitted when dragged text is dropped in the tray icon.
+Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
 
 #### Evento: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Emitido cuando una operación de arrastre entra al icono de bandeja.
 
 #### Evento: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Emitido cuando una operación de arrastre sale del icono de bandeja.
 
 #### Evento: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Emitido cuando termina una operación de arrastre en la bandeja o termina en otra ubicación.
 
 #### Evento: 'mouse-enter' *macOS*
 
@@ -145,7 +145,7 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
-Emitted when the mouse enters the tray icon.
+Emitido cuando el ratón entra en el icono de la bandeja.
 
 #### Evento: 'mouse-leave' *macOS*
 
@@ -154,7 +154,7 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
-Emitted when the mouse exits the tray icon.
+Emitido cuando el ratón sale del icono de la bandeja.
 
 #### Event: 'mouse-move' *macOS* *Windows*
 
@@ -163,86 +163,86 @@ Devuelve:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - La posición del evento.
 
-Emitted when the mouse moves in the tray icon.
+Se emite cuando el ratón se mueve sobre el icono de la bandeja del sistema.
 
 ### Métodos de Instancia
 
-The `Tray` class has the following methods:
+La clase `Tray` tiene los siguientes métodos:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Destruye inmediatamente el icono de la bandeja.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Configura la `image` asociada con este icono de bandeja.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+En macOS, configura la `image` asociada con este icono de bandeja cuando se presiona.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` Cadena
 
-Sets the hover text for this tray icon.
+Configura la activación de texto para este icono de bandeja.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` Cadena
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Establece el título mostrado al lado de la bandeja de icono en la barra de estado (Soporta colores ANSI).
 
 #### `tray.getTitle()` *macOS*
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Devuelve `String` - el título mostrado junto al icono de la bandeja en la barra de estado
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Establece la opción para ignorar los eventos de doble click. Ignorar estos eventos te permite detectar cada pulsación individual del icono de la bandeja.
 
-This value is set to false by default.
+Este valor se establece en falso por defecto.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Objeto 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
-  * `title` String
+* `opciones` Object 
+  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
+  * `title` Cadena
   * `content` String
 
-Displays a tray balloon.
+Muestra un globo de la bandeja.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (opcional)
+* `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` solo está disponible en Windows, y por defecto es (0, 0).
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Configura el menú de contexto para este icono.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Los `bounds` de este icono de la bandeja como `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
