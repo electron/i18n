@@ -296,7 +296,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
   * `callback` Function 
     * `Percorsofile` Stringa
 * `completion` Function (opzionale) 
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
@@ -378,6 +378,6 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 * `schema` Stringa
 * `completion` Function (opzionale) 
-  * `error` Error
+  * `errore` Errore
 
 Remove the interceptor installed for `scheme` and restore its original handler.
