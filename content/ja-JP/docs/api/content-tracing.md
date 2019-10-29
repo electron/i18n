@@ -56,7 +56,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するために、Chromium はすべての子プロセスに保留中のトレースデータをフラッシュするよう非同期に要求します。
 
-トレースデータは `resultFilePath` へと書き込まれます。 If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+トレースデータは `resultFilePath` へと書き込まれます。 `resultFilePath` が空であるか提供されていない場合、トレースデータは一時ファイルに書き込まれ、そのパスは promise で返されます。
 
 ### `contentTracing.getTraceBufferUsage()`
 
