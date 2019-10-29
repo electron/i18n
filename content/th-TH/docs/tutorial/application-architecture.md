@@ -2,13 +2,13 @@
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
-## Main and Renderer Processes
+## ขั้นตอนหลักและขั้นตอนการเรนเดอร์
 
 In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+ในเบราว์เซอร์ปกติเว็บเพจมักจะทำงานในสภาพแวดล้อมแบบ sandbox และไม่ใช่ อนุญาตให้เข้าถึงทรัพยากรดั้งเดิม อย่างไรก็ตามผู้ใช้อิเล็กตรอนมีอำนาจในการ ใช้ Node.js API ในหน้าเว็บที่ช่วยให้ระบบปฏิบัติการระดับล่าง ปฏิสัมพันธ์
 
 ### Differences Between Main Process and Renderer Process
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## วิธีการใช้อินเตอร์เฟสของ Node.js
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
