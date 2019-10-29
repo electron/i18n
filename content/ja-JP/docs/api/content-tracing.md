@@ -1,10 +1,10 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Chromium からトレースデータを収集して、パフォーマンスのボトルネックや遅い操作を見つけます。
 
 プロセス: [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
+このモジュールにはウェブインターフェイスが付属していません。 記録したトレースを見るには、[トレースビュアー](https://github.com/catapult-project/catapult/blob/master/tracing) を使用します。Chrome では `chrome://tracing` で利用できます。
 
 **注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
@@ -32,7 +32,7 @@ app.on('ready', () => {
 
 戻り値 `Promise<String[]>` - すべての子プロセスが `getCategories` リクエストを受諾したとき、そのカテゴリグループの配列で解決されます。
 
-Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+カテゴリグループの集合を取得します。 新しいコードパスに到達したら、カテゴリグループは変更できます。 詳しくは [組み込みトレースカテゴリのリスト](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) を参照してください。
 
 ### `contentTracing.startRecording(options)`
 
@@ -44,19 +44,19 @@ Get a set of category groups. The category groups can change as new code paths a
 
 EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。
 
-If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
+記録を実行中の場合、promise はすぐに解決されます。一度に一つまでしかトレース操作は処理されません。
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
-* `resultFilePath` String (optional)
+* `resultFilePath` String (任意)
 
-Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+戻り値 `Promise<String>` - すべての子プロセスが `stopRecording` リクエストを確認すると、トレースデータを格納したファイルへのパスで解決します
 
 すべてのプロセスで記録を停止します。
 
-子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するために、Chromium はすべての子プロセスに保留中のトレースデータをフラッシュするよう非同期に要求します。
 
-Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+トレースデータは `resultFilePath` へと書き込まれます。 If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
