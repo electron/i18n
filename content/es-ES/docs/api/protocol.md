@@ -281,13 +281,13 @@ Anula el registro del protocolo predeterminado de `esquema`.
 
 * `scheme` String
 
-Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
+Devuelve `Promise<Boolean>` - completado con un boolean eso indica si hay un controlador listo para `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Objeto 
+* `manejador` Function 
+  * `request` Object 
     * `url` String
     * `headers` Record<String, String>
     * `referrer` Cadena
@@ -295,7 +295,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String
-* `completion` Function (opcional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nuevo protocolo lo cual enviará un archivo como respuesta.
@@ -328,7 +328,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (opcional)
 * `completion` Function (opcional) 
   * `error` Error
 
@@ -345,12 +345,12 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Objeto 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Object (opcional) 
-        * `contentType` String - tipo MIME del contenido.
+      * `uploadData` Objecto (opcional) 
+        * `contentType` String - Tipo MIME del contenido.
         * `data` String - Contenido a ser enviado.
 * `completion` Function (opcional) 
   * `error` Error
@@ -377,7 +377,7 @@ Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (opcional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Elimina el interceptor instalado para el `scheme` y restaura su controlador original.
