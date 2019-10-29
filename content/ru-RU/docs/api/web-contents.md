@@ -261,7 +261,7 @@ Emitted when an in-page navigation happened in any frame.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### Событие: 'will-prevent-unload'
 
 Возвращает:
 
@@ -321,7 +321,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Событие: 'before-input-event'
 
 Возвращает:
 
@@ -387,7 +387,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - код ошибки.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -406,7 +406,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Происходит, когда запрошен сертификат клиента.
+Возникает при запросе сертификата клиента.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -429,7 +429,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `username` String
   * `password` String
 
-Происходит, когда `webContents` выполняет базовую аутентификацию.
+Возникает `webContents`, когда делается базовый auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
@@ -477,7 +477,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Событие: 'cursor-changed'
 
 Возвращает:
 
@@ -492,7 +492,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Событие: 'context-menu'
 
 Возвращает:
 
@@ -534,7 +534,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Событие: 'select-bluetooth-device'
 
 Возвращает:
 
@@ -567,7 +567,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Событие: 'paint'
 
 Возвращает:
 
@@ -587,11 +587,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Событие: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Событие: 'will-attach-webview'
 
 Возвращает:
 
@@ -743,8 +743,8 @@ webContents.loadURL('https://github.com', options)
 * `filePath` String
 * `options` Object (опционально) 
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
-  * `search` String (опционально) - переданная в `url.format()`.
-  * `hash` String (опционально) - переданная в `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -930,9 +930,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Ignore application menu shortcuts while this web contents is focused.
 
@@ -1413,7 +1413,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
