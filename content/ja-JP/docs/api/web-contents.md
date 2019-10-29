@@ -885,9 +885,9 @@ console.log(currentURL)
 * `options` Object (任意) 
   * `cssOrigin` String (任意) - 'user' または 'author' のいずれかです。'user' を指定すると、挿入した CSS がウェブサイトによって上書きされるのを防ぐことができます。デフォルトは 'author' です。
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+戻り値 `Promise<String>` - 挿入された CSS のキーで解決される promise。後で `contents.removeInsertedCSS(key)` を使用して CSS を削除するために使用できます。
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
 ```js
 contents.on('did-finish-load', function () {
@@ -899,9 +899,9 @@ contents.on('did-finish-load', function () {
 
 * `key` String
 
-Returns `Promise<void>` - Resolves if the removal was successful.
+戻り値 `Promise<void>` - 削除に成功すると解決されます。
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `contents.insertCSS(css)` から返されるキーによって識別されます。
 
 ```js
 contents.on('did-finish-load', async function () {
@@ -921,7 +921,7 @@ contents.on('did-finish-load', async function () {
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-Code execution will be suspended until web page stop loading.
+コードの実行は、ウェブページの読み込みが停止するまで中断されます。
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1120,30 +1120,30 @@ console.log(requestId)
 
 * `options` Object (任意) 
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
+  * `printBackground` Boolean (任意) - ウェブページの背景色と画像を印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `color` Boolean (任意) - 印刷するウェブページをカラーにするかグレースケールにするかを設定します。デフォルトは `true` です。
   * `margins` Object (任意) 
-    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
-    * `top` Number (optional) - The top margin of the printed web page, in pixels.
-    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
-    * `left` Number (optional) - The left margin of the printed web page, in pixels.
-    * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
-  * `scaleFactor` Number (optional) - The scale factor of the web page.
-  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
-  * `collate` Boolean (optional) - Whether the web page should be collated.
-  * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+    * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
+    * `top` Number (任意) - 印刷されたウェブページの上側のマージン。ピクセル単位です。
+    * `bottom` Number (任意) - 印刷されたウェブページの下側のマージン。ピクセル単位です。
+    * `left` Number (任意) - 印刷されたウェブページの左側のマージン。ピクセル単位です。
+    * `right` Number (任意) - 印刷されたウェブページの右側のマージン。ピクセル単位です。
+  * `landscape` Boolean (任意) - ウェブページを横向きモードで印刷するかどうか。デフォルトは `false` です。
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。
+  * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
+  * `collate` Boolean (任意) - ウェブページを校合するかどうか。
+  * `copies` Number (任意) - 印刷するウェブページの版数。
+  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。`from` と `to` の 2 つのキーが必要です。
+  * `duplexMode` String (任意) - 印刷されたウェブページの両面モードを設定します。`simplex`、`shortEdge`、`longEdge` のいずれかです。
   * `dpi` Object (任意) 
-    * `horizontal` Number (optional) - The horizontal dpi.
-    * `vertical` Number (optional) - The vertical dpi.
+    * `horizontal` Number (任意) - 水平 DPI。
+    * `vertical` Number (任意) - 垂直 DPI。
 * `callback` Function (任意) 
   * `success` Boolean - 印刷呼び出しの成功を示す。
-  * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
+  * `failureReason` String - 印刷が失敗した場合にコールバックされます。`cancelled` か `failed` になります。
 
-ウインドウのウェブページを印刷します。 When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
 `page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
 
@@ -1431,7 +1431,7 @@ ipcMain.on('ping', (event) => {
 #### `contents.startDrag(item)`
 
 * `item` Object 
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `file` String[] | String - ドラッグが開始されたファイルへのパス。
   * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
@@ -1545,15 +1545,15 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.audioMuted`
 
-A `Boolean` property that determines whether this page is muted.
+このページをミュートするかどうかを決定する `Boolean` プロパティ。
 
 #### `contents.userAgent`
 
-A `String` property that determines the user agent for this web page.
+このウェブページのユーザーエージェントを決定する `String` プロパティ。
 
 #### `contents.zoomLevel`
 
-A `Number` property that determines the zoom level for this web contents.
+このウェブコンテンツのズームレベルを決定する `Number` プロパティ。
 
 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 The formula for this is `scale := 1.2 ^ level`.
 
