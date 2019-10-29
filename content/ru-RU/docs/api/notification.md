@@ -102,7 +102,7 @@ If the notification has been shown before, this method will dismiss the previous
 
 Dismisses the notification.
 
-### Свойства экземпляра
+### Instance Properties
 
 #### `notification.title`
 
