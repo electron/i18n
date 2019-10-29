@@ -72,7 +72,7 @@ Creates a new tray icon associated with the `image`.
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 * `position` [Point](structures/point.md) - The position of the event.
 
-Emitted when the tray icon is clicked.
+Генерується коли значок контекстного меню натиснутий.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -215,8 +215,8 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Об'єкт 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+* `options` Object 
+  * `icon` ([NativeImage](native-image.md) | String) (необов'язково) -
   * `title` String
   * `content` String
 
