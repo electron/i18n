@@ -642,7 +642,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 * `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
+`tasks` を Windows でのジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに追加します。
 
 `tasks` は [`Task`](structures/task.md) オブジェクトの配列です。
 
@@ -655,11 +655,11 @@ Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/des
 戻り値 `Object`:
 
 * `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザが、ジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した、`JumpListItem` オブジェクトの配列。 これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - `JumpListCategory` オブジェクトの配列。
 
 アプリケーションのカスタムジャンプリストを設定もしくは削除し、以下の文字列のいずれかを返します。
 
@@ -783,7 +783,7 @@ if (!gotTheLock) {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 * `webpageURL` String (任意) - 継続されたデバイスに適切なアプリがインストールされていない場合にブラウザで読み込もうとしたウェブページ。スキームは `http` もしくは `https` でなければなりません。
 
 `NSUserActivity` を作成し、現在のアクティビティとして設定します。 その後、アクティビティは、別のデバイスでの[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)に適用されます。
@@ -798,12 +798,12 @@ if (!gotTheLock) {
 
 ### `app.resignCurrentActivity()` *macOS*
 
-Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
+現在の [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ユーザーアクティビティを、無効にせずに非アクティブにします。
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 
 タイプが `type` と一致した場合、現在のアクティビティを更新し、現在の `userInfo` ディスクショナリに `userInfo` のエントリを統合します。
 
@@ -837,17 +837,17 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
+戻り値 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` オブジェクトの配列で、アプリに関連付けられたすべてのプロセスのメモリや CPU 使用率の統計情報に対応しています。
 
 ### `app.getGPUFeatureStatus()`
 
 戻り値 [`GPUFeatureStatus`](structures/gpu-feature-status.md) - `chrome://gpu/` から取得したグラフィックス機能のステータス。
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**注:** この情報は `gpu-info-update` イベントが発行された後にのみ利用できます。
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - `basic` か `complete` にできます。
 
 戻り値 `Promise<unknown>`
 
@@ -975,11 +975,11 @@ app.setLoginItemSettings({
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
-  * `authors` String[] (optional) *Linux* - List of app authors.
-  * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `version` String (任意) *macOS* - アプリのビルドバージョン番号。
+  * `credits` String (任意) *macOS* - クレジット情報。
+  * `authors` String[] (任意) *Linux* - アプリの作者のリスト。
+  * `website` String (任意) *Linux* - アプリのウェブサイト。
+  * `iconPath` String (任意) *Linux* - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。
 
 Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
