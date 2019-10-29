@@ -1298,30 +1298,30 @@ app.once('ready', () => {
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+戻り値 `Boolean` - 開発者向けツールが開かれているかどうか。
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+戻り値 `Boolean` - 開発者向けツールがフォーカスされているかどうか。
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+開発者向けツールをトグル切り替えします。
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+(`x`, `y`) の位置の要素の検査を開始します。
 
 #### `contents.inspectSharedWorker()`
 
-Opens the developer tools for the shared worker context.
+共有ワーカーコンテキストの開発者向けツールを開きます。
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+サービスワーカコンテキストの開発者向けツールを開きます。
 
 #### `contents.send(channel, ...args)`
 
@@ -1330,9 +1330,9 @@ Opens the developer tools for the service worker context.
 
 `channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
-An example of sending messages from the main process to the renderer process:
+以下はメインプロセスからレンダラープロセスにメッセージを送る例です。
 
 ```javascript
 // メインプロセス
@@ -1354,7 +1354,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message)  // 'whoooooooh!' と出力
     })
   </script>
 </body>
@@ -1367,21 +1367,21 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は内部で JSON としてシリアライズされ、関数やプロトタイプチェーンのようなものは含まれません。
 
-The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
-If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+与えられたレンダラーコンテキストの `frameId` を取得したい場合は、`webFrame.routingId` の値を使用しましょう。以下はその例です。
 
 ```js
-// In a renderer process
+// レンダラープロセス内
 console.log('My frameId is:', require('electron').webFrame.routingId)
 ```
 
-You can also read `frameId` from all incoming IPC messages in the main process.
+メインプロセス内の受信した IPC メッセージすべてから `frameId` を読み取ることもできます。
 
 ```js
-// In the main process
+// メインプロセス内
 ipcMain.on('ping', (event) => {
   console.info('Message came from frameId:', event.frameId)
 })
@@ -1399,52 +1399,52 @@ ipcMain.on('ping', (event) => {
   * `screenSize` [Size](structures/size.md) - エミュレートされるビューのサイズの設定 (空は上書きしないことを意味する)
   * `scale` Float - 有効なスペース内のエミュレートするビューの拡大率。 (表示モードにフィットしない) (省略値: `1`).
 
-Enable device emulation with the given parameters.
+与えられた引数でデバイスのエミュレートを有効にします
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+`webContents.enableDeviceEmulation` で有効にしたデバイスのエミュレートを向こうにします。
 
 #### `contents.sendInputEvent(inputEvent)`
 
 * `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-入力 `event` をページに送ります。 **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+入力 `event` をページに送ります。 **注釈:** `sendInputEvent()` が動くには、そのコンテツを含む [`BrowserWindow`](browser-window.md) がフォーカスされている必要があります。
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (任意) - 省略値は `false`。
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+プレゼンテーションイベントとキャプチャされたフレームの監視を開始し、プレゼンテーションイベントがあれば、`callbabck` が `callback(image, dirtyRect)` で呼ばれます。
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+`image` はキャプチャされたフレームを格納する [NativeImage](native-image.md) のインスタンスです。
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 もし `onlyDirty` が `true` にセットされている場合、`image` は再描画された領域だけを含みます。 `onlyDirty` の省略値は `false` です。
 
 #### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+フレームプレゼンテーションイベントの監視を終了します。
 
 #### `contents.startDrag(item)`
 
 * `item` Object 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
 
 #### `contents.savePage(fullPath, saveType)`
 
-* `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+* `fullPath` String - 完全なファイルパス。
+* `saveType` String - 保存タイプの指定。 
+  * `HTMLOnly` - ページの HTML だけを保存する。
+  * `HTMLComplete` - 完全な HTML ページを保存する。
+  * `MHTML` - MHTML として完全な HTML ページを保存する。
 
-Returns `Promise<void>` - resolves if the page is saved.
+戻り値 `Promise<void>` - ページが保存された場合に実行されます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1467,67 +1467,67 @@ win.webContents.on('did-finish-load', async () => {
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+戻り値 `Boolean` - *オフスクリーンレンダリング* が有効にされているかどうかを示す。
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中でなければ、描画を開始します。
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+もし *オフスクリーンレンダリング* が有効かつ描画中であれば、描画を終了します。
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在描画中かどうかを返します。
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+もし *オフスクリーンレンダリング* が有効であれば指定された数字にフレームレートをセットします。1 から 60 の値のみを受け取ります。
 
 **[非推奨](modernization/property-updates.md)**
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+戻り値 `Boolean` - もし *オフスクリーンレンダリング* が有効であれば、現在のフレームレートを返します。
 
 **[非推奨](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+このウェブコンテンツが入っているウインドウの完全な再描画をスケジュールします。
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+もし *オフスクリーンレンダリング* が有効であれば、フレームを無効にし、`'paint'` を通して新しいフレームを生成します。
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Returns `String` - Returns the WebRTC IP Handling Policy.
+戻り値 `String` - WebRTC IP ハンドリングポリシーを返します。
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+* `policy` String - 指定するWebRTC IP ハンドリングポリシー。 
+  * `default` - ユーザの公開IPとローカルIPを公開します。 これはデフォルトの動作です。 このポリシーが使用されるとき、WebRTC には、すべてのインターフェースを列挙し、それらを結合して公開インターフェースを検出する権利があります。
+  * `default_public_interface_only` - ユーザの公開IPを公開しますが、ユーザのローカルIPは公開しません。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これはどのローカルアドレスも公開しません。
+  * `default_public_and_private_interfaces` - ユーザの公開IPとローカルIPを公開します。 このポリシーが使用されるとき、WebRTC は HTTP が使用するデフォルトのルートのみを使用する必要があります。 これは関連するデフォルトのプライベートアドレスも公開します。 デフォルトルートは、マルチホームのエンドポイント上で OS によって選択されたルートです。
+  * `disable_non_proxied_udp` - 公開IPやローカルIPを公開しません。このポリシーが使用されるとき、WebRTCは、プロキシサーバーがUDPをサポートしていない限り、TCPを使用してピアまたはサーバーに接続する必要があります。
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して公開される IP を制御できます。より詳しくは [BrowserLeaks](https://browserleaks.com/webrtc) を参照して下さい。
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
+戻り値 `Integer` - 関連するレンダラープロセスのオペレーティングシステムの `pid`。
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+戻り値 `Integer` - 関連するレンダラーの Chromium 内部の `pid`。 フレーム特有のナビゲーションイベント (`did-frame-navigate` など) で渡される `frameProcessId` と比較できます。
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - 出力ファイルのパス
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
 
 V8ヒープを取得して、`filePath`にそれを保存します。
 
@@ -1535,11 +1535,11 @@ V8ヒープを取得して、`filePath`にそれを保存します。
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+ページがバックグラウンドになったときにこの WebContents がアニメーションとタイマーを抑制するかどうかを制御します。 これは Page Visibility API にも影響します。
 
 #### `contents.getType()`
 
-Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserView`、`remote`、`webview` か `offscreen` になります。
 
 ### インスタンスプロパティ
 
@@ -1571,21 +1571,21 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` *Readonly*
 
-A `Integer` representing the unique ID of this WebContents.
+この WebContents の一意のIDを表す `Integer`。
 
 #### `contents.session` *Readonly*
 
-A [`Session`](session.md) used by this webContents.
+この webContents で使われる [`Session`](session.md)。
 
 #### `contents.hostWebContents` *Readonly*
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
 
 #### `contents.devToolsWebContents` *Readonly*
 
-A `WebContents` of DevTools for this `WebContents`.
+この `WebContents` の開発者向けツールの `WebContents` インスタンス。
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 
 #### `contents.debugger` *Readonly*
 
