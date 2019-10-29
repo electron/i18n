@@ -33,21 +33,21 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 ### События экземпляра
 
-#### Event: 'detach'
+#### Событие: 'detach'
 
 Возвращает:
 
-* `event` Event
-* `reason` String - Reason for detaching debugger.
+* Событие типа `event`
+* `reason` String - причина отсоединения отладчика.
 
 Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### Событие: 'message'
 
 Возвращает:
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - имя метода.
 * `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
@@ -56,17 +56,17 @@ Emitted whenever the debugging target issues an instrumentation event.
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (опционально) - запрошенная версия протокола отладки.
 
-Attaches the debugger to the `webContents`.
+Подключает отладчик к `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Возвращает `Boolean` - если отладчик присоединен к `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Отключает отладчик от `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
@@ -75,4 +75,4 @@ Detaches the debugger from the `webContents`.
 
 Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
-Send given command to the debugging target.
+Отправьте заданную команду на цель отладки.
