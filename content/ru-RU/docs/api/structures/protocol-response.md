@@ -5,10 +5,10 @@
 * `charset` String (опционально) - Кодировка тела ответа, по умолчанию `"utf-8"`.
 * `mimeType` String (опционально) - Тип MIME тела ответа, по умолчанию `"text/html"`. Установка `mimeType` неявно установит `content-type` в ответе, но если `content-type` уже установлен `headers`, `mimeType` будет проигнорирован.
 * `headers` Record<string, string | string[]> (опционально) - Объект, содержащий заголовки ответа. Ключи должны быть String, и значения должны быть String или Array of String.
-* `data` (Buffer | String | ReadableStream) (опционально) - Тело ответа. Возвращаемый поток в ответ - это читаемый поток Node.js, представляющий тело ответа. When returning `Buffer` as response, this is a `Buffer`. When returning `String` as response, this is a `String`. This is ignored for other types of responses.
-* `path` String (optional) - Path to the file which would be sent as response body. This is only used for file responses.
-* `url` String (optional) - Download the `url` and pipe the result as response body. This is only used for URL responses.
-* `referrer` String (optional) - The `referrer` URL. This is only used for file and URL responses.
-* `method` String (optional) - The HTTP `method`. This is only used for file and URL responses.
-* `session` Session (optional) - The session used for requesting URL, by default the HTTP request will reuse the current session. Setting `session` to `null` would use a random independent session. This is only used for URL responses.
+* `data` (Buffer | String | ReadableStream) (опционально) - Тело ответа. Возвращаемый поток в ответ - это читаемый поток Node.js, представляющий тело ответа. When returning `Buffer` as response, this is a `Buffer`. When returning `String` as response, this is a `String`. Это игнорируется для других типов ответов.
+* `path` String (опционально) - Путь к файлу, который будет отправлен в качестве тела ответа. Это используется только для ответов файлов.
+* `url` String (опционально) -Загрузите `url` и передайте результат в виде тела ответа. Это используется только для URL ответов.
+* `referrer` String (опционально) - Это `referrer` URL. Это используется только для файлов и URL ответов.
+* `method` String (опционально) - Это HTTP `method`. Это используется только для файлов и URL ответов.
+* `session` Session (опционально) -Сессия, используемая для запроса URL, по умолчанию HTTP-запрос будет повторно использовать текущую сессию. Установка `session` в `null` будет использовать случайную независимую сессию. Это используется только для URL ответов.
 * `uploadData` ProtocolResponseUploadData (optional) - The data used as upload data. This is only used for URL responses when `method` is `"POST"`.
