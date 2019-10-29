@@ -140,7 +140,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
