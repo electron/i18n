@@ -37,7 +37,7 @@ Dönüşler:
 
 ### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
 
-Dönüşler:
+Döndürür:
 
 * `event` Olay
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
@@ -48,7 +48,7 @@ Dönüşler:
 
 ### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Sistemin karanlık modda olup olmadığına dair `Boolean` döndürür.
 
 **Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
 
@@ -56,7 +56,7 @@ Returns `Boolean` - Whether the system is in Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` döndürür.
 
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
@@ -64,21 +64,21 @@ Returns `Boolean` - Whether the Swipe between pages setting is on.
 * `userInfo` Record<String, any>
 * `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Record<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `event` String
 * `userInfo` Record<String, any>
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+`event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
@@ -90,11 +90,11 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Returns `Number` - The ID of this subscription
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
+İlgili `event` gerçekleştiğinde MacOS'un yerel bildirimlerine abone olup `callback`, `callback(event, userInfo)` ile beraber çağırılmış olacak. `userInfo` bildirim ile birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir objedir. The `object` is the sender of the notification, and only supports `NSString` values for now.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+`event`'ın aboneliğini iptal etmek için kullanılabilecek abonenin `id`'sini döndürür.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, `event`'ın örnek değerleri şöyledir:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -111,7 +111,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 Returns `Number` - The ID of this subscription
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+`subscribeNotification` gibidir fakat yerel varsayılanlar için `NSNotificationCenter` kullanır. Bu `NSUserDefaultsDidChangeNotification` gibi eventlar için gereklidir.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
@@ -127,13 +127,13 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` tamsayı
 
-Removes the subscriber with `id`.
+Aboneyi `id` ile kaldırır.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` tamsayı
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+`unsubscribeNotification` gibidir fakat aboneyi `NSNotificationCenter`'den çıkarır.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
@@ -152,9 +152,9 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+`any` - `NSUserDefaults` 'te `key` değerini verir.
 
-Some popular `key` and `type`s are:
+Bazı popüler `key` ve `type`'ler:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -170,11 +170,11 @@ Some popular `key` and `type`s are:
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+`NSUserDefaults`'de `key` değerini ayarlayın.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+`type`'ın `value`'nin gerçek türü ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
 
-Some popular `key` and `type`s are:
+Bazı popüler `key` ve `type`'ler:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -182,13 +182,13 @@ Some popular `key` and `type`s are:
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults`'deki `key`'i kaldırır. Bu, önceden ayarlanmış `key`'ün varsayılan değerini veya genel değerini `setUserDefault` ile geri yüklemek için kullanılabilir.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Eğer [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) aktifse `true` aksi takdirde `false` `Boolean` değerini döndürecektir.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Şeffaf bir pencere oluşturmanız gerekip gerekmediğini belirlemek için bunu kullanıp kullanmamanın bir örneği (DWM kompozisyonu devre dışı bırakıldığında şeffaf pencere düzgün çalışmaz):
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
@@ -214,7 +214,7 @@ if (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+RGBA'da onaltılık formda kullanıcıların mevcut sistemindeki geniş vurgulu renk tercihini `String` olarak döndürür.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -295,7 +295,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+RGB onaltılık form (`#ABCDEF`) içindeki sistem renk ayarlarını `String` olarak döndürür. See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
