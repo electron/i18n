@@ -237,7 +237,7 @@ governance:
   description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
   wgs: ワーキンググループ
   ecosystem:
-    title: Ecosystem
+    title: エコシステム
     description: Oversees the projects that make Electron app development easier.
   outreach:
     title: 支援
