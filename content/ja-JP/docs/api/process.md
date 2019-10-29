@@ -14,6 +14,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `hang()`
 * `getCreationTime()`
 * `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
@@ -52,15 +53,15 @@ process.once('loaded', () => {
 
 ## プロパティ
 
-### `process.defaultApp`
+### `process.defaultApp` *Readonly*
 
 `Boolean`。デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
-### `process.isMainFrame`
+### `process.isMainFrame` *Readonly*
 
 `Boolean` で、現在のレンダラコンテキストが「メイン」レンダラフレームである場合は `true` です。現在のフレームの ID が欲しいならば、`webFrame.routingId` を使うべきです。
 
-### `process.mas`
+### `process.mas` *Readonly*
 
 `Boolean`。Mac App Store ビルドの場合、このプロパティは `true`、他のビルドでは `undefined` です。
 
@@ -76,11 +77,11 @@ process.once('loaded', () => {
 
 非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 これを `true` に設定すると非推奨警告が有効になります。
 
-### `process.resourcesPath`
+### `process.resourcesPath` *Readonly*
 
 リソースディレクトリのパスを表す `String`。
 
-### `process.sandboxed`
+### `process.sandboxed` *Readonly*
 
 `Boolean`。レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
@@ -96,19 +97,19 @@ process.once('loaded', () => {
 
 `stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
 
-### `process.type`
+### `process.type` *Readonly*
 
 現在のプロセスの種類を表す `String` で、 `"browser"` (すなわちメインプロセス)、`"renderer"` または `"worker"` (すなわち web worker) の値をとります。
 
-### `process.versions.chrome`
+### `process.versions.chrome` *Readonly*
 
 Chrome のバージョン文字列を表す `String`。
 
-### `process.versions.electron`
+### `process.versions.electron` *Readonly*
 
 Electron のバージョン文字列を表す `String`。
 
-### `process.windowsStore`
+### `process.windowsStore` *Readonly*
 
 `Boolean`。アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
@@ -150,6 +151,16 @@ Electron のバージョン文字列を表す `String`。
 
 V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
 
+### `process.getBlinkMemoryInfo()`
+
+戻り値 `Object`:
+
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
+
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 戻り値 `Promise<ProcessMemoryInfo>` - [ProcessMemoryInfo](structures/process-memory-info.md) で実行されます
@@ -175,11 +186,9 @@ Chromium は macOS には `residentSet` の値を提供しません。 これは
 
 例:
 
-| プラットフォーム | バージョン               |
-| -------- | ------------------- |
-| macOS    | `10.13.6`           |
-| Windows  | `10.0.17763`        |
-| Linux    | `4.15.0-45-generic` |
+* `macOS` -> `10.13.6`
+* `Windows` -> `10.0.17763`
+* `Linux` -> `4.15.0-45-generic`
 
 **注釈:** `os.release()` とは異なり、macOS ではカーネルバージョンではなく実際のオペレーティングシステムのバージョンを返します。
 

@@ -2,26 +2,73 @@
 
 这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](../tutorial/electron-versioning.md#semver).
 
-# `FIXME` 注释
+## `FIXME` 注释
 
 代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
-# 计划重写的 API (7.0)
+## 计划重写的 API (7.0)
 
-## `shell.openExternalSync(url[, options])`
+### Node Headers URL
+
+这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志. Both will be supported for the foreseeable future but it is recommended that you switch.
+
+过时的: https://atom.io/download/electron
+
+替换为: https://electronjs.org/headers
+
+### `session.clearAuthCache(options)`
+
+The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
 // Deprecated
-shell.openExternalSync(url)
+session.clearAuthCache({ type: 'password' })
 // Replace with
-async function openThing (url) {
-  await shell.openExternal(url)
-}
+session.clearAuthCache()
 ```
 
-# 计划重写的 API (6.0)
+### `powerMonitor.querySystemIdleState`
 
-## `win.setMenu(null)`
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+### `powerMonitor.querySystemIdleTime`
+
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+### webFrame Isolated World APIs
+
+```js
+// Removed in Elecron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
+
+### Removal of deprecated `marked` property on getBlinkMemoryInfo
+
+This property was removed in Chromium 77, and as such is no longer available.
+
+## 计划重写的 API (6.0)
+
+### `win.setMenu(null)`
 
 ```js
 // 不推荐
@@ -30,7 +77,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-## `contentTracing.getTraceBufferUsage()`
+### `contentTracing.getTraceBufferUsage()`
 
 ```js
 // Deprecated
@@ -43,7 +90,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-## 渲染进程中的 `electron.screen`
+### 渲染进程中的 `electron.screen`
 
 ```js
 // 不推荐
@@ -52,7 +99,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-## 沙盒渲染器中的`require`
+### 沙盒渲染器中的`require`
 
 ```js
 // 不推荐
@@ -76,7 +123,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-## `powerMonitor.querySystemIdleState`
+### `powerMonitor.querySystemIdleState`
 
 ```js
 // Deprecated
@@ -85,7 +132,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = getSystemIdleState(threshold)
 ```
 
-## `powerMonitor.querySystemIdleTime`
+### `powerMonitor.querySystemIdleTime`
 
 ```js
 // Deprecated
@@ -94,7 +141,16 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray`
+### `app.enableMixedSandbox`
+
+```js
+// Deprecated
+app.enableMixedSandbox()
+```
+
+Mixed-sandbox mode is now enabled by default.
+
+### `Tray`
 
 Under macOS Catalina our former Tray implementation breaks. Apple's native substitute doesn't support changing the highlighting behavior.
 
@@ -104,9 +160,9 @@ tray.setHighlightMode(mode)
 // API will be removed in v7.0 without replacement.
 ```
 
-# 计划重写的 API (5.0)
+## 计划重写的 API (5.0)
 
-## `new BrowserWindow({ webPreferences })`
+### `new BrowserWindow({ webPreferences })`
 
 不推荐使用以下 `webPreferences` 选项默认值，以支持下面列出的新默认值。
 
@@ -130,11 +186,11 @@ const w = new BrowserWindow({
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
 
-## 带权限的 Scheme 注册
+### 带权限的 Scheme 注册
 
 移除 Renderer process APIs `webFrame.setLSSemeAsPrivieged` 和 `webFrame.registerURLLSQUIseAswersegCSP` 以及浏览器 process API `protocol.registerStardsSchemes`. 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义 scheme 需要在 app 触发 ready 事件之前注册。
 
-## webFrame Isolated World APIs
+### webFrame Isolated World APIs
 
 ```js
 // 弃用
@@ -151,11 +207,30 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# 计划重写的 API (4.0)
+## `webFrame.setSpellCheckProvider`
+
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
+```js
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
+  spellCheck: (text) => {
+    return !spellchecker.isMisspelled(text)
+  }
+})
+// Replace with
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
+  }
+})
+```
+
+## 计划重写的 API (4.0)
 
 以下包含了Electron 4.0中重大的API更新
 
-## `app.makeSingleInstance`
+### `app.makeSingleInstance`
 
 ```js
 // 弃用
@@ -169,7 +244,7 @@ app.on('second-instance', (event, argv, cwd) => {
 })
 ```
 
-## `app.releaseSingleInstance`
+### `app.releaseSingleInstance`
 
 ```js
 // 废弃
@@ -178,7 +253,7 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-## `app.getGPUInfo`
+### `app.getGPUInfo`
 
 ```js
 app.getGPUInfo('complete')
@@ -186,15 +261,15 @@ app.getGPUInfo('complete')
 app.getGPUInfo('basic')
 ```
 
-## `win_delay_load_hook`
+### `win_delay_load_hook`
 
 在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 查看 [原生模块指南](/docs/tutorial/using-native-node-modules.md) 以获取更多信息.
 
-# 重大的API更新 (3.0)
+## 重大的API更新 (3.0)
 
 以下包含了Electron 3.0中重大的API更新
 
-## `app`
+### `app`
 
 ```js
 // 弃用
@@ -207,7 +282,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // 弃用的属性
 ```
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // 弃用
@@ -231,7 +306,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+### `clipboard`
 
 ```js
 // 过时的
@@ -255,7 +330,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+### `crashReporter`
 
 ```js
 // 过时的
@@ -272,7 +347,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // 弃用
@@ -283,14 +358,14 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+### `process`
 
 ```js
 // 弃用
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen`
+### `screen`
 
 ```js
 // 弃用
@@ -299,7 +374,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+### `session`
 
 ```js
 // 弃用
@@ -312,7 +387,7 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-## `Tray`
+### `Tray`
 
 ```js
 // 过时的
@@ -326,7 +401,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+### `webContents`
 
 ```js
 // 弃用
@@ -339,7 +414,7 @@ webContents.setSize(options)
 // 没有该API的替代
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // 弃用
@@ -353,7 +428,7 @@ webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // 移除
@@ -369,7 +444,7 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+### Node Headers URL
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
@@ -377,11 +452,11 @@ webview.onkeyup = () => { /* handler */ }
 
 替换为: https://atom.io/download/electron
 
-# 重大的API更新 (2.0)
+## 重大的API更新 (2.0)
 
 以下包含了Electron 2.0中重大的API更新
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // 弃用
@@ -392,7 +467,7 @@ let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+### `menu`
 
 ```js
 // 移除
@@ -401,7 +476,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // 移除
@@ -415,11 +490,11 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process`
+### `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
-## `webContents`
+### `webContents`
 
 ```js
 // 移除
@@ -428,7 +503,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // 移除
@@ -437,7 +512,7 @@ webFrame.setZoomLevelLimits(1, 2)
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // 移除
@@ -446,10 +521,10 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## 重复的 ARM 资源
+### 重复的 ARM 资源
 
 每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 从2.0版本起，不带前缀的文件将不再发布。
+为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
 
 更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。

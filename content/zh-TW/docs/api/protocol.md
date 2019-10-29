@@ -117,11 +117,12 @@ protocol.registerSchemesAsPrivileged([
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String (選用)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -139,6 +140,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `handler` 函式 
   * `request` 目的 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -169,11 +171,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (選用)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -187,18 +190,16 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `title` [string]
-      * `session` Object (選用)
-      * `uploadData` Object (選用) 
-        * `contentType` String - 內容的 MIME 類型。
-        * `data` String - 要傳送的內容。
+      * `method` String (optional)
+      * `session` Session | null (optional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -216,7 +217,7 @@ For POST requests the `uploadData` object must be provided.
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -276,16 +277,6 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme, callback)`
-
-* `scheme` String
-* `callback` Function 
-  * `handled` Boolean
-
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `protocol.isProtocolHandled(scheme)`
 
 * `scheme` String
@@ -298,6 +289,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -314,11 +306,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` String (選用)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -330,6 +323,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -346,15 +340,15 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `title` [string]
-      * `session` Object (選用)
+      * `method` String (optional)
+      * `session` Session | null (optional)
       * `uploadData` Object (選用) 
         * `contentType` String - 內容的 MIME 類型。
         * `data` String - 要傳送的內容。
@@ -369,7 +363,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)

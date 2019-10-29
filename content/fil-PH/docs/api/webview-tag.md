@@ -72,7 +72,7 @@ Ang `webview` na tag ay may sumusunod na katangian:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Ibinabalik ang makikitang URL. Pagsulat sa mga katangian ang nagsimula ng top-lebel nabigasyon.
+A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
 
 Pag-aatas `src` sa kanyang sariling balyu ay pagreload ng kasalukuyang pahina.
 
@@ -84,7 +84,7 @@ Ang `src` katangian ay maaring ding tumanggap ng mga datos sa URL, tulad ng `dat
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaroon ng integrasyon sa nod ang maaring maggamit sa node APIs tulad `require` at `process` para maka-access sa maliliit na lebel sa antas ng sistema. Integarason sa node ay hindi pinagana batay sa default ng pahina nag panauhin.
+A `Boolean`. Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaroon ng integrasyon sa nod ang maaring maggamit sa node APIs tulad `require` at `process` para maka-access sa maliliit na lebel sa antas ng sistema. Integarason sa node ay hindi pinagana batay sa default ng pahina nag panauhin.
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaro
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
+A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -100,7 +100,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
+A `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
 ### `plugins`
 
@@ -108,7 +108,7 @@ When this attribute is `false` the guest page in `webview` will not have access 
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-Habang ang katangian na ito ay mayroon sa pahina ng panauhin sa `webview` ay maaring maggamit samga browser plugins. Plugins ay hindi pinagana sa default.
+A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `preload`
 
@@ -116,11 +116,11 @@ Habang ang katangian na ito ay mayroon sa pahina ng panauhin sa `webview` ay maa
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Tinutukoy ang isang iskrip ma makakarga bago ang ibang iskrips na tumakbo sa pahina ng panauhin. Ang protokol ng iskrips URL ay dapat maging `file:` or `asar:`, dahil ito ay makakarga sa `require` sa pahina ng panauhin sa ilalim ng hood.
+A `String` that specifies a script that will be loaded before other scripts run in the guest page. Ang protokol ng iskrips URL ay dapat maging `file:` or `asar:`, dahil ito ay makakarga sa `require` sa pahina ng panauhin sa ilalim ng hood.
 
 Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay maari paring maka-access sa lahat ng Node APIs, pero gobal na objeks ay naka-injek kay Node at ito ay matatangal pagkatapos ng iskrip na matapos ang ginagawa.
 
-**Paalala:** Ang opsyon na ito ay maaring lumitaw bilang `preloadURL`(hindi `preload`) sa `webPreferences` na tumutukoy sa `will-attach-webview` na pangyayari.
+**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -128,7 +128,7 @@ Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Nagtatakda ng referral na URL para sa pahina ng mga panauhin.
+A `String` that sets the referrer URL for the guest page.
 
 ### `useragent`
 
@@ -136,7 +136,7 @@ Nagtatakda ng referral na URL para sa pahina ng mga panauhin.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Nagtatakda sa mga gumagamit na ahente para sa pahina ng panauhin bago i-navigate sa pahina. Kapag ang pahina ay nakarga na, gamitin and `setUserAgent` na paraan para palitan ang ahente ang gumagamit.
+A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -144,7 +144,7 @@ Nagtatakda sa mga gumagamit na ahente para sa pahina ng panauhin bago i-navigate
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang seguridad sa web. Ang seguridad sa web ay pinagana sa default.
+A `Boolean`. When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -153,7 +153,7 @@ Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang segurid
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Itakda ang sesyon na ginamit sa pahina. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala naman `persist:` na panlapi, ang pahina ay gagamit na in-memory na sesyon. Sa pag-aatas ng kaparihang `partition`, maramihang pahina ang pwede maibahagi sa parehang sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
+A `String` that sets the session used by the page. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala naman `persist:` na panlapi, ang pahina ay gagamit na in-memory na sesyon. Sa pag-aatas ng kaparihang `partition`, maramihang pahina ang pwede maibahagi sa parehang sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
 
 Itong balyo lang ang pwede mabago bago ang unang nabigasyon, mula sa sesyon sa aktibong tagabahagi ang proseso ay di magbabago. Kasunod na pagtatangka na baguhin ang balyo ay mabibigo na may DOM eksepsyon.
 
@@ -163,7 +163,7 @@ Itong balyo lang ang pwede mabago bago ang unang nabigasyon, mula sa sesyon sa a
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-Habang itong katangian ay mayroon ang pahina ng panauhin ay maaring buksan ang mga bagong bintana. Popups ay hindi pinagana sa default.
+A `Boolean`. When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -171,7 +171,7 @@ Habang itong katangian ay mayroon ang pahina ng panauhin ay maaring buksan ang m
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-Isang listahan mg mga string na tumutukoy sa web preferencies na iiset sa webview, pinaghihiwaly ng `,`. Ang buong listahan ay supportado ng preference strings na makikita sa [BrowserWindow](browser-window.md#new-browserwindowoptions).
+A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. Ang buong listahan ay supportado ng preference strings na makikita sa [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
 Ang string sumusunod sa kapareihang pormat bilang sa katangian ng string sa `window.open`. Ang pangalan ay ibinigay mismo ng `true` bollean balyo. Isang preference ay maaring mag takda ng ibang balyo kabilang ang `=`, kasunod ng balyo. Tumutukoy sa balyo na `yes` at `1` ay inerterprit sa `true`, habang `no` at `0` ay binigyang-kahulugan ng `false`.
 
@@ -181,7 +181,7 @@ Ang string sumusunod sa kapareihang pormat bilang sa katangian ng string sa `win
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Ang lishtahan ng mga pisi na tumutukoy sa blink na katangian na pinagana ay pinaghihiwalay ng `,`. Ang buong listahan ng supportadong katangian ng pisi ay makikita sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) na fayl.
+A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. Ang buong listahan ng supportadong katangian ng pisi ay makikita sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) na fayl.
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ Ang lishtahan ng mga pisi na tumutukoy sa blink na katangian na pinagana ay pina
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Ang listahan ng strings na tumutukoy sa blink na katangian ay maaring di-pinagana sa paghihiwalay ng `,`. Ang buong listahan ng supportadong katangian ng pisi ay makikita sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) na fayl.
+A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. Ang buong listahan ng supportadong katangian ng pisi ay makikita sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) na fayl.
 
 ## Mga Paraan
 
@@ -314,20 +314,17 @@ Nagbabalik `String` - Ang gumagamit na ahente para sa pahina ng panauhin.
 
 * `css` Pisi
 
-Paglagay ng CSS sa pahina ng panauhin.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
 
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
-* `code` String
-* `userGesture` Boolean (optional) - Default `false`.
-* `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
-  * `result` Any
+### `<webview>.removeInsertedCSS(key)`
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+* `key` String
 
-Sinusuri ang mga `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-**[Deprecated Soon](modernization/promisification.md)**
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -435,6 +432,8 @@ Paggawa ng pag-edit sa utos na `replaceMisspelling` sa pahina.
 
 * `text` String
 
+Returns `Promise<void>`
+
 Pagsingit `text` para sa nakapukos na elemento.
 
 ### `<webview>.findInPage(text[, options])`
@@ -467,23 +466,9 @@ Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
 
+Returns `Promise<void>`
+
 Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
-
-### `<webview>.printToPDF(options, callback)`
-
-* `options` Bagay 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
-  * `error` Error
-  * `data` Buffer
-
-Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printToPDF(options, callback)`.
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 ### `<webview>.printToPDF(options)`
 
@@ -498,16 +483,6 @@ Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
-### `<webview>.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `<webview>.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
@@ -516,22 +491,26 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
-### `<webview>.send(channel[, arg1][, arg2][, ...])`
+### `<webview>.send(channel, ...args)`
 
 * `channel` String
 * `...args` anuman[]
 
+Returns `Promise<void>`
+
 Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Tignan ang [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) bilang mga halimbawa.
+Tignan ang [webContents.send](web-contents.md#contentssendchannel-args) bilang mga halimbawa.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` Objek
+* `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
+
+Returns `Promise<void>`
 
 Nagpapadala ng input na `event` sa page.
 
-Tignan ang [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) para sa mga detalyadong paglalarawan ng objek na `event`.
+Tignan ang [webContents.sendInputEvent](web-contents.md#contentssendinputeventinputevent) para sa mga detalyadong paglalarawan ng objek na `event`.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -558,12 +537,16 @@ Returns `Number` - the current zoom level.
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
 
+Returns `Promise<void>`
+
 Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 
 ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
+
+Returns `Promise<void>`
 
 Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
 
@@ -581,7 +564,7 @@ It depends on the [`remote`](remote.md) module, it is therefore not available wh
 
 Returns `Number` - The WebContents ID of this `webview`.
 
-## Mga event ng DOM
+## DOM Events
 
 Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
 
@@ -682,7 +665,7 @@ Ibinabalik ang:
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
   * `tugma` Integer - Bilang ng Mga Tugma.
-  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
 Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](#webviewfindinpagetext-options).
@@ -704,7 +687,7 @@ Ibinabalik ang:
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
-* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
 Itigil kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
 
@@ -775,7 +758,7 @@ webview.addEventListener('close', () => {
 Ibinabalik ang:
 
 * `channel` String
-* `args` Array
+* `args` any[]
 
 Itigil kapag ang guest page ay nagpadala ng mensahe na asynchronous sa embedder page.
 

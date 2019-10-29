@@ -6,7 +6,7 @@
 
 `BrowserView` は、[`BrowserWindow`](browser-window.md) に追加のウェブコンテンツを埋め込むのに使用することができます。 外側のウインドウを基準にして配置される点を除いて、子ウインドウのようなものです。 `webview` タグの代替となるものです。
 
-## 例
+### サンプル
 
 ```javascript
 // メインプロセス
@@ -73,16 +73,22 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` *実験的*
 
 * `options` Object 
-  * `width` Boolean - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
-  * `height` Boolean - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
-  * `horizontal` Boolean - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。既定値は `false` です。
-  * `vertical` Boolean - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。既定値は `false` です。
+  * `width` Boolean (任意) - `true` の場合、ビューの横幅はウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `height` Boolean (任意) - `true` の場合、ビューの高さはウインドウと一緒に伸び縮みします。省略値は、`false` です。
+  * `horizontal` Boolean (任意) - `true` の場合、ビューの x 位置と幅はウィンドウに比例して増減します。既定値は `false` です。
+  * `vertical` Boolean (任意) - `true` の場合、ビューの y 位置と高さはウィンドウに比例して増減します。既定値は `false` です。
 
 #### `view.setBounds(bounds)` *実験的*
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 
 ウインドウを基準に指定された境界までビューをリサイズしたり、移動させたりします。
+
+#### `view.getBounds()` *実験的*
+
+戻り値 [`Rectangle`](structures/rectangle.md)
+
+`Object` としてのこの BrowserView インスタンスの `bounds`。
 
 #### `view.setBackgroundColor(color)` *実験的*
 

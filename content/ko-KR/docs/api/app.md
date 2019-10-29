@@ -27,7 +27,7 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 반환:
 
-* `launchInfo` 객체 *macOS*
+* `launchInfo` unknown *macOS*
 
 Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에서는 알림 센터를 통해 앱이 시작된 경우 `launchInfo`에 앱을 여는데 사용된 `NSUserNotification`의 `userInfo`가 할당됩니다. `app.isReady()`를 사용해서 event가 해제되었는지 확인할 수 있습니다.
 
@@ -92,7 +92,7 @@ Returns:
 * `event` Event
 * `url` String
 
-사용자가 애플리케이션을 URL과 함께 열었을 때 발생합니다. 반드시 애플리케이션의 `Info.plist`파일에서 URL scheme을 `CFBundleURLTypes`키에서 정의하고 있어야 합니다. 또, `NSPrincipalClass`의 값이 `AtomApplication`으로 설정되어 있어야 합니다.
+사용자가 애플리케이션을 URL과 함께 열었을 때 발생합니다. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
@@ -111,7 +111,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` 객체 - 다른 장치에서의 동작에 의한 app-specific 상태를 가지고 있습니다.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 다른 기기에서의 작업을 가져와서 이어서 진행하려는 경우, [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 도중에 발생합니다. 이 이벤트를 핸들링하려면 `event.preventDefault()`를 반드시 호출해야합니다.
 
@@ -142,7 +142,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` 객체 - 액티비티가 저장한 app-specific 상태를 가지고 있습니다.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)중인 디바이스의 액티비티를, 다른 디바이스에서 계속하는 데 성공한 뒤 발생합니다.
 
@@ -152,7 +152,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` 객체 - 액티비티가 저장한 app-specific 상태를 가지고 있습니다.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
 
@@ -285,14 +285,18 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### 이벤트: 'gpu-process-crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
 
-Gpu 프로세스가 죽었을 때 발생한다.
+Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
@@ -306,7 +310,7 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 ### 이벤트: 'accessibility-support-changed' *macOS* *Windows*
 
-반환:
+Returns:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - Chrome의 접근성 지원이 활성화 됐을 땐 `true`, `false`는 그 이외.
@@ -475,13 +479,13 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 애플리케이션의 숨겨진 윈도우를 다시 보이도록 합니다. 자동으로 창이 포커스되지는 않습니다.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* PrinterInfo Object
+* `name` String - You can request the following paths by the name: 
+  * `home` User의 home 디렉토리.
+  * `appData` /user 의 Application Data 디렉토리. 기본적으로 아래와 같은 경로를 가리킵니다: 
+    * Windows에서 `%APPDATA%`
+    * Linux에서 `$XDG_CONFIG_HOME` 또는 `~/.config`
+    * macOS에서 `~/Library/Application Support`
+  * `userData` 기본적으로 `appData` 뒤에 어플리케이션의 이름이 붙은 형태인, 앱의 설정 파일을 저장할 디렉토리입니다.
+  * `캐시(Cache)`
+  * `temp` Temp 디렉토리의 경로
+  * `exe` 현재 실행파일의 경로.
+  * `module` `libchromiumcontent` 라이브러리.
+  * `desktop` 현재 User의 Desktop 경로.
+  * `documents` User의 "My Documents" 폴더 경로.
+  * `downloads` User의 downloads 폴더 경로.
+  * `music` User의 music 폴더 경로.
+  * `pictures` 사용자의 pictures 폴더 경로.
+  * `videos` 사용자의 videos 폴더 경로.
+  * `logs` 사용자의 log 폴더 경로.
+  * `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-아래와 같은 경로를 name에 넣어 함수를 호출할 수 있습니다.
-
-* `home` User의 home 디렉토리.
-* `appData` /user 의 Application Data 디렉토리. 기본적으로 아래와 같은 경로를 가리킵니다: 
-  * Windows에서 `%APPDATA%`
-  * Linux에서 `$XDG_CONFIG_HOME` 또는 `~/.config`
-  * macOS에서 `~/Library/Application Support`
-* `userData` 기본적으로 `appData` 뒤에 어플리케이션의 이름이 붙은 형태인, 앱의 설정 파일을 저장할 디렉토리입니다.
-* `temp` Temp 디렉토리의 경로
-* `exe` 현재 실행파일의 경로.
-* `module` `libchromiumcontent` 라이브러리.
-* `desktop` 현재 User의 Desktop 경로.
-* `documents` User의 "My Documents" 폴더 경로.
-* `downloads` User의 downloads 폴더 경로.
-* `music` User의 music 폴더 경로.
-* `pictures` 사용자의 pictures 폴더 경로.
-* `videos` 사용자의 videos 폴더 경로.
-* `logs` 사용자의 log 폴더 경로.
-* `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Object (선택) 
-  * `크기` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
-* `callback` 함수 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-Fetches a path's associated icon.
-
-On *Windows*, there are 2 kinds of icons:
-
-* `.mp3`, `.png`등과 같이 특정 파일 확장명과 관련된 아이콘
-* `.exe`, `.dll`, `.ico`와 같이 파일 안에 있는 아이콘.
-
-*Linux*와 *macOS*에서 아이콘은 mime type과 관련된 어플리케이션에 따라 다릅니다.
-
-**[곧 중단 예정](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -575,13 +556,17 @@ Returns `String` - The version of the loaded application. If no version is found
 
 Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
 * PrinterInfo Object
 
 Overrides the current application's name.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Note:** When unable to detect locale country code, it returns empty string.
 
@@ -657,7 +642,7 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 * `tasks` [Task[]](structures/task.md) - Array of `Task` objects
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
@@ -674,7 +659,7 @@ Returns `Object`:
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
@@ -798,7 +783,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
@@ -809,14 +794,16 @@ Returns `String` - The type of the currently running activity.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.resignCurrentActivity()` *macOS*
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` any - App-specific state to store for use by another device.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
@@ -826,7 +813,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 [애플리케이션 유저 모델 ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)를 `id`로 변경합니다.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Object 
   * `certificate` String - Path for the pkcs12 file.
@@ -850,17 +837,19 @@ This method can only be called before app is ready.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - 값은 `basic`을 사용하여 기본적인 정보, ` complete`로 완성형 정보를 사용할 수 있습니다.
+* `infoType` String - Can be `basic` or `complete`.
 
-`Promise`를 반환합니다.
+Returns `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -903,9 +892,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Returns `Integer` - The current value displayed in the counter badge.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -958,7 +951,7 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-**[곧 중단 예정](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -970,9 +963,9 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-**[곧 중단 예정](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
@@ -982,22 +975,23 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Show the platform's native emoji picker.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
 
@@ -1012,39 +1006,6 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (optional) - A value for the given switch
-
-Append a switch (with optional `value`) to Chromium's command line.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - The argument to append to the command line
-
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
-
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - A command-line switch
-
-Returns `Boolean` - Whether the command-line switch is present.
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - A command-line switch
-
-Returns `String` - The command-line switch value.
-
-**Note:** When the switch is not present or has no value, it returns empty string.
-
 ### `app.enableSandbox()` *Experimental*
 
 Enables full sandbox mode on the app.
@@ -1055,79 +1016,40 @@ This method can only be called before app is ready.
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Object (선택) 
+  * `conflictHandler` 함수<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (optional) - `critical` 혹은 `informational`가 될 수 있습니다. 기본값은 `informational` 입니다.
+예시:
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
-
-Returns `Integer` an ID representing the request.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-Cancel the bounce of `id`.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Dock 아이콘의 알림 배지(badge) 안에 표현될 텍스트를 설정합니다.
-
-### `app.dock.getBadge()` *macOS*
-
-`String`을 반환 - Dock 아이콘의 알림 배지(badge) 안에 있는 문자열을 반환합니다.
-
-### `app.dock.hide()` *macOS*
-
-Dock 아이콘을 숨깁니다.
-
-### `app.dock.show()` *macOS*
-
-Returns `Promise<void>` - Resolves when the dock icon is shown.
-
-### `app.dock.isVisible()` *macOS*
-
-Returns `Boolean` - Whether the dock icon is visible.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-애플리케이션의 [dock 메뉴](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)를 설정합니다.
-
-### `app.dock.getMenu()` *macOS*
-
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-`image` Dock 메뉴의 아이콘과 관련된 이미지를 설정합니다.
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## 속성
-
-### `app.applicationMenu`
-
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1139,15 +1061,41 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+
 ### `app.userAgentFallback`
 
 A `String` which is the user agent string Electron will use as a global fallback.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
-
-### `app.isPackaged`
-
-앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

@@ -4,11 +4,11 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-Contoh menampilkan dialog untuk memilih beberapa file dan direktori:
+An example of showing a dialog to select multiple files:
 
 ```javascript
 const { dialog } = require('electron')
-console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
 ```
 
 Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dialog dari proses renderer, ingatlah untuk mengaksesnya dengan menggunakan remote:
@@ -39,7 +39,7 @@ The ` dialog </ 0> modul memiliki metode berikut:</p>
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `pesan` String (opsional) *macOS* - Pesan untuk menampilkan kotak masukan di atas.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
 
@@ -86,13 +86,12 @@ dialog.showOpenDialogSync(mainWindow, {
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `pesan` String (opsional) *macOS* - Pesan untuk menampilkan kotak masukan di atas.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
-* `callback` Fungsi (opsional)
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
-Returns `Promise<Object>` - Resolve wih an object containing the following:
+Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
 * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
 Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
@@ -160,7 +159,7 @@ Filter `` menentukan kumpulan jenis file yang dapat ditampilkan, lihat `dialog.s
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
     * `canceled` Boolean - whether or not the dialog was canceled.
-    * `filePath` String (optional) If the dialog is canceled this will be `undefined`.
+    * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
     * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
     
 
@@ -180,10 +179,10 @@ Filter `` menentukan kumpulan jenis file yang dapat ditampilkan, lihat `dialog.s
   * `title` String (opsional) - Judul kotak pesan, beberapa platform tidak akan menampilkannya.
   * `pesan` String - Isi kotak pesan.
   * `detail` String (opsional) - Informasi tambahan dari pesan.
-  * `kotak centangLabe` String (opsional) - Jika tersedia, kotak pesan akan sertakan kotak centang dengan label yang diberikan. Kotak centangnya bisa jadi diperiksa hanya saat menggunakan `callback`.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (opsional) - Status pemeriksaan awal dari kotak centang. `false` secara default.
   * `ikon` ([NativeImage](native-image.md) | String) (opsional)
-  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `0` akan digunakan sebagai nilai balik atau respons balik.
+  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (opsional) - Pada Windows Electron akan mencoba untuk mencari tahu dari mana `buttons` adalah tombol yang umum (seperti "Batal" atau "Ya"), dan menampilkan yang lain sebagai link perintah dalam dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
 
@@ -203,10 +202,10 @@ Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, m
   * `title` String (opsional) - Judul kotak pesan, beberapa platform tidak akan menampilkannya.
   * `pesan` String - Isi kotak pesan.
   * `detail` String (opsional) - Informasi tambahan dari pesan.
-  * `kotak centangLabe` String (opsional) - Jika tersedia, kotak pesan akan sertakan kotak centang dengan label yang diberikan. Kotak centangnya bisa jadi diperiksa hanya saat menggunakan `callback`.
+  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
   * `checkboxChecked` Boolean (opsional) - Status pemeriksaan awal dari kotak centang. `false` secara default.
   * `ikon` [NativeImage](native-image.md) (opsional)
-  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `0` akan digunakan sebagai nilai balik atau respons balik.
+  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
   * `noLink` Boolean (opsional) - Pada Windows Electron akan mencoba untuk mencari tahu dari mana `buttons` adalah tombol yang umum (seperti "Batal" atau "Ya"), dan menampilkan yang lain sebagai link perintah dalam dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
 
@@ -229,23 +228,6 @@ Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, m
 Menampilkan dialog modal yang menunjukkan pesan kesalahan.
 
 API ini dapat dipanggil dengan aman sebelum `siap` acara yang digunakan aplikasi `app`, biasanya digunakan untuk melaporkan kesalahan pada tahap awal startup. Jika dipanggil sebelum acara aplikasi `siap` di Linux, pesan akan dipancarkan ke stderr, dan tidak ada dialog GUI yang akan muncul.
-
-### `dialog.showCertificateTrustDialog ([browserWindow,] options, callback)` * macos * * Windows *
-
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
-* `pilihan` Obyek 
-  * `sertifikat` [Sertifikat](structures/certificate.md) - Sertifikat untuk dipercaya/diimpor.
-  * `pesan` String - Pesan untuk ditampilkan kepada pengguna.
-* `callback ` Fungsi
-
-Di macos , ini menampilkan dialog modal yang menampilkan informasi pesan dan sertifikat, dan memberi pengguna pilihan untuk mempercayai / mengimpor sertifikat. Jika Anda memberikan argumen `browserWindow`, dialog akan dilampirkan ke jendela induk, membuatnya menjadi modal.
-
-Pada Windows pilihannya lebih terbatas, karena API Win32 digunakan:
-
-* Argumen `pesan` tidak digunakan, karena OS menyediakan dialog konfirmasinya sendiri.
-* Argumen `browserWindow` diabaikan karena tidak mungkin membuat modal dialog konfirmasi ini.
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
 

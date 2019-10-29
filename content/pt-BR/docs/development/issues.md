@@ -1,12 +1,12 @@
 # Questões com o Electron
 
-* [Como Contribuir com Problemas](#how-to-contribute-in-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [Perguntas Sobre de Ajuda Geral](#asking-for-general-help)
 * [Enviando um Relatório de Erro](#submitting-a-bug-report)
 * [Fazendo Triagem de um Relatório de Erro](#triaging-a-bug-report)
 * [Resolvendo um Relatório de Erro](#resolving-a-bug-report)
 
-## Como Contribuir com Questões
+## How to Contribute to Issues
 
 Para qualquer problema, existem fundamentalmente três maneiras que alguém pode contribuir:
 
@@ -61,7 +61,7 @@ Se você prover uma URL, por favor liste os comandos necessários para clonar/in
 
 Se você acredita ter encontrado um bug no Electron, por favor preencha este formulário da melhor forma que você conseguir.
 
-As duas informações mais importantes necessárias para avaliar o relato de um bug são a descrição e um caso de teste simples para recriá-lo. É mais fácil corrigir um bug se for possível reproduzi-lo.
+As duas informações mais importantes necessárias para avaliar o relato de um bug são a descrição e um caso de teste simples para recriá-lo. It is easier to fix a bug if it can be reproduced.
 
 Veja [Como criar um exemplo Mínimo, Completo e Verificável](https://stackoverflow.com/help/mcve).
 
@@ -71,7 +71,7 @@ Veja [Como criar um exemplo Mínimo, Completo e Verificável](https://stackoverf
 
 Respostas que não fornecem contexto adicional nem detalhes de suporte não são úteis ou profissionais. Para muitos, essas respostas são irritantes e nada amigáveis.
 
-Os colaboradores são encorajados a resolver problemas colaborativamente e ajudar uns aos outros a fazer progresso. Se encontrar um problema que você sente ser inválido, ou que contém informações incorretas, explique *por que* você se sente assim, adicionando contexto adicional, e esteja disposto a ser convencido de que você pode está errado. Ao fazê-lo, podemos frequentemente chegar mais rapidamente ao resultado correto.
+Os colaboradores são encorajados a resolver problemas colaborativamente e ajudar uns aos outros a fazer progresso. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Ao fazê-lo, podemos frequentemente chegar mais rapidamente ao resultado correto.
 
 ## Resolvendo um Relatório de Erro
 

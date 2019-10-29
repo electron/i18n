@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 Uma `BrowserView` pode ser usado para transformar um conteúdo web em BrowserWindow`. Ela é como uma janela filha, exceto que ela está posicionada em relação à janela a que pertence. Isso quer dizer que ela pretende ser uma alternativa à tag <code>webview`.</p> 
 
-## Exemplo
+### Exemplo
 
 ```javascript
 // No processo main.
@@ -73,16 +73,22 @@ Returns `Boolean` - Whether the view is destroyed.
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
+
+#### `view.getBounds()` *Experimental*
+
+Returns [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 

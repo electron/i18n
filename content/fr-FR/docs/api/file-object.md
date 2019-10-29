@@ -1,6 +1,6 @@
 # `File` Object
 
-> L'API HTML5 `File` permet de travailler nativement avec les fichiers sur le système de fichiers.
+> Use the HTML5 `File` API to work natively with files on the filesystem.
 
 L'interface de fichier du DOM fournit une abstraction autour des fichiers natifs afin de permettre aux utilisateurs de travailler sur des fichiers natifs directement avec l'API HTML5 File. Electron a ajouté un attribut `path` à l'interface `File` qui expose le chemin réel du fichier sur le système de fichiers.
 

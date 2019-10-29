@@ -6,7 +6,7 @@
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
 
-## Пример
+### Пример
 
 ```javascript
 // В процеса main.
@@ -73,16 +73,22 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(опции)` *Experimental*
 
 * `опции` Object 
-  * `width` Boolean - Ако е `true`, дължината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
-  * `height` Boolean - Ако е `true`, ширината на изгледа ще се разширява и смалява заедно с основния прозорец. По подразбиране не е `false`.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Преоразмерява и премества изгледа към предоставените границите спрямо прозореца.
+
+#### `view.getBounds()` *Experimental*
+
+Returns [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 

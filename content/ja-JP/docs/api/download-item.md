@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`DownloadItem` は、Electronでダウンロードアイテムを表す `EventEmitter` です。 これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. これは `Session` クラスの `will-download` イベントで使用されており、ユーザーがダウンロードアイテムを制御できるようにします。
 
 ```javascript
 // メインプロセス
@@ -74,11 +74,15 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - ダウロードアイテムを保存するファイルパスを設定します。
 
-このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 ユーザがこのAPIを経由して保存先のパスを設定しない場合、Electronは、保存先のパスを決定するために、独自のルーチンを使用します (通常は保存ダイアログを表示します)。
+このAPIは、セッションの `will-download` コールバック関数でのみ利用可能です。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
 戻り値 `String` - ダウンロードアイテムの保存先のパス。これは、`downloadItem.setSavePath(path)` 経由で設定されたパスか、表示された保存ダイアログで選択されたパスのいずれかです。
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -114,7 +118,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getURL()`
 
-戻り値 `String` - アイテムがダウンロードされた元のURL。
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +156,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.getURLChain()`
 
-戻り値 `String[]` - すべてのリダイレクトを含むアイテムの完全なURLチェーン。
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -165,3 +169,11 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 #### `downloadItem.getStartTime()`
 
 戻り値 `Double` - ダウンロードが開始されたUNIXエポックからの秒数。
+
+### インスタンスプロパティ
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.

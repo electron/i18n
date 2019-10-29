@@ -61,6 +61,13 @@
 </tr>
 <tr>
   <td>8.0.0</td>
+  <td>2019-10-24</td>
+  <td>2020-02-04</td>
+  <td>M80</td>
+  <td>v12</td>
+</tr>
+<tr>
+  <td>9.0.0</td>
   <td>TBD</td>
   <td>TBD</td>
   <td>TBD</td>

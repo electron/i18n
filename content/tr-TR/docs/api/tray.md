@@ -66,6 +66,8 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 #### Olay: 'click'
 
+Döndürür:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
@@ -74,12 +76,16 @@ Tray simgesi tıklandığında çıkar.
 
 #### Event: 'right-click' *macOS* *Windows*
 
+Dönüşler:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
 Tray simgesi sağ tıkladığında ortaya çıkar.
 
 #### Event: 'double-click' *macOS* *Windows*
+
+Dönüşler:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
@@ -104,12 +110,16 @@ Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drop-files' *macOS*
 
+Dönüşler:
+
 * `event` Olay
 * `files` String[] - Düşürülen dosyaların yolları.
 
 Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 #### Event: 'drop-text' *macOS*
+
+Dönüşler:
 
 * `event` Olay
 * `text` String - Düşürülen yazı stringi.
@@ -130,6 +140,8 @@ Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde or
 
 #### Event: 'mouse-enter' *macOS*
 
+Dönüşler:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
@@ -137,12 +149,16 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'mouse-leave' *macOS*
 
+Dönüşler:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Olay: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Dönüşler:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
@@ -183,39 +199,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` Dizge - Aşağıdaki değerlerden biriyle vurgulama modunu seçin: 
-  * `selection` - Tepsi simgesini tıklattığınızda ve bağlam menüsü açık olduğunda vurgulayın. Varsayılan budur.
-  * `always` - Daima tepsi simgesini vurgulayın.
-  * `never` - Asla tepsi simgesini vurgulamayın.
-
-Tepsinin simge arka planı vurgulandığında (mavi renkte) ayarlar.
-
-**[Kullanımdan kaldırıldı](breaking-changes.md#tray)**
-
-**Note:** pencere görünürlüğü değiştiğinde `'never'` ve `'always'` modları arasında geçiş yaparak [`BrowserWindow`](browser-window.md) ile `highlightMode` kullanabilirsiniz.
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

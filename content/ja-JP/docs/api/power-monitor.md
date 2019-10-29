@@ -4,16 +4,15 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 例:
 
 ```javascript
-const electron = require('electron')
-const { app } = electron
+const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
+  powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
 })
@@ -54,21 +53,6 @@ app.on('ready', () => {
 ## メソッド
 
 `powerMonitor` モジュールには以下のメソッドがあります。
-
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(非推奨)*
-
-* `idleThreshold` Integer
-* `callback` Function 
-  * `idleState` String - `active`, `idle`, `locked`, `unknown` にできます。
-
-システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。 `callback` はいくつかのシステムでは同期的に呼ばれ、`idleState` 引数はシステムの状態を表します。 `locked` はサポートしているシステムでのみ利用可能です。
-
-### `powerMonitor.querySystemIdleTime(callback)` *(非推奨)*
-
-* `callback` Function 
-  * `idleTime` Integer - アイドルしている秒
-
-システムのアイドル時間を計算します。
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 

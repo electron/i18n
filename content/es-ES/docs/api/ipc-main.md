@@ -4,11 +4,11 @@
 
 Process: [Main](../glossary.md#main-process)
 
-El módulo `ipcMain` es una instancia de la clase [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Cuando se utiliza en el proceso principal, maneja mensajes asincrónicos y sincrónicos enviados desde el proceso de renderizado (página web). Los mensajes enviados desde el renderizador serán emitidos a este módulo.
+The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). Cuando se utiliza en el proceso principal, maneja mensajes asincrónicos y sincrónicos enviados desde el proceso de renderizado (página web). Los mensajes enviados desde el renderizador serán emitidos a este módulo.
 
 ## Enviando mensajes
 
-También es posible enviar mensajes desde el proceso principal al proceso de renderizado, ver [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para más información.
+También es posible enviar mensajes desde el proceso principal al proceso de renderizado, ver [webContents.send](web-contents.md#contentssendchannel-args) para más información.
 
 * Cuando se envía un mensaje, el nombre del evento es el`channel`.
 * Para responder a un mensaje sincrónico, es necesario establecer `event.returnValue`.
@@ -72,10 +72,56 @@ Elimina el `listener` especificado del arreglo del oyente para el `channel` espe
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` Cadena
+* `channel` Cadena (opcional)
 
 Elimina los oyentes del `channel` especificado.
 
-## Objeto de evento
+### `ipcMain.handle(channel, listener)`
+
+* `channel` Cadena
+* `listener` Function<Promise<void> | any> 
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+
+If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+
+```js
+// Main process
+ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
+  const result = await somePromise(...args)
+  return result
+})
+
+// Renderer process
+async () => {
+  const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
+  // ...
+}
+```
+
+The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+
+### `ipcMain.handleOnce(channel, listener)`
+
+* `channel` Cadena
+* `listener` Function<Promise<void> | any> 
+  * `event` IpcMainInvokeEvent
+  * `...args` any[]
+
+Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+
+### `ipcMain.removeHandler(channel)`
+
+* `channel` Cadena
+
+Removes any handler for `channel`, if present.
+
+## IpcMainEvent object
 
 La documentación para el objeto `event` pasado a `callback` puede ser encontrada en la estructura de documentos de [`ipc-main-event`](structures/ipc-main-event.md).
+
+## IpcMainInvokeEvent object
+
+The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.

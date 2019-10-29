@@ -11,7 +11,7 @@
 * `options` (Object | String) – Если `options` это строка, она интерпретируется как URL-адрес запроса. Если объект, то подразумевается, что он полностью определяет HTTP запрос, используя следующие свойства: 
   * `method` String (опционально) – метод HTTP запроса. По умолчанию GET.
   * `url` String (опционально) – URL запроса. Должен быть предоставлен в абсолютной форме, с указанной схемой протокола http или https.
-  * `session` Object (опционально) – экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (опционально) – название [`раздела`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Параметр `session` преобладает над параметром `partition`. Поэтому, если параметр `session` явно указан, то `partition` игнорируется.
   * `protocol` String (опционально) – схема протокола в виде 'схема:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
   * `host` String (опционально) - объединенное с номером порта доменное имя сервера 'доменное_имя:порт'.
@@ -110,7 +110,7 @@ request.on('login', (authInfo, callback) => {
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 Происходит, когда присутствует перенаправление, а режим `manual`. Вызов [`request.followRedirect`](#requestfollowredirect) продолжит перенаправление.
 
@@ -127,15 +127,15 @@ request.on('login', (authInfo, callback) => {
 #### `request.setHeader(name, value)`
 
 * `name` String - имя дополнительного HTTP-заголовка.
-* `value` Object - значение дополнительного HTTP-заголовка.
+* `value` String - An extra HTTP header value.
 
-Добавляет дополнительный HTTP-заголовок. Название заголовка будет выдано в верхнем регистре. Может быть вызвано только перед первой записи. Вызов этого метода после первой записи вызовет ошибку. Если переданное значение это не `String`, тогда метод `toString()` будет вызван, чтобы получить конечное значение.
+Добавляет дополнительный HTTP-заголовок. The header name will be issued as-is without lowercasing. Может быть вызвано только перед первой записи. Вызов этого метода после первой записи вызовет ошибку. Если переданное значение это не `String`, тогда метод `toString()` будет вызван, чтобы получить конечное значение.
 
 #### `request.getHeader(name)`
 
 * `name` String - укажите имя дополнительного заголовка.
 
-Возвращает `Object` - значение ранее установленного дополнительного заголовка.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 

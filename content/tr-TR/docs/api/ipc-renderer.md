@@ -4,7 +4,7 @@
 
 İşlem: [Renderer](../glossary.md#renderer-process)
 
-`ipcRenderer` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) sınıfının bir ürünüdür. İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. Ayrıca ana kesimden gelen cevapları alabilirsiniz.
+The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. Ayrıca ana kesimden gelen cevapları alabilirsiniz.
 
 Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
@@ -33,7 +33,8 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 ### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` fonksiyon
+* `listener` Fonksiyon 
+  * `...args` herhangi[]
 
 Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
@@ -43,19 +44,45 @@ Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
 Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
-### `ipcRenderer.send(channel[, arguman1][, arguman2][, ...])`
+### `ipcRenderer.send(channel, ...args)`
 
 * `channel` Dizesi
 * `...args` any[]
 
-`channel` üzerinden ana işleme asenkron olarak mesaj ve keyfi argümanlar gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+`channel` üzerinden ana işleme asenkron olarak mesaj ve keyfi argümanlar gönderebilirsiniz. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
-### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.invoke(channel, ...args)`
 
 * `channel` Dizesi
 * `...args` herhangi[]
+
+Returns `Promise<any>` - Resolves with the response from the main process.
+
+Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+
+The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+
+Örneğin:
+
+```javascript
+// Renderer process
+ipcRenderer.invoke('some-name', someArgument).then((result) => {
+  // ...
+})
+
+// Main process
+ipcMain.handle('some-name', async (event, someArgument) => {
+  const result = await doSomeWork(someArgument)
+  return result
+})
+```
+
+### `ipcRenderer.sendSync(channel, ...args)`
+
+* `channel` Dizesi
+* `...args` any[]
 
 `any` - [`ipcMain`](ipc-main.md) İşleyicisi tarafından geri gönderilen değeri gösterir.
 
@@ -65,7 +92,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
 
-### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
 * `webContentsId` Number
 * `channel` Dizesi
@@ -73,7 +100,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 Sends a message to a window with `webContentsId` via `channel`.
 
-### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` Dizesi
 * `...args` herhangi[]

@@ -11,7 +11,7 @@ Processo: [Main](../glossary.md#main-process)
 * `opções` (Object | String) - Se `opções` for uma String, ela é interpretada como a URL da requisição. Caso seja um objeto, é esperado que ela especifique totalmente a requisição HTTP através das seguintes propriedades: 
   * `method` String (opcional) - O método de requisição HTTP, sendo GET o método padrão.
   * `url` String (opcional) - A URL da requisição. Precisa ser informada na forma absoluta com protocolo http ou https especificado.
-  * `session` Object (opcional) - A instância da [`Sessão`](session.md) com a qual a requisição está associada.
+  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
   * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
   * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
   * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
@@ -110,7 +110,7 @@ Retorna:
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Object
+* `responseHeaders` Record<String, String[]>
 
 Emitido quando há redirecionamento e o modo é `manual`. Chamar [`request.followRedirect`](#requestfollowredirect) vai continuar com o redirecionamento.
 
@@ -127,15 +127,15 @@ Using chunked encoding is strongly recommended if you need to send a large reque
 #### `request.setHeader(name, value)`
 
 * `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `value` String - An extra HTTP header value.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Adds an extra HTTP header. The header name will be issued as-is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 
 #### `request.getHeader(name)`
 
 * `name` String - Specify an extra header name.
 
-Returns `Object` - The value of a previously set extra header name.
+Returns `String` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 

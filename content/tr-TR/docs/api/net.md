@@ -44,7 +44,7 @@ app.on('ready', () => {
 
 ### `net.request(options)`
 
-* `options` (Obje| Dizi) - `ClientRequest` Yapıcı seçenekleri.
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 Çevir [`ClientRequest`](./client-request.md)
 

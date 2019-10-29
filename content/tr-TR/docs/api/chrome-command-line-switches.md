@@ -44,13 +44,13 @@ Disk önbelleği tarafından kullanılacak maksimum disk alanını bayt cinsinde
 
 ## --js-flags=`flags`
 
-Node JS motoruna geçirilen bayrakları belirtir. Ana işlemdeki `bayrakları` etkinleştirmek isterseniz, Elektron başlatırken değerlerin geçmiş olması gerekir.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" app'iniz
 ```
 
-[Node documentation](https://nodejs.org/api/cli.html) bakın veya kullanılabilir bayrakların bir listesi için terminalde `node --help` çalıştırın. Ayrıca, özellikle Node'un V8 JavaScript motoruna atıfta bulunan bayrakların listesini görmek için `node --v8-options`'ni çalıştırın.
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunuc
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-o zaman `example.com`, ` foobar.com`, `baz` ile biten herhangi bir `url` entegre kimlik doğrulama için kabul edilmiş olacaktır. `*` öneki olmadan Url'nin tam olarak eşleşmesi gerekir.
+o zaman `example.com`, ` foobar.com`, `baz` ile biten herhangi bir `url` entegre kimlik doğrulama için kabul edilmiş olacaktır. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Kullanıcı kimlik bilgilerinin temsilciliğinin gerekli olduğu, virgülle ayrılmış bir sunucu listesi. `*` öneki olmadan Url'nin tam olarak eşleşmesi gerekir.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --ignore-certificate-errors
 
@@ -151,3 +151,7 @@ Modül başına `--v` tarafından verilen değeri geçersiz kılmak için maksim
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Örneğin `foo/bar` dizini altındaki kaynak dosyaları tüm kodlar için `*/foo/bar/*=2` ile logging seviyeleri değiştirilebilir.
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.

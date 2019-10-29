@@ -62,6 +62,8 @@ Ang sumusunod na mga kaganapan ay magagamit para sa mga instance ng `Sesyon`:
 
 #### Kaganapan: 'will-download'
 
+Magbabalik ng:
+
 * `event` na Kaganapan
 * `item` na [DownloadItem](download-item.md)
 * `webContents` na [WebContents](web-contents.md)
@@ -80,32 +82,23 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
+#### Event: 'preconnect' *Experimental*
+
+Ibinabalik ang:
+
+* `event` na Pangyayari
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+
+Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+
 ### Mga Pamamaraan ng Instance
 
 Ang sumusunod na pamamaraan ay magagamit para sa mga instance ng `session`:
 
-#### `ses.getCacheSize(callback)`
-
-* `callback` Function 
-  * `size` na Integer - Sukat ng cache ginagamit sa byte.
-  * `error` Integer - The error code corresponding to the failure.
-
-Ang callback ay tinatawag sa kasalukuyang sukat ng cache ng sesyon.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.getCacheSize()`
 
 Returns `Promise<Integer>` - the session's current cache size, in bytes.
-
-#### `ses.clearCache(callback)`
-
-* `callback` Function - Called when operation is done. 
-  * `error` Integer - The error code corresponding to the failure.
-
-Inaalis ang HTTP na cache ng sesyon.
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `ses.clearCache()`
 
@@ -113,21 +106,9 @@ Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 Inaalis ang HTTP na cache ng sesyon.
 
-#### `ses.clearStorageData([options,] callback)`
-
-* `mga opsyon` Bagay (opsyonal) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
-
-Clears the storage data for the current session.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.clearStorageData([options])`
 
-* `opsyons` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -137,70 +118,6 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 #### `ses.flushStorageData()`
 
 Nagsusulat ng anumang di-nakusulat na DOMStorage na datos sa disk.
-
-#### `ses.setProxy(config, callback)`
-
-* `config` Bagay 
-  * `pacScript` na String - Ang URL na may kaugnayan sa PAC na file.
-  * `proxyRules` na String - Mga panuntunan na nagsasad kung aling mga proxy ang gagamitin.
-  * `proxyBypassRules` na String - Mga panuntunan na nagpapahiwatig kung aling mga URL ay dapat mag-bypass ang mga setting ng proxy.
-* `callback` na Function - Tinatawag kung ang operason ay tapos na.
-
-Nagtatakda ng mga settings ng proxy.
-
-Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na opsyon ay hindi pinansin at `pacScript` na konpigurasyon ay inilalapat.
-
-Ang `proxyRules` ay dapat sumunod sa mga panuntunan sa ibaba:
-
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
-
-Halimbawa:
-
-* `http=foopy:80;ftp=foopy2` - Gamitin ang HTTP proxy `foopy:80` para sa `http://` na mga URL, at HTTP proxy `foopy2:80` para sa `ftp://` na mga URL.
-* `foopy:80` - Gamitin ang HTTP proxy `foopy:80` para sa lahat ng mga URL.
-* `foopy:80,bar,direct://` - Gamitin ang HTTP proxy `foopy:80` para sa lahat ng mga URL, pumunta sa `bar` kapag ang `foopy:80` ay hindi magagamit, at pagkatapos, gamitin nang walang proxy.
-* `socks4://foopy` - Gamitin ang SOCKS v4 proxy `foopy:1080` sa lahat ng mga URL.
-* `http=foopy,socks5://bar.com` - Gamitin ang HTTP na proxy `foopy` para sa http na mga URL, at pumunta sa SOCKS5 proxy na `bar.com` kung ang `foopy` ay hindi magagamit.
-* `http=foopy,direct://` - Gamitin ang HTTP na proxy `foopy` para sa http Una mga URL, at gamitin nang walang proxy kung ang `foopy` ay hindi magagamit.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
-
-Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwit na inilirawan sa ibaba:
-
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  Itugma ang lahat ng mga hostname na tumugma sa pattern ng HOSTNAME_PATTERN.
-  
-  Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    Itugma ang isang partikular na domain suffix.
-    
-    Mga halimbawa: ".google.com", ".com", "http://.google.com"
-
-* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  Itugma ang mga URL na mga IP address na literal.
-  
-  Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
-
-* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  Itugma ang anumang URL na para sa IP literal na nabibilang sa pagitan ng binigay na saklaw. Ang saklaw ng IP ay tinukoy gamit ang CIDR na notasyon.
-  
-  Mga Halimbawa: "192.168.1.1/16", "fefe:13::abc/33".
-
-* `<local>`
-  
-  Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay tumutugma sa isa sa: "127.0.0.1", "::1", "localhost".
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `ses.setProxy(config)`
 
@@ -265,21 +182,11 @@ Ang `proxyBypassRules` ay isang listahan ng panuntunan na pinaghihiwalay ng kuwi
   
   Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay tumutugma sa isa sa: "127.0.0.1", "::1", "localhost".
 
-#### `ses.resolveProxy(url, callback)`
-
-* `url` Ang URL
-* `callback` Function 
-  * `proxy` na String
-
-Naglulutas ng impormasyon sa proxy para sa `url`. Ang `callback` ay tatawagin nang may `callback(proxy)` kung ang kahilingan ay ginaganap.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.resolveProxy(url)`
 
 * `url` Ang URL
 
-Returns `Promise<string>` - Resolves with the proxy information for `url`.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -289,7 +196,7 @@ Nagtatakda ng download saving na direktoryo. Bilang default, ang download na dir
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
+* `options` Bagay 
   * `offline` na Boolean (opsyonal) - Kung tularan ba ang network outage. Naka-default sa false.
   * `latency` na Doble (opsyonal) - RTT sa ms. Naka-default sa 0 na siyang magpapatigil sa latency throttling.
   * `downloadThroughput` na Doble (opsyonal) - Bilis ng pag-download sa Bps. Naka-default sa 0 na siyang magpapatigil sa download throttling.
@@ -309,6 +216,14 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
+#### `ses.preconnect(options)` *Experimental*
+
+* `options` Bagay 
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+
+Preconnects the given number of sockets to an origin.
+
 #### `ses.disableNetworkEmulation()`
 
 Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon`. Nagrereset para sa orihinal na konfigurasyon ng network.
@@ -318,7 +233,7 @@ Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon
 * `proc` Function 
   * `kahilingan` Bagay 
     * `hostname` na String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `certificate` na [Sertipiko](structures/certificate.md)
     * `verificationResult` na String - Resulta ng pagpapatunay mula sa chromium.
     * `errorCode` na Integer - code ng kamalian.
   * `callback` Function 
@@ -353,8 +268,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
   * `ang mga detalye` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String (Optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
@@ -396,14 +311,6 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache(callback)`
-
-* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
-
-Nililinis ang cache ng tagalutas ng host.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.clearHostResolverCache()`
 
 Returns `Promise<void>` - Resolves when the operation is complete.
@@ -441,14 +348,6 @@ Ito ay hindi makakapekto sa umiiral na `WebContents`, at ang bawat `WebContents`
 
 Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 
-#### `ses.getBlobData(identifier, callback)`
-
-* `identifier` na String - Tamang UUID.
-* `callback` Function 
-  * `result` na Buffer - Blob na datos.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.getBlobData(identifier)`
 
 * `identifier` na String - Tamang UUID.
@@ -469,22 +368,9 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options, callback)`
+#### `ses.clearAuthCache(options)`
 
 * `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` na Function - Tinatawag kung ang operason ay tapos na.
-
-Nilinis ang sesyon ng HTTP authentication na cache.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-#### `ses.clearAuthCache(options)` *(deprecated)*
-
-* `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
-
-#### `ses.clearAuthCache()`
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -502,17 +388,17 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
-#### `ses.cookies`
+#### `ses.cookies` *Readonly*
 
-Isang [Cookies](cookies.md) na bagay para sa sesyong ito.
+A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest`
+#### `ses.webRequest` *Readonly*
 
-Isang [WebRequest](web-request.md) na bagay para sa sesyong ito.
+A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol`
+#### `ses.protocol` *Readonly*
 
-Isang [Protocol](protocol.md) na bagay para sa sesyong ito.
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -529,9 +415,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog`
+#### `ses.netLog` *Readonly*
 
-A [NetLog](net-log.md) object for this session.
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')

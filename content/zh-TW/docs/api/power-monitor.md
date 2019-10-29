@@ -4,17 +4,16 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-在 ` app ` 模組的 ` ready` 事件發出之前, 您不能要求或使用此模組。
+This module cannot be used until the `ready` event of the `app` module is emitted.
 
 例如:
 
 ```javascript
-const electron = require('electron')
-const { app } = electron
+const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
-  electron.powerMonitor.on('suspend', () => {
-    console.log('系統即將休眠')
+  powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
   })
 })
 ```
@@ -54,21 +53,6 @@ Emitted as soon as the systems screen is unlocked.
 ## 方法
 
 The `powerMonitor` module has the following methods:
-
-### `powerMonitor.querySystemIdleState(idleThreshold, callback)` *(Deprecated)*
-
-* `idleThreshold` Integer
-* `callback` Function 
-  * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
-
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
-
-### `powerMonitor.querySystemIdleTime(callback)` *(Deprecated)*
-
-* `callback` Function 
-  * `idleTime` Integer - Idle time in seconds
-
-Calculate system idle time in seconds.
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 

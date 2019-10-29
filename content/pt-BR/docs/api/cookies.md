@@ -63,7 +63,7 @@ Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 #### `cookies.get(filter)`
 
 * `filtrar` Object 
-  * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
+  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
   * `name` String (opcional) - Filtra cookies por nome.
   * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
   * `path` String (opcional) - Recupera cookies nos quais o caminho seja igual a `path`.
@@ -74,27 +74,10 @@ Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie object
 
 Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
 
-#### `cookies.get(filter, callback)`
-
-* `filtrar` Object 
-  * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
-  * `name` String (opcional) - Filtra cookies por nome.
-  * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
-  * `path` String (opcional) - Recupera cookies nos quais o caminho seja igual a `path`.
-  * `secure` Boolean (opcional) - Filtra cookies pela propriedade Secure.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - Um array de objetos cookie.
-
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `cookies.set(details)`
 
 * `detalhes` Object 
-  * `url` String - The url to associate the cookie with. The promise will be rejected if the url is invalid.
+  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
   * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
   * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
   * `domain` String (opcional) - O domínio do cookie; isto será normalizado com um ponto no início para que ele também seja válido para subdomínios. Vazio por padrão se omitido.
@@ -107,24 +90,6 @@ Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
 Sets a cookie with `details`.
 
-#### `cookies.set(details, callback)`
-
-* `detalhes` Object 
-  * `url` String - A url que será associada ao cookie.
-  * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
-  * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
-  * `domain` String (opcional) - O domínio do cookie. Vazio por padrão caso omitido.
-  * `path` String (opcional) - O caminho do cookie. Vazio por padrão caso omitido.
-  * `secure` Boolean (opcional) - Indica se o cookie deve ser marcado como seguro. Padrão é falso.
-  * `httpOnly` Boolean (opcional) - Indica se o cookie deve ser marcado como apenas HTTP. Padrão é falso.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Function 
-  * `error` Error
-
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `cookies.remove(url, name)`
 
 * `url` String - A URL associada com o cookie.
@@ -134,26 +99,8 @@ Returns `Promise<void>` - A promise which resolves when the cookie has been remo
 
 Removes the cookies matching `url` and `name`
 
-#### `cookies.remove(url, name, callback)`
-
-* `url` String - A URL associada com o cookie.
-* `name` String - O nome do cookie a ser removido.
-* `callback` Function
-
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `cookies.flushStore()`
 
 Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
 
 Escreve qualquer cookie que não tenha sido escrito no disco.
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-Escreve qualquer cookie que não tenha sido escrito no disco.
-
-**[Deprecated Soon](modernization/promisification.md)**

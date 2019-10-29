@@ -146,6 +146,7 @@ apps:
   search_app: 앱을 이름, 설명 등으로 필터링하기…
   categories: 카테고리들
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Pull Request를 만들어</a> 여러분의 앱을 추가해 보세요.'
+  #App show page specific localization strings
   website: 웹사이트
   repository: 리포지토리
   category: 카테고리
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
+  #Post show page specific localization strings
   feedback: 이 글에 의견이 있나요? 트위터의 <a href="https://twitter.com/electronjs">@electronjs</a>로 알려주세요.
   help: 도움이 필요하시거나 버그를 발견하셨나요? <a href="/contact">저희에게 알려주세요</a>.
 clipboard:
   copy: 복사
   copy_to_clipboard: 클립보드에 복사하기
   copied: 복사됨
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: 또는
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Electron Governance
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
-  docstools:
-    title: 문서 & 도구
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Outreach
     description: Grows the Electron community
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: 업그레이드
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
-  website:
-    title: 웹사이트
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Community & Safety
     description: Oversees removal/bans from community.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Administrative
     description: The Administrative Working Group oversees the entire governance and project.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Overview
     associated_repos: Associated Repositories

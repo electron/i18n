@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-`DownloadItem` es un `EventEmitter` que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
 ```javascript
 // En el proceso principal.
@@ -74,11 +74,15 @@ El objeto `downloadItem` tiene los siguientes métodos:
 
 * `path` Cadena - Configura la ruta del archivo de guardado del elemento descargado.
 
-La API solo está disponible en la función callback `will-download` de la sesión. Si el usuario no configura la ruta de guardado a través de la API, Electron usará la rutina de origen para determinar la ruta de guardado (generalmente indicará un diálogo de guardado).
+La API solo está disponible en la función callback `will-download` de la sesión. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
 Devuelve `String` - La ruta de guardado del elemento descargado. Este puede ser tanto la ruta configurada a través de `downloadItem.setSavePath(path)` o la ruta seleccionada desde el cuadro de dialogo de guardado mostrado.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -114,7 +118,7 @@ Cancela la operación de la descarga.
 
 #### `downloadItem.getURL()`
 
-Devuelve `String` - El url de origen desde donde se descargó el elemento.
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +156,7 @@ Devuelve `String` - El estado actual. Puede ser `en progreso`, `completado`, `ca
 
 #### `downloadItem.getURLChain()`
 
-Devuelve `String[]` - La cadena del url completa del elemento, incluyendo cualquier redirección.
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -165,3 +169,11 @@ Devuelve `String` - El valor de cabecera Etag.
 #### `downloadItem.getStartTime()`
 
 Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la descarga.
+
+### Propiedades de la instancia
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.

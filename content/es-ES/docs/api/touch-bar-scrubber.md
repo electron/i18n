@@ -8,15 +8,15 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `opciones` Object 
   * `elementos` [elemento a depurar[]](structures/scrubber-item.md) - Un arreglo de elementos a depurar.
-  * `seleccionar` Función - llamado cuando el usuario toca un elemento que no era el último elemento tocado. 
+  * `seleccionar` Function (optional) - Called when the user taps an item that was not the last tapped item. 
     * `seleccionar índice` Entero - El índice del elemento que el usuario seleccionó.
-  * `destacado` Función - llamado cuando el usuario toca cualquier elemento. 
+  * `destacado` Function (optional) - Called when the user taps any item. 
     * `índice destacado` Entero - El índice del elemento que el usuario tocó.
-  * `Seleccionar estilo` Cadena - Estilo del elemento seleccionado. Por defecto `nulo`.
-  * `cubrir estilo` Cadena - Selecciona el estilo cubierto del elemento. Por defecto es `nulo`.
-  * `Mostrar botones de flechas` Booleano - Por defecto es `falso`.
-  * `modo` Cadena - Por defecto es `libre`.
-  * `continuo` Booleano - Por defecto es `verdad`.
+  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `mode` String (optional) - Defaults to `free`.
+  * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Propiedades de Instancia
 

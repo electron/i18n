@@ -117,11 +117,12 @@ protocol.registerSchemesAsPrivileged([
 * `halledici` Fonksyion 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `execPath` Dizgi (isteğe bağlı)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -139,8 +140,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Record<String, String>
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (isteğe bağlı)
@@ -169,11 +171,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `rtf` Dizge (İsteğe Bağlı)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -187,18 +190,16 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
-    * `headers` Nesne
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
       * `url` Dize
-      * `method` Dizi
-      * `session` Obje isteğe bağlı
-      * `bilgiyi yükle` Obje (opsiyonel) 
-        * `contentType` Dize - İçeriğin MIME türünü gösterir.
-        * `data` Dize - Gönderilecek içerik.
+      * `method` String (optional)
+      * `session` Session | null (optional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -216,7 +217,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
-    * `headers` Nesne
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -276,28 +277,19 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 `şemanın` özel protokol kaydını iptal eder.
 
-### `protocol.isProtocolHandled(scheme, callback)`
-
-* `scheme` String
-* `geri aramak` Function 
-  * `handled` Boolean
-
-`callback`, `scheme` için zaten halihazırda bir işleyici olup olmadığını gösteren bir boolean ile çağrılır.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `protocol.isProtocolHandled(scheme)`
 
-* `scheme` Dizi
+* `scheme` String
 
 Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -314,11 +306,12 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Record<String, String>
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `data` Dizge (İsteğe Bağlı)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -330,6 +323,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -346,15 +340,15 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
-    * `headers` Nesne
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
       * `url` Dize
-      * `method` Dizi
-      * `session` Obje isteğe bağlı
+      * `method` String (optional)
+      * `session` Session | null (optional)
       * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
         * `data` Dize - Gönderilecek içerik.
@@ -369,7 +363,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
-    * `headers` Nesne
+    * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)

@@ -31,6 +31,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Menggunakan API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Menggunakan API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Menggunakan Modul Node.js Asli](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Menambahkan Fitur ke Aplikasi Anda 
   * [pemberitahuan](tutorial/notifications.md)
   * [Dokumen Terkini](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 
 * [Ringkasan](api/synopsis.md)
 * [Proses objek](api/process.md)
-* [Saklar Baris Perintah Chrome yang Didukung](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 

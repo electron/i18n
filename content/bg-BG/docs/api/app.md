@@ -27,7 +27,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 Връща:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` unknown *macOS*
 
 Това събитие бива излъчено, когато Електрон е завършил своята инициализация. На macOS `launchInfo` притежава `userInfo` на `NSUserNotification`, която е било използвано за отваряне на приложението, ако приложението е било стартирано от центъра за уведомяване (Notification Center). Можете да използвате `app.isReady()`, за да проверите дали това събитие вече е било излъчено.
 
@@ -92,7 +92,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 * `event` Събитие
 * `url` String
 
-Излъчено, когато потребителя желае да отвори URL с приложението. Файлът `Info.plist` на вашето приложение трябва да дефинира URL схемата в ключа `CFBundleURLTypes` и да постави `NSPrincipalClass` в `AtomApplication`.
+Излъчено, когато потребителя желае да отвори URL с приложението. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
@@ -111,7 +111,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Събитие
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност на друго устройство.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когато активност на друго устройство иска да се извърши отново. Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
@@ -142,7 +142,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Събитие
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Излъчено по време на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), след активността на това устройство е извършена отново успешно от друго устройство.
 
@@ -152,7 +152,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 * `event` Събитие
 * `type` String - Надпис, идентифициращ активността. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Съдържа запис на специфичното състояние на приложението като активност.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Излъчено, когато [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) тъкмо ще бъде подновено на друго устройство. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Събитие: 'gpu-process-crashed'
 
 Връща:
@@ -292,7 +296,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Събитие
 * `killed` Boolean
 
-Излъчено, когато GPU процес е спрян или убит.
+Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 Показва прозорците на приложението, след като те са били скрити. Не се фокусира върху тях автоматично.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,57 +493,34 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - Име
+* `name` String - You can request the following paths by the name: 
+  * `home` Потребителската начална/home папка.
+  * `appData` Папката на приложението за всеки потребител, която по подразбиране сочи към: 
+    * `%APPDATA%` на Windows
+    * `$XDG_CONFIG_HOME` или `~/.config` на Linux
+    * `~/Library/Application Support` на macOS
+  * `userData` Папката, която пази конфигурационните файлове на вашето приложение, която по подразбиране е папката `appData`, допълнена с името на вашето приложение.
+  * `cache`
+  * `temp` Временна папка.
+  * `exe` Текущата изпълнима папка.
+  * `module` Библиотеката `libchromiumcontent`.
+  * `desktop` Текущата настолна папка на потребителя.
+  * `documents` Папката на потребителя за "My Documents".
+  * `downloads` Папка за свалянията на потребителя.
+  * `music` Папка за музиката на потребителя.
+  * `pictures` Папка за снимките на потребителя.
+  * `videos` Папка за видеота на потребителя.
+  * `logs` Папка за логовете на вашето приложение.
+  * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-Може да заявите следните пътища по име:
-
-* `home` Потребителската начална/home папка.
-* `appData` Папката на приложението за всеки потребител, която по подразбиране сочи към: 
-  * `%APPDATA%` на Windows
-  * `$XDG_CONFIG_HOME` или `~/.config` на Linux
-  * `~/Library/Application Support` на macOS
-* `userData` Папката, която пази конфигурационните файлове на вашето приложение, която по подразбиране е папката `appData`, допълнена с името на вашето приложение.
-* `temp` Временна папка.
-* `exe` Текущата изпълнима папка.
-* `module` Библиотеката `libchromiumcontent`.
-* `desktop` Текущата настолна папка на потребителя.
-* `documents` Папката на потребителя за "My Documents".
-* `downloads` Папка за свалянията на потребителя.
-* `music` Папка за музиката на потребителя.
-* `pictures` Папка за снимките на потребителя.
-* `videos` Папка за видеота на потребителя.
-* `logs` Папка за логовете на вашето приложение.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `опции` Object (по избор) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `обратно повикване` Функция 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-Хваща асоциираната икона за съответния път.
-
-On *Windows*, there are 2 kinds of icons:
-
-* Икони асоциирани с конкретни разширения на файлове, като `.mp3`, `.png`, др.
-* Икони в самия файл, като `.exe`, `.dll`, `.ico`.
-
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
-
-**[Deprecated Soon](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
 * `path` String
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -575,13 +556,17 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 Връща `String` - Името на текущото приложение, което е името във файла `package.json` на приложението.
 
-Обикновено полето `name` на `package.json` е кратко наименование с малки букви според npm спецификацията за модулите. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
 * `name` String - Име
 
 Замества името на текущото приложение.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Note:** When unable to detect locale country code, it returns empty string.
 
@@ -657,7 +642,7 @@ API използва системния регистър на Windows и LSCopyD
 
 * `tasks` [Task[]](structures/task.md) - Масив от `Task` обекти
 
-Добавя `tasks` към категорията [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) на преход/JumpList на Windows.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks` е масив от [`Task`](structures/task.md) обекти.
 
@@ -670,11 +655,11 @@ API използва системния регистър на Windows и LSCopyD
 Връща `Object`:
 
 * `minItems` Integer - Минималният брой на елементите, които ще бъдат показани в списъка за прескачане (Jump List) (за по-подробно описание на тази стойност вижте [MSDN документацията](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [[JumpListItem]](structures/jump-list-item.md) - Масив от `JumpListItem` обекти, които съответстват на елементите, които потребителят изрично е премахнал от категории в списъка за прескачане. Тези елементи не трябва да бъде отново добавя към списъка за прескачане в **следващото** извикване на `app.setJumpList()`, Windows няма да показва никакви потребителски категории, който съдържат някои от отстранените елементи.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Тези елементи не трябва да бъде отново добавя към списъка за прескачане в **следващото** извикване на `app.setJumpList()`, Windows няма да показва никакви потребителски категории, който съдържат някои от отстранените елементи.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory []](structures/jump-list-category.md) или `null` - Масив от `JumpListCategory` обекти.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 Задава или премахва потребителски списък за прескачане на приложението, като връща един от следните низове:
 
@@ -798,7 +783,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
+* `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (по избор) - Уеб страницата, която да се зареди в браузъра, ако не е инсталирано подходящо приложение на устройство за възобновяване. Схемата трябва да бъде `http` или `https`.
 
 Създава `NSUserActivity` и го задава като текущата дейност. Дейността е подходяща за [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) към друго устройство след това.
@@ -809,14 +794,16 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
 Прави не валидна текущата [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активност на потребителя.
+
+### `app.resignCurrentActivity()` *macOS*
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Идентифицира активността уникално. Бива едно от [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Състояние специфично за приложението, което да бъде използвано от друго приложение.
+* `userInfo` any - App-specific state to store for use by another device.
 
 Текущата дейност се актуализира, ако нейния тип съвпада с `type`, слива записи от `userInfo` в нейния текущ речник `userInfo`.
 
@@ -826,9 +813,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 Променя [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
-* `опции` Object 
+* `options` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
 * `обратно повикване` Функция 
@@ -850,17 +837,19 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
 Връща [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Състоянието на функцията графика от `chrome://gpu/`.
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - Can be `basic` or `complete`.
 
-Returns `Promise`
+Returns `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -903,9 +892,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Връща `Integer` - Текущата стойност, която се показва като брояч в значката.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -913,7 +906,7 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде ползван за сравнение. По подразбиране е `process.execPath`.
   * `args` String[] (по избор) *Windows* - Листът с аргументи от командния ред, с който ще се сравнява. По подразбиране е празен масив.
 
@@ -958,7 +951,7 @@ app.setLoginItemSettings({
 
 Връща `Boolean` - `true` ако разширената достъпност при Chrome е включена, `false` в противен случай. Този API ще върне `true`, ако използването на помощни технологии, като екранни четци, е била открита. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -970,9 +963,9 @@ This API must be called after the `ready` event is emitted.
 
 **Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
@@ -982,22 +975,23 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (по избор) - Името на приложението.
   * `applicationVersion` String (по избор) - Версията на приложението.
   * `copyright` String (по избор) - Информация за правата при копиране и разпространение.
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
 Вижте панелът с опции about. This will override the values defined in the app's `.plist` file on MacOS. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли. On Linux, values must be set in order to be shown; there are no defaults.
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Show the platform's native emoji picker.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
 
@@ -1012,39 +1006,6 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (по избор) - Стойност за дадения превключвател
-
-Добавете превключвател (с `value` по избор) към командния ред на Chromium.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - Аргументът, който ще бъде добавен в командния ред
-
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
-
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - Превключвате от командния ред
-
-Returns `Boolean` - Whether the command-line switch is present.
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - Превключвате от командния ред
-
-Returns `String` - The command-line switch value.
-
-**Note:** When the switch is not present or has no value, it returns empty string.
-
 ### `app.enableSandbox()` *Experimental*
 
 Enables full sandbox mode on the app.
@@ -1055,79 +1016,40 @@ Enables full sandbox mode on the app.
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Object (по избор) 
+  * `conflictHandler` Функция<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило
+**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (по избор) - Може да бъде `critical` или `informational`. По подразбиране е `informational`
+Например:
 
-Когато е изпратено `critical`, иконката на дока ще подскоча докато или приложението не стане активно или заявката не бъде спряна.
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-Когато е изпратено `informational`, иконката на дока ще подскочи една секунда. Обаче, заявката остава активна докато или приложението не стане активно или заявката не бъде спряна.
-
-Връща `Integer` идентификационен номер, който представлява приложението.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-Спира подскачането на `id`.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-Подскача Downloads ако е включен filePath в папката за сваляне.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Поставя низ, който да бъде показан в областта на дока.
-
-### `app.dock.getBadge()` *macOS*
-
-Връща `String` - Низът от дока.
-
-### `app.dock.hide()` *macOS*
-
-Скрива иконката на дока.
-
-### `app.dock.show()` *macOS*
-
-Returns `Promise<void>` - Resolves when the dock icon is shown.
-
-### `app.dock.isVisible()` *macOS*
-
-Returns `Boolean` - Whether the dock icon is visible.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.getMenu()` *macOS*
-
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-Слага `image` асоцииран с тази иконка на дока.
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## Свойства
-
-### `app.applicationMenu`
-
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1139,15 +1061,41 @@ This API must be called after the `ready` event is emitted.
 
 **Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
 
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
+
 ### `app.userAgentFallback`
 
 A `String` which is the user agent string Electron will use as a global fallback.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
-
-### `app.isPackaged`
-
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

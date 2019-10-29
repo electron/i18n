@@ -8,15 +8,15 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `pilihan` Benda 
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini.
-  * `memilih` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap. 
+  * `memilih` Function (optional) - Called when the user taps an item that was not the last tapped item. 
     * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna.
-  * `sorot` Fungsi - disebut ketika pengguna keran item. 
+  * `sorot` Function (optional) - Called when the user taps any item. 
     * `highlightedIndex` Bulat - indeks dari item pengguna menyentuh.
-  * `selectedStyle` String - gaya item yang dipilih. Default ke `null`.
-  * `overlayStyle` String - gaya item dipilih overlay. Default ke `null`.
-  * `showArrowButtons` Aljabar Boolean - default ke `false`.
-  * `modus` String - default untuk `gratis`.
-  * `terus-menerus` Aljabar Boolean - default ke `true`.
+  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
+  * `mode` String (optional) - Defaults to `free`.
+  * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Instance Properties
 

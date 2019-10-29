@@ -20,6 +20,5 @@
 * [Отладка под Windows](debug-instructions-windows.md)
 * [Отладка под macOS](debugging-instructions-macos.md)
 * [Настройка сервера символов в отладчике](setting-up-symbol-server.md)
-* [Обновление Chromium](upgrading-chromium.md)
-* [Обновление Crashpad](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Обновление Node](upgrading-node.md)

@@ -88,9 +88,9 @@ window.open = customWindowOpen
 
 Önceden yüklenen komut dosyasında dikkat edilmesi gereken önemli şeyler:
 
-- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
+- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
 - Önyükleme dosyası ana süreçteki tüm API'lere `remote` ve `ipcRenderer` modüllerinden dolaylı olarak erişebilir.
-- Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
+- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
 
 Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak kullanmak için aşağıdakine benzer bir şey kullanılmalıdır:
 
@@ -121,9 +121,7 @@ More may be added as needed to expose more Electron APIs in the sandbox, but any
 
 Hala deneme aşamasında bir özellik olduğu için, lütfen `sandbox` seçeneğini dikkatli kullanın. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
-- A preload script can accidentally leak privileged APIs to untrusted code.
-- V8 makinesindeki bazı yazılım hataları kötü amaçlı kodların oluşturucu önyükleme API 'lerine erişimlerine izin verebilir, etkili bir şekilde `remote` modülünden sisteme tam erişimi onaylayabilir.
+- A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
+- V8 makinesindeki bazı yazılım hataları kötü amaçlı kodların oluşturucu önyükleme API 'lerine erişimlerine izin verebilir, etkili bir şekilde `remote` modülünden sisteme tam erişimi onaylayabilir. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
 
 Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
-
-Güvenliği büyük ölçüde arttırması planlanan bir geliştirme, ana işlemin işleyiciye gönderilmesine izin verilen bir dizi iletiyi açıkça tanımasına izin vermek üzere, sanal göndericilere ait IPC iletilerini varsayılan olarak engellemektedir.

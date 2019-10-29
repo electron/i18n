@@ -10,7 +10,7 @@ Neues Menü anlegen.
 
 ### Static Methods
 
-Die `Menu`-Klasse hat die folgenden statischen Methoden:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -52,7 +52,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 Das `menu` Objekt hat die folgenden Instanz Methoden:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `options` Objekt (optional) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
@@ -131,10 +131,12 @@ An example of creating the application menu in the main process with the simple 
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },

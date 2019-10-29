@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
 
@@ -105,7 +105,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+per esempio
 
 ```sh
 project/
@@ -151,6 +151,6 @@ Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main 
 
 ## Proprietà
 
-### `remote.process`
+### `remote.process` *Readonly*
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.

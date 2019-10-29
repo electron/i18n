@@ -6,6 +6,8 @@
 
 **こちらも参照: [アプリケーションを更新する](../tutorial/updates.md)**
 
+`autoUpdater` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。
+
 ## プラットフォームに関する注意事項
 
 現在のところ、macOSとWindowsしかサポートされていません。Linuxでは、自動アップデータの組み込みサポートがないので、アプリを更新するためにディストリビューションのパッケージマネージャーを使うことを推奨しています。
@@ -30,7 +32,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 ## イベント
 
-`autoUpdater` オブジェクトでは以下のイベントが発生します。
+`autoUpdater` オブジェクトは以下のイベントを発生させます。
 
 ### イベント: 'error'
 
@@ -38,19 +40,19 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 * `error` Error
 
-更新中にエラーがあるときに発生します。
+更新中にエラーがあるときに出力されます。
 
 ### イベント: 'checking-for-update'
 
-更新処理が開始されたかをチェックするときに発生します。
+更新が始まったかどうかをチェックするときに放出されます。
 
 ### イベント: 'update-available'
 
-利用可能な更新プログラムがあるときに発生します。更新プログラムは自動的にダウンロードされます。
+利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
 
 ### イベント: 'update-not-available'
 
-利用可能な更新プログラムがないときに発生します。
+利用可能な更新がない場合に出力されます。
 
 ### イベント: 'update-downloaded'
 
@@ -82,7 +84,7 @@ Windowsでは `releaseName` のみ利用可能です。
 
 * `options` Object 
   * `url` String
-  * `headers` Object (任意) *macOS* - HTTP リクエストヘッダ。
+  * `headers` Record&lt;String, String&gt; (任意) *macOS* - HTTP リクエストのヘッダ。
   * `serverType` String (任意) *macOS* - `json` または `default` のいずれかの詳細については、[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
 
 `url` を設定して自動更新を初期化します。

@@ -96,7 +96,7 @@ browserWindow.loadURL('https://example.com')
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 目的是在限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也很難真正傷害到使用者。
 
-你可以再針對特定的網址提供額外權限。 例如，如果你開了一個指到 `https://example.com/" 的 BrowserWindow，可以額外指定該網頁需要有的最小權限，千萬不要多給用不到的權限。
+你可以再針對特定的網址提供額外權限。 For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
 
 ### 為什麼?
 

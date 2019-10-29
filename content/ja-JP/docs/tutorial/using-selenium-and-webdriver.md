@@ -129,8 +129,8 @@ const options = {
   port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
-    chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+    'goog:chromeOptions': {
+      binary: '/Path-to-Your-App/electron', // Electron バイナリへのパス.
       args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }

@@ -23,8 +23,9 @@ Para pag set up sa server para tanggapin at iproseso ang mga bagsak na ulat, puw
 
 Or use a 3rd party hosted solution:
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 Ang mga ulat na bumagsak ay naka save sa isang lokal na application-specifc temp direktoryo folder. Para sa `PangalanngProdukto`sa`PangalanMo`, bagsak na ulat ay nakaimbak sa isang folder pangalan `PangalanMo Bagsak` loob ng temp directory. Puwede mong i-customize ang temp directory lokasyon para sa iyong app sa pagtawag ng `app.setPath('temp','/my/custom/temp')` API bago mag start ang mga bagsak na ulat.
 
@@ -37,11 +38,11 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
 * `options` Bagay 
   * `companyName` String
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
-  * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
-  * `uploadToServer`Boolean(optional) - kung ang mga bagsak na ulat ay dapat ma i-sent sa server. Ang default ay `true`.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler`Boolean (optional) - ang default ay `false`.
-  * `extra`Object (optional) - Ang bagay na kaya mong bigyan ng kahulogan ay maisama sa pag submit ng mga report. Ang katangian lang ng string ang maipasa ng wasto. Ang mga bagay na Nested ay hindi suportado at ang pangalan ng ari-arian at ang halaga ay hindi bababa sa 64 na mga character.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Ang katangian lang ng string ang maipasa ng wasto. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashReporter` APIs at bawas proseso (main/renderer) kung saan ka mangolekta ng mga bagsak na ulat. Puwede kang mag pasa ng iba't-ibang opsyon sa `crashReporter.start`kung tumawag sa iba't-ibang proseso.
 

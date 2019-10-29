@@ -14,7 +14,7 @@ Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan m
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang `Notification` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Ito ay lumilikha ng isang bagong `Notification` na may sinaunang mga katangian na itinakda sa pamamagitan ng `options`.
 
@@ -28,7 +28,7 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
 
 ### Ang `new Notification([options])` ay *Experimental*
 
-* `pagpipilian` Bagay 
+* `pagpipilian` Na Bagay (opsyonal) 
   * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat.
@@ -101,6 +101,44 @@ If the notification has been shown before, this method will dismiss the previous
 #### `notification.close()`
 
 Dismisses the notification.
+
+### Mga Katangian ng Instance
+
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
 ### Patugtugin ang mga tunog
 

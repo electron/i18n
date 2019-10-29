@@ -31,6 +31,7 @@
   * [使用 Electron 的 API](tutorial/application-architecture.md#using-electron-apis)
   * [使用Node.js的API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * 为你的应用添加功能 
   * [通知（Notifications）](tutorial/notifications.md)
   * [最近的文件](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@
 
 * [简介](api/synopsis.md)
 * [进程对象](api/process.md)
-* [支持的 Chrome 命令行开关](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [环境变量](api/environment-variables.md)
 * [重大的API更新](api/breaking-changes.md)
 

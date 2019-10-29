@@ -17,13 +17,14 @@ See [`Menu`](menu.md) for examples.
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String (optioneel)
   * `sublabel` String (optioneel)
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (optioneel)
   * `icon` ([NativeImage](native-image.md) | String) (optioneel)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `acceleratorWorksWhenHidden` Boolean (optional) - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`. *macOS*
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -120,7 +121,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item.
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`,
 
 #### `menuItem.accelerator`
 
-A `String` (optional) indicating the item's accelerator, if set.
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -137,6 +138,10 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 #### `menuItem.sublabel`
 
 A `String` indicating the item's sublabel, this property can be dynamically changed.
+
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
 
 #### `menuItem.enabled`
 

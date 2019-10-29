@@ -31,6 +31,7 @@
   * [使用 Electron API](tutorial/application-architecture.md#using-electron-apis)
   * [使用 Node.js API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模組](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * 新增功能進應用程式 
   * [通知](tutorial/notifications.md)
   * [最近的文件](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [簡介](api/synopsis.md)
 * [處理序物件](api/process.md)
-* [支援的 Chrome 命令列參數](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [環境變數](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 

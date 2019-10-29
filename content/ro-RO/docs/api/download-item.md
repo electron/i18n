@@ -2,9 +2,9 @@
 
 > Control file downloads from remote sources.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
 // În procesul principal-main.
@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Instance Methods
+### Metode de Instanță
 
 The `downloadItem` object has the following methods:
 
@@ -74,11 +74,15 @@ The `downloadItem` object has the following methods:
 
 * `path` String - Set the save file path of the download item.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -114,7 +118,7 @@ Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +156,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -165,3 +169,11 @@ Returns `String` - ETag header value.
 #### `downloadItem.getStartTime()`
 
 Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+
+### Propietățile inițiale
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.

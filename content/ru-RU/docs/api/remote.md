@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
 **Примечание:** Модуль remote можно отключить по соображениям безопасности в следующих контекстах:
 
@@ -151,6 +151,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## Свойства
 
-### `remote.process`
+### `remote.process` *Readonly*
 
-Объект `process` в основном процессе. Это то же самое, что и `remote.getGlobal('process')` но кэшируется.
+A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.

@@ -7,8 +7,8 @@ Processus : [Main](../glossary.md#main-process)
 ```javascript
 const { netLog } = require('electron')
 
-app.on('ready', async function () {
-  netLog.startLogging('/path/to/net-log')
+app.on('ready', async () => {
+  await netLog.startLogging('/path/to/net-log')
   // After some network events
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
@@ -21,20 +21,16 @@ Voir [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) pour l
 
 ## Méthodes
 
-### `netLog.startLogging(path)`
+### `netLog.startLogging(path[, options])`
 
 * `path` String - Chemin du fichier où sera enregistré le log.
+* `options` Object (facultatif) 
+  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
+  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+
+Returns `Promise<void>` - resolves when the net log has begun recording.
 
 Commence d'enregistrer les évènements de réseau dans `path` .
-
-### `netLog.stopLogging([callback])`
-
-* `callback` Function (facultatif) 
-  * `path` String - Chemin vers lequel le log a été enregistré.
-
-Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle sera automatiquement arrêtée quand l'application s'arrêtera.
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 ### `netLog.stopLogging()`
 
@@ -44,10 +40,10 @@ Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle
 
 ## Propriétés
 
-### `netLog.currentlyLogging`
+### `netLog.currentlyLogging` *Readonly*
 
 Une propriété `Boolean` qui indique si des logs réseau sont actuellement enregistrés.
 
-### `netLog.currentlyLoggingPath`
+### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
 
 Une propriété `String` qui renvoie le chemin vers le log actuel.

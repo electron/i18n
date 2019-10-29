@@ -2,26 +2,73 @@
 
 Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desaprobación al código JS cuando sea posible, al menos [una versión superior](../tutorial/electron-versioning.md#semver) se publicará, antes de que se realice cualquier cambio.
 
-# Comentarios `FIXME`
+## Comentarios `Arreglar`
 
 El string `FIXME` se usa en las cadenas de código para indicar que cualquier problema debería solucionarse para futuras versiones. Puede ver: https://github.com/electron/electron/search?q=fixme para mas información
 
-# Cambios planeados en la API(7.0)
+## Cambios planeados en la API(7.0)
 
-## `shell.openExternalSync(url[, options])`
+### URL de cabecera de nodo
+
+Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo. Both will be supported for the foreseeable future but it is recommended that you switch.
+
+Cambiar: https://atom.io/download/electron
+
+Reemplazar con: https://electronjs.org/headers
+
+### `session.clearAuthCache(options)`
+
+The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Deprecado
-shell.openExternalSync(url)
-// Reeamplazar con 
-async function openThing (url) {
-  await shell.openExternal(url)
-}
+// Deprecated
+session.clearAuthCache({ type: 'password' })
+// Replace with
+session.clearAuthCache()
 ```
 
-# Cambios planeados en la API(6.0)
+### `powerMonitor.querySystemIdleState`
 
-## `win.setMenu(null)`
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+### `powerMonitor.querySystemIdleTime`
+
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+### webFrame APIs del mundo Aislado
+
+```js
+// Removed in Elecron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
+
+### Removal of deprecated `marked` property on getBlinkMemoryInfo
+
+This property was removed in Chromium 77, and as such is no longer available.
+
+## Cambios planeados en la API(6.0)
+
+### `win.setMenu(null)`
 
 ```js
 // Deprecado
@@ -30,7 +77,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-## `contentTracing.getTraceBufferUsage()`
+### `contentTracing.getTraceBufferUsage()`
 
 ```js
 // Deprecado
@@ -43,7 +90,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-## `electron.screen` en proceso de renderizado
+### `electron.screen` en proceso de renderizado
 
 ```js
 // Deprecado
@@ -52,7 +99,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-## `requiere` en renderizadores sandboxed
+### `requiere` en renderizadores sandboxed
 
 ```js
 // Deprecado
@@ -76,7 +123,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-## `powerMonitor.querySystemIdleState`
+### `powerMonitor.querySystemIdleState`
 
 ```js
 // Deprecado
@@ -85,7 +132,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = getSystemIdleState(threshold)
 ```
 
-## `powerMonitor.querySystemIdleTime`
+### `powerMonitor.querySystemIdleTime`
 
 ```js
 // Deprecado
@@ -94,7 +141,16 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray`
+### `app.enableMixedSandbox`
+
+```js
+// Deprecated
+app.enableMixedSandbox()
+```
+
+Mixed-sandbox mode is now enabled by default.
+
+### `Tray`
 
 Bajo macOS Catalina nuestra implementación Tray se rompe. El sustituto nativo de Apple no soporta cambiar el comportamiento de resaltado.
 
@@ -104,9 +160,9 @@ tray.setHighlightMode(mode)
 // API sera eliminada en V7.0 sin reemplazo.
 ```
 
-# Cambios planeados en la API(5.0)
+## Cambios planeados en la API(5.0)
 
-## `new BrowserWindow({ webPreferences })`
+### `new BrowserWindow({ webPreferences })`
 
 Los siguientes valores por defectos de opción `webPreferences` están obsoletos a favor de los nuevos valores por defectos listados a continuación.
 
@@ -130,11 +186,11 @@ const w = new BrowserWindow({
 
 Las ventanas hijas abiertas con la opción `webPreferences` siempre tienen la integración con Node.js deshabilitada, a menos que `nodeIntegrationInSubFrames` se true.
 
-## Registro de Esquema Privilegiados
+### Registro de Esquema Privilegiados
 
 Las APIs de Renderer Process `webFrame.setRegisterURLSchemeAsPrivileged` y `webFrame.registerURLSchemeAsBypassingCSP` tal como la API del proceso de navegador `protocol.registerStandardSchemes` han sido eliminados. Una nueva API, `protocol.registerSchemesAsPrivileged` ha sido agregada y debe ser usada para registrar esquemas personalizados con los privilegios requeridos. Se requieren esquemas personalizados para ser registrados antes de que la aplicación esté lista.
 
-## webFrame APIs del mundo Aislado
+### webFrame APIs del mundo Aislado
 
 ```js
 // Deprecated
@@ -151,11 +207,30 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# Cambios planeados en la API(4.0)
+## `webFrame.setSpellCheckProvider`
+
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
+```js
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
+  spellCheck: (text) => {
+    return !spellchecker.isMisspelled(text)
+  }
+})
+// Replace with
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
+  }
+})
+```
+
+## Cambios planeados en la API(4.0)
 
 La siguiente lista incluye cambios efectuados en la API 4.0 de Electrón.
 
-## `app.makeSingleInstance`
+### `app.makeSingleInstance`
 
 ```js
 // Deprecated
@@ -169,7 +244,7 @@ app.on('second-instance', (event, argv, cwd) => {
 })
 ```
 
-## `app.releaseSingleInstance`
+### `app.releaseSingleInstance`
 
 ```js
 // Obsoleto
@@ -178,7 +253,7 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-## `app.getGPUInfo`
+### `app.getGPUInfo`
 
 ```js
 app.getGPUInfo('completo')
@@ -186,15 +261,15 @@ app.getGPUInfo('completo')
 app.getGPUInfo('básico')
 ```
 
-## `win_delay_load_hook`
+### `win_delay_load_hook`
 
 Cuando se construye módulos nativos para windows, la variable `win_delay_load_hook` del módulo `binding.gyp` debe ser true (el cual es por defecto). Si este hook no esta presente, luego el módulo nativo va a fallar al cargar en Windows, con un mensaje de error como `Cannot find module`. Consulte la [guía de módulo nativo](/docs/tutorial/using-native-node-modules.md) para más infromación.
 
-# Cambios en la API(3.0)
+## Cambios en la API(3.0)
 
 La siguiente lista incluye cambios efectuados en la API 3.0 de Electrón.
 
-## `app`
+### `app`
 
 ```js
 // Obsoleto
@@ -207,7 +282,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Propiedad Obsoleta
 ```
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // Obsoleto
@@ -231,7 +306,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+### `clipboard`
 
 ```js
 // Cambiar
@@ -255,7 +330,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+### `crashReporter`
 
 ```js
 // Cambiar
@@ -272,7 +347,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // Obsoleto
@@ -283,14 +358,14 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+### `process`
 
 ```js
 // Obsoleto
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen`
+### `screen`
 
 ```js
 // Obsoleto
@@ -299,7 +374,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+### `session`
 
 ```js
 // Deprecado
@@ -312,7 +387,7 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-## `Tray`
+### `Tray`
 
 ```js
 // Cambiar
@@ -326,7 +401,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+### `webContents`
 
 ```js
 // Obsoleto
@@ -339,7 +414,7 @@ webContents.setSize(options)
 // No hay reemplazo para esto en la API
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // Obsoleto
@@ -353,7 +428,7 @@ webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // Eliminado
@@ -369,7 +444,7 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## URL de cabecera de nodo
+### URL de cabecera de nodo
 
 Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.
 
@@ -377,11 +452,11 @@ Cambiar: https://atom.io/download/atom-shell
 
 Reemplazar con: https://atom.io/download/electron
 
-# Cambios en la API(2.0)
+## Cambios en la API(2.0)
 
 La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // Cambiar
@@ -392,7 +467,7 @@ let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+### `menu`
 
 ```js
 // Obsoleto
@@ -401,7 +476,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // Obsoleto
@@ -415,11 +490,11 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process`
+### `process`
 
 * `Versión de procesos de Electron` y `Versión de procesos de Chrome` Serán propiedades de solo lectura para la consistencia con otras propiedades de `process.versions` configuradas por Node.
 
-## `webContents`
+### `webContents`
 
 ```js
 // Obsoleto
@@ -428,7 +503,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // Obsoleto
@@ -437,7 +512,7 @@ webFrame.setZoomLevelLimits(1, 2)
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // Obsoleto
@@ -446,10 +521,10 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicado de brazo ARM
+### Duplicado de brazo ARM
 
 Cada versión de Electrón incluye dos versiones de ARM idénticas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. Se agregó el archivo con el prefijo `v7l` para aclarar a los usuarios qué versión de ARM soporta y desambiguar los futuros archivos de armv6l y arm64 que pueden ser producidos.
 
-El archivo *sin el prefijo* todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. A partir de la versión 2.0, el archivo sin prefijo ya no se estara publicando.
+El archivo *sin el prefijo* todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. Starting at 2.0, the unprefixed file will no longer be published.
 
 Para más detalles, vea: [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).

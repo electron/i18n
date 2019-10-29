@@ -27,7 +27,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 Pagbabalik:
 
-* `launchInfo` Mga bagay *MacOS*
+* `launchInfo` unknown *macOS*
 
 Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, hawak ng `launchinfo` ang `userinfo` ng `NSUserNotification` na ginamit para buksan ang aplikasyon, kung ito ay ini-launch mula sa Notification Center. Maaari mong tawagin ang `app.isReady()` para suriin kung ang event ay nagsimula na.
 
@@ -92,7 +92,7 @@ Ibinabalik ang:
 * `kaganapan` Kaganapan
 * `url` Tali
 
-Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong aplikasyon ay dapat tukuyin ang url scheme sa loob ng key ng `CFBundleURLTypes`, at i-set ang `NSPrincipalClass` sa `AtomApplication`.
+Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
@@ -111,7 +111,7 @@ Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Naglalaman ng espesipikong estado ng app na itinago sa pamamagitan ng aktibidad sa ibang aparato.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Lalabas sa panahon ng [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kapag ang isang aktibidad mula sa ibang aparato ay nais na maipagpatuloy. Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
@@ -142,7 +142,7 @@ Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)pagkatapos ang aktibidad galing sa ibang matagumpay na naibalik ang isa pa.
 
@@ -152,7 +152,7 @@ Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
@@ -285,6 +285,10 @@ app.on('login', (mga event, mga webContents, mga kahilingan, mga authInfo, mga m
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Event: 'gpu-process-crashed'
 
 Ibinabalik ang:
@@ -292,7 +296,7 @@ Ibinabalik ang:
 * `kaganapan` Kaganapan
 * `killed` Ang Boolean
 
-Lalabas kapag ang proseso na gpu ay nasira o pinatay.
+Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ Itinatago ang lahat ng mga window ng aplikasyon nang hindi ito pinapaliit.
 
 Ipinapakita ang mga window ng aplikasyon pagkatapos na sila ay itago. Ay hindi kusang tumutok sa kanila.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - You can request the following paths by the name: 
+  * `home` Ang bahay direktoryo ng gumagamit.
+  * `appData` Aplikasyon ng direktoryo ng datos ng bawat gumagamit, kung saan sa pamamagitan ng default ay tumuturo sa: 
+    * `%APPDATA%` sa Windows
+    * `$XDG_CONFIG_HOME` o `~/.config` sa Linux
+    * `~/Library/Application Support` sa macOS
+  * `userData` Ang direktoryo para sa pag-iimbak ng mga configuration file ng iyong app, kung saan sa pamamagitan ng default ito ay ang `appData` direktoryong nakadugtong sa pangalan ng iyong app.
+  * `cache`
+  * `temp` Pansamantalang direktoryo.
+  * `exe` Ang kasalukuyang maipapatupad na file.
+  * `module` Ang `libchromiumcontent` library.
+  * `desktop` Ang kasalukuyang direktoryo ng Desktop ng gumagamit.
+  * `documents` Direktoryo ng "My Documents" para sa gumagamit.
+  * `downloads` Direktoryo ng download para sa gumagamit.
+  * `music` Direktoryo ng musika para sa gumagamit.
+  * `pictures` Direktoryo ng mga larawan para sa gumagamit.
+  * `videos` Direktoryo ng mga video para sa gumagamit.
+  * `logs` Directory for your app's log folder.
+  * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
-
-* `home` Ang bahay direktoryo ng gumagamit.
-* `appData` Aplikasyon ng direktoryo ng datos ng bawat gumagamit, kung saan sa pamamagitan ng default ay tumuturo sa: 
-  * `%APPDATA%` sa Windows
-  * `$XDG_CONFIG_HOME` o `~/.config` sa Linux
-  * `~/Library/Application Support` sa macOS
-* `userData` Ang direktoryo para sa pag-iimbak ng mga configuration file ng iyong app, kung saan sa pamamagitan ng default ito ay ang `appData` direktoryong nakadugtong sa pangalan ng iyong app.
-* `temp` Pansamantalang direktoryo.
-* `exe` Ang kasalukuyang maipapatupad na file.
-* `module` Ang `libchromiumcontent` library.
-* `desktop` Ang kasalukuyang direktoryo ng Desktop ng gumagamit.
-* `documents` Direktoryo ng "My Documents" para sa gumagamit.
-* `downloads` Direktoryo ng download para sa gumagamit.
-* `music` Direktoryo ng musika para sa gumagamit.
-* `pictures` Direktoryo ng mga larawan para sa gumagamit.
-* `videos` Direktoryo ng mga video para sa gumagamit.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Na Bagay (opsyonal) 
-  * `sukat` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Function 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-Kukunin ang kaugnay na icon ng isang landas.
-
-On *Windows*, there are 2 kinds of icons:
-
-* Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, atbp.
-* Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
-
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
-
-**[Deprecated Soon](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -575,13 +556,17 @@ Magbabalik ng `String` - Ang bersyon ng na-load na aplikasyon. Kung walang bersy
 
 Magbabalik ng `String` - Ang pangalan ng kasalukuyang aplikasyon, kung saan ito ang pangalan ng `package.json` file ng aplikasyon.
 
-Karaniwang ang `name` field ng `package.json`ay isang maikling naka-lowercase na pangalan, ayon sa mga npm module spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setName(pangalan)`
 
 * `name` String
 
 Ino-override ang pangalan ng kasalukuyang aplikasyon.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Note:** When unable to detect locale country code, it returns empty string.
 
@@ -657,7 +642,7 @@ Ang API ay ginagamit ang Windows Registry at LSCopyDefaultHandlerForURLScheme sa
 
 * `tasks` [Task[]](structures/task.md) - Hanay ng `Task` na mga bagay
 
-Idinadagdag ng `tasks` sa mga [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) na kategorya ng JumpList sa Windows.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks` ay isang hanay ng [`Task`](structures/task.md) na mga bagay.
 
@@ -670,11 +655,11 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 Nagbabalik ng mga `bagay`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang hanay ng mga bagay sa `JumpListItem` na tumutugma sa mga item na tahasang tinanggal ng gumagamit galing sa ipinasadyang mga kategorya ng Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) o `null` - Ang hanay ng mga bagay sa `JumpListCategory`.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ibinabalik ang isa sa mga sumusunod na string:
 
@@ -798,7 +783,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
+* `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (opsyonal) - ay ang webpage sa isang browser na ilo-load kung walang angkop na app ang naka-install sa aparatong nagpasimulang muli. Ang dapat na pamamaraan ay `http` o `https`.
 
 Ay lumilikha ng isang `NSUserActivity` at ito ang nagtatakda bilang kasalukuyang aktibidad. Ang aktibidad ay karapat-dapat para sa [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sa iba pang aparato pagkatapos nito.
@@ -809,14 +794,16 @@ Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
 
 ### `app.invalidateCurrentActivity()` *macOS* 
 
-* `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.resignCurrentActivity()` *macOS* 
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
+* `userInfo` any - App-specific state to store for use by another device.
 
 Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama ang mga entry mula sa `userInfo` sa kasalukuyan nitong diksyonaryo ng `userInfo`.
 
@@ -826,7 +813,7 @@ Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama an
 
 Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
@@ -850,17 +837,19 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `ang app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `ang app.getGPUFeatureStatus()`
 
 Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga Tampok na Katayuan ng mga Grapiko mula sa `chrome://gpu/`.
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - Can be `basic` or `complete`.
 
-Returns `Promise`
+Returns `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -903,9 +892,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabilang ng badge.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -913,7 +906,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
@@ -960,7 +953,7 @@ Context | Request Context
 
 Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -972,34 +965,35 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
-* `options` Bagay 
+* `opsyon` Bagay 
   * `applicationName` String (opsyonal) - Ang pangalan ng app.
   * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
   * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
 I-set ang mga pagpipilian tungkol sa panel. This will override the values defined in the app's `.plist` file on MacOS. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye. On Linux, values must be set in order to be shown; there are no defaults.
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Show the platform's native emoji picker.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
 
@@ -1014,39 +1008,6 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
-
-Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.appendArgument(halaga)`
-
-* `value` String - Ang argumento ay ilakip sa linya ng command
-
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
-
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - Ang swits ng command-line
-
-Returns `Boolean` - Whether the command-line switch is present.
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - Ang swits ng command-line
-
-Returns `String` - The command-line switch value.
-
-**Note:** When the switch is not present or has no value, it returns empty string.
-
 ### `app.enableSandbox()` *Experimental*
 
 Enables full sandbox mode on the app.
@@ -1057,79 +1018,40 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS* 
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Na Bagay (opsyonal) 
+  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (opsyonal) - ay maaaring `critical` o `informational`. Ang default ay `informational`
+Halimbawa:
 
-Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
-
-Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-Kanselahin ang pagtalon ng `id`.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Ise-set ang string upang maipakita sa badging area ng dock.
-
-### `app.dock.getBadge()` *macOS*
-
-Nagbabalik ang `String` - Ang string ng badge ng dock.
-
-### `app.dock.hide()` *macOS*
-
-Itinatago ang icon ng dock.
-
-### `app.dock.show()` *macOS*
-
-Returns `Promise<void>` - Resolves when the dock icon is shown.
-
-### `app.dock.isVisible()` *macOS*
-
-Returns `Boolean` - Whether the dock icon is visible.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.getMenu()` *macOS* 
-
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` [NativeImage](native-image.md) (String)
-
-I-set ang `image` na may kaugnayan sa dock icon na ito.
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## Mga Katangian
-
-### `app.applicationMenu`
-
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1141,15 +1063,41 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
+
 ### `app.userAgentFallback`
 
 A `String` which is the user agent string Electron will use as a global fallback.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
-
-### `app.isPackaged`
-
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

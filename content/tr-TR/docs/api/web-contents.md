@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`webContents` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 'dır. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`BrowserWindow`](browser-window.md) nesnesinin bir öğesidir. `webContents` nesnesine erişmenin bir örneği:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`BrowserWindow`](browser-window.md) nesnesinin bir öğesidir. `webContents` nesnesine erişmenin bir örneği:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,11 +63,25 @@ Dönüşler:
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Bu etkinlik, `did-finish-load` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `window.stop()` çağrılır. Hata kodlarının tam listesi ve anlamları [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
+This event is like `did-finish-load` but emitted when the load failed. Hata kodlarının tam listesi ve anlamları [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
+
+#### Event: 'did-fail-provisional-load'
+
+Dönüşler:
+
+* `event` Event
+* `errorCode` Tamsayı
+* `errorDescription` Koşul
+* `validatedURL` Koşul
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
 
 #### Olay: 'did-frame-finish-load'
 
-Dönüşler:
+Returns:
 
 * `event` Event
 * `isMainFrame` Boolean
@@ -97,7 +111,7 @@ Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 Dönüşler:
 
 * `event` Event
-* `başlık` Dizi
+* `title` String
 * `explicitSet` Boolean
 
 Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
@@ -115,11 +129,11 @@ Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
-* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` Dize[] - `window.open()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
 * `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
@@ -148,7 +162,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `url` Dize
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
@@ -191,7 +205,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Dönüşler:
+Dönütler:
 
 * `event` Event
 * `url` Dize
@@ -208,7 +222,7 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 Dönüşler:
 
-* `event` Event
+* `event` Etkinlik
 * `url` Dize
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
@@ -221,7 +235,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 Dönüşler:
 
-* `event` Etkinlik
+* `event` Olay
 * `url` Dize
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
@@ -280,7 +294,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `killed` Boolean
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
@@ -311,7 +325,7 @@ Bir eklenti işlemi çöktüğünde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `giriş` Nesne - Giriş özellikleri. 
   * `type` Dize - `keyUp` veya `keyDown`.
   * `key` Dize - Eşittir [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -346,6 +360,15 @@ Pencere, HTML API'sı tarafından tetiklenen bir tam ekran haline girdiğinde d�
 
 Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldığında dışarı çıkar.
 
+#### Event: 'zoom-changed'
+
+Dönüşler:
+
+* `event` Olay
+* `zoomDirection` String - Can be `in` or `out`.
+
+Emitted when the user is requesting to change the zoom level using the mouse wheel.
+
 #### Olay: devtools açıldı
 
 DevTools açıldığında yayınla.
@@ -362,7 +385,7 @@ DevTools odaklandığında / açıldığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `url` Dize
 * `error` Dizi - Hata Kodu.
 * `certificate` [sertifika](structures/certificate.md)
@@ -419,7 +442,7 @@ Dönüşler:
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
-  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
+  * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
 [`webContents.findInPage`] isteği için sonuç kullanılabilir olduğunda yayılıyor.
@@ -434,22 +457,22 @@ Medya duraklatıldığında veya oynatıldığında yaydır.
 
 #### Olay: tema rengi değiştirildi
 
+Dönüşler:
+
+* `event` Event
+* `color` (String | null) - Tema rengi '#rrggbb' biçiminde. Tema rengi ayarlanmadığında `null`'dir.
+
 Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşılaşılanlardan kaynaklanmaktadır bir meta etiketi:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-Dönüşler:
-
-* `event` Event
-* `color` (String | null) - Tema rengi '#rrggbb' biçiminde. Tema rengi ayarlanmadığında `null`'dir.
-
 #### Etkinlik: 'update-target-url'
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `url` Dize
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
@@ -473,7 +496,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `paramlar` Nesne 
   * `x` tamsayı - x koordinatı.
   * `y` tamsayı - y koordinatı.
@@ -515,7 +538,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `geri aramak` Function 
   * `deviceId` String
@@ -573,8 +596,8 @@ Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 Dönüşler:
 
 * `event` Olay
-* `webPreferences` Nesne - Konuk sayfanın kullanacağı web tercihleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
-* `params` Nesne - `src` URL gibi diğer `<webview>` parametreleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
+* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 `<webview>`'in web içerikleri bu web içeriklerine eklendiğinde gönderilir. `event.preventDefault()` çağırmak konuk sayfayı yok edecektir.
 
@@ -645,7 +668,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Dönüşler:
 
-* `event` Olay
+* `event` IpcMainEvent
 * `moduleName` String
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -654,7 +677,7 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 Dönüşler:
 
-* `event` Olay
+* `event` IpcMainEvent
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -663,7 +686,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 Dönüşler:
 
-* `event` Olay
+* `event` IpcMainEvent
 * `moduleName` String
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -672,7 +695,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 Dönüşler:
 
-* `event` Olay
+* `event` IpcMainEvent
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
@@ -680,7 +703,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 Dönüşler:
 
-* `event` Olay
+* `event` IpcMainEvent
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
@@ -688,7 +711,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 Dönüşler:
 
-* `event` Olay
+* `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -705,7 +728,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
 
 `url`'yi pencereye yükler. `url` bir protokol önadı içermek zorundadır, Örneğin `http://` veya `file://`. Eğer yüklemenin http önbelleğini atlaması gerekiyorsa, atlatmak için `pragma` başlığını kullanın.
 
@@ -718,8 +741,8 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` Dizi
-* `opsiyonlar` Obje (opsiyonel) 
-  * `query` Object (optional) - Passed to `url.format()`.
+* `seçenekler` Obje (opsiyonel) 
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
@@ -848,15 +871,23 @@ Tarayıcıyı belirtilmiş salt web sayfası dizinine (indeksine) yönlendirir.
 
 Bu sayfa için olan kullanıcı aracını geçersiz kılar.
 
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
 #### `contents.getUserAgent()`
 
 `String` olarak dönüt verir - Bu web sayfası için olan kullanıcı aracı.
 
-#### `contents.insertCSS(css)`
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
+#### `contents.insertCSS(css[, options])`
 
 * `css` Dizgi
+* `seçenekler` Obje (opsiyonel) 
+  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
 
-Yürürlükteki web sayfasına CSS ekler.
+Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
 
 ```js
 contents.on('did-finish-load', function () {
@@ -864,27 +895,20 @@ contents.on('did-finish-load', function () {
 })
 ```
 
-#### `contents.executeJavaScript(code[, userGesture, callback])`
+#### `contents.removeInsertedCSS(key)`
 
-* `code` Dizgi
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
-  * `result` Any
+* `key` String
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise<void>` - Resolves if the removal was successful.
 
-Sayfadaki `code`'u ölçer.
-
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
 
 ```js
-contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
-  .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
-  })
+contents.on('did-finish-load', async function () {
+  const key = await contents.insertCSS('html, body { background-color: #f00; }')
+  contents.removeInsertedCSS(key)
+})
 ```
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
@@ -896,6 +920,8 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 Sayfadaki `code`'u ölçer.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+
+Code execution will be suspended until web page stop loading.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -916,9 +942,13 @@ Bu web içeriklerine odaklanılmışken uygulama menüsü kısayolları görmezd
 
 Yürürlükteki web sayfasında bulunan sesi kapatır.
 
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
 #### `contents.isAudioMuted()`
 
 `Boolean` olarak dönüt verir - Sayfanın sesinin kapatılıp kapatılmadığı.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 #### `contents.isCurrentlyAudible()`
 
@@ -930,9 +960,13 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
 #### `contents.getZoomFactor()`
 
 Returns `Number` - the current zoom factor.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 #### `contents.setZoomLevel(level)`
 
@@ -940,14 +974,20 @@ Returns `Number` - the current zoom factor.
 
 Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder. The formula for this is `scale := 1.2 ^ level`.
 
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
 #### `contents.getZoomLevel()`
 
 Returns `Number` - the current zoom level.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
+
+Returns `Promise<void>`
 
 Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
@@ -961,6 +1001,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 
 * `minimumLevel` Number
 * `maximumLevel` Number
+
+Returns `Promise<void>`
 
 Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
@@ -1023,6 +1065,8 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 * `text` String
 
+Returns `Promise<void>`
+
 Odaklanmış öğeye `metin` ekler.
 
 #### `contents.findInPage(text[, options])`
@@ -1058,16 +1102,6 @@ const requestId = webContents.findInPage('api')
 console.log(requestId)
 ```
 
-#### `contents.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
-* `geri aramak` Function 
-  * `image` [NativeImage](native-image.md)
-
-`rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `contents.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
@@ -1086,34 +1120,41 @@ Sistemdeki yazıcıların listesini alır.
 
 * `seçenekler` Obje (opsiyonel) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
-  * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
+  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
   * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
+  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `margins` Obje (opsiyonel) 
+    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
+    * `top` Number (optional) - The top margin of the printed web page, in pixels.
+    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
+    * `left` Number (optional) - The left margin of the printed web page, in pixels.
+    * `right` Number (optional) - The right margin of the printed web page, in pixels.
+  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
+  * `scaleFactor` Number (optional) - The scale factor of the web page.
+  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
+  * `collate` Boolean (optional) - Whether the web page should be collated.
+  * `copies` Number (optional) - The number of copies of the web page to print.
+  * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
+  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+  * `dpi` Obje (opsiyonel) 
+    * `horizontal` Number (optional) - The horizontal dpi.
+    * `vertical` Number (optional) - The vertical dpi.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
   * `success` Boolean - Indicates success of the print call.
+  * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
 
-Penceredeki web sayfasını yazdırır. `silent`, `true` olarak ayarlandığında Electron, eğer `deviceName` boş bırakıldıysa, sistemin varsayılan yazıcısını ve varsayılan yazdırma ayarlarını seçecektir.
-
-Web sayfasında `window.print()`'i çağırmak, `webContents.print({ silent: false, printBackground: false, deviceName: '' })`'i çağırmaya denktir.
+Penceredeki web sayfasını yazdırır. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
 Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
-#### `contents.printToPDF(options, callback)`
+Example usage:
 
-* `seçenekler` Nesne 
-  * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
-  * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-  * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `geri aramak` Function 
-  * `error` Error
-  * `data` Buffer
-
-Penceredeki web sayfasını Chromiumun özel yazdırma ayarları önizlemesiyle PDF olarak yazdırır.
-
-İşlem tamamlandığında `callback`, `callback(error, data)` ile birlikte çağrılacaktır. `data` oluşturulan PDF'in verisini içeren bir `Buffer`'dır.
-
-**[Deprecated Soon](modernization/promisification.md)**
+```js
+const options = { silent: true, deviceName: 'My-Printer' }
+win.webContents.print(options, (success, errorType) => {
+  if (!success) console.log(errorType)
+})
+```
 
 #### `contents.printToPDF(options)`
 
@@ -1282,7 +1323,7 @@ Opens the developer tools for the shared worker context.
 
 Servis işçisisi bağlamı için geliştirici araçları açar.
 
-#### `contents.send(channel[, arg1][, arg2][, ...])`
+#### `contents.send(channel, ...args)`
 
 * `channel` Dizesi
 * `...args` herhangi[]
@@ -1320,7 +1361,7 @@ app.on('ready', () => {
 </html>
 ```
 
-#### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+#### `contents.sendToFrame(frameId, channel, ...args)`
 
 * `frameId` Integer
 * `channel` Dizesi
@@ -1364,39 +1405,11 @@ Verilen parametrelerle aygıt emülasyonuna izin verir.
 
 `webContents.enableDeviceEmulation` tarafından izin verilen araç taklitini devredışı bırakır.
 
-#### `contents.sendInputEvent(event)`
+#### `contents.sendInputEvent(inputEvent)`
 
-* `event` Nesne 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
-  * `modifiers` String[] - Bir olay düzenleyici dizisi şunları içerebilir `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+* `inputEvent` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
 `event` girdisini sayfaya yollar. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
-
-Klavye olayları için `event` nesnesi aşağıdaki özellikleri de alacaktır:
-
-* `keyCode` Dizgi (**gerekli**) - Klavye olayı olarak gönderilecek karakter. Sadece [Accelerator](accelerator.md)'daki geçerli anahtar kodları kullanılmalıdır.
-
-Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
-
-* `x` Tamsayı (**gerekli**)
-* `y` Tamsayı (**gerekli**)
-* `button` Dizgi - Basılan düğme, `left`, `middle` veya `right` olabilir.
-* `globalX` Tamsayı
-* `globalY` Tam sayı
-* `movementX` Tamsayı
-* `movementY` Tamsayı
-* `clickCount` Tamsayı
-
-`mouseWheel` olayı için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
-
-* `deltaX` Tamsayı
-* `deltaY` Tamsayı
-* `wheelTicksX` Tamsayı
-* `whellTicksY` Tamsayı
-* `accelerationRatioX` Tamsayı
-* `accelerationRatioY` Tamsayı
-* `hasPreciseScrollingDeltas` Boolean
-* `canScroll` Boolean
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
@@ -1418,7 +1431,7 @@ End subscribing for frame presentation events.
 #### `contents.startDrag(item)`
 
 * `öğe` Nesne 
-  * `file` String or `files` Array - The path(s) to the file(s) being dragged.
+  * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
 Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olarak ayarlar; `file` dosyanın sürükleneceği değişmez dosya yoludur ve `icon` sürükleme sırasında imlecin altında gösterilecek olan görüntüdür.
@@ -1474,9 +1487,13 @@ Eğer *offscreen rendering* etkinleştirildiyse ve boyama yapılıyorsa, boyamay
 
 Eğer *offscreen rendering* etkinleştirildiyse kare hızını belirli bir sayıya ayarlar. Yalnızca 1 ve 60 arasındaki değerler kabul edilir.
 
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+
 #### `contents.getFrameRate()`
 
 `Integer` döner - Eğer *offscreen rendering* etkinleştirildiyse şu anki kare hızını döner.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 #### `contents.invalidate()`
 
@@ -1526,24 +1543,50 @@ Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`
 
 ### Örnek Özellikleri
 
-#### `contents.id`
+#### `contents.audioMuted`
+
+A `Boolean` property that determines whether this page is muted.
+
+#### `contents.userAgent`
+
+A `String` property that determines the user agent for this web page.
+
+#### `contents.zoomLevel`
+
+A `Number` property that determines the zoom level for this web contents.
+
+The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+
+#### `contents.zoomFactor`
+
+A `Number` property that determines the zoom factor for this web contents.
+
+The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+
+#### `contents.frameRate`
+
+An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+
+Only applicable if *offscreen rendering* is enabled.
+
+#### `contents.id` *Readonly*
 
 Bu WebContents'in benzersiz kimliğini gösteren `Integer`.
 
-#### `contents.session`
+#### `contents.session` *Readonly*
 
 WebContents tarafından kullanılan bir [`Integer`](session.md).
 
-#### `contents.hostWebContents`
+#### `contents.hostWebContents` *Readonly*
 
 Bir [`WebContents`](web-contents.md) örneği `WebContents`'e sahip olabilir.
 
-#### `contents.devToolsWebContents`
+#### `contents.devToolsWebContents` *Readonly*
 
 A `WebContents` of DevTools for this `WebContents`.
 
 **Not:** Kullanıcılar asla bu nesneyi depolamamalıdırlar çünkü DevTools kapandığında nesne `null`'a dönebilir.
 
-#### `contents.debugger`
+#### `contents.debugger` *Readonly*
 
-Bu web içerikleri için bir [Hata ayıklayıcı](debugger.md) örneği.
+A [`Debugger`](debugger.md) instance for this webContents.

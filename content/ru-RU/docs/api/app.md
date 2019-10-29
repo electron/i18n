@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 Возвращает:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` unknown *macOS*
 
 Происходит при завершении инициализации Electron. На macOS `launchInfo` содержит `userInfo` из `NSUserNotification`, которое было использовано для открытия приложения, если оно было запущено из центра уведомлений. Вы можете вызвать `app.isReady()` для того, чтобы проверить, произошло ли данное событие.
 
@@ -92,7 +92,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `url` String
 
-Происходит, когда пользователь хочет открыть URL-адрес из приложения. Файл Вашего приложения `Info.plist` должен определять URL-схему в ключе `CFBundleURLTypes` и устанавливать `NSPrincipalClass` в значение `AtomApplication`.
+Происходит, когда пользователь хочет открыть URL-адрес из приложения. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
@@ -111,7 +111,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфическое для приложения состояние, сохраненное на другом устройстве.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
 
@@ -142,7 +142,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), после удачного возобновления на другом устройстве.
 
@@ -152,7 +152,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное, для приложения, состояние, сохраняющееся в хранилище по активности.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Событие: 'gpu-process-crashed'
 
 Возвращает:
@@ -292,7 +296,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Происходит, когда gpu процесс аварийно завершает работу или является убитым.
+Emitted when the GPU process crashes or is killed.
 
 ### Событие: 'renderer-process-crashed'
 
@@ -311,7 +315,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true`, когда поддержка доступности Chrome включена, иначе `false`.
 
-Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ### Событие: 'session-created'
 
@@ -319,7 +323,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `session` [Session](session.md)
 
-Происходит, когда Electron создал новый объект `session`.
+Происходит после создания новой сессии `session`.
 
 ```javascript
 const { app } = require('electron')
@@ -339,7 +343,7 @@ app.on('session-created', (event, session) => {
 
 Это событие произойдет внутри главного экземпляра Вашего приложения, когда второй экземпляр был запущен и вызывает `app.requestSingleInstanceLock()`.
 
-`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущий рабочий каталог. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+`argv` это массив аргументов командной строки второго экземпляра, а `workingDirectory` это текущая рабочая директория. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 Это событие гарантировано происходит после события `ready` в `app`.
 
@@ -362,7 +366,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит, когда функция `remote.require()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-global'
 
@@ -372,7 +376,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
@@ -382,7 +386,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит, когда функция `remote.getBuiltin()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-window'
 
@@ -391,7 +395,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит, когда функция `remote.getCurrentWindow()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
@@ -400,7 +404,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит, когда функция `remote.getCurrentWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getCurrentWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
@@ -410,7 +414,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Происходит, когда функция `<webview>.getWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ## Методы
 
@@ -420,15 +424,15 @@ app.on('session-created', (event, session) => {
 
 ### `app.quit()`
 
-Попытка закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
+Попробуйте закрыть все окна. Сначала возникнет событие `before-quit`. Если все окна успешно закрыты, событие `will-quit` возникнет и по умолчанию приложение будет завершено.
 
-Этот метод гарантирует, что все обработчики событий `beforeunload` и `unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
+Этот метод гарантирует, что все обработчики событий `beforeunload` и ` unload` выполнятся корректно. Вполне возможно, что окно отменит выход, возвращая `false` в обработчике событий `beforeunload`.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (опционально)
 
-Немедленно выходит с `exitCode`. `exitCode` по умолчанию 0.
+Выйти немедленно с `exitCode`. `exitCode` по умолчанию 0.
 
 Все окна будут закрыты немедленно, без разрешения пользователя, а также события `before-quit` и `will-quit` не будут происходить.
 
@@ -438,15 +442,15 @@ app.on('session-created', (event, session) => {
   * `args` String[] (опционально)
   * `execPath` String (опиционально)
 
-Перезапускает приложение, когда существует текущий экземпляр.
+Перезапуск приложения когда существует текущий экземпляр.
 
-По умолчанию, новый экземпляр будет использовать ту же самую рабочий каталог и аргументы командной строки, что и текущий экземпляр. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска, вместо текущего приложения.
+По умолчанию, новый экземпляр будет использовать ту же самую рабочую директорию и аргументы командной строки, что и текущий экземпляр. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
 
-Обратите внимание, что этот метод не завершает приложение при выполнении, Вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch`, чтобы перезапустить приложение.
+Обратите внимание, что этот метод не завершает приложение при выполнении, вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch` чтобы перезапустить приложение.
 
-Когда `app.relaunch` вызывается несколько раз, несколько экземпляров будет запущено, после выхода из текущего экземпляра.
+Когда `app.relaunch` вызывается несколько раз, несколько экземпляров будет запущено после выхода из текущего экземпляра.
 
-Пример немедленного перезапуска текущего экземпляра и добавления нового аргумента командной строки в новый экземпляр:
+Пример перезапуска немедленно текущего экземпляра и добавив новый аргумент командной строки в новый экземпляр:
 
 ```javascript
 const { app } = require('electron')
@@ -457,15 +461,15 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Возвращает `Boolean` - `true`, если Electron завершил инициализацию, иначе `false`.
+Возвращает `Boolean` - `true,` если Electron завершил инициализацию, `false` в противном случае.
 
 ### `app.whenReady()`
 
-Возвращает `Promise<void>` - выполняется, когда Electron инициализирован. Может быть использован в качестве удобной альтернативы проверки `app.isReady()` и подписывания на событие `ready`, если приложение еще не готово.
+Возвращает `Promise<void>` - выполняется при инициализации Electron. Может быть использован в качестве удобной альтернативы проверки `app.isReady()` и подписывания на событие `ready`, если приложение еще не готово.
 
 ### `app.focus()`
 
-На Linux перемещает фокус на первое видимое окно. На macOS делает приложение активным. На Windows перемещает фокус на первое окно приложения.
+На Linux перемещает фокус на первое видимое окно. В macOS делает приложение активным. На Windows перемещает фокус на первое окно приложения.
 
 ### `app.hide()` *macOS*
 
@@ -475,66 +479,43 @@ app.exit(0)
 
 Показывает окна приложения, после того как они были скрыты. Фокус не будет перемещён автоматически.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (опционально) - пользовательский путь для Ваших логов. Должен быть абсолютным.
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
-Вызывая `app.setAppLogsPath()` без параметра `path` приведет к тому, что эта директория будет установлена на `/Library/Logs/YourAppName` на *macOS*, и внутри директории `userData` на *Linux* и *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
-Возвращает `String` - текущий каталог приложения.
+Возвращает `String` - текущего каталога приложения.
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - You can request the following paths by the name: 
+  * `home` домашний каталог пользователя.
+  * `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на: 
+    * `%APPDATA%` на Windows
+    * `$XDG_CONFIG_HOME` или `~/.config` на Linux
+    * `~/Library/Application Support` на macOS
+  * `userData` каталог для хранения файлов конфигурации вашего приложения, которые по умолчанию является `appData` добавляется с именем вашего приложения.
+  * `кеш`
+  * ` temp ` временный каталог.
+  * `exe` текущий исполняемый файл.
+  * `module` библиотека `libchromiumcontent`.
+  * `desktop` каталог рабочего стола, текущего пользователя.
+  * `documents` каталог пользователя "My Documents".
+  * `downloads` Каталог пользователя "Downloads".
+  * `music` каталог пользователя "Music".
+  * `pictures` каталог пользователя для фотографии.
+  * `videos` каталог пользователя для видео.
+  * `logs` директория для логов вашего приложения.
+  * `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
 
-Возвращает `String` - путь в специальный каталог или файл, ассоциированный с `name`. В случае неудачи возникает `Error`.
+Возвращает `String` - путь в специальную директорию или файл, ассоциированный с `name`. В случае неудачи возникает `Error`.
 
-Вы можете запросить следующие пути по их имени:
-
-* `home` домашний каталог пользователя.
-* `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на: 
-  * `%APPDATA%` на Windows
-  * `$XDG_CONFIG_HOME` или `~/.config` на Linux
-  * `~/Library/Application Support` на macOS
-* `userData` каталог для хранения файлов конфигурации Вашего приложения, который по умолчанию является каталогом `appData` с именем Вашего приложения в конце.
-* `temp` временный каталог.
-* `exe` текущий исполняемый файл.
-* `module` библиотека `libchromiumcontent`.
-* `desktop` каталог рабочего стола текущего пользователя.
-* `documents` каталог пользователя для документов.
-* `downloads` каталог пользователя для загрузок.
-* `music` каталог пользователя для музыки.
-* `pictures` каталог пользователя для фотографии.
-* `videos` каталог пользователя для видео.
-* `logs` каталог для логов Вашего приложения.
-* `pepperFlashSystemPlugin` путь к плагину Pepper Flash.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Object (опционально) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не поддерживается на *macOS*.
-* `callback` Function 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-Извлекает значок, ассоциированный с путем.
-
-На *Window*, есть 2 типа иконок:
-
-* Иконки, связанные с определенными расширениями, такими как `.mp3`, `.png`, и т.д.
-* Иконки внутри файла, таких как `.exe`, `.dll` и `.ico`.
-
-На *Linux* и *macOS* иконки зависят от приложения, ассоциируемого с mime-типом файла.
-
-**[Скоро устареет](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -543,16 +524,16 @@ app.exit(0)
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не поддерживается на *macOS*.
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, не поддерживается на *macOS*.
 
 Возвращает `Promise<NativeImage>` - содержащий иконку приложения, которая является [NativeImage](native-image.md).
 
-Извлекает значок, ассоциируемый с путем.
+Извлекает путь значка.
 
-На *Windows*, есть 2 вида значков:
+На *Windows*, там 2 вида значков:
 
-* Значки, связанные с определенными расширениями, такими как `.mp3`, `.png`, и т.д.
-* Значки внутри файла, таких как `.exe`, `.dll`, `.ico`.
+* Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
+* Значки внутри файла, как `.exe`, `.dll`, `.ico`.
 
 На *Linux* и *macOS* иконки зависят от приложения, ассоциируемого с mime-типом файла.
 
@@ -563,19 +544,21 @@ app.exit(0)
 
 Переопределяет `path` в специальный каталог или файл, связанный с `name`. Если путь задает каталог, который не существует, то при вызове выбросится `Error`. В этом случае каталог должен быть создан с помощью `fs.mkdirSync` или аналогичным способом.
 
-Можно переопределять только пути `name`, определенные в `app.getPath`.
+Можно переопределять только пути `name`, определенное в `app.getPath`.
 
-По умолчанию cookies и кэш веб-страницы будут храниться в каталоге `userData`. Если Вы хотите изменить это расположение, Вам необходимо переопределить путь `userData` прежде, чем событие `ready` модуля `app` возникнет.
+По умолчанию cookies и кэш веб-страницы будут храниться в каталоге `userData`. Если вы хотите изменить это расположение, вам необходимо переопределить путь `userData` прежде, чем событие `ready` модуля `app` возникнет.
 
 ### `app.getVersion()`
 
-Возвращает `String` - версия загруженного приложения. Если версия не найдена в файле приложения `package.json`, возвращается версия текущего пакета или исполняемого файла.
+Возвращает `String` - версии загруженного приложения. Если версия не найдена в файле `package.json` приложения, возвращается версия текущего пакета или исполняемого файла.
 
 ### `app.getName()`
 
-Возвращает `String` - имя текущего приложения, которое является именем в файле приложения `package.json`.
+Возвращает `String` - имя текущего приложения, который является именем в файле приложения `package.json`.
 
-Обычно поле `name` в `package.json` является коротким именем в нижнем регистре, согласно спецификации модулей npm. Обычно Вы должны также указать поле `productName`, которое пишется заглавными буквами - имя Вашего приложения, и которое будет предпочтительнее `name` для Electron.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Обычно Вы должны также указать поле `productName`, которое пишется заглавными буквами - имя вашего приложения, и которое будет предпочтительнее `name` для Electron.
+
+**[Устарело](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
@@ -583,11 +566,13 @@ app.exit(0)
 
 Переопределяет имя текущего приложения.
 
+**[Устарело](modernization/property-updates.md)**
+
 ### `app.getLocale()`
 
-Возвращает `String` - текущий языка приложения. [Здесь](locales.md) описаны возможные возвращаемые значения.
+Возвращает `String` - текущего языка приложения. Описаны возможные возвращаемые значения [здесь](locales.md).
 
-Для установки языка Вам потребуется использовать переключатель командной строки во время запуска приложения, который можно найти [здесь](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Для установки языка вам потребуется использовать переключатель командной строки во время запуска приложения, который можно найти [здесь](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Примечание:** При распространении упакованного приложения, нужно также добавить папку `locales`.
 
@@ -595,7 +580,7 @@ app.exit(0)
 
 ### `app.getLocaleCountryCode()`
 
-Возвращает `String` - локализацию операционной системы пользователя в формате двух-символьного кода страны [ISO 3166](https://www.iso.org/iso-3166-country-codes.html). Значение взято из нативных API ОС.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Примечание:** Когда невозможно определить код страны языка, возвращает пустую строку.
 
@@ -613,27 +598,27 @@ app.exit(0)
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - имя Вашего протокола, без `://`. Если Вы хотите, чтобы Ваше приложение обрабатывала ссылки `electron://`, вызовите этот метод с `electron` в качестве параметра.
-* `path` String (опционально) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (опционально) *Windows* - по умолчанию пустой массив
+* `protocol` String - имя вашего протокола, без `://`. Если вы хотите, чтобы ваше приложение обрабатывала `electron://` ссылки, вызовите этот метод из `electron` в качестве параметра.
+* `path` String (optional) *Windows* - по умолчанию `process.execPath`
+* `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
 Возвращает `Boolean` - был ли вызов успешным.
 
 Этот метод устанавливает текущий исполняемый файл в качестве обработчика по умолчанию для протокола (так называемая схема URI). Это позволяет Вам интегрировать приложение глубже в операционную систему. После регистрации, все ссылки с `ваш_протокол://` будут открываться текущим исполняемым файлом. Вся ссылка, включая протокол, будет передаваться в Ваше приложение в качестве параметра.
 
-На Windows Вы можете предоставить дополнительные параметры: path - путь до Вашего исполняемого файла, и args - массив аргументов, который будет передан Вашему исполняемому файлу при его запуске.
+На Windows Вы можете предоставить дополнительные параметры: path - путь до Вашего исполняемого файла и args - массив аргументов, который будет передан Вашему исполняемому файлу при его запуске.
 
 **Примечание:** На macOS Вы можете регистрировать только те протоколы, которые были добавлены в `info.plist` Вашего приложения, которое не может быть модифицирована во время выполнения. Однако Вы можете изменить файл с помощью простого текстового редактора или скрипта во время сборки. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
 
 **Примечание:** В окружении Windows Store (когда упаковано как `appx`) этот метод вернет `true` для всех вызовов, но ключ реестра, который он устанавливает, не будет доступен другим приложениям. Чтобы зарегистрировать Ваше приложения в Windows Store как обработчик протокола по умолчанию, Вы должны [объявить протокол в Вашем манифесте](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-Метод использует внутренний реестр Windows и LSSetDefaultHandlerForURLScheme.
+API использует внутренний реестр Windows и LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - имя Вашего протокола, без `://`.
+* `protocol` String - имя вашего протокола, без `://`.
 * `path` String (опционально) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (опционально) *Windows* - по умолчанию пустой массив
+* `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
 Возвращает `Boolean` - был ли вызов успешным.
 
@@ -641,56 +626,56 @@ app.exit(0)
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - имя Вашего протокола, без `://`.
+* `protocol` String - имя вашего протокола, без `://`.
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
 * `args` String[] (optional) *Windows* - по умолчанию пустой массив
 
 Возвращает `Boolean`
 
-Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то возвращает true. Иначе возвращает false.
+Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то возвращает true. Иначе, возвращает false.
 
-**Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, проверив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
+**Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, установив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
 
-Метод использует внутренний реестр Windows и LSCopyDefaultHandlerForURLScheme.
+API использует внутренний реестр Windows и LSCopyDefaultHandlerForURLScheme.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
 * `tasks` [Task[]](structures/task.md) - массив объектов `Task`
 
-Добавляет `tasks` к категории [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) в списке переходов на Windows.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
-`tasks` - массив объектов [`Task`](structures/task.md).
+`tasks` массив объектов [`Task`](structures/task.md).
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-**Примечание:** Если Вы хотите настроить список переходов еще больше, используйте `app.setJumpList(categories)`.
+**Примечание:** Если вы хотите настроить Jump List еще больше используйте `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` *Windows*
 
 Возвращает `Object`:
 
-* `minItems` Integer - минимальное количество элементов, которые будут показаны в списке переходов (для более подробного описания этого значение см. [документацию MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - массив объектов `JumpListItem`, которые соответствуют элементам, которые пользователь явно удалил из пользовательских категорий в списке переходов. Эти элементы не должны быть снова добавлены в список переходов, при **следующем** вызове `app.setJumpList()`, Windows не будет отображать любую пользовательскую категорию, содержащую любой из удаленных пунктов.
+* `minItems` Integer - минимальное количество элементов, которые будут показаны в Jump List (для более подробного описания этого значение см. [документация MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Эти элементы не должны быть снова добавлены в Jump List, при **следующем** вызове `app.setJumpList()`, Windows не будет отображать любую настраиваемую категорию, содержащую любой из удаленных пунктов.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) или `null` - массив объектов `JumpListCategory`.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
-Задает или удаляет настраиваемый список переходов для приложения и возвращает одну из следующих строк:
+Задает или удаляет настраиваемый Jump List для приложения и возвращает одну из следующих строк:
 
 * `ok` - ничего не случилось.
 * `error` - произошла одна или несколько ошибок, включите ведение журнала выполнения, чтобы выяснить возможную ошибку.
-* `invalidSeparatorError` - была сделана попытка добавить разделитель в пользовательскую категорию в списке переходов. Разделители разрешены только в стандартной категории `Tasks`.
-* `fileTypeRegistrationError` - была сделана попытка добавить ссылку на файл в список переходов для типа файла, который в приложении не зарегистрирован для обработки.
-* `customCategoryAccessDeniedError` - пользовательские категории не могут быть добавлены в список переходов из-за ограничений конфиденциальности пользователей или групповой политики.
+* `invalidSeparatorError` - была сделана попытка добавить разделитель в настраиваемую категорию в Jump List. Разделители разрешены только в стандартной категории `Tasks`.
+* `fileTypeRegistrationError` - была сделана попытка добавить ссылку на файл в Jump List для типа файла, который в приложении не зарегистрирован для обработки.
+* `customCategoryAccessDeniedError` - настраиваемые категории не могут быть добавлены в Jump List из-за ограничений конфиденциальности пользователей или групповой политики.
 
-Если `categories` - `null`, то ранее установленный пользовательский список переходов (если таковой имеется) будет заменён стандартным списком переходов для приложения (управляется Windows).
+Если `categories` - `null`, то ранее установленный настраиваемый Jump List (если таковой имеется) будет заменён стандартным Jump List для приложения (управляется Windows).
 
-**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойств, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
-**Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **последующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в пользовательскую категорию раньше, чем это приведёт к созданию всей пользовательской категории, исключается из списка переходов. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
+**Примечание:** Пользователи могут удалять элементы из настраиваемых категорий, но Windows не будет позволять возвращать удаленный элемент в настраиваемую категорию до **последующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в настраиваемую категорию раньше, чем это приведёт к созданию всей настраиваемой категории, исключается из Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
-Вот очень простой способ, как создать пользовательский список переходов:
+Вот очень простой способ, как создать настраиваемый Jump List:
 
 ```javascript
 const { app } = require('electron')
@@ -756,9 +741,9 @@ app.setJumpList([
 
 Значение, которое возвращает этот метод, указывает, успешно или нет экземпляр Вашего приложения получило блокировку. Если не удалось получить блокировку, можно предположить, что другой экземпляр Вашего приложения уже запущен с блокировкой и немедленно выходит.
 
-Т.е. этот метод возвращает `true`, если Ваш процесс является основным экземпляром Вашего приложения, а Ваше приложение должно продолжать загружаться. Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, который уже приобрел блокировку.
+Т.е. этот метод возвращает `true`, если Ваш процесс является основным экземпляром Вашего приложения, а Ваше приложение должно продолжать загружаться. Возвращает `false`, если Ваш процесс должен немедленно завершиться, так как он отправил свои параметры другому экземпляру, которые уже приобрел блокировку.
 
-На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить события `open-file` и `open-url`. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
+На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
 Пример активации окна первичного экземпляра, при запуске второго экземпляра:
 
@@ -797,9 +782,9 @@ if (!gotTheLock) {
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - уникально определяет действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - специфичное, для приложения, состояние для использования на других устройствах.
-* `webpageURL` String (опционально) - веб-страница для загрузки в браузере, если нет подходящего приложения, установленного на проснувшемся устройстве. Схема должна быть `http` или `https`.
+* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` any - App-specific state to store for use by another device.
+* `webpageURL` String (опиционально) - веб-страница для загрузки в браузере, если нет подходящего приложения, установленного на проснувшемся устройстве. Схема должна быть `http` или `https`.
 
 Создает `NSUserActivity` и задает её в качестве текущей активности. Активность позже имеет право для [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на другом устройстве.
 
@@ -809,14 +794,16 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
 Аннулирует текущую [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активность пользователя.
+
+### `app.resignCurrentActivity()` *macOS*
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - специфичное, для приложения, состояние для использование другими устройствами.
+* `userInfo` any - App-specific state to store for use by another device.
 
 Обновляет текущую активность, если его тип совпадает с `type`, объединяет записи из `userInfo` в его текущем словаре `userInfo`.
 
@@ -826,7 +813,7 @@ if (!gotTheLock) {
 
 Изменяет [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Object 
   * `certificate` String - путь к pkcs12 файлу.
@@ -850,17 +837,19 @@ if (!gotTheLock) {
 
 ### `app.getAppMetrics()`
 
-Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех процессов, связанных с приложением.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
 Возвращает [`GPUFeatureStatus`](structures/gpu-feature-status.md) - статус функции графики из `chrome://gpu/`.
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - значения могут быть либо `basic`, для базовой информации, либо `complete`, для полной информации.
+* `infoType` String - Can be `basic` or `complete`.
 
-Возвращает `Promise`
+Returns `Promise<unknown>`
 
 Для `infoType` равным `complete`: Промис выполняется с `объектом`, содержащий всю GPU информацию как в [объекте GPUInfo в chromium](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Это включает информацию о версии и драйвере, показанную на странице `chrome://gpu`.
 
@@ -897,47 +886,51 @@ machineModelVersion: '11.5' }
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Задает счетчик-значок для текущего приложения. При значении счетчика `0` значок будет скрыт.
+Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
 
 На macOS показывается на иконке в dock. На Linux только работает для лаунчера Unity.
 
-**Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграцию окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграция окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+**[Устарело](modernization/property-updates.md)**
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Возвращает `Integer` - текущее значение, отображаемое в значке-счетчика.
+Возвращает `Integer` - текущее значение, отображаемое в значке счётчика.
+
+**[Устарело](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
-Возвращает `Boolean` - является ли текущее окружение рабочего стола лаунчером Unity.
+Возвращает `Boolean` - является ли текущее окружение рабочего стола Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (опционально) 
-  * `path` String (опционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
+  * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
 Если Вы предоставили параметры `path` и `args` в `app.setLoginItemSettings`, тогда Вам необходимо передать те же аргументы сюда, чтобы `openAtLogin` установилось корректно.
 
 Возвращает `Object`:
 
-* `openAtLogin` Boolean - `true`, если приложение открывается при входе в систему.
-* `openAsHidden` Boolean *macOS* - `true`, если приложение должно запускаться скрытым при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true`, если приложение было открыто автоматически при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true`, если приложение было запущено в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true`, если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `openAtLogin` Boolean - `true` если приложение планируется открыть при входе в систему.
+* `openAsHidden` Boolean *macOS* - `true` если приложение должно запускаться скрытым при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` если приложение было открыто автоматически при входе в систему. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` если приложение было запущено в качестве скрытого элемента при входе в систему. Это означает, что приложению не следует открывать любое окно при запуске. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` если приложение было открыто как элемент входа, который должен восстановить состояние с предыдущего сеанса. Это означает, что приложение должно восстановить окна, которые были открыты в последний раз, когда приложение было закрыто. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Object 
-  * `openAtLogin` Boolean (опционально) - `true`, чтобы открыть приложение при входе в систему, `false`, чтобы удалить приложение в качестве элемента входа. По умолчанию `false`.
-  * `openAsHidden` Boolean (опционально) *macOS* - `true`, чтобы открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (опционально) *Windows* - исполняемый файл для запуска при входе в систему. По умолчанию `process.execPath`.
-  * `args` String[] (опционально) *Windows* - аргументы командной строки для передачи исполняемому файлу. По умолчанию пустой массив. Позаботьтесь обернуть путь кавычками.
+  * `openAtLogin` Boolean (опиционально) - `true` открыть приложение при входе в систему, `false` удалять приложение в качестве элемента входа. По умолчанию `false`.
+  * `openAsHidden` Boolean (опиционально) *macOS* - `true` открыть приложение как скрытое. Значение по умолчанию: `false`. Пользователь может редактировать этот параметр в системных настройках, так что `app.getLoginItemSettings().wasOpenedAsHidden` должно быть проверено, когда приложение открыто, чтобы узнать текущее значение. Эта настройка недоступна в [сборках MAS](../tutorial/mac-app-store-submission-guide.md).
+  * `path` String (опиционально) *Windows* - исполняемый файл запускается при входе в систему. По умолчанию `process.execPath`.
+  * `args` String[] (опиционально) *Windows* - аргументы командной строки для передачи исполняемого файла. По умолчанию пустой массив. Позаботесь обернуть путь кавычками.
 
 Установите приложению параметры при входе в систему.
 
-Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), Вы можете задать путь запуска Update.exe и передать аргументы, которые указывают на имя приложения. Например:
+Для работы с Electron `autoUpdater` на Windows, который использует [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вы можете задать путь запуска Update.exe и передавать аргументы, которые указывают на имя приложения. Например:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -956,94 +949,62 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Возвращает `Boolean` - `true`, если включена поддержка специальных возможностей Chrome, иначе `false`. Этот метод будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. См. https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Возвращает `Boolean` - `true` если включена поддержка специальных возможностей Chrome, и `false` в противном случае. Этот API будет возвращать `true`, если обнаружено использование вспомогательных технологий, таких как средства чтения с экрана. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
-**[Скоро устареет](modernization/property-updates.md)**
+**[Устарело](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - включить или отключить отображение [древа специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
+* `enabled` Boolean - включить или отключить рендеринг древа [специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. См. [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
+Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. Смотрите [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
 
-Этот метод должен вызываться после того, как произошло событие `ready`.
+Этот API должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Отображение древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
-**[Скоро устареет](modernization/property-updates.md)**
+**[Устарело](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 Показывает параметры панели о приложении. Эти параметры могут быть переопределены с помощью `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `options` Object 
-  * `applicationName` String (опционально) - имя приложения.
-  * `applicationVersion` String (опционально) - версия приложения.
-  * `copyright` String (опционально) - информация авторских прав.
-  * `version` String (опционально) - номер версии сборки приложения. *macOS*
-  * `credits` String (опционально) - информация об авторах. *macOS*
-  * `website` String (опционально) - веб-сайт приложения. *Linux*
-  * `iconPath` String (опционально) - путь до иконки приложения. Будет показано как 64x64 пикселей с сохранением пропорций. *Linux*
+  * `applicationName` String (опиционально) - имя приложения.
+  * `applicationVersion` String (опиционально) - версия приложения.
+  * `copyright` String (опиционально) - copyright информация.
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
-Устанавливает параметры панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. См. [документацию Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
+Установите описание панели опций. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Возвращает `Boolean` - позволяет или нет текущая версия ОС выбирать нативные эмодзи.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Показывает нативный выбор эмодзи.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
-* `bookmarkData` String - закодированные base64 данные закладки области безопасности, возвращаемые `dialog.showOpenDialog` или `dialog.showSaveDialog`.
+* `bookmarkData` String - Закодированные base64 данные закладки области безопасности, возвращаемые `dialog.showOpenDialog` или `dialog.showSaveDialog`.
 
-Возвращает `Function`. Эта функция **должна** быть вызвана после того, как Вы завершили использовать файл области безопасности. Если Вы забыли запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и Ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
+Возвращает `Function`. Эта функция **должна** быть вызвана после того как вы have finished accessing the security scoped file. Если Вы забыли, запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
 ```js
 // Получение доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// Теперь у Вас есть доступ к файлу вне песочницы 
+// You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
-Начинает доступ в область безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить за пределы их песочницы, чтобы получить файлы, выбранные пользователем. Описание того, как работает эта система, см. в [документации Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
-
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - переключатель командной строки, без ведущего `--`
-* `value` String (опционально) - значение для данного переключателя
-
-Добавляет переключатель (с опциональным значением `value`) в командную строку Chromium.
-
-**Примечание:** Это не повлияет на `process.argv`. Предназначенное использование этой функции - контролирование поведения Chromium.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - аргумент для добавления в командную строку
-
-Добавляет аргумент в командную строку Chromium. Аргумент будет правильно заключен в кавычки. Переключатели будут предшествовать аргументам, независимо от порядка добавления.
-
-Если Вы добавляете аргумент, такой как `--switch=value`, вместо этого рассмотрите использование `appendSwitch('switch', 'value')`.
-
-**Примечание:** Это не повлияет на `process.argv`. Предназначенное использование этой функции - контролирование поведения Chromium.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - переключатель командной строки
-
-Возвращает `Boolean` - есть или нет переключатель командной строки.
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - переключатель командной строки
-
-Возвращает `String` - значение переключателя командной строки.
-
-**Примечание:** Когда переключатель не присутствует или не имеет значения, возвращает пустую строку.
+Начать доступ в области безопасности ресурса. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
 
 ### `app.enableSandbox()` *Experimental*
 
@@ -1053,81 +1014,42 @@ stopAccessingSecurityScopedResource()
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - выполняется ли приложение сейчас из системной папки Application. Используется совместно с `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение сейчас из systems Application папки. Используется совместно с `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Object (опционально) 
+  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, что если перемещение было успешным, то Ваше приложение будет закрыто и перезапущено.
 
 Диалог подтверждения не будет представлен по умолчанию. Если Вы хотите позволить пользователям подтверждать операцию, Вы можете сделать это, используя API [`dialog`](dialog.md).
 
-**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
+**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (опционально) - может быть `critical` или `informational`. По умолчанию `informational`
+Например:
 
-Когда передается `critical`, значок dock будет отскакивать, пока приложение не станет активным или запрос отменился.
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-Когда передается `informational`, значок dock будет отскакивать в течение одной секунды. Однако запрос остается до тех пор, пока приложение не станет активным или запрос отменился.
-
-Возвращает `Integer` - ID, представляющий запрос.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-Отменить отскок по `id`.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-Отскакивает от загрузок, если путь к файлу находится в папке загрузок.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Устанавливает строку для отображения в зоне значка панели dock.
-
-### `app.dock.getBadge()` *macOS*
-
-Возвращает `String` - строка значка в dock.
-
-### `app.dock.hide()` *macOS*
-
-Скрывает значок в dock.
-
-### `app.dock.show()` *macOS*
-
-Возвращает `Promise<void>` - выполняется, когда показан значок dock.
-
-### `app.dock.isVisible()` *macOS*
-
-Возвращает `Boolean` - виден или нет значок dock.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-Устанавливает [dock-меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
-
-### `app.dock.getMenu()` *macOS*
-
-Возвращает `Menu | null` - [dock-меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-Устанавливает `image`, ассоциируемый со значком в dock.
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## Свойства
-
-### `app.applicationMenu`
-
-Свойство `Menu`, которое возвращает [`Menu`](menu.md), если было установлено, иначе `null`. Пользователи могут передать [Menu](menu.md), чтобы установить это свойство.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1135,19 +1057,45 @@ stopAccessingSecurityScopedResource()
 
 См. [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробностей. Отключено по умолчанию.
 
-Этот метод должен вызываться после того, как произошло событие `ready`.
+Этот API должен вызываться после того, как произошло событие `ready`.
 
-**Примечание:** Отображение древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+**Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
+
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграция окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+`Boolean` свойство, которое возвращает `true`, если приложение упаковано, `false` иначе. Для многих приложений это свойство может использоваться для отличия среды разработки и производства.
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Обычно Вы должны также указать поле `productName`, которое пишется заглавными буквами - имя вашего приложения, и которое будет предпочтительнее `name` для Electron.
 
 ### `app.userAgentFallback`
 
 `Строка`, которая является строкой агента пользователя, которую Electron будет использовать в качестве глобального запаса.
 
-Это агент пользователя, который будет использоваться, если ни один агент пользователя не установлен на уровнях `webContents` или `session`. Полезно для обеспечения всему Вашему приложению иметь один и тот же пользовательский агент. Установите пользовательское значение как можно раньше в инициализации Ваших приложений, чтобы убедиться, что используется переопределенное значение.
-
-### `app.isPackaged`
-
-`Boolean` свойство, которое возвращает `true`, если приложение упаковано, иначе `false`. Для многих приложений это свойство может использоваться для отличия среды разработки и продакшна.
+Это агент пользователя, который будет использоваться, если ни один агент пользователя не установлен на уровнях `webContents` или `session`. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

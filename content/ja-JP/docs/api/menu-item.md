@@ -17,13 +17,14 @@
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (任意)
   * `icon` ([NativeImage](native-image.md) | String) (任意)
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
-  * `acceleratorWorksWhenHidden` Boolean (任意) - 省略値は `true` で、`false` のときは、アイテムが表示されていない場合にアクセラレータがアイテムをトリガーするのを防ぎます。 *macOS*
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `registerAccelerator` Boolean (任意) - false の場合、アクセラレータはシステムに登録されませんが、それでも表示はされます。 省略値は true です。
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - `submenu` 型メニューアイテムを指定する必要があります。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できます。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換されます。
   * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
   * `before` String[] (任意) - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
@@ -120,7 +121,7 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 
 #### `menuItem.type`
 
-そのアイテムの種類を示す `String`。
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 
 #### `menuItem.accelerator`
 
-セットされている場合、アイテムの Accelerator を示す `String` (任意)。
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -137,6 +138,10 @@ MenuItem がクリックイベントを受け取ったときに発火される `
 #### `menuItem.sublabel`
 
 アイテムの副ラベルを示す `String`。このプロパティは動的に変更できます。
+
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
 
 #### `menuItem.enabled`
 

@@ -66,6 +66,8 @@ app.on('ready', () => {
 
 #### イベント: 'click'
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -74,12 +76,16 @@ tray アイコンがクリックされたときに発行されます。
 
 #### イベント: 'right-click' *macOS* *Windows*
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
 
 tray アイコンが右クリックされたときに発行されます。
 
 #### イベント: 'double-click' *macOS* *Windows*
+
+戻り値:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - tray アイコンの境界。
@@ -104,12 +110,16 @@ tray アイコン上に何かのドラッグされたアイテムがドロップ
 
 #### イベント: 'drop-files' *macOS*
 
+戻り値:
+
 * `event` Event
 * `files` String[] - ドロップされたファイルのパス。
 
 tray アイコン上にドラッグされたファイルがドロップされたときに発行されます。
 
 #### イベント: 'drop-text' *macOS*
+
+戻り値:
 
 * `event` Event
 * `text` String - ドロップされたテキスト文字列。
@@ -130,6 +140,8 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 #### イベント: 'mouse-enter' *macOS*
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
@@ -137,12 +149,16 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 #### イベント: 'mouse-leave' *macOS*
 
+戻り値:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
 
 マウスが tray アイコン内から出たときに発行されます。
 
-#### イベント: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+戻り値:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - イベントの位置。
@@ -183,39 +199,7 @@ macOS において、この tray アイコンが押されたときの関連付�
 
 #### `tray.getTitle()` *macOS*
 
-* `title` String
-
 戻り値 `String` - ステータスバーの tray アイコンの隣に表示されるタイトル
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String - 以下の値のうちの一つの、強調表示モード。 
-  * `selection` - tray アイコンがクリックされ、コンテキストメニューも開かれたとき、それを強調表示します。これはデフォルトです。
-  * `always` - tray アイコンを常に強調表示します。
-  * `never` - tray アイコンを強調表示することはありません。
-
-tray のアイコンの背景を、いつ青く強調表示するかを設定します。
-
-**[非推奨](breaking-changes.md#tray)**
-
-**注釈:** ウインドウの見た目が変更されたときは、`'never'` と `'always'` 間をトグル切り替えすることで、`highlightMode` を [`BrowserWindow`](browser-window.md) で使用できます。
-
-```javascript
-const { BrowserWindow, Tray } = require('electron')
-
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/自分の/アイコンへの/パス')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

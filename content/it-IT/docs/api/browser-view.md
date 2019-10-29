@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 Una `BrowserView` può essere usata per incorporare del contenuto web aggiuntivo all'interno di una [`BrowserWindow`](browser-window.md). È come una finestra piccola, eccetto per il fatto che è posta in parentela alla finestra propria. È considerato essere un alternativa al tag `webview`.
 
-## Esempio
+### Esempio
 
 ```javascript
 // Nel processo principale(main).
@@ -73,10 +73,10 @@ Restituisce `Boolean` - Se la vista viene distrutta.
 #### `view.setAutoResize(options)` *Sperimentale*
 
 * `options` Oggetto 
-  * `width` Boolean - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
-  * `height` Boolean - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Sperimentale*
 
@@ -84,6 +84,12 @@ Restituisce `Boolean` - Se la vista viene distrutta.
 
 Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
-#### `view.setBackgroundColor(color)` *Sperimentale*
+#### `view.getBounds()` *Experimental*
+
+Ritorna [`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
+
+#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
 
 * `color` String - Colore nel formato `#aarrggbb` o `#argb`. Il canale alpha é opzionale.

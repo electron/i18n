@@ -44,13 +44,13 @@ Fuerza el espacio máximo de disco a utilizar por la caché de disco, en bytes.
 
 ## --js-flags=`flags`
 
-Especifica las opciones a pasar al motor de NodeJS. Tienen que ser pasadas cuando Electron arranca si quieres habilitar los `flags` en el proceso principal.
+Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-Vea la [documentación de Node](https://nodejs.org/api/cli.html) o ejecute `node --help` en su terminal para obtener una lista de las opciones disponibles. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que específicamente refieren al motor JavaScript de Node V8.
+See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ Por ejemplo:
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Sin el prefijo `*` la url tiene que corresponder exactamente.
+entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Without `*` prefix the URL has to match exactly.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Una lista de servidores separada por comas por los que la delegación de credenciales de usuarios es requerida. Sin el prefijo `*` la url tiene que corresponder exactamente.
+A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
 
 ## --ignore-certificate-errors
 
@@ -151,3 +151,7 @@ Permite que el nivel máximo por module de V-logging sobrepase el valor dado por
 Cualquier patrón que contenga una barra hacia adelante o una barra hacia atras será probado contra el nombre de la ruta completa y no solo contra el módulo. Por ejemplo `*/foo/bar/*=2` cambiaría le nivel de logging para todo el código fuente en los ficheros contenidos en `foo/bar` directorio.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
+
+## --no-sandbox
+
+Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.

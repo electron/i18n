@@ -31,6 +31,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Używanie API Electrona](tutorial/application-architecture.md#using-electron-apis)
   * [Używanie API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Dodawanie funkcji do twojej aplikacji 
   * [Powiadomienia](tutorial/notifications.md)
   * [Ostatnie dokumenty](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 * [Streszczenie](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Wspierane Zmienne Konsoli Chrome](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
 * [Istotne zmiany w API](api/breaking-changes.md)
 

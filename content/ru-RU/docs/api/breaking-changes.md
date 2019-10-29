@@ -2,35 +2,82 @@
 
 Здесь будут описаны критические изменения, а также будут добавлены предупреждения об устаревших функциях в JS коде, где это возможно, по крайней мере перед тем, как изменения будут сделаны в [одной мажорной версии](../tutorial/electron-versioning.md#semver).
 
-# Комментарии `FIXME`
+## Комментарии `FIXME`
 
 Строка `FIXME` используется в комментариях к коду для обозначения вещей, которые должны быть исправлены в будущих релизах. Смотрите https://github.com/electron/electron/search?q=fixme
 
-# Запланированные критические изменения API (7.0)
+## Запланированные критические изменения API (7.0)
 
-## `shell.openExternalSync(url[, options])`
+### Node Headers URL
+
+Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node. Both will be supported for the foreseeable future but it is recommended that you switch.
+
+Устарело: https://atom.io/download/electron
+
+Заменено на: https://electronjs.org/headers
+
+### `session.clearAuthCache(options)`
+
+The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Устарело
-shell.openExternalSync(url)
-// Заменено на
-async function openThing (url) {
-  await shell.openExternal(url)
-}
+// Deprecated
+session.clearAuthCache({ type: 'password' })
+// Replace with
+session.clearAuthCache()
 ```
 
-# Запланированные критические изменения API (6.0)
-
-## `win.setMenu(null)`
+### `powerMonitor.querySystemIdleState`
 
 ```js
-// Устарело
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+### `powerMonitor.querySystemIdleTime`
+
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+### API webFrame изолированных миров
+
+```js
+// Removed in Elecron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
+
+### Removal of deprecated `marked` property on getBlinkMemoryInfo
+
+This property was removed in Chromium 77, and as such is no longer available.
+
+## Запланированные критические изменения API (6.0)
+
+### `win.setMenu(null)`
+
+```js
+// Устаревшее
 win.setMenu(null)
 // Заменено на
 win.removeMenu()
 ```
 
-## `contentTracing.getTraceBufferUsage()`
+### `contentTracing.getTraceBufferUsage()`
 
 ```js
 // Устарело
@@ -43,40 +90,40 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-## `electron.screen` в графическом процессе
+### `electron.screen` в графическом процессе
 
 ```js
-// Устарело
+// Устаревшее
 require('electron').screen
 // Заменено на
 require('electron').remote.screen
 ```
 
-## `require` в песочнице графических процессов
+### `require` в песочнице графических процессов
 
 ```js
-// Устарело
+// Устаревшее
 require('child_process')
 // Заменено на
 require('electron').remote.require('child_process')
 
-// Устарело
+// Устаревшее
 require('fs')
 // Заменено на
 require('electron').remote.require('fs')
 
-// Устарело
+// Устаревшее
 require('os')
 // Заменено на
 require('electron').remote.require('os')
 
-// Устарело
+// Устаревшее
 require('path')
 // Заменено на
 require('electron').remote.require('path')
 ```
 
-## `powerMonitor.querySystemIdleState`
+### `powerMonitor.querySystemIdleState`
 
 ```js
 // Устарело
@@ -85,7 +132,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = getSystemIdleState(threshold)
 ```
 
-## `powerMonitor.querySystemIdleTime`
+### `powerMonitor.querySystemIdleTime`
 
 ```js
 // Устарело
@@ -94,7 +141,16 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray`
+### `app.enableMixedSandbox`
+
+```js
+// Deprecated
+app.enableMixedSandbox()
+```
+
+Mixed-sandbox mode is now enabled by default.
+
+### `Tray`
 
 Под macOS Catalina наша прежняя реализация Tray нарушена. Нативная замена Apple не поддерживает изменение поведения подсветки.
 
@@ -104,9 +160,9 @@ tray.setHighlightMode(mode)
 // Метод будет удален в v7.0 без альтернатив.
 ```
 
-# Запланированные критические изменения API (5.0)
+## Запланированные критические изменения API (5.0)
 
-## `new BrowserWindow({ webPreferences })`
+### `new BrowserWindow({ webPreferences })`
 
 Следующие значения по умолчанию для параметра `webPreferences` устарели в пользу новых значений по умолчанию, перечисленных ниже.
 
@@ -130,11 +186,11 @@ const w = new BrowserWindow({
 
 У дочерних окон, открытых с опцией `nativeWindowOpen`, всегда будет отключена интеграция Node.JS, если `nodeIntegrationInSubFrames` не true.
 
-## Регистрация привилегированных схем
+### Регистрация привилегированных схем
 
 API графического процесса `webFrame.setRegisterURLSchemeAsPrivileged` и `webFrame.registerURLSchemeAsBypassingCSP`, а также API процесса браузера `protocol.registerStandardSchemes` были удалены. Новый API `protocol.registerSchemesAsPrivileged` был добавлен и должен использоваться для регистрации пользовательских схем с необходимыми привилегиями. Пользовательские схемы должны быть зарегистрированы до готовности приложения.
 
-## API webFrame изолированных миров
+### API webFrame изолированных миров
 
 ```js
 // Устарело
@@ -151,11 +207,30 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# Запланированные критические изменения API (4.0)
+## `webFrame.setSpellCheckProvider`
+
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
+```js
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
+  spellCheck: (text) => {
+    return !spellchecker.isMisspelled(text)
+  }
+})
+// Replace with
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
+  }
+})
+```
+
+## Запланированные критические изменения API (4.0)
 
 Следующий список включает в себя критические изменения API, сделанные в Electron 4.0.
 
-## `app.makeSingleInstance`
+### `app.makeSingleInstance`
 
 ```js
 // Устарело
@@ -169,7 +244,7 @@ app.on('second-instance', (event, argv, cwd) => {
 })
 ```
 
-## `app.releaseSingleInstance`
+### `app.releaseSingleInstance`
 
 ```js
 // Устарело
@@ -178,28 +253,28 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-## `app.getGPUInfo`
+### `app.getGPUInfo`
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же, как `basic` на macOS
+// Теперь ведет себя так же с `basic` в macOS
 app.getGPUInfo('basic')
 ```
 
-## `win_delay_load_hook`
+### `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для информации.
+При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
-# Критические изменения API (3.0)
+## Критические изменения API (3.0)
 
 Данный список включает в себя критические изменения в API для Electron 3.0.
 
-## `app`
+### `app`
 
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменено на
+// Заменить на
 app.getAppMetrics()
 
 // Устарело
@@ -207,55 +282,55 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // свойство устарело
 ```
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменено на
+// Заменить на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
 // Устарело
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // сделать что-нибудь
+    // делаем что-нибудь
   }
 })
-// Заменено на
+// Заменить на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // сделать что-нибудь
+    // делаем что-нибудь
   }
 })
 ```
 
-## `clipboard`
+### `clipboard`
 
 ```js
 // Устарело
 clipboard.readRtf()
-// Заменено на
+// Заменить на
 clipboard.readRTF()
 
 // Устарело
 clipboard.writeRtf()
-// Заменено на
+// Заменить на
 clipboard.writeRTF()
 
 // Устарело
 clipboard.readHtml()
-// Заменено на
+// Заменить на
 clipboard.readHTML()
 
 // Устарело
 clipboard.writeHtml()
-// Заменено на
+// Заменить на
 clipboard.writeHTML()
 ```
 
-## `crashReporter`
+### `crashReporter`
 
 ```js
 // Устарело
@@ -264,7 +339,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменено на
+// Заменить на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -272,34 +347,34 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменено на
+// Заменить на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `process`
+### `process`
 
 ```js
 // Устарело
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen`
+### `screen`
 
 ```js
 // Устарело
 screen.getMenuBarHeight()
-// Заменено на
+// Заменить на
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session`
+### `session`
 
 ```js
 // Устарело
@@ -312,64 +387,64 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-## `Tray`
+### `Tray`
 
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменено на
+// Заменить на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменено на
+// Заменить на
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+### `webContents`
 
 ```js
 // Устарело
 webContents.openDevTools({ detach: true })
-// Заменено на
+// Заменить на
 webContents.openDevTools({ mode: 'detach' })
 
 // Удалено
 webContents.setSize(options)
-// Нет замены для этого метода
+// Нет замены для этого API
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Заменено на
+// Заменить на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменено на
+// Заменить на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // Удалено
 webview.setAttribute('disableguestresize', '')
-// Нет замены для этого метода
+// Нет замены для этого API
 
 // Удалено
 webview.setAttribute('guestinstance', instanceId)
-// Нет замены для этого метода
+// Нет замены для этого API
 
 // Слушатели клавиатуры больше не работают в webview теге
 webview.onkeydown&nbsp;= () => { /* обработчик */ }
 webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
-## Node Headers URL
+### Node Headers URL
 
 Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 
@@ -377,79 +452,79 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 
 Заменено на: https://atom.io/download/electron
 
-# Критические изменения API (2.0)
+## Критические изменения API (2.0)
 
 Следующий список включает в себя критические изменения API, сделанные в Electron 2.0.
 
-## `BrowserWindow`
+### `BrowserWindow`
 
 ```js
 // Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Заменено на
+// Заменить на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+### `menu`
 
 ```js
 // Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Заменено на
+// Заменить на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+### `nativeImage`
 
 ```js
 // Удалено
 nativeImage.toPng()
-// Заменено на
+// Заменить на
 nativeImage.toPNG()
 
 // Удалено
 nativeImage.toJpeg()
-// Заменено на
+// Заменить на
 nativeImage.toJPEG()
 ```
 
-## `process`
+### `process`
 
 * `process.versions.electron` и `process.version.chrome` будут доступны только для чтения, для согласованности с другими свойствами `process.versions`, установленными в Node.
 
-## `webContents`
+### `webContents`
 
 ```js
 // Удалено
 webContents.setZoomLevelLimits(1, 2)
-// Заменено на
+// Заменить на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame`
+### `webFrame`
 
 ```js
 // Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Заменено на
+// Заменить на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>`
+### `<webview>`
 
 ```js
 // Удалено
 webview.setZoomLevelLimits(1, 2)
-// Заменено на
+// Заменить на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Дублированные ARM ресурсы
+### Двойные ARM ресурсы
 
-Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными именами файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
+Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
-Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
+Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Starting at 2.0, the unprefixed file will no longer be published.
 
 Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).

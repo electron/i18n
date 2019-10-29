@@ -32,25 +32,12 @@ shell.openExternal('https://github.com')
 
 指定したファイルをデスクトップの既定の方法で開きます。
 
-### `shell.openExternalSync(url[, options])`
-
-* `url` String - Windows では最大2081文字、そうでなければ関数は false を返します。
-* `options` Object (任意) 
-  * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
-  * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
-
-戻り値 `Boolean` - URL を開くためにアプリケーションが利用可能かどうか。
-
-デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
-
-**非推奨**
-
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Windows では最大2081文字です。
 * `options` Object (任意) 
-  * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
-  * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
+  * `activate` Boolean (optional) *macOS* - `true` to bring the opened application to the foreground. The default is `true`.
+  * `workingDirectory` String (optional) *Windows* - The working directory.
 
 戻り値 `Promise<void>`
 

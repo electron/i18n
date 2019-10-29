@@ -87,11 +87,11 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `Jenissumberdaya` Tali
       * `pengarah` String
       * `timestamp` Duakali
-      * `permintaanHeaders` Objek
+      * `requestHeaders` Record<string, string>
     * `callback` Lokasi: 
       * `Tanggapan` Benda 
         * `batalkan` Boolean (opsional)
-        * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
+        * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
   
   Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.
   
@@ -110,7 +110,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `Jenissumberdaya` Tali
       * `pengarah` String
       * `timestamp` Duakali
-      * `permintaanHeaders` Objek
+      * `requestHeaders` Record<string, string>
   
   `pendengar` akan dipanggil dengan `pendengar(rincian)` tepat sebelum permintaan akan dikirim ke server, modifikasi sebelumnya `onBeforeSendHeader` respon terlihat pada saat pendengar ini dipecat.
   
@@ -129,11 +129,11 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `timestamp` Duakali
       * `statusGaris` String
       * `statusCode` Bilangan bulat
-      * `responseHeaders` Objek
+      * `responseHeaders` Record<string, string> (optional)
     * `callback` Fungsi 
       * `Tanggapan` Obyek 
         * `batalkan` Boolean (opsional)
-        * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
+        * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
         * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
   
   `pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.
@@ -153,7 +153,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `TipeSumberdaya` String
       * `pengarah` String
       * `timestamp` Duakali
-      * `responseHeaders` Objek
+      * `responseHeaders` Record<string, string> (optional)
       * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
       * `statusCode` Bilangan bulat
       * `statusGaris` String
@@ -177,7 +177,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `statusCode` Bilangan bulat
       * `ip` String (opsional) - Alamat IP server yang meminta benar-benar dikirim ke.
       * `dariCache` Boolean
-      * `responseHeaders` Objek
+      * `responseHeaders` Record<string, string> (optional)
   
   `pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
   
@@ -194,7 +194,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `TipeSumberdaya` String
       * `pengarah` String
       * `timestamp` Duakali
-      * `responseHeaders` Objek
+      * `responseHeaders` Record<string, string> (optional)
       * `dariCache` Boolean
       * `statusCode` Bilangan bulat
       * `statusGaris` String

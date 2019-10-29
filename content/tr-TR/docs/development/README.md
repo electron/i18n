@@ -20,6 +20,5 @@ Bu rehberler Elecron projesinin kökü üzerinde çalışan kişiler içindir. E
 * [Windowsta hata ayıklama](debug-instructions-windows.md)
 * [macOs'da Hata Ayıklama](debugging-instructions-macos.md)
 * [Hata Ayıklayıcıda Sembol Sunucusunu Kurma](setting-up-symbol-server.md)
-* [Chromium yükseltiliyor](upgrading-chromium.md)
-* [Crashpad güncelleniyor](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Node Yükseltmesi](upgrading-node.md)

@@ -48,7 +48,7 @@ Itu` net </ 0>  API hanya dapat digunakan setelah aplikasi memancarkan <code> si
 
 <h3><code>net.request(options)`</h3> 
 
-* `options` (Object | String) - Opsi konstruktor `ClientRequest`.
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 Mengembalikan  permintaan clien</ 0></p>
 

@@ -6,7 +6,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
-## Mga halimbawa
+### Halimbawa
 
 ```javascript
 // Ang pangunahing pag-proseso.
@@ -46,7 +46,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
-### Mga Katangian ng Instansya
+### Mga Katangian ng Instance
 
 Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
@@ -58,7 +58,7 @@ Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na it
 
 Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Instance Methods
+### Mga Paraan ng Halimbawa
 
 Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
@@ -73,16 +73,22 @@ Returns `Boolean` - Whether the view is destroyed.
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Bagay 
-  * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
-  * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
-  * `horizontal` Boolean - If `true`, the view's x position and width will grow and shrink proportionly with the window. `false` by default.
-  * `vertical` Boolean - If `true`, the view's y position and height will grow and shrink proportinaly with the window. `false` by default.
+  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
+  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Binabago ang laki at inililipat ang view mula sa ibinibigay na hangganan na may kaugnayan sa window.
+
+#### `view.getBounds()` *Experimental*
+
+Nagbabalik[`Rectangle`](structures/rectangle.md)
+
+The `bounds` of this BrowserView instance as `Object`.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 

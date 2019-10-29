@@ -20,6 +20,5 @@ Dieses Handbuch wendet sich an Entwickler des Electron Projekts. Guides zur App-
 * [Debugging in Windows](debug-instructions-windows.md)
 * [Debugging in macOS](debugging-instructions-macos.md)
 * [Einen Symbol Server im Debugger einrichten](setting-up-symbol-server.md)
-* [Chrominum upgraden](upgrading-chromium.md)
-* [Crashpad upgraden](upgrading-crashpad.md)
+* [Patches](patches.md)
 * [Node upgraden](upgrading-node.md)

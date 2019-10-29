@@ -146,6 +146,7 @@ apps:
   search_app: 按名称，说明等过滤应用...
   categories: 分类
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">发出拉取请求</a>以添加您的应用程序。'
+  #App show page specific localization strings
   website: 网站
   repository: 仓库
   category: 分类
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Electron 博客
   description: 所有来自 Electron 团队和社区的最新消息。
+  #Post show page specific localization strings
   feedback: 对这篇文章有反馈意见吗？ 可以在在 Twitter 上<a href="https://twitter.com/electronjs">@electronjs</a>
   help: 需要帮助或发现了一个错误？ <a href="/contact">联系我们</a>。
 clipboard:
   copy: Copy
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: 或
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Electron 治理
   description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
   wgs: 工作组
-  docstools:
-    title: 文档与工具
-    description: 查看注重外部的工具(例如 Fiddle，Forge)、网站上的电子文档、 <code>electron/*</code> 存储库，以及维护者小组的第三方模块。
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: 覆盖
     description: 壮大 Electron 社区
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: 升级
     description: 覆盖上游依赖关系升级；具体而言，Chromium 和 Node。
-  website:
-    title: 网站
-    description: 监督电子网站及相关工具的技术实施、设计和样式。
   cmsf:
     title: 社区与安全
     description: 监督社区的移除/禁令。
@@ -255,6 +257,9 @@ governance:
   admins:
     title: 管理
     description: 行政工作组监督整个治理和项目。
+  api:
+    title: 应用开发接口（API）
+    description: Oversees public API design based on project principles.
   global:
     overview: 概览
     associated_repos: 相关代码仓库

@@ -117,11 +117,12 @@ protocol.registerSchemesAsPrivileged([
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` دالة 
-    * `filePath` String (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -139,6 +140,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -169,11 +171,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` دالة 
-    * `data` String (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -187,18 +190,16 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` دالة 
     * `redirectRequest` الكائنات 
       * `url` String
-      * `method` String
-      * `session` Object (optional)
-      * `uploadData` Object (optional) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+      * `method` String (optional)
+      * `session` Session | null (optional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -216,7 +217,7 @@ For POST requests the `uploadData` object must be provided.
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -276,16 +277,6 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme, callback)`
-
-* `scheme` String
-* `callback` دالة 
-  * `handled` Boolean
-
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `protocol.isProtocolHandled(scheme)`
 
 * `scheme` String
@@ -298,6 +289,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -314,11 +306,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` دالة 
-    * `data` String (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -330,6 +323,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -346,15 +340,15 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` دالة 
     * `redirectRequest` الكائنات 
       * `url` String
-      * `method` String
-      * `session` Object (optional)
+      * `method` String (optional)
+      * `session` Session | null (optional)
       * `uploadData` Object (optional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -369,7 +363,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` دالة 
   * `request` الكائنات 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)

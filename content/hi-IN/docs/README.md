@@ -31,6 +31,7 @@
   * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
   * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Adding Features to Your App 
   * [नोटीफीकेशनस](tutorial/notifications.md)
   * [Recent Documents](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ These individual tutorials expand on topics discussed in the guide above.
 
 * [सार](api/synopsis.md)
 * [प्रक्रिया ऑब्जेक्ट](api/process.md)
-* [समर्थित क्रोम आदेश पंक्ति स्विचेस](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [वातावरण वेरिएबल्स](api/environment-variables.md)
 * [Breaking API Changes](api/breaking-changes.md)
 

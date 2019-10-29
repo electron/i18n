@@ -31,7 +31,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 当页面在窗口中直接加载时，用户会看到未完成的页面，这不是一个好的原生应用的体验。为了让画面准备好了再显示，这有两种不同的解决方案。
 
-### 使用`ready-to-show`事件
+## 使用`ready-to-show`事件
 
 在加载页面时，渲染进程第一次完成绘制时，会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
@@ -45,7 +45,9 @@ win.once('ready-to-show', () => {
 
 这个事件通常在 `did-finish-load` 事件之后发出，但是页面有许多远程资源时，它可能会在 `did-finish-load`之前发出事件。
 
-### 设置 `backgroundColor`
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+
+## 设置 `backgroundColor`
 
 对于一个复杂的应用，`ready-to-show` 可能发出的太晚，会让应用感觉缓慢。 在这种情况下，建议立刻显示窗口，并使用接近应用程序背景的 `backgroundColor`
 
@@ -73,7 +75,7 @@ top.show()
 
 `child` 窗口将总是显示在 `top` 窗口的顶部.
 
-### 模态窗口
+## 模态窗口
 
 模态窗口是禁用父窗口的子窗口，创建模态窗口必须设置 `parent` 和 `modal` 选项：
 
@@ -87,7 +89,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### 页面可见性
+## 页面可见性
 
 [ 页面可见性 API ](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) 的工作方式如下:
 
@@ -98,7 +100,7 @@ child.once('ready-to-show', () => {
 
 推荐您在可见性状态为 `hidden` 时暂停消耗资源的操作以便减少电力消耗。
 
-### 平台相关的提示
+## 平台相关的提示
 
 * 在 macOS 上，modal 窗口将显示为附加到父窗口的工作表。
 * 在 macOS 上，子窗口将保持与父窗口的相对位置。而在 Windows 和 Linux 中，当父窗口移动时子窗口不会移动。
@@ -111,7 +113,7 @@ child.once('ready-to-show', () => {
 
 进程：[主进程](../glossary.md#main-process)
 
-`BrowserWindow` 是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 通过 `options` 可以创建一个具有原生属性的 `BrowserWindow` 。
 
@@ -120,8 +122,8 @@ child.once('ready-to-show', () => {
 * `选项` Object (可选) 
   * `width` Integer (可选) - 窗口的宽度，单位为像素。默认为`800`.
   * `height` Integer(可选) - 窗口的高度，单位为像素。默认为`600`.
-  * `x` Integer (可选) (如果 y 存在时**必填**) - 窗口相对于屏幕左侧的偏移位置. 默认居中.
-  * `y` Integer (可选) (如果 x 存在时**必填**) - 窗口相对于屏幕顶部的偏移位置. 默认居中.
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
   * `center` Boolean (可选) - 窗口在屏幕居中.
   * `minWidth` Integer (可选) - 窗口的最小宽度, 默认值为 `0`.
@@ -143,18 +145,19 @@ child.once('ready-to-show', () => {
   * `title`String(可选) - 默认窗口标题 默认为`"Electron"`。 如果由`loadURL()`加载的HTML文件中含有标签`<title>`，此属性将被忽略。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
   * `show` Boolean (可选) - 窗口创建的时候是否显示. 默认值为`true`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. 默认值为 `true`。
   * `frame` Boolean (可选) - 设置为 `false` 时可以创建一个[Frameless Window](frameless-window.md). 默认值为 `true`.
   * `parent` BrowserWindow (可选) - 指定父窗口. 默认值为 `null`.
   * `modal` Boolean (可选) -是否为模态窗. 仅供子窗口使用. 默认值为`false`.
   * `acceptFirstMouse` Boolean (可选) - 是否允许单击页面来激活窗口. 默认值为 `false`.
   * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
-  * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小时, 大于屏幕的尺寸. 默认值为`false`.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. 默认值为 `false`.
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
-  * `transparent` Boolean (可选) - 使窗口 [透明](frameless-window.md). 默认值为 `false`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 下面可以查看更多.
   * `titleBarStyle` String (可选) - 窗口标题栏的样式. 默认值为 `default`. 可能的值有： 
     * `default` - 标准灰色不透明的Mac标题栏
@@ -163,7 +166,7 @@ child.once('ready-to-show', () => {
     * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. ** 注意: **此选项目前是实验性的。
   * `fullscreenWindowTitle` Boolean (可选) - 在 macOS 全屏模式时，为所有带 `titleBarStyle` 选项的标题栏显示标题。默认值为 `false`。
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
-  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可以为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` 或 `ultra-dark`. 请注意，结合一个 vibrancy 值使用 `frame: false` ，需要确保`titleBarStyle`为一个非默认值。
+  * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (可选) - 单击工具栏上的绿色信号灯按钮或单击 窗口>缩放 菜单项时的行为, 仅macOS中有效. 如果为 ` true `, 窗口将放大到网页的本身宽度, ` false ` 将使其缩放到屏幕的宽度。 这也会影响直接调用 ` maximize() ` 时的行为。 默认值为 `false`.
   * `tabbingIdentifier` String (可选) - 选项组卡的名称，在macOS 10.12+上可使窗口在原生选项卡中打开. 具有相同标识符的窗口将被组合在一起。 这还会在窗口的标签栏中添加一个原生的新选项卡按钮, 并允许 ` app ` 和窗口接收 ` new-window-for-tab` 事件。
   * `webPreferences` Object (可选) - 网页功能的设置 
@@ -172,7 +175,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (可选项)(实验性)，是否允许在子页面(iframe)或子窗口(child window)中集成Node.js； 预先加载的脚本会被注入到每一个iframe，你可以用 `process.isMainFrame` 来判断当前是否处于主框架（main frame）中。
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
-    * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**该选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
+    * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
     * `enableRemoteModule` Boolean（可选）- 是否启用 [`Remote`](remote.md) 模块。 默认值为 `true`。
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
@@ -236,7 +239,7 @@ child.once('ready-to-show', () => {
 * `title` String
 * `explicitSet` Boolean
 
-文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题 `explicitSet` is false when title is synthesized from file url.
+文档更改标题时触发，调用`event.preventDefault()`将阻止更改标题 `explicitSet` is false when title is synthesized from file URL.
 
 #### 事件： 'close'
 
@@ -296,6 +299,8 @@ window.onbeforeunload = (e) => {
 #### 事件: 'ready-to-show'
 
 当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
+
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### 事件: 'maximize'
 
@@ -396,7 +401,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explictly supported on Linux:
+The following app commands are explicitly supported on Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -421,6 +426,15 @@ The following app commands are explictly supported on Linux:
 * `direction` String
 
 三指拖移时触发，可选的方向为 `up`, `right`, `down`, `left`.
+
+#### Event: 'rotate-gesture' *macOS*
+
+返回:
+
+* `event` Event
+* `rotation` Float
+
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### 事件: 'sheet-begin' *macOS*
 
@@ -476,7 +490,7 @@ The following app commands are explictly supported on Linux:
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `name` 字符串
 
 根据名字删除一个 Chrome 的扩展。
 
@@ -484,7 +498,7 @@ The following app commands are explictly supported on Linux:
 
 #### `BrowserWindow.getExtensions()`
 
-返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **注意:** 该 API 不能在 `app` 模块的 `ready` 事件之前调用.
 
@@ -502,7 +516,7 @@ The following app commands are explictly supported on Linux:
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` 字符串
 
 根据名字删除一个 DevTools 的扩展。
 
@@ -510,7 +524,7 @@ The following app commands are explictly supported on Linux:
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-返回 `Object` - 键是扩展名, 每个值都是一个包含 `name` 和 `version` 属性的对象.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 要检查是否安装了 DevTools 扩展，您可以运行以下内容:
 
@@ -534,15 +548,72 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents`
+#### `win.webContents` *Readonly*
 
 窗口拥有的 `WebContents` 对象. 所有与网页相关的事件和操作都将通过它完成.
 
 有关它的方法和事件, 请参见 [`webContents` documentation](web-contents.md)
 
-#### `win.id`
+#### `win.id` *Readonly*
 
-`Integer` 窗口的唯一ID
+A `Integer` property representing the unique ID of the window.
+
+#### `win.autoHideMenuBar`
+
+A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.minimizable`
+
+A `Boolean` property that determines whether the window can be manually minimized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.maximizable`
+
+A `Boolean` property that determines whether the window can be manually maximized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.fullScreenable`
+
+A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+#### `win.resizable`
+
+A `Boolean` property that determines whether the window can be manually resized by user.
+
+#### `win.closable`
+
+A `Boolean` property that determines whether the window can be manually closed by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.movable`
+
+A `Boolean` property that determines Whether the window can be moved by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```
 
 ### 实例方法
 
@@ -647,7 +718,7 @@ win.loadURL('https://github.com')
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * ` aspectRatio ` Float- 为内容视图保持的宽高比.
-* `extraSize` [Size](structures/size.md) - 维持高宽比值时不包含的额外大小
+* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
 
 这将使窗口保持长宽比。 额外的大小允许开发人员有空间 (以像素为单位), 不包括在纵横比计算中。 此 API 已经考虑了窗口大小和内容大小之间的差异。
 
@@ -674,7 +745,7 @@ win.loadURL('https://github.com')
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (可选) *macOS*
 
 重新调整窗口大小并将其移动到提供的 bounds。当一些属性值没有被提供时，将不被更改。
@@ -719,6 +790,10 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 * `enable` Boolean
 
 禁用或者启用窗口。
+
+#### `win.isEnabled()`
+
+Returns Boolean - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -772,9 +847,13 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 设置用户是否可以手动调整窗口大小。
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isResizable()`
 
 返回 `Boolean` - 设置窗口是否可以被用户改变大小.
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -782,11 +861,15 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 设置窗口是否可由用户移动。在 Linux 上无效。
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isMovable()` *macOS* *Windows*
 
 返回 `Boolean` - 窗口是否可以被用户拖动
 
 在 Linux 上总是返回 ` true `。
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -794,11 +877,15 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 设置窗口是否可以最小化. 在 Linux 上无效.
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isMinimizable()` *macOS* *Windows*
 
 返回 `Boolean` -窗口是否可以最小化
 
 在 Linux 上总是返回 ` true `。
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -806,11 +893,15 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 设置窗口是否可以最大化. 在 Linux 上无效.
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isMaximizable()` *macOS* *Windows*
 
 返回 `Boolean` - 窗口是否可以最大化.
 
 在 Linux 上总是返回 ` true `。
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -818,9 +909,13 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 设置点击最大化按钮是否可以全屏或最大化窗口.
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isFullScreenable()`
 
 返回 `Boolean` - 是否为全屏状态或窗口最大化
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -828,16 +923,20 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 设置窗口是否可以人为关闭。在 Linux 上无效.
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isClosable()` *macOS* *Windows*
 
-返回 `Boolean` - 窗口是否可以被用户关闭.
+返回 `Boolean` - 窗口是否被用户关闭了.
 
 在 Linux 上总是返回 ` true `。
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (可选) *macOS* - 可以为下面的值 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, 和 ~~`dock`~~ (参考值). 默认值为 `floating`. 更多信息，请查阅 [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level)
+* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 * `relativeLevel` Integer (可选) *macOS* - 设置此窗口相对于给定 `级别`的层数。. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
 设置窗口是否应始终显示在其他窗口的顶部。设置之后, 仍然是一个普通窗口, 而不是一个无法聚焦的工具箱窗口。
@@ -968,16 +1067,6 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 #### `win.blurWebView()`
 
-#### `win.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-**[马上将弃用](modernization/promisification.md)**
-
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
@@ -990,11 +1079,11 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 * `url` String
 * `options` Object (可选) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
-  * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
+  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -1030,7 +1119,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (可选) 
-  * `query` Object (可选) - 传递给 `url.format()`.
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
 
@@ -1062,7 +1151,7 @@ Remove the window's menu bar.
 
 当进度小于0时不显示进度; 当进度大于0时显示结果不确定.
 
-在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. 默认值为 `app.getName().desktop`.
+在 Linux 平台上，只支持 Unity 桌面模式, 你需要在 `package.json` 中为 `desktopName` 指定 `*.desktop` 的文件名. By default, it will assume `{app.name}.desktop`.
 
 在 Windows 上, 可以传递模式。 可以接受的值为`none`, `normal`, `indeterminate`, `error`和 `paused`. 如果没有设置模式 (但值在有效范围内) 的情况下调用 ` setProgressBar `, 默认值为` normal `。
 
@@ -1087,11 +1176,11 @@ Sets whether the window should have a shadow.
 
 * `opacity` Number - 介于0.0 ( 完全透明 ) 和1.0 ( 完全不透明 ) 之间
 
-设置窗口的不透明度，在Linux系统上无效
+Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
-#### `win.getOpacity()` *Windows* *macOS*
+#### `win.getOpacity()`
 
-返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
 
 #### `win.setShape(rects)` *Windows* *Linux* *实验性*
 
@@ -1177,9 +1266,13 @@ Sets whether the window should have a shadow.
 
 如果菜单栏已经可见, 调用 `setAutoHideMenuBar(true)`时不会立刻隐藏.
 
+**[过时的](modernization/property-updates.md)**
+
 #### `win.isMenuBarAutoHide()`
 
 返回 `Boolean` - 判断窗口的菜单栏是否自动隐藏.
+
+**[过时的](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1225,15 +1318,17 @@ Sets whether the window should have a shadow.
 
 在macOS中, 它设置 NSWindow的 sharingType为 NSWindowSharingNone. 在Windows中, 它设置 `WDA_MONITOR`调用 SetWindowDisplayAffinity.
 
-#### `win.setFocusable(focusable)` *Windows*
+#### `win.setFocusable(focusable)` *macOS* *Windows*
 
 * `focusable` Boolean
 
 设置窗口是否可聚焦
 
+On macOS it does not remove the focus from the window.
+
 #### `win.setParentWindow(parent)`
 
-* `parent` BrowserWindow
+* `parent` BrowserWindow | null
 
 设置 `parent` 为当前窗口的父窗口. 为`null`时表示将当前窗口转为顶级窗口
 
@@ -1279,13 +1374,15 @@ Sets whether the window should have a shadow.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - 可以为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` 或 `ultra-dark`. 更多详细信息，请查阅 [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc)
+* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. 更多详细信息，请查阅 [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc)
 
 在浏览器窗口中添加一个动态效果. 设置为`null`或空字符串将移除窗口的动态效果。
 
+Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+
 #### `win.setTouchBar(touchBar)` *macOS* *实验*
 
-* `touchBar` TouchBar
+* `touchBar` TouchBar | null
 
 设置窗口的触摸条布局 设置为 `null` 或`undefined`将清除触摸条. 此方法只有在macOS 10.12.1+且设备支持触摸条TouchBar时可用.
 
@@ -1293,7 +1390,7 @@ Sets whether the window should have a shadow.
 
 #### `win.setBrowserView(browserView)` *实验*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *实验功能*
 
@@ -1311,27 +1408,6 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.getBrowserViews()` *实验功能*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
-
-### 属性
-
-#### `win.excludedFromShownWindowsMenu` *macOS*
-
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
-
-```js
-const win = new BrowserWindow({ height: 600, width: 600 })
-
-const template = [
-  {
-    role: 'windowmenu'
-  }
-]
-
-win.excludedFromShownWindowsMenu = true
-
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
-```

@@ -14,6 +14,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `hang()`
 * `getCreationTime()`
 * `getHeapStatistics()`
+* `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
@@ -52,15 +53,15 @@ process.once('loaded', () => {
 
 ## 屬性
 
-### `process.defaultApp`
+### `process.defaultApp` *Readonly*
 
 A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
-### `process.isMainFrame`
+### `process.isMainFrame` *Readonly*
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas`
+### `process.mas` *Readonly*
 
 A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
@@ -76,11 +77,11 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath`
+### `process.resourcesPath` *Readonly*
 
 A `String` representing the path to the resources directory.
 
-### `process.sandboxed`
+### `process.sandboxed` *Readonly*
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
@@ -96,19 +97,19 @@ A `Boolean` that controls whether or not deprecations printed to `stderr` includ
 
 A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type`
+### `process.type` *Readonly*
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome`
+### `process.versions.chrome` *Readonly*
 
 A `String` representing Chrome's version string.
 
-### `process.versions.electron`
+### `process.versions.electron` *Readonly*
 
 A `String` representing Electron's version string.
 
-### `process.windowsStore`
+### `process.windowsStore` *Readonly*
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
@@ -150,6 +151,16 @@ Indicates the creation time of the application. The time is represented as numbe
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
+### `process.getBlinkMemoryInfo()`
+
+回傳 `Object`:
+
+* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `marked` Integer - Size of all marked objects in Kilobytes.
+* `total` Integer - Total allocated space in Kilobytes.
+
+Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
@@ -175,11 +186,9 @@ Returns `String` - The version of the host operating system.
 
 範例:
 
-| Platform | Version             |
-| -------- | ------------------- |
-| macOS    | `10.13.6`           |
-| Windows  | `10.0.17763`        |
-| Linux    | `4.15.0-45-generic` |
+* `macOS` -> `10.13.6`
+* `Windows` -> `10.0.17763`
+* `Linux` -> `4.15.0-45-generic`
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 

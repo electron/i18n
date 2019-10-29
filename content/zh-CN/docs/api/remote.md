@@ -15,7 +15,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture-callback)。
+** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture)。
 
 **注意事项：** 因为安全原因，remote 模块能在以下几种情况下被禁用：
 
@@ -152,6 +152,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## 属性
 
-### `remote.process`
+### `remote.process` *Readonly*
 
-主进程中的 ` process ` 对象。这与 ` remote.getGlobal('process') ` 相同, 但已被缓存。
+A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.

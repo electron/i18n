@@ -70,22 +70,6 @@ const constraints = {
 
 Le module `desktopCapturer` dispose des méthodes suivantes :
 
-### `desktopCapturer.getSources(options, callback)`
-
-* `options` Objet 
-  * `types` String[] - un tableau de Chaîne de caractères qui répertorie les types de sources bureau à être capturé, les types disponibles sont `screen` et `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
-* `callback` Function 
-  * `error` Error
-  * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
-
-Commence à recueillir des informations sur toutes les sources de médias bureau disponibles et appelle le `callback(error, sources)` lorsque qu'il a terminé.
-
-`sources` est un tableau d’objets [`DesktopCapturerSource`](structures/desktop-capturer-source.md), chaque `DesktopCapturerSource` représente un écran ou une fenêtre individuelle qui peut être capturée.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `desktopCapturer.getSources(options)`
 
 * `options` Objet 
@@ -95,7 +79,7 @@ Commence à recueillir des informations sur toutes les sources de médias bureau
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
-### Caveats
+## Caveats
 
 `navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
 

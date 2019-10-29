@@ -6,6 +6,8 @@
 
 **请参阅：在应用程序中如何实现更新的详细指南。**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## 跨平台提醒
 
 目前，只有 macOS 和 Window 支持该功能。在 Linux 上没有对自动更新程序的内置支持，因此建议使用发行版的包管理器来更新您的应用程序。
@@ -82,7 +84,7 @@
 
 * `options` Object 
   * `url` String
-  * `headers` Object (可选) *macOS* - HTTP 请求头。
+  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
 设置检查更新的 `url`，并且初始化自动更新。

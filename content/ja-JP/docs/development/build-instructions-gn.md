@@ -33,7 +33,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 [sccache](https://github.com/mozilla/sccache) を通して Electron CI のビルド出力を再利用することで待ち時間の多くを回避できます。 これにはいくつかの任意の手順 (下記リスト) と以下の2つの環境変数が必要です。
 
 ```sh
-export SCCACHE_BUCKET="electronjs-sccache"
+export SCCACHE_BUCKET="electronjs-sccache-ci"
 export SCCACHE_TWO_TIER=true
 ```
 
@@ -56,6 +56,7 @@ $ gclient sync --with_branch_heads --with_tags
 $ cd src/electron
 $ git remote remove origin
 $ git remote add origin https://github.com/electron/electron
+$ git checkout master
 $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
@@ -218,21 +219,11 @@ gclient sync -f --with_branch_heads --with_tags
     </p>
     
     <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
-# 生成ヘッダありでテストモジュールをインストールする場合
-$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 </code></pre>
     
     <p>
-      それから、<code>electron/spec</code> を引数にして Electronを実行します。
+      You can now <a href="testing.md#unit-tests">run the tests</a>.
     </p>
-    
-    <pre><code class="sh"># macOSの場合:
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# Windowsの場合:
-$ ./out/Debug/electron.exe electron/spec
-# Linuxの場合:
-$ ./out/Debug/electron electron/spec
-</code></pre>
     
     <p>
       もし何かをデバッグ中であれば、以下のフラグを Electron バイナリに渡すと役に立つかもしれません。

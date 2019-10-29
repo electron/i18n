@@ -24,8 +24,9 @@ Per impostare il server in modo che accetti e processi il report del crash, puoi
 
 Or use a 3rd party hosted solution:
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
@@ -38,11 +39,11 @@ Il modulo `crashReporter` ha i seguenti metodi:
 * `opzioni` Oggetto 
   * `companyName` String
   * `submitURL` String - URL a cui verrà inviato il crash report come POST.
-  * `productName` String (opzionale) - Di default è `app.getName()`.
-  * `uploadToServer` Boolean (opzionale) - Se il crash report deve essere inviato al server Di default è `true`.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (opzionale) - Di default è `false`.
-  * `extra` Object (opzionale) - Un oggetto che puoi definire che verrà inviato insieme al report. Solo proprietà di tipo string saranno inviate correttamente. Oggetti innestati non sono supportati ed i nomi delle proprietà e valori devono essere lunghi meno di 64 caratteri.
-  * `crashesDirectory` String (opzionale) - Cartella in cui salvare temporaneamente i crash report (usato solo quando il crash reporter è avviato tramite `process.crashReporter.start`).
+  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Solo proprietà di tipo string saranno inviate correttamente. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 

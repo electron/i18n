@@ -4,8 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-` DownloadItem </ 0> adalah <code> acara Emitter </ 0> yang mewakili item unduhan di Elektron .
-Ini digunakan dalam event <code> will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Ini digunakan dalam event ` will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
 
 <pre><code class="javascript">// Pada proses utama.
 const { BrowserWindow } = require('electron')
@@ -62,12 +61,17 @@ Emitted saat download dalam status terminal. Ini termasuk unduhan yang selesai, 
 </ul>
 
 <p>API hanya tersedia dalam sesi <code> akan mengunduh </ 0> fungsi callback.
-Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunakan rutinitas asli untuk menentukan jalur simpan (Biasanya meminta dialog simpan).</p>
+If user doesn't set the save path via the API, Electron will use the original
+routine to determine the save path; this usually prompts a save dialog.</p>
 
-<h4><code>downloadItem.getSavePath ()`</h4> 
+<p><strong><a href="modernization/property-updates.md">Deprecated</a>: use the <code>savePath` property instead.</strong></p> 
+    #### `downloadItem.getSavePath ()`
+    
     Mengembalikan ` String </ 0> - Jalur penyimpanan item unduhan. Ini akan menjadi jalur yang ditetapkan melalui <code> downloadItem.setSavePath (jalur) </ 0> atau jalur yang dipilih dari dialog simpan yang ditunjukkan.</p>
 
-<h4><code>downloadItem.setSaveDialogOptions(options)`</h4> 
+<p><strong><a href="modernization/property-updates.md">Deprecated</a>: use the <code>savePath` property instead.</strong>
+    
+    #### `downloadItem.setSaveDialogOptions(options)`
     
     * `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
     
@@ -101,9 +105,9 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
     
     #### `downloadItem.dapatkan Url ()`
     
-    Mengembalikan ` String </ 0> - Urutan asal tempat item tersebut didownload.</p>
-
-<h4><code>downloadItem.dapatkan tipe pantonim ()`</h4> 
+    Returns `String` - The origin URL where the item is downloaded from.
+    
+    #### `downloadItem.dapatkan tipe pantonim ()`
     
     Mengembalikan ` String </ 0> - Jenis file mime.</p>
 
@@ -140,9 +144,9 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
     
     #### `downloadItem.getURLChain ()`
     
-    Mengembalikan ` String [] </ 0> - Rantai url lengkap item termasuk pengalihan apa pun.</p>
-
-<h4><code>downloadItem.getLastModifiedTime ()`</h4> 
+    Returns `String[]` - The complete URL chain of the item including any redirects.
+    
+    #### `downloadItem.getLastModifiedTime ()`
     
     Mengembalikan ` String </ 0> - Nilai header Terakhir-Diubah.</p>
 
@@ -152,4 +156,12 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
 
 <h4><code>downloadItem.getStartTime ()`</h4> 
     
-    Mengembalikan  Ganda </ 0> - Jumlah detik sejak zaman UNIX saat unduhan dimulai.</p>
+    Mengembalikan ` Ganda </ 0> - Jumlah detik sejak zaman UNIX saat unduhan dimulai.</p>
+
+<h3>Contoh properti</h3>
+
+<h4><code>downloadItem.savePath`</h4> 
+    
+    A `String` property that determines the save file path of the download item.
+    
+    The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.

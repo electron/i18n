@@ -62,7 +62,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 * `language` String
 * `provider` Object 
-  * `spellCheck` Function. 
+  * `spellCheck` Function 
     * `words` String[]
     * `callback` Function 
       * `misspeltWords` String[]
@@ -91,28 +91,21 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS ソースコード。
 
-`css` をスタイルシートとしてドキュメント内に挿入します。
+Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+
+Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+
+### `webFrame.removeInsertedCSS(key)`
+
+* `key` String
+
+Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
 
 ### `webFrame.insertText(text)`
 
 * `text` String
 
 フォーカスされた要素に `text` を挿入します。
-
-### `webFrame.executeJavaScript(code[, userGesture, callback])`
-
-* `code` String
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
-  * `result` Any
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-ページ内の `code` を評価します。
-
-ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
-
-**[非推奨予定](modernization/promisification.md)**
 
 ### `webFrame.executeJavaScript(code[, userGesture])`
 
@@ -125,20 +118,6 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (任意) - 省略値は `false`。
-* `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
-  * `result` Any
-
-戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
-
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
-**[非推奨予定](modernization/promisification.md)**
-
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
@@ -148,27 +127,6 @@ webFrame.setSpellCheckProvider('en-US', {
 戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
-
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `csp` String
-
-イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
-
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `name` String
-
-イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
-
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
-
-* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 Chrome 拡張機能の ID は `[1 << 20, 1 << 29)` の範囲で確保します。 任意の整数を指定できます。
-* `securityOrigin` String
-
-イソレートコンテキストのセキュリティオリジンを設定します。
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
@@ -240,26 +198,26 @@ console.log(webFrame.getResourceUsage())
 
 ## プロパティ
 
-### `webFrame.top`
+### `webFrame.top` *Readonly*
 
-`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
 
-### `webFrame.opener`
+### `webFrame.opener` *Readonly*
 
-`webFrame` が開かれたフレームを表す `WebFrame`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
 
-### `webFrame.parent`
+### `webFrame.parent` *Readonly*
 
-`webFrame` の親フレームを表す `WebFrame`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
 
-### `webFrame.firstChild`
+### `webFrame.firstChild` *Readonly*
 
-`webFrame` の最初の子フレームを表す `WebFrame`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
 
-### `webFrame.nextSibling`
+### `webFrame.nextSibling` *Readonly*
 
-次の兄弟フレームを表す `WebFrame`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
 
-### `webFrame.routingId`
+### `webFrame.routingId` *Readonly*
 
 現在のレンダラープロセスの一意なフレーム ID を表す `Integer`。同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。

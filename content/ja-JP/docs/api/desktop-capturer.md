@@ -70,32 +70,16 @@ const constraints = {
 
 `desktopCapturer` モジュールには以下のメソッドがあります。
 
-### `desktopCapturer.getSources(options, callback)`
-
-* `options` オブジェクト 
-  * `types` String[] - キャプチャされるデスクトップソースの種別を列挙した文字列の配列。指定できる種別は、`screen` と `window` です。
-  * `thumbnailSize` [Size](structures/size.md) (任意) - メディアソースのサムネイルを拡大縮小するサイズ。 省略値は `150` x `150` です。 サムネイルが不要な場合は、幅または高さを 0 に設定してください。 これにより、各ウィンドウおよび画面のコンテンツをキャプチャするために必要な処理時間が節約されます。
-  * `fetchWindowIcons` Boolean (任意) - ウィンドウアイコンの取得を有効にするには true に設定します。 デフォルト値は false です。 false の場合、ソースの appIcon プロパティは null を返します。 ソースが screen 型の場合も同様です。
-* `callback` Function 
-  * `error` Error
-  * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
-
-すべての利用可能なデスクトップのメディアソースに関する情報の収集を開始し、完了時に `callback(error, sources)` を呼び出します。
-
-`sources` は、[`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列で、各 `DesktopCapturerSource` は、キャプチャすることのできる画面または個々のウインドウを表します。
-
-**[非推奨予定](modernization/promisification.md)**
-
 ### `desktopCapturer.getSources(options)`
 
-* `options` Object 
+* `options` オブジェクト 
   * `types` String[] - キャプチャされるデスクトップソースの種別を列挙した文字列の配列。指定できる種別は、`screen` と `window` です。
   * `thumbnailSize` [Size](structures/size.md) (任意) - メディアソースのサムネイルを拡大縮小するサイズ。 省略値は `150` x `150` です。 サムネイルが不要な場合は、幅または高さを 0 に設定してください。 これにより、各ウィンドウおよび画面のコンテンツをキャプチャするために必要な処理時間が節約されます。
   * `fetchWindowIcons` Boolean (任意) - ウィンドウアイコンの取得を有効にするには true に設定します。 デフォルト値は false です。 false の場合、ソースの appIcon プロパティは null を返します。 ソースが screen 型の場合も同様です。
 
 戻り値 `Promise<DesktopCapturerSource[]>` - [`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列を使用して解決します。各 `DesktopCapturerSource` は、キャプチャできる画面または個々のウィンドウを表します。
 
-### Caveats
+## Caveats
 
 `navigator.mediaDevices.getUserMedia` はシステムのオーディオにアクセスしたいアプリが[署名付きカーネル拡張](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html)を必要とするという基本的な制限のため、macOS ではオーディオキャプチャが動作しません。 Chrome、ひいては Electron はこれを提供していません。
 

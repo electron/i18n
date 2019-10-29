@@ -27,7 +27,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 Dönüşler:
 
-* `launchInfo` Nesne *macOS*
+* `launchInfo` unknown *macOS*
 
 Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, `launchInfo`, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan `NSUserNotification` öğesinin `kullanıcı bilgisi`'ni tutar. Bu etkinliğin zaten başlayıp başlamadığını kontrol etmek için `app.isReady()` 'i arayabilirsiniz.
 
@@ -92,7 +92,7 @@ Dönüşler:
 * `event` Olay
 * `url` String
 
-Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Uygulamanızın `Info.plist` dosyası, `CFBundleURLTypes` anahtarının içinde url düzenini tanımlamalı ve `NSPrincipalClass` 'ı `AtomApplication` olarak ayarlamalıdır.
+Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
@@ -111,7 +111,7 @@ Dönüşler:
 
 * `event` Olay
 * xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
-* `userInfo` Object - Etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
@@ -142,7 +142,7 @@ Dönüşler:
 
 * `event` Olay
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o sırada ortaya çıkıyor.
 
@@ -152,7 +152,7 @@ Dönüşler:
 
 * `event` Olay
 * xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
-* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Olay: 'gpu-process-crashed' 
 
 Dönüşler:
@@ -292,7 +296,7 @@ Dönüşler:
 * `event` Event
 * `killed` Boolean
 
-Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
+Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ Tüm uygulama pencerelerini simge durumuna küçültmeden gizler.
 
 Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak odaklanmaz.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(isim)`
 
-* `name` Dizi
+* `name` String - You can request the following paths by the name: 
+  * `home` Kullanıcının ana dizgini.
+  * `appData` Her bir kullanıcının uygulama verisinin bulunduğu veri dizgini, varsayılan olarak şunlara işaret eder: 
+    * Windows'ta `%APPDATA%`
+    * Linux'ta `$XDG_CONFIG_HOME` veya `~/.config`
+    * macOS'ta `~/Library/Application Support`
+  * `userData` Uygulamanızın , varsayılan olarak uygulamanızın ismiyle ilişkilendirilen `appData` dizini olan, konfigürasyon dosyalarını saklayan dizin.
+  * `önbellek`
+  * `temp` Geçici dizin.
+  * `exe` Yürürlükteki yürütülebilir dosya.
+  * `module` - `libchromiumcontent` kütüphanesi.
+  * `dekstop` Yürürlükteki kullanıcının Masaüstü dizini.
+  * `documents` Bir kullanıcının "Dökümanlarım" dizini.
+  * `downloads` Bir kullanıcının "İndirilenler" dizini.
+  * `Müzik`Bir kullanıcının "Müziklerim" dizini.
+  * `pictures` Bir kullanıcının "Resimlerim" dizini.
+  * `videos` Bir kullanıcının "Videolarım" dizini.
+  * Uygulamanızın günlük klasörü için `logs` dizini.
+  * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-Aşağıdaki yolları isimleriyle talep edebilirsiniz:
-
-* `home` Kullanıcının ana dizgini.
-* `appData` Her bir kullanıcının uygulama verisinin bulunduğu veri dizgini, varsayılan olarak şunlara işaret eder: 
-  * Windows'ta `%APPDATA%`
-  * Linux'ta `$XDG_CONFIG_HOME` veya `~/.config`
-  * macOS'ta `~/Library/Application Support`
-* `userData` Uygulamanızın , varsayılan olarak uygulamanızın ismiyle ilişkilendirilen `appData` dizini olan, konfigürasyon dosyalarını saklayan dizin.
-* `temp` Geçici dizin.
-* `exe` Yürürlükteki yürütülebilir dosya.
-* `module` - `libchromiumcontent` kütüphanesi.
-* `dekstop` Yürürlükteki kullanıcının Masaüstü dizini.
-* `documents` Bir kullanıcının "Dökümanlarım" dizini.
-* `downloads` Bir kullanıcının "İndirilenler" dizini.
-* `Müzik`Bir kullanıcının "Müziklerim" dizini.
-* `pictures` Bir kullanıcının "Resimlerim" dizini.
-* `videos` Bir kullanıcının "Videolarım" dizini.
-* Uygulamanızın günlük klasörü için `logs` dizini.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* dizi `yolu`
-* `seçenekler` Obje (opsiyonel) 
-  * `boyut` Dize 
-    * `küçük` - 16x16
-    * `normal` - 32x32
-    * `büyük` - *Linux'ta* 48x48, *Windows'ta*32x32, *macOS'de* desteklenmemektedir.
-* `geri aramak` Function 
-  * `error` Error
-  * `icon` [DoğalGörüntü](native-image.md)
-
-Bir dosya yolunun ilişkili ikonunu çeker.
-
-On *Windows*, there are 2 kinds of icons:
-
-* `.mp3`, `.png` v.b. gibi belirli dosya uzantıları ile ilişkilendirilmiş ikonlar
-* `.exe`, `.dll`, `.ico` gibi, dosyanın kendi içindeki ikonlar
-
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
-
-**[Deprecated Soon](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -576,13 +557,17 @@ Yüklenen uygulamanın sürümü `String` döndürür. Uygulamanın `package.jso
 
 `String` Döndürür - Uygulamanın adını belirten geçerli uygulamanın adı ` package.json ` dosyası.
 
-Genellikle, ` package.json ` ` ad ` alanı küçük bir kısaltma adıdır npm modüllerine spec. Genel olarak `productName` belirtmelisiniz, bu da uygulamanızın üst karakterle yazılmış hali olmalıdır ve Electron'un belirlediği `isimden` çok tercih edilecektir.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Genel olarak `productName` belirtmelisiniz, bu da uygulamanızın üst karakterle yazılmış hali olmalıdır ve Electron'un belirlediği `isimden` çok tercih edilecektir.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
 * `name` Dizi
 
 Mevcut uygulamanın ismini geçersiz kılar.
+
+**[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -596,7 +581,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Note:** When unable to detect locale country code, it returns empty string.
 
@@ -658,7 +643,7 @@ API dahili olarak Windows Kayıt Defteri ve LSCopyDefaultHandlerForURLScheme kul
 
 * `görevler<code> <a href="structures/task.md">Görev []</a> - <0>Görev` nesnelerinin dizisi
 
-Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) kategorisine ekler.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
@@ -671,11 +656,11 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microso
 `Object` 'i geri getirir:
 
 * `minItems` Tamsayı - Listede gösterilecek minimum öğe sayısı Atlama Listesi (bu değerin daha ayrıntılı bir açıklaması için bkz. [MSDN dokümanları](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ile eşleşen `JumpListItem` nesnelerinin dizisi kullanıcının belirli kategorilerden açıkça kaldırdığı öğelerin atlama listesidir. Bu öğeler, **sonraki** Atlama Listesine tekrar eklenemez `app.set JumpList()` öğesini çağırın. Herhangi bir özel kategoriden kaldırılan öğelerden herhangi birini içeren windows görüntülenmez.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Bu öğeler, **sonraki** Atlama Listesine tekrar eklenemez `app.set JumpList()` öğesini çağırın. Herhangi bir özel kategoriden kaldırılan öğelerden herhangi birini içeren windows görüntülenmez.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListKategorileri[]](structures/jump-list-category.md) ya da `null` - `JumpListCategory` nesnelerinin sırası.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıdaki dizelerden birini geri döndürür:
 
@@ -799,7 +784,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` nesne - etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
+* `userInfo` any - App-specific state to store for use by another device.
 * ` webpageURL </ 0> String (isteğe bağlı) - Uygun bir uygulama yoksa tarayıcıya yüklenecek web sayfası yeniden başlatma aygıtına bağlı bir şema olmalıdır <code> http </ 0> veya <code> https </ 0></li>
 </ul>
 
@@ -810,14 +795,16 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 <h3><code>app.invalidateCurrentActivity()` *macOS*</h3> 
   
-  * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-  
   Geçerli [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kullanıcı etkinliğini geçersiz kılar.
+  
+  ### `app.resignCurrentActivity()` *macOS*
+  
+  Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
   
   ### `systemPapp.updateCurrentActivity(type, userInfo)` *macOS*
   
   * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-  * `userInfo` nesne - etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
+  * `userInfo` any - App-specific state to store for use by another device.
   
   Türü `type` ile eşleşiyorsa geçerli etkinliği günceller, y`userInfo`'den girişleri geçerli `userInfo` sözlüğe birleştirir.
   
@@ -827,16 +814,13 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   
   Daha fazla bilgi için [Windows Dokümanlarına](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) bakın.
   
-  ### ` app.importCertificate (seçenekler, geri arama) </ 0> <em> LINUX </ 1></h3>
-
-<ul>
-<li><code>seçenekler` Nesne 
+  ### `app.importCertificate(options, callback)` *Linux*
   
-  * `sertifika` Dize - pkcs12 dosyasının yolunu girin.
-  * `şifre` Dize - sertifika için parola.</li> 
-  
+  * `seçenekler` Nesne 
+    * `sertifika` Dize - pkcs12 dosyasının yolunu girin.
+    * `şifre` Dize - sertifika için parola.
   * `geri aramak` Function 
-    * `sonuç` Tamsayı - sonuç alma</ul> 
+    * `sonuç` Tamsayı - sonuç alma
   
   Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
   
@@ -854,17 +838,19 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   
   ### `app.getAppMetrics( )`
   
-  Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+  Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
   
   ### `app.getGPUFeatureStatus()`
   
   ` GPU Özellik Durumu'nu döndürür</ 0> - Grafik Özellik Durumu <code> chrome: //gpu/`döndürür.</p> 
   
+  **Note:** This information is only usable after the `gpu-info-update` event is emitted.
+  
   ### `app.getGPUInfo(infoType)`
   
-  * `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+  * `infoType` String - Can be `basic` or `complete`.
   
-  Returns `Promise`
+  Returns `Promise<unknown>`
   
   For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
   
@@ -908,9 +894,13 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   
   **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
   
+  **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
+  
   ### `app.getBadgeCount()`Linux</em>*macOS*
   
   Karşı rozette görüntülenen geçerli değer, `Tamsayı` Döndürür.
+  
+  **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
   
   ### `app.isUnityRunning()`*Linux*
   
@@ -963,7 +953,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 <p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. Daha detaylar bilgi görmek için https://www.chromium.org/developers/design-documents/accessibility.</p> 
       
-      **[Deprecated Soon](modernization/property-updates.md)**
+      **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
       
       ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
       
@@ -975,9 +965,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
       
-      **[Deprecated Soon](modernization/property-updates.md)**
+      **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
       
-      ### `app.showAboutPanel` *macOS* *Linux*
+      ### `app.showAboutPanel()` *macOS* *Linux*
       
       Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
       
@@ -987,22 +977,23 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
         * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
         * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
         * `copyright` String (seçilebilir) - telif bilgisi.
-        * `version` String (optional) - The app's build version number. *macOS*
-        * `credits` String (optional) - Credit information. *macOS*
-        * `website` String (optional) - The app's website. *Linux*
-        * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+        * `version` String (optional) *macOS* - The app's build version number.
+        * `credits` String (optional) *macOS* - Credit information.
+        * `authors` String[] (optional) *Linux* - List of app authors.
+        * `website` String (optional) *Linux* - The app's website.
+        * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
       
       Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file on MacOS. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için. On Linux, values must be set in order to be shown; there are no defaults.
       
-      ### `app.isEmojiPanelSupported`
+      ### `app.isEmojiPanelSupported()`
       
       Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
       
-      ### `app.showEmojiPanel` *macOS* *Windows*
+      ### `app.showEmojiPanel()` *macOS* *Windows*
       
       Show the platform's native emoji picker.
       
-      ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+      ### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
       
       * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
       
@@ -1017,39 +1008,6 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
       
-      ### `app.commandLine.appendSwitch(switch[, value])`
-      
-      * `switch` String - A command-line switch, without the leading `--`
-      * `value` String (optional) - Verilen anahtarda bir değer
-      
-      Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
-      
-      **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-      
-      ### `app.commandLine.appendArgument(value)`
-      
-      * `value` String - Komut satırına eklenecek argüman
-      
-      Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
-      
-      If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
-      
-      **Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-      
-      ### `app.commandLine.hasSwitch(switch)`
-      
-      * `switch` String - Bir komut satırı anahtarı
-      
-      Returns `Boolean` - Whether the command-line switch is present.
-      
-      ### `app.commandLine.getSwitchValue(switch)`
-      
-      * `switch` String - Bir komut satırı anahtarı
-      
-      Returns `String` - The command-line switch value.
-      
-      **Note:** When the switch is not present or has no value, it returns empty string.
-      
       ### `app.enableSandbox()` *Experimental*
       
       Enables full sandbox mode on the app.
@@ -1060,79 +1018,40 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
       
-      ### `app.moveToApplicationsFolder()` *macOS*
+      ### `app.moveToApplicationsFolder([options])` *macOS*
+      
+      * `seçenekler` Obje (opsiyonel) 
+        * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+          * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
       
       Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
       
       No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
       
-      **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
+      **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli.
       
-      ### `app.dock.bounce([type])` *macOS*
+      By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
       
-      * `type` Dize (İsteğe bağlı) - `critical` veya `informational` olabilir. Varsayılan değer `informational`
+      Örneğin:
       
-      `critical` geçildiğinde, dock simgesi uygulama aktifleşinceye veya istek iptal edilene kadar sıçrar.
+      ```js
+      app.moveToApplicationsFolder({
+        conflictHandler: (conflictType) => {
+          if (conflictType === 'exists') {
+            return dialog.showMessageBoxSync({
+              type: 'question',
+              buttons: ['Halt Move', 'Continue Move'],
+              defaultId: 0,
+              message: 'An app of this name already exists'
+            }) === 1
+          }
+        }
+      })
+      ```
       
-      `informational` geçildiğinde, dock simgesi bir saniyeliğine sıçrar. Ancak, uygulamaya ya aktif hale gelir ya da istek iptal olana kadar talep etkin kalır.
-      
-      Returns `Integer` isteği temsil eden bir kimlik.
-      
-      ### `app.dock.cancelBounce(id)` *macOS*
-      
-      * `id` tamsayı
-      
-      `id` sıçramasını iptal et.
-      
-      ### `app.dock.downloadFinished(filePath)` *macOS*
-      
-      * `filePath` Dizi
-      
-      FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
-      
-      ### `app.dock.setBadge(text)` *macOS*
-      
-      * `text` String
-      
-      Dock'un rozetleme alanında gösterilecek satırı ayarlar.
-      
-      ### `app.dock.getBadge()` *macOS*
-      
-      `String` geri getirir - dock'un işaret dizisi.
-      
-      ### `app.dock.hide()` *macOS*
-      
-      Dock simgesini gizler.
-      
-      ### `app.dock.show()` *macOS*
-      
-      Returns `Promise<void>` - Resolves when the dock icon is shown.
-      
-      ### `app.dock.isVisible()` *macOS*
-      
-      Returns `Boolean` - Whether the dock icon is visible.
-      
-      ### `app.dock.setMenu(menu)` *macOS*
-      
-      * `menu` [Menü](menu.md)
-      
-      Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-      
-      ### `app.dock.getMenu()` *macOS*
-      
-      Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-      
-      ### `app.dock.setIcon(image)` *macOS*
-      
-      * `image` ([NativeImage](native-image.md) | String)
-      
-      Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
+      Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
       
       ## Özellikler
-      
-      ### `app.applicationMenu`
-      
-      A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
       
       ### `app.accessibilitySupportEnabled` *macOS* *Windows*
       
@@ -1144,15 +1063,41 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
       
+      ### `app.applicationMenu`
+      
+      A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+      
+      ### `app.badgeCount` *Linux* *macOS*
+      
+      An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+      
+      On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+      
+      **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+      
+      ### `app.commandLine` *Readonly*
+      
+      A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+      
+      ### `app.dock` *macOS* *Readonly*
+      
+      A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+      
+      ### `app.isPackaged` *Readonly*
+      
+      A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+      
+      ### `app.name`
+      
+      A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+      
+      Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Genel olarak `productName` belirtmelisiniz, bu da uygulamanızın üst karakterle yazılmış hali olmalıdır ve Electron'un belirlediği `isimden` çok tercih edilecektir.
+      
       ### `app.userAgentFallback`
       
       A `String` which is the user agent string Electron will use as a global fallback.
       
-      This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
-      
-      ### `app.isPackaged`
-      
-      A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+      This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
       
       ### `app.allowRendererProcessReuse`
       

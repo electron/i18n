@@ -6,6 +6,8 @@ Prozess: [Haupt](../glossary.md#main-process)
 
 **Siehe auch: [Eine detaillierte Anleitung zur Implementierung von Updates in Ihrer Anwendung](../tutorial/updates.md).**
 
+`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
 ## Plattform-Hinweise
 
 Derzeit wird nur macOS und Windows unterstützt. Es gibt keine eingebaute Unterstützung des Auto-Updaters für Linux, deshalb empfehlen wir, dass benutzen eines Distributionsmanagers, um die App automatisch zu aktualisieren.
@@ -41,7 +43,7 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <h3>Ereignis : "Fehler</h3>
 
-<p>Rückgabewert:</p>
+<p>Returns:</p>
 
 <ul>
 <li><code> Fehler </ 0> Fehler</li>
@@ -63,7 +65,7 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <h3>Ereignis : 'Update-Download'</h3>
 
-<p>Rückgabewert:</p>
+<p>Kehrt zurück:</p>
 
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>
@@ -94,7 +96,7 @@ Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
 * `optionen` Object 
   * ` URL </ 0>  Zeichenfolge</li>
-<li><code>headers` Object (optional) *macOS* - HTTP request headers.
+<li><code>headers` Record<String, String> (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>

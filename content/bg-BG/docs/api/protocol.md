@@ -117,11 +117,12 @@ protocol.registerSchemesAsPrivileged([
 * `handler` Функция 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `обратно повикване` Функция 
-    * `filePath` String (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -139,6 +140,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 * `handler` Функция 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -169,11 +171,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Функция 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `обратно повикване` Функция 
-    * `data` String (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -187,18 +190,16 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `handler` Функция 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String
-      * `session` Object (optional)
-      * `uploadData` Object (по избор) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+      * `method` String (optional)
+      * `session` Session | null (optional)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -216,7 +217,7 @@ For POST requests the `uploadData` object must be provided.
 * `handler` Функция 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -276,16 +277,6 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme, callback)`
-
-* `схема` Низ
-* `обратно повикване` Функция 
-  * `handled` Boolean
-
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `protocol.isProtocolHandled(scheme)`
 
 * `схема` Низ
@@ -295,13 +286,14 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Function 
+  * `обратно повикване` Функция 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
@@ -311,14 +303,15 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `обратно повикване` Function 
-    * `data` String (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
 
@@ -327,13 +320,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Function 
+* `handler` Функция 
   * `request` Object 
     * `url` String
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `обратно повикване` Function 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -346,15 +340,15 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String
-      * `session` Object (optional)
+      * `method` String (optional)
+      * `session` Session | null (optional)
       * `uploadData` Object (по избор) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -369,11 +363,11 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `handler` Function 
   * `request` Object 
     * `url` String
-    * `headers` Object
+    * `headers` Record<String, String>
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Function 
+  * `обратно повикване` Функция 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error

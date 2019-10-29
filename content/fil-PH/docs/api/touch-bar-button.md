@@ -9,7 +9,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
 * `pagpipilian` Bagay 
   * `label` String (opsyonal) - Pipinduting teksto.
   * `backgroundColor` String (opsyonal) - Ang kulay ng background ng pipindutin ay naka hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (opsyonal) - Button icon.
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`.
   * `click` Function (opsyonal) - Ang function na tatawagin kung ang napindot ang pipindutin.
 

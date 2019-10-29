@@ -31,6 +31,27 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
+### インスタンスイベント
+
+#### イベント: 'detach'
+
+戻り値:
+
+* `event` Event
+* `reason` String - デバッガーがデタッチする理由。
+
+Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+
+#### イベント: 'message'
+
+戻り値:
+
+* `event` Event
+* `method` String - メソッド名。
+* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+
+Emitted whenever the debugging target issues an instrumentation event.
+
 ### インスタンスメソッド
 
 #### `debugger.attach([protocolVersion])`
@@ -47,40 +68,11 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 `webContents` からデバッガーをデタッチします。
 
-#### `debugger.sendCommand(method[, commandParams, callback])`
-
-* `method` String - メソッド名。[リモートデバッグプロトコル](https://chromedevtools.github.io/devtools-protocol/)で定義されているいずれかのメソッドになります。
-* `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
-* `callback` Function (任意) - レスポンス 
-  * `error` Object - コマンドに失敗したことを示すエラーメッセージ。
-  * `result` Any - リモートデバッグプロトコルのコマンド説明の 'returns' 属性で定義されているレスポンス。
-
-指定したコマンドをデバッグ対象に送信します。
-
-**[非推奨予定](modernization/promisification.md)**
-
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - メソッド名。[リモートデバッグプロトコル](https://chromedevtools.github.io/devtools-protocol/)で定義されているいずれかのメソッドになります。
-* `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` any (optional) - JSON object with request parameters.
 
 戻り値 `Promise<any>` - リモートデバッグプロトコル内のコマンドの説明の 'returns' 属性で定義されたレスポンスで解決されるか、またはコマンドの失敗を示すために拒否されるプロミス。
 
 指定したコマンドをデバッグ対象に送信します。
-
-### インスタンスイベント
-
-#### イベント: 'detach'
-
-* `event` Event
-* `reason` String - デバッガーがデタッチする理由。
-
-デバッグセッションが終了するときに発生します。これは、`webContents` がクローズされるか、アタッチしていた `webContents` に対して開発者ツールが呼び出されるときに発生します。
-
-#### イベント: 'message'
-
-* `event` Event
-* `method` String - メソッド名。
-* `params` Object - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
-
-デバッグ対象で計測イベントが生じる毎に発生します。

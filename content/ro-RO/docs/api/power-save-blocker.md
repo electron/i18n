@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-Process: [Main](../glossary.md#main-process)
+Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
 For example:
 

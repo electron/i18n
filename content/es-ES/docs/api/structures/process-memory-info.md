@@ -1,5 +1,5 @@
 # Objeto ProcessMemoryInfo
 
-* `residentSet` Integer *Linux* y *Windows* - La cantidad de memoria actualmente fijada a la RAM física en Kilobytes.
-* `private` Integer - La cantidad de memoria no compartida por otros procesos, tales como JS heap o contenido HTML en Kilobytes.
+* `residentSet` Integer *Linux* *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
+* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
 * `shared` Integer - La cantidad de memoria compartida entre procesos, típicamente memoria consumida por el código Electron en sí mismo en Kilobytes.

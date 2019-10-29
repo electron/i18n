@@ -1,12 +1,12 @@
 # Electron 議題管理
 
-* [如何對議題做出貢獻](#how-to-contribute-in-issues)
+* [How to Contribute to Issues](#how-to-contribute-to-issues)
 * [尋求一般協助](#asking-for-general-help)
 * [提交 Bug 報告](#submitting-a-bug-report)
 * [分級 Bug 報告](#triaging-a-bug-report)
 * [解決 Bug 報告](#resolving-a-bug-report)
 
-## 如何對議題做出貢獻
+## How to Contribute to Issues
 
 對任何議題來說，個人可以貢獻的方式基本上有三種:
 
@@ -62,7 +62,7 @@ You can fork https://github.com/electron/electron-quick-start and include a link
 
 If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
@@ -72,7 +72,7 @@ It's common for open issues to involve discussion. Some contributors may have di
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## 解決 Bug 報告
 

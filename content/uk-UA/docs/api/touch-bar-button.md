@@ -9,7 +9,7 @@
 * `options` Об'єкт 
   * `label` String (необов'язково) - Текст кнопки.
   * `backgroundColor` String (необов'язково) - Колір тла кнопки, тобто `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (необов'язково) - Значок кнопки.
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * `iconPosition` String (необов'язково) - Може бути `left`, `right` або `overlay`.
   * `click` Function (необов'язково) - Функція для виклику, коли кнопка натискається.
 

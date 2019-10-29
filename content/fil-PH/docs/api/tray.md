@@ -61,6 +61,8 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
 #### Event: 'klik'
 
+Ibinabalik ang:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -69,12 +71,16 @@ Emitted kapag nag click ang tray icon.
 
 #### Event: 'right-click' *macOS* *Windows*
 
+Ibinabalik ang:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
 
 Emitted kapag nai-right click ang tray icon.
 
 #### Event: 'double-click' *macOS* *Windows*
+
+Pagbabalik ng:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon.
@@ -99,12 +105,16 @@ Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
 #### Event: 'drop-files' *macOS*
 
+Ibinabalik ang:
+
 * `kaganapan` Kaganapan
 * `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
 Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' *macOS*
+
+Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `text` String -ang mga binitiwang text string.
@@ -125,6 +135,8 @@ Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lug
 
 #### Event: 'mouse-enter' *macOS*
 
+Ibinabalik ang:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
@@ -132,12 +144,16 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
+Ibinabalik ang:
+
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
 
-#### Event: 'mouse-move' *macOS*
+#### Event: 'mouse-move' *macOS* *Windows*
+
+Ibinabalik ang:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event.
@@ -178,39 +194,7 @@ Sets the title displayed next to the tray icon in the status bar (Support ANSI c
 
 #### `tray.getTitle()` *macOS* 
 
-* `title` String
-
 Returns `String` - the title displayed next to the tray icon in the status bar
-
-#### `tray.setHighlightMode(mode)` *macOS*
-
-* `mode` String-Highlight mode sa isa mga mga sumusunod na mga value: 
-  * `seleksyon` -Highlight ang tray icon kapag it ay nag-click at kapag ang context menu ay nakabukas. Ito ay ang default.
-  * `palagi` - Palaging ihighlight ang tray icon.
-  * `hindikailanman` - Hindi kailanman ihighlight ang tray icon.
-
-Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
-
-**[Deprecated](breaking-changes.md#tray)**
-
-**Note:**Maari mong gamitin ang`highlightMode`sa isang [`BrowserWindow`](browser-window.md)sa pamamagitan ng toggling sa pagitan `'never'` and `'always'` modes kapag ang window visibility ay nagbago.
-
-```javascript
-const { BrowserWindow, Tray } = nangangailanganng('electron')
-
-const win = bagong BrowserWindow({ width: 800, height: 600 })
-const tray = bagong Tray('/path/to/my/icon')
-
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
-})
-win.on('show', () => {
-  tray.setHighlightMode('always')
-})
-win.on('hide', () => {
-  tray.setHighlightMode('never')
-})
-```
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

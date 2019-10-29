@@ -146,6 +146,7 @@ apps:
   search_app: 名前、説明などでアプリをフィルタリング
   categories: カテゴリ
   add_app_link: 'あなたのアプリケーションに<a href="https://github.com/electron/electron-apps#readme">プルリクエストを作成。</a>'
+  #App show page specific localization strings
   website: ウェブサイト
   repository: リポジトリ
   category: カテゴリ
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Electron ブログ
   description: Electron チームとコミュニティからの最新情報
+  #Post show page specific localization strings
   feedback: この記事に対してフィードバックをお持ちですか？Twitterにて<a href="https://twitter.com/electronjs">@electronjs</a>までお知らせください。
   help: サポートが必要ですか、または不具合を見つけましたか？<a href="/contact">お問い合わせ</a>.
 clipboard:
   copy: コピー
   copy_to_clipboard: クリップボードにコピー
   copied: コピーしました
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: または
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Electron のガバナンス
   description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
   wgs: ワーキンググループ
-  docstools:
-    title: ドキュメント & ツール
-    description: 外部を重視したツール (Fiddle、Forge など)、ウェブサイト上の Electronドキュメント、<code>electron/*</code> リポジトリ、保守担当者のグループによるサードパーティのモジュールへの働きかけを監督します。
+  ecosystem:
+    title: エコシステム
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: 支援
     description: Electron コミュニティを成長させます
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: アップグレード
     description: 上流の依存関係、特に Chromium と Node のアップグレードを監督します。
-  website:
-    title: ウェブサイト
-    description: Electron ウェブサイトの技術的実装、デザイン、スタイルと、関連するツールを監督します。
   cmsf:
     title: コミュニティ & 安全性
     description: コミュニティからの削除・禁止を監督します。
@@ -255,6 +257,9 @@ governance:
   admins:
     title: 管理
     description: 管理ワーキンググループはガバナンスとプロジェクト全体を監督します。
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: 概要
     associated_repos: 関連レポジトリ

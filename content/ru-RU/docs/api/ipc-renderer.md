@@ -4,7 +4,7 @@
 
 Процесс: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
 
 See [ipcMain](ipc-main.md) for code examples.
 
@@ -33,7 +33,8 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function (Функция)
+* `listener` Function 
+  * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.
 
@@ -43,16 +44,42 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 Removes all listeners, or those of the specified `channel`.
 
-### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.send(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
-### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.invoke(channel, ...args)`
+
+* `channel` String (Строка)
+* `...args` any[]
+
+Returns `Promise<any>` - Resolves with the response from the main process.
+
+Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+
+The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+
+Например:
+
+```javascript
+// Renderer process
+ipcRenderer.invoke('some-name', someArgument).then((result) => {
+  // ...
+})
+
+// Main process
+ipcMain.handle('some-name', async (event, someArgument) => {
+  const result = await doSomeWork(someArgument)
+  return result
+})
+```
+
+### `ipcRenderer.sendSync(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
@@ -65,7 +92,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **Примечание:** Отправка синхронного сообщения будет блокировать все процессы визуализации, если вы не знаете что делаете никогда не используйте его.
 
-### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
 * `webContentsId` Number
 * `channel` String (Строка)
@@ -73,7 +100,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 Sends a message to a window with `webContentsId` via `channel`.
 
-### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]

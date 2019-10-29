@@ -62,6 +62,8 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 #### Etkinlik: 'indirilecek'
 
+Returns:
+
 * `olay` Olay
 * `item` [DownloadItem](download-item.md)
 * `webContents` [webİçerikleri](web-contents.md)
@@ -80,50 +82,29 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
+#### Event: 'preconnect' *Experimental*
+
+Dönüşler:
+
+* `event` Event
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+
+Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+
 ### Sınıf örneği metodları
 
 Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 
-#### `ses.getCacheSize(callback)`
-
-* `geri aramak` Function 
-  * `boyut` Integer - Önbellek boyutu bayt cinsinden kullanılır.
-  * `error` Integer - The error code corresponding to the failure.
-
-Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.getCacheSize()`
 
 Returns `Promise<Integer>` - the session's current cache size, in bytes.
-
-#### `ses.clearCache(callback)`
-
-* `geri aramak` Function - Called when operation is done. 
-  * `error` Integer - The error code corresponding to the failure.
-
-Oturumun HTTP önbelleğini temizler.
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `ses.clearCache()`
 
 Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
 Oturumun HTTP önbelleğini temizler.
-
-#### `ses.clearStorageData([options,] callback)`
-
-* `seçenekler` Obje (opsiyonel) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
-
-Clears the storage data for the current session.
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `ses.clearStorageData([options])`
 
@@ -137,70 +118,6 @@ Returns `Promise<void>` - resolves when the storage data has been cleared.
 #### `ses.flushStorageData()`
 
 Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
-
-#### `ses.setProxy(config, callback)`
-
-* `konfigurasyon` Nesne 
-  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
-  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
-  * `proxyBypassRules` Dizesi - Hangi URL'lerin proxy ayarlarını atlaması gerektiğini belirten kurallar.
-* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
-
-Proxy ayarlarını yap.
-
-`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
-
-`proxyRules` aşağıdaki kurallara uymak zorundadır:
-
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
-
-Örneğin:
-
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, ve HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Tüm URL'ler için HTTP proxy `foopy:80`'yi kullanın.
-* `foopy:80,bar,direct://` - tüm URL'ler için HTTP proxy `foopy:80` kullanın, `foopy:80` kullanılamıyorsa `bar`'e kadar başarısız olur ve bundan sonra proxy kullanamaz.
-* `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
-* `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
-* `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
-
-`proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
-
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
-  
-  Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    Belirli bir alanın son ekiyle eşleşir.
-    
-    Örnekler: ".google.com", ".com", "http://.google.com"
-
-* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  IP adresi değişmez olan URL'leri eşleştirin.
-  
-  Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
-
-* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
-  
-  Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
-
-* `<local>`
-  
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
-
-**[Deprecated Soon](modernization/promisification.md)**
 
 #### `ses.setProxy(config)`
 
@@ -265,21 +182,11 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
 
-#### `ses.resolveProxy(url, callback)`
-
-* `url` URL
-* `geri aramak` Function 
-  * `proxy` Dizgi
-
-`url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Returns `Promise<string>` - Resolves with the proxy information for `url`.
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -308,6 +215,14 @@ window.webContents.session.enableNetworkEmulation({
 // To emulate a network outage.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
+
+#### `ses.preconnect(options)` *Deneysel*
+
+* `seçenekler` Nesne 
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+
+Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
@@ -353,8 +268,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme.
   * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String (Optional) - The url of the `openExternal` request.
-    * `mediaTypes` String[] (Optional) - The types of media access being requested, elements can be `video` or `audio`
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - The last URL the requesting frame loaded
     * `isMainFrame` Boolean - Whether the frame making the request is the main frame
 
@@ -396,14 +311,6 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache(callback)`
-
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
-
-Ana çözümleyici önbelleğini temizler.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.clearHostResolverCache()`
 
 Returns `Promise<void>` - Resolves when the operation is complete.
@@ -441,14 +348,6 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 `String` döndürür - Bu oturum için kullanıcı aracısı.
 
-#### `ses.getBlobData(identifier, callback)`
-
-* `identifier` Dizgi - Valid UUID.
-* `geri aramak` Function 
-  * `result` Tampon - Blob verileri.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `ses.getBlobData(identifier)`
 
 * `identifier` Dizgi - Valid UUID.
@@ -469,22 +368,9 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
-#### `ses.clearAuthCache(options, callback)`
+#### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
-
-Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-#### `ses.clearAuthCache(options)` *(deprecated)*
-
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
-
-#### `ses.clearAuthCache()`
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -502,17 +388,17 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
-#### `ses.cookies`
+#### `ses.cookies` *Readonly*
 
-Bu oturum için [çerezler](cookies.md) nesnesi.
+A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest`
+#### `ses.webRequest` *Readonly*
 
-Bu oturum için [Webistek](web-request.md) nesnesi.
+A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol`
+#### `ses.protocol` *Readonly*
 
-Bu oturum için bir [Protokol](protocol.md) nesnesi.
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -529,9 +415,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog`
+#### `ses.netLog` *Readonly*
 
-A [NetLog](net-log.md) object for this session.
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')

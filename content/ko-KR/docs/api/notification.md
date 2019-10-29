@@ -14,7 +14,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
@@ -28,7 +28,7 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 ### `new Notification([options])` *실험적*
 
-* `options` Object 
+* `options` Object (선택) 
   * `title` String - 알림 윈도우가 표시될 때 상단에 나타나는, 알림의 타이틀입니다.
   * `subtitle` String (옵션) *macOS* - 알림의 부제목으로써, 타이틀의 아래에 표시됩니다.
   * `body` String - 알림의 body에 표시되는 문자열로서, title 혹은 subtitle의 아래에 표시됩니다.
@@ -101,6 +101,44 @@ If the notification has been shown before, this method will dismiss the previous
 #### `notification.close()`
 
 알림창을 닫습니다.
+
+### Instance Properties (인스턴스 속성)
+
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
 ### 사운드 재생
 

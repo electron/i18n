@@ -2,25 +2,73 @@
 
 Ruperea modificărilor va fi documentată aici, iar notificările dezaprobatoare adăugate în codul JavaScript unde e posibil, [cel puțin o versiune majoră](../tutorial/electron-versioning.md#semver) înainte de a fi făcută modificarea.
 
-# Comentariile ` FIXME sau Repară-mă `
+## Comentariile ` FIXME sau Repară-mă `
 
 Șir-ul sau String-ul `FIXME` este utilizat în comentariile codului pentru a indica lucruri ce ar trebui reparate în realizările viitoare. Vezi https://github.com/electron/electron/search?q=fixme
 
-# Modificări Plănuite ale API(7.0)
+## Modificări Plănuite ale API(7.0)
 
-## `shell.openExternalSync(url, ["optiuni"-options])`
+### Node Headers URL - Anteturile nodurilor URL
+
+Acest URL poate fi specificat ca `disturl` într-un fișier `.npmrc` sau ca și o comandă principală `--dist-url` când e vorba de construirea unor module de tip Node- nod. Both will be supported for the foreseeable future but it is recommended that you switch.
+
+Dezaprobată: https://atom.io/download/electron
+
+Înlocuiește cu: https://electronjs.org/headers
+
+### `session.clearAuthCache(options)`
+
+The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
 
 ```js
-// Dezaprobată
-shell.openExternalSync(url)
-// Înlocuită  cu 
-async function open Thing (url) {
-await.shell.openExternal(url)
+// Deprecated
+session.clearAuthCache({ type: 'password' })
+// Replace with
+session.clearAuthCache()
 ```
 
-# Modificări Plănuite ale API (6.0)
+### `powerMonitor.querySystemIdleState`
 
-## `win.setMenu(null)`
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleState(threshold, callback)
+// Replace with synchronous API
+const idleState = getSystemIdleState(threshold)
+```
+
+### `powerMonitor.querySystemIdleTime`
+
+```js
+// Removed in Electron 7.0
+powerMonitor.querySystemIdleTime(callback)
+// Replace with synchronous API
+const idleTime = getSystemIdleTime()
+```
+
+### webFrame API-urile lumii izolate
+
+```js
+// Removed in Elecron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
+
+### Removal of deprecated `marked` property on getBlinkMemoryInfo
+
+This property was removed in Chromium 77, and as such is no longer available.
+
+## Modificări Plănuite ale API (6.0)
+
+### `win.setMenu(null)`
 
 ```js
 // Dezaprobată
@@ -29,7 +77,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-## `contentTracing.getTraceBufferUsage()`
+### `contentTracing.getTraceBufferUsage()`
 
 ```js
 // Dezaprobată
@@ -42,7 +90,7 @@ contentTracing.getTraceBufferUsage().then(infoObject = > {
 })
 ```
 
-## `electron.screen` în procesul de cedare
+### `electron.screen` în procesul de cedare
 
 ```js
 // Dezaprobată
@@ -51,7 +99,7 @@ require(`electron`).screen
 require(`electron`).remote.screen
 ```
 
-## `require` procesul de cedare în cutiidenisip
+### `require` procesul de cedare în cutiidenisip
 
 ```js
 // Dezaprobată
@@ -72,7 +120,7 @@ require('path')
 require('electron').remote.require('path')
 ```
 
-## `powerMonitor.querySystemIdleState`
+### `powerMonitor.querySystemIdleState`
 
 ```js
 //Dezaprobată
@@ -81,7 +129,7 @@ powerMonitor.querySystemIdleState(threshold, callback)
 const idleState = getSystemIdleState(threshold)
 ```
 
-## `powerMonitor.querySystemIdleTime`
+### `powerMonitor.querySystemIdleTime`
 
 ```js
 //Dezaprobată
@@ -90,7 +138,16 @@ powerMonitor.querySystemIdleTime(callback)
 const idleTime = getSystemIdleTime()
 ```
 
-## `Tray - Tavă`
+### `app.enableMixedSandbox`
+
+```js
+// Deprecated
+app.enableMixedSandbox()
+```
+
+Mixed-sandbox mode is now enabled by default.
+
+### `Tray`
 
 Sub îndrumarea formatoruilui nostru macOS Cătălina, implementarea se rupe. Substitutul nativ Apple nu suportă schimbarea în evidențierea comportamentului.
 
@@ -100,9 +157,9 @@ tray.setHighlightMode(mode)
 // API v-a fi indepărtat în v7.0 fără posibilitate de înlocuire.
 ```
 
-# Plănuirea modificărilor ruperilor API(5.0)
+## Plănuirea modificărilor ruperilor API(5.0)
 
-## `new BrowserWindow({ webPreferences })`
+### `new BrowserWindow({ webPreferences })`
 
 Următoarea opțiune `webPreferences` este dezaprobată în favoarea unor noi valori prestabilite afișate în continuare.
 
@@ -126,11 +183,11 @@ const w = new BrowserWindow({
 
 Copilul windows deschis cu opțiunea `nativeWindowOpen` mereu va avea integrat Node.js invalid, doar dacă `nodeIntegrationInSubFrames` este `true.
 
-## Înregistrarea schemelor privilegiate
+### Înregistrarea schemelor privilegiate
 
 Generarea proceselor API `webFrame.setRegisterURLSchemeAsPrivileged ` si `webFrame.registerURLSchemeAsBypassingCSP` la fel ca procesul browserului API ` protocol.registerStandardSchemes` au fost eliminate. Un nou API, `protocol.registerSchemesAsPrivileged` a fost adăugat și ar trebui să fie utilizat la înregistrarea unor scheme personalizate ce conțin cereri privilegiate. Schemele personalizate trebuie să fie înregistrate înainte de terminarea aplicației.
 
-## webFrame API-urile lumii izolate
+### webFrame API-urile lumii izolate
 
 ```js
 // Dezaprobate
@@ -147,11 +204,30 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-# Plănuirea modificărilor ruperilor API(4.0)
+## `webFrame.setSpellCheckProvider`
+
+The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+
+```js
+// Deprecated
+webFrame.setSpellCheckProvider('en-US', true, {
+  spellCheck: (text) => {
+    return !spellchecker.isMisspelled(text)
+  }
+})
+// Replace with
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck: (words, callback) => {
+    callback(words.filter(text => spellchecker.isMisspelled(text)))
+  }
+})
+```
+
+## Plănuirea modificărilor ruperilor API(4.0)
 
 Următoarea listă include schimbările ruperilor API făcute în Electron 4.0.
 
-## `app.makeSingleInstance`
+### `app.makeSingleInstance`
 
 ```js
 // Dezaprobată 
@@ -165,7 +241,7 @@ app.on('second-instance', (event, argv, cwd) => {
 })
 ```
 
-## `app.releaseSingleInstance`
+### `app.releaseSingleInstance`
 
 ```js
 // Dezaprobată 
@@ -174,7 +250,7 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-## `app.getGPUInfo`
+### `app.getGPUInfo`
 
 ```js
 app.getGPUInfo('complete')
@@ -182,15 +258,15 @@ app.getGPUInfo('complete')
 app.getGPUInfo('basic')
 ```
 
-## `win_delay_load_hook`
+### `win_delay_load_hook`
 
 La construirea unui model autohton window, variabila `win_delay_load_hook` în modulul `binding.gyp` trebuie să fie adevărată (true, vine implicit). Dacă acest cârlig nu este prezent, atunci modelul autohton nu se va încărca în Windows și va aparea următorul mesaj `Cannot find module`. Pentru mai multe detalii, vezi [native module guide](/docs/tutorial/using-native-node-modules.md).
 
-# Modificarea Ruperilor API(3.0)
+## Modificarea Ruperilor API(3.0)
 
 Următoarea listă include modificarea ruperilor API în Electron 3.0.
 
-## `app - aplicație`
+### `app`
 
 ```js
 // Dezaprobată 
@@ -203,7 +279,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Proprietăți dezaprobate
 ```
 
-## `BrowserWindow - Fereastra Browseru-ului`
+### `BrowserWindow - FereastraBrowser-ului`
 
 ```js
 // Dezaprobate
@@ -227,7 +303,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard -`
+### `clipboard`
 
 ```js
 // Dezaprobată 
@@ -251,7 +327,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `crashReporter - ReporterAccident`
+### `crashReporter`
 
 ```js
 // Dezaprobată 
@@ -268,7 +344,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage-ImagineAutohtonă`
+### `nativeImage`
 
 ```js
 // Dezaprobată 
@@ -279,14 +355,14 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process- proces`
+### `process-proces`
 
 ```js
 // Dezaprobată 
 const info = process.getProcessMemoryInfo()
 ```
 
-## `screen- ecran`
+### `screen`
 
 ```js
 // Dezaprobată 
@@ -295,7 +371,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `session- sesiune`
+### `session`
 
 ```js
 // Dezaprobată 
@@ -308,7 +384,7 @@ ses.setCertificateVerifyProc((request, callback) => {
 })
 ```
 
-## `Tray - tavă`
+### `Tray`
 
 ```js
 // Dezaprobată 
@@ -322,7 +398,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents- conținutWeb`
+### `webContents`
 
 ```js
 // Dezaprobată 
@@ -335,7 +411,7 @@ webContents.setSize(options)
 // Acest API nu a fost înlocuit
 ```
 
-## `webFrame-cadruWeb`
+### `webFrame`
 
 ```js
 // Dezaprobată 
@@ -349,7 +425,7 @@ webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
-## `<webview>vizualizareWeb`
+### `<webview>vizualizareWeb`
 
 ```js
 //  Eliminată 
@@ -365,7 +441,7 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL - Anteturile nodurilor URL
+### Node Headers URL - Anteturile nodurilor URL
 
 Acest URL poate fi specificat ca `disturl` într-un fișier `.npmrc` sau ca și o comandă principală `--dist-url` când e vorba de construirea unor module de tip Node- nod.
 
@@ -373,11 +449,11 @@ Dezaprobată: https://atom.io/download/atom-shell
 
 Înlocuiește cu: https://atom.io/download/electron
 
-# Modificarea Ruperilor API(2.0)
+## Modificarea Ruperilor API(2.0)
 
 Următoarea listă include modificarea ruperilor API făcute în Electron 2.0.
 
-## `BrowserWindow- FereastraBrowser-ului`
+### `BrowserWindow - FereastraBrowser-ului`
 
 ```js
 // Dezaprobate
@@ -388,7 +464,7 @@ let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu-meniu`
+### `menu-meniu`
 
 ```js
 // Eliminată 
@@ -397,7 +473,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage-Imagineautohtonă`
+### `nativeImage`
 
 ```js
 // Eliminată 
@@ -411,11 +487,11 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process-proces`
+### `process- proces`
 
 * `process.versions.electron` și `process.version.chrome` vor fi făcute propietăți read-only - doarcitit, pentru a avea consistență cu celelalte propietăți setate de Node `process.versions`.
 
-## `webContents-conținutWeb`
+### `webContents`
 
 ```js
 // Eliminată 
@@ -424,7 +500,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `webFrame-cadruWeb`
+### `webFrame`
 
 ```js
 // Eliminată 
@@ -433,7 +509,7 @@ webFrame.setZoomLevelLimits(1, 2)
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
-## `<webview>vizualizareWeb`
+### `<webview>vizualizareWeb`
 
 ```js
 // Eliminată 
@@ -442,10 +518,10 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicarea bunurilor ARM
+### Duplicarea bunurilor ARM
 
 Fiecare eliberare Electron include 2 ARM identice, construite cu diferențe mici în numirea fișierelor, ca `electron-v1.7.3-linux-arm.zip` și `electron-v1.7.3-linux-armv7l.zip`. Bunurile cu prefixul `v7l` au fost adăugate pentru a ajuta la clarificarea versiunilor pe care le suporta șii la dezambiguarea viitoarelor armv6l si arm64, bunuri care se pot produce.
 
-Fișierul *without the prefix* încă funcționează pentru a ajuta la evitarea ruperilor unor setări care îl pot consuma. Începând cu 2.0 fișierul fără prefix nu va mai fi publicat.
+Fișierul *without the prefix* încă funcționează pentru a ajuta la evitarea ruperilor unor setări care îl pot consuma. Starting at 2.0, the unprefixed file will no longer be published.
 
 Pentru detalii, vezi [6986](https://github.com/electron/electron/pull/6986) și [7189](https://github.com/electron/electron/pull/7189).

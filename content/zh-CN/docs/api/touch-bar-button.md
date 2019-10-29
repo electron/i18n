@@ -9,7 +9,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 * `参数` 对象 
   * ` label `String (可选) 按钮文本。
   * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。
-  * `icon` [NativeImage](native-image.md) (可选)
+  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
   * ` iconPosition `String (可选) - 可以是 ` left `、` right` 或 ` overlay `。
   * ` click `function (可选) - 单击按钮时调用的函数。
 

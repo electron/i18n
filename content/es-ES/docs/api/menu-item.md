@@ -17,13 +17,14 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `type` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `label` String (opcional)
   * `sublabel` String (opcional)
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (opcional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
-  * `acceleratorWorksWhenHidden` Boolean (opcional) - Por defecto `true`, y cuando es `false` evitará el acelerador active el item si no es visible. *macOS*
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
-  * `registerAccelerator` Boolean (opcional) - si es falso el acelerador no será registrado con el sistema, pero aún será mostrado. Por defecto es true.
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (opcional) - Debería especificarse para los items del tipo `submenu`. Si `submenu` es especificado, el `type: 'submenu'` puede ser omitido. Si el valor no es un [`Menu`](menu.md) entonces automáticamente será convertido a uno usando `Menu.buildFromTemplate`.
   * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
   * `before` String[] (opcional) - Inserta este ítem antes que el ítem con la etiqueta especificada. Si el ítem referenciado no existe el ítem sera insertado al final del menu. También implica que el ítem del menu en cuestión debería colocarse in el mismo “group” como el ítem.
@@ -120,7 +121,7 @@ Un `Menú` (opcional) que contiene el submenú del menú elemento, si está pres
 
 #### `menuItem.type`
 
-Un `String` indicando el tipo del elemento.
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ Una `String` (opcional) indicando el rol del elemento, si está establecido. Pue
 
 #### `menuItem.accelerator`
 
-Un `String` (opcional) indicando el rol del elemento, si está establecido.
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -137,6 +138,10 @@ Una `NativeImage | String` (opcional) indicando el icono del elemento, si estuvi
 #### `menuItem.sublabel`
 
 Una `String` indicando la subetiqueta del artículo, esta propiedad puede ser cambiada dinámicamente.
+
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
 
 #### `menuItem.enabled`
 

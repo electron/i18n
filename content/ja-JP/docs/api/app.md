@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 戻り値:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` unknown *macOS*
 
 Electronが初期化処理を完了したときに発生します。 macOSでは、通知センターから起動された場合、`launchInfo` は、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 `app.isReady()` を呼び出すことで、このイベントが既に発生しているかを確認することができます。
 
@@ -92,7 +92,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `event` Event
 * `url` String
 
-ユーザがアプリケーションでURLを開こうとしたときに発生します。 アプリケーションの `Info.plist` ファイルで `CFBundleURLTypes` キーの中にURLスキームを定義し、`NSPrincipalClass` に `AtomApplication` を設定しなければなりません。
+ユーザがアプリケーションでURLを開こうとしたときに発生します。 アプリケーションの `Info.plist` ファイルで `CFBundleURLTypes` キーの中に URL スキームを定義し、`NSPrincipalClass` に `AtomApplication` を設定しなければなりません。
 
 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -111,7 +111,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
+* `userInfo` unknown - 別のデバイスのアクティビティによって保存されたアプリ固有の情報が含まれています。
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
@@ -142,7 +142,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
+* `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
 
@@ -152,7 +152,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
+* `userInfo` unknown - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
 [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### イベント: 'gpu-info-update'
+
+GPU 情報の更新がある場合に発生します。
+
 ### イベント: 'gpu-process-crashed'
 
 戻り値:
@@ -292,7 +296,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-GPUプロセスがクラッシュしたり、強制終了されたりしたときに発生します。
+GPU プロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
 ### イベント: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 非表示にされたアプリケーションのウインドウを表示します。自動的にフォーカスは当たりません。
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (任意) - ログのカスタムパス。絶対パスでなければなりません。
 
 アプリがロギングするディレクトリを設定または作成します。これは `app.getPath()` や `app.setPath(pathName, newPath)` で操作できます。
 
-`path` 引数なしで `app.setAppLogsPath()` を呼び出すと、このディレクトリは、*macOS* では `/Library/Logs/アプリ名` に、*Linux* と *Windows* では `userData` ディレクトリ内に設定されます。
+`path` 引数なしで `app.setAppLogsPath()` を呼び出すと、このディレクトリは、*macOS* では `~/Library/Logs/アプリ名` に、*Linux* と *Windows* では `userData` ディレクトリ内に設定されます。
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - 以下のパスを名前で要求することができます。 
+  * `home` ユーザのホームディレクトリ。
+  * `appData` 既定のユーザ毎のアプリケーションデータディレクトリ。 
+    * Windowsの場合、`%APPDATA%`
+    * Linuxの場合、`$XDG_CONFIG_HOME` もしくは `~/.config`
+    * macOSの場合、`~/Library/Application Support`
+  * `userData` アプリの設定ファイルが保存されるディレクトリで、既定ではアプリの名前で追加された `appData` のディレクトリ。
+  * `キャッシュ`
+  * `temp` 一時ディレクトリ。
+  * `exe` 現在の実行ファイル。
+  * `module` `libchromiumcontent` ライブラリ。
+  * `desktop` 現在のユーザのデスクトップディレクトリ。
+  * `documents` ユーザの"マイドキュメント"のディレクトリ。
+  * `downloads` ユーザのダウンロードのディレクトリ。
+  * `music` ユーザのミュージックのディレクトリ。
+  * `pictures` ユーザのピクチャのディレクトリ。
+  * `videos` ユーザのビデオのディレクトリ。
+  * `logs` アプリのログフォルダのディレクトリ。
+  * `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
 
 戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。失敗した場合、`Error` がスローされます。
 
-以下のパスを名前で要求することができます。
-
-* `home` ユーザのホームディレクトリ。
-* `appData` 既定のユーザ毎のアプリケーションデータディレクトリ。 
-  * Windowsの場合、`%APPDATA%`
-  * Linuxの場合、`$XDG_CONFIG_HOME` もしくは `~/.config`
-  * macOSの場合、`~/Library/Application Support`
-* `userData` アプリの設定ファイルが保存されるディレクトリで、既定ではアプリの名前で追加された `appData` のディレクトリ。
-* `temp` 一時ディレクトリ。
-* `exe` 現在の実行ファイル。
-* `module` `libchromiumcontent` ライブラリ。
-* `desktop` 現在のユーザのデスクトップディレクトリ。
-* `documents` ユーザの"マイドキュメント"のディレクトリ。
-* `downloads` ユーザのダウンロードのディレクトリ。
-* `music` ユーザのミュージックのディレクトリ。
-* `pictures` ユーザのピクチャのディレクトリ。
-* `videos` ユーザのビデオのディレクトリ。
-* `logs` アプリのログフォルダのディレクトリ。
-* `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Object (任意) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - *Linux* の場合、48x48、*Windows*の場合、32x32、macOSの場合はサポートされていません。
-* `callback` Function 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-パスに関連付けられているアイコンを取得します。
-
-*Windows* の場合、2 種類のアイコンがあります。
-
-* `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
-* `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
-
-*Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
-
-**[非推奨予定](modernization/promisification.md)**
+`app.setAppLogsPath()` を呼び出すよりも先に `app.getPath('logs')` が呼び出された場合、`path` 引数なしで `app.setAppLogsPath()` を呼び出すのに等しい、デフォルトのログディレクトリが作成されます。
 
 ### `app.getFileIcon(path[, options])`
 
@@ -575,13 +556,17 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 戻り値 `String` - アプリケーションの `package.json` ファイルで名前として設定された現在のアプリケーション名。
 
-通常、`package.json` の `name` フィールドは、npmのモジュール仕様に基づき、小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
+通常、`package.json` の `name` フィールドは、npm のモジュール仕様に基づいて小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
+
+**[非推奨](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
 * `name` String
 
 現在のアプリケーションの名前を上書きします。
+
+**[非推奨](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getLocaleCountryCode()`
 
-`string`を返します。 - 2文字の[ISO 3166](https://www.iso.org/iso-3166-country-codes.html) の国コードで、ユーザーのOSのロケールを示します。この値はネィティブのOS APIから取得します。
+戻り値 `String` - 2文字の [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 国名コードで、ユーザーの OS のロケールを示します。この値はネィティブの OS API から取得します。
 
 **注意:** ロケールの国コードを取得できなかった場合、これは空文字列を返します。
 
@@ -657,7 +642,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 * `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
-Windowsでジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
+`tasks` を Windows でのジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに追加します。
 
 `tasks` は [`Task`](structures/task.md) オブジェクトの配列です。
 
@@ -670,11 +655,11 @@ Windowsでジャンプリストの [タスク](https://msdn.microsoft.com/en-us/
 戻り値 `Object`:
 
 * `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザがジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した `JumpListItem` オブジェクトの配列。 これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザが、ジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した、`JumpListItem` オブジェクトの配列。 これらのアイテムを**直後の** `app.setJumpList()` の呼び出しでジャンプリストに再度追加してはいけません。Windowsは削除されたアイテムを含むいかなるカスタムカテゴリも表示することはできません。
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) または `null` - `JumpListCategory` オブジェクトの配列。
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - `JumpListCategory` オブジェクトの配列。
 
 アプリケーションのカスタムジャンプリストを設定もしくは削除し、以下の文字列のいずれかを返します。
 
@@ -798,7 +783,7 @@ if (!gotTheLock) {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - 別のデバイスで使用するために保存されたアプリ固有の情報。
+* `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 * `webpageURL` String (任意) - 継続されたデバイスに適切なアプリがインストールされていない場合にブラウザで読み込もうとしたウェブページ。スキームは `http` もしくは `https` でなければなりません。
 
 `NSUserActivity` を作成し、現在のアクティビティとして設定します。 その後、アクティビティは、別のデバイスでの[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)に適用されます。
@@ -809,14 +794,16 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-
 現在の[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)ユーザアクティビティを無効にします。
+
+### `app.resignCurrentActivity()` *macOS*
+
+現在の [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ユーザーアクティビティを、無効にせずに非アクティブにします。
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - アクティビティを一意に識別します。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `userInfo` Object - 別のデバイスで使用するために保存されたアプリ固有の情報。
+* `userInfo` any - 別のデバイスで使用するために保存されたアプリ固有の情報。
 
 タイプが `type` と一致した場合、現在のアクティビティを更新し、現在の `userInfo` ディスクショナリに `userInfo` のエントリを統合します。
 
@@ -826,7 +813,7 @@ if (!gotTheLock) {
 
 [アプリケーションユーザモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)を `id` に変更します。
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Object 
   * `certificate` String - PACS#12ファイルのパス。
@@ -850,17 +837,19 @@ if (!gotTheLock) {
 
 ### `app.getAppMetrics()`
 
-戻り値 [`ProcessMetric[]`](structures/process-metric.md): アプリに関連付けられたすべてのプロセスのメモリやCPU使用率の統計情報に対応した `ProcessMetric` オブジェクトの配列。
+戻り値 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` オブジェクトの配列で、アプリに関連付けられたすべてのプロセスのメモリや CPU 使用率の統計情報に対応しています。
 
 ### `app.getGPUFeatureStatus()`
 
 戻り値 [`GPUFeatureStatus`](structures/gpu-feature-status.md) - `chrome://gpu/` から取得したグラフィックス機能のステータス。
 
+**注:** この情報は `gpu-info-update` イベントが発行された後にのみ利用できます。
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - 基本的な情報のための `basic` か完全な情報のための `complete` のどちらかにできます。
+* `infoType` String - `basic` か `complete` にできます。
 
-戻り値 `Promise`
+戻り値 `Promise<unknown>`
 
 `infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
@@ -903,9 +892,13 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 
 **注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
 
+**[非推奨](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 戻り値 `Integer` - カウンターバッジに表示されている現在の値。
+
+**[非推奨](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -958,7 +951,7 @@ app.setLoginItemSettings({
 
 戻り値 `Boolean` - Chromeのユーザ補助機能が有効な場合、`true`、そうでない場合、`false`。 このAPIは、スクリーンリーダーなどの支援技術を使っていることが検出された場合、`true` を返します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
-**[非推奨予定](modernization/property-updates.md)**
+**[非推奨](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -970,9 +963,9 @@ app.setLoginItemSettings({
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
-**[非推奨予定](modernization/property-updates.md)**
+**[非推奨](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 アプリのパネルオプションを示します。このオプションは `app.setAboutPanelOptions(options)`で上書きできます。
 
@@ -982,22 +975,23 @@ app.setLoginItemSettings({
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `version` String (任意) - アプリのビルドバージョン番号。*macOS*
-  * `credits` String (任意) - クレジット情報.*macOS*
-  * `website` String (任意) - アプリのウェブサイト *Linux*
-  * `iconPath` String (任意) - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。*Linux*
+  * `version` String (任意) *macOS* - アプリのビルドバージョン番号。
+  * `credits` String (任意) *macOS* - クレジット情報。
+  * `authors` String[] (任意) *Linux* - アプリの作者のリスト。
+  * `website` String (任意) *Linux* - アプリのウェブサイト。
+  * `iconPath` String (任意) *Linux* - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。
 
 Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 戻り値 `Boolean` - 現在の OS バージョンがネイティブの絵文字ピッカーを許可しているかどうか。
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 プラットフォームのネイティブの絵文字ピッカーを表示します。
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - `dialog.showOpenDialog` または `dialog.showSaveDialog` メソッドによって返された、base64 でエンコードされたセキュリティスコープのブックマークデータ。
 
@@ -1012,39 +1006,6 @@ stopAccessingSecurityScopedResource()
 
 セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - 主要なものを除くコマンドラインスイッチ `--`
-* `value` String (任意) - 与えられたスイッチの値
-
-Chromiumのコマンドラインに (オプションの `value` と一緒に) スイッチを追加します。
-
-**注:** これは `process.argv` に影響を与えません。この関数は主に Chromium の振る舞いを制御するために使われます。
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - コマンドラインに追加された引数
-
-Chromium のコマンドラインに引数を追加します。引数は正常に動作するため引用符で囲われます。スイッチは追加した順序に関係なく引数の前に置かれます。
-
-`--switch=value` のような引数を追加している場合は、代わりに `appendSwitch('switch', 'value')` を使用することを検討してください。
-
-**注:** これは `process.argv` に影響を与えません。この関数は主に Chromium の振る舞いを制御するために使われます。
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - コマンドラインスイッチ
-
-戻り値 `Boolean` - コマンドラインスイッチがあるかどうか。
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - コマンドラインスイッチ
-
-戻り値 `String` - コマンドラインスイッチの値
-
-**注意:** スイッチが存在しないか値がない場合、これは空文字列を返します。
-
 ### `app.enableSandbox()` *実験的*
 
 アプリで完全サンドボックスモードを有効にします。
@@ -1055,7 +1016,11 @@ Chromium のコマンドラインに引数を追加します。引数は正常�
 
 戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Object (任意) 
+  * `conflictHandler` Function<boolean> (任意) - 移動に失敗したときの潜在的競合のハンドラ。 
+    * `conflictType` String - ハンドラーが遭遇した移動で起こった競合の種類。`exists` か `existsAndRunning` になります。`exists` は同じ名前のアプリがアプリケーションディレクトリに存在し、`existsAndRunning` は存在し且つ現在実行されていることを意味します。
 
 戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
 
@@ -1063,71 +1028,28 @@ Chromium のコマンドラインに引数を追加します。引数は正常�
 
 **注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
-### `app.dock.bounce([type])` *macOS*
+既定では、移動するアプリと同じ名前のアプリがアプリケーションディレクトリに存在し *実行されていない* 場合、既存のアプリはゴミ箱に移動され、新たなアプリがその場所に移動します。 *実行されている* 場合、既存の実行中のアプリはフォーカスを引き継ぎ、新たなアプリは自動的に終了します。 この挙動は、オプションの競合ハンドラを提供することで変更できます。この場合、ハンドラによって返されるブール値によって、移動の競合がデフォルトの動作で解決されるかどうかを決定します。 つまり、`false` を返すとそれ以上のアクションは行われなくなります。`true` を返すとデフォルトの動作になり、メソッドが続行されます。
 
-* `type` String (任意) - `critical` もしくは `informational`。省略値は `informational` です。
+例:
 
-`critical` が渡された場合、ドックのアイコンはアプリケーションがアクティブになるか、リクエストがキャンセルされるまでバウンスします。
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['移動を中止', '移動を続行'],
+        defaultId: 0,
+        message: 'この名前のアプリはすでに存在します'
+      }) === 1
+    }
+  }
+})
+```
 
-`informational` が渡された場合、ドックのアイコンが1秒間、バウンスします。ただし、アプリケーションがアクティブになるか、リクエストがキャンセルされるまでリクエストはアクティブなままです。
-
-戻り値 `Integer` - このリクエストを表すID。
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-`id` のバウンスをキャンセルします。
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-filePath がダウンロードフォルダの中の場合、ダウンロードのスタックをバウンスさせます。
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-ドックのバッジ領域に表示される文字列を設定します。
-
-### `app.dock.getBadge()` *macOS*
-
-戻り値 `String` - ドックのバッジ文字列。
-
-### `app.dock.hide()` *macOS*
-
-ドックのアイコンを非表示にする
-
-### `app.dock.show()` *macOS*
-
-戻り値 `Promise<void>` - Dock のアイコンが表示されたときに実行されます。
-
-### `app.dock.isVisible()` *macOS*
-
-Returns `Boolean` - Dock のアイコンが表示されているかどうか。
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-アプリケーションの [Dock メニュー](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) を設定します。
-
-### `app.dock.getMenu()` *macOS*
-
-戻り値 `Menu | null` - アプリケーションの [Dock メニュー](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)。
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-このドックアイコンに関連付けられた `image` を設定します。
+そのユーザーディレクトリにアプリが既に存在する場合、ユーザーが '移動を続行' を選択すると、関数は既定の動作を続行し、既存のアプリは破棄され、新たなアプリはその場所に移動します。
 
 ## プロパティ
-
-### `app.applicationMenu`
-
-この `Menu` プロパティは、設定されている場合は [`Menu`](menu.md) を返し、それ以外の場合は `null` を返します。ユーザーはこのプロパティに [Menu](menu.md) を渡してセットできます。
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1139,15 +1061,41 @@ Returns `Boolean` - Dock のアイコンが表示されているかどうか。
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
+### `app.applicationMenu`
+
+`Menu | null` 型のプロパティです。セットされている場合は [`Menu`](menu.md) を、それ以外は `null` を返します。 ユーザはこのプロパティに [Menu](menu.md) を渡すことができます。
+
+### `app.badgeCount` *Linux* *macOS*
+
+`Integer` 型のプロパティです。現在のアプリのバッジ数を返します。カウントを `0` にセットするとバッジを非表示にします。
+
+macOS でこれをゼロ以外の整数で設定すると、Dock アイコンに表示されます。 Linux でのこのプロパティは Unity ランチャーでのみ機能します。
+
+**注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
+
+### `app.commandLine` *読み出し専用*
+
+[`CommandLine`](./command-line.md) オブジェクトです。Chromium が使用するコマンドライン引数の読み取りと操作ができます。
+
+### `app.dock` *macOS* *読み出し専用*
+
+[`Dock`](./dock.md) オブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
+
+### `app.isPackaged` *読み出し専用*
+
+アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。
+
+### `app.name`
+
+`String` 型のプロパティです。現在のアプリケーション名を示します。アプリケーションの `package.json` ファイル内にある名前になります。
+
+通常、`package.json` の `name` フィールドは、npm のモジュール仕様に基づいて小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
+
 ### `app.userAgentFallback`
 
 この `String` は Electron がグローバルフォールバックとして使用するユーザーエージェント文字列です。
 
-これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。 アプリ全体で同じユーザーエージェントを使用するのに役立ちます。 オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
-
-### `app.isPackaged`
-
-アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。
+これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。 アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。 オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
 ### `app.allowRendererProcessReuse`
 

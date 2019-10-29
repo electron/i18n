@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-在Electron中，`DownloadItem` 是一个代表下载项目的`EventEmitter`。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
+`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
 // 在主进程中.
@@ -74,11 +74,15 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 * `path` String - 设置下载项目的保存文件路径。
 
-该API仅能在`will-download` 方法的回调中使用。 如果用户没有通过API设置保存路径，Electron将使用默认方式来确定保存路径（通常会提示保存对话框）。
+该API仅能在`will-download` 方法的回调中使用。 If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.getSavePath()`
 
 返回 `String` - 下载项目的保存路径。这将是通过`downloadItem.setSavePath(path)`设置的路径，或从显示的保存对话框中选择的路径。
+
+**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
@@ -96,11 +100,11 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+返回`Boolean` - 下载是否暂停。
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+恢复已暂停的下载。
 
 **笔记：** 为了支持断点下载，必须要从支持范围内请求下载，并且提供`Last-Modified` 和 `ETag`的值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
 
@@ -114,7 +118,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.getURL()`
 
-返回`String` - 从中​​下载项目的源URL。
+Returns `String` - The origin URL where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
@@ -152,7 +156,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.getURLChain()`
 
-返回String [] - 包含任何重定向的项目的完整url链。
+Returns `String[]` - The complete URL chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -165,3 +169,11 @@ Resumes the download that has been paused.
 #### `downloadItem.getStartTime()`
 
 返回`Double` - 自下载开始时的UNIX纪元以来的秒数。
+
+### 实例属性
+
+#### `downloadItem.savePath`
+
+A `String` property that determines the save file path of the download item.
+
+The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.

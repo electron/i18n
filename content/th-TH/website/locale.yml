@@ -146,6 +146,7 @@ apps:
   search_app: '…กรองแอพตามชื่อคำอธิบาย ฯลฯ ...'
   categories: ประเภท
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme"> สร้างคำขอดึง </a> เพื่อเพิ่มแอปพลิเคชันของคุณ'
+  #App show page specific localization strings
   website: เว็บไซต์
   repository: ที่เก็บต้นฉบับ
   category: ประเภท
@@ -156,12 +157,16 @@ apps:
 blog:
   title: บล๊อกของอิเล็กตรอน
   description: รับข่าวสารจาก ทีมงานของอิเล็กตรอน และ ชุมชน
+  #Post show page specific localization strings
   feedback: มีความคิดเห็นเกี่ยวกับโพสต์นี้หรือไม่? แจ้งให้ <a href="https://twitter.com/electronjs"> @electronjs </a> ทราบบน Twitter
   help: ต้องการความช่วยเหลือหรือพบข้อบกพร่อง? <a href="/contact"> ติดต่อเรา </a>
 clipboard:
   copy: Copy
   copy_to_clipboard: คัดลอกไปยังคลิปบอร์ด
   copied: คัดลอกแล้ว
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: หรือ
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: การกำกับดูแล Electron 
   description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
   wgs: คณะทำงาน
-  docstools:
-    title: เอกสารและเครื่องมือ
-    description: ดูแลเครื่องมือที่เน้นจากภายนอก (เช่นซอ, ปลอม), เอกสารอิเล็คตรอนทั่วทั้งเว็บไซต์และ <code> อิเล็กตรอน / * </code> ที่เก็บและกลุ่มของผู้ดูแลเข้าถึงโมดูลบุคคลที่สาม
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: "ยื่นออกไป\n"
     description: เติบโตชุมชน Electron 
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: อัพเกรด
     description: กำกับดูแลการอัพเกรดของการพึ่งพาต้นน้ำ; โดยเฉพาะ Chromium และ Node
-  website:
-    title: เว็บไซต์
-    description: ดูแลการดำเนินงานด้านเทคนิคการออกแบบและรูปแบบของเว็บไซต์อิเล็กตรอนและเครื่องมือที่เกี่ยวข้อง
   cmsf:
     title: ชุมชนและความปลอดภัย
     description: ดูแลการกำจัด / การแบนจากชุมชน
@@ -255,6 +257,9 @@ governance:
   admins:
     title: การบริหาร
     description: คณะทำงานด้านธุรการดูแลการกำกับดูแลและโครงการทั้งหมด
+  api:
+    title: เอพีไอ
+    description: Oversees public API design based on project principles.
   global:
     overview: ภาพรวม
     associated_repos: แหล่งเก็บข้อมูลที่เกี่ยวข้อง

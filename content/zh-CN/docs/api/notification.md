@@ -14,7 +14,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-`Notification` 是 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)
+`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
@@ -28,7 +28,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 ### `new Notification([options])` *实验功能*
 
-* `参数` 对象 
+* `参数` Object (可选) 
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示.
   * ` subtitle `String (可选) 通知的副标题, 显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面.
@@ -101,6 +101,44 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 #### `notification.close()`
 
 忽略这条通知
+
+### 实例属性
+
+#### `notification.title`
+
+A `String` property representing the title of the notification.
+
+#### `notification.subtitle`
+
+A `String` property representing the subtitle of the notification.
+
+#### `notification.body`
+
+A `String` property representing the body of the notification.
+
+#### `notification.replyPlaceholder`
+
+A `String` property representing the reply placeholder of the notification.
+
+#### `notification.sound`
+
+A `String` property representing the sound of the notification.
+
+#### `notification.closeButtonText`
+
+A `String` property representing the close button text of the notification.
+
+#### `notification.silent`
+
+A `Boolean` property representing whether the notification is silent.
+
+#### `notification.hasReply`
+
+A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.actions`
+
+A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
 ### 播放声音
 

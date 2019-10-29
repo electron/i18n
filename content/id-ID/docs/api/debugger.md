@@ -31,63 +31,49 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Методы экземпляра
+### Contoh peristiwa
 
-#### `debugger.melmpirkan ( [protocolVersion] )`
+#### Acara : 'melepaskan'
 
-* ` protocolVersion </ 0>  String (opsional) - Versi protokol debug yang diminta</li>
+Pengembalian:
+
+* `event` Event
+* ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+</ul>
+
+<p>Emitted when the debugging session is terminated. This happens either when
+<code>webContents` is closed or devtools is invoked for the attached `webContents`.</p> 
+    #### Acara : 'pesan'
+    
+    Pengembalian:
+    
+    * `event` Sinyal
+    * ` metode </ 0> String - nama metode.</li>
+<li><code>params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+    
+    Emitted whenever the debugging target issues an instrumentation event.
+    
+    ### Metode Instance
+    
+    #### `debugger.melmpirkan ( [protocolVersion] )`
+    
+    * ` protocolVersion </ 0>  String (opsional) - Versi protokol debug yang diminta</li>
 </ul>
 
 <p>Atasi debugger ke <code>isi web </ 0> .</p>
 
 <h4><code>debugger.adalah terlampir()`</h4> 
-  Mengembalikan ` Boolean </ 0> - Apakah debugger terpasang ke <code>isi web </ 0> .</p>
+        Mengembalikan ` Boolean </ 0> - Apakah debugger terpasang ke <code>isi web </ 0> .</p>
 
 <h4><code>debugger.melepaskan ()`</h4> 
-  
-  Lepaskan debugger dari `isi web </ 0> .</p>
-
-<h4><code>debugger.kirim perintah (metode [, perintah Params, panggil kembali])`</h4> 
-  
-  * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-  * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
-<li><code>callback` Fungsi (opsional) - Respon 
-    * ` kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
-<li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
-  deskripsi perintah dalam protokol debugging jarak jauh.</li>
-</ul></li>
-</ul>
-
-<p>Kirim perintah yang diberikan ke target debugging.</p>
-
-<p><strong><a href="modernization/promisification.md">Deprecated Soon</a></strong></p>
+        
+        Lepaskan debugger dari `isi web </ 0> .</p>
 
 <h4><code>debugger.sendCommand(method[, commandParams])`</h4> 
-      * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-      * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
-</ul>
-
-<p>Returns <code>Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.</p> 
+        
+        * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+        * `commandParams` any (optional) - JSON object with request parameters.
+        
+        Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+        
         Kirim perintah yang diberikan ke target debugging.
-        
-        ### Instance Events
-        
-        #### Acara : 'melepaskan'
-        
-        * `event</ 0> Acara</li>
-<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
-</ul>
-
-<p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
- <code>isi web</ 0> ditutup atau devtools dipanggil untuk < web > konten < 0> yang dilampirkan </ 0> .</p>
-
-<h4>Acara : 'pesan'</h4>
-
-<ul>
-<li><code>acara` Acara
-        *  metode </ 0> String - nama metode.</li>
-<li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
- dalam protokol debugging jarak jauh.</li>
-</ul>
-
-<p>Emitted kapanpun terjadi debugging sasaran soal acara instrumentasi .</p>

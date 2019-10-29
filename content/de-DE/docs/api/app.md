@@ -27,7 +27,7 @@ In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 
 Rückgabewert:
 
-* `launchInfo` Objekt *macOS*
+* `launchInfo` unknown *macOS*
 
 Wird nach der erfolgreichen Initialisierung von Electron ausgelöst. Wenn die Anwendung in macOS über die Mitteilungszentrale gestartet wurde, hält `launchInfo` die `userInfo` von der `NSUserNotification`, die benutzt wurde um die Anwendung zu starten. Du kannst `app.isReady()` aufrufen, um zu prüfen, ob dieses Event bereits ausgelöst wurde.
 
@@ -92,7 +92,7 @@ Rückgabewert:
 * `event` Event
 * `url` String
 
-Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die `Info.plist` Date muss das URL Schema mittels des `CFBundleURLTypes` Keys definieren und der `NSPrincipalClass` Key muss den Wert `AtomApplication` haben.
+Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
 
@@ -111,7 +111,7 @@ Rückgabewert:
 
 * `event` Event
 * `type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Enthält den app-spezifischen Zustand, der von einer Aktivität auf einem anderen Gerät gespeichert wurde.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
@@ -142,7 +142,7 @@ Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Objekt - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
 
@@ -152,7 +152,7 @@ Rückgabewert:
 
 * `event` Event
 * `type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Objekt - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Event: 'gpu-process-crashed'
 
 Rückgabewert:
@@ -292,7 +296,7 @@ Rückgabewert:
 * `event` Event
 * `killed` Boolean
 
-Emittiert wenn ein GPU Prozess crashed oder mit Gewalt beendet wird.
+Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ Blendet alle Anwendungsfenster aus ohne sie zu minimieren.
 
 Shows application windows after they were hidden. Does not automatically focus them.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (optional) - A custom path for your logs. Must be absolute.
 
 Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - You can request the following paths by the name: 
+  * `home` Des Benutzers Home Verzeichnis.
+  * `appData` Per-user application data directory, which by default points to: 
+    * `%APPDATA%` in Windows
+    * `$XDG_CONFIG_HOME` oder `~/.config` in Linux
+    * `~/Library/Application Support` in macOS
+  * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
+  * `cache`
+  * `temp` Temporäres Verzeichnis.
+  * `exe` Die aktuell ausführbare Datei.
+  * `module` Die `libchromiumcontent` Bibliothek.
+  * `desktop` Das Desktop Verzeichnis des aktuellen Benuters.
+  * `documents` Directory for a user's "My Documents".
+  * `downloads` "Downloads" Verzeichnis des aktuellen Benutzers.
+  * `music` Musik Verzeichnis des aktuellen Benutzers.
+  * `pictures` Bilder Verzeichnis des aktuellen Benutzers.
+  * `videos` Filme Verzeichnis des aktuellen Benutzers.
+  * `logs` Verzeichnis für die Logfiles deiner App.
+  * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
-You can request the following paths by the name:
-
-* `home` Des Benutzers Home Verzeichnis.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` in Windows
-  * `$XDG_CONFIG_HOME` oder `~/.config` in Linux
-  * `~/Library/Application Support` in macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporäres Verzeichnis.
-* `exe` Die aktuell ausführbare Datei.
-* `module` Die `libchromiumcontent` Bibliothek.
-* `desktop` Das Desktop Verzeichnis des aktuellen Benuters.
-* `documents` Directory for a user's "My Documents".
-* `downloads` "Downloads" Verzeichnis des aktuellen Benutzers.
-* `music` Musik Verzeichnis des aktuellen Benutzers.
-* `pictures` Bilder Verzeichnis des aktuellen Benutzers.
-* `videos` Filme Verzeichnis des aktuellen Benutzers.
-* `logs` Verzeichnis für die Logfiles deiner App.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Objekt (optional) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - 48x48 in *Linux*, 32x32 in *Windows*, wird in *macOS* nicht unterstützt.
-* `callback` Funktion 
-  * ` Fehler </ 0> Fehler</li>
-<li><code>icon` [NativeImage](native-image.md)
-
-Fetches a path's associated icon.
-
-On *Windows*, there are 2 kinds of icons:
-
-* Icons welche den verschiedenen Dateiendungen zugeordnet sind, wie `.mp3`, `.png`, usw.
-* Icons welche in der Datei selbst stecken, wie `.exe`, `.dll`, `.ico`.
-
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
-
-**[Deprecated Soon](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -575,13 +556,17 @@ Returns `String` - The version of the loaded application. If no version is found
 
 Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
 * `name` String
 
 Überschreibt den Namen der aktuellen Anwendung.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Note:** When unable to detect locale country code, it returns empty string.
 
@@ -645,7 +630,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+Gibt `Boolean` zurück
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -657,7 +642,7 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 * `tasks` [Task[]](structures/task.md) - Array mit `Task` Objekten
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks` Ein Array mit [`Task`](structures/task.md) Objekten.
 
@@ -674,7 +659,7 @@ Gibt das `Object` zurück:
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) oder `null` - Array mit `JumpListCategory` Objekten.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
@@ -787,7 +772,7 @@ if (!gotTheLock) {
 
 ### `app.hasSingleInstanceLock()`
 
-Returns `Boolean`
+Gibt `Boolean` zurück
 
 This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
 
@@ -798,7 +783,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Uniquely identifies the activity. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
 Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
@@ -809,14 +794,16 @@ Returns `String` - Typ der aktuell laufenden Aktivität.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.resignCurrentActivity()` *macOS*
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Uniquely identifies the activity. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
+* `userInfo` any - App-specific state to store for use by another device.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
@@ -826,7 +813,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Object 
   * `certificate` String - Pfad zur pkcs12 Datei.
@@ -850,17 +837,19 @@ Diese Methode kann nur vor dem Start der App aufgerufen werden.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - Can be `basic` or `complete`.
 
-Returns `Promise`
+Returns `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -903,9 +892,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
+**[Deprecated](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Returns `Integer` - The current value displayed in the counter badge.
+
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -958,7 +951,7 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -970,9 +963,9 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-**[Deprecated Soon](modernization/property-updates.md)**
+**[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
@@ -982,22 +975,23 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (optional) - Der Name der App.
   * `applicationVersion` String (optional) - Die Version der App.
   * `copyright` String (optional) - Copyright Information.
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio. *Linux*
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Show the platform's native emoji picker.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
 
@@ -1012,39 +1006,6 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - A command-line switch, without the leading `--`
-* `value` String (optional) - A value for the given switch
-
-Append a switch (with optional `value`) to Chromium's command line.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - The argument to append to the command line
-
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
-
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
-
-**Note:** This will not affect `process.argv`. The intended usage of this function is to control Chromium's behavior.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - A command-line switch
-
-Returns `Boolean` - Whether the command-line switch is present.
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - A command-line switch
-
-Returns `String` - The command-line switch value.
-
-**Note:** When the switch is not present or has no value, it returns empty string.
-
 ### `app.enableSandbox()` *Experimental*
 
 Aktiviert den vollen Sandbox-Modus auf der App.
@@ -1055,79 +1016,40 @@ Diese Methode kann nur vor dem Start der App aufgerufen werden.
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Objekt (optional) 
+  * `conflictHandler` Funktion<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+Ein Beispiel:
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
-
-Returns `Integer` an ID representing the request.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-Cancel the bounce of `id`.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Sets the string to be displayed in the dock’s badging area.
-
-### `app.dock.getBadge()` *macOS*
-
-Returns `String` - The badge string of the dock.
-
-### `app.dock.hide()` *macOS*
-
-Versteckt das dock icon.
-
-### `app.dock.show()` *macOS*
-
-Returns `Promise<void>` - Resolves when the dock icon is shown.
-
-### `app.dock.isVisible()` *macOS*
-
-Returns `Boolean` - Whether the dock icon is visible.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-Legt das App [Dock-Menü](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) fest.
-
-### `app.dock.getMenu()` *macOS*
-
-Returns `Menu | null` - The application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-Setzt das `image` welches als Dock Icon verwendet werden soll.
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## Eigenschaften
-
-### `app.applicationMenu`
-
-A `Menu` property that return [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1139,15 +1061,41 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+Eine `Boolean` Eigenschaft, die `true` zurückgegeben, wenn die App gepackt ist, ansonsten `false`. Für viele Apps kann diese Eigenschaft verwendet werden, um Entwicklungs- und Produktionsumgebungen zu unterscheiden.
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+
 ### `app.userAgentFallback`
 
 A `String` which is the user agent string Electron will use as a global fallback.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. Useful for ensuring your entire app has the same user agent. Set to a custom value as early as possible in your apps initialization to ensure that your overridden value is used.
-
-### `app.isPackaged`
-
-Eine `Boolean` Eigenschaft, die `true` zurückgegeben, wenn die App gepackt ist, ansonsten `false`. Für viele Apps kann diese Eigenschaft verwendet werden, um Entwicklungs- und Produktionsumgebungen zu unterscheiden.
+This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

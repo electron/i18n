@@ -44,7 +44,7 @@ El módulo `net` tiene los siguientes métodos:
 
 ### `net.request(options)`
 
-* `opciones` (Objecto | cadena) - Las opiniones de constructor `ClientRequest`.
+* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
 
 Devuelve [`ClientRequest`](./client-request.md)
 

@@ -24,8 +24,9 @@ crashReporter.start({
 
 Or use a 3rd party hosted solution:
 
-* [Backtrace I/O](https://backtrace.io/electron/)
+* [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
+* [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
 Отчеты о сбоях сохраняются в директории временных фалов приложения. Отчеты для `productName:` `'YourName'` сохраняются в папку `YourName Crashes`, которая расположена во временной директории. Перед составлением отчета о сбоях вы можете изменить путь ко временной директории для вашего приложения, вызывая `app.setPath('temp', '/my/custom/temp')`.
 
@@ -38,11 +39,11 @@ Or use a 3rd party hosted solution:
 * `options` Object 
   * `companyName` String
   * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
-  * `productName` String (опционально) - Значение по умолчанию - `app.getName()`.
-  * `uploadToServer` Boolean (опционально) - Должны ли отчеты быть загружены на сервер. Значение по умолчанию - `true`.
+  * `productName` String (optional) - Defaults to `app.name`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (опционально) - Значение по умолчанию - `false`.
-  * `extra` Object (опционально) - Объект, который вы можете задать, он будет отправлен вместе с отчетом. Только строковые свойства могут быть посланы корректно. Вложенные объекты не поддерживаются, длина значений и имен свойств должна быть менее чем 64 символа.
-  * `crashesDirectory` String (опционально) -Папка для временного хранения отчетов об ошибках (используется только когда crashReporter запущен через `process.crashReporter.start`).
+  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Только строковые свойства могут быть посланы корректно. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Вы должны обращаться к этому методу перед тем, как использовать другие вызовы, принадлежащие `crashReporter` и каждому процессу (main/renderer), с помощью которого вы хотите собирать отчеты о сбоях. Вы можете передавать различные параметры в вызов `crashReporter.start` при обращении из разных процессов.
 

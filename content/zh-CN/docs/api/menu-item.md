@@ -17,13 +17,14 @@
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
+  * `toolTip` String (optional) *macOS* - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
-  * `acceleratorWorksWhenHidden` Boolean（可选） - 默认为`true`，当设置为`false`时，菜单项隐藏后将无法触发该选项的快捷键。 *macOS*
+  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
+  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. 如果该值不属于[`Menu`](menu.md)，它将被函数`Menu.buildFromTemplate`自动转换。
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -120,7 +121,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.type`
 
-`String` 表示菜单项的类型
+A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
 
 #### `menuItem.role`
 
@@ -128,7 +129,7 @@ A `Menu` (optional) containing the menu item's submenu, if present.
 
 #### `menuItem.accelerator`
 
-`String` （可选）表示菜单项的快捷键。
+A `Accelerator` (optional) indicating the item's accelerator, if set.
 
 #### `menuItem.icon`
 
@@ -137,6 +138,10 @@ A `NativeImage | String` (optional) indicating the item's icon, if set.
 #### `menuItem.sublabel`
 
 A `String` indicating the item's sublabel, this property can be dynamically changed.
+
+#### `menuItem.toolTip` *macOS*
+
+A `String` indicating the item's hover text.
 
 #### `menuItem.enabled`
 

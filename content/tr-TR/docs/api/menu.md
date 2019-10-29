@@ -10,7 +10,7 @@ Yeni bir menü oluşturun.
 
 ### Statik Metodlar
 
-`menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -52,7 +52,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 `menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `seçenekler` Obje (opsiyonel) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
@@ -131,10 +131,12 @@ Ana süreçte uygulama menüsünü basit şablon API'si ile oluşturmak için bi
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },

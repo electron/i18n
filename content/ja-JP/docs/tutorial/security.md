@@ -96,7 +96,7 @@ browserWindow.loadURL('https://example.com')
 
 リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を有効にしないことが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
-その後、特定のホストに対して追加の権限を与えることができます。 例えば、 "https://example.com/" を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な力を正確に与えることができますが、それ以上の力は与えられません。
+その後、特定のホストに対して追加の権限を与えることができます。 例えば、`https://example.com/` を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な権限を正確に与えることができますが、それ以上は与えられません。
 
 ### なぜ？
 

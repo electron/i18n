@@ -31,6 +31,7 @@
   * [Electron の API を使用する](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API を使用する](tutorial/application-architecture.md#using-nodejs-apis)
   * [ネイティブ Node.js モジュールを使用する](tutorial/using-native-node-modules.md)
+  * [パフォーマンス戦略](tutorial/performance.md)
 * アプリに機能を追加する 
   * [通知](tutorial/notifications.md)
   * [最近使用したドキュメント](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@
 
 * [概要](api/synopsis.md)
 * [プロセスオブジェクト](api/process.md)
-* [サポートしているChromeコマンドラインスイッチ](api/chrome-command-line-switches.md)
+* [サポートしているコマンドラインスイッチ](api/command-line-switches.md)
 * [環境変数](api/environment-variables.md)
 * [破壊的な API の変更](api/breaking-changes.md)
 

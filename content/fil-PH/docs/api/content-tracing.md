@@ -1,10 +1,10 @@
 # pagsubaybay ng nilalaman
 
-> Pagkolekta ng tracing data galing sa Chromium's content modyul para paghanap ng pagganap bottlenecks at mahinang operasyon.
+> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang modyul na ito ay hindi kinabibilangan ng isang web interface kaya kailangan mong buksan ang `chrome://tracing/` sa Chrome browser at i-load ang nabuong file to makita ang resulta. 
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
 **Note:** Hindi mo dapat gamitin ang modyul na ito hanggang sa ` kaganapan ng mga app
 modulo ay napalabas.</p>
@@ -12,20 +12,15 @@ modulo ay napalabas.</p>
 <pre><code class="javascript">const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
-
-  contentTracing.startRecording(options, () => {
+  (async () => {
+    await contentTracing.startRecording({
+      include_categories: ['*']
+    })
     console.log('Tracing started')
-
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Tracing data recorded to ' + path)
+  })()
 })
 `</pre> 
 
@@ -33,38 +28,15 @@ app.on('ready', () => {
 
 Ang `contentTracing` modyul ay ang sumusunod na pamamaraan:
 
-### `contentTracing.getCategories(callback)
- `
-
-* `callback` Function 
-  * `categories` String[]
-
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `contentTracing.getCategories()`
 
 Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-### `contentTracing.startRecording(options, callback)`
-
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
-* `callback` na Function
-
-Simulan ang pagtatala ng lahat ng mga proseso. 
-
-Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. Ang `callback` ay tatawagan kapag kinilala ng lahat ng child processes ang kahilingan ng`startRecording`. 
-
-**[Deprecated Soon](modernization/promisification.md)**
+Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
@@ -72,47 +44,25 @@ Simulan ang pagtatala ng lahat ng mga proseso.
 
 Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording.
 
-### `contentTracing.stopRecording(resultFilePath, callback)`
+If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
-* `resultFilePath` String
-* `callback` Function 
-  * `resultFilePath` String
+### `contentTracing.stopRecording([resultFilePath])`
 
-Itigil ang pagtatala ng mga proseso. 
+* `resultFilePath` String (optional)
 
-Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. Kaya, para tigilan ang pagsunod, kailangang i-asynchronously ang pagtanong sa child processes para ipantay ang anumang nakabinbin na bakas. 
-
-Kapag kinilala ng child processes ang `stopRecording` request, `callback` ay tatawagan gamit ang file na naglalaman ng traced data. 
-
-Ang trace data ay maaaring isulat sa `resultFilePath` kung hindi ito walang laman o sa isang pansamantalang talakasan. Ang talagang file path ay ipasa sa `callback` kung hindi sa `null` .
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-### `contentTracing.stopRecording(resultFilePath)`
-
-* `resultFilePath` String
-
-Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
 Itigil ang pagtatala ng mga proseso. 
 
-Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. Kaya, para tigilan ang pagsunod, kailangang i-asynchronously ang pagtanong sa child processes para ipantay ang anumang nakabinbin na bakas. 
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
-
-### `contentTracing.getTraceBufferUsage(callback)`
-
-* `callback` Function 
-  * Bagay 
-    * `value` Number
-    * `percentage` Number
-
-Kunin ang pinakamataas na paggamit ng proseso ng trace buffer bilang bahagdan ng buon estado. Kung ang TraceBufferUsage value ay makilala ang `callback` ay tatawagan.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
 Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+* `value` Number
+* `percentage` Number
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state.

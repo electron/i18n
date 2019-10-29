@@ -31,7 +31,7 @@ Pentru a crea o fereastră fără chrome, sau o fereastră transparentă pentru 
 
 La încărcarea directă în fereastra unei pagini, utilizatorii pot să vadă pagina încărcându-se pas cu pas, ceea ce semnifică că nu este o bună experiență-app pentru un nativ a. Pentru a face ca fereastra să fie afișată fără flash, există două soluții pentru diferite situații.
 
-### Folosirea evenimentului `ready-to-show`
+## Folosirea evenimentului `ready-to-show`
 
 În momentul încărcarii paginii, evenimentul `ready-to-show` va fi emis când procesul prestatorului a prestat pagina pentru prima dată, dacă fereastra nu a fost arătată deja. Aratând fereastra după eveniment nu avea nici nu efect visual-flash:
 
@@ -45,7 +45,9 @@ win.show()
 
 Acest eveniment este de obicei emis după evenimentul `did-finish-load`, dar pentru paginile cu multe resurse la distanță, poate fi emis înainte de evenimentul `did-finish-load`.
 
-### Setarea `backgroundColor` - culorii fondului
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+
+## Setarea `backgroundColor` - culorii fondului
 
 Pentru o app- aplicație mai complexă, evenimentul `ready-to-show` poate fi emis prea târziu, ceea ce duce la funcționarea lentă a aplicației. În acest caz, este recomendabil să se arate fereastra imediat, și să se folosească `backgroundColor`-culoarea de fond apropiată fondului aplicației tale:
 
@@ -73,7 +75,7 @@ top.show()
 
 Fereastra `child` va fi arată mereu în partea de sus a ferestrei `top`.
 
-### Ferestrele modale
+## Ferestrele modale
 
 O fereastră modală este o fereastră copil care dezactivează fereastra părinte cu scopul de a creea o fereastră modală, care trebuie setată la opțiunile `parent` și `modal`:
 
@@ -87,7 +89,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Visibilitatea paginii
+## Visibilitatea paginii
 
 [Page Visibility API - Visibilitatea Paginii API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funcționează după cum urmează:
 
@@ -98,7 +100,7 @@ child.once('ready-to-show', () => {
 
 Este recomendabil să pauzezi operațiile scumpe când statutul vizibilității este`hidden-ascuns` pentru a minimiza consumul puterii.
 
-### Platform notices- Notificările Platformei
+## Platform notices- Notificările Platformei
 
 * În macOS ferestrele modale vor fi displayed-afișate ca și foi la fereastra părinte.
 * În macOS fereastra copil își va menține poziția relativă a ferestrei părinte atunci când fereastra părinte se mișcă, în timp ce în Windows sau Linux fereastra copil nu se mișcă.
@@ -111,7 +113,7 @@ Este recomendabil să pauzezi operațiile scumpe când statutul vizibilității 
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-`BrowserWindow` este un [EventEmitter-Emisor de Evenimente](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>options-opțiuni`.
 
@@ -120,8 +122,8 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
 * `opțiuni` Object -Obiect (opțional) 
   * `width-lățime`Integer(opțional) - Lățimea ferestrei în pixeli. Modul implicit este ` 800`.
   * `lungime` Integer (opțional) - Lungimea ferestrei în pixeli. Modul implicit este `600`.
-  * `x` Integer (opțional) (**required-cerut** dacă y este utilizat) - Stânga offset-compensată din ecran. Modului implicit îi revine sarcina de a centra fereastra.
-  * `y` Integer (opțional) (**required-cerut** dacă x este utilizat) - Partea de sus a ferestrei din ecran. Modului implicit îi revine sarcina de a centra fereastra.
+  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
+  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
   * `useContentSize-utilizareaConținutuluiMărimii` Boolean ( opțional) - `lățimea` și `height-lungimea` vor fi folosite ca size-mărimi ale paginii web, ceea ce semnifică că size-marimea actuală a ferestrei va include mărimea cadrului ferestrei și va fi usor mai largă. Modul implicit este `false-fals`.
   * `center-centru` Boolean (opțional) - Arată fereastra în mijlocul ecranului.
   * `minWidth` Integer (opțional) - Lățimea minimă a ferestrei. Modul implicit este `0`.
@@ -143,18 +145,19 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `title` String (opțional) - Titlul ferestrei în modul implicit. Modul implicit este `"Electron"`. Dacă eticheta HTML`<title>` este definită în fișierul HTML încărcat de `loadURL()`, această propietate va fi ignorată.
   * `icon` ([NativeImage](native-image.md) | String) (opțional) - Icoana ferestrei. În Windows este recomandabil a se folosi icoanele `ICO` pentru a avea cele mai bune efecte visuale, pe care le poți lăsa nedefinite în așa fel în cât icoana executabilă va fi folosită.
   * `show` Boolean(opțional) - Fereastra este aratată când este creată. Modul implicit este `true-adevărat`.
+  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. Modul implicit este `true-adevărat`.
   * `frame` Boolean (opțional) - Specifică `false-fals` pentru a crea [Frameless Window](frameless-window.md). Modul implicit este `true-adevărat`.
   * `parent-părinte` BrowserWindow (opțional) - Specifică fereastra părinte. modul implicit este `null`.
   * `modal` Boolean (opțional) - O fereastră modală. Aceasta funcționează doar când fereastra este o fereastră copil. Modul implicit este `false-fals`.
   * `acceptFirstMouse` Boolean (opțional) - Dacă web-ul acceptă un singur eveniment de mouse în partea de jos care în același timp activează fereastra. Modul implicit este `false-fals`.
   * `disableAutoHideCursor` Boolean (opțional) - La scriere cursorul este ascuns. Modul implicit este`false-fals`.
   * `autoHideMenuBar` Boolean(opțional) - Ascunde bara meniului până când tasta`Alt` este apasată. Modul implicit este `false-fals`.
-  * `enableLargerThanScreen` Boolean(opțional) - Face ca fereastra să fie mai mare ca și ecranul. Modul implicit este `false-fals`.
+  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Modul implicit este `false-fals`.
   * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
   * `hasShadow-are umbră` Boolean (opțional) - Daca fereastra ar trebui să aibă umbră. Aceasta este implementată doar în macOS. Modul implicit este ` true-adevărat`.
   * `opacity-opacitate` Number - Număr (opțional) - Setează opacitatea inițială a ferestrei între 0.0 ( transparent în întregime) și 1.0 (opac în totalitate). Acesta este implementat doar în Windows și macOS.
   * `darkTheme-tema închisă` Boolean (opțional) - Forțează utilizarea temei închise pentru fereastră, funcționează doar în câteva dintre mediile desktop-ului ale GTK +3. Modul implicit este ` false-fals`.
-  * ` transparent` Boolean (opțional) - Face ca fereastra să fie [transparent-transparentă ](frameless-window.md). Modul implicit este `false-fals`.
+  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Modul implicit este `false-fals`. On Windows, does not work unless the window is frameless.
   * `type-tip` String (opțional) - Tip-ul ferestrei, modul implicit este fereastra normală. Vezi mai multe despre asta în partea de jos.
   * `titleBarStyle - Stil titlu` String(opțional) - Stilul bării titlu al ferestrei. Modul implicit este `modul implicit`. Valorile posibile sunt: 
     * `default-modul implicit` - Bara titlului în standard-ul opac gri al Mac.
@@ -163,7 +166,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `customButtonsOnHover` Boolean (opțional) - Deschide personalizarea și minimizează butoanele în fereastra fară cadru macOS. Aceste butoane nu pot fi arătate doar dacă este planat în stânga de sus a ferestrei. Aceste butoane customizate previn evenimentele malițioase cu mouse-ul care se produc cu butoanele din bara de ustensile ale ferestrei standard. **Note:** Aceasta opțiune este de moment experimentală.
   * `fullscreenWindowTitle` Boolean (opțional) - Arată titlul în bara de titlu în modul full screen - ecran complet în macOS pentru toate opțiunile `titleBarStyle`. Modul implicit este `false-fals`.
   * `thickFrame` Boolean (opțional) - Utilizează stilul `WS_THICKFRAME` pentru ferestrele fără cadru în Windows, care adaugă cadru standard al ferestrei. Setat la ` false-fals` va îndeparta umbra ferestrei și animațiile ferestrei. Modul implicit este `true-adevărat`.
-  * `vibrancy` String (opțional) - Adaugă ferestrei un tip de efect vibrant, doar în macOS. Poate fi `appearance-based-bazat pe aparență`, `light-luminos`, `dark-închis`, `titlebar-bară titlu`, `selection-selecție`, `menu-meniu`, `popover-sare peste`, `sidebar-bara laterală`, `medium-light-lumină medie` sau ` ultra-dark-foarte închis`. Vă rog a nota că utilizând `frame: false- cadru: fals` în combinație cu o valoare vibrantă negativă semnifică că utilizezi un non-mod implicit deasemenea `titleBarStyle`.
+  * `vibrancy` String (opțional) - Adaugă ferestrei un tip de efect vibrant, doar în macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
   * `zoomToPageWidth` Boolean (opțional) - Controlează comportamentul în macOS când opțiunea- făcând clic pe butonul verde stoplight din bara de instrumente sau făcând clic în meniu pe articolul Window > Zoom. Dacă `true-adevărat`, fereastra va crește la lățimea preferată a paginii web când este marită, `false- fals` cauzează mărirea lățimii a ecranului. Acesta de asemenea afectează direct comportamentul când apelăm la `maximize() - maximizează`. Modul implicit este `false-fals`.
   * `tabbingIdentifier` String (opțional) - Numele grupului de file, permite deschiderea ferestrei ca o filă nativă în macOs 10.12+. Ferestrele cu aceași identificatori de file vor fi grupate împreună. Aceasta de asemenea adaugă un nou buton nativ de file în bara de file a ferestrei și permite ` app -aplicației` și ferestrei să primească evenimentul `new-window-for-tab`.
   * `webPreferences - Preferințele web` Object-Obiect (optional) - Setări ale caracteristicilor paginii web. 
@@ -203,8 +206,8 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `backgroundThrottling` Boolean (opțional)- Indiferent dacă accelerați animațiile și cronometrele când pagina devine fundal. Aceasta de asemenea afectează [Page Visibility API](#page-visibility). Modul implicit este `true-adevărat`.
     * `offscreen` Boolean (opțional) - Dacă se activează interpretarea offscreen-oprirea ecranului pentru fereastra browser-ului. Modul implicit este`false-fals`. Pentru mai multe detalii vezi [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
     * `contextIsolation` Boolean (opțional) - Dacă se deschid API-urile Electronilor și script-urile specificate ale `preload` într-un context JavaScript separat. Modurile implicite sunt `false-fals`. În contextul în care script-ul `preload` încă este activ poate avea acces total la globalele `document` și `window-fereastră`, dar va folosi propiul set de construcții JavaScript (`Array`, `Object`, `JSON`, etc.) și vor fi izolate de orice schimbare adusă la mediul global al paginii încărcate. API-ul Electronului va fi valabil doar în script-ul `preload` și nu al paginii încărcate. Această opțiune trebuie utilizată atunci când încărcarea conținutului la distanță potențial necredibil pentru a asigura conținutul încărcat nu poate altera scriptul ` preload-preîncărcare ` și orice API-uri Electron utilizate. Această opțiune folosește aceași tehnică utilizată de [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Poți accesa acest context în instrumentele dev selectând intrarea 'Electron Isolated Context' din caseta combo din partea de sus a barei Consolei.
-    * `nativeWindowOpen` Boolean (opțional)- Folosirea nativei `window.open()`. Modul implicit este ` false-fals`. Fereastra copil va avea mereu integrarea nodului dezactivată doar dacă `nodeIntegrationInSubFrames` este adevărată. **Note-Notă:** Această opțiune este în momentul actual în fază experimentală.
-    * `webviewTag` Boolean (opțional) - Activarea [`<webview>` tag](webview-tag.md). Modurile implicite sunt `false-fals`. **Note-Notă:** Script-ul `preload` configurat pentru `<webview>` nu va avea integrarea nodului activată când este executată așa că ar trebui să asiguri controlul la distanță/conținuturile noncredibile, nu sunt în stare să creeze o etichetă `<webview>` cu un script malicios `preload-preîncărcare`. Poți folosi evenimentul `will-attach-webview` în [webContents](web-contents.md) pentru a îndepărta script-ul `preload` și a valida ori altera setările inițiale ale `<webview>`.
+    * `nativeWindowOpen` Boolean (opțional)- Folosirea nativei `window.open()`. Modul implicit este`false-fals`. Fereastra copil va avea mereu integrarea nodului dezactivată doar dacă `nodeIntegrationInSubFrames` este adevărată. **Note-Notă:** Această opțiune este în momentul actual în fază experimentală.
+    * `webviewTag` Boolean (opțional) - Activarea [`<webview>` tag](webview-tag.md). Modul implicit este`false-fals`. **Note-Notă:** Script-ul `preload` configurat pentru `<webview>` nu va avea integrarea nodului activată când este executată așa că ar trebui să asiguri controlul la distanță/conținuturile noncredibile, nu sunt în stare să creeze o etichetă `<webview>` cu un script malicios `preload-preîncărcare`. Poți folosi evenimentul `will-attach-webview` în [webContents](web-contents.md) pentru a îndepărta script-ul `preload` și a valida ori altera setările inițiale ale `<webview>`.
     * `additionalArguments` String[] (optional) - O listă de șiruri care vor fi adăugate la `process.argv` în procesul de redare a acestei aplicații. Utilizat pentru a transmite mici bitsi de date în jos către preîncărcarea script-urilor în procesul de redare.
     * `safeDialogs` Boolean (opțional) - Dacă activați stilul browserului protecție dialogică consecutivă. Modul implicit este `false-fals`.
     * `safeDialogsMessage` String (opțional) - Mesajul afișat caâd consecutive protecții dialog sunt expuse. Dacă nu este definit modul implicit va fi folosit, atenție că actualul mesaj implicit este în Engleză și nu este localizat.
@@ -236,7 +239,7 @@ Returns:
 * `title` String
 * `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file url.
+Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file URL.
 
 #### Event: 'close'
 
@@ -297,6 +300,8 @@ Emitted when the window is hidden.
 #### Event: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+
+Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
 
 #### Event: 'maximize'
 
@@ -397,7 +402,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explictly supported on Linux:
+The following app commands are explicitly supported on Linux:
 
 * `browser-backward`
 * `browser-forward`
@@ -422,6 +427,15 @@ Returns:
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+
+#### Event: 'rotate-gesture' *macOS*
+
+Returns:
+
+* `event` Event
+* `rotation` Float
+
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
 
 #### Event: 'sheet-begin' *macOS*
 
@@ -485,7 +499,7 @@ Remove a Chrome extension by name.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -511,7 +525,7 @@ Remove a DevTools extension by name.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
 To check if a DevTools extension is installed you can run the following:
 
@@ -524,7 +538,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Propietățile inițiale
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -535,17 +549,74 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents`
+#### `win.webContents` *Readonly*
 
 A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
-#### `win.id`
+#### `win.id` *Readonly*
 
-A `Integer` representing the unique ID of the window.
+A `Integer` property representing the unique ID of the window.
 
-### Instance Methods
+#### `win.autoHideMenuBar`
+
+A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+
+If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+
+#### `win.minimizable`
+
+A `Boolean` property that determines whether the window can be manually minimized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.maximizable`
+
+A `Boolean` property that determines whether the window can be manually maximized by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.fullScreenable`
+
+A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+#### `win.resizable`
+
+A `Boolean` property that determines whether the window can be manually resized by user.
+
+#### `win.closable`
+
+A `Boolean` property that determines whether the window can be manually closed by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.movable`
+
+A `Boolean` property that determines Whether the window can be moved by user.
+
+On Linux the setter is a no-op, although the getter returns `true`.
+
+#### `win.excludedFromShownWindowsMenu` *macOS*
+
+A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+
+```js
+const win = new BrowserWindow({ height: 600, width: 600 })
+
+const template = [
+  {
+    role: 'windowmenu'
+  }
+]
+
+win.excludedFromShownWindowsMenu = true
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
+```
+
+### Metode de Instanță
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -648,7 +719,7 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
@@ -675,7 +746,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` Partial<[Rectangle](structures/rectangle.md)>
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
@@ -720,6 +791,10 @@ Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of t
 * `enable` Boolean
 
 Disable or enable the window.
+
+#### `win.isEnabled()`
+
+Returns Boolean - whether the window is enabled.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -773,9 +848,13 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 Sets whether the window can be manually resized by user.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isResizable()`
 
 Returns `Boolean` - Whether the window can be manually resized by user.
+
+**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -783,11 +862,15 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isMovable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
+
+**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -795,11 +878,15 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isMinimizable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
 On Linux always returns `true`.
+
+**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -807,11 +894,15 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isMaximizable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
+
+**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -819,9 +910,13 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+
+**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -829,16 +924,20 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isClosable()` *macOS* *Windows*
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
@@ -969,16 +1068,6 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.blurWebView()`
 
-#### `win.capturePage([rect, ]callback)`
-
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
-  * `image` [NativeImage](native-image.md)
-
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 #### `win.capturePage([rect])`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
@@ -991,11 +1080,11 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 * `url` String
 * `opțiuni` Object -Obiect (opțional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -1031,7 +1120,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `opțiuni` Object -Obiect (opțional) 
-  * `query` Object (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
@@ -1063,7 +1152,7 @@ Sets progress value in progress bar. Valid range is [0, 1.0].
 
 Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `{app.name}.desktop`.
 
 On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
 
@@ -1088,11 +1177,11 @@ Returns `Boolean` - Whether the window has a shadow.
 
 * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
 
-#### `win.getOpacity()` *Windows* *macOS*
+#### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
@@ -1112,7 +1201,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Object 
+* `Button` Obiect 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (optional) - The text of the button's tooltip.
@@ -1141,7 +1230,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
@@ -1178,9 +1267,13 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
+**[Dezaprobată](modernization/property-updates.md)**
+
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
+
+**[Dezaprobată](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1226,15 +1319,17 @@ Prevents the window contents from being captured by other apps.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
-#### `win.setFocusable(focusable)` *Windows*
+#### `win.setFocusable(focusable)` *macOS* *Windows*
 
 * `focusable` Boolean
 
 Changes whether the window can be focused.
 
+On macOS it does not remove the focus from the window.
+
 #### `win.setParentWindow(parent)`
 
-* `parent` BrowserWindow
+* `parent` BrowserWindow | null
 
 Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
@@ -1280,13 +1375,15 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
+Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
-* `touchBar` TouchBar
+* `touchBar` TouchBar | null
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
@@ -1294,7 +1391,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *Experimental*
 
@@ -1312,27 +1409,6 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.getBrowserViews()` *Experimental*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
-
-### Properties
-
-#### `win.excludedFromShownWindowsMenu` *macOS*
-
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
-
-```js
-const win = new BrowserWindow({ height: 600, width: 600 })
-
-const template = [
-  {
-    role: 'windowmenu'
-  }
-]
-
-win.excludedFromShownWindowsMenu = true
-
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
-```

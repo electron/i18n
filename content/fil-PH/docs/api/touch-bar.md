@@ -7,7 +7,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
 ### `bagong TouchBar(pagpipilian)`*Experimental*
 
 * `pagpipilian` Bagay 
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
@@ -16,7 +16,45 @@ Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar
 
 **Tip:** Kung wala kang MacBook na may Touch Bar, pwede kang gumamit ng [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) upang subukan ang paggamit ng Bar ng Touch sa inyong app.
 
-### Katangian ng pagkakataon
+### Static Properties
+
+#### `TouchBarButton`
+
+A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
+
+#### `TouchBarColorPicker`
+
+A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
+
+#### `TouchBarGroup`
+
+A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
+
+#### `TouchBarLabel`
+
+A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
+
+#### `TouchBarPopover`
+
+A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
+
+#### `TouchBarScrubber`
+
+A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
+
+#### `TouchBarSegmentedControl`
+
+A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
+
+#### `TouchBarSlider`
+
+A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
+
+#### `TouchBarSpacer`
+
+A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
+
+### Mga Katangian ng Instansya
 
 Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`: 
 

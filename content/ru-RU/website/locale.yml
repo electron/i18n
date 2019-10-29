@@ -146,6 +146,7 @@ apps:
   search_app: Отфильтровать приложения по имени, описанию и так далее…
   categories: Категории
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Создайте Pull Request</a>, чтобы добавить свое приложение.'
+  #App show page specific localization strings
   website: Веб-сайт
   repository: Репозиторий
   category: Категория
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Блог Electron
   description: Все последние новости от команды Electron и сообщества.
+  #Post show page specific localization strings
   feedback: Есть мысли по поводу этой публикации? Дайте <a href="https://twitter.com/electronjs">@electronjs</a> об этом знать на Twitter.
   help: Нужна помощь или Вы нашли баг? <a href="/contact">Свяжитесь с нами</a>.
 clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
   copied: Скопировано
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: или
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Управление Electron
   description: Система управления Electron состоит из рабочих групп, которые осуществляют контроль за различными аспектами экосистемы Electron, и административной рабочей группы, которая отвечает за урегулирование конфликтов между ними.
   wgs: Рабочие группы
-  docstools:
-    title: Документация и инструменты
-    description: Курирует внешне-ориентированные инструменты (например Fiddle, Forge), документацию Electron на сайте и репозитории <code>electron/*</code>, а также группу сопроводителей сторонних модулей.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Охват
     description: Увеличивает сообщество Electron
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: Улучшения
     description: Курирует обновления исходящих зависимостей; в частности Chromium и Node.
-  website:
-    title: Веб-сайт
-    description: Курирует техническую реализацию, дизайн и стиль веб-сайта Electron и связанного с ним инструментария.
   cmsf:
     title: Сообщество и безопасность
     description: Курирует удаление/баны в сообществе.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Администрирование
     description: Административная рабочая группа осуществляет надзор за всем процессом управления и проектом.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Обзор
     associated_repos: Связанные репозитории

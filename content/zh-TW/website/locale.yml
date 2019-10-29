@@ -164,6 +164,9 @@ clipboard:
   copy: Copy
   copy_to_clipboard: 複製到剪貼簿
   copied: 複製成功
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: or
 pages:
   '/':
@@ -233,9 +236,9 @@ governance:
   title: Electron 治理
   description: Electron 治理系統是由多個「工作小組」所組成，每個小組負責監管 Electron 生態系的各個面向，並設有「管理」工作小組，在不同工作小組意見相左時居中協調。
   wgs: 工作小組
-  docstools:
-    title: 文件及工具
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: 推廣
     description: Grows the Electron community
@@ -245,9 +248,6 @@ governance:
   upgrades:
     title: 升級
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
-  website:
-    title: 網站
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: 社群與安全
     description: Oversees removal/bans from community.
@@ -257,6 +257,9 @@ governance:
   admins:
     title: 管理
     description: The Administrative Working Group oversees the entire governance and project.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: 概述
     associated_repos: 相關儲存庫

@@ -95,7 +95,7 @@ browserWindow.loadURL ('https://example.com')
 
 It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://example.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
+在此之后，你可以为指定的主机授予附加权限。 For example, if you are opening a BrowserWindow pointed at `https://example.com/`, you can give that website exactly the abilities it needs, but no more.
 
 ### 为什么？
 

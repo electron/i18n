@@ -1,31 +1,26 @@
 # pelacakan konten
 
-> Kumpulkan data pelacakan dari modul konten Chromium untuk menemukan kemacetan kinerja dan operasi yang lambat.
+> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
 
 Proses: [Main](../glossary.md#main-process)
 
-Modul ini tidak menyertakan antarmuka web sehingga Anda perlu membuka `chrome://tracing/` di browser Chrome dan muat file yang dihasilkan untuk melihat hasil.
+This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
 
 **Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
 ```javascript
-const { app, contentTracing } = require ('elektron')
+const { app, contentTracing } = require('electron')
 
-app.on ('siap', () = > {
-  pilihan const = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full, enable-sampling'
-  }
-
-  contentTracing.startRecording (pilihan, () = > {
-    console.log ('penelusuran dimulai')
-
-    setTimeout (() => {
-      contentTracing.stopRecording ('', (path) = > {
-        console.log ('Tracing data direkam ke' + path)
-      })
-    }, 5000)
-  })
+app.on('ready', () => {
+  (async () => {
+    await contentTracing.startRecording({
+      include_categories: ['*']
+    })
+    console.log('Tracing started')
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Tracing data recorded to ' + path)
+  })()
 })
 ```
 
@@ -33,37 +28,15 @@ app.on ('siap', () = > {
 
 Modul ` contentTracing ` memiliki metode berikut:
 
-### `contentTracing.getCategories (callback)`
-
-* `callback` Fungsi 
-  * `kategori ` String []
-
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
 ### `contentTracing.getCategories()`
 
 Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-Get a set of category groups. The category groups can change as new code paths are reached.
-
-### `contentTracing.startRecording (pilihan,callback)`
-
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
-* `callback ` Fungsi
-
-Mulai rekaman pada semua proses.
-
-Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman. The `callback ` akan menjadi dipanggil sekali semua proses anak telah mengakui permintaan ` startRecording `.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
-* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+* `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
@@ -71,47 +44,25 @@ Mulai rekaman pada semua proses.
 
 Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman.
 
-### `isi Tracing.stop Recording (hasil File Path, callback)`
+If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
 
-* `resultFilePath ` String
-* `callback` Fungsi 
-  * `resultFilePath ` String
+### `contentTracing.stopRecording([resultFilePath])`
 
-Berhenti merekam pada semua proses.
+* `resultFilePath` String (optional)
 
-Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini membantu meminimalkan overhead runtime Dari penelusuran sejak mengirim data jejak melalui IPC bisa menjadi operasi yang mahal. Begitu, Untuk mengakhiri penelusuran, kita harus secara asinkron meminta semua proses anak untuk menyiram apapun tertunda jejak data.
-
-Setelah semua proses anak mengakui permintaan `stopRecording` `callback ` akan dipanggil dengan file yang berisi data yang dilacak.
-
-Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sementara Path file yang sebenarnya akan dilewatkan ke `callback` jika tidak `null`.
-
-**[Deprecated Soon](modernization/promisification.md)**
-
-### `contentTracing.stopRecording(resultFilePath)`
-
-* `resultFilePath ` String
-
-Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
 Berhenti merekam pada semua proses.
 
-Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini membantu meminimalkan overhead runtime Dari penelusuran sejak mengirim data jejak melalui IPC bisa menjadi operasi yang mahal. Begitu, Untuk mengakhiri penelusuran, kita harus secara asinkron meminta semua proses anak untuk menyiram apapun tertunda jejak data.
+Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini membantu meminimalkan overhead runtime Dari penelusuran sejak mengirim data jejak melalui IPC bisa menjadi operasi yang mahal. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
-
-### `contentTracing.getTraceBufferUsage(callback)`
-
-* `callback` Fungsi 
-  * Obyek 
-    * `nilai` Nomor
-    * `persentase` Nomor
-
-Dapatkan penggunaan maksimum di seluruh proses buffer jejak sebagai persentase dari penuh negara. Bila nilai TraceBufferUsage ditentukan, maka `callback` adalah bernama.
-
-**[Deprecated Soon](modernization/promisification.md)**
+Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
 Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+
+* `nilai` Nomor
+* `persentase` Nomor
 
 Get the maximum usage across processes of trace buffer as a percentage of the full state.

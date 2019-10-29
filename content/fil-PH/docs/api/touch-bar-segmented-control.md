@@ -22,7 +22,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
     * `buttons` -Gumawa ng mga segment act bilang mga button, bawat segment ay pinindot at inilabas pero hindi kailanman minarkahan bilang aktibo.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md)Isang array ng mga segment na dapat ilagay sa control nito.
   * `selectedIndex` Integer (opsyonal) - Ang index ng kasalukuyang selected segment, ay awtomatikong iaupdate sa pakikipag ugnayan ng user. Kapag ang mode ay maramihan ito ay magiging huling napiling item.
-  * `pagbabago` Function-ito ay tinatawag kapag ang user ay pumili ng isang bagong segment. 
+  * `pagbabago` Function (optional) - Called when the user selects a new segment. 
     * `selectedIndex` Integer - Ang index ng segment sa user na napili.
     * `isSelected` Boolean -Anuman ang bunga ng resulta ng user selection ng segment ay pinili o hindi.
 

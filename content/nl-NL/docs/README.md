@@ -31,6 +31,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Het gebruik maken van Electron's API's](tutorial/application-architecture.md#using-electron-apis)
   * [Het gebruik maken van Node.js API's](tutorial/application-architecture.md#using-nodejs-apis)
   * [Het gebruik maken van Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Toevoegen van functionaliteit aan uw App 
   * [Notificaties](tutorial/notifications.md)
   * [Recente documenten](tutorial/recent-documents.md)
@@ -100,7 +101,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 
 * [Synopsis](api/synopsis.md)
 * [Procesobject](api/process.md)
-* [Ondersteunde Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Supported Command Line Switches](api/command-line-switches.md)
 * [Omgevingsvariabelen](api/environment-variables.md)
 * [Belangrijke API wijzigingen](api/breaking-changes.md)
 

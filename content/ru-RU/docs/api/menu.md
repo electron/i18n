@@ -10,7 +10,7 @@
 
 ### Статические методы
 
-Класс `Menu` имеет следующие статические методы:
+The `Menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -52,7 +52,7 @@
 
 Объект `меню` имеет следующие методы экземпляра:
 
-#### `menu.popup(options)`
+#### `menu.popup([options])`
 
 * `options` Object (опционально) 
   * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
@@ -131,10 +131,12 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 ```javascript
 const { app, Menu } = require('electron')
 
+const isMac = process.platform === 'darwin'
+
 const template = [
   // { role: 'appMenu' }
-  ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+  ...(isMac ? [{
+    label: app.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },

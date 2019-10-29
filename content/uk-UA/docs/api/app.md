@@ -27,7 +27,7 @@ app.on('window-all-closed', () => {
 
 Повертає:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` unknown *macOS*
 
 Відбувається коли Electron завершує ініціалізацію. На macOS, `launchInfo` тримає `userInfo` `NSUserNotification`, яка використовувалася для відкриття застосунку, якщо він був запущений з Центру Сповіщень. Ви можете викликати `app.isReady()` щоб перевірити чи відбулася дана подія.
 
@@ -92,7 +92,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `url` String
 
-Відбувається коли користувач хоче відкрити посилання за допомогою застосунку. Файл `Info.plist` має визначати схеми посилань за допомогою `CFBundleURLTypes` ключа, і встановлювати `NSPrincipalClass` в `AtomApplication`.
+Відбувається коли користувач хоче відкрити посилання за допомогою застосунку. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
 Слід викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
@@ -111,7 +111,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Містить стан застосунку, збережений діяльністю на іншому пристрої.
+* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), коли діяльність з іншого пристрою має бути продовжена. Потрібно викликати `event.preventDefault()`, якщо ви хочете обробляти цю подію.
 
@@ -142,7 +142,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Містить стан застосунку, збережений діяльністю.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Відбувається під час [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), після того як діяльність з цього пристрою була успішно продовжена на іншому.
 
@@ -152,7 +152,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - Стрічка, що визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Містить стан застосунку, збережений діяльністю.
+* `userInfo` unknown - Contains app-specific state stored by the activity.
 
 Відбувається коли [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) має бути відновлена на іншому пристрої. Якщо вам потрібно оновити статус для передачі, потрібно викликати `event.preventDefault()` негайно, сформувати новий `userInfo` словник та викликати `app.updateCurrentActivity()` в потрібний момент. В іншому випадку операція не виконається і буде викликано `continue-activity-error`.
 
@@ -285,6 +285,10 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
+### Event: 'gpu-info-update'
+
+Emitted whenever there is a GPU info update.
+
 ### Подія: 'gpu-process-crashed'
 
 Повертає:
@@ -292,7 +296,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Відбувається коли процес gpu ламається або припиняється примусово.
+Emitted when the GPU process crashes or is killed.
 
 ### Подія: 'renderer-process-crashed'
 
@@ -475,13 +479,13 @@ app.exit(0)
 
 Показує всі вікна застосунку після того як вони були сховані. Не фокусується на них автоматично.
 
-### `app.setAppLogsPath(path)`
+### `app.setAppLogsPath([path])`
 
 * `path` String (shared) - Користувацький шлях для ваших логів. Мусить бути абсолютним.
 
 Встановлює чи створює папку ваших логів, якою в подальшому можна маніпулювати за допомогою `app.getPath()` чи `app.setPath(pathName, newPath)`.
 
-Виклик `app.setAppLogsPath()` без параметру `path` встановить цю папку як `/Library/Logs/YourAppName` на *macOS*, та всередині папки `userData` на *Linux* та *Windows*.
+Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
 ### `app.getAppPath()`
 
@@ -489,52 +493,29 @@ app.exit(0)
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` String - You can request the following paths by the name: 
+  * `home` Домашня директорія користувача.
+  * `appData` Директорія даних застосунку, яка за замовчуванням вказує на: 
+    * `%APPDATA%` на Windows
+    * `$XDG_CONFIG_HOME` чи `~/.config` на Linux
+    * `~/Library/Application Support` на macOS
+  * `userData` Директорія для збереження конфігураційних фалів вашого застосунку, яка за замовчуванням є директорією `appData` та назвою вашого застосунку.
+  * `кеш`
+  * `temp` Тимчасова директорія.
+  * `exe` Поточний виконуваний файл.
+  * `module` Бібліотека `libchromiumcontent`.
+  * `desktop` Директорія робочого столу поточного користувача.
+  * `documents` Директорія "My Documents" користувача.
+  * `downloads` Директорія для завантажень користувача.
+  * `music` Дректорія для музики користувача.
+  * `pictures` Директорія для зображень користувача.
+  * `videos` Директорія для відео користувача.
+  * `logs` Директорія для логів вашого застосунку.
+  * `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
 
 Повертає `String` - Шлях до спеціальної директорії чи файлу, що відповідає `name`. При невдачі викидається `Error`.
 
-Ви можете запитувати наступні шляхи по name:
-
-* `home` Домашня директорія користувача.
-* `appData` Директорія даних застосунку, яка за замовчуванням вказує на: 
-  * `%APPDATA%` на Windows
-  * `$XDG_CONFIG_HOME` чи `~/.config` на Linux
-  * `~/Library/Application Support` на macOS
-* `userData` Директорія для збереження конфігураційних фалів вашого застосунку, яка за замовчуванням є директорією `appData` та назвою вашого застосунку.
-* `temp` Тимчасова директорія.
-* `exe` Поточний виконуваний файл.
-* `module` Бібліотека `libchromiumcontent`.
-* `desktop` Директорія робочого столу поточного користувача.
-* `documents` Директорія "My Documents" користувача.
-* `downloads` Директорія для завантажень користувача.
-* `music` Дректорія для музики користувача.
-* `pictures` Директорія для зображень користувача.
-* `videos` Директорія для відео користувача.
-* `logs` Директорія для логів вашого застосунку.
-* `pepperFlashSystemPlugin` Повний шлях до системної версії плагіну Pepper Flash.
-
-### `app.getFileIcon(path[, options], callback)`
-
-* `path` String
-* `options` Object (опціонально) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не підтримується на *macOS*.
-* `callback` Function 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-Витягує піктограму, що відповідає шляху.
-
-На *Windows*, є 2 види піктограм:
-
-* Піктограми, що відповідають певним розширенням файлів, такими як `.mp3`, `.png`, тощо.
-* Піктограми всередині самих файлів, таких як `.exe`, `.dll`, `.ico`.
-
-На *Linux* та *macOS*, піктограми залежать від застосунку, що відповідає mime типу файлу.
-
-**[Незабаром застаріє](modernization/promisification.md)**
+If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -575,13 +556,17 @@ app.exit(0)
 
 Повертає `String` - Назва поточного застосунку, що є назвою в файлі `package.json`.
 
-Зазвичай поле `name` `package.json` є короткою назвою в нижньому регістрі, відповідно до специфікації модулів npm. Вам також зазвичай доведеться визначати поле `productName`, яке є назвою вашого додатку у верхньому регістрі і якому буде Electron надавати перевагу перед `name`.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Вам також зазвичай доведеться визначати поле `productName`, яке є назвою вашого додатку у верхньому регістрі і якому буде Electron надавати перевагу перед `name`.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
 * `name` String
 
 Перевизнає поточну назву застосунку.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
@@ -595,7 +580,7 @@ app.exit(0)
 
 ### `app.getLocaleCountryCode()`
 
-Повертає `string` - Двобуквенний код локалі операційної системи користувача по стандарту [ISO 3166](https://www.iso.org/iso-3166-country-codes.html). Значення береться з нативного API ОС.
+Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
 **Примітка:** Коли неможливо визначити код локалі, повертається пуста стрічка.
 
@@ -657,7 +642,7 @@ API всередині використовує реєстр Windows та LSCopy
 
 * `tasks` [Task[]](structures/task.md) - Масив об'єктів `Task`
 
-Додай `tasks` до категорії таск [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) JumpList на Windows.
+Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
 `tasks` це масив об'єктів [`Task`](structures/task.md).
 
@@ -670,11 +655,11 @@ API всередині використовує реєстр Windows та LSCopy
 Повертає `Object`:
 
 * `minItems` Integer - Мінімальна кількість елементів, які будуть показані в Jump List (для детальнішої інформації про це значення перегляньте [документацію MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Масив об'єктів `JumpListItem`, які відповідають елементам, які користувач явно видалив з настроюваних категорій в Jump List. Ці елементи не повинні повторно додаватисядо Jump List при **наступному** виклику `app.setJumpList()`, Windows не покаже ніякої налаштовуваної категорії, яка будь-який видалений елемент.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ці елементи не повинні повторно додаватисядо Jump List при **наступному** виклику `app.setJumpList()`, Windows не покаже ніякої налаштовуваної категорії, яка будь-який видалений елемент.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) чи `null` - Масив об'єктів `JumpListCategory`.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
 Встановлює чи видаляє налаштовуваний Jump List для застосунку, і повертає одну з наступних стрічок:
 
@@ -798,7 +783,7 @@ if (!gotTheLock) {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Стан застосунку, збережений для використання іншим пристроєм.
+* `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (опціонально) - Веб-сторінка для завантаження у вашому браузері, якщо не встановлено відповідного застосунку на пристрої. Схема має бути `http` чи `https`.
 
 Створює `NSUserActivity` і встановлює її як поточну діяльність. Діяльність має право на [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на інший пристрій.
@@ -809,14 +794,16 @@ if (!gotTheLock) {
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
 Розриває поточну [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) діяльність користувача.
+
+### `app.resignCurrentActivity()` *macOS*
+
+Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Унікально визначає діяльність. Відповідає [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Стан застосунку, збережений для використання іншим пристроєм.
+* `userInfo` any - App-specific state to store for use by another device.
 
 Оновлює потточну діяльність якщо її тип збігається з `type`, об'єднує записи з `userInfo` в поточний `userInfo` словник.
 
@@ -826,7 +813,7 @@ if (!gotTheLock) {
 
 Змінює [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) на `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importCertificate(options, callback)` *Linux*
 
 * `options` Object 
   * `certificate` String - Шлях до файлу pkcs12.
@@ -850,17 +837,19 @@ if (!gotTheLock) {
 
 ### `app.getAppMetrics()`
 
-Повертає [`ProcessMetric[]`](structures/process-metric.md): масив об'єктів `ProcessMetric`, який відповідає статистиці використання пам'яті та ресурсів центрального процесора всіма процесами застосунку.
+Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
 
 ### `app.getGPUFeatureStatus()`
 
 Повертає [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Статус функції графіки з `chrome://gpu/`.
 
+**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Значення можуть бути як `basic` для основної інформації чи `complete` для повної інформації.
+* `infoType` String - Can be `basic` or `complete`.
 
-Повертає `Promise`
+Returns `Promise<unknown>`
 
 Для `infoType` що дорівнює `complete`: Promise заповнюється `Object`, який містить всю GPU Інформацію у вигляді [об'єкту chromium GPUInfo](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Він включає версію та інформацію про драйвера, які показуються на сторінці `chrome://gpu`.
 
@@ -903,9 +892,13 @@ machineModelVersion: '11.5' }
 
 **Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
 
+**[Припиняється підтримка](modernization/property-updates.md)**
+
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Повертає `Integer` - Поточне значення, відображене на бейджі лічильника.
+
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -958,7 +951,7 @@ app.setLoginItemSettings({
 
 Повертає `Boolean` - `true` якщо спеціальні можливості Chrome увімкнені, `false` в іншому випадку. Це API поверне `true` якщо було виялено використання спеціальних можливостей, наприклад, читач екрану. Дивись https://www.chromium.org/developers/design-documents/accessibility для детвльної інформації.
 
-**[Незабаром застаріє](modernization/property-updates.md)**
+**[Припиняється підтримка](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -970,9 +963,9 @@ app.setLoginItemSettings({
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
 
-**[Незабаром застаріє](modernization/property-updates.md)**
+**[Припиняється підтримка](modernization/property-updates.md)**
 
-### `app.showAboutPanel` *macOS* *Linux*
+### `app.showAboutPanel()` *macOS* *Linux*
 
 Показує опції панелі застосунку. Ці опції можуть бути перевизначені за допомогою `app.setAboutPanelOptions(options)`.
 
@@ -982,22 +975,23 @@ app.setLoginItemSettings({
   * `applicationName` String (опціонально) - Назва застосунку.
   * `applicationVersion` String (опціонально) - Версія застосунку.
   * `copyright` String (опціонально) - Інформація про авторські права.
-  * `version` String (опціонально) - Версія збірки застосунку. *macOS*
-  * `credits` String (опціонально) - Інформація про оплату. *macOS*
-  * `website` String (опціонально) - Веб сайт застосунку. *Linux*
-  * `iconPath` String (опціонально) - Шлях до піктограми застосунку. Буде показана в розмірі 64x64 пікселі, зберігаючи співвіжношення сторін. *Linux*
+  * `version` String (optional) *macOS* - The app's build version number.
+  * `credits` String (optional) *macOS* - Credit information.
+  * `authors` String[] (optional) *Linux* - List of app authors.
+  * `website` String (optional) *Linux* - The app's website.
+  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
 Встановлює інформацію про застосунок. Це перевизначить значення, визначені в файлі `.plist` на MacOS. Дивіться [документацію Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для деталей. На Linux, значення мають бути встановлені, щоб їх показувати; значення за замовчуванням відсутні.
 
-### `app.isEmojiPanelSupported`
+### `app.isEmojiPanelSupported()`
 
 Повертає `Boolean` - чи поточна версія ОС підтримує нативні селектори емоджі.
 
-### `app.showEmojiPanel` *macOS* *Windows*
+### `app.showEmojiPanel()` *macOS* *Windows*
 
 Показує нативні селектори емоджі платформи.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
 * `bookmarkData` String - Декодована в форматі base64 захищеній bookmark data що повернена методами `dialog.showOpenDialog` або `dialog.showSaveDialog`.
 
@@ -1006,44 +1000,11 @@ app.setLoginItemSettings({
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// Тепер ви можете використовувати файли за межами sandbox 
+// You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
 Start accessing a security scoped resource. За допомогою цієї функції застосунки Electron, що зроблені для Mac App Store, можуть отримувати доступ поза їх пісочницею для доступу до файлів обраних користувачем. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
-
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - Перемикач командного рядка, без переходу `--`
-* `value` String (опціонально) - Значення для перемикача
-
-Додає перемикач (з опціональним `value`) до командного рядка Chromium.
-
-**Примітка:** Це не впливає на `process.argv`. Призначення даної функцій: контроль поведінки Chromium.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - Аргумент для додання до командного рядку
-
-Додає аргумент в командний рядок Chromium. Аргумент буде правильно взято в лапки. Перемикачі будуть передувати аргументам незалежно від порядку додавання.
-
-Якщо ви додаєте аргумент у вигляді `--switch=value`, розгляньте натомість використання `appendSwitch('switch', 'value')`.
-
-**Примітка:** Це не впливає на `process.argv`. Призначення даної функцій: контроль поведінки Chromium.
-
-### `app.commandLine.hasSwitch(switch)`
-
-* `switch` String - Перемикач командного рядка
-
-Повертає `Boolean` - Показує чи присутній перемикач командного рядка.
-
-### `app.commandLine.getSwitchValue(switch)`
-
-* `switch` String - Перемикач командного рядка
-
-Повертає `String` - значення перемикача командного рядка.
-
-**Примітка:** Якщо перемикач не присутній або не має значення, він поверне пусту стрічку.
 
 ### `app.enableSandbox()` *Експериментальний*
 
@@ -1055,79 +1016,40 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 Повертає `Boolean` - Показує чи застосунок запущено з системної директої Застосунки. Використовуйте в крмбінації з `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder([options])` *macOS*
+
+* `options` Object (опціонально) 
+  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Повертає `Boolean` - Показує чи переміщення було успішним. Буль ласка, майте на увазі, що якщо переміщення було успішним, ваш застосунок зупиниться та перезапуститься.
 
 За замовчуванням, діалогу пітвердження не буде показано. Якщо ви хочете дозволити користувачу підтверджувати операцію, потрібно буде використати [`dialog`](dialog.md) API.
 
-**Примітка:** Цей метод викидає помилку, якщо щось окрім користувача спричиняє невдачу переміщення. Якщо користувач скасовує переміщення, метод поверне false. Якщо нам не вдалося копіювання, тоді метод викине помилку. Повідомлення в помилці має бути інформативним і точно пояснити, що пішло не так
+**Примітка:** Цей метод викидає помилку, якщо щось окрім користувача спричиняє невдачу переміщення. Якщо користувач скасовує переміщення, метод поверне false. Якщо нам не вдалося копіювання, тоді метод викине помилку. Повідомлення в помилці має бути інформативним і точно пояснити, що пішло не так.
 
-### `app.dock.bounce([type])` *macOS*
+By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-* `type` String (опціонально) - Може бути `critical` чи `informational`. За замовчуванням `informational`
+Наприклад:
 
-Коли передано `critical`, піктограма в панелі завдань буде стрибати поки застосунок не стане активним чи поки запит не скасується.
+```js
+app.moveToApplicationsFolder({
+  conflictHandler: (conflictType) => {
+    if (conflictType === 'exists') {
+      return dialog.showMessageBoxSync({
+        type: 'question',
+        buttons: ['Halt Move', 'Continue Move'],
+        defaultId: 0,
+        message: 'An app of this name already exists'
+      }) === 1
+    }
+  }
+})
+```
 
-Якщо передано `informational`, піктограма в панелі завданьбуде стрибати одну секунду. Однак, запит буде активним поки користувач не перейде в застосунок, або він не скасуєтсья.
-
-Повертає `Integer` ID представлення запиту.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-Скасувати стрибання `id`.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` String
-
-Примусити стрибати піктограму Downloads якщо filePath всередині директорії Downloads.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` String
-
-Встановлює для показу в зоні бейжда піктограми на панелі завдань.
-
-### `app.dock.getBadge()` *macOS*
-
-Повертає `String` - Стрічка з бейджа піктограми на панелі завдань.
-
-### `app.dock.hide()` *macOS*
-
-Ховає піктограму з панелі задач.
-
-### `app.dock.show()` *macOS*
-
-Повертає `Promise<void>` - Виконується коли показується піктограма на панелі задач.
-
-### `app.dock.isVisible()` *macOS*
-
-Повертає `Boolean` - Чи видима піктограма на панелі задач.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menu](menu.md)
-
-Встановлює [dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) застосунку.
-
-### `app.dock.getMenu()` *macOS*
-
-Повертає `Menu | null` - [Меню панелі задач](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) застосунку.
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([NativeImage](native-image.md) | String)
-
-Встановлює `image`, що відповідає панелі задач.
+Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
 
 ## Властивості (Properties)
-
-### `app.applicationMenu`
-
-Властивість `Menu`, яка повертає [`Menu`](menu.md), якщо таке було встановлено і `null` в іншому випадку. Користувачі можуть передати [Menu](menu.md) для встановлення даної властивості.
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
@@ -1139,15 +1061,41 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
 
+### `app.applicationMenu`
+
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+
+### `app.badgeCount` *Linux* *macOS*
+
+An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+
+On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+
+**Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
+
+### `app.commandLine` *Readonly*
+
+A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+
+### `app.dock` *macOS* *Readonly*
+
+A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+
+### `app.isPackaged` *Readonly*
+
+`Boolean` властивість повертає `true` якщо застосунок запаковано, та `false` в іншому випадку. Для багатьох застосунків ця властивість може бути використана щоб відрізняти середовище розробки від виробничого.
+
+### `app.name`
+
+A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Вам також зазвичай доведеться визначати поле `productName`, яке є назвою вашого додатку у верхньому регістрі і якому буде Electron надавати перевагу перед `name`.
+
 ### `app.userAgentFallback`
 
 `String`, яка містить агент користувача, який Electron буде використовувати за замовчуванням.
 
-Цей агент користувача буде використовуватися, якщо інший не встановлено на рівні `webContents` чи `session`. Корисно для впевнення, що весь ваш застосунок має однаковий агент користувача. Встановіть в користувацьке значення як тільки можливо у ініціалізації вашого застосунку, щоб впевнитись що ваше перевизначене значення використовується.
-
-### `app.isPackaged`
-
-`Boolean` властивість повертає `true` якщо застосунок запаковано, та `false` в іншому випадку. Для багатьох застосунків ця властивість може бути використана щоб відрізняти середовище розробки від виробничого.
+Цей агент користувача буде використовуватися, якщо інший не встановлено на рівні `webContents` чи `session`. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 

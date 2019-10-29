@@ -46,7 +46,7 @@ A `String` representing the HTTP status message.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
 
 * All header names are lowercased.
 * Each header name produces an array-valued property on the headers object.

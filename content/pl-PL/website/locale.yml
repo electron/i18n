@@ -146,6 +146,7 @@ apps:
   search_app: Filtruj aplikacje na podstawie nazwy, opisu itd…
   categories: Kategorie
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Utwórz Pull Request</a> aby dodać swoją aplikację.'
+  #App show page specific localization strings
   website: Strona
   repository: Repozytorium
   category: Kategoria
@@ -156,12 +157,16 @@ apps:
 blog:
   title: Blog Electrona
   description: Najnowsze wiadomości od zespołu Electrona oraz społeczności.
+  #Post show page specific localization strings
   feedback: Chciałbyś podzielić się swoją opinią na temat tego posta? Tweetnij <a href="https://twitter.com/electronjs">@electronjs</a>.
   help: Potrzebujesz pomocy lub znalazłeś/znalazłaś błąd? <a href="/contact">Skontaktuj się z nami</a>.
 clipboard:
   copy: Kopiuj
   copy_to_clipboard: Kopiuj do Schowka
   copied: Skopiowane
+fiddle_launch_button:
+  launch: Launch
+  launch_in_fiddle: Launch in Fiddle
 or: lub
 pages:
   '/':
@@ -231,9 +236,9 @@ governance:
   title: Zarządzanie Electronem
   description: System zarządzania Electrona złożony jest z wielu grup, które zajmują się aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty pomiędzy poszczególnymi grupami.
   wgs: Grupy Robocze
-  docstools:
-    title: Dokumentacja & Narzędzia
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  ecosystem:
+    title: Ecosystem
+    description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Pomoc
     description: Rozwijanie Społeczności Electron
@@ -243,9 +248,6 @@ governance:
   upgrades:
     title: Aktualizacje
     description: Nadzoruje aktualizacje zależności; konkretnie Chromium i Node.
-  website:
-    title: Strona
-    description: Nadzoruje techniczne wdrażanie, projektowanie i styl strony internetowej Electron i powiązanych narzędzi.
   cmsf:
     title: Społeczność & Bezpieczeństwo
     description: Nadzoruje usunięciami/blokowaniem z społeczności.
@@ -255,6 +257,9 @@ governance:
   admins:
     title: Administracja
     description: The Administrative Working Group oversees the entire governance and project.
+  api:
+    title: API
+    description: Oversees public API design based on project principles.
   global:
     overview: Przegląd
     associated_repos: Powiązane Repozytoria

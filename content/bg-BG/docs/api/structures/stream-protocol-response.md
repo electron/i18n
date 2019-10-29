@@ -1,5 +1,5 @@
 # Обект StreamProtocolResponse
 
-* `statusCode` Number - Върнатият код в отговор на HTTP заявката.
-* `headers` Object - Обект съдържащ заглавията/headers на отговорената заявка.
-* `data` ReadableStream - Node.js поток за четене, представляващо тялото на отговорената заявка.
+* `statusCode` Number (optional) - The HTTP response code.
+* `headers` Record<String, String | String[]> (optional) - An object containing the response headers.
+* `data` ReadableStream | null - A Node.js readable stream representing the response body.

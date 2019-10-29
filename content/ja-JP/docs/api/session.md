@@ -62,6 +62,8 @@ console.log(ses.getUserAgent())
 
 #### イベント: 'will-download'
 
+戻り値:
+
 * `event` Event
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
@@ -80,50 +82,29 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
+#### Event: 'preconnect' *Experimental*
+
+戻り値:
+
+* `event` Event
+* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
+* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+
+Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+
 ### インスタンスメソッド
 
 `Session` のインスタンスでは、以下のメソッドが利用できます。
 
-#### `ses.getCacheSize(callback)`
-
-* `callback` Function 
-  * `size` Integer - キャッシュサイズのバイト数。
-  * `error` Integer - 失敗に対応するエラーコード。
-
-callback はセッションの現在のキャッシュサイズで呼ばれます。
-
-**[非推奨予定](modernization/promisification.md)**
-
 #### `ses.getCacheSize()`
 
 戻り値 `Promise<Integer>` - バイト単位の、session の現在のキャッシュサイズ。
-
-#### `ses.clearCache(callback)`
-
-* `callback` Function - 操作が完了したときに呼ばれます。 
-  * `error` Integer - 失敗に対応するエラーコード。
-
-セッションの HTTP キャッシュをクリアします。
-
-**[非推奨予定](modernization/promisification.md)**
 
 #### `ses.clearCache()`
 
 戻り値 `Promise<void>` - キャッシュクリア操作が完了すると実行されます。
 
 セッションの HTTP キャッシュをクリアします。
-
-#### `ses.clearStorageData([options,] callback)`
-
-* `options` Object (任意) 
-  * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
-  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
-  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
-* `callback` Function (任意) - 操作が完了したときに呼ばれる.
-
-現在の session のストレージデータを消去します。
-
-**[非推奨予定](modernization/promisification.md)**
 
 #### `ses.clearStorageData([options])`
 
@@ -137,70 +118,6 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 #### `ses.flushStorageData()`
 
 未書き込みの DOM ストレージのデータをディスクに書き込みます。
-
-#### `ses.setProxy(config, callback)`
-
-* `config` Object 
-  * `pacScript` String - PAC ファイルに関連付けられたURL。
-  * `proxyRules` String - 使用するプロキシを示すルール。
-  * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
-* `callback` Function - 操作が完了したときに呼ばれる。
-
-プロキシ設定を設定します。
-
-`pacScript` と `proxyRules` が一緒に提供されると、`proxyRules` オプションは無視され、`pacScript` コンフィグが適用されます。
-
-`proxyRules` は以下のルールに従う必要があります。
-
-```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-```
-
-例:
-
-* `http=foopy:80;ftp=foopy2` - `http://` URL には HTTP プロキシ `foopy:80` を、`ftp://` URL には HTTP プロキシ `foopy2:80` を使用する。
-* `foopy:80` - すべての URL に `foopy:80` HTTP プロキシを使用する。
-* `foopy:80,bar,direct://` - すべての URL に `foopy:80` HTTP プロキシを使用する。 `foopy:80` が使用できない場合は `bar` にフェイルオーバーし、その後はプロキシを使用しません。
-* `socks4://foopy` - すべての URL に SOCKS 4 プロキシ `foopy:1080` を使用する。
-* `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合は SOCKS 5 プロキシ `bar.com` にフェイルオーバーします。
-* `http=foopy,socks5://bar.com` - HTTP の URL には HTTP プロキシ `foopy` を使用し、`foopy` が使用できない場合はプロキシを使用しません。
-* `http=foopy;socks=foopy2` - HTTP の URL には HTTP プロキシ `foopy` を、ほかの URLには `socks4://foopy2` を使用します。
-
-`proxyBypassRules` は以下に説明されているコンマ区切りのルールのリストです。
-
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
-  
-  HOSTNAME_PATTERN パターンに一致するすべてのホスト名のマッチ。
-  
-  例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
-  
-  * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
-    
-    特定のドメインサフィックスのマッチ。
-    
-    例: ".google.com", ".com", "http://.google.com"
-
-* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
-  
-  IP アドレスリテラルである URL のマッチ。
-  
-  例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
-
-* `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
-  
-  指定された範囲内の IP リテラルに一致する URL のマッチ。IP の範囲は CIDR 表記で指定します。
-  
-  例: "192.168.1.1/16", "fefe:13::abc/33".
-
-* `<local>`
-  
-  ローカルアドレスのマッチ。`<local>` の意味は、ホストが "127.0.0.1"、"::1"、"localhost" のいずれかに一致するかどうかです。
-
-**[非推奨予定](modernization/promisification.md)**
 
 #### `ses.setProxy(config)`
 
@@ -265,21 +182,11 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   ローカルアドレスのマッチ。`<local>` の意味は、ホストが "127.0.0.1"、"::1"、"localhost" のいずれかに一致するかどうかです。
 
-#### `ses.resolveProxy(url, callback)`
-
-* `url` URL
-* `callback` Function 
-  * `proxy` String
-
-`url` のプロキシ情報を解決します。 リクエストが実行されると、`callback` は `callback(proxy)` で呼び出されます。
-
-**[非推奨予定](modernization/promisification.md)**
-
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-戻り値 `Promise<string>` - `url` のプロキシ情報で実行されます。
+Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -308,6 +215,14 @@ window.webContents.session.enableNetworkEmulation({
 // ネットワークの停止をエミュレートする。
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
+
+#### `ses.preconnect(options)` *実験的*
+
+* `options` Object 
+  * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
+  * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
+
+Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
@@ -353,8 +268,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
-    * `externalURL` String (任意) - `openExternal` リクエストの URL。
-    * `mediaTypes` String[] (任意) - 要求されている、複数のメディアアクセスのタイプ。要素は `video` か `audio` にできます
+    * `externalURL` String (optional) - The url of the `openExternal` request.
+    * `mediaTypes` String[] (optional) - The types of media access being requested, elements can be `video` or `audio`
     * `requestingUrl` String - リクエストしているフレームが読み込んだ最後の URL
     * `isMainFrame` Boolean - リクエストしたフレームがメインフレームかどうか
 
@@ -396,14 +311,6 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache(callback)`
-
-* `callback` Function (任意) - 操作が完了したときに呼ばれる。
-
-ホスト解決のキャッシュをクリアします。
-
-**[非推奨予定](modernization/promisification.md)**
-
 #### `ses.clearHostResolverCache()`
 
 戻り値 `Promise<void>` - 操作が完了すると実行されます。
@@ -441,14 +348,6 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String` - このセッションのユーザエージェント。
 
-#### `ses.getBlobData(identifier, callback)`
-
-* `identifier` String - 有効な UUID。
-* `callback` Function 
-  * `result` Buffer - Blob データ。
-
-**[非推奨予定](modernization/promisification.md)**
-
 #### `ses.getBlobData(identifier)`
 
 * `identifier` String - 有効な UUID。
@@ -469,22 +368,9 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
 
-#### `ses.clearAuthCache(options, callback)`
+#### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function - 操作が完了したときに呼ばれる。
-
-セッションの HTTP 認証キャッシュをクリアします。
-
-**[非推奨予定](modernization/promisification.md)**
-
-#### `ses.clearAuthCache(options)` *(非推奨)*
-
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-
-戻り値 `Promise<void>` - session の HTTP 認証キャッシュがクリアされると実行されます。
-
-#### `ses.clearAuthCache()`
 
 戻り値 `Promise<void>` - session の HTTP 認証キャッシュがクリアされると実行されます。
 
@@ -502,17 +388,17 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.cookies`
+#### `ses.cookies` *Readonly*
 
-このセッションの [Cookies](cookies.md) オブジェクト。
+A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest`
+#### `ses.webRequest` *Readonly*
 
-このセッションの [WebRequest](web-request.md) オブジェクト。
+A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol`
+#### `ses.protocol` *Readonly*
 
-このセッションの [Protocol](protocol.md) オブジェクト。
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -529,9 +415,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog`
+#### `ses.netLog` *Readonly*
 
-このセッションの [NetLog](net-log.md) オブジェクト。
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
