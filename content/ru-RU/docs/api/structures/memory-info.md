@@ -2,6 +2,6 @@
 
 * `workingSetSize` Integer - объем памяти, привязанный в текущий момент к физической RAM.
 * `peakWorkingSetSize` Integer - максимальный объем памяти, который когда-либо был привязан к физической RAM.
-* `privateBytes` Integer (optional) _Windows_ - The amount of memory not shared by other processes, such as JS heap or HTML content.
+* `privateBytes` Integer (опционально) _Windows_ - объем памяти, не разделяемый с другими процессами, такими как JS куча или HTML контент.
 
 Обратите внимание, что вся статистика предоставляется ​​в Килобайтах.
