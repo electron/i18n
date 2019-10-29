@@ -21,4 +21,4 @@
 * [Відлагоджування на macOS](debugging-instructions-macos.md)
 * [Налаштування Серверу Символів в Налагоджувачі](setting-up-symbol-server.md)
 * [Patches](patches.md)
-* [Upgrading Node](upgrading-node.md)
+* [Оновлення Node](upgrading-node.md)
