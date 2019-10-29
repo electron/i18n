@@ -102,7 +102,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 
 A `Boolean`. When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is available by default.
 
-### `plugins`
+### `plug-ins`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -514,13 +514,13 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   ### `<webview>.setZoomFactor(factor)`
   
-  * `factor` Number - Zoom Faktor.
+  * `factor` Number - Zoom faktor.
   
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
   
   ### `<webview>.setZoomLevel(level)`
   
-  * `level` Number - Zoom level.
+  * `level` Number - Zoom Level.
   
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
   
@@ -572,8 +572,8 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   Rückgabewert:
   
-  * `url` String
-  * `isMainFrame` Boolean
+  * ` URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
   
   Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
   
@@ -684,8 +684,8 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   Rückgabewert:
   
-  * `url` String
-  * `frameName` String
+  * ` URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String
   * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
   * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
   
@@ -709,133 +709,137 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   Rückgabewert:
   
-  * `url` String
-  
-  Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
-  
-  This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
-  
-  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-  
-  Calling `event.preventDefault()` does **NOT** have any effect.
-  
-  ### Event: 'did-navigate'
-  
-  Rückgabewert:
-  
   * ` URL </ 0>  Zeichenfolge</li>
+</ul>
+
+<p>Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p> 
+    This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+    
+    It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+    
+    Calling `event.preventDefault()` does **NOT** have any effect.
+    
+    ### Event: 'did-navigate'
+    
+    Rückgabewert:
+    
+    * ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
 <p>Emitted when a navigation is done.</p>
 
 <p>This event is not emitted for in-page navigations, such as clicking anchor links
 or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-    ### Event: 'did-navigate-in-page'
-    
-    Rückgabewert:
-    
-    * `isMainFrame` Boolean
-    * `url` String
-    
-    Emitted when an in-page navigation happened.
-    
-    When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-    
-    ### Event: 'close'
-    
-    Fired when the guest page attempts to close itself.
-    
-    The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
-    
-    ```javascript
-    const webview = document.querySelector('webview')
-    webview.addEventListener('close', () => {
-      webview.src = 'about:blank'
-    })
-    ```
-    
-    ### Event: 'ipc-message'
-    
-    Rückgabewert:
-    
-    * `channel` String
-    * `args` any[]
-    
-    Fired when the guest page has sent an asynchronous message to embedder page.
-    
-    With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
-    
-    ```javascript
-    // In embedder page.
-    const webview = document.querySelector('webview')
-    webview.addEventListener('ipc-message', (event) => {
-      console.log(event.channel)
-      // Prints "pong"
-    })
-    webview.send('ping')
-    ```
-    
-    ```javascript
-    // In guest page.
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.on('ping', () => {
-      ipcRenderer.sendToHost('pong')
-    })
-    ```
-    
-    ### Event: 'crashed'
-    
-    Fired when the renderer process is crashed.
-    
-    ### Event: 'plugin-crashed'
-    
-    Rückgabewert:
-    
-    * `name` String
-    * `version` String
-    
-    Fired when a plugin process is crashed.
-    
-    ### Event: 'destroyed'
-    
-    Fired when the WebContents is destroyed.
-    
-    ### Event: 'media-started-playing'
-    
-    Emittiert wenn ein Media Element anfängt zu spielen.
-    
-    ### Event: 'media-paused'
-    
-    Emitted when media is paused or done playing.
-    
-    ### Event: 'did-change-theme-color'
-    
-    Rückgabewert:
-    
-    * `themeColor` String
-    
-    Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
-    
-    ```html
-    <meta name='theme-color' content='#ff0000'>
-    ```
-    
-    ### Event: 'update-target-url'
-    
-    Rückgabewert:
-    
-    * `url` String
-    
-    Emitted when mouse moves over a link or the keyboard moves the focus to a link.
-    
-    ### Event: 'devtools-opened'
-    
-    Emittiert wenn die DevTools geöffnet wurden.
-    
-    ### Event: 'devtools-closed'
-    
-    Emittiert wenn die DevTools geschlossen wurden.
-    
-    ### Event: 'devtools-focused'
-    
-    Emitted when DevTools is focused / opened.
+      ### Event: 'did-navigate-in-page'
+      
+      Rückgabewert:
+      
+      * `isMainFrame` Boolean
+      * ` URL </ 0>  Zeichenfolge</li>
+</ul>
+
+<p>Emitted when an in-page navigation happened.</p>
+
+<p>When in-page navigation happens, the page URL changes but does not cause
+navigation outside of the page. Examples of this occurring are when anchor links
+are clicked or when the DOM <code>hashchange` event is triggered.</p> 
+        ### Event: 'close'
+        
+        Fired when the guest page attempts to close itself.
+        
+        The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+        
+        ```javascript
+        const webview = document.querySelector('webview')
+        webview.addEventListener('close', () => {
+          webview.src = 'about:blank'
+        })
+        ```
+        
+        ### Event: 'ipc-message'
+        
+        Rückgabewert:
+        
+        * `channel` String
+        * `args` any[]
+        
+        Fired when the guest page has sent an asynchronous message to embedder page.
+        
+        With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+        
+        ```javascript
+        // In embedder page.
+        const webview = document.querySelector('webview')
+        webview.addEventListener('ipc-message', (event) => {
+          console.log(event.channel)
+          // Prints "pong"
+        })
+        webview.send('ping')
+        ```
+        
+        ```javascript
+        // In guest page.
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.on('ping', () => {
+          ipcRenderer.sendToHost('pong')
+        })
+        ```
+        
+        ### Event: 'crashed'
+        
+        Fired when the renderer process is crashed.
+        
+        ### Event: 'plugin-crashed'
+        
+        Rückgabewert:
+        
+        * `name` String
+        * `version` String
+        
+        Fired when a plugin process is crashed.
+        
+        ### Event: 'destroyed'
+        
+        Fired when the WebContents is destroyed.
+        
+        ### Event: 'media-started-playing'
+        
+        Emittiert wenn ein Media Element anfängt zu spielen.
+        
+        ### Event: 'media-paused'
+        
+        Emitted when media is paused or done playing.
+        
+        ### Event: 'did-change-theme-color'
+        
+        Rückgabewert:
+        
+        * `themeColor` String
+        
+        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+        
+        ```html
+        <meta name='theme-color' content='#ff0000'>
+        ```
+        
+        ### Event: 'update-target-url'
+        
+        Rückgabewert:
+        
+        *  URL </ 0>  Zeichenfolge</li>
+</ul>
+
+<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
+
+<h3>Event: 'devtools-opened'</h3>
+
+<p>Emittiert wenn die DevTools geöffnet wurden.</p>
+
+<h3>Event: 'devtools-closed'</h3>
+
+<p>Emittiert wenn die DevTools geschlossen wurden.</p>
+
+<h3>Event: 'devtools-focused'</h3>
+
+<p>Emitted when DevTools is focused / opened.</p>
