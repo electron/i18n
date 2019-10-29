@@ -42,7 +42,6 @@ npm install -g electron-windows-store
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app
