@@ -53,15 +53,15 @@ process.once('loaded', () => {
 
 ## プロパティ
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` *読み出し専用*
 
 `Boolean`。デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` *読み出し専用*
 
 `Boolean` で、現在のレンダラコンテキストが「メイン」レンダラフレームである場合は `true` です。現在のフレームの ID が欲しいならば、`webFrame.routingId` を使うべきです。
 
-### `process.mas` *Readonly*
+### `process.mas` *読み出し専用*
 
 `Boolean`。Mac App Store ビルドの場合、このプロパティは `true`、他のビルドでは `undefined` です。
 
@@ -77,11 +77,11 @@ process.once('loaded', () => {
 
 非推奨の警告を `stderr` に出力するかどうかを制御する `Boolean`。 Promise に変換された以前のコールバックベースの API は、コールバックを使用して呼び出されます。 これを `true` に設定すると非推奨警告が有効になります。
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` *読み出し専用*
 
 リソースディレクトリのパスを表す `String`。
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` *読み出し専用*
 
 `Boolean`。レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
@@ -97,19 +97,19 @@ process.once('loaded', () => {
 
 `stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
 
-### `process.type` *Readonly*
+### `process.type` *読み出し専用*
 
 現在のプロセスの種類を表す `String` で、 `"browser"` (すなわちメインプロセス)、`"renderer"` または `"worker"` (すなわち web worker) の値をとります。
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` *読み出し専用*
 
 Chrome のバージョン文字列を表す `String`。
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` *読み出し専用*
 
 Electron のバージョン文字列を表す `String`。
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` *読み出し専用*
 
 `Boolean`。アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
@@ -155,11 +155,11 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 
 戻り値 `Object`:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` Integer - キロバイト単位でのすべての確保されたオブジェクトのサイズ。
+* `marked` Integer - キロバイト単位でのマークされたすべてのオブジェクトのサイズ。
+* `total` Integer - キロバイト単位での確保された空間の合計。
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Blink のメモリ情報を持つオブジェクトを返します。 レンダリング/ DOM関連のメモリの問題をデバッグするのに役立ちます。 すべての値はキロバイト単位で報告されることに注意してください。
 
 ### `process.getProcessMemoryInfo()`
 
