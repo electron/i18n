@@ -153,7 +153,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Asignând aceași`partition-partiție`, pagini multiple pot arăta aceași sesiune. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. dacă nu există prefixul `persist:`, pagina va folosi o sesiune în-memorie. Asignând aceași`partition-partiție`, pagini multiple pot arăta aceași sesiune. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -472,7 +472,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options)`
 
-* `opțiuni` Object 
+* `opțiuni` Obiect 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -661,7 +661,7 @@ webview.addEventListener('console-message', (e) => {
 
 Returns:
 
-* `result` Object 
+* `result` Obiect 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
