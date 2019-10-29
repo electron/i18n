@@ -665,7 +665,7 @@ webview.addEventListener('console-message', (e) => {
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
   * `matches` Integer - マッチの個数。
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `selectionArea` Rectangle - 最初に一致した領域の座標。
   * `finalUpdate` Boolean
 
 [`webview.findInPage`](#webviewfindinpagetext-options) リクエストの結果が有効なときに発行されます。
