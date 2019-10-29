@@ -57,7 +57,7 @@ The `listener` will be called with `listener(details, callback)` when a request 
 
 The `uploadData` is an array of `UploadData` objects.
 
-The `callback` has to be called with an `response` object.
+O `callback` tem que ser chamado com um objeto `response`.
 
 Alguns exemplos de `urls` válidas:
 
@@ -138,7 +138,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-The `callback` has to be called with an `response` object.
+O `callback` tem que ser chamado com um objeto `response`.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
