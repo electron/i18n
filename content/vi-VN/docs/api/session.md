@@ -104,7 +104,7 @@ Returns `Promise<Integer>` - the session's current cache size, in bytes.
 
 Returns `Promise<void>` - resolves when the cache clear operation is complete.
 
-Clears the session’s HTTP cache.
+Xóa bộ nhớ cache HTTP của session.
 
 #### `ses.clearStorageData([options])`
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)` *Đang thử nghiệm*
 
 * `options` Object 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
