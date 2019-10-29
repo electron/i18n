@@ -156,7 +156,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Dies generiert:
 
 ```javascript
 {
@@ -180,7 +180,7 @@ Note that blindly calling this method probably makes Electron slower since it wi
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - CSS selector für ein frame Element.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
