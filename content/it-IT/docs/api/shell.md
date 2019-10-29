@@ -32,7 +32,7 @@ Returns `Boolean` - Whether the item was successfully opened.
 
 Open the given file in the desktop's default manner.
 
-### `shell.openExternal(url[, options])`
+### `shell.openExternal(url[, opzioni])`
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (opzionale) 
