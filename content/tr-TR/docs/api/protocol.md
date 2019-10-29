@@ -286,14 +286,14 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `halledici` Fonksiyon 
+* `halledici` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `headers` Record<String, String>
     * `referrer` Dize
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `geri aramak` Fonksiyon 
+  * `geri aramak` Function 
     * `filePath` Dizi
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
@@ -328,7 +328,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Arabellek (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -346,10 +346,10 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
-      * `url` String
+      * `url` Dize
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Nesne (isteğe bağlı) 
+      * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
         * `data` Dize - Gönderilecek içerik.
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
