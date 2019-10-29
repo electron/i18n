@@ -205,7 +205,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Restituisce:
+Restituiti:
 
 * `event` Event
 * `url` Stringa
@@ -295,7 +295,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Restituisce:
 
 * `event` Event
-* `killed` Boolean
+* `ucciso` Booleano
 
 Emitted when the renderer process crashes or is killed.
 
@@ -381,14 +381,14 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificate-error'
+#### Evento: 'certificato-errore'
 
 Restituisce:
 
 * `event` Event
 * `url` Stringa
-* `error` String - The error code.
-* `certificate` [Certificato](structures/certificate.md)
+* `errore` Stringa - Il codice d'errore.
+* `certificato` [Certificato](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
@@ -396,13 +396,13 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'select-client-certificate'
+#### Evento: 'selezione-certificato-client'
 
 Restituisce:
 
 * `event` Event
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `Listacertificati` [Certificati[]](structures/certificate.md)
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
@@ -418,7 +418,7 @@ Restituisce:
 * `richiesta` Oggetto 
   * `metodo` Stringa
   * `url` URL
-  * `referrer` URL
+  * `prescrivente` URL
 * `infoautore` Oggetto 
   * `èProxy` Booleano
   * `schema` Stringa
@@ -632,7 +632,7 @@ Restituisce:
 
 * `event` Event
 * `preloadPath` String
-* `error` Error
+* `errore` Errore
 
 Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
 
@@ -718,13 +718,13 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 
 ### Metodi Istanza
 
-#### `contents.loadURL(url[, options])`
+#### `contents.loadURL(url[, opzioni])`
 
 * `url` Stringa
 * `options` Object (opzionale) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opzionale) - Un HTTP Referrer url.
   * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `extraHeaders` String (opzionale) - Extra headers separati da "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opzionale)
   * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
@@ -738,7 +738,7 @@ const options = { extraHeaders: 'pragma: no-cache\n' }
 webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath[, options])`
+#### `contents.loadFile(filePath[, opzioni])`
 
 * `Percorsofile` Stringa
 * `options` Object (opzionale) 
@@ -912,7 +912,7 @@ contents.on('did-finish-load', async function () {
 
 #### `contents.executeJavaScript(code[, userGesture])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -930,7 +930,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
 
 * `ignore` Boolean
 
@@ -1145,7 +1145,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
 Example usage:
 
@@ -1167,11 +1167,11 @@ win.webContents.print(options, (success, errorType) => {
 
 Returns `Promise<Buffer>` - Resolves with the generated PDF data.
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
 
-By default, an empty `options` will be regarded as:
+Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
 
 ```javascript
 {
@@ -1182,9 +1182,9 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-An example of `webContents.printToPDF`:
+Un esempio di `webContents.printToPDF`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1194,7 +1194,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
-  // Use default printing options
+  // vengono utilizzate le impostazioni predefinite decritte sopra
   win.webContents.printToPDF({}, (error, data) => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
