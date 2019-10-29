@@ -151,15 +151,15 @@ clipboard.writeBookmark({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+戻り値 `String` - 検索ペーストボード上のテキストです。これは、アクティブなアプリケーションの検索パネルの現在の状態に関する情報を保持するペーストボードです。
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+このメソッドは、レンダラープロセスから呼び出されたときに同期 IPC を使用します。 キャッシュされた値は、アプリケーションがアクティブになるたびに検索ペーストボードから再読み取りされます。
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+`text` をプレーンテキストとして検索ペーストボード (アクティブなアプリケーションの検索パネルの現在の状態に関する情報を保持するペーストボード) に書き込みます。 このメソッドは、レンダラープロセスから呼び出されたとき同期 IPC を使います。
 
 ### `clipboard.clear([type])`
 
@@ -193,7 +193,7 @@ const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' か 'false
 ```
 
 ### `clipboard.read(format)` *実験的*
@@ -242,7 +242,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `html` String (任意)
   * `image` [NativeImage](native-image.md) (任意)
   * `rtf` String (任意)
-  * `bookmark` String (optional) - The title of the URL at `text`.
+  * `bookmark` String (任意) - URL のタイトルの `text`。
 * `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 クリップボードに `data` を書き込みます。
