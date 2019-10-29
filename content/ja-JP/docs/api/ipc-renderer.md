@@ -4,7 +4,7 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). レンダラープロセス (ウェブページ) からメインプロセスに同期及び非同期メッセージを送れるように、いくつかのメソッドを提供します。 メインプロセスからの返信を受け取ることもできます。
+`ipcRenderer` モジュールは [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 レンダラープロセス (ウェブページ) からメインプロセスに同期及び非同期メッセージを送れるように、いくつかのメソッドを提供します。 メインプロセスからの返信を受け取ることもできます。
 
 サンプルコードについては [ipcMain](ipc-main.md) を参照して下さい。
 
@@ -49,18 +49,18 @@ The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html
 * `channel` String
 * `...args` any[]
 
-`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Returns `Promise<any>` - Resolves with the response from the main process.
+戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process asynchronously via `channel` and expect an asynchronous result. 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
