@@ -1,5 +1,5 @@
-# StringProtocolResponse Object
+# Объект StringProtocolResponse
 
-* `mimeType` String (optional) - MIME type of the response.
-* `charset` String (optional) - Charset of the response.
-* `data` String | null - A string representing the response body.
+* `mimeType` String (опционально) - MIME тип ответа.
+* `charset` String (опционально) - Кодировка ответа.
+* `data` String | null - Строка, представляющая тело ответа.
