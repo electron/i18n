@@ -90,7 +90,7 @@ Emitted when the tray icon is right clicked.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
 
-Emitted when the tray icon is double clicked.
+Вызывается при двойном нажатии на иконку в трее.
 
 #### Событие: 'balloon-show' *Windows*
 
@@ -203,7 +203,7 @@ Returns `String` - the title displayed next to the tray icon in the status bar
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
