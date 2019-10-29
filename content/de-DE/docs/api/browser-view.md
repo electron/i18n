@@ -50,7 +50,7 @@ Returns `BrowserView` - The view with the given `id`.
 
 Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Eigenschaften:
 
-#### `view.webContents` *Experimentell*
+#### `view.webContents` *Experimental*
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
