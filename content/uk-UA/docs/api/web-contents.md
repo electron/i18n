@@ -387,7 +387,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - Код помилки.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -415,11 +415,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Повертає:
 
 * `event` Event
-* `request` Об'єкт 
+* `request` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Об'єкт 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -438,7 +438,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Повертає:
 
 * `event` Event
-* `result` Об'єкт 
+* `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -497,7 +497,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Повертає:
 
 * `event` Event
-* `params` Об'єкт 
+* `params` Object 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -724,7 +724,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. В�
 * `options` Object (опціонально) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опціонально) - HTTP Referrer посилання.
   * `userAgent` String (опціонально) - User agent відправника запиту.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опціонально)
   * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
@@ -930,7 +930,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Експериментальний*
 
 * `ignore` Boolean
 
@@ -1430,7 +1430,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Об'єкт 
+* `item` Object 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
