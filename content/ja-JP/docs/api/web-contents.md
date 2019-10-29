@@ -365,9 +365,9 @@ win.webContents.on('before-input-event', (event, input) => {
 戻り値:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - `in` か `out` にできます。
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+ユーザーがマウスホイールを使用してズームレベルの変更を要求しているときに生成されます。
 
 #### イベント: 'devtools-opened'
 
@@ -442,7 +442,7 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
   * `matches` Integer - マッチの個数。
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `selectionArea` Rectangle - 最初に一致した領域の座標。
   * `finalUpdate` Boolean
 
 [`webContents.findINPage`] リクエストの結果が有効なときに発行されます。
@@ -596,8 +596,8 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` WebPreferences - ゲストページで使用されるウェブ設定。 このオブジェクトを変更して、ゲストページの設定を調整できます。
+* `params` Record<string, string> - 他の `<webview>` パラメーター。`src` URL などがこれにあたります。このオブジェクトを変更して、ゲストページのパラメーターを調整できます。
 
 `<webview>` の webContents がこの webContents に適用されようとしているときに発行されます。`event.preventDefault()` を呼ぶとゲストページを破棄します。
 
@@ -728,7 +728,7 @@ win.loadURL('http://github.com')
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 A noop rejection handler is already attached, which avoids unhandled rejection errors.
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
 
 ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
 
@@ -883,7 +883,7 @@ console.log(currentURL)
 
 * `css` String
 * `options` Object (任意) 
-  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
+  * `cssOrigin` String (任意) - 'user' または 'author' のいずれかです。'user' を指定すると、挿入した CSS がウェブサイトによって上書きされるのを防ぐことができます。デフォルトは 'author' です。
 
 Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
 
