@@ -151,6 +151,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## プロパティ
 
-### `remote.process` *Readonly*
+### `remote.process` *読み出し専用*
 
 A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
