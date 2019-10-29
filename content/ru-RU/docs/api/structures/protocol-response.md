@@ -1,4 +1,4 @@
-# ProtocolResponse Object
+# Объект ProtocolResponse
 
 * `error` Integer (optional) - When assigned, the `request` will fail with the `error` number . For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 * `statusCode` Number (optional) - The HTTP response code, default is 200.
