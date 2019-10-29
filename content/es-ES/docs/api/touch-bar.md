@@ -54,17 +54,17 @@ A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSli
 
 A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
-### Propiedades de Instancia
+### Propiedades de la instancia
 
-The following properties are available on instances of `TouchBar`:
+Las siguientes propiedades están disponibles en instancias de `TouchBar`:
 
 #### `touchBar.escapeItem`
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+Un `TouchBarItem` que reemplazará el botón "esc" en la barra táctil cuando se configure. Establecer a `null` restaura el botón "esc" por defecto. Cambiar este valor actualiza inmediatamente el elemento escape en la barra táctil.
 
 ## Ejemplos
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+A continuación hay un ejemplo de un juego simple de máquina tragaperras con un botón y algunas etiquetas.
 
 ```javascript
 const { app, BrowserWindow, TouchBar } = require('electron')
@@ -172,12 +172,12 @@ app.once('ready', () => {
 })
 ```
 
-### Running the above example
+### Ejecutar el ejemplo anterior
 
-To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
+Para ejecutar el ejemplo anterior, se necesita (asumiendo que la terminal está abierta en el directorio en donde se desea ejecutar el ejemplo):
 
 1. Guardar el archivo anterior en la computadora como `touchbar.js`
 2. Instalar Electron a través de `npm install electron`
 3. Ejecutar el ejemplo dentro de Electron: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Entonces aparecerá una nueva ventana de Electron y la aplicación se ejecutará en la barra táctil (o en el emulador de la barra táctil).
