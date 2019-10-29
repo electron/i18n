@@ -66,13 +66,13 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 #### Olay: 'click'
 
-Dönüşler:
+Döndürür:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Emitted when the tray icon is clicked.
+Tray simgesi tıklandığında çıkar.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -81,7 +81,7 @@ Dönüşler:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
-Emitted when the tray icon is right clicked.
+Tray simgesi sağ tıkladığında ortaya çıkar.
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -90,23 +90,23 @@ Dönüşler:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları.
 
-Emitted when the tray icon is double clicked.
+Tray simgesi sağ tıkladığında tetiklenir.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Tray balon gösterildiğinde ortaya çıkar.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Tepsi balonu tıklandığında ortaya çıkar.
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Zaman aşımı veya kullanıcı elle tepsinin balonu kapatıldığında ortaya çıkar kapatır.
 
 #### Event: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drop-files' *macOS*
 
@@ -115,7 +115,7 @@ Dönüşler:
 * `event` Olay
 * `files` String[] - Düşürülen dosyaların yolları.
 
-Emitted when dragged files are dropped in the tray icon.
+Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 #### Event: 'drop-text' *macOS*
 
@@ -124,19 +124,19 @@ Dönüşler:
 * `event` Olay
 * `text` String - Düşürülen yazı stringi.
 
-Emitted when dragged text is dropped in the tray icon.
+Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Bir sürükleme işlemi tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Bir sürükleme işlemi tepsi simgesinden çıktığında ortaya çıkar.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde ortaya çıkar.
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -145,7 +145,7 @@ Dönüşler:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Emitted when the mouse enters the tray icon.
+Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -154,7 +154,7 @@ Dönüşler:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Emitted when the mouse exits the tray icon.
+Fare tepsi simgesinden çıktığında ortaya çıkar.
 
 #### Event: 'mouse-move' *macOS* *Windows*
 
@@ -163,33 +163,33 @@ Dönüşler:
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - event'ın pozisyonu.
 
-Emitted when the mouse moves in the tray icon.
+Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
 
 ### Örnek Yöntemleri
 
-The `Tray` class has the following methods:
+The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Tepsi simgesini derhal imha eder.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Bu tepsi simgesiyle ilişkili `image` 'i ayarlar.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+MacOS üzerine basıldığında bu tepsi simgesiyle ilişkili `image`'i ayarlar.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 #### `tray.setTitle(title)` *macOS*
 
@@ -216,33 +216,33 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
   * `title` String
-  * `content` String
+  * `content` Dizge
 
-Displays a tray balloon.
+Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menü (İsteğe bağlı)
+* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menü | boş
 
-Sets the context menu for this icon.
+Bu simgenin bağlam menüsünü ayarlar.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-The `bounds` of this tray icon as `Object`.
+`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
