@@ -1,4 +1,4 @@
 # CPUUsage オブジェクト
 
 * `percentCPUUsage` Number - 最後の getCPUUsage 呼び出し以降に使用されたCPUの割合。 最初の呼び出しは0を返します。
-* `idleWakeupsPerSecond` Number - The number of average idle CPU wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.
+* `idleWakeupsPerSecond` Number - 最後に idleWakeupsPerSecond を呼んでから、アイドル状態の CPU が wake upした平均回数毎秒。最初の呼び出しは 0 を返します。Windows の場合は常に 0 を返します。
