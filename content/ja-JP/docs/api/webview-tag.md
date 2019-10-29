@@ -171,7 +171,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A `String` which is a comma separated list of strings which specifies the web preferences to be set on the webview. サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
+webview に設定するウェブ設定を指定する文字列のコンマ区切りリストの `String` です。 サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
 
 この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 特殊な値として、`yes` と `1` は `true` として解釈され、`no` と `0` は `false` として解釈されます。
 
@@ -181,7 +181,7 @@ A `String` which is a comma separated list of strings which specifies the web pr
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be enabled separated by `,`. サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
+有効にする Blink 機能を指定する `,` 区切りの文字列リストである `String` です。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ### `disableblinkfeatures`
 
@@ -189,7 +189,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
+無効にする Blink 機能を指定する `,` 区切りの文字列リストである `String` です。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ## メソッド
 
@@ -314,7 +314,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `css` String
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `<webview>.removeInsertedCSS(key)`.
+戻り値 `Promise<String>` - 挿入された CSS のキーで解決される promise。後で `<webview>.removeInsertedCSS(key)` を使用して CSS を削除するために使用できます。
 
 現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
@@ -324,7 +324,7 @@ Returns `Promise<String>` - A promise that resolves with a key for the inserted 
 
 戻り値 `Promise<void>` - 削除に成功すると解決されます。
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `<webview>.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `<webview>.insertCSS(css)` から返されるキーによって識別されます。
 
 ### `<webview>.executeJavaScript(code[, userGesture])`
 
@@ -564,7 +564,7 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
 
 戻り値 `Number` - この `webview` の WebContents ID。
 
-## DOM Events
+## DOM イベント
 
 `webview` タグでは、以下の DOM イベントを使用できます。
 
@@ -687,7 +687,7 @@ console.log(requestId)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるべきオプション。
 
 ゲストページが新しいブラウザウィンドウを開くときに発生します。
 
