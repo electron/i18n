@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
+`webContents` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,7 +63,7 @@ console.log(webContents)
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
+このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
 
 #### Event: 'did-fail-provisional-load'
 
@@ -1555,38 +1555,38 @@ A `String` property that determines the user agent for this web page.
 
 A `Number` property that determines the zoom level for this web contents.
 
-The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-A `Number` property that determines the zoom factor for this web contents.
+`Number` 型のプロパティです。このウェブコンテンツのズーム率を決定します。
 
-The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+ズーム率は百分率のズームなので、300% = 3.0 になります。
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+`Integer` 型のプロパティです。ウェブコンテンツのフレームレートを指定された数値に設定します。1 から 60 までの値のみが受け入れられます。
 
-Only applicable if *offscreen rendering* is enabled.
+*オフスクリーンレンダリング* が有効な場合にのみ適用されます。
 
-#### `contents.id` *Readonly*
+#### `contents.id` *読み出し専用*
 
 この WebContents の一意のIDを表す `Integer`。
 
-#### `contents.session` *Readonly*
+#### `contents.session` *読み出し専用*
 
 この webContents で使われる [`Session`](session.md)。
 
-#### `contents.hostWebContents` *Readonly*
+#### `contents.hostWebContents` *読み出し専用*
 
 この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
 
-#### `contents.devToolsWebContents` *Readonly*
+#### `contents.devToolsWebContents` *読み出し専用*
 
 この `WebContents` の開発者向けツールの `WebContents` インスタンス。
 
 **注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 
-#### `contents.debugger` *Readonly*
+#### `contents.debugger` *読み出し専用*
 
-A [`Debugger`](debugger.md) instance for this webContents.
+この webContents の [`Debugger`](debugger.md) インスタンス。
