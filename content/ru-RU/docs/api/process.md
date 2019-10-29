@@ -27,8 +27,8 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `arch`
 * `platform`
 * `sandboxed`
-* `type`
-* `version`
+* `тип`
+* `версия`
 * `versions`
 * `mas`
 * `windowsStore`
