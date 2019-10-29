@@ -42,7 +42,6 @@ Outputnya harus terlihat kira-kira seperti ini:
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app
