@@ -1038,16 +1038,16 @@ app.moveToApplicationsFolder({
     if (conflictType === 'exists') {
       return dialog.showMessageBoxSync({
         type: 'question',
-        buttons: ['Halt Move', 'Continue Move'],
+        buttons: ['移動を中止', '移動を続行'],
         defaultId: 0,
-        message: 'An app of this name already exists'
+        message: 'この名前のアプリはすでに存在します'
       }) === 1
     }
   }
 })
 ```
 
-Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
+そのユーザーディレクトリにアプリが既に存在する場合、ユーザーが '移動を続行' を選択すると、関数は既定の動作を続行し、既存のアプリは破棄され、新たなアプリはその場所に移動します。
 
 ## プロパティ
 
@@ -1063,21 +1063,21 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+`Menu | null` 型のプロパティです。セットされている場合は [`Menu`](menu.md) を、それ以外は `null` を返します。 ユーザはこのプロパティに [Menu](menu.md) を渡すことができます。
 
 ### `app.badgeCount` *Linux* *macOS*
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+`Integer` 型のプロパティです。現在のアプリのバッジ数を返します。カウントを `0` にセットするとバッジを非表示にします。
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+macOS でこれをゼロ以外の整数で設定すると、Dock アイコンに表示されます。 Linux でのこのプロパティは Unity ランチャーでのみ機能します。
 
 **注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
 
-### `app.commandLine` *Readonly*
+### `app.commandLine` *読み出し専用*
 
-A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+[`CommandLine`](./command-line.md) オブジェクトです。Chromium が使用するコマンドライン引数の読み取りと操作ができます。
 
-### `app.dock` *macOS* *Readonly*
+### `app.dock` *macOS* *読み出し専用*
 
 A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
