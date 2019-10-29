@@ -1079,15 +1079,15 @@ macOS でこれをゼロ以外の整数で設定すると、Dock アイコンに
 
 ### `app.dock` *macOS* *読み出し専用*
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+[`Dock`](./dock.md) オブジェクトです。macOS のユーザーの Dock 内のアプリアイコンにおけるアクションを実行できます。
 
-### `app.isPackaged` *Readonly*
+### `app.isPackaged` *読み出し専用*
 
 アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+`String` 型のプロパティです。現在のアプリケーション名を示します。アプリケーションの `package.json` ファイル内にある名前になります。
 
 通常、`package.json` の `name` フィールドは、npm のモジュール仕様に基づいて小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
 
@@ -1095,7 +1095,7 @@ A `String` property that indicates the current application's name, which is the 
 
 この `String` は Electron がグローバルフォールバックとして使用するユーザーエージェント文字列です。
 
-これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。 It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+これは、`webContents` または `session` レベルでユーザーエージェントが設定されていない場合に使用されるユーザーエージェントです。 アプリ全体が同じユーザーエージェントを持っていることを確認するのに役立ちます。 オーバーライドされた値が確実に使用されるように、アプリの初期化のできるだけ早い段階でカスタム値に設定してください。
 
 ### `app.allowRendererProcessReuse`
 
