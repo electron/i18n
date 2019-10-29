@@ -8,15 +8,15 @@
 
 * `options` オブジェクト 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - このスクラバーに配置するアイテムの配列.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item. 
+  * `select` Function (任意) - ユーザーがタップしたアイテムが、最後にタップしたアイテムではないと呼ばれる。 
     * `selectedIndex` Integer - ユーザが選択したアイテムのインデックス.
-  * `highlight` Function (optional) - Called when the user taps any item. 
+  * `highlight` Function (任意) - ユーザが任意のアイテムをタップしたときに呼ばれる. 
     * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス.
-  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Defaults to `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+  * `selectedStyle` String (任意) - 選択したアイテムのスタイル。省略値は、`null` になります。
+  * `overlayStyle` String (任意) - 選択して重なったアイテムのスタイル。省略値は、`null` になります。
+  * `showArrowButtons` Boolean (任意) - 省略値は、`false` になります。
+  * `mode` String (任意) - 省略値は、`free` になります。
+  * `continuous` Boolean (任意) - 省略値は、`true` になります。
 
 ### インスタンスプロパティ
 
