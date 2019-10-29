@@ -16,7 +16,7 @@
 
 let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-    <br />Another example of creating a window in the external display:
+    <br />別の例として外部ディスプレイへのウィンドウ作成を示します。
     
     ```javascript
     const { app, BrowserWindow, screen } = require('electron')
