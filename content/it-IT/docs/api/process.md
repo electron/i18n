@@ -153,7 +153,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getBlinkMemoryInfo()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `allocated` Integer - Size of all allocated objects in Kilobytes.
 * `marked` Integer - Size of all marked objects in Kilobytes.
@@ -171,7 +171,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 ### `process.getSystemMemoryInfo()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
