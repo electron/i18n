@@ -153,4 +153,4 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` *読み出し専用*
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+`NodeJS.Process` 型のオブジェト。メインプロセス内の `process` オブジェクトです。これは `remote.getGlobal('process')` と同じですが、キャッシュされます。
