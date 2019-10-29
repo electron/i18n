@@ -47,33 +47,33 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` Dizgi
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+`Boolean` Döndürür - Öğenin çöp kutusuna başarıyla taşınıp taşınmadığı.
 
-Move the given file to trash and returns a boolean status for the operation.
+Verilen dosyayı çöp kutusuna taşır ve işlem için bir boolean durumu döndürür.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Bip sesini oynatın.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` Dizgi
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operasyon` Dize (İsteğe bağlı) - Fabrika ayarları şu şekilde `oluştur`Sıradakilerden biri olabilir: 
+  * `create` - Yeni kısayol oluşturur, gerekliyse üzerine kaydeder.
+  * `update` - Seçilen özellikleri sadece varolon kısayola günceller.
+  * `replace` - Varolan bir kısayolun üzerine yazar, kısayol yoksa başarısız olur.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+`Boolean` Döndürür - Kısayolun başarıyla oluşturulup oluşturulmadığı.
 
-Creates or updates a shortcut link at `shortcutPath`.
+`shortcutPath` bir kısayol bağlantısı oluşturur veya güncelleştirir.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` Dizgi
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+[`ShortcutDetails`](structures/shortcut-details.md) geri al
 
-Resolves the shortcut link at `shortcutPath`.
+Kısayol bağlantısını `shortcutPath` adresinde çözer.
 
-An exception will be thrown when any error happens.
+Bir hata oluştuğunda istisna atılır.
