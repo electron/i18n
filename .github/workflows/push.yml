@@ -13,15 +13,10 @@ jobs:
         node-version: '12.x'
     - name: Install dependencies
       run: 'npm ci'
-    - name: Run build
+    - name: Run tests
       env:
         NODE_OPTIONS: --max_old_space_size=4096
-      run: 'npm run build'
-    # FIXME(HashimotoYT)
-    # - name: Run tests
-    #   env:
-    #     NODE_OPTIONS: --max_old_space_size=4096
-    #   run: 'npm test'
+      run: 'npm test'
     - name: Publish via semantic-release
       if: github['ref'] == 'refs/heads/master'
       env:

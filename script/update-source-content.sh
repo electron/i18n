@@ -25,9 +25,7 @@ else
 fi
 
 # `pretest` script will run the build first
-# FIXME(HashimotoYT)
-npm run build
-# npm test
+npm test
 
 git config user.email electron@github.com
 git config user.name electron-bot
