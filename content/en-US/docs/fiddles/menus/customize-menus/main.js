@@ -6,7 +6,7 @@ const {
   ipcMain,
   app,
   shell,
-  dialog
+  dialog,
 } = require('electron')
 
 const menu = new Menu()
@@ -23,37 +23,37 @@ const template = [
       {
         label: 'Undo',
         accelerator: 'CmdOrCtrl+Z',
-        role: 'undo'
+        role: 'undo',
       },
       {
         label: 'Redo',
         accelerator: 'Shift+CmdOrCtrl+Z',
-        role: 'redo'
+        role: 'redo',
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'Cut',
         accelerator: 'CmdOrCtrl+X',
-        role: 'cut'
+        role: 'cut',
       },
       {
         label: 'Copy',
         accelerator: 'CmdOrCtrl+C',
-        role: 'copy'
+        role: 'copy',
       },
       {
         label: 'Paste',
         accelerator: 'CmdOrCtrl+V',
-        role: 'paste'
+        role: 'paste',
       },
       {
         label: 'Select All',
         accelerator: 'CmdOrCtrl+A',
-        role: 'selectall'
-      }
-    ]
+        role: 'selectall',
+      },
+    ],
   },
   {
     label: 'View',
@@ -72,7 +72,7 @@ const template = [
             }
             focusedWindow.reload()
           }
-        }
+        },
       },
       {
         label: 'Toggle Full Screen',
@@ -87,7 +87,7 @@ const template = [
           if (focusedWindow) {
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
           }
-        }
+        },
       },
       {
         label: 'Toggle Developer Tools',
@@ -102,27 +102,27 @@ const template = [
           if (focusedWindow) {
             focusedWindow.toggleDevTools()
           }
-        }
+        },
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'App Menu Demo',
-        click: function (item, focusedWindow) {
+        click: function(item, focusedWindow) {
           if (focusedWindow) {
             const options = {
               type: 'info',
               title: 'Application Menu Demo',
               buttons: ['Ok'],
               message:
-                'This demo is for the Menu section, showing how to create a clickable menu item in the application menu.'
+                'This demo is for the Menu section, showing how to create a clickable menu item in the application menu.',
             }
-            dialog.showMessageBox(focusedWindow, options, function () {})
+            dialog.showMessageBox(focusedWindow, options, function() {})
           }
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     label: 'Window',
@@ -131,15 +131,15 @@ const template = [
       {
         label: 'Minimize',
         accelerator: 'CmdOrCtrl+M',
-        role: 'minimize'
+        role: 'minimize',
       },
       {
         label: 'Close',
         accelerator: 'CmdOrCtrl+W',
-        role: 'close'
+        role: 'close',
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'Reopen Window',
@@ -148,9 +148,9 @@ const template = [
         key: 'reopenMenuItem',
         click: () => {
           app.emit('activate')
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     label: 'Help',
@@ -160,25 +160,25 @@ const template = [
         label: 'Learn More',
         click: () => {
           shell.openExternal('http://electron.atom.io')
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 
-function addUpdateMenuItems (items, position) {
+function addUpdateMenuItems(items, position) {
   if (process.mas) return
 
   const version = app.getVersion()
   const updateItems = [
     {
       label: `Version ${version}`,
-      enabled: false
+      enabled: false,
     },
     {
       label: 'Checking for Update',
       enabled: false,
-      key: 'checkingForUpdate'
+      key: 'checkingForUpdate',
     },
     {
       label: 'Check for Update',
@@ -186,7 +186,7 @@ function addUpdateMenuItems (items, position) {
       key: 'checkForUpdate',
       click: () => {
         require('electron').autoUpdater.checkForUpdates()
-      }
+      },
     },
     {
       label: 'Restart and Install Update',
@@ -195,14 +195,14 @@ function addUpdateMenuItems (items, position) {
       key: 'restartToUpdate',
       click: () => {
         require('electron').autoUpdater.quitAndInstall()
-      }
-    }
+      },
+    },
   ]
 
   items.splice.apply(items, [position, 0].concat(updateItems))
 }
 
-function findReopenMenuItem () {
+function findReopenMenuItem() {
   const menu = Menu.getApplicationMenu()
   if (!menu) return
 
@@ -226,54 +226,54 @@ if (process.platform === 'darwin') {
     submenu: [
       {
         label: `About ${name}`,
-        role: 'about'
+        role: 'about',
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'Services',
         role: 'services',
-        submenu: []
+        submenu: [],
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: `Hide ${name}`,
         accelerator: 'Command+H',
-        role: 'hide'
+        role: 'hide',
       },
       {
         label: 'Hide Others',
         accelerator: 'Command+Alt+H',
-        role: 'hideothers'
+        role: 'hideothers',
       },
       {
         label: 'Show All',
-        role: 'unhide'
+        role: 'unhide',
       },
       {
-        type: 'separator'
+        type: 'separator',
       },
       {
         label: 'Quit',
         accelerator: 'Command+Q',
         click: () => {
           app.quit()
-        }
-      }
-    ]
+        },
+      },
+    ],
   })
 
   // Window menu.
   template[3].submenu.push(
     {
-      type: 'separator'
+      type: 'separator',
     },
     {
       label: 'Bring All to Front',
-      role: 'front'
+      role: 'front',
     }
   )
 
@@ -288,14 +288,14 @@ if (process.platform === 'win32') {
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   })
 
   // and load the index.html of the app.
@@ -305,7 +305,7 @@ function createWindow () {
   // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
@@ -323,7 +323,7 @@ app.on('ready', () => {
 })
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function () {
+app.on('window-all-closed', function() {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   const reopenMenuItem = findReopenMenuItem()
@@ -334,7 +334,7 @@ app.on('window-all-closed', function () {
   }
 })
 
-app.on('activate', function () {
+app.on('activate', function() {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {

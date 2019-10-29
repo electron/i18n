@@ -8,7 +8,7 @@ const path = require('path')
 const screenshot = document.getElementById('screen-shot')
 const screenshotMsg = document.getElementById('screenshot-path')
 
-screenshot.addEventListener('click', (event) => {
+screenshot.addEventListener('click', event => {
   screenshotMsg.textContent = 'Gathering screens...'
   const thumbSize = determineScreenShotSize()
   const options = { types: ['screen'], thumbnailSize: thumbSize }
@@ -16,12 +16,12 @@ screenshot.addEventListener('click', (event) => {
   desktopCapturer.getSources(options, (error, sources) => {
     if (error) return console.log(error)
 
-    sources.forEach((source) => {
+    sources.forEach(source => {
       const sourceName = source.name.toLowerCase()
       if (sourceName === 'entire screen' || sourceName === 'screen 1') {
         const screenshotPath = path.join(os.tmpdir(), 'screenshot.png')
 
-        fs.writeFile(screenshotPath, source.thumbnail.toPNG(), (error) => {
+        fs.writeFile(screenshotPath, source.thumbnail.toPNG(), error => {
           if (error) return console.log(error)
           shell.openExternal(`file://${screenshotPath}`)
 
@@ -33,11 +33,11 @@ screenshot.addEventListener('click', (event) => {
   })
 })
 
-function determineScreenShotSize () {
+function determineScreenShotSize() {
   const screenSize = screen.getPrimaryDisplay().workAreaSize
   const maxDimension = Math.max(screenSize.width, screenSize.height)
   return {
     width: maxDimension * window.devicePixelRatio,
-    height: maxDimension * window.devicePixelRatio
+    height: maxDimension * window.devicePixelRatio,
   }
 }

@@ -2,14 +2,14 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 
 let mainWindow = null
 
-function createWindow () {
+function createWindow() {
   const windowOptions = {
     width: 600,
     height: 400,
     title: 'Asynchronous messages',
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   }
 
   mainWindow = new BrowserWindow(windowOptions)

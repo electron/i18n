@@ -20,19 +20,20 @@ The following languages are currently being translated, but we can
 <!-- start language-table -->
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
+- [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
-- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [Indonesian](https://crowdin.com/project/electron/id)
+- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [Filipino](https://crowdin.com/project/electron/fil)
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [한국어 (Korean)](https://crowdin.com/project/electron/ko)
-- [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [Italiano (Italian)](https://crowdin.com/project/electron/it)
+- [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
 - [Українська (Ukrainian)](https://crowdin.com/project/electron/uk)
-- [język polski (Polish)](https://crowdin.com/project/electron/pl)
 - [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh-TW)
+- [język polski (Polish)](https://crowdin.com/project/electron/pl)
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
@@ -43,7 +44,6 @@ The following languages are currently being translated, but we can
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [עברית (Hebrew)](https://crowdin.com/project/electron/he)
-- [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
 <!-- end language-table -->
 
 ## Installation

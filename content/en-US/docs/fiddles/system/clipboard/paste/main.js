@@ -2,14 +2,14 @@ const { app, BrowserWindow } = require('electron')
 
 let mainWindow = null
 
-function createWindow () {
+function createWindow() {
   const windowOptions = {
     width: 600,
     height: 400,
     title: 'Clipboard paste',
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   }
 
   mainWindow = new BrowserWindow(windowOptions)

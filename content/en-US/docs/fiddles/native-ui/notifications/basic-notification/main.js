@@ -2,14 +2,14 @@ const { BrowserWindow, app } = require('electron')
 
 let mainWindow = null
 
-function createWindow () {
+function createWindow() {
   const windowOptions = {
     width: 600,
     height: 300,
     title: 'Basic Notification',
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   }
 
   mainWindow = new BrowserWindow(windowOptions)
