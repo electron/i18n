@@ -54,7 +54,7 @@ A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSli
 
 A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
 
-### Свойства экземпляра
+### Instance Properties
 
 The following properties are available on instances of `TouchBar`:
 
