@@ -42,7 +42,6 @@ Package the application using [electron-packager](https://github.com/electron/el
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app
