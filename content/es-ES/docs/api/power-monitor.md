@@ -58,12 +58,12 @@ El modulo `powerMonitor` tiene los siguientes métodos:
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Devuelve `String` - El estado actual del sistema. Puede ser `active`, `idle`, `locked` o `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+Calcular el estado inactivo del sistema. `idleThreshold` es la cantidad de tiempo (en segundos) antes de considerar inactivo. `locked` esta habilitado en sistemas soportados unicamente.
 
 ### `powerMonitor.getSystemIdleTime()`
 
-Returns `Integer` - Idle time in seconds
+Devuelve `Integer` - Tiempo inactivo en segundos
 
-Calculate system idle time in seconds.
+Calcular tiempo inactivo del sistema en segundos.
