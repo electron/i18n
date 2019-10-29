@@ -62,7 +62,7 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 * `language` String
 * `provider` Nesne 
-  * `spellCheck` Fonksiyon 
+  * `spellCheck` Function 
     * `words` String[]
     * `geri aramak` Function 
       * `misspeltWords` String[]
@@ -149,14 +149,14 @@ Set the security origin, content security policy and name of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Blink'in dahili belleğinin önbelleklerinin kullanım bilgilerini açıklayan bir nesne döndürür.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Bu oluşturur:
 
 ```javascript
 {
@@ -174,9 +174,9 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Artık kullanılmayan belleği boşa çıkarmaya çalışır (ör. önceki gezinmeden fotoğraflar).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Boşu boşuna bu metodu çağırmanın muhtemelen Electron'u yavaşlatacağını unutmayın çünkü boşalan önbellekleri tekrar doldurmak zorunda kalacaktır, sadece uygulamanızda sayfanın aslında daha az bellek kullandığını düşündüğünüz bir olay varsa bunu çağırmalısınız (örneğin, çok yoğun bir sayfadan çoğunlukla boş olan bir sayfaya gidiyorsanız ve orada kalmak niyetindeyseniz).
 
 ### `webFrame.getFrameForSelector(selector)`
 
@@ -186,7 +186,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` Dizi
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
