@@ -567,35 +567,35 @@ win.loadURL('https://github.com')
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動で最小化できるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動で最大化できるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+`Boolean` 型のプロパティです。ウインドウを最大化/ズームするウインドウボタンでフルスクリーンモードや最大化をトグル切り替えできるかどうかを決定します。
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動でサイズ変更できるかどうかを決定します。
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動で閉じることができるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって移動できるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
@@ -719,7 +719,7 @@ Returns `Boolean` - ウィンドウが通常の状態 (最大化されていな�
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (任意) - アスペクト比を維持する際に含まれない追加のサイズ。
 
 これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
@@ -794,7 +794,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+戻り値 Boolean - ウインドウが有効化されているかどうか。
 
 #### `win.setSize(width, height[, animate])`
 
@@ -937,7 +937,7 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `level` String (任意) *macOS* *Windows* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 * `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
