@@ -1,8 +1,8 @@
-# Notification
+# การแจ้งเตือน
 
 > Create OS desktop notifications
 
-Messages 
+Messages
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Messages 
+Messages
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
