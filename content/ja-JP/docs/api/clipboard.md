@@ -21,7 +21,7 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String` - プレーンテキストでのクリップボード内のコンテンツ。
 
@@ -38,7 +38,7 @@ console.log(text)
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 プレーンテキストとしてクリップボードに `text` を書き込みます。
 
@@ -51,7 +51,7 @@ clipboard.writeText(text)
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String` - マークアップでのクリップボード内のコンテンツ。
 
@@ -68,7 +68,7 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 クリップボードに `markup` を書き込みます。
 
@@ -80,20 +80,20 @@ clipboard.writeHTML('<b>Hi</b')
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 戻り値 [`NativeImage`](native-image.md) - クリップボード内の画像コンテンツ。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 クリップボードに `image` を書き込みます。
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String` - RTFでのクリップボード内のコンテンツ。
 
@@ -110,7 +110,7 @@ console.log(rtf)
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 RTFでクリップボードに `text` を書き込みます。
 
@@ -134,7 +134,7 @@ clipboard.writeRTF(rtf)
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 ブックマークとしてクリップボードに `title` と `url` を書き込みます。
 
@@ -163,13 +163,13 @@ Writes the `text` into the find pasteboard (the pasteboard that holds informatio
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 クリップボードの内容を消去します。
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String[]` - クリップボードがサポートしている形式の `type` の配列。
 
@@ -184,7 +184,7 @@ console.log(formats)
 ### `clipboard.has(format[, type])` *実験的*
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `Boolean` - クリップボードが指定した `format` をサポートしているかどうか。
 
@@ -224,7 +224,7 @@ console.log(buffer.equals(out))
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 `format` でクリップボードに `buffer` を書き込みます。
 
@@ -243,7 +243,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `image` [NativeImage](native-image.md) (任意)
   * `rtf` String (任意)
   * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。既定は 'clipboard' です。`selection` は Linux でのみ利用可能です。
 
 クリップボードに `data` を書き込みます。
 
