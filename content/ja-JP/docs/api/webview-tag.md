@@ -72,7 +72,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="https://www.github.com/"></webview>
 ```
 
-A `String` representing the visible URL. Writing to this attribute initiates top-level navigation.
+表示されている URL を表す `String`。この属性に書き込むと、トップレベルのナビゲーションが開始されます。
 
 `src` に独自の値を代入すると、現在のページがリロードされます。
 
@@ -84,7 +84,7 @@ A `String` representing the visible URL. Writing to this attribute initiates top
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-A `Boolean`. この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
+`Boolean`。 この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
 
 ### `nodeintegrationinsubframes`
 
@@ -92,7 +92,7 @@ A `Boolean`. この属性が存在する場合、`webview` のゲストページ
 <webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
 ```
 
-A `Boolean` for the experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。 デフォルトではゲストページ内のこのオプションは無効化されています。
+この `Boolean` は `webview` 内の iframe などのサブフレームで NodeJS サポートを有効にするための実験的オプションです。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。 デフォルトではゲストページ内のこのオプションは無効化されています。
 
 ### `enableremotemodule`
 
@@ -100,7 +100,7 @@ A `Boolean` for the experimental option for enabling NodeJS support in sub-frame
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-A `Boolean`. この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
+`Boolean`。 この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
 
 ### `plugins`
 
@@ -108,7 +108,7 @@ A `Boolean`. この属性が `false` の場合、`webview` 内のゲストペー
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+`Boolean`。この属性が存在する場合、`webview` 内のゲストページはブラウザのプラグインを使用することができます。プラグインはデフォルトでは無効です。
 
 ### `preload`
 
@@ -116,11 +116,11 @@ A `Boolean`. When this attribute is present the guest page in `webview` will be 
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-A `String` that specifies a script that will be loaded before other scripts run in the guest page. スクリプトの URL のプロトコルは、`file:` または `asar:` のいずれかでなければなりません。これは、ゲストページ内で `require` によってロードされるためです。
+この `String` は、ゲストのページで他のスクリプトを実行する前に読み込まれるスクリプトを指定します。 スクリプトの URL のプロトコルは、`file:` または `asar:` のいずれかでなければなりません。これは、ゲストページ内で `require` によってロードされるためです。
 
 ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
-**Note:** This option will appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**注:** このオプションは、`will-attach-webview` イベントに指定された `webPreferences` に `preloadURL` (`preload` ではない) として表示されます。
 
 ### `httpreferrer`
 
@@ -128,7 +128,7 @@ A `String` that specifies a script that will be loaded before other scripts run 
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-A `String` that sets the referrer URL for the guest page.
+ゲストページの参照先 URL を設定する `String`。
 
 ### `useragent`
 
@@ -136,7 +136,7 @@ A `String` that sets the referrer URL for the guest page.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-A `String` that sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+ページがナビゲートされる前にゲストページ用のユーザーエージェントを設定する `String`。一度ページがロードされた場合は、`setUserAgent` メソッドを使用してユーザーエージェントを変更します。
 
 ### `disablewebsecurity`
 
