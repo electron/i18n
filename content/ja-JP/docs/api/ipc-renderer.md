@@ -60,19 +60,19 @@
 
 戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+`channel` を介して非同期でメインプロセスにメッセージを送信し、非同期の結果を待ちます。 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
 
-The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+メインプロセスは、[`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener) で `channel` をリッスンする必要があります。
 
 例:
 
 ```javascript
-// Renderer process
+// レンダラープロセス
 ipcRenderer.invoke('some-name', someArgument).then((result) => {
   // ...
 })
 
-// Main process
+// メインプロセス
 ipcMain.handle('some-name', async (event, someArgument) => {
   const result = await doSomeWork(someArgument)
   return result
