@@ -6,7 +6,7 @@
 
 **こちらも参照: [アプリケーションを更新する](../tutorial/updates.md)**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。
 
 ## プラットフォームに関する注意事項
 
@@ -84,7 +84,7 @@ Windowsでは `releaseName` のみ利用可能です。
 
 * `options` Object 
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
+  * `headers` Record&lt;String, String&gt; (任意) *macOS* - HTTP リクエストのヘッダ。
   * `serverType` String (任意) *macOS* - `json` または `default` のいずれかの詳細については、[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
 
 `url` を設定して自動更新を初期化します。
