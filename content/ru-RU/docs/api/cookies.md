@@ -92,8 +92,8 @@ Sets a cookie with `details`.
 
 #### `cookies.remove(url, name)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - URL-дарес, связанный с cookie.
+* `name` String - Название cookie для удаления.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been removed
 
@@ -103,4 +103,4 @@ Removes the cookies matching `url` and `name`
 
 Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
 
-Writes any unwritten cookies data to disk.
+Записывает непрочитанные cookies на диск.
