@@ -91,15 +91,15 @@ webFrame.setSpellCheckProvider('en-US', {
 
 * `css` String - CSS ソースコード。
 
-Returns `String` - A key for the inserted CSS that can later be used to remove the CSS via `webFrame.removeInsertedCSS(key)`.
+戻り値 `String` - 挿入された CSS のキー。後で `webFrame.removeInsertedCSS(key)` を介して CSS を削除するために使用できます。
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
 ### `webFrame.removeInsertedCSS(key)`
 
 * `key` String
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `webFrame.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `webFrame.insertCSS(css)` から返されるキーによって識別されます。
 
 ### `webFrame.insertText(text)`
 
@@ -198,26 +198,26 @@ console.log(webFrame.getResourceUsage())
 
 ## プロパティ
 
-### `webFrame.top` *Readonly*
+### `webFrame.top` *読み出し専用*
 
-A `WebFrame | null` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame | null`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.opener` *Readonly*
+### `webFrame.opener` *読み出し専用*
 
-A `WebFrame | null` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+`webFrame` が開かれたフレームを表す `WebFrame | null`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.parent` *Readonly*
+### `webFrame.parent` *読み出し専用*
 
-A `WebFrame | null` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+`webFrame` の親フレームを表す `WebFrame | null`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.firstChild` *Readonly*
+### `webFrame.firstChild` *読み出し専用*
 
-A `WebFrame | null` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+`webFrame` の最初の子フレームを表す `WebFrame | null`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.nextSibling` *Readonly*
+### `webFrame.nextSibling` *読み出し専用*
 
-A `WebFrame | null` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+次の兄弟フレームを表す `WebFrame | null`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
-### `webFrame.routingId` *Readonly*
+### `webFrame.routingId` *読み出し専用*
 
 現在のレンダラープロセスの一意なフレーム ID を表す `Integer`。同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。

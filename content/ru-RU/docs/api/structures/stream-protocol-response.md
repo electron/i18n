@@ -1,5 +1,5 @@
 # Объект StreamProtocolResponse
 
-* `statusCode` Number (optional) - The HTTP response code.
-* `headers` Record<String, String | String[]> (optional) - An object containing the response headers.
-* `data` ReadableStream | null - A Node.js readable stream representing the response body.
+* `statusCode` Number (опционально) - Код ответа HTTP.
+* `headers` Record<String, String | String[]> (опционально) - Объект, содержащий заголовки ответа.
+* `data` ReadableStream | null - читаемый поток Node.js с телом ответа.

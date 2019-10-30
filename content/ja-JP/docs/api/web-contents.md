@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
+`webContents` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 [`BrowserWindow`](browser-window.md) オブジェクトのプロパティには、ウェブページを描画し、制御する責任があります。 以下は、`webContents` オブジェクトにアクセスする例です。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,9 +63,9 @@ console.log(webContents)
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
+このイベントは `did-finish-load` に似ていますが、ロードが失敗したときも発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
 
-#### Event: 'did-fail-provisional-load'
+#### イベント: 'did-fail-provisional-load'
 
 戻り値:
 
@@ -77,7 +77,7 @@ This event is like `did-finish-load` but emitted when the load failed. エラー
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+このイベントは `did-fail-load` に似ていますが、ロードがキャンセルされたときに発行されます (例えば `window.stop()` が呼び出されたときなど)。
 
 #### イベント: 'did-frame-finish-load'
 
@@ -133,7 +133,7 @@ This event is like `did-fail-load` but emitted when the load was cancelled (e.g.
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
 * `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 
@@ -360,14 +360,14 @@ win.webContents.on('before-input-event', (event, input) => {
 
 ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
-#### Event: 'zoom-changed'
+#### イベント: 'zoom-changed'
 
 戻り値:
 
 * `event` Event
-* `zoomDirection` String - Can be `in` or `out`.
+* `zoomDirection` String - `in` か `out` にできます。
 
-Emitted when the user is requesting to change the zoom level using the mouse wheel.
+ユーザーがマウスホイールを使用してズームレベルの変更を要求しているときに生成されます。
 
 #### イベント: 'devtools-opened'
 
@@ -442,7 +442,7 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - アクティブなマッチの位置。
   * `matches` Integer - マッチの個数。
-  * `selectionArea` Rectangle - Coordinates of first match region.
+  * `selectionArea` Rectangle - 最初に一致した領域の座標。
   * `finalUpdate` Boolean
 
 [`webContents.findINPage`] リクエストの結果が有効なときに発行されます。
@@ -596,8 +596,8 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `webPreferences` WebPreferences - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Record<string, string> - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` WebPreferences - ゲストページで使用されるウェブ設定。 このオブジェクトを変更して、ゲストページの設定を調整できます。
+* `params` Record<string, string> - 他の `<webview>` パラメーター。`src` URL などがこれにあたります。このオブジェクトを変更して、ゲストページのパラメーターを調整できます。
 
 `<webview>` の webContents がこの webContents に適用されようとしているときに発行されます。`event.preventDefault()` を呼ぶとゲストページを破棄します。
 
@@ -728,7 +728,7 @@ win.loadURL('http://github.com')
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 A noop rejection handler is already attached, which avoids unhandled rejection errors.
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。 無操作拒否ハンドラーが既にアタッチされているため、未処理の拒否エラーは回避されます。
 
 ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
 
@@ -742,7 +742,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (任意) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `search` Record&lt;String, String&gt; (任意) - `url.format()` に渡されます。
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
 
@@ -883,11 +883,11 @@ console.log(currentURL)
 
 * `css` String
 * `options` Object (任意) 
-  * `cssOrigin` String (optional) - Can be either 'user' or 'author'; Specifying 'user' enables you to prevent websites from overriding the CSS you insert. Default is 'author'.
+  * `cssOrigin` String (任意) - 'user' または 'author' のいずれかです。'user' を指定すると、挿入した CSS がウェブサイトによって上書きされるのを防ぐことができます。デフォルトは 'author' です。
 
-Returns `Promise<String>` - A promise that resolves with a key for the inserted CSS that can later be used to remove the CSS via `contents.removeInsertedCSS(key)`.
+戻り値 `Promise<String>` - 挿入された CSS のキーで解決される promise。後で `contents.removeInsertedCSS(key)` を使用して CSS を削除するために使用できます。
 
-Injects CSS into the current web page and returns a unique key for the inserted stylesheet.
+現在のウェブページに CSS を挿入し、挿入されたスタイルシートの一意なキーを返します。
 
 ```js
 contents.on('did-finish-load', function () {
@@ -899,9 +899,9 @@ contents.on('did-finish-load', function () {
 
 * `key` String
 
-Returns `Promise<void>` - Resolves if the removal was successful.
+戻り値 `Promise<void>` - 削除に成功すると解決されます。
 
-Removes the inserted CSS from the current web page. The stylesheet is identified by its key, which is returned from `contents.insertCSS(css)`.
+現在のウェブページから挿入された CSS を削除します。 スタイルシートは `contents.insertCSS(css)` から返されるキーによって識別されます。
 
 ```js
 contents.on('did-finish-load', async function () {
@@ -921,7 +921,7 @@ contents.on('did-finish-load', async function () {
 
 ブラウザウインドウでは、`requestFullScreen` のような、いくつかの HTML API は、ユーザからのジェスチャーでのみ呼び出されます。 `userGesture` を `true` にセットすることでこの制限がなくなります。
 
-Code execution will be suspended until web page stop loading.
+コードの実行は、ウェブページの読み込みが停止するまで中断されます。
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -1120,30 +1120,30 @@ console.log(requestId)
 
 * `options` Object (任意) 
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
-  * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
+  * `printBackground` Boolean (任意) - ウェブページの背景色と画像を印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
-  * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
+  * `color` Boolean (任意) - 印刷するウェブページをカラーにするかグレースケールにするかを設定します。デフォルトは `true` です。
   * `margins` Object (任意) 
-    * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
-    * `top` Number (optional) - The top margin of the printed web page, in pixels.
-    * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
-    * `left` Number (optional) - The left margin of the printed web page, in pixels.
-    * `right` Number (optional) - The right margin of the printed web page, in pixels.
-  * `landscape` Boolean (optional) - Whether the web page should be printed in landscape mode. Default is `false`.
-  * `scaleFactor` Number (optional) - The scale factor of the web page.
-  * `pagesPerSheet` Number (optional) - The number of pages to print per page sheet.
-  * `collate` Boolean (optional) - Whether the web page should be collated.
-  * `copies` Number (optional) - The number of copies of the web page to print.
-  * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
-  * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
+    * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
+    * `top` Number (任意) - 印刷されたウェブページの上側のマージン。ピクセル単位です。
+    * `bottom` Number (任意) - 印刷されたウェブページの下側のマージン。ピクセル単位です。
+    * `left` Number (任意) - 印刷されたウェブページの左側のマージン。ピクセル単位です。
+    * `right` Number (任意) - 印刷されたウェブページの右側のマージン。ピクセル単位です。
+  * `landscape` Boolean (任意) - ウェブページを横向きモードで印刷するかどうか。デフォルトは `false` です。
+  * `scaleFactor` Number (任意) - ウェブページのスケール係数。
+  * `pagesPerSheet` Number (任意) - ページシートごとに印刷するページ数。
+  * `collate` Boolean (任意) - ウェブページを校合するかどうか。
+  * `copies` Number (任意) - 印刷するウェブページの版数。
+  * `pageRanges` Record<string, number> (任意) - 印刷するページ範囲。`from` と `to` の 2 つのキーが必要です。
+  * `duplexMode` String (任意) - 印刷されたウェブページの両面モードを設定します。`simplex`、`shortEdge`、`longEdge` のいずれかです。
   * `dpi` Object (任意) 
-    * `horizontal` Number (optional) - The horizontal dpi.
-    * `vertical` Number (optional) - The vertical dpi.
+    * `horizontal` Number (任意) - 水平 DPI。
+    * `vertical` Number (任意) - 垂直 DPI。
 * `callback` Function (任意) 
   * `success` Boolean - 印刷呼び出しの成功を示す。
-  * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
+  * `failureReason` String - 印刷が失敗した場合にコールバックされます。`cancelled` か `failed` になります。
 
-ウインドウのウェブページを印刷します。 When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+ウインドウのウェブページを印刷します。 `silent` が `true` にセットされたとき、`deviceName` が空で印刷のデフォルト設定があれば、Electron はシステムのデフォルトプリンタを選択します。
 
 `page-break-before: always;` CSS スタイルを使用して、強制的に改ページして印刷できます。
 
@@ -1431,7 +1431,7 @@ ipcMain.on('ping', (event) => {
 #### `contents.startDrag(item)`
 
 * `item` Object 
-  * `file` String[] | String - The path(s) to the file(s) being dragged.
+  * `file` String[] | String - ドラッグが開始されたファイルへのパス。
   * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
@@ -1545,48 +1545,48 @@ Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserV
 
 #### `contents.audioMuted`
 
-A `Boolean` property that determines whether this page is muted.
+このページをミュートするかどうかを決定する `Boolean` プロパティ。
 
 #### `contents.userAgent`
 
-A `String` property that determines the user agent for this web page.
+このウェブページのユーザーエージェントを決定する `String` プロパティ。
 
 #### `contents.zoomLevel`
 
-A `Number` property that determines the zoom level for this web contents.
+このウェブコンテンツのズームレベルを決定する `Number` プロパティ。
 
-The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 The formula for this is `scale := 1.2 ^ level`.
 
 #### `contents.zoomFactor`
 
-A `Number` property that determines the zoom factor for this web contents.
+`Number` 型のプロパティです。このウェブコンテンツのズーム率を決定します。
 
-The zoom factor is the zoom percent divided by 100, so 300% = 3.0.
+ズーム率は百分率のズームなので、300% = 3.0 になります。
 
 #### `contents.frameRate`
 
-An `Integer` property that sets the frame rate of the web contents to the specified number. Only values between 1 and 60 are accepted.
+`Integer` 型のプロパティです。ウェブコンテンツのフレームレートを指定された数値に設定します。1 から 60 までの値のみが受け入れられます。
 
-Only applicable if *offscreen rendering* is enabled.
+*オフスクリーンレンダリング* が有効な場合にのみ適用されます。
 
-#### `contents.id` *Readonly*
+#### `contents.id` *読み出し専用*
 
 この WebContents の一意のIDを表す `Integer`。
 
-#### `contents.session` *Readonly*
+#### `contents.session` *読み出し専用*
 
 この webContents で使われる [`Session`](session.md)。
 
-#### `contents.hostWebContents` *Readonly*
+#### `contents.hostWebContents` *読み出し専用*
 
 この `WebContents` を所有するかもしれない [`WebContents`](web-contents.md) インスタンス。
 
-#### `contents.devToolsWebContents` *Readonly*
+#### `contents.devToolsWebContents` *読み出し専用*
 
 この `WebContents` の開発者向けツールの `WebContents` インスタンス。
 
 **注釈:** 開発者向けツールが閉じられたときに `null` になる可能性があるので、このオブジェクトは決して格納しないで下さい。
 
-#### `contents.debugger` *Readonly*
+#### `contents.debugger` *読み出し専用*
 
-A [`Debugger`](debugger.md) instance for this webContents.
+この webContents の [`Debugger`](debugger.md) インスタンス。

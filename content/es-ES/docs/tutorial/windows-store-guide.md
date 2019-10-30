@@ -42,7 +42,6 @@ La salida debería verse más o menos de esta forma:
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app

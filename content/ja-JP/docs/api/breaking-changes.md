@@ -10,7 +10,7 @@
 
 ### Node Headers URL
 
-これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。 Both will be supported for the foreseeable future but it is recommended that you switch.
+これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。 両方とも近い将来サポートされますが、切り替えることを推奨します。
 
 非推奨: https://atom.io/download/electron
 
@@ -18,41 +18,41 @@
 
 ### `session.clearAuthCache(options)`
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API は、消去対象のオプションを受け入れなくなり、代わりにキャッシュ全体を無条件に消去します。
 
 ```js
-// Deprecated
+// 非推奨
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// こちらに置換
 session.clearAuthCache()
 ```
 
 ### `powerMonitor.querySystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 で削除
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// こちらの非同期 API に置換
 const idleState = getSystemIdleState(threshold)
 ```
 
 ### `powerMonitor.querySystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 で削除
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// こちらの非同期 API に置換
 const idleTime = getSystemIdleTime()
 ```
 
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Elecron 7.0
+// Elecron 7.0 削除
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// こちらに置換
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -62,9 +62,9 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removal of deprecated `marked` property on getBlinkMemoryInfo
+### 非推奨だった getBlinkMemoryInfo の `marked` プロパティの削除
 
-This property was removed in Chromium 77, and as such is no longer available.
+このプロパティは Chromium 77 で削除されたため、利用できなくなりました。
 
 ## 予定されている破壊的なAPIの変更 (6.0)
 
@@ -144,11 +144,11 @@ const idleTime = getSystemIdleTime()
 ### `app.enableMixedSandbox`
 
 ```js
-// Deprecated
+// 非推奨
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+混合サンドボックスモードはデフォルトで有効になりました。
 
 ### `Tray`
 
@@ -209,16 +209,16 @@ webFrame.setIsolatedWorldInfo(
 
 ## `webFrame.setSpellCheckProvider`
 
-The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+`spellCheck` コールバックは非同期になり、`autoCorrectWord` パラメーターは削除されました。
 
 ```js
-// Deprecated
+// 非推奨
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck: (text) => {
     return !spellchecker.isMisspelled(text)
   }
 })
-// Replace with
+// こちらに置換
 webFrame.setSpellCheckProvider('en-US', {
   spellCheck: (words, callback) => {
     callback(words.filter(text => spellchecker.isMisspelled(text)))
@@ -526,6 +526,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 どの Electron リリースにも、`electron-v1.7.3-linux-arm.zip` や `electron-v1.7.3-linux-armv7l.zip` のような少しファイル名が異なる2つの同一な ARM ビルドが含まれます。 サポートされている ARM バージョンをユーザに明確にし、将来作成される armv6l および arm64 アセットらと明確にするために、`v7l` という接頭子を持つアセットが追加されました。
 
-*接頭子が付いていない*ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 Starting at 2.0, the unprefixed file will no longer be published.
+*接頭子が付いていない*ファイルは、まだそれを使用している可能性がある設定を破壊しないようにするために公開されています。 2.0 からは、接頭子のないファイルは公開されなくなりました。
 
 詳細は、[6986](https://github.com/electron/electron/pull/6986) と [7189](https://github.com/electron/electron/pull/7189) を参照してください。

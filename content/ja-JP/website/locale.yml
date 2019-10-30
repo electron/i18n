@@ -165,8 +165,8 @@ clipboard:
   copy_to_clipboard: クリップボードにコピー
   copied: コピーしました
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: 動かす
+  launch_in_fiddle: Fiddle で動かす
 or: または
 pages:
   '/':
@@ -238,7 +238,7 @@ governance:
   wgs: ワーキンググループ
   ecosystem:
     title: エコシステム
-    description: Oversees the projects that make Electron app development easier.
+    description: Electron アプリ開発が容易になるようにプロジェクトを監督します。
   outreach:
     title: 支援
     description: Electron コミュニティを成長させます
@@ -259,7 +259,7 @@ governance:
     description: 管理ワーキンググループはガバナンスとプロジェクト全体を監督します。
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: プロジェクトの原則に基づいて公開 API 設計を監督します。
   global:
     overview: 概要
     associated_repos: 関連レポジトリ

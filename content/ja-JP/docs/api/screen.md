@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+`app` モジュールの `ready` イベントが発生するまでは、このモジュールは使用できません。
 
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
@@ -16,7 +16,7 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 
 let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-    <br />Another example of creating a window in the external display:
+    <br />別の例として外部ディスプレイへのウィンドウ作成を示します。
     
     ```javascript
     const { app, BrowserWindow, screen } = require('electron')

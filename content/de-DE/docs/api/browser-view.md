@@ -48,9 +48,9 @@ Returns `BrowserView` - The view with the given `id`.
 
 ### Instanz Eigenschaften
 
-Objects created with `new BrowserView` have the following properties:
+Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Eigenschaften:
 
-#### `view.webContents` *Experimentell*
+#### `view.webContents` *Experimental*
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
@@ -60,7 +60,7 @@ A `Integer` representing the unique ID of the view.
 
 ### Instanz Methoden
 
-Objects created with `new BrowserView` have the following instance methods:
+Objekte, die mit `new BrowserView` erstellt wurden, haben folgende Instanzmethoden:
 
 #### `view.destroy()`
 

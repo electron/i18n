@@ -57,7 +57,7 @@ macOS 向けには 64bit バイナリのみが提供されます。対応する 
 
 Windows 7以降に対応しています。Vista以前のOSはサポートされておらず、動作もしません。
 
-Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 [Electron 6.0.8 以降では、Arm (`arm64`) デバイス上 Windows のネイティブサポートを追加します](windows-arm.md)。 ia32 バイナリを使用すると、以前のバージョンでパッケージ化されたアプリを実行できます。
 
 ### Linux
 

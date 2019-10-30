@@ -1,8 +1,8 @@
 # TraceConfig オブジェクト
 
-* `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
-* `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.
-* `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
+* `recording_mode` String (任意) - `record-until-full`、`record-continuously`、`record-as-much-as-possible` または `trace-to-console` にできます。 省略値は、`record-until-full` です。
+* `trace_buffer_size_in_kb` number (任意) - トレース記録バッファの最大サイズ。キロバイト単位です。 省略値は、100MB です。
+* `trace_buffer_size_in_events` number (任意) - イベントでのトレース記録バッファの最大サイズ。
 * `enable_argument_filter` boolean (optional) - if true, filter event data according to a whitelist of events that have been manually vetted to not include any PII. See [the implementation in Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc) for specifics.
 * `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.
 * `excluded_categories` String[] (optional) - a list of tracing categories to exclude. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.

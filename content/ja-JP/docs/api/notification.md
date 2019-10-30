@@ -14,7 +14,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。
 
 `options` によって設定されたネイティブプロパティで新しい `Notification` を生成します。
 
@@ -106,39 +106,39 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+通知のタイトルを表す `String` プロパティ。
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+通知のサブタイトルを表す `String` プロパティ。
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+通知の本文を表す `String` プロパティ。
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+通知の応答プレースホルダーを表す `String` プロパティ。
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+通知音を表す `String` プロパティ。
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+通知の閉じるボタンのテキストを表す `String` プロパティ。
 
 #### `notification.silent`
 
-A `Boolean` property representing whether the notification is silent.
+通知が無音かどうかを表す `Boolean` プロパティ。
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+通知に応答アクションがあるかどうかを表す `Boolean` プロパティ。
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+通知のアクションを表す [`NotificationAction[]`](structures/notification-action.md) プロパティ。
 
 ### サウンドの再生
 

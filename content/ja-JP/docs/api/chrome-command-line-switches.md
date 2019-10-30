@@ -44,13 +44,13 @@ HTTP/2 および SPDY/3.1 プロトコルを無効にします。
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Node.js エンジンに渡すフラグを指定します。メインプロセスで `flags` を有効にしたい場合、Electron を開始するときに渡す必要があります。
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+利用できるフラグの一覧については、[Node.js のドキュメント](https://nodejs.org/api/cli.html)を参照するか、ターミナルで `node --help` を実行してください。 さらに、Node.js の V8 JavaScript エンジンに関するフラグの一覧を具体的に見るには、`node --v8-options` を実行してください。
 
 ## --proxy-server=`address:port`
 
@@ -104,11 +104,11 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 Without `*` prefix the URL has to match exactly.
+末尾が `example.com`、`foobar.com`、`baz` である `url` は、統合認証の対象になります。 `*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+ユーザーの資格情報の委任が必要となるサーバーのコンマ区切りのリストです。`*` のプリフィックスがない場合は、URL は厳密に一致する必要があります。
 
 ## --ignore-certificate-errors
 
@@ -154,4 +154,4 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Chromium サンドボックスを無効にします。既定では有効です。テストにのみ使用するようにしてください。

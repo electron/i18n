@@ -10,7 +10,7 @@
 
 ### 静的メソッド
 
-The `Menu` class has the following static methods:
+`Menu` クラスは以下の静的メソッドを持ちます。
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -151,7 +151,7 @@ const template = [
   }] : []),
   // { role: 'fileMenu' }
   {
-    label: 'File',
+    label: 'ファイル',
     submenu: [
       isMac ? { role: 'close' } : { role: 'quit' }
     ]

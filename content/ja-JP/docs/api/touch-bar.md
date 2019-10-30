@@ -7,7 +7,7 @@
 ### `new TouchBar(options)` *（実験的）*
 
 * `options` オブジェクト 
-  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (optional)
+  * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[] (任意)
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (任意)
 
 指定したアイテムの新しい Touch Bar を作成します。 `BrowserWindow.setTouchBar` でウインドウに `TouchBar` を追加することができます。
@@ -16,43 +16,43 @@
 
 **Tip:** Touch Bar 付きの MacBook をお持ちでない場合は、Touch Bar を使用するアプリの検証に [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) をご利用になれます。
 
-### Static Properties
+### 静的プロパティ
 
 #### `TouchBarButton`
 
-A [`typeof TouchBarButton`](./touch-bar-button.md) reference to the `TouchBarButton` class.
+[`typeof TouchBarButton`](./touch-bar-button.md) であり、`TouchBarButton` クラスの参照です。
 
 #### `TouchBarColorPicker`
 
-A [`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) reference to the `TouchBarColorPicker` class.
+[`typeof TouchBarColorPicker`](./touch-bar-color-picker.md) であり、`TouchBarColorPicker` クラスの参照です。
 
 #### `TouchBarGroup`
 
-A [`typeof TouchBarGroup`](./touch-bar-group.md) reference to the `TouchBarGroup` class.
+[`typeof TouchBarGroup`](./touch-bar-group.md) であり、`TouchBarGroup` クラスの参照です。
 
 #### `TouchBarLabel`
 
-A [`typeof TouchBarLabel`](./touch-bar-label.md) reference to the `TouchBarLabel` class.
+[`typeof TouchBarLabel`](./touch-bar-label.md) であり、`TouchBarLabel` クラスの参照です。
 
 #### `TouchBarPopover`
 
-A [`typeof TouchBarPopover`](./touch-bar-popover.md) reference to the `TouchBarPopover` class.
+[`typeof TouchBarPopover`](./touch-bar-popover.md) であり、`TouchBarPopover` クラスの参照です。
 
 #### `TouchBarScrubber`
 
-A [`typeof TouchBarScrubber`](./touch-bar-scrubber.md) reference to the `TouchBarScrubber` class.
+[`typeof TouchBarScrubber`](./touch-bar-scrubber.md) であり、`TouchBarScrubber` クラスの参照です。
 
 #### `TouchBarSegmentedControl`
 
-A [`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) reference to the `TouchBarSegmentedControl` class.
+[`typeof TouchBarSegmentedControl`](./touch-bar-segmented-control.md) であり、`TouchBarSegmentedControl` クラスの参照です。
 
 #### `TouchBarSlider`
 
-A [`typeof TouchBarSlider`](./touch-bar-slider.md) reference to the `TouchBarSlider` class.
+[`typeof TouchBarSlider`](./touch-bar-slider.md) であり、`TouchBarSlider` クラスの参照です。
 
 #### `TouchBarSpacer`
 
-A [`typeof TouchBarSpacer`](./touch-bar-spacer.md) reference to the `TouchBarSpacer` class.
+[`typeof TouchBarSpacer`](./touch-bar-spacer.md) であり、`TouchBarSpacer` クラスの参照です。
 
 ### インスタンスプロパティ
 

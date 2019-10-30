@@ -45,7 +45,6 @@ Uygulamayı  elektron paketleyici </ 0> (veya benzer bir alet) kullanarak paketl
 │   ├── am.pak
 │   ├── ar.pak
 │   ├── [...]
-├── natives_blob.bin
 ├── node.dll
 ├── resources
 │   ├── app

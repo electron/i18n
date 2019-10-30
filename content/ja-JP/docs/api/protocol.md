@@ -122,7 +122,7 @@ protocol.registerSchemesAsPrivileged([
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
@@ -176,7 +176,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
@@ -197,9 +197,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
+      * `method` String (任意)
+      * `session` Session | null (任意)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
@@ -311,7 +311,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
@@ -347,8 +347,8 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String (optional)
-      * `session` Session | null (optional)
+      * `method` String (任意)
+      * `session` Session | null (任意)
       * `uploadData` Object (任意) 
         * `contentType` String - コンテンツの MIME タイプ。
         * `data` String - 送信されるコンテンツ。

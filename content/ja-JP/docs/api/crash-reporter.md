@@ -39,11 +39,11 @@ crashReporter.start({
 * `options` Object 
   * `companyName` String
   * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
-  * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `productName` String (任意) - 省略値は、`app.name` です。
+  * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。省略値は、`true` です。
   * `ignoreSystemCrashHandler` Boolean (任意) - 省略値は、`false` です。
-  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. 文字列のプロパティだけしか正しく送信されません。 Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
-  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `extra` Record&lt;String, String&gt; (任意) - レポートと一緒に送信される、自由に定義できるオブジェクト。 文字列のプロパティだけしか正しく送信されません。 ネストしたオブジェクトはサポートしていません。 Windows を使用する場合、プロパティ名と値は 64 文字未満でなければなりません。
+  * `crashesDirectory` String (任意) - クラッシュレポートを一時的に保存するディレクトリ (クラッシュレポーターが `process.crashReporter.start` 経由で起動されたときのみ使用されます)。
 
 他の `crashReporter` APIを使用する前に、クラッシュレポートを収集したい各プロセス (メイン/レンダラー) で、このメソッドを呼び出す必要があります。 異なるプロセスから呼び出すときは、`crashReporter.start` に異なるオプションを渡すことができます。
 

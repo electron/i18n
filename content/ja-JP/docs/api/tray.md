@@ -156,7 +156,7 @@ tray アイコン上にドラッグされたテキストがドロップされた
 
 マウスが tray アイコン内から出たときに発行されます。
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### イベント: 'mouse-move' *macOS* *Windows*
 
 戻り値:
 

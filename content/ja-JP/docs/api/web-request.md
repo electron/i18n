@@ -91,7 +91,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `callback` Function 
     * `応答` Object 
       * `cancel` Boolean (任意)
-      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string> (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
 リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
 
@@ -129,11 +129,11 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string> (任意)
   * `callback` Function 
     * `応答` Object 
       * `cancel` Boolean (任意)
-      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string> (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
       * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
 `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
@@ -153,7 +153,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string> (任意)
     * `fromCache` Boolean - レスポンスがディスクキャッシュからフェッチされたかどうかを示します。
     * `statusCode` Integer
     * `statusLine` String
@@ -177,7 +177,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `ip` String (任意) - リクエストが実際に送信されたサーバーの IP アドレス。
     * `fromCache` Boolean
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string> (任意)
 
 `listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
 
@@ -194,7 +194,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string> (任意)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String

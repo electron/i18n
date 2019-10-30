@@ -45,7 +45,6 @@ Outputnya harus terlihat kira-kira seperti ini:
         ├── libgcrypt.so.11
         ├── libnode.so
         ├── locales
-        ├── natives_blob.bin
         ├── resources
         ├── v8_context_snapshot.bin
         └── version

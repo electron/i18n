@@ -39,14 +39,13 @@ npm install -g electron-windows-store
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│ ├── am.pak
-│ ├── ar.pak
-│ ├── [...]
-├── natives_blob.bin
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── node.dll
 ├── resources
-│ ├── app
-│ └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak

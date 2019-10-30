@@ -35,7 +35,7 @@ docs:
   custom_dom: Benutzerdefinierte DOM-Elemente
   main_proc_modules: Hauptprozessmodule
   renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  both_proc_modules: Module für beide Prozesse
   footer:
     propose_change: Diese Dokumentation verbessern
     version_history: Versionsverlauf
@@ -53,7 +53,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Anfangen</b></a> eine App zu bauen mit hilfe der <a href='/docs/tutorial/first-app'>Schnellstart Anleitung</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Bleiben Sie auf dem neusten Stand</b></a>, indem Sie <a href='https://twitter.com/electronjs'>@electronjs</a> auf Twitter folgen und den <a href='/blog'>Blog-Feed</a> abonnieren."
     localized_docs: "<a href='/languages'><b>Lesen Sie die Dokumentation in Ihrer Sprache</b></a>, indem Sie die <a href='/languages'>Sprach-Seiten</a> besuchen."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Bekomme hilfe und feedback</b></a> durch beitreten des <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, Posten auf <a href='https://discuss.atom.io/c/electron'>Discuss</a> oder auf <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Bugs melden</b></a> durch öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Anfragen von Features</b></a> durch Öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
@@ -113,7 +113,7 @@ get_started:
 explore:
   title: Erkunden Sie die Electron-APIs
   description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
+  fiddle_title: Versuche mehr leistungsfähige Experimente mit Electron Fiddle
   see_more_info: Weitere Infos anzeigen
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
@@ -136,14 +136,14 @@ footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
 companies:
   title: Mit Electron gebaut
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  description: Anfangs entwickelt für GitHubs <a href='https://atom.io' target='_blank'>Atomeditor</a>, wurde Electron von Unternehmen weltweit übernommen.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Mehr Apps anzeigen
   submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
   edit_this_app: Diese App bearbeiten.
-  search_app: Filter apps by name, description, etc…
+  search_app: Apps nach Namen, Beschreibung usw. filtern…
   categories: Kategorien
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   #App show page specific localization strings
@@ -165,8 +165,8 @@ clipboard:
   copy_to_clipboard: In Zwischenablage kopieren
   copied: Kopiert
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Starten
+  launch_in_fiddle: In Fiddle starten
 or: oder
 pages:
   '/':
@@ -211,30 +211,30 @@ pages:
     title: Spectron
     description: Spectron ist ein Open-Source-Framework um sehr einfach Integrationstests für deine Electron-App zu schreiben. Das Framework beruht auf ChromeDriver und WebDriverIO.
   '/fiddle':
-    title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    title: Elektro-Fiddle
+    description: Der einfachste Weg mit Electron zu beginnen
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Elektro-Governance
+    description: Das System der Electron Governance besteht aus Arbeitsgruppen, die verschiedene Aspekte des Electron Ökosystems überwachen, und einer Verwaltungsgruppe, die die Lösung von Konflikten zwischen ihnen unterstützt.
   '/donors':
     title: Spender
 landing:
   get_started: Erste Schritte
   fiddle:
-    lead_desc: The easiest way to get started with Electron
+    lead_desc: Der einfachste Weg mit Electron zu beginnen
     create_app: Erstelle Deine App
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle ermöglicht es dir, kleine Electron-Experimente zu erstellen und zu spielen. Es begrüßt dich nach dem Öffnen mit einer Schnellstart-Vorlage – ändere einige Dinge, wähle die Version von Electron, mit der du sie ausführen möchtest und spielst. Dann speichere deinen Fiddle entweder als GitHub Gist oder in einen lokalen Ordner. Sobald er auf GitHub gedrückt wurde, kannst du deinen Fiddle schnell ausprobieren, indem du ihn in die Adressleiste eingibst.
     explore: Erkunde Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    explore_desc: "Testen Sie Electron ohne Abhängigkeiten zu installieren: Fiddle enthält alles, was Sie benötigen, um die Plattform zu erkunden. Es enthält auch Beispiele für jede API, die in Electron verfügbar ist, so dass Sie schnell sehen wollen, was ein BrowserView ist oder wie das desktopCapturer funktioniert, Fiddle Sie abgedeckt hat."
     code_with_types: Programmiere mit Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
+    compile_and_package: Kompilieren und Paket
+    compile_and_package_desc: Fiddle kann automatisch Ihr Experiment in Binärdateien verwandeln, die Sie mit Ihren Freunden, Mitarbeitern oder Großeltern teilen können. Dies ist dank <a href="https://electronforge.io/">Elektron-forge</a>möglich, damit Sie Ihre Fiddle als App für Windows, macOS oder Linux verpacken können.
+    easy_start: Beginne mit Fiddle, Fortfahren
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  title: Elektro-Governance
+  description: Das System der Electron Governance besteht aus Arbeitsgruppen, die verschiedene Aspekte des Electron Ökosystems überwachen, und einer Verwaltungsgruppe, die die Lösung von Konflikten zwischen ihnen unterstützt.
   wgs: Working Groups
   ecosystem:
     title: Ecosystem

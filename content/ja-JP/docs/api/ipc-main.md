@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
+`ipcMain` モジュールは [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter) を継承しています。 メインプロセスで使用される場合、レンダラープロセス (ウェブページ) から送られる非同期及び同期メッセージを処理します。 レンダラーから送信されたメッセージは、このモジュールに送られます。
 
 ## メッセージ送信
 
@@ -72,7 +72,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (任意)
 
 指定した `channel` の listener を全て削除します。
 
@@ -83,25 +83,25 @@ ipcRenderer.send('asynchronous-message', 'ping')
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+`invoke` 可能な IPC のハンドラを追加します。このハンドラは、レンダラーが `ipcRenderer.invoke(channel, ...args)` を呼び出すたびに呼び出されます。
 
-If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+`listener` が Promise を返す場合、Promise の最終的な結果は、リモート呼び出し元への応答として返されます。 それ以外は、リスナーの戻り値が応答の値として使用されます。
 
 ```js
-// Main process
+// メインプロセス
 ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
   const result = await somePromise(...args)
   return result
 })
 
-// Renderer process
+// レンダラープロセス
 async () => {
   const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
   // ...
 }
 ```
 
-The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+ハンドラーの最初の引数として渡される `event` は、通常のイベントリスナーに渡されるものと同じです。 どの WebContents が呼び出しリクエスト元であるかに関する情報が含まれています。
 
 ### `ipcMain.handleOnce(channel, listener)`
 
@@ -110,18 +110,18 @@ The `event` that is passed as the first argument to the handler is the same as t
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+単一の `invoke` 可能な IPC メッセージを処理し、リスナーを削除します。`ipcMain.handle(channel, listener)` を参照してください。
 
 ### `ipcMain.removeHandler(channel)`
 
 * `channel` String
 
-Removes any handler for `channel`, if present.
+`channel` にハンドラがあれば削除します。
 
-## IpcMainEvent object
+## IpcMainEvent オブジェクト
 
 `callback` に渡された `event` オブジェクトに関するドキュメントは、[`ipc-main-event`](structures/ipc-main-event.md) 構造体ドキュメントにあります。
 
-## IpcMainInvokeEvent object
+## IpcMainInvokeEvent オブジェクト
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+`handle` コールバックに渡される `event` オブジェクトのドキュメントは、[`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) 構造体ドキュメントにあります。

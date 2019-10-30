@@ -567,35 +567,35 @@ win.loadURL('https://github.com')
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動で最小化できるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動で最大化できるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+`Boolean` 型のプロパティです。ウインドウを最大化/ズームするウインドウボタンでフルスクリーンモードや最大化をトグル切り替えできるかどうかを決定します。
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動でサイズ変更できるかどうかを決定します。
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって手動で閉じることができるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+`Boolean` 型のプロパティです。ウインドウがユーザーによって移動できるかどうかを決定します。
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Linux ではセッターは何もしませんが、ゲッターは `true` を返します。
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
@@ -719,7 +719,7 @@ Returns `Boolean` - ウィンドウが通常の状態 (最大化されていな�
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (任意) - アスペクト比を維持する際に含まれない追加のサイズ。
 
 これはウインドウのアスペクト比を維持します。 ピクセルで指定した追加のサイズによって、開発者は、アスペクト比の計算に含まれないスペースを確保することができます。 このAPIはウインドウのサイズとそのコンテンツのサイズの差異も考慮しています。
 
@@ -794,7 +794,7 @@ Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィ�
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+戻り値 Boolean - ウインドウが有効化されているかどうか。
 
 #### `win.setSize(width, height[, animate])`
 
@@ -937,7 +937,7 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `level` String (任意) *macOS* *Windows* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 `flag` が true の場合、省略値は `floating` です。 flag が false の場合、`level` は `normal` にリセットされます。 `floating` から `status` までに含まれているものにおいて、ウィンドウは macOS では Dock の下に、Windows ではタスクバーの下に配置されることをことに注意してください。 `pop-up-menu` 以降は、macOS では Dock の上に、Windows ではタスクバーの上に表示されます。 詳細については、[macOS のドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
 * `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
@@ -1080,11 +1080,11 @@ win.setSheetOffset(toolbarRect.height)
 
 * `url` String
 * `options` Object (任意) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTP リファラの URL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
-  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
+  * `baseURLForDataURL` String (任意) - データ URL によってロードされたファイルの (最後のパス区切り文字を含む) ベース URL。 これは指定された `url` がデータ URL で、他のファイルをロードする必要がある場合のみ必要です。
 
 戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
@@ -1120,7 +1120,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (任意) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `search` Record&lt;String, String&gt; (任意) - `url.format()` に渡されます。
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
 
@@ -1152,7 +1152,7 @@ win.loadURL('http://localhost:8000/post', {
 
 進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
-Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 By default, it will assume `{app.name}.desktop`.
+Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 既定では、`{app.name}.desktop` であるとみなされます。
 
 Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 モードを設定せずに (ただし、有効範囲内の値で) `setProgressBar` を呼び出した場合、`normal` とみなされます。
 
@@ -1177,11 +1177,11 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `opacity` Number - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+ウィンドウの不透明度を設定します。Linux では何もしません。範囲外の数値は、[0, 1] の範囲に収められます。
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+戻り値 `Number` - 0.0 (完全に透明) と 1.0 (完全に不透明) の間です。Linux では常に 1 を返します。
 
 #### `win.setShape(rects)` *Windows* *Linux* *実験的*
 
@@ -1325,7 +1325,7 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 ウインドウにフォーカスできるかどうかを変更します。
 
-On macOS it does not remove the focus from the window.
+macOS ではウィンドウからフォーカスは除去されません。
 
 #### `win.setParentWindow(parent)`
 
@@ -1375,11 +1375,11 @@ On macOS it does not remove the focus from the window.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
+* `type` String | null - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
 
 ブラウザウィンドウに曇りガラス効果を追加します。`null` または空文字を渡すと、ウインドウの曇りガラス効果が削除されます。
 
-Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+注意として、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
@@ -1391,7 +1391,7 @@ Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - browserView を win へアタッチします。他の browserView がアタッチされている場合、このウインドウから削除されます。
 
 #### `win.getBrowserView()` *実験的*
 
@@ -1409,6 +1409,6 @@ Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 
 
 #### `win.getBrowserViews()` *実験的*
 
-Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
+戻り値 `BrowserView[]` - `addBrowserView` または `setBrowserView` でアタッチされたすべての BrowserView の配列。
 
 **注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
