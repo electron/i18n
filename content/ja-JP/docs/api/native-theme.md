@@ -40,17 +40,17 @@ OS / Chromium で現在ダークモードが有効になっている、または
 * [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS が `light` モードに親和します。
 * `updated` イベントが発生します。
 
-The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
-* `Follow OS` --> `themeSource = 'system'`
-* `Dark Mode` --> `themeSource = 'dark'`
-* `Light Mode` --> `themeSource = 'light'`
+このプロパティを使用するにあたって、ユーザーに以下のような 3 つの選択肢がある、古典的なアプリケーションの "ダークモード" ステートマシンに合わせるべきです。
+* `OS 準拠` --> `themeSource = 'system'`
+* `ダークモード` --> `themeSource = 'dark'`
+* `ライトモード` --> `themeSource = 'light'`
 
-Your application should then always use `shouldUseDarkColors` to determine what CSS to apply.
+アプリケーションは、`shouldUseDarkColors` を使用して、適用する CSS を常に決定する必要があります。
 
-### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-constrast UI.
+OS / Chromium で現在ハイコントラストモードが有効になっている、またはハイコントラスト UI を表示するように指示されているかどうかの `Boolean`。
 
-### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has an inverted color scheme or is being instructed to use an inverted color scheme.
+OS / Chromium が現在反転カラースキームを持っている、または反転カラースキームを使用するように指示されているかどうかの `Boolean`。
