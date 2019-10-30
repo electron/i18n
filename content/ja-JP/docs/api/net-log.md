@@ -25,10 +25,10 @@ app.on('ready', async () => {
 
 * `path` String - ネットワークログを記録するファイルパス。
 * `options` Object (任意) 
-  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
-  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+  * `captureMode` String (任意) - キャプチャするデータの種類。 既定では、リクエストに関するメタデータのみがキャプチャされます。 これを `includeSensitive` にすると、Cookie と認証データが含まれます。 `everything` にすると、ソケットで転送されるすべてのバイトが含まれます。 `default`、`includeSensitive` または `everything` にできます。
+  * `maxFileSize` Number (任意) - ログがこのサイズを超えると、ロギングは自動的に停止します。 デフォルトでは無制限です。
 
-Returns `Promise<void>` - resolves when the net log has begun recording.
+戻り値 `Promise<void>` - ネットログの記録が開始されると解決します。
 
 `path` へネットワークイベントの記録を開始する。
 
@@ -40,10 +40,10 @@ Returns `Promise<void>` - resolves when the net log has begun recording.
 
 ## プロパティ
 
-### `netLog.currentlyLogging` *Readonly*
+### `netLog.currentlyLogging` *読み出し専用*
 
 ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
 
-### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
+### `netLog.currentlyLoggingPath` *読み出し専用* *非推奨*
 
 現在のログファイルへのパスを返す `String` プロパティ。
