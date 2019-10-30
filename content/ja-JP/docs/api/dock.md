@@ -1,10 +1,10 @@
-## Class: Dock
+## クラス: Dock
 
-> Control your app in the macOS dock
+> macOS Dock 内のアプリを制御する
 
 プロセス: [Main](../glossary.md#main-process)
 
-The following example shows how to bounce your icon on the dock.
+以下の例は、Dock でアイコンを跳ねさせる方法を示しています。
 
 ```javascript
 const { app } = require('electron')
@@ -15,9 +15,9 @@ app.dock.bounce()
 
 #### `dock.bounce([type])` _macOS_
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (任意) - `critical` か `informational` にできます。 省略値は、`informational` です。
 
-Returns `Integer` - an ID representing the request.
+戻り値 `Integer` - このリクエストを表すID。
 
 `critical` が渡された場合、ドックのアイコンはアプリケーションがアクティブになるか、リクエストがキャンセルされるまでバウンスします。
 
