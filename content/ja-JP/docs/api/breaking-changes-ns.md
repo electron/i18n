@@ -1,22 +1,22 @@
-# Breaking changes (NetworkService) (Draft)
+# 破壊的変更 (NetworkService) (草案)
 
-This document describes changes to Electron APIs after migrating network code to NetworkService API.
+このドキュメントでは、ネットワークコードを NetworkService API に移行した後の Electron API の変更について説明します。
 
-We don't currently have an estimate of when we will enable `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we might switch before Electron 10.
+現時点では、Electron でデフォルトで `NetworkService` を有効にする時期は推定されていませんが、Chromium は既に `NetworkService` 以外のコードを削除しているため、Electron 10 より前に切り替わる可能性があります。
 
-The content of this document should be moved to `breaking-changes.md` once we have determined when to enable `NetworkService` in Electron.
+Electron で `NetworkService` を有効にするタイミングが決定されれば、このドキュメントの内容を `breaking-changes.md` に移動しなければなりません。
 
 ## 予定されている API の破壊的変更
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API は同期になり、任意のコールバックは不要になりました。
 
 ```javascript
-// Deprecated
+// 非推奨
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// こちらに置換
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -31,20 +31,20 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API は同期になり、任意のコールバックは不要になりました。
 
 ```javascript
-// Deprecated
+// 非推奨
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// こちらに置換
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+登録または干渉されたプロトコルは、ナビゲーションが発生するまで現在のページに影響しません。
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+この API は非推奨です。ユーザーは、代わりに `protocol.isProtocolRegistered` および `protocol.isProtocolIntercepted` を使用する必要があります。
 
 ```javascript
 // Deprecated
