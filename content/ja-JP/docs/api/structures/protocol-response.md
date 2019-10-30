@@ -1,9 +1,9 @@
-# ProtocolResponse Object
+# ProtocolResponse オブジェクト
 
-* `error` Integer (optional) - When assigned, the `request` will fail with the `error` number . 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
-* `statusCode` Number (optional) - The HTTP response code, default is 200.
-* `charset` String (optional) - The charset of response body, default is `"utf-8"`.
-* `mimeType` String (optional) - The MIME type of response body, default is `"text/html"`. Setting `mimeType` would implicitly set the `content-type` header in response, but if `content-type` is already set in `headers`, the `mimeType` would be ignored.
+* `error` Integer (任意) - 代入すると、その `request` は `error` の番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
+* `statusCode` Number (任意) - HTTP レスポンスコード。省略値は、200 です。
+* `charset` String (任意) - レスポンスの本文の文字集合。省略値は、`"utf-8"` です。
+* `mimeType` String (任意) - レスポンスの本文の MIME タイプ。省略値は、`"text/html"` です。 Setting `mimeType` would implicitly set the `content-type` header in response, but if `content-type` is already set in `headers`, the `mimeType` would be ignored.
 * `headers` Record<string, string | string[]> (optional) - An object containing the response headers. The keys must be String, and values must be either String or Array of String.
 * `data` (Buffer | String | ReadableStream) (optional) - The response body. When returning stream as response, this is a Node.js readable stream representing the response body. When returning `Buffer` as response, this is a `Buffer`. When returning `String` as response, this is a `String`. This is ignored for other types of responses.
 * `path` String (optional) - Path to the file which would be sent as response body. This is only used for file responses.
