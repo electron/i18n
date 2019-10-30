@@ -4,7 +4,7 @@
 
 現時点では、Electron でデフォルトで `NetworkService` を有効にする時期は推定されていませんが、Chromium は既に `NetworkService` 以外のコードを削除しているため、Electron 10 より前に切り替わる可能性があります。
 
-The content of this document should be moved to `protocol.md` after we have enabled the `NetworkService` by default in Electron.
+Electron でデフォルトで `NetworkService` を有効にされれば、このドキュメントの内容を `protocol.md` に移動する必要があります。
 
 > カスタムプロトコルを登録し、既存のプロトコルリクエストを傍受します。
 
@@ -28,9 +28,9 @@ app.on('ready', () => {
 
 ## `protocol` をカスタムの `partition` や `session` で使用する
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+プロトコルは特定の Electron [`session`](./session.md) オブジェクトに登録されます。 セッションを指定しない場合は、Electron が使用するデフォルトセッションに `protocol` が適用されます。 ただし、`browserWindow` の `webPreferences` に `partition` または `session` を定義すると、そのウィンドウに `electron.protocol.XXX` を使用しただけでは別のセッションやカスタムプロトコルは機能しません。
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+カスタムプロトコルをカスタムセッションと組み合わせて機能させるには、それを明示的にそのセッションに登録する必要があります。
 
 ```javascript
 const { session, app, protocol } = require('electron')
@@ -59,9 +59,9 @@ app.on('ready', () => {
 
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API. Specify a privilege with the value of `true` to enable the capability.
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API をサポートします。 機能を有効にするには、`true` の値で特権を指定します。
 
-An example of registering a privileged scheme, that bypasses Content Security Policy:
+以下はコンテンツセキュリティポリシーをバイパスする特権スキームを登録する例です。
 
 ```javascript
 const { protocol } = require('electron')
@@ -72,7 +72,7 @@ protocol.registerSchemesAsPrivileged([
 
 標準スキームは、RFC 3986 で [Generic URI Syntax](https://tools.ietf.org/html/rfc3986#section-3) と呼ぶものに準拠しています。 例えば `http` と `https` は標準スキームですが、`file` はそうではありません。
 
-Registering a scheme as standard allows relative and absolute resources to be resolved correctly when served. そうでないと、スキームは `file` プロトコルのように動作しますが、相対 URL を解決することはできません。
+スキームを標準として登録することにより、サービスが提供されるときに相対的および絶対的なリソースが正しく解決されます。 そうでないと、スキームは `file` プロトコルのように動作しますが、相対 URL を解決することはできません。
 
 たとえば、標準スキームとして登録せずにカスタムプロトコルで以下のページをロードすると、非標準スキームが相対URLを認識できないため、イメージはロードされません。
 
@@ -84,7 +84,7 @@ Registering a scheme as standard allows relative and absolute resources to be re
 
 スキームを標準で登録すると、[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
