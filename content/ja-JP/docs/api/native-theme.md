@@ -1,28 +1,28 @@
 # nativeTheme
 
-> Read and respond to changes in Chromium's native color theme.
+> Chromium のネイティブカラーテーマの変更を読み取って対応します。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ## イベント
 
-The `nativeTheme` module emits the following events:
+`nativeTheme` モジュールには以下のイベントがあります。
 
 ### イベント: 'updated'
 
-Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
+基になる NativeTheme の何かが変更されたときに発行されます。 これは通常、`shouldUseDarkColors`、`shouldUseHighContrastColors` または `shouldUseInvertedColorScheme` のいずれかの値が変更されたことを意味します。 それらを確認して、どれが変更されたかを判断する必要があります。
 
 ## プロパティ
 
-The `nativeTheme` module has the following properties:
+`nativeTheme` モジュールには以下のプロパティがあります。
 
-### `nativeTheme.shouldUseDarkColors` _Readonly_
+### `nativeTheme.shouldUseDarkColors` _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is being instructed to show a dark-style UI.  If you want to modify this value you should use `themeSource` below.
+OS / Chromium で現在ダークモードが有効になっている、またはダークスタイルの UI を表示するように指示されているかどうかの `Boolean`。  この値を変更する場合は、以下の `themeSource` を使用する必要があります。
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supercede the value that Chromium has chosen to use internally.
+`String` 型のプロパティです。`system`、`light` か `dark` にできます。  It is used to override and supercede the value that Chromium has chosen to use internally.
 
 Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
 
