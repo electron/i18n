@@ -10,7 +10,7 @@
 
 ### Node Headers URL
 
-これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。 Both will be supported for the foreseeable future but it is recommended that you switch.
+これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。 両方とも近い将来サポートされますが、切り替えることを推奨します。
 
 非推奨: https://atom.io/download/electron
 
