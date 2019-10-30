@@ -120,6 +120,7 @@ async function fetchTutorialsFromMasterBranch() {
   docs
     .filter((doc: IElectronDocsResponse) => !doc.filename.startsWith('api/'))
     .filter((doc: IElectronDocsResponse) => !doc.filename.includes('images/'))
+    .filter((doc: IElectronDocsResponse) => !doc.filename.includes('fiddles/'))
     .forEach(writeDoc)
 
   return Promise.resolve()
