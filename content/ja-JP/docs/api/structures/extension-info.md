@@ -1,4 +1,4 @@
-# ExtensionInfo Object
+# ExtensionInfo オブジェクト
 
 * `name` String
 * `version` String
