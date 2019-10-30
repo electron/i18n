@@ -1,4 +1,4 @@
-# FilePathWithHeaders Object
+# FilePathWithHeaders オブジェクト
 
-* `path` String - The path to the file to send.
-* `headers` Record<string, string> (optional) - Additional headers to be sent.
+* `path` String - 送るファイルのパス。
+* `headers` Record<string, string> (任意) - 追加で送るヘッダー。
