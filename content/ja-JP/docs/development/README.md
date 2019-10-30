@@ -20,5 +20,5 @@
 * [Windows におけるデバッグ](debug-instructions-windows.md)
 * [macOS におけるデバッグ](debugging-instructions-macos.md)
 * [デバッガでシンボルサーバを設定](setting-up-symbol-server.md)
-* [Patches](patches.md)
+* [パッチ](patches.md)
 * [Nodeのアップグレード](upgrading-node.md)
