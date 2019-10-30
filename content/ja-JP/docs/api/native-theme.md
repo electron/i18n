@@ -30,15 +30,15 @@ OS / Chromium で現在ダークモードが有効になっている、または
 * `nativeTheme.shouldUseDarkColors` はアクセス時に `true` になります
 * Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 ダーク UI を使用します。
 * OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて ダーク UI を使用します。
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `dark` mode.
-* The `updated` event will be emitted
+* [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS が `dark` モードに親和します。
+* `updated` イベントが発生します。
 
-Settings this property to `light` will have the following effects:
-* `nativeTheme.shouldUseDarkColors` will be `false` when accessed
-* Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 will use the light UI.
-* OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて will use the light UI.
+このプロパティを `light` に設定すると、以下の効果があります。
+* `nativeTheme.shouldUseDarkColors` はアクセス時に `false` になります
+* Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 ライト UI を使用します。
+* OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて ライト UI を使用します。
 * The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `light` mode.
-* The `updated` event will be emitted
+* `updated` イベントが発生します。
 
 The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
 * `Follow OS` --> `themeSource = 'system'`
