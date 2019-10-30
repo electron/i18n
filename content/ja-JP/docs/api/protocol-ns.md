@@ -84,7 +84,7 @@ protocol.registerSchemesAsPrivileged([
 
 スキームを標準で登録すると、[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
 
-デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
@@ -94,11 +94,11 @@ protocol.registerSchemesAsPrivileged([
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
+ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `handler` は `request` と `callback` で呼び出されます。この `request` は `scheme` の接続リクエストです。
 
-`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 The `filePath` must be an absolute path.
+`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 `filePath` は絶対パスでなければなりません。
 
-By default the `scheme` is treated like `http:`, which is parsed differently from protocols that follow the "generic URI syntax" like `file:`.
+デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違った解析がなされます。
 
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
@@ -110,7 +110,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 `Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`Buffer` オブジェクトか `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
@@ -130,7 +130,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 `String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`String` か `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
@@ -142,7 +142,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`url` プロパティを持つオブジェクトで呼び出す必要があります。
 
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
@@ -152,9 +152,9 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a stream as a response.
+ストリームをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、[`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) オブジェクトか `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
@@ -163,7 +163,7 @@ const { protocol } = require('electron')
 const { PassThrough } = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough も ReadableStream の一種
   rv.push(text)
   rv.push(null)
   return rv
@@ -180,7 +180,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Readable ストリーム API (`data` / `end` / `error` イベントが発生するもの) を実装するオブジェクトを渡すことが可能です。 例として、ファイルを返す方法を以下に示します。
 
 ```javascript
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -198,7 +198,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already registered.
+戻り値 `Boolean` - `scheme` がすでに登録されているかどうか。
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
@@ -260,4 +260,4 @@ Returns `Boolean` - Whether `scheme` is already registered.
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already intercepted.
+戻り値 `Boolean` - `scheme` がすでにインターセプトされているかどうか。
