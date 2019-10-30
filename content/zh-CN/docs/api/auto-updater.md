@@ -6,7 +6,7 @@
 
 **请参阅：在应用程序中如何实现更新的详细指南。**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater`是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## 跨平台提醒
 
@@ -68,7 +68,7 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**注意:**：严格来说不需要处理此事件。即时成功下载之后，下一次应用程序启动时，仍将继续下载更新文件。
 
 ### Event: 'before-quit-for-update'
 
