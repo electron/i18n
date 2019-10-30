@@ -23,7 +23,7 @@ app.dock.bounce()
 
 `informational` が渡されると、ドックアイコンが 1 秒間バウンスします。 ただし、アプリケーションがアクティブになるかリクエストがキャンセルされるまで、そのリクエストはアクティブのままです。
 
-**Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
+**注釈:** このメソッドは、アプリがフォーカスされていないときにのみ使用できます。アプリがフォーカスされていると -1 を返します。
 
 #### `dock.cancelBounce(id)` _macOS_
 
@@ -63,11 +63,11 @@ Returns `Boolean` - Dock のアイコンが表示されているかどうか。
 
 * `menu` [Menu](menu.md)
 
-Sets the application's \[dock menu\]\[dock-menu\].
+アプリケーションの \[Dock メニュー\]\[dock-menu\] を設定します。
 
 #### `dock.getMenu()` _macOS_
 
-Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
+戻り値 `Menu | null` - アプリケーションの \[Dock メニュー\]\[dock-menu\]。
 
 #### `dock.setIcon(image)` _macOS_
 
