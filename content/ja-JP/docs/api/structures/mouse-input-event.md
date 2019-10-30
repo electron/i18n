@@ -1,11 +1,11 @@
-# MouseInputEvent Object extends `InputEvent`
+# MouseInputEvent オブジェクト extends `InputEvent`
 
-* `type` String - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` or `mouseMove`.
+* `type` String - イベントのタイプ。`mouseDown`、`mouseUp`、`mouseEnter`、`mouseLeave`、`contextMenu`、`mouseWheel`、`mouseMove` になります。
 * `x` Integer
 * `y` Integer
-* `button` String (optional) - The button pressed, can be `left`, `middle`, `right`.
-* `globalX` Integer (optional)
-* `globalY` Integer (optional)
-* `movementX` Integer (optional)
-* `movementY` Integer (optional)
-* `clickCount` Integer (optional)
+* `button` String (任意) - 押されたボタン。`left`、`middle`、`right` にできる。
+* `globalX` Integer (任意)
+* `globalY` Integer (任意)
+* `movementX` Integer (任意)
+* `movementY` Integer (任意)
+* `clickCount` Integer (任意)
