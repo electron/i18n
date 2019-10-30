@@ -47,9 +47,9 @@ protocol.registerFileProtocol(scheme, handler)
 この API は非推奨です。ユーザーは、代わりに `protocol.isProtocolRegistered` および `protocol.isProtocolIntercepted` を使用する必要があります。
 
 ```javascript
-// Deprecated
+// 非推奨
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// こちらに置換
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
