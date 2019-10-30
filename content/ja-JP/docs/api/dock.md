@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-以下の例は、Dock でアイコンを跳ねさせる方法を示しています。
+以下の例は、Dock でアイコンをバウンスさせる方法を示しています。
 
 ```javascript
 const { app } = require('electron')
@@ -21,7 +21,7 @@ app.dock.bounce()
 
 `critical` が渡された場合、ドックのアイコンはアプリケーションがアクティブになるか、リクエストがキャンセルされるまでバウンスします。
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+`informational` が渡されると、ドックアイコンが 1 秒間バウンスします。 ただし、アプリケーションがアクティブになるかリクエストがキャンセルされるまで、そのリクエストはアクティブのままです。
 
 **Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
 
