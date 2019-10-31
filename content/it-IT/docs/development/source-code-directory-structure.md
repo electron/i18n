@@ -16,8 +16,8 @@ Electron
 |   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
 |   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
+|   |   |   └── cocoa/ - Codice sorgente specifico di Cocoa.
+L'implementazione delle principali API di processo.
 |   |   ├── net/ - Network related code.
 |   |   ├── mac/ - Mac specific Objective-C source code.
 |   |   └── resources/ - Icons, platform-dependent files, etc.
