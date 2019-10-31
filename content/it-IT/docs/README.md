@@ -31,7 +31,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
   * [Usare API di Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Usare API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Usare Moduli Nativi Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [Strategie di prestazione](tutorial/performance.md)
 * Aggiungere Funzioni Alla Tua App 
   * [Notifiche](tutorial/notifications.md)
   * [Documenti Recenti](tutorial/recent-documents.md)
