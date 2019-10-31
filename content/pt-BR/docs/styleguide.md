@@ -101,43 +101,43 @@ Using `autoUpdater` as an example:
 * Propriedades da instância devem ser listadas em um `### Propriedades da Instância` capítulo. 
   * Propriedades da instância devem começar com "A [Tipo de Propriedade]..."
 
-Using the `Session` and `Cookies` classes as an example:
+Usando as classes `Session` e `Cookies` como exemplo:
 
 ```markdown
 # session
 
-## Methods
+## Métodos
 
 ### session.fromPartition(partition)
 
-## Static Properties
+## Propriedades Estáticas
 
 ### session.defaultSession
 
-## Class: Session
+## Classe: Session
 
-### Instance Events
+### Eventos de Instância
 
 #### Event: 'will-download'
 
-### Instance Methods
+### Métodos de Instância
 
 #### `ses.getCacheSize()`
 
-### Instance Properties
+### Propriedades de Instância
 
 #### `ses.cookies`
 
-## Class: Cookies
+## Classe: Cookies
 
-### Instance Methods
+### Métodos de Instância
 
 #### `cookies.get(filter, callback)`
 ```
 
 ### Métodos
 
-The methods chapter must be in the following form:
+O capítulo de métodos deve estar no seguinte formato:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
