@@ -33,11 +33,11 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ## 1) Carelessly including modules
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+Node.js モジュールをアプリケーションに追加する前に、そのモジュールを調べましょう。 そのモジュールにはどれだけの依存関係が含まれているのか? どの種類のリソースが、単に `require()` 文で呼び出す必要があるのか? NPM パッケージレジストリでダウンロード数が最も多かったり GitHub で最もスターの数が多かったりするモジュールは、実際には利用可能なもののうち最もすっきりとした最小のものではない場合があります。
 
 ### なぜ？
 
-The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
+この推奨事項の背後にある理由は、実例で最もよく説明されています。 Electron の初期の頃は、ネットワーク接続の信頼できる検出が問題でした。そのため、多くのアプリは簡易な `isOnline()` メソッドを公開しているモジュールを使用していました。
 
 That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
 
