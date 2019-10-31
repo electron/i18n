@@ -8,7 +8,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ## 計って、測って、図る
 
-以下のリストには、かなり簡単で実装しやすい手順がいくつか含まれています。 しかし、アプリを最もパフォーマンスの良いバージョンに構築するには、多くの手順を超える必要があります。 Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
+以下のリストには、かなり簡単で実装しやすい手順がいくつか含まれています。 しかし、アプリを最もパフォーマンスの良いバージョンに構築するには、多くの手順を超える必要があります。 代わりに、慎重にプロファイリングして測定することでアプリで実行されているすべてのコードを詳しく調べる必要があります。 ボトルネックはどこ? いつユーザーがボタンをクリックして、どの操作が時間を浪費をしてる? While the app is simply idling, which objects take up the most memory?
 
 Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
 
