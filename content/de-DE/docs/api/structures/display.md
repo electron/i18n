@@ -7,8 +7,8 @@
 * `monochrome` Boolean - Ob das Display ein monochromes Display ist oder nicht.
 * `accelerometerSupport` String - Kann `available`, `unavailable`, `unknown` sein.
 * `colorSpace` String - repräsentieren einen Farbraum (dreidimensionales Objekt, das alle realisierbaren Farbkombinationen enthält) für den Zweck der Farbkonvertierungen
-* `colorDepth` Nummer - Die Anzahl der Bits pro Pixel.
-* `depthPerComponent` Nummer - Die Anzahl der Bits pro Farbkomponente.
+* `colorDepth` Number - Die Anzahl der Bits pro Pixel.
+* `depthPerComponent` Number - Die Anzahl der Bits pro Farbkomponente.
 * `bounds` [Rectangle](rectangle.md) Boundings des Displays
 * `size` [Size](size.md)
 * workArea Rectangle
