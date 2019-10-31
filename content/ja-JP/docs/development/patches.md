@@ -1,10 +1,10 @@
-# Patches in Electron
+# Electron のパッチ
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
+Electron は、Chromium と Node.js という 2 つのメジャーな上流プロジェクトで構築されています。 これらのプロジェクトにも、それぞれ独自の依存関係がいくつかあります。 これらの依存関係をそのまま使用するように最善を尽くしていますが、ユースケースに合わせて上流の依存関係にパッチを適用しないと目標を達成できない場合があります。
 
 ## Patch justification
 
-Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Electron でのパッチは、すべてメンテナンスの負担になります。 When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
 
 1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
 2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
