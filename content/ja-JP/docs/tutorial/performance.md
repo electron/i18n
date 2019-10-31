@@ -14,7 +14,7 @@ Time and time again, we have seen that the most successful strategy for building
 
 To learn more about how to profile your app's code, familiarize yourself with the Chrome Developer Tools. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
 
-### Recommended Reading
+### 推薦図書
 
  * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
  * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
