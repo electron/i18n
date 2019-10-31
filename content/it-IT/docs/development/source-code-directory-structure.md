@@ -49,9 +49,9 @@ L'implementazione delle principali API di processo.
 
 I file in `/chromium_src` sono di solito parti di Chromium che non appartengono al livello dei contenuti. Per esempio, nell'implementazione delle Pepper API abbiamo bisogno di connessioni implementate in maniera del tutto simile a quella adottata dalla distribuzione ufficiale di Chrome. Avremmo potuto compilare le parti più importanti dei sorgenti includendole in [libcc](../glossary.md#libchromiumcontent) ma molto spesso non abbiamo bisogno di tutte le funzionalità (alcune in effetti sembrano codice proprietario, con funzioni di analisi statistica), così abbiamo preso solo alcune parti del codice. Queste avrebbero potuto essere implementate come patch di libcc, ma quando furono scritte uno degli obiettivi principali di libcc era di avere patch di dimensioni molto ridotte, mentre i cambiamenti apportati a chromium_src sono di solito importanti. Inoltre le patch non sarebbero mai entrate a far parte della distribuzione principale, a differenza delle altre patch di libcc che manteniamo abitualmente.
 
-## Structure of Other Directories
+## Struttura delle altre cartelle
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
 * **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
 * **node_modules** - Third party node modules used for building.
