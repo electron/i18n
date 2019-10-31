@@ -1,14 +1,14 @@
-# Performance
+# パフォーマンス
 
-Developers frequently ask about strategies to optimize the performance of Electron applications. Software engineers, consumers, and framework developers do not always agree on one single definition of what "performance" means. This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
+開発者は Electron アプリケーションのパフォーマンスを最適化するための戦略について頻繁に尋ねます。 ソフトウェアエンジニア、消費者、フレームワークの開発者は、常に "パフォーマンス" は何を意味するかという 1 つの定義には同意しません。 このドキュメントでは、使用しているメモリ、CPU、およびディスクリソースの量を削減し、アプリがユーザー入力に応答し、操作をできるだけ早く完了するようにする、Electron メンテナー御用達の方法のいくつかを概説します。 さらに、すべてのパフォーマンス戦略においてアプリは高いセキュリティ水準を維持する必要があります。
 
-Wisdom and information about how to build performant websites with JavaScript generally applies to Electron apps, too. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
+JavaScript でパフォーマンスの高いウェブサイトを構築する方法に関する知恵と情報は、Electron アプリにも一般的に適用されます。 ある程度であれば、パフォーマンスの高い Node.js アプリケーションを構築する方法を述べたノウハウも適用されますが、Node.js バックエンドでの "パフォーマンス" という用語はクライアントで実行されるアプリケーションとは異なることを意味することに注意してください。
 
-This list is provided for your convenience – and is, much like our [security checklist](./security.md) – not meant to exhaustive. It is probably possible to build a slow Electron app that follows all the steps outlined below. Electron is a powerful development platform that enables you, the developer, to do more or less whatever you want. All that freedom means that performance is largely your responsibility.
+このリストは利便性のために提供されており、[セキュリティチェックリスト](./security.md) とよく似ていますが、完全なものではありません。 以下に概説するすべての手順に従っても、遅い Electron アプリを構築してしまうかもしれません。 Electron は強力な開発プラットフォームであり、開発者であるあなたがやりたいことは多かれ少なかれ行うことができます。 その自由はパフォーマンスがほとんどあなたの責任であることを意味します。
 
-## Measure, Measure, Measure
+## 計って、測って、図る
 
-The list below contains a number of steps that are fairly straightforward and easy to implement. However, building the most performant version of your app will require you to go beyond a number of steps. Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
+以下のリストには、かなり簡単で実装しやすい手順がいくつか含まれています。 しかし、アプリを最もパフォーマンスの良いバージョンに構築するには、多くの手順を超える必要があります。 Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
 
 Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
 
@@ -16,8 +16,8 @@ To learn more about how to profile your app's code, familiarize yourself with th
 
 ### 推薦図書
 
- * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+ * [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+ * [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## チェックリスト
 
