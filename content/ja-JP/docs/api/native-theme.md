@@ -1,56 +1,56 @@
 # nativeTheme
 
-> Read and respond to changes in Chromium's native color theme.
+> Chromium のネイティブカラーテーマの変更を読み取って対応します。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ## イベント
 
-The `nativeTheme` module emits the following events:
+`nativeTheme` モジュールには以下のイベントがあります。
 
 ### イベント: 'updated'
 
-Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
+基になる NativeTheme の何かが変更されたときに発行されます。 これは通常、`shouldUseDarkColors`、`shouldUseHighContrastColors` または `shouldUseInvertedColorScheme` のいずれかの値が変更されたことを意味します。 それらを確認して、どれが変更されたかを判断する必要があります。
 
 ## プロパティ
 
-The `nativeTheme` module has the following properties:
+`nativeTheme` モジュールには以下のプロパティがあります。
 
-### `nativeTheme.shouldUseDarkColors` _Readonly_
+### `nativeTheme.shouldUseDarkColors` _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is being instructed to show a dark-style UI.  If you want to modify this value you should use `themeSource` below.
+OS / Chromium で現在ダークモードが有効になっている、またはダークスタイルの UI を表示するように指示されているかどうかの `Boolean`。  この値を変更する場合は、以下の `themeSource` を使用する必要があります。
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supercede the value that Chromium has chosen to use internally.
+`String` 型のプロパティです。`system`、`light` か `dark` にできます。  Chromium が内部で使用することを選択した値をオーバーライドして置き換えるために使用されます。
 
-Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
+このプロパティを `system` に設定するとオーバーライドが削除され、すべてが OS のデフォルトにリセットされます。  既定の `themeSource` は `system` です。
 
-Settings this property to `dark` will have the following effects:
-* `nativeTheme.shouldUseDarkColors` will be `true` when accessed
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `dark` mode.
-* The `updated` event will be emitted
+このプロパティを `dark` に設定すると、以下の効果があります。
+* `nativeTheme.shouldUseDarkColors` はアクセス時に `true` になります
+* Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 ダーク UI を使用します。
+* OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて ダーク UI を使用します。
+* [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS が `dark` モードに親和します。
+* `updated` イベントが発生します。
 
-Settings this property to `light` will have the following effects:
-* `nativeTheme.shouldUseDarkColors` will be `false` when accessed
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `light` mode.
-* The `updated` event will be emitted
+このプロパティを `light` に設定すると、以下の効果があります。
+* `nativeTheme.shouldUseDarkColors` はアクセス時に `false` になります
+* Linux および Windows でのコンテキストメニュー、デベロッパーツールなどを含む UI Electron の描画は、 ライト UI を使用します。
+* OS がメニュー、ウィンドウフレームなどを含む macOS 上でレンダリングする UI は、すべて ライト UI を使用します。
+* [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS が `light` モードに親和します。
+* `updated` イベントが発生します。
 
-The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
-* `Follow OS` --> `themeSource = 'system'`
-* `Dark Mode` --> `themeSource = 'dark'`
-* `Light Mode` --> `themeSource = 'light'`
+このプロパティを使用するにあたって、ユーザーに以下のような 3 つの選択肢がある、古典的なアプリケーションの "ダークモード" ステートマシンに合わせるべきです。
+* `OS 準拠` --> `themeSource = 'system'`
+* `ダークモード` --> `themeSource = 'dark'`
+* `ライトモード` --> `themeSource = 'light'`
 
-Your application should then always use `shouldUseDarkColors` to determine what CSS to apply.
+アプリケーションは、`shouldUseDarkColors` を使用して、適用する CSS を常に決定する必要があります。
 
-### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-constrast UI.
+OS / Chromium で現在ハイコントラストモードが有効になっている、またはハイコントラスト UI を表示するように指示されているかどうかの `Boolean`。
 
-### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _読み出し専用_
 
-A `Boolean` for if the OS / Chromium currently has an inverted color scheme or is being instructed to use an inverted color scheme.
+OS / Chromium が現在反転カラースキームを持っている、または反転カラースキームを使用するように指示されているかどうかの `Boolean`。

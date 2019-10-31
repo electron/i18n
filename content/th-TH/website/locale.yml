@@ -27,7 +27,7 @@ keyboard_modal:
 docs:
   title: เอกสารประกอบของ อิเล็กตรอน
   description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
-  guides: "Guides: Getting Started with Electron"
+  guides: "คู่มือ: การเริ่มต้นใช้งาน Electron"
   api_reference: API อ้างอิง
   api_structures: โครงสร้าง API
   advanced: ขั้นสูง

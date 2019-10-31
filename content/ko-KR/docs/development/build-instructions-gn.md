@@ -230,7 +230,7 @@ gclient sync -f --with_branch_heads --with_tags
     </p>
     
     <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
-  --ci --enable-logging -g 'BrowserWindow module'
+  --enable-logging -g 'BrowserWindow module'
 </code></pre>
     
     <h2>

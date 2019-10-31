@@ -230,8 +230,8 @@ gclient sync -f --with_branch_heads --with_tags
       If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
     </p>
     
-    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
-  --ci --enable-logging -g 'BrowserWindow module'
+    <pre><code class="sh">$ ./out/Debug/Electron.app/Conteúdo/MacOS/Electron electron/spec \
+  --enable-logging -g 'BrowserWindow module'
 </code></pre>
     
     <h2>

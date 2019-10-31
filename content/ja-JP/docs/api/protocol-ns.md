@@ -1,10 +1,10 @@
-# protocol (NetworkService) (Draft)
+# protocol (NetworkService) (草案)
 
-This document describes the new protocol APIs based on the [NetworkService](https://www.chromium.org/servicification).
+このドキュメントでは、[NetworkService](https://www.chromium.org/servicification) に基づいた新しい protocol API について説明します。
 
-We don't currently have an estimate of when we will enable the `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we will probably switch before Electron 10.
+現時点では、Electron でデフォルトで `NetworkService` を有効にする時期は推定されていませんが、Chromium は既に `NetworkService` 以外のコードを削除しているため、Electron 10 より前に切り替わる可能性があります。
 
-The content of this document should be moved to `protocol.md` after we have enabled the `NetworkService` by default in Electron.
+Electron でデフォルトで `NetworkService` を有効にされれば、このドキュメントの内容を `protocol.md` に移動する必要があります。
 
 > カスタムプロトコルを登録し、既存のプロトコルリクエストを傍受します。
 
@@ -28,9 +28,9 @@ app.on('ready', () => {
 
 ## `protocol` をカスタムの `partition` や `session` で使用する
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+プロトコルは特定の Electron [`session`](./session.md) オブジェクトに登録されます。 セッションを指定しない場合は、Electron が使用するデフォルトセッションに `protocol` が適用されます。 ただし、`browserWindow` の `webPreferences` に `partition` または `session` を定義すると、そのウィンドウに `electron.protocol.XXX` を使用しただけでは別のセッションやカスタムプロトコルは機能しません。
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+カスタムプロトコルをカスタムセッションと組み合わせて機能させるには、それを明示的にそのセッションに登録する必要があります。
 
 ```javascript
 const { session, app, protocol } = require('electron')
@@ -59,9 +59,9 @@ app.on('ready', () => {
 
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API. Specify a privilege with the value of `true` to enable the capability.
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API をサポートします。 機能を有効にするには、`true` の値で特権を指定します。
 
-An example of registering a privileged scheme, that bypasses Content Security Policy:
+以下はコンテンツセキュリティポリシーをバイパスする特権スキームを登録する例です。
 
 ```javascript
 const { protocol } = require('electron')
@@ -72,7 +72,7 @@ protocol.registerSchemesAsPrivileged([
 
 標準スキームは、RFC 3986 で [Generic URI Syntax](https://tools.ietf.org/html/rfc3986#section-3) と呼ぶものに準拠しています。 例えば `http` と `https` は標準スキームですが、`file` はそうではありません。
 
-Registering a scheme as standard allows relative and absolute resources to be resolved correctly when served. そうでないと、スキームは `file` プロトコルのように動作しますが、相対 URL を解決することはできません。
+スキームを標準として登録することにより、サービスが提供されるときに相対的および絶対的なリソースが正しく解決されます。 そうでないと、スキームは `file` プロトコルのように動作しますが、相対 URL を解決することはできません。
 
 たとえば、標準スキームとして登録せずにカスタムプロトコルで以下のページをロードすると、非標準スキームが相対URLを認識できないため、イメージはロードされません。
 
@@ -84,7 +84,7 @@ Registering a scheme as standard allows relative and absolute resources to be re
 
 スキームを標準で登録すると、[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) を介してファイルにアクセスできます。 そうしない場合、レンダラーはスキームのセキュリティエラーをスローします。
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+デフォルトの非標準スキームでは、ウェブストレージ API (localStorage、sessionStorage、webSQL、indexedDB、クッキー) が無効にされます。 そのため、一般的に、カスタムプロトコルを登録して `http` プロトコルを置き換える場合は、標準のスキームとして登録する必要があります。
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
@@ -94,11 +94,11 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
+ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `handler` は `request` と `callback` で呼び出されます。この `request` は `scheme` の接続リクエストです。
 
-`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 The `filePath` must be an absolute path.
+`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({ path: filePath })` で呼び出す必要があります。 `filePath` は絶対パスでなければなりません。
 
-By default the `scheme` is treated like `http:`, which is parsed differently from protocols that follow the "generic URI syntax" like `file:`.
+デフォルトでは、`scheme` は `http:` のように扱われます。これは、`file:` のような "Generic URI Syntax" に従うプロトコルとは違った解析がなされます。
 
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
@@ -110,7 +110,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
 
 `Buffer` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`Buffer` オブジェクトか `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
@@ -130,7 +130,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 `String` をレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`String` か `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
@@ -142,7 +142,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 HTTP リクエストをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、`url` プロパティを持つオブジェクトで呼び出す必要があります。
 
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
@@ -152,9 +152,9 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a stream as a response.
+ストリームをレスポンスとして送信する `scheme` のプロトコルを登録します。
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
+使い方は `registerFileProtocol` と同じですが、 `callback` を、[`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) オブジェクトか `data` プロパティを持つオブジェクトで呼び出す必要があります。
 
 サンプル:
 
@@ -163,7 +163,7 @@ const { protocol } = require('electron')
 const { PassThrough } = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough is also a Readable stream
+  const rv = new PassThrough() // PassThrough も ReadableStream の一種
   rv.push(text)
   rv.push(null)
   return rv
@@ -180,7 +180,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Readable ストリーム API (`data` / `end` / `error` イベントが発生するもの) を実装するオブジェクトを渡すことが可能です。 例として、ファイルを返す方法を以下に示します。
 
 ```javascript
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -198,7 +198,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already registered.
+戻り値 `Boolean` - `scheme` がすでに登録されているかどうか。
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
@@ -260,4 +260,4 @@ Returns `Boolean` - Whether `scheme` is already registered.
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already intercepted.
+戻り値 `Boolean` - `scheme` がすでにインターセプトされているかどうか。

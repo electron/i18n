@@ -6,7 +6,7 @@
 
 **请参阅：在应用程序中如何实现更新的详细指南。**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater`是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## 跨平台提醒
 
@@ -68,7 +68,7 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**注意:**：严格来说不需要处理此事件。即时成功下载之后，下一次应用程序启动时，仍将继续下载更新文件。
 
 ### Event: 'before-quit-for-update'
 
@@ -84,7 +84,7 @@
 
 * `options` Object 
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
+  * `headers` Record<String, String> (可选) *macOS* - HTTP 请求头。
   * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
 设置检查更新的 `url`，并且初始化自动更新。
@@ -103,4 +103,4 @@
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**注意:** 严格来讲，执行一次自动更新不一定要调用此方法。因为下载更新文件成功之后，下次应用启动的时候会强制更新。
