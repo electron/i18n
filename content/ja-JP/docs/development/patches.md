@@ -4,13 +4,13 @@ Electron は、Chromium と Node.js という 2 つのメジャーな上流プ�
 
 ## Patch justification
 
-Electron でのパッチは、すべてメンテナンスの負担になります。 When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Electron でのパッチは、すべてメンテナンスの負担になります。 上流のコードが変更されると、パッチが壊れる―パッチの競合やコンパイルエラーが発生することがあります。 これはパッチセットを最新かつ効果的に保つための継続的な取り組みです。 そのため、パッチの数を最小限に抑えるよう努めています。 そのために、すべてのパッチには、コミットメッセージに存在する理由を記述する必要があります。 その理由は、以下のいずれかでなければなりません。
 
-1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
-2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
-3. The patch makes Electron-specific changes in functionality which are fundamentally incompatible with upstream.
+1. パッチは一時的なものであり、上流にコミットされる (またはされている) か、最終的に削除されることを意図している。 上流の PR へのリンク、利用可能であればそのコードレビュー、後でパッチがまだ必要かどうかを確認する手順、これらのうちいずれかを含めている。
+2. このパッチによってコードが Electron 環境でコンパイルできようになるが、Electron 固有の処理 (たとえば、Chrome の `Profile` への参照のパッチを当てる) であるため上流にできない。 パッチなし (たとえば、サブクラス化またはコードのコピーによるもの) では変更を実装できない理由についての論述を含む。
+3. パッチは、基本的に上流と互換性のない機能に Electron 固有の変更を加えます。
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
+基本的に、私たちが作業するすべての上流プロジェクトは友好的な人々が携わっており、問題のコードが Electron と上流プロジェクトの両方と互換性を持つようにするリファクタリングを喜んで受け入れてくれます。 (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
 
 ## Patch system
 
