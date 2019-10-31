@@ -10,5 +10,5 @@
 * `url` String (任意) - `url` をダウンロードし、結果をレスポンス本文としてパイプします。 これは URL レスポンスにのみ使用されます。
 * `referrer` String (任意) - `referrer` の URL。 これはファイルと URL のレスポンスにのみ使用されます。
 * `method` String (任意) - HTTP の `method`。 これはファイルと URL のレスポンスにのみ使用されます。
-* `session` Session (optional) - The session used for requesting URL, by default the HTTP request will reuse the current session. Setting `session` to `null` would use a random independent session. これは URL レスポンスにのみ使用されます。
+* `session` Session (任意) - URL のリクエストに使用されるセッション。省略すると、HTTP リクエストには現在のセッションを再利用します。 Setting `session` to `null` would use a random independent session. これは URL レスポンスにのみ使用されます。
 * `uploadData` ProtocolResponseUploadData (optional) - The data used as upload data. This is only used for URL responses when `method` is `"POST"`.
