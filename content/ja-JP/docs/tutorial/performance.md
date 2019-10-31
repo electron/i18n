@@ -12,7 +12,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 幾度となく、パフォーマンスの高い Electron アプリを構築するための最も成功した戦略は、実行中のコードのプロファイルを作成し、その中で最もリソースを消費する部分を見つけ、最適化することであることがわかりました。 この一見面倒なプロセスを何度も繰り返すと、アプリのパフォーマンスは劇的に向上します。 Visual Studio Code や Slack などの主要なアプリで使用された経験から、この方法がパフォーマンスを向上させる最も信頼できる戦略であることが示されています。
 
-アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
+アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 複数のプロセスを一度に見る高度な分析は、[Chrome Tracing] ツールを検討してみてください。
 
 ### 推薦図書
 
@@ -21,7 +21,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ## チェックリスト
 
-Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
+これらの手順を実行すると、アプリが少しだけ無駄なく、高速になり、一般的にリソースの消費が少なくなる可能性があります。
 
 1) [Carelessly including modules](#1-carelessly-including-modules) 2) [Loading and running code too soon](#2-loading-and-running-code-too-soon) 3) [Blocking the main process](#3-blocking-the-main-process) 4) [Blocking the renderer process](#4-blocking-the-renderer-process) 5) [Unnecessary polyfills](#5-unnecessary-polyfills) 6) [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests) 7) [Bundle your code](#7-bundle-your-code)
 
