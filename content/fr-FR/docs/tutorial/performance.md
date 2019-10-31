@@ -23,7 +23,13 @@ To learn more about how to profile your app's code, familiarize yourself with th
 
 Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
 
-1) [Carelessly including modules](#1-carelessly-including-modules) 2) [Loading and running code too soon](#2-loading-and-running-code-too-soon) 3) [Blocking the main process](#3-blocking-the-main-process) 4) [Blocking the renderer process](#4-blocking-the-renderer-process) 5) [Unnecessary polyfills](#5-unnecessary-polyfills) 6) [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests) 7) [Bundle your code](#7-bundle-your-code)
+1. [Carelessly including modules](#1-carelessly-including-modules)
+2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
+3. [Blocking the main process](#3-blocking-the-main-process)
+4. [Blocking the renderer process](#4-blocking-the-renderer-process)
+5. [Unnecessary polyfills](#5-unnecessary-polyfills)
+6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
+7. [Bundle your code](#7-bundle-your-code)
 
 ## 1) Carelessly including modules
 
@@ -235,4 +241,3 @@ Modern JavaScript development usually involves many files and modules. While tha
 There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 
 As of writing this article, the popular choices include [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), and [rollup.js](https://rollupjs.org/).
-[chrome-tracing-tutorial]:
