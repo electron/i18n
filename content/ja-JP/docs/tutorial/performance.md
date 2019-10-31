@@ -8,11 +8,11 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ## 計って、測って、図る
 
-以下のリストには、かなり簡単で実装しやすい手順がいくつか含まれています。 しかし、アプリを最もパフォーマンスの良いバージョンに構築するには、多くの手順を超える必要があります。 代わりに、慎重にプロファイリングして測定することでアプリで実行されているすべてのコードを詳しく調べる必要があります。 ボトルネックはどこ? いつユーザーがボタンをクリックして、どの操作が時間を浪費をしてる? While the app is simply idling, which objects take up the most memory?
+以下のリストには、かなり簡単で実装しやすい手順がいくつか含まれています。 しかし、アプリを最もパフォーマンスの良いバージョンに構築するには、多くの手順を超える必要があります。 代わりに、慎重にプロファイリングして測定することでアプリで実行されているすべてのコードを詳しく調べる必要があります。 ボトルネックはどこ? いつユーザーがボタンをクリックして、どの処理が時間を浪費をしている? アプリがただアイドル状態の間、どのオブジェクトが最もメモリを食っている?
 
-Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
+幾度となく、パフォーマンスの高い Electron アプリを構築するための最も成功した戦略は、実行中のコードのプロファイルを作成し、その中で最もリソースを消費する部分を見つけ、最適化することであることがわかりました。 この一見面倒なプロセスを何度も繰り返すと、アプリのパフォーマンスは劇的に向上します。 Visual Studio Code や Slack などの主要なアプリで使用された経験から、この方法がパフォーマンスを向上させる最も信頼できる戦略であることが示されています。
 
-To learn more about how to profile your app's code, familiarize yourself with the Chrome Developer Tools. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
+アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
 
 ### 推薦図書
 
