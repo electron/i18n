@@ -156,7 +156,7 @@ Electron と Chromium は、UI スレッドのブロックを回避するため�
 
 Electron の強力なマルチプロセスアーキテクチャは、長時間実行するタスクを支援する準備ができていますが、少数のパフォーマンストラップも含まれています。
 
-1) For long running CPU-heavy tasks, make use of [worker threads](https://nodejs.org/api/worker_threads.html), consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
+1) 長時間実行される CPU 負荷の高いタスクについては、[Worker Thread](https://nodejs.org/api/worker_threads.html) を使用するか、それらを BrowserWindow に移動することを検討するか、(最後の手段として) 専用プロセスを生成します。
 
 2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
 
