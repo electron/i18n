@@ -171,13 +171,13 @@ Electron には Chrome の最新バージョンが同梱されているため、
 
 レンダラープロセスで実行する JavaScript が、アプリに多く含まれているのかもしれません。 その仕掛けは、60fps でユーザー入力、アニメーションへの対応、スムーズなスクロールを維持するために、必要なリソースを奪わずに可能な限り迅速に操作を実行することです。
 
-Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
+レンダラーのコードで操作の流れを調整することは、ユーザーがアプリの "カクつき" を時々訴える場合に特に役立ちます。
 
 ### どうすればいいの？
 
-Generally speaking, all advice for building performant web apps for modern browsers apply to Electron's renderers, too. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
+平たく言えば、最新のブラウザー用の高性能ウェブアプリを構築するためのすべてのアドバイスは、Electron のレンダリングにも適用されます。 現在、自由に使える 2 つの主要なツールがあります。小規模な操作用の `requestIdleCallback()` と、長時間実行する操作用の `Web Workers` です。
 
-*`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
 *Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
 
