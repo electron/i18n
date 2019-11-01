@@ -190,9 +190,9 @@ Electron の大きな利点の1つは、JavaScript、HTML、CSS をどのエン�
 
 今日のインターネット用のウェブアプリケーションを構築する場合、最も古い環境では、使用できる機能と使用できない機能が決まります。 Electron はパフォーマンスの良い CSS フィルターとアニメーションをサポートしていますが、古いブラウザはそうではないかもしれません。 WebGL を使用できる場合、古いスマートフォンをサポートするために、開発者はそのようなより多くのリソースを必要とする解決方法を選択していた可能性があります。
 
-When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
+JavaScript に関しては、DOM セレクター用の jQuery や `regenerator-runtime` のような `async/await` をサポートするための polyfill ツールキットライブラリを含めることができます。
 
-It is rare for a JavaScript-based polyfill to be faster than the equivalent native feature in Electron. Do not slow down your Electron app by shipping your own version of standard web platform features.
+JavaScript ベースの polyfill が Electron の同等のネイティブ機能よりも高速になることはまれです。 Do not slow down your Electron app by shipping your own version of standard web platform features.
 
 ### どうすればいいの？
 
