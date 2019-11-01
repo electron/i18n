@@ -26,7 +26,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 1. [迂闊なモジュール採用](#1-carelessly-including-modules)
 2. [あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)
 3. [メインプロセスをブロックしている](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
+4. [レンダラープロセスをブロックしている](#4-blocking-the-renderer-process)
 5. [Unnecessary polyfills](#5-unnecessary-polyfills)
 6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
 7. [Bundle your code](#7-bundle-your-code)
@@ -158,12 +158,12 @@ Electron の強力なマルチプロセスアーキテクチャは、長時間�
 
 1) 長時間実行される CPU 負荷の高いタスクについては、[Worker Thread](https://nodejs.org/api/worker_threads.html) を使用するか、それらを BrowserWindow に移動することを検討するか、(最後の手段として) 専用プロセスを生成します。
 
-2) 同期 IPC と `remote` モジュールの使用はできるだけ避けてください。 While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
+2) 同期 IPC と `remote` モジュールの使用はできるだけ避けてください。 正しい使用方法もありますが、`remote` モジュールを使用して知らないうちに UI スレッドをブロックするのは非常に容易です。
 
-3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
+3) メインプロセスでブロックする I/O 操作の使用を避けてください。 要するに、コア Node.js モジュール (`fs` や `child_process` など) が同期バージョンと非同期バージョンを提供している場合は、常に非同期および非ブロッキングのものを選択するべきです。
 
 
-## 4) Blocking the renderer process
+## 4) レンダラープロセスをブロックしている
 
 Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
 
