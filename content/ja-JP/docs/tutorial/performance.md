@@ -41,16 +41,16 @@ Node.js モジュールをアプリケーションに追加する前に、その
 
 そのモジュールは、多くの有名なエンドポイントに到達するかどうかでネットワーク接続を検出しました。 これらのエンドポイントのリストについては、既知のポートのリストも含まれる別のモジュールに依存していました。 この依存モジュール自身は、ポートに関する情報を含むモジュールに依存していました。これは、100,000 行を超える内容の JSON ファイルの形式で提供されていました。 モジュールがロードされるたびに (通常は `require('module')` 文で)、すべての依存関係をロードし、最終的にこの JSON ファイルを読み取って解析します。 数千行の JSON の解析は非常に重い操作です。 遅いマシンでは、全体で数秒かかる場合があります。
 
-多くのサーバーコンテキストでは、起動にかかる時間は実質的に無関係です。 A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+多くのサーバーコンテキストでは、起動にかかる時間は実質的に無関係です。 すべてのポートに関する情報を必要とする Node.js サーバーは、サーバーが起動してリクエストをより高速に処理できるようになると、必要なすべての情報をメモリにロードするため実際に "パフォーマンスが向上" します。 この例で説明するモジュールは、"悪質な" モジュールではありません。 ただし、Electron アプリでは、実際に必要のない情報をメモリに読み込んで解析したり保存したりするべきではありません。
 
-In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
+要するに、主に Linux で実行する Node.js サーバー用に書かれた一見優れたモジュールは、アプリのパフォーマンスにとって悪いニュースかもしれません。 この特定の例での正しいソリューションは、モジュールはまったく使用せず、代わりに Chromium の後のバージョンに含まれる接続チェックを使用することでした。
 
 ### どうすればいいの？
 
-When considering a module, we recommend that you check:
+モジュールを検討するときは、以下を確認することを推奨します。
 
-1. the size of dependencies included 2) the resources required to load (`require()`) it
-3. the resources required to perform the action you're interested in
+1. 依存関係のサイズ。2) のロードに必要なリソース (` require()`) も含まれます。
+3. 関心のあるアクションを実行するために必要なリソース
 
 Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
 
