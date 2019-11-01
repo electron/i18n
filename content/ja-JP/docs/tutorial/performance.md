@@ -23,7 +23,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 これらの手順を実行すると、アプリが少しだけ無駄なく、高速になり、一般的にリソースの消費が少なくなる可能性があります。
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
+1. [迂闊なモジュール採用](#1-carelessly-including-modules)
 2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
 3. [Blocking the main process](#3-blocking-the-main-process)
 4. [Blocking the renderer process](#4-blocking-the-renderer-process)
@@ -31,7 +31,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
 7. [Bundle your code](#7-bundle-your-code)
 
-## 1) Carelessly including modules
+## 1) 迂闊なモジュール採用
 
 Node.js モジュールをアプリケーションに追加する前に、そのモジュールを調べましょう。 そのモジュールにはどれだけの依存関係が含まれているのか? どの種類のリソースが、単に `require()` 文で呼び出す必要があるのか? NPM パッケージレジストリでダウンロード数が最も多かったり GitHub で最もスターの数が多かったりするモジュールは、実際には利用可能なもののうち最もすっきりとした最小のものではない場合があります。
 
@@ -52,31 +52,31 @@ Node.js モジュールをアプリケーションに追加する前に、その
 1. 依存関係のサイズ。2) のロードに必要なリソース (` require()`) も含まれます。
 3. 関心のあるアクションを実行するために必要なリソース
 
-Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
+モジュールをロードするときの CPU プロファイルとヒープメモリプロファイルの生成は、コマンドライン上の 1 つのコマンドで実行できます。 以下の例では、人気のあるモジュール `request` を見ていきます。
 
 ```sh
 node --cpu-prof --heap-prof -e "require('request')"
 ```
 
-Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
+このコマンドを実行すると、実行したディレクトリに `.cpuprofile` ファイルと `.heapprofile` ファイルが作成されます。 両方のファイルは、Chrome デベロッパーツールを使用して、それぞれ `Performance` および `Memory` タブを使用して分析できます。
 
 ![performance-cpu-prof](../images/performance-cpu-prof.png)
 
 ![performance-heap-prof](../images/performance-heap-prof.png)
 
-In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
+この例では、著者のマシンで `request` のロードに約 0.5 秒かかったのに対し、`node-fetch` のメモリ消費は劇的に少なく、50ms 未満でした。
 
 ## 2) Loading and running code too soon
 
-If you have expensive setup operations, consider deferring those. Inspect all the work being executed right after the application starts. Instead of firing off all operations right away, consider staggering them in a sequence more closely aligned with the user's journey.
+重いセットアップ操作がある場合は、それらを後回しすることを検討してください。 アプリケーションの起動直後に実行されているすべての作業を調べます。 すべての操作をすぐに実行するのではなく、ユーザーの行程により近い順序で操作をずらすことを検討してください。
 
-In traditional Node.js development, we're used to putting all our `require()` statements at the top. If you're currently writing your Electron application using the same strategy _and_ are using sizable modules that you do not immediately need, apply the same strategy and defer loading to a more opportune time.
+従来の Node.js 開発では、すべての `require()` ステートメントを先頭に配置する慣習がありました。 いま同じ戦略を使用 _しつつ_ すぐ必要ではないサイズの大きいモジュールを使用している Electron アプリケーションを作成している場合、同じ戦略のうえで、より適切なタイミングで読み込むように後回しします。
 
 ### なぜ？
 
-Loading modules is a surprisingly expensive operation, especially on Windows. When your app starts, it should not make users wait for operations that are currently not necessary.
+モジュールのロードは、特に Windows では驚くほど重い操作です。 アプリの起動時に、ユーザーに現在必要のない操作で待たせてはなりません。
 
-This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
+これは当たり前のように思えるかもしれませんが、多くのアプリケーションは、更新の確認、後のフローで使用されるコンテンツのダウンロード、重いディスク I/O 操作の実行など、アプリの起動直後に大量の作業を行う傾向があります。
 
 Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
 
