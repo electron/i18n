@@ -1,82 +1,88 @@
-# Performance
+# パフォーマンス
 
-Developers frequently ask about strategies to optimize the performance of Electron applications. Software engineers, consumers, and framework developers do not always agree on one single definition of what "performance" means. This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
+開発者は Electron アプリケーションのパフォーマンスを最適化するための戦略について頻繁に尋ねます。 ソフトウェアエンジニア、消費者、フレームワークの開発者は、常に "パフォーマンス" は何を意味するかという 1 つの定義には同意しません。 このドキュメントでは、使用しているメモリ、CPU、およびディスクリソースの量を削減し、アプリがユーザー入力に応答し、操作をできるだけ早く完了するようにする、Electron メンテナー御用達の方法のいくつかを概説します。 さらに、すべてのパフォーマンス戦略においてアプリは高いセキュリティ水準を維持する必要があります。
 
-Wisdom and information about how to build performant websites with JavaScript generally applies to Electron apps, too. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
+JavaScript でパフォーマンスの高いウェブサイトを構築する方法に関する知恵と情報は、Electron アプリにも一般的に適用されます。 ある程度であれば、パフォーマンスの高い Node.js アプリケーションを構築する方法を述べたノウハウも適用されますが、Node.js バックエンドでの "パフォーマンス" という用語はクライアントで実行されるアプリケーションとは異なることを意味することに注意してください。
 
-This list is provided for your convenience – and is, much like our [security checklist](./security.md) – not meant to exhaustive. It is probably possible to build a slow Electron app that follows all the steps outlined below. Electron is a powerful development platform that enables you, the developer, to do more or less whatever you want. All that freedom means that performance is largely your responsibility.
+このリストは利便性のために提供されており、[セキュリティチェックリスト](./security.md) とよく似ていますが、完全なものではありません。 以下に概説するすべての手順に従っても、遅い Electron アプリを構築してしまうかもしれません。 Electron は強力な開発プラットフォームであり、開発者であるあなたがやりたいことは多かれ少なかれ行うことができます。 その自由はパフォーマンスがほとんどあなたの責任であることを意味します。
 
-## Measure, Measure, Measure
+## 計って、測って、図る
 
-The list below contains a number of steps that are fairly straightforward and easy to implement. However, building the most performant version of your app will require you to go beyond a number of steps. Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
+以下のリストには、かなり簡単で実装しやすい手順がいくつか含まれています。 しかし、アプリを最もパフォーマンスの良いバージョンに構築するには、多くの手順を超える必要があります。 代わりに、慎重にプロファイリングして測定することでアプリで実行されているすべてのコードを詳しく調べる必要があります。 ボトルネックはどこ? いつユーザーがボタンをクリックして、どの処理が時間を浪費をしている? アプリがただアイドル状態の間、どのオブジェクトが最もメモリを食っている?
 
-Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
+幾度となく、パフォーマンスの高い Electron アプリを構築するための最も成功した戦略は、実行中のコードのプロファイルを作成し、その中で最もリソースを消費する部分を見つけ、最適化することであることがわかりました。 この一見面倒なプロセスを何度も繰り返すと、アプリのパフォーマンスは劇的に向上します。 Visual Studio Code や Slack などの主要なアプリで使用された経験から、この方法がパフォーマンスを向上させる最も信頼できる戦略であることが示されています。
 
-To learn more about how to profile your app's code, familiarize yourself with the Chrome Developer Tools. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
+アプリのコードをプロファイリングする方法について知りたいのであれば、Chrome デベロッパーツールと仲良くなってください。 複数のプロセスを一度に見る高度な分析は、[Chrome Tracing] ツールを検討してみてください。
 
-### Recommended Reading
+### 推薦図書
 
- * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+ * [始めよう実行時パフォーマンス分析](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+ * [談話: "Visual Studio Code - 最初の一秒"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## チェックリスト
 
-Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
+これらの手順を実行すると、アプリが少しだけ無駄なく、高速になり、一般的にリソースの消費が少なくなる可能性があります。
 
-1) [Carelessly including modules](#1-carelessly-including-modules) 2) [Loading and running code too soon](#2-loading-and-running-code-too-soon) 3) [Blocking the main process](#3-blocking-the-main-process) 4) [Blocking the renderer process](#4-blocking-the-renderer-process) 5) [Unnecessary polyfills](#5-unnecessary-polyfills) 6) [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests) 7) [Bundle your code](#7-bundle-your-code)
+1. [迂闊なモジュール採用](#1-carelessly-including-modules)
+2. [あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)
+3. [Blocking the main process](#3-blocking-the-main-process)
+4. [Blocking the renderer process](#4-blocking-the-renderer-process)
+5. [Unnecessary polyfills](#5-unnecessary-polyfills)
+6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
+7. [Bundle your code](#7-bundle-your-code)
 
-## 1) Carelessly including modules
+## 1) 迂闊なモジュール採用
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+Node.js モジュールをアプリケーションに追加する前に、そのモジュールを調べましょう。 そのモジュールにはどれだけの依存関係が含まれているでしょうか。 どの種類のリソースが、単に `require()` 文で呼び出す必要があるでしょうか。 NPM パッケージレジストリでダウンロード数が最も多かったり GitHub で最もスターの数が多かったりするモジュールは、実際には利用可能なもののうち最もすっきりとした最小のものではない場合があります。
 
 ### なぜ？
 
-The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
+この推奨事項の背後にある理由は、実例で最もよく説明されています。 Electron の初期の頃は、ネットワーク接続の信頼できる検出が問題でした。そのため、多くのアプリは簡易な `isOnline()` メソッドを公開しているモジュールを使用していました。
 
-That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
+そのモジュールは、多くの有名なエンドポイントに到達するかどうかでネットワーク接続を検出しました。 これらのエンドポイントのリストについては、既知のポートのリストも含まれる別のモジュールに依存していました。 この依存モジュール自身は、ポートに関する情報を含むモジュールに依存していました。これは、100,000 行を超える内容の JSON ファイルの形式で提供されていました。 モジュールがロードされるたびに (通常は `require('module')` 文で)、すべての依存関係をロードし、最終的にこの JSON ファイルを読み取って解析します。 数千行の JSON の解析は非常に重い操作です。 遅いマシンでは、全体で数秒かかる場合があります。
 
-In many server contexts, startup time is virtually irrelevant. A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+多くのサーバーコンテキストでは、起動にかかる時間は実質的に無関係です。 すべてのポートに関する情報を必要とする Node.js サーバーは、サーバーが起動してリクエストをより高速に処理できるようになると、必要なすべての情報をメモリにロードするため実際に "パフォーマンスが向上" します。 この例で説明するモジュールは、"悪質な" モジュールではありません。 ただし、Electron アプリでは、実際に必要のない情報をメモリに読み込んで解析したり保存したりするべきではありません。
 
-In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
+要するに、主に Linux で実行する Node.js サーバー用に書かれた一見優れたモジュールは、アプリのパフォーマンスにとって悪いニュースかもしれません。 この特定の例での正しいソリューションは、モジュールはまったく使用せず、代わりに Chromium の後のバージョンに含まれる接続チェックを使用することでした。
 
 ### どうすればいいの？
 
-When considering a module, we recommend that you check:
+モジュールを検討するときは、以下を確認することを推奨します。
 
-1. the size of dependencies included 2) the resources required to load (`require()`) it
-3. the resources required to perform the action you're interested in
+1. 依存関係のサイズ。2) のロードに必要なリソース (` require()`) も含まれます。
+3. 関心のあるアクションを実行するために必要なリソース
 
-Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
+モジュールをロードするときの CPU プロファイルとヒープメモリプロファイルの生成は、コマンドライン上の 1 つのコマンドで実行できます。 以下の例では、人気のあるモジュール `request` を見ていきます。
 
 ```sh
 node --cpu-prof --heap-prof -e "require('request')"
 ```
 
-Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
+このコマンドを実行すると、実行したディレクトリに `.cpuprofile` ファイルと `.heapprofile` ファイルが作成されます。 両方のファイルは、Chrome デベロッパーツールを使用して、それぞれ `Performance` および `Memory` タブを使用して分析できます。
 
 ![performance-cpu-prof](../images/performance-cpu-prof.png)
 
 ![performance-heap-prof](../images/performance-heap-prof.png)
 
-In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
+この例では、著者のマシンで `request` のロードに約 0.5 秒かかったのに対し、`node-fetch` のメモリ消費は劇的に少なく、50ms 未満でした。
 
-## 2) Loading and running code too soon
+## 2) あまりに早いコードのロードと実行
 
-If you have expensive setup operations, consider deferring those. Inspect all the work being executed right after the application starts. Instead of firing off all operations right away, consider staggering them in a sequence more closely aligned with the user's journey.
+重いセットアップ操作がある場合は、それらを後回しすることを検討してください。 アプリケーションの起動直後に実行されているすべての作業を調べます。 すべての操作をすぐに実行するのではなく、ユーザーの行程により近い順序で操作をずらすことを検討してください。
 
-In traditional Node.js development, we're used to putting all our `require()` statements at the top. If you're currently writing your Electron application using the same strategy _and_ are using sizable modules that you do not immediately need, apply the same strategy and defer loading to a more opportune time.
+従来の Node.js 開発では、すべての `require()` ステートメントを先頭に配置する慣習がありました。 いま同じ戦略を使用 _しつつ_ すぐ必要ではないサイズの大きいモジュールを使用している Electron アプリケーションを作成している場合、同じ戦略のうえで、より適切なタイミングで読み込むように後回しします。
 
 ### なぜ？
 
-Loading modules is a surprisingly expensive operation, especially on Windows. When your app starts, it should not make users wait for operations that are currently not necessary.
+モジュールのロードは、特に Windows では驚くほど重い操作です。 アプリの起動時に、ユーザーに現在必要のない操作で待たせてはなりません。
 
-This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
+これは当たり前のように思えるかもしれませんが、多くのアプリケーションは、更新の確認、後のフローで使用されるコンテンツのダウンロード、重いディスク I/O 操作の実行など、アプリの起動直後に大量の作業を行う傾向があります。
 
-Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
+例として Visual Studio Code を考えてみましょう。 ファイルを開くと、コードを強調表示せずにすぐにファイルが表示され、テキストを操作する機能が優先されます。 その作業が完了すると、コードの強調表示に進みます。
 
 ### どうすればいいの？
 
-Let's consider an example and assume that your application is parsing files in the fictitious `.foo` format. In order to do that, it relies on the equally fictitious `foo-parser` module. In traditional Node.js development, you might write code that eagerly loads dependencies:
+例として、アプリケーションが架空の `.foo` 形式のファイルを解析していると仮定しましょう。 それをするためには、同様に架空の `foo-parser` モジュールに依存します。 従来の Node.js 開発では、依存関係を先にロードするコードを作成する場合があります。
 
 ```js
 const fs = require('fs')
@@ -97,28 +103,28 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In the above example, we're doing a lot of work that's being executed as soon as the file is loaded. Do we need to get parsed files right away? Could we do this work a little later, when `getParsedFiles()` is actually called?
+上記の例では、ファイルがロードされるとすぐに多くの作業が実行されます。 解析されたファイルをすぐ取得する必要があるでしょうか。 `getParsedFiles()` が実際に呼び出されたときに、これを少し後で実行できるでしょうか。
 
 ```js
-// "fs" is likely already being loaded, so the `require()` call is cheap
+// "fs" はすでにロードされている可能性が高いため、この `require()` 呼び出しは軽いです
 const fs = require('fs')
 
 class Parser {
   async getFiles () {
-    // Touch the disk as soon as `getFiles` is called, not sooner.
-    // Also, ensure that we're not blocking other operations by using
-    // the asynchronous version.
+    // `getFiles` が呼ばれても、すぐにはディスクに触れません。
+    // また、非同期バージョンを使用して
+    // 他の操作をブロックしないことを保証します。
     this.files = this.files || await fs.readdir('.')
 
     return this.files
   }
 
   async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
-    // Since `require()` comes with a module cache, the `require()` call
-    // will only be expensive once - subsequent calls of `getParsedFiles()`
-    // will be faster.
+    // 架空の foo-parser はロードするには大きくて重いモジュールなので、
+    // 実際にファイルを解析する必要があるまでその動作を後回しします。
+    // `require()` にはモジュールキャッシュが付属しているため、
+    // この `require()` 呼び出しは 1 回だけ重く、
+    // 後続の `getParsedFiles()` 呼び出しはより高速になります。
     const fooParser = require('foo-parser')
     const files = await this.getFiles()
 
@@ -126,13 +132,13 @@ class Parser {
   }
 }
 
-// This operation is now a lot cheaper than in our previous example
+// この操作は、前の例よりもはるかに軽くなりました
 const parser = new Parser()
 
 module.exports = { parser }
 ```
 
-In short, allocate resources "just in time" rather than allocating them all when your app starts.
+要するに、アプリの起動時にリソースをすべて割り当てるのではなく、"その時に合わせて" リソースを割り当てます。
 
 ## 3) Blocking the main process
 
@@ -235,4 +241,3 @@ Modern JavaScript development usually involves many files and modules. While tha
 There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
 
 As of writing this article, the popular choices include [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), and [rollup.js](https://rollupjs.org/).
-[chrome-tracing-tutorial]:

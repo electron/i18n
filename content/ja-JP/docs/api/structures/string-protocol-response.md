@@ -1,5 +1,5 @@
-# StringProtocolResponse Object
+# StringProtocolResponse オブジェクト
 
-* `mimeType` String (optional) - MIME type of the response.
-* `charset` String (optional) - Charset of the response.
-* `data` String | null - A string representing the response body.
+* `mimeType` String (任意) - レスポンスの MIME タイプ。
+* `charset` String (任意) - レスポンスの文字集合。
+* `data` String | null - レスポンス本文を表す文字列。

@@ -1,22 +1,22 @@
-# Patches in Electron
+# Electron のパッチ
 
-Electron is built on two major upstream projects: Chromium and Node.js. Each of these projects has several of their own dependencies, too. We try our best to use these dependencies exactly as they are but sometimes we can't achieve our goals without patching those upstream dependencies to fit our use cases.
+Electron は、Chromium と Node.js という 2 つのメジャーな上流プロジェクトで構築されています。 これらのプロジェクトにも、それぞれ独自の依存関係がいくつかあります。 これらの依存関係をそのまま使用するように最善を尽くしていますが、ユースケースに合わせて上流の依存関係にパッチを適用しないと目標を達成できない場合があります。
 
-## Patch justification
+## パッチの正当性
 
-Every patch in Electron is a maintenance burden. When upstream code changes, patches can break—sometimes without even a patch conflict or a compilation error. It's an ongoing effort to keep our patch set up-to-date and effective. So we strive to keep our patch count at a minimum. To that end, every patch must describe its reason for existence in its commit message. That reason must be one of the following:
+Electron でのパッチは、すべてメンテナンスの負担になります。 上流のコードが変更されると、パッチが壊れる―パッチの競合やコンパイルエラーが発生することがあります。 これはパッチセットを最新かつ効果的に保つための継続的な取り組みです。 そのため、パッチの数を最小限に抑えるよう努めています。 そのために、すべてのパッチには、コミットメッセージに存在する理由を記述する必要があります。 その理由は、以下のいずれかでなければなりません。
 
-1. The patch is temporary, and is intended to be (or has been) committed upstream or otherwise eventually removed. Include a link to an upstream PR or code review if available, or a procedure for verifying whether the patch is still needed at a later date.
-2. The patch allows the code to compile in the Electron environment, but cannot be upstreamed because it's Electron-specific (e.g. patching out references to Chrome's `Profile`). Include reasoning about why the change cannot be implemented without a patch (e.g. by subclassing or copying the code).
-3. The patch makes Electron-specific changes in functionality which are fundamentally incompatible with upstream.
+1. パッチは一時的なものであり、上流にコミットされる (またはされている) か、最終的に削除されることを意図している。 上流の PR へのリンク、利用可能であればそのコードレビュー、後でパッチがまだ必要かどうかを確認する手順、これらのうちいずれかを含めている。
+2. このパッチによってコードが Electron 環境でコンパイルできようになるが、Electron 固有の処理 (たとえば、Chrome の `Profile` への参照のパッチを当てる) であるため上流にできない。 パッチなし (たとえば、サブクラス化またはコードのコピーによるもの) では変更を実装できない理由についての論述を含む。
+3. パッチは、基本的に上流と互換性のない機能に Electron 固有の変更を加えます。
 
-In general, all the upstream projects we work with are friendly folks and are often happy to accept refactorings that allow the code in question to be compatible with both Electron and the upstream project. (See e.g. [this](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) change in Chromium, which allowed us to remove a patch that did the same thing, or [this](https://github.com/nodejs/node/pull/22110) change in Node, which was a no-op for Node but fixed a bug in Electron.) **We should aim to upstream changes whenever we can, and avoid indefinite-lifetime patches**.
+基本的に、私たちが作業するすべての上流プロジェクトは友好的な人々が携わっており、問題のコードが Electron と上流プロジェクトの両方と互換性を持つようにするリファクタリングを喜んで受け入れてくれます。 (たとえば、Chromium の [この](https://chromium-review.googlesource.com/c/chromium/src/+/1637040) 変更を挙げると、同じことを行ったパッチを削除しています。また、Node の [この](https://github.com/nodejs/node/pull/22110) 変更は、 Electron のバグ修正でもあります。) **可能な限り上流の変更を目指し、無期限のパッチを避けるべきです**。
 
-## Patch system
+## パッチシステム
 
-If you find yourself in the unfortunate position of having to make a change which can only be made through patching an upstream project, you'll need to know how to manage patches in Electron.
+上流プロジェクトにパッチを適用することによってのみ行うことができる変更を行う必要がある、という不幸な立場にいる場合は、Electron でパッチを管理する方法を知る必要があります。
 
-All patches to upstream projects in Electron are contained in the `patches/` directory. Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+Electron の上流プロジェクトへのすべてのパッチは、`patches/` ディレクトリに含まれています。 Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
 
 ```text
 patches
