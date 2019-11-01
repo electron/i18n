@@ -33,7 +33,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 ## 1) 迂闊なモジュール採用
 
-Node.js モジュールをアプリケーションに追加する前に、そのモジュールを調べましょう。 そのモジュールにはどれだけの依存関係が含まれているのか? どの種類のリソースが、単に `require()` 文で呼び出す必要があるのか? NPM パッケージレジストリでダウンロード数が最も多かったり GitHub で最もスターの数が多かったりするモジュールは、実際には利用可能なもののうち最もすっきりとした最小のものではない場合があります。
+Node.js モジュールをアプリケーションに追加する前に、そのモジュールを調べましょう。 そのモジュールにはどれだけの依存関係が含まれているでしょうか。 どの種類のリソースが、単に `require()` 文で呼び出す必要があるでしょうか。 NPM パッケージレジストリでダウンロード数が最も多かったり GitHub で最もスターの数が多かったりするモジュールは、実際には利用可能なもののうち最もすっきりとした最小のものではない場合があります。
 
 ### なぜ？
 
@@ -82,7 +82,7 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 ### どうすればいいの？
 
-例として、アプリケーションが架空の `.foo` 形式のファイルを解析していると仮定しましょう。 それをするためには、同様に架空の `foo-parser` モジュールに依存します。 In traditional Node.js development, you might write code that eagerly loads dependencies:
+例として、アプリケーションが架空の `.foo` 形式のファイルを解析していると仮定しましょう。 それをするためには、同様に架空の `foo-parser` モジュールに依存します。 従来の Node.js 開発では、依存関係を先にロードするコードを作成する場合があります。
 
 ```js
 const fs = require('fs')
@@ -103,7 +103,7 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In the above example, we're doing a lot of work that's being executed as soon as the file is loaded. Do we need to get parsed files right away? Could we do this work a little later, when `getParsedFiles()` is actually called?
+上記の例では、ファイルがロードされるとすぐに多くの作業が実行されます。 解析されたファイルをすぐ取得する必要があるでしょうか。 `getParsedFiles()` が実際に呼び出されたときに、これを少し後で実行できるでしょうか。
 
 ```js
 // "fs" is likely already being loaded, so the `require()` call is cheap
