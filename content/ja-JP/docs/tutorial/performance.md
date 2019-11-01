@@ -212,7 +212,7 @@ TypeScript などのトランスパイラー/コンパイラを使用してい�
 Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 適切なデスクトップアプリケーションを作成するには、可能な限り "そのコードを切り出し" ます。
  - そして、アプリに変更されない、簡単に同梱できるリソースのせいでユーザーを待たせないようにします。
 
-A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
+Google Fonts は典型例です。 多くの開発者は、コンテンツ配信ネットワークに付属する Google の印象的な無料フォントのコレクションを利用しています。 行程は簡単です。CSS に数行を含めると、Google が残りを処理します。
 
 When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
 
