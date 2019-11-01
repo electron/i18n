@@ -142,7 +142,7 @@ module.exports = { parser }
 
 ## 3) Blocking the main process
 
-Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+Electron のメインプロセス ("ブラウザプロセス" と呼ばれることもあります) は特別です。これは、アプリの他のすべてのプロセスの親プロセスであり、オペレーティングシステムが相互作用する一次プロセスです。 ウィンドウ、インタラクション、アプリ内のさまざまなコンポーネント間の通信を処理します。 UI スレッドも保持します。
 
 Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
 
