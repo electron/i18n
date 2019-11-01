@@ -190,27 +190,27 @@ Electron の大きな利点の1つは、JavaScript、HTML、CSS をどのエン�
 
 今日のインターネット用のウェブアプリケーションを構築する場合、最も古い環境では、使用できる機能と使用できない機能が決まります。 Electron はパフォーマンスの良い CSS フィルターとアニメーションをサポートしていますが、古いブラウザはそうではないかもしれません。 WebGL を使用できる場合、古いスマートフォンをサポートするために、開発者はそのようなより多くのリソースを必要とする解決方法を選択していた可能性があります。
 
-JavaScript に関しては、DOM セレクター用の jQuery や `regenerator-runtime` のような `async/await` をサポートするための polyfill ツールキットライブラリを含めることができます。
+JavaScript に関しては、DOM セレクターのためだけの jQuery や `regenerator-runtime` のような `async/await` をサポートするためだけの polyfill ツールキットライブラリを含めることができます。
 
-JavaScript ベースの polyfill が Electron の同等のネイティブ機能よりも高速になることはまれです。 Do not slow down your Electron app by shipping your own version of standard web platform features.
+JavaScript ベースの polyfill が Electron の同等のネイティブ機能よりも高速になることはまれです。 標準ウェブプラットフォームの機能を自作して、Electron アプリの速度を落とさないでください。
 
 ### どうすればいいの？
 
-Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check \[caniuse.com\]\[https://caniuse.com/\] and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
+Electron の現在のバージョンへの ployfill は不要であるという仮定の下で操作します。 疑問がある場合は、\[caniuse.com\]\[https://caniuse.com/\] を確認し、[利用している Electron のバージョンに対応した Chromium のバージョン](../api/process.md#processversionschrome-readonly) が必要な機能をサポートしているかどうかを確認してください。
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+さらに、使用するライブラリを注意深く調べてください。 本当に必要なものでしょうか。 たとえば、`jQuery` は非常に成功したため、その機能の多くが [利用可能な標準 JavaScript 機能セット](http://youmightnotneedjquery.com/) の一部になりました。
 
-If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
+TypeScript などのトランスパイラー/コンパイラを使用している場合は、その構成を調べて、Electron でサポートされている最新の ECMAScript バージョンをターゲットにしていることを確認してください。
 
 
-## 6) Unnecessary or blocking network requests
+## 6) 不要またはブロックしているネットワークリクエスト
 
-Avoid fetching rarely changing resources from the internet if they could easily be bundled with your application.
+めったに変更されないリソースをアプリケーションへ簡単にバンドルできる場合は、インターネットから取得しないでください。
 
 ### なぜ？
 
-Many users of Electron start with an entirely web-based app that they're turning into a desktop application. As web developers, we are used to loading resources from a variety of content delivery networks. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible
- - and avoid letting your users wait for resources that never change and could easily be included  in your app.
+Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 適切なデスクトップアプリケーションを作成するには、可能な限り "そのコードを切り出し" ます。
+ - そして、アプリに変更されない、簡単に同梱できるリソースのせいでユーザーを待たせないようにします。
 
 A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
 
