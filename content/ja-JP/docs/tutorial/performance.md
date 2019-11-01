@@ -24,7 +24,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 これらの手順を実行すると、アプリが少しだけ無駄なく、高速になり、一般的にリソースの消費が少なくなる可能性があります。
 
 1. [迂闊なモジュール採用](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
+2. [あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)
 3. [Blocking the main process](#3-blocking-the-main-process)
 4. [Blocking the renderer process](#4-blocking-the-renderer-process)
 5. [Unnecessary polyfills](#5-unnecessary-polyfills)
@@ -66,7 +66,7 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 この例では、著者のマシンで `request` のロードに約 0.5 秒かかったのに対し、`node-fetch` のメモリ消費は劇的に少なく、50ms 未満でした。
 
-## 2) Loading and running code too soon
+## 2) あまりに早いコードのロードと実行
 
 重いセットアップ操作がある場合は、それらを後回しすることを検討してください。 アプリケーションの起動直後に実行されているすべての作業を調べます。 すべての操作をすぐに実行するのではなく、ユーザーの行程により近い順序で操作をずらすことを検討してください。
 
