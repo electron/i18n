@@ -226,18 +226,18 @@ Electron アプリを作成するとき、フォントをダウンロードし�
 
 次のステップとして、`Network Throttling` を有効にします。 現在 `Online` と表示されているドロップダウンを見つけて、`Fast 3G` などの低速なものを選択します。 レンダラーをリロードし、アプリが不必要に待機しているリソースがあるかどうかを確認します。 アプリは多くの場合、実際に関連するリソースを必要としないにもかかわらず、ネットワークリクエストが完了するのを待っています。
 
-As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+豆知識として、アプリケーションの更新を公開するのではなくインターネットから変更したいリソースをロードすることも強力な戦略です。 リソースのロード方法を高度に制御するには、[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) への注力を検討してください。
 
-## 7) Bundle your code
+## 7) コードをバンドルする
 
-As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
+"[あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)" で既に指摘したように、`require()` の呼び出しはコストのかかる操作です。 可能であれば、アプリケーションのコードを単一のファイルにバンドルしましょう。
 
 ### なぜ？
 
-Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
+最新の JavaScript 開発には通常、多くのファイルとモジュールが含まれます。 Electron での開発にはこれで十分ですが、アプリケーションをロードするときに `require()` の呼び出しに含まれるオーバーヘッドが一度だけ支払われるように、すべてのコードを1つのファイルにバンドルすることを強く推奨します。
 
 ### どうすればいいの？
 
-There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
+多数の JavaScript バンドルが存在しますが、あるツールを別のツールよりも推奨してコミュニティを怒らせるよりも、良い方法が知られています。 ただし、Node.js 環境とブラウザ環境の両方を処理する必要がある Electron 独自の環境を処理できるバンドラーを使用することを推奨します。
 
-As of writing this article, the popular choices include [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), and [rollup.js](https://rollupjs.org/).
+この記事を書いている時点での一般的な選択肢には、[Webpack](https://webpack.js.org/)、[Parcel](https://parceljs.org/)、および [rollup.js](https://rollupjs.org/) があります。
