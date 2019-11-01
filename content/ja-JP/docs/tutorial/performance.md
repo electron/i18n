@@ -214,17 +214,17 @@ Electron の多くのユーザーは、デスクトップアプリケーショ�
 
 Google Fonts は典型例です。 多くの開発者は、コンテンツ配信ネットワークに付属する Google の印象的な無料フォントのコレクションを利用しています。 行程は簡単です。CSS に数行を含めると、Google が残りを処理します。
 
-When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
+Electron アプリを作成するとき、フォントをダウンロードしてアプリのバンドルに含めると、ユーザーの体感が向上します。
 
 ### どうすればいいの？
 
-In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
+理想的な世界では、アプリケーションが動作するためにはネットワークをまったく必要としません。 そこに到達するには、アプリが何をダウンロードしていてどのくらい大きいリソースなのかを理解する必要があります。
 
-To do so, open up the developer tools. Navigate to the `Network` tab and check the `Disable cache` option. Then, reload your renderer. Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
+そのためには、デベロッパーツールを開きます。 `Network` タブに移動し、`Disable cache` オプションにチェックを入れます。 そして、レンダラーをリロードします。 アプリでこのようなリロードが禁止されていない限り、通常、開発者ツールにフォーカスを置いて `Cmd + R` または `Ctrl + R` を押すと、リロードを発生させられます。
 
-The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
+これでこのツールはすべてのネットワーク要求を綿密に記録します。 最初のパスでは、ダウンロードされるすべてのリソースの在庫を確認し、最初に大きなファイルに注目します。 変更されず、バンドルに含めることができるような画像、フォント、メディアファイルはあるでしょうか。 もしあれば、同梱しましょう。
 
-As a next step, enable `Network Throttling`. Find the drop-down that currently reads `Online` and select a slower speed such as `Fast 3G`. Reload your renderer and see if there are any resources that your app is unnecessarily waiting for. In many cases, an app will wait for a network request to complete despite not actually needing the involved resource.
+次のステップとして、`Network Throttling` を有効にします。 現在 `Online` と表示されているドロップダウンを見つけて、`Fast 3G` などの低速なものを選択します。 レンダラーをリロードし、アプリが不必要に待機しているリソースがあるかどうかを確認します。 アプリは多くの場合、実際に関連するリソースを必要としないにもかかわらず、ネットワークリクエストが完了するのを待っています。
 
 As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
 
