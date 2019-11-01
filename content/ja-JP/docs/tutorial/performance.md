@@ -106,25 +106,25 @@ module.exports = { parser }
 上記の例では、ファイルがロードされるとすぐに多くの作業が実行されます。 解析されたファイルをすぐ取得する必要があるでしょうか。 `getParsedFiles()` が実際に呼び出されたときに、これを少し後で実行できるでしょうか。
 
 ```js
-// "fs" is likely already being loaded, so the `require()` call is cheap
+// "fs" はすでにロードされている可能性が高いため、この `require()` 呼び出しは軽いです
 const fs = require('fs')
 
 class Parser {
   async getFiles () {
-    // Touch the disk as soon as `getFiles` is called, not sooner.
-    // Also, ensure that we're not blocking other operations by using
-    // the asynchronous version.
+    // `getFiles` が呼ばれても、すぐにはディスクに触れません。
+    // また、非同期バージョンを使用して
+    // 他の操作をブロックしないことを保証します。
     this.files = this.files || await fs.readdir('.')
 
     return this.files
   }
 
   async getParsedFiles () {
-    // Our fictitious foo-parser is a big and expensive module to load, so
-    // defer that work until we actually need to parse files.
-    // Since `require()` comes with a module cache, the `require()` call
-    // will only be expensive once - subsequent calls of `getParsedFiles()`
-    // will be faster.
+    // 架空の foo-parser はロードするには大きくて重いモジュールなので、
+    // 実際にファイルを解析する必要があるまでその動作を後回しします。
+    // `require()` にはモジュールキャッシュが付属しているため、
+    // この `require()` 呼び出しは 1 回だけ重く、
+    // 後続の `getParsedFiles()` 呼び出しはより高速になります。
     const fooParser = require('foo-parser')
     const files = await this.getFiles()
 
@@ -132,13 +132,13 @@ class Parser {
   }
 }
 
-// This operation is now a lot cheaper than in our previous example
+// この操作は、前の例よりもはるかに軽くなりました
 const parser = new Parser()
 
 module.exports = { parser }
 ```
 
-In short, allocate resources "just in time" rather than allocating them all when your app starts.
+要するに、アプリの起動時にリソースをすべて割り当てるのではなく、"その時に合わせて" リソースを割り当てます。
 
 ## 3) Blocking the main process
 
