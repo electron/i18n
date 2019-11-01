@@ -29,7 +29,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 4. [レンダラープロセスをブロックしている](#4-blocking-the-renderer-process)
 5. [不要な polyfill](#5-unnecessary-polyfills)
 6. [不要またはブロックしているネットワークリクエスト](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+7. [コードをバンドルする](#7-bundle-your-code)
 
 ## 1) 迂闊なモジュール採用
 
