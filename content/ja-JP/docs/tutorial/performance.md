@@ -188,7 +188,7 @@ Electron の大きな利点の1つは、JavaScript、HTML、CSS をどのエン�
 
 ### なぜ？
 
-When building a web application for today's Internet, the oldest environments dictate what features you can and cannot use. Even though Electron supports well-performing CSS filters and animations, an older browser might not. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
+今日のインターネット用のウェブアプリケーションを構築する場合、最も古い環境では、使用できる機能と使用できない機能が決まります。 Electron はパフォーマンスの良い CSS フィルターとアニメーションをサポートしていますが、古いブラウザはそうではないかもしれません。 WebGL を使用できる場合、古いスマートフォンをサポートするために、開発者はそのようなより多くのリソースを必要とする解決方法を選択していた可能性があります。
 
 When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
 
