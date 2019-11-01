@@ -165,11 +165,11 @@ Electron の強力なマルチプロセスアーキテクチャは、長時間�
 
 ## 4) レンダラープロセスをブロックしている
 
-Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
+Electron には Chrome の最新バージョンが同梱されているため、Web Platform が提供する最新で最良の機能を利用して、アプリをスムーズかつ応答性の良いように維持する手法で重い操作を後回しまたはオフロードできます。
 
 ### なぜ？
 
-Your app probably has a lot of JavaScript to run in the renderer process. The trick is to execute operations as quickly as possible without taking away resources needed to keep scrolling smooth, respond to user input, or animations at 60fps.
+レンダラープロセスで実行する JavaScript が、アプリに多く含まれているのかもしれません。 その仕掛けは、60fps でユーザー入力、アニメーションへの対応、スムーズなスクロールを維持するために、必要なリソースを奪わずに可能な限り迅速に操作を実行することです。
 
 Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
 
