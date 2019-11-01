@@ -78,11 +78,11 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 これは当たり前のように思えるかもしれませんが、多くのアプリケーションは、更新の確認、後のフローで使用されるコンテンツのダウンロード、重いディスク I/O 操作の実行など、アプリの起動直後に大量の作業を行う傾向があります。
 
-Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
+例として Visual Studio Code を考えてみましょう。 ファイルを開くと、コードを強調表示せずにすぐにファイルが表示され、テキストを操作する機能が優先されます。 その作業が完了すると、コードの強調表示に進みます。
 
 ### どうすればいいの？
 
-Let's consider an example and assume that your application is parsing files in the fictitious `.foo` format. In order to do that, it relies on the equally fictitious `foo-parser` module. In traditional Node.js development, you might write code that eagerly loads dependencies:
+例として、アプリケーションが架空の `.foo` 形式のファイルを解析していると仮定しましょう。 それをするためには、同様に架空の `foo-parser` モジュールに依存します。 In traditional Node.js development, you might write code that eagerly loads dependencies:
 
 ```js
 const fs = require('fs')
