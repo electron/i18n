@@ -25,7 +25,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 1. [迂闊なモジュール採用](#1-carelessly-including-modules)
 2. [あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
+3. [メインプロセスをブロックしている](#3-blocking-the-main-process)
 4. [Blocking the renderer process](#4-blocking-the-renderer-process)
 5. [Unnecessary polyfills](#5-unnecessary-polyfills)
 6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
@@ -140,21 +140,21 @@ module.exports = { parser }
 
 要するに、アプリの起動時にリソースをすべて割り当てるのではなく、"その時に合わせて" リソースを割り当てます。
 
-## 3) Blocking the main process
+## 3) メインプロセスをブロックしている
 
 Electron のメインプロセス ("ブラウザプロセス" と呼ばれることもあります) は特別です。これは、アプリの他のすべてのプロセスの親プロセスであり、オペレーティングシステムが相互作用する一次プロセスです。 ウィンドウ、インタラクション、アプリ内のさまざまなコンポーネント間の通信を処理します。 UI スレッドも保持します。
 
-Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
+どんな状況でも、このプロセスと UI スレッドを長い実行時間の操作でブロックしてはなりません。 UI スレッドをブロックすると、メインプロセスが処理を続行できる状態になるまで、アプリ全体がフリーズします。
 
 ### なぜ？
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. If your window is rendering a buttery-smooth animation, it'll need to talk to the GPU process about that – once again going through the main process.
+メインプロセスとその UI スレッドは、本質的にアプリ内の主要な操作の管制塔です。 オペレーティングシステムがマウスクリックについてアプリに通知すると、アプリはウィンドウに到達する前にメインプロセスを通過します。 ウィンドウがぬるぬるした滑らかなアニメーションをレンダリングしている場合、それについて GPU プロセスとやり取りする必要があって―もう一度メインプロセスを通過します。
 
-Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
+Electron と Chromium は、UI スレッドのブロックを回避するために、新しいスレッドに重いディスク I/O および CPU バウンド操作を配置するよう配慮します。 あなたもおなじようにしましょう。
 
 ### どうすればいいの？
 
-Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
+Electron の強力なマルチプロセスアーキテクチャは、長時間実行するタスクを支援する準備ができていますが、少数のパフォーマンストラップも含まれています。
 
 1) For long running CPU-heavy tasks, make use of [worker threads](https://nodejs.org/api/worker_threads.html), consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
 
