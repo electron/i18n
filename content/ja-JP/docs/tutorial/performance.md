@@ -39,9 +39,9 @@ Node.js モジュールをアプリケーションに追加する前に、その
 
 この推奨事項の背後にある理由は、実例で最もよく説明されています。 Electron の初期の頃は、ネットワーク接続の信頼できる検出が問題でした。そのため、多くのアプリは簡易な `isOnline()` メソッドを公開しているモジュールを使用していました。
 
-That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
+そのモジュールは、多くの有名なエンドポイントに到達するかどうかでネットワーク接続を検出しました。 これらのエンドポイントのリストについては、既知のポートのリストも含まれる別のモジュールに依存していました。 この依存モジュール自身は、ポートに関する情報を含むモジュールに依存していました。これは、100,000 行を超える内容の JSON ファイルの形式で提供されていました。 モジュールがロードされるたびに (通常は `require('module')` 文で)、すべての依存関係をロードし、最終的にこの JSON ファイルを読み取って解析します。 数千行の JSON の解析は非常に重い操作です。 遅いマシンでは、全体で数秒かかる場合があります。
 
-In many server contexts, startup time is virtually irrelevant. A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+多くのサーバーコンテキストでは、起動にかかる時間は実質的に無関係です。 A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
 
 In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
 
