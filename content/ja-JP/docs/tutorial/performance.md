@@ -27,7 +27,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 2. [あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)
 3. [メインプロセスをブロックしている](#3-blocking-the-main-process)
 4. [レンダラープロセスをブロックしている](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
+5. [不要な polyfill](#5-unnecessary-polyfills)
 6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
 7. [Bundle your code](#7-bundle-your-code)
 
@@ -177,9 +177,9 @@ Electron には Chrome の最新バージョンが同梱されているため、
 
 平たく言えば、最新のブラウザー用の高性能ウェブアプリを構築するためのすべてのアドバイスは、Electron のレンダリングにも適用されます。 現在、自由に使える 2 つの主要なツールがあります。小規模な操作用の `requestIdleCallback()` と、長時間実行する操作用の `Web Workers` です。
 
-*`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 使用方法の詳細については、[MDNのドキュメントを参照してください](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
-*Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
+*Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント](./multithreading.md) および [Web Worker の MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
 
 
 ## 5) Unnecessary polyfills
