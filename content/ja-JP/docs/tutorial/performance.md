@@ -28,7 +28,7 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 3. [メインプロセスをブロックしている](#3-blocking-the-main-process)
 4. [レンダラープロセスをブロックしている](#4-blocking-the-renderer-process)
 5. [不要な polyfill](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
+6. [不要またはブロックしているネットワークリクエスト](#6-unnecessary-or-blocking-network-requests)
 7. [Bundle your code](#7-bundle-your-code)
 
 ## 1) 迂闊なモジュール採用
@@ -182,9 +182,9 @@ Electron には Chrome の最新バージョンが同梱されているため、
 *Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント](./multithreading.md) および [Web Worker の MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
 
 
-## 5) Unnecessary polyfills
+## 5) 不要な polyfill
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Electron の大きな利点の1つは、JavaScript、HTML、CSS をどのエンジンが解析するかを正確に知っていることです。 ウェブ向けに書かれたコードを再利用する場合は、Electron に含まれている機能を polyfill しないようにしてください。
 
 ### なぜ？
 
