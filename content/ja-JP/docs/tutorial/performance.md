@@ -158,7 +158,7 @@ Electron の強力なマルチプロセスアーキテクチャは、長時間�
 
 1) 長時間実行される CPU 負荷の高いタスクについては、[Worker Thread](https://nodejs.org/api/worker_threads.html) を使用するか、それらを BrowserWindow に移動することを検討するか、(最後の手段として) 専用プロセスを生成します。
 
-2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
+2) 同期 IPC と `remote` モジュールの使用はできるだけ避けてください。 While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
 
 3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
 
