@@ -36,11 +36,11 @@ patches
 
 これらのパッチセットを管理しやすくするために、`git-import-patches` と `git-export-patches` の 2 つのツールを提供しています。 `git-import-patches` は、各パッチを正しい順序で適用し、各パッチのコミットを作成することにより、一連のパッチファイルを git リポジトリにインポートします。 `git-export-patches` は逆の処理を行います。 リポジトリ内の一連の git コミットを、ディレクトリ内の一連のファイルとそれに付随する `.patches` ファイルにエクスポートします。
 
-> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
+> 補足: パッチの順序に関連した競合を減らすために、各ファイルに `001-` のような番号を追加するのではなく、`.patches` ファイルを使用して適用されるパッチの順序を維持しています。 これにより、2 つの PR の両方が同じ番号である次の連番にパッチを追加し、両方がマージされて重複した識別子になるといった状況を防ぎます。 また、連番の間のパッチが追加または削除された場合の混乱も減ります。
 
 ### 使い方
 
-#### Adding a new patch
+#### 新しいパッチの追加
 ```bash session
 $ cd src/third_party/electron_node
 $ vim some/code/file.cc
@@ -48,9 +48,9 @@ $ git commit
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-> **NOTE**: `git-export-patches` ignores any uncommitted files, so you must create a commit if you want your changes to be exported. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
+> **注**: `git-export-patches` はコミットされていないファイルを無視するため、変更をエクスポートする場合はコミットを作成する必要があります。 パッチファイル名はコミットメッセージの件名に使用し、コミットメッセージの本文にパッチの存在理由を含める必要があります。
 
-Re-exporting patches will sometimes cause shasums in unrelated patches to change. This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
+パッチを再エクスポートすると、無関連なパッチの SHA サムが変更される場合があります。 This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
 
 #### Editing an existing patch
 ```bash session
