@@ -50,33 +50,33 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 
 > **注**: `git-export-patches` はコミットされていないファイルを無視するため、変更をエクスポートする場合はコミットを作成する必要があります。 パッチファイル名はコミットメッセージの件名に使用し、コミットメッセージの本文にパッチの存在理由を含める必要があります。
 
-パッチを再エクスポートすると、無関連なパッチの SHA サムが変更される場合があります。 This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
+パッチを再エクスポートすると、無関連なパッチの SHA サムが変更される場合があります。 これは一般に無害であり、無視することができます (ただし、これらの変更を PR に追加しても他の人には見えません)。
 
-#### Editing an existing patch
+#### 既存のパッチを編集する
 ```bash session
 $ cd src/v8
 $ vim some/code/file.cc
 $ git log
-# Find the commit sha of the patch you want to edit.
+# 編集するパッチのコミット SHA を見つけます。
 $ git commit --fixup [COMMIT_SHA]
 $ git rebase --autosquash -i [COMMIT_SHA]^
 $ ../electron/script/git-export-patches -o ../electron/patches/v8
 ```
 
-#### Removing a patch
+#### パッチを削除する
 ```bash session
 $ vim src/electron/patches/node/.patches
-# Delete the line with the name of the patch you want to remove
+# 削除するパッチ名の行を削除します
 $ cd src/third_party/electron_node
 $ git reset --hard refs/patches/upstream-head
 $ ../../electron/script/git-import-patches ../../electron/patches/node
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
+注意として、`git-import-patches` は `refs/patches/upstream-head` として実行されたときに `HEAD` だったコミットをマークします。 これにより、Electron パッチからのコミット (`refs/patches/upstream-head` の後にあるコミット) と上流にあるコミット (`refs/patches/upstream-head` の前にあるコミット) を追跡できます。
 
 #### コンフリクトの解決
-When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
+上流の依存関係を更新するとき、パッチをきれいに適用できない場合があります。 Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
 
 ```bash session
 $ cd src/third_party/electron_node
