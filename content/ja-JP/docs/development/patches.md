@@ -16,11 +16,11 @@ Electron でのパッチは、すべてメンテナンスの負担になりま�
 
 上流プロジェクトにパッチを適用することによってのみ行うことができる変更を行う必要がある、という不幸な立場にいる場合は、Electron でパッチを管理する方法を知る必要があります。
 
-Electron の上流プロジェクトへのすべてのパッチは、`patches/` ディレクトリに含まれています。 Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+Electron の上流プロジェクトへのすべてのパッチは、`patches/` ディレクトリに含まれています。 `patches/` の各サブディレクトリには、いくつかのパッチファイルと、パッチを適用する順序をリストした `.patches` ファイルが含まれています。 これらのファイルは、チェックアウト後に上流プロジェクト上に適用される一連の git コミットを構成していると考えてください。
 
 ```text
 patches
-├── config.json   <-- this describes which patchset directory is applied to what project
+├── config.json   <-- これはどのパッチセットディレクトリがどのプロジェクトに適用されるかを記述しています
 ├── chromium
 │   ├── .patches
 │   ├── accelerator.patch
@@ -34,7 +34,7 @@ patches
 ⋮
 ```
 
-To help manage these patch sets, we provide two tools: `git-import-patches` and `git-export-patches`. `git-import-patches` imports a set of patch files into a git repository by applying each patch in the correct order and creating a commit for each one. `git-export-patches` does the reverse; it exports a series of git commits in a repository into a set of files in a directory and an accompanying `.patches` file.
+これらのパッチセットを管理しやすくするために、`git-import-patches` と `git-export-patches` の 2 つのツールを提供しています。 `git-import-patches` は、各パッチを正しい順序で適用し、各パッチのコミットを作成することにより、一連のパッチファイルを git リポジトリにインポートします。 `git-export-patches` は逆の処理を行います。 リポジトリ内の一連の git コミットを、ディレクトリ内の一連のファイルとそれに付随する `.patches` ファイルにエクスポートします。
 
 > Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
 
