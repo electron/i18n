@@ -66,7 +66,8 @@ Permet une seule exécution de la fonction `listener` pour cet événement. Ce `
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `...args` any[]
 
 Supprime le `listener` spécifié du tableau d'écouteurs pour le `channel` spécifié.
 
