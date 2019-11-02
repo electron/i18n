@@ -76,14 +76,14 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 注意として、`git-import-patches` は `refs/patches/upstream-head` として実行されたときに `HEAD` だったコミットをマークします。 これにより、Electron パッチからのコミット (`refs/patches/upstream-head` の後にあるコミット) と上流にあるコミット (`refs/patches/upstream-head` の前にあるコミット) を追跡できます。
 
 #### コンフリクトの解決
-上流の依存関係を更新するとき、パッチをきれいに適用できない場合があります。 Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
+上流の依存関係を更新するとき、パッチをきれいに適用できない場合があります。 多くの場合、3 ウェイマージを使用して git で競合を自動的に解決できます。 `-3` の引数を渡すことで、3 ウェイマージアルゴリズムを使用するように `git-import-patches` に指示できます。
 
 ```bash session
 $ cd src/third_party/electron_node
-# If the patch application failed midway through, you can reset it with:
+# パッチの適用が途中で失敗した場合は、以下のようにしてリセットできます。
 $ git am --abort
-# And then retry with 3-way merge:
+# そして 3 ウェイマージで再試行します。
 $ ../../electron/script/git-import-patches -3 ../../electron/patches/node
 ```
 
-If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+`git-import-patches -3` が自動的に解決できないマージ競合を検出した場合、一時停止し、競合を手動で解決できます。 Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
