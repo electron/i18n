@@ -189,9 +189,9 @@ Ejemplo:
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+// En macOS -> '10.13.6'
+// En Windows -> '10.0.17763'
+// En Linux -> '4.15.0-45-generic'
 ```
 
 **Note:** Devuelve la versión actual del sistema en lugar de la versión del kernel en macOS deferente a `os.release()`.
