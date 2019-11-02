@@ -86,4 +86,4 @@ $ git am --abort
 $ ../../electron/script/git-import-patches -3 ../../electron/patches/node
 ```
 
-`git-import-patches -3` が自動的に解決できないマージ競合を検出した場合、一時停止し、競合を手動で解決できます。 Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+`git-import-patches -3` が自動的に解決できないマージ競合を検出した場合、一時停止し、競合を手動で解決できます。 競合を解決したら、解決したファイルを `git add` し、`git am --continue` を実行して残りのパッチを適用し続けます。
