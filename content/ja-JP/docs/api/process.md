@@ -189,9 +189,9 @@ Chromium は macOS には `residentSet` の値を提供しません。 これは
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+// macOS の -> '10.13.6'
+// Windows の -> '10.0.17763'
+// Linux の -> '4.15.0-45-generic'
 ```
 
 **注釈:** `os.release()` とは異なり、macOS ではカーネルバージョンではなく実際のオペレーティングシステムのバージョンを返します。
