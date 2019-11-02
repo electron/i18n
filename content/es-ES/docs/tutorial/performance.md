@@ -23,17 +23,17 @@ To learn more about how to profile your app's code, familiarize yourself with th
 
 Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+1. [Descuidada incluyendo módulos](#1-carelessly-including-modules)
+2. [Cargando y ejecutando código demasiado pronto](#2-loading-and-running-code-too-soon)
+3. [Bloqueo del proceso principal](#3-blocking-the-main-process)
+4. [Bloqueo del proceso renderer](#4-blocking-the-renderer-process)
+5. [Polifiltros innecesarios](#5-unnecessary-polyfills)
+6. [Solicitudes de red innecesarias o de bloqueo](#6-unnecessary-or-blocking-network-requests)
+7. [Empaquete su código](#7-bundle-your-code)
 
 ## 1) Carelessly including modules
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+Antes de agregar un módulo Node.js a su aplicación, examine dicho módulo. ¿Cuántas dependencias ese módulo incluye? ¿Qué tipo de recursos necesita para simplemente ejecutar la sentencia `require()`? Podría encontrar que el módulo con más descargas en el registro de paquetes NPM o la mayoría de estrellas en GitHub no es de hecho el más simple o el más pequeño disponible.
 
 ### ¿Por què?
 
