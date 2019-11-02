@@ -66,7 +66,8 @@ IpcMain模块有以下方法来侦听事件：
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `...args` any[]
 
 从监听器数组中移除监听 `channel` 的指定 `listener`。
 
