@@ -66,7 +66,8 @@ Aggiunge una funzione `listener` per l'evento richiamato una sola volta. Questo 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `...args` any[]
 
 Il `listener` specificato viene rimosso dalla lista dei listener del `channel` indicato.
 
