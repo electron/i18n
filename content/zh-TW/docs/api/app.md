@@ -19,7 +19,7 @@ app.on('window-all-closed', () => {
 
 ### 事件: 'will-finish-launching'
 
-當程式完成基本啟動時觸發 在Windows 及Linux上，`will-finish-launching`事件與`ready`事件是相同的。在macOS上，這個事件代表`NSApplication`的 `applicationWillFinishLaunching`通知。 You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+當程式完成基本啟動時觸發 在Windows 及Linux上，`will-finish-launching`事件與`ready`事件是相同的。在macOS上，這個事件代表`NSApplication`的 `applicationWillFinishLaunching`通知。 通常會在這個事件內設定監聽器(listeners) 來偵測 `open-file` 與 `open-url` 的事件，以及啟動當機回報器(crash reporter) 與自動更新程式。
 
 In most cases, you should do everything in the `ready` event handler.
 
@@ -588,11 +588,11 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 * `path` String
 
-Adds `path` to the recent documents list.
+將 `路徑` 加入到最近使用的文件清單。
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.addRecentDocument(path)` *macOS* *Windows*
+### `app.clearRecentDocuments()` *macOS* *Windows*
 
 清除最近使用的文件清單。
 
