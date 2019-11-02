@@ -70,64 +70,66 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
 <h3><code>ipcMain.pendengar menghapus (saluran, pendengar)`</h3> 
         * ` saluran </ 0>  String</li>
-<li><code> pendengar </ 0> Fungsi</li>
+<li><code>pendengar` Fungsi 
+          * ` ... args </ 0> ada []</li>
+</ul></li>
 </ul>
 
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
 <h3><code>ipcMain.pendengar menghapus semua( [channel] )`</h3> 
-          * ` saluran </ 0>  String (opsional)</li>
+            * ` saluran </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menghapus pendengar yang ditentukan <code> saluran </ 0> .</p>
 
 <h3><code>ipcMain.handle(channel, listener)`</h3> 
-            * ` saluran </ 0>  String</li>
+              * ` saluran </ 0>  String</li>
 <li><code>pendengar` Fungsi<Promise<void> | any> 
-              * `event` IpcMainInvokeEvent
-              * ` ... args </ 0> ada []</li>
+                * `event` IpcMainInvokeEvent
+                * ` ... args </ 0> ada []</li>
 </ul></li>
 </ul>
 
 <p>Adds a handler for an <code>invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.</p> 
-                If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
-                
-                ```js
-                // Main process
-                ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
-                  const result = await somePromise(...args)
-                  return result
-                })
-                
-                // Renderer process
-                async () => {
-                  const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
-                  // ...
-                }
-                ```
-                
-                The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
-                
-                ### `ipcMain.handleOnce(channel, listener)`
-                
-                * ` saluran </ 0>  String</li>
+                  If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+                  
+                  ```js
+                  // Main process
+                  ipcMain.handle('my-invokable-ipc', async (event, ...args) => {
+                    const result = await somePromise(...args)
+                    return result
+                  })
+                  
+                  // Renderer process
+                  async () => {
+                    const result = await ipcRenderer.invoke('my-invokable-ipc', arg1, arg2)
+                    // ...
+                  }
+                  ```
+                  
+                  The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+                  
+                  ### `ipcMain.handleOnce(channel, listener)`
+                  
+                  * ` saluran </ 0>  String</li>
 <li><code>pendengar` Fungsi<Promise<void> | any> 
-                  * `event` IpcMainInvokeEvent
-                  * ` ... args </ 0> ada []</li>
+                    * `event` IpcMainInvokeEvent
+                    * ` ... args </ 0> ada []</li>
 </ul></li>
 </ul>
 
 <p>Handles a single <code>invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.</p> 
-                    ### `ipcMain.removeHandler(channel)`
-                    
-                    * ` saluran </ 0>  String</li>
+                      ### `ipcMain.removeHandler(channel)`
+                      
+                      * ` saluran </ 0>  String</li>
 </ul>
 
 <p>Removes any handler for <code>channel`, if present.</p> 
-                      ## IpcMainEvent object
-                      
-                      The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
-                      
-                      ## IpcMainInvokeEvent object
-                      
-                      The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+                        ## IpcMainEvent object
+                        
+                        The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+                        
+                        ## IpcMainInvokeEvent object
+                        
+                        The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.

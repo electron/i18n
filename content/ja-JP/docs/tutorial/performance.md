@@ -25,11 +25,11 @@ JavaScript でパフォーマンスの高いウェブサイトを構築する方
 
 1. [迂闊なモジュール採用](#1-carelessly-including-modules)
 2. [あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+3. [メインプロセスをブロックしている](#3-blocking-the-main-process)
+4. [レンダラープロセスをブロックしている](#4-blocking-the-renderer-process)
+5. [不要な polyfill](#5-unnecessary-polyfills)
+6. [不要またはブロックしているネットワークリクエスト](#6-unnecessary-or-blocking-network-requests)
+7. [コードをバンドルする](#7-bundle-your-code)
 
 ## 1) 迂闊なモジュール採用
 
@@ -140,104 +140,104 @@ module.exports = { parser }
 
 要するに、アプリの起動時にリソースをすべて割り当てるのではなく、"その時に合わせて" リソースを割り当てます。
 
-## 3) Blocking the main process
+## 3) メインプロセスをブロックしている
 
-Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+Electron のメインプロセス ("ブラウザプロセス" と呼ばれることもあります) は特別です。これは、アプリの他のすべてのプロセスの親プロセスであり、オペレーティングシステムが相互作用する一次プロセスです。 ウィンドウ、インタラクション、アプリ内のさまざまなコンポーネント間の通信を処理します。 UI スレッドも保持します。
 
-Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
-
-### なぜ？
-
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. If your window is rendering a buttery-smooth animation, it'll need to talk to the GPU process about that – once again going through the main process.
-
-Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
-
-### どうすればいいの？
-
-Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
-
-1) For long running CPU-heavy tasks, make use of [worker threads](https://nodejs.org/api/worker_threads.html), consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
-
-2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
-
-3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
-
-
-## 4) Blocking the renderer process
-
-Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
+どんな状況でも、このプロセスと UI スレッドを長い実行時間の操作でブロックしてはなりません。 UI スレッドをブロックすると、メインプロセスが処理を続行できる状態になるまで、アプリ全体がフリーズします。
 
 ### なぜ？
 
-Your app probably has a lot of JavaScript to run in the renderer process. The trick is to execute operations as quickly as possible without taking away resources needed to keep scrolling smooth, respond to user input, or animations at 60fps.
+メインプロセスとその UI スレッドは、本質的にアプリ内の主要な操作の管制塔です。 オペレーティングシステムがマウスクリックについてアプリに通知すると、アプリはウィンドウに到達する前にメインプロセスを通過します。 ウィンドウがぬるぬるした滑らかなアニメーションをレンダリングしている場合、それについて GPU プロセスとやり取りする必要があって―もう一度メインプロセスを通過します。
 
-Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
+Electron と Chromium は、UI スレッドのブロックを回避するために、新しいスレッドに重いディスク I/O および CPU バウンド操作を配置するよう配慮します。 あなたもおなじようにしましょう。
 
 ### どうすればいいの？
 
-Generally speaking, all advice for building performant web apps for modern browsers apply to Electron's renderers, too. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
+Electron の強力なマルチプロセスアーキテクチャは、長時間実行するタスクを支援する準備ができていますが、少数のパフォーマンストラップも含まれています。
 
-*`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+1) 長時間実行される CPU 負荷の高いタスクについては、[Worker Thread](https://nodejs.org/api/worker_threads.html) を使用するか、それらを BrowserWindow に移動することを検討するか、(最後の手段として) 専用プロセスを生成します。
 
-*Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
+2) 同期 IPC と `remote` モジュールの使用はできるだけ避けてください。 正しい使用方法もありますが、`remote` モジュールを使用して知らないうちに UI スレッドをブロックするのは非常に容易です。
+
+3) メインプロセスでブロックする I/O 操作の使用を避けてください。 要するに、コア Node.js モジュール (`fs` や `child_process` など) が同期バージョンと非同期バージョンを提供している場合は、常に非同期および非ブロッキングのものを選択するべきです。
 
 
-## 5) Unnecessary polyfills
+## 4) レンダラープロセスをブロックしている
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Electron には Chrome の最新バージョンが同梱されているため、Web Platform が提供する最新で最良の機能を利用して、アプリをスムーズかつ応答性の良いように維持する手法で重い操作を後回しまたはオフロードできます。
 
 ### なぜ？
 
-When building a web application for today's Internet, the oldest environments dictate what features you can and cannot use. Even though Electron supports well-performing CSS filters and animations, an older browser might not. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
+レンダラープロセスで実行する JavaScript が、アプリに多く含まれているのかもしれません。 その仕掛けは、60fps でユーザー入力、アニメーションへの対応、スムーズなスクロールを維持するために、必要なリソースを奪わずに可能な限り迅速に操作を実行することです。
 
-When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
-
-It is rare for a JavaScript-based polyfill to be faster than the equivalent native feature in Electron. Do not slow down your Electron app by shipping your own version of standard web platform features.
+レンダラーのコードで操作の流れを調整することは、ユーザーがアプリの "カクつき" を時々訴える場合に特に役立ちます。
 
 ### どうすればいいの？
 
-Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check \[caniuse.com\]\[https://caniuse.com/\] and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
+平たく言えば、最新のブラウザー用の高性能ウェブアプリを構築するためのすべてのアドバイスは、Electron のレンダリングにも適用されます。 現在、自由に使える 2 つの主要なツールがあります。小規模な操作用の `requestIdleCallback()` と、長時間実行する操作用の `Web Workers` です。
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+*`requestIdleCallback()`* により、開発者は、プロセスがアイドル期間に入るとすぐに実行される関数をキューに入れることができます。 これにより、ユーザーエクスペリエンスに影響を与えることなく、優先度の低い作業やバックグラウンド作業を実行できます。 使用方法の詳細については、[MDNのドキュメントを参照してください](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
-If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
+*Web Worker* は別のスレッドでコードを実行する強力なツールです。 考慮すべき注意点がいくつかあります。注意点については、Electron の [マルチスレッドドキュメント](./multithreading.md) および [Web Worker の MDN ドキュメント](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) を参照してください。 長時間にわたって大量の CPU パワーを必要とするあらゆる操作に理想的な解決法です。
 
 
-## 6) Unnecessary or blocking network requests
+## 5) 不要な polyfill
 
-Avoid fetching rarely changing resources from the internet if they could easily be bundled with your application.
+Electron の大きな利点の1つは、JavaScript、HTML、CSS をどのエンジンが解析するかを正確に知っていることです。 ウェブ向けに書かれたコードを再利用する場合は、Electron に含まれている機能を polyfill しないようにしてください。
 
 ### なぜ？
 
-Many users of Electron start with an entirely web-based app that they're turning into a desktop application. As web developers, we are used to loading resources from a variety of content delivery networks. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible
- - and avoid letting your users wait for resources that never change and could easily be included  in your app.
+今日のインターネット用のウェブアプリケーションを構築する場合、最も古い環境では、使用できる機能と使用できない機能が決まります。 Electron はパフォーマンスの良い CSS フィルターとアニメーションをサポートしていますが、古いブラウザはそうではないかもしれません。 WebGL を使用できる場合、古いスマートフォンをサポートするために、開発者はそのようなより多くのリソースを必要とする解決方法を選択していた可能性があります。
 
-A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
+JavaScript に関しては、DOM セレクターのためだけの jQuery や `regenerator-runtime` のような `async/await` をサポートするためだけの polyfill ツールキットライブラリを含めることができます。
 
-When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
+JavaScript ベースの polyfill が Electron の同等のネイティブ機能よりも高速になることはまれです。 標準ウェブプラットフォームの機能を自作して、Electron アプリの速度を落とさないでください。
 
 ### どうすればいいの？
 
-In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
+Electron の現在のバージョンへの ployfill は不要であるという仮定の下で操作します。 疑問がある場合は、\[caniuse.com\]\[https://caniuse.com/\] を確認し、[利用している Electron のバージョンに対応した Chromium のバージョン](../api/process.md#processversionschrome-readonly) が必要な機能をサポートしているかどうかを確認してください。
 
-To do so, open up the developer tools. Navigate to the `Network` tab and check the `Disable cache` option. Then, reload your renderer. Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
+さらに、使用するライブラリを注意深く調べてください。 本当に必要なものでしょうか。 たとえば、`jQuery` は非常に成功したため、その機能の多くが [利用可能な標準 JavaScript 機能セット](http://youmightnotneedjquery.com/) の一部になりました。
 
-The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
+TypeScript などのトランスパイラー/コンパイラを使用している場合は、その構成を調べて、Electron でサポートされている最新の ECMAScript バージョンをターゲットにしていることを確認してください。
 
-As a next step, enable `Network Throttling`. Find the drop-down that currently reads `Online` and select a slower speed such as `Fast 3G`. Reload your renderer and see if there are any resources that your app is unnecessarily waiting for. In many cases, an app will wait for a network request to complete despite not actually needing the involved resource.
 
-As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+## 6) 不要またはブロックしているネットワークリクエスト
 
-## 7) Bundle your code
-
-As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
+めったに変更されないリソースをアプリケーションへ簡単にバンドルできる場合は、インターネットから取得しないでください。
 
 ### なぜ？
 
-Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
+Electron の多くのユーザーは、デスクトップアプリケーションになりつつある完全にウェブベースのアプリから始めます。 ウェブ開発者として、さまざまなコンテンツ配信ネットワークからリソースをロードすることには慣れています。 適切なデスクトップアプリケーションを作成するには、可能な限り "そのコードを切り出し" ます。
+ - そして、アプリに変更されない、簡単に同梱できるリソースのせいでユーザーを待たせないようにします。
+
+Google Fonts は典型例です。 多くの開発者は、コンテンツ配信ネットワークに付属する Google の印象的な無料フォントのコレクションを利用しています。 行程は簡単です。CSS に数行を含めると、Google が残りを処理します。
+
+Electron アプリを作成するとき、フォントをダウンロードしてアプリのバンドルに含めると、ユーザーの体感が向上します。
 
 ### どうすればいいの？
 
-There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
+理想的な世界では、アプリケーションが動作するためにはネットワークをまったく必要としません。 そこに到達するには、アプリが何をダウンロードしていてどのくらい大きいリソースなのかを理解する必要があります。
 
-As of writing this article, the popular choices include [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), and [rollup.js](https://rollupjs.org/).
+そのためには、デベロッパーツールを開きます。 `Network` タブに移動し、`Disable cache` オプションにチェックを入れます。 そして、レンダラーをリロードします。 アプリでこのようなリロードが禁止されていない限り、通常、開発者ツールにフォーカスを置いて `Cmd + R` または `Ctrl + R` を押すと、リロードを発生させられます。
+
+これでこのツールはすべてのネットワーク要求を綿密に記録します。 最初のパスでは、ダウンロードされるすべてのリソースの在庫を確認し、最初に大きなファイルに注目します。 変更されず、バンドルに含めることができるような画像、フォント、メディアファイルはあるでしょうか。 もしあれば、同梱しましょう。
+
+次のステップとして、`Network Throttling` を有効にします。 現在 `Online` と表示されているドロップダウンを見つけて、`Fast 3G` などの低速なものを選択します。 レンダラーをリロードし、アプリが不必要に待機しているリソースがあるかどうかを確認します。 アプリは多くの場合、実際に関連するリソースを必要としないにもかかわらず、ネットワークリクエストが完了するのを待っています。
+
+豆知識として、アプリケーションの更新を公開するのではなくインターネットから変更したいリソースをロードすることも強力な戦略です。 リソースのロード方法を高度に制御するには、[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) への注力を検討してください。
+
+## 7) コードをバンドルする
+
+"[あまりに早いコードのロードと実行](#2-loading-and-running-code-too-soon)" で既に指摘したように、`require()` の呼び出しはコストのかかる操作です。 可能であれば、アプリケーションのコードを単一のファイルにバンドルしましょう。
+
+### なぜ？
+
+最新の JavaScript 開発には通常、多くのファイルとモジュールが含まれます。 Electron での開発にはこれで十分ですが、アプリケーションをロードするときに `require()` の呼び出しに含まれるオーバーヘッドが一度だけ支払われるように、すべてのコードを1つのファイルにバンドルすることを強く推奨します。
+
+### どうすればいいの？
+
+多数の JavaScript バンドルが存在しますが、あるツールを別のツールよりも推奨してコミュニティを怒らせるよりも、良い方法が知られています。 ただし、Node.js 環境とブラウザ環境の両方を処理する必要がある Electron 独自の環境を処理できるバンドラーを使用することを推奨します。
+
+この記事を書いている時点での一般的な選択肢には、[Webpack](https://webpack.js.org/)、[Parcel](https://parceljs.org/)、および [rollup.js](https://rollupjs.org/) があります。

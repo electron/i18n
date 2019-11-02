@@ -16,11 +16,11 @@ Electron でのパッチは、すべてメンテナンスの負担になりま�
 
 上流プロジェクトにパッチを適用することによってのみ行うことができる変更を行う必要がある、という不幸な立場にいる場合は、Electron でパッチを管理する方法を知る必要があります。
 
-Electron の上流プロジェクトへのすべてのパッチは、`patches/` ディレクトリに含まれています。 Each subdirectory of `patches/` contains several patch files, along with a `.patches` file which lists the order in which the patches should be applied. Think of these files as making up a series of git commits that are applied on top of the upstream project after we check it out.
+Electron の上流プロジェクトへのすべてのパッチは、`patches/` ディレクトリに含まれています。 `patches/` の各サブディレクトリには、いくつかのパッチファイルと、パッチを適用する順序をリストした `.patches` ファイルが含まれています。 これらのファイルは、チェックアウト後に上流プロジェクト上に適用される一連の git コミットを構成していると考えてください。
 
 ```text
 patches
-├── config.json   <-- this describes which patchset directory is applied to what project
+├── config.json   <-- これはどのパッチセットディレクトリがどのプロジェクトに適用されるかを記述しています
 ├── chromium
 │   ├── .patches
 │   ├── accelerator.patch
@@ -34,13 +34,13 @@ patches
 ⋮
 ```
 
-To help manage these patch sets, we provide two tools: `git-import-patches` and `git-export-patches`. `git-import-patches` imports a set of patch files into a git repository by applying each patch in the correct order and creating a commit for each one. `git-export-patches` does the reverse; it exports a series of git commits in a repository into a set of files in a directory and an accompanying `.patches` file.
+これらのパッチセットを管理しやすくするために、`git-import-patches` と `git-export-patches` の 2 つのツールを提供しています。 `git-import-patches` は、各パッチを正しい順序で適用し、各パッチのコミットを作成することにより、一連のパッチファイルを git リポジトリにインポートします。 `git-export-patches` は逆の処理を行います。 リポジトリ内の一連の git コミットを、ディレクトリ内の一連のファイルとそれに付随する `.patches` ファイルにエクスポートします。
 
-> Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
+> 補足: パッチの順序に関連した競合を減らすために、各ファイルに `001-` のような番号を追加するのではなく、`.patches` ファイルを使用して適用されるパッチの順序を維持しています。 これにより、2 つの PR の両方が同じ番号である次の連番にパッチを追加し、両方がマージされて重複した識別子になるといった状況を防ぎます。 また、連番の間のパッチが追加または削除された場合の混乱も減ります。
 
 ### 使い方
 
-#### Adding a new patch
+#### 新しいパッチの追加
 ```bash session
 $ cd src/third_party/electron_node
 $ vim some/code/file.cc
@@ -48,42 +48,42 @@ $ git commit
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-> **NOTE**: `git-export-patches` ignores any uncommitted files, so you must create a commit if you want your changes to be exported. The subject line of the commit message will be used to derive the patch file name, and the body of the commit message should include the reason for the patch's existence.
+> **注**: `git-export-patches` はコミットされていないファイルを無視するため、変更をエクスポートする場合はコミットを作成する必要があります。 パッチファイル名はコミットメッセージの件名に使用し、コミットメッセージの本文にパッチの存在理由を含める必要があります。
 
-Re-exporting patches will sometimes cause shasums in unrelated patches to change. This is generally harmless and can be ignored (but go ahead and add those changes to your PR, it'll stop them from showing up for other people).
+パッチを再エクスポートすると、無関連なパッチの SHA サムが変更される場合があります。 これは一般に無害であり、無視することができます (ただし、これらの変更を PR に追加しても他の人には見えません)。
 
-#### Editing an existing patch
+#### 既存のパッチを編集する
 ```bash session
 $ cd src/v8
 $ vim some/code/file.cc
 $ git log
-# Find the commit sha of the patch you want to edit.
+# 編集するパッチのコミット SHA を見つけます。
 $ git commit --fixup [COMMIT_SHA]
 $ git rebase --autosquash -i [COMMIT_SHA]^
 $ ../electron/script/git-export-patches -o ../electron/patches/v8
 ```
 
-#### Removing a patch
+#### パッチを削除する
 ```bash session
 $ vim src/electron/patches/node/.patches
-# Delete the line with the name of the patch you want to remove
+# 削除するパッチ名の行を削除します
 $ cd src/third_party/electron_node
 $ git reset --hard refs/patches/upstream-head
 $ ../../electron/script/git-import-patches ../../electron/patches/node
 $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 ```
 
-Note that `git-import-patches` will mark the commit that was `HEAD` when it was run as `refs/patches/upstream-head`. This lets you keep track of which commits are from Electron patches (those that come after `refs/patches/upstream-head`) and which commits are in upstream (those before `refs/patches/upstream-head`).
+注意として、`git-import-patches` は `refs/patches/upstream-head` として実行されたときに `HEAD` だったコミットをマークします。 これにより、Electron パッチからのコミット (`refs/patches/upstream-head` の後にあるコミット) と上流にあるコミット (`refs/patches/upstream-head` の前にあるコミット) を追跡できます。
 
 #### コンフリクトの解決
-When updating an upstream dependency, patches may fail to apply cleanly. Often, the conflict can be resolved automatically by git with a 3-way merge. You can instruct `git-import-patches` to use the 3-way merge algorithm by passing the `-3` argument:
+上流の依存関係を更新するとき、パッチをきれいに適用できない場合があります。 多くの場合、3 ウェイマージを使用して git で競合を自動的に解決できます。 `-3` の引数を渡すことで、3 ウェイマージアルゴリズムを使用するように `git-import-patches` に指示できます。
 
 ```bash session
 $ cd src/third_party/electron_node
-# If the patch application failed midway through, you can reset it with:
+# パッチの適用が途中で失敗した場合は、以下のようにしてリセットできます。
 $ git am --abort
-# And then retry with 3-way merge:
+# そして 3 ウェイマージで再試行します。
 $ ../../electron/script/git-import-patches -3 ../../electron/patches/node
 ```
 
-If `git-import-patches -3` encounters a merge conflict that it can't resolve automatically, it will pause and allow you to resolve the conflict manually. Once you have resolved the conflict, `git add` the resolved files and continue to apply the rest of the patches by running `git am --continue`.
+`git-import-patches -3` が自動的に解決できないマージ競合を検出した場合、一時停止し、競合を手動で解決できます。 競合を解決したら、解決したファイルを `git add` し、`git am --continue` を実行して残りのパッチを適用し続けます。

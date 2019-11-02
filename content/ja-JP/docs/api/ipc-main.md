@@ -66,7 +66,8 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Function 
+  * `...args` any[]
 
 指定した `channel` の listener 配列から、指定した `listener` を削除します。
 

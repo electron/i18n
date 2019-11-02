@@ -66,7 +66,8 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 ### `ipcMain.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` Function 
+  * `...args` herhangi[]
 
 Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 

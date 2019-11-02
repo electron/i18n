@@ -66,7 +66,8 @@ Nagdadagdag ng isang beses na punsyon ng `listener` para sa event. Ang `listener
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Punsyon
+* `listener` Function 
+  * `...args` anuman[]
 
 Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 

@@ -66,7 +66,8 @@ Agrega una función `listener` para el evento. Este `listener` es invocado solo 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` Cadena
-* `listener` Función
+* `listener` Function 
+  * `...args` any[]
 
 Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
 

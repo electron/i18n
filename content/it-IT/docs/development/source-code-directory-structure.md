@@ -15,7 +15,7 @@ Electron
 |   |   |          pages.
 |   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
-|   |   |   ├── win/ - Windows GUI specific source code.
+| | | Oomen-Ruijten win/ - Codice sorgente specifico per Windows GUI.
 |   |   |   └── cocoa/ - Codice sorgente specifico di Cocoa.
 L'implementazione delle principali API di processo.
 |   |   ├── net/ - Network related code.
@@ -35,8 +35,8 @@ L'implementazione delle principali API di processo.
 ├── lib/ - JavaScript source code.
 |   ├── browser/ - Javascript main process initialization code.
 |   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
+|   ❤ common/ - JavaScript utilizzato sia dai processi principali che dal renderer
+|   |   ❤ api/ - implementazione API Javascript.
 |   └── renderer/ - Javascript renderer process initialization code.
 |       └── api/ - Javascript API implementation.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
@@ -52,8 +52,8 @@ I file in `/chromium_src` sono di solito parti di Chromium che non appartengono 
 ## Struttura delle altre cartelle
 
 * **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
-* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
+* **strumenti** - Script di Helper utilizzati dai file GN, a differenza di `script`, gli script inseriti qui non dovrebbero mai essere invocati direttamente dagli utenti.
+* **vendor** - Codice sorgente di dipendenze di terze parti, non abbiamo utilizzato `terzo_party` come nome perché confonderebbe la stessa directory nell'albero di codice sorgente di di Chromium.
 * **node_modules** - Third party node modules used for building.
 * **out** - Temporary output directory of `ninja`.
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
