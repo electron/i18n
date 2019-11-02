@@ -66,7 +66,8 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String (Строка)
-* `listener` Function (Функция)
+* `listener` Function 
+  * `...args` any[]
 
 Удаляет указанный `listener` из массива слушателей конкретного `channel`.
 
