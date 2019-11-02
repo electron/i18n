@@ -184,11 +184,15 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Returns `String` - The version of the host operating system.
 
-Przykłady:
+Przykład:
 
-* `macOS` -> `10.13.6`
-* `Windows` -> `10.0.17763`
-* `Linux` -> `4.15.0-45-generic`
+```js
+const version = process.getSystemVersion()
+console.log(version)
+// On macOS -> '10.13.6'
+// On Windows -> '10.0.17763'
+// On Linux -> '4.15.0-45-generic'
+```
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
 
