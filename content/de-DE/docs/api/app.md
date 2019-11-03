@@ -110,7 +110,7 @@ Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen könne
 Rückgabewert:
 
 * `event` Event
-* `type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` unknown - Contains app-specific state stored by the activity on another device.
 
 Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
