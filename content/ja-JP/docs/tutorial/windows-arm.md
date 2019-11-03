@@ -84,11 +84,11 @@ Arm 版 Windows デバイスでアプリケーションを直接開発したい�
 
 ネイティブモジュールのデバッグは、Visual Studio 2017 (開発マシン上で実行) および対応する [Visual Studio Remote Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) をターゲットのデバイス上で実行することで実行できます。 デバッグするには以下のようにします。
 
-1. Lanch your app `.exe` on the target device via the _Command Prompt_ (passing `--inspect-brk` to pause it before any native modules are loaded).
-2. Launch Visual Studio 2017 on your development machine.
-3. Connect to the target device by selecting _Debug > Attach to Process..._ and enter the device's IP address and the port number displayed by the Visual Studio Remote Debugger tool.
-4. Click _Refresh_ and select the [appropriate Electron process to attach](../development/debug-instructions-windows.md).
-5. You may need to make sure that any symbols for native modules in your app are loaded correctly. To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
+1. _コマンドプロンプト_ (これで `-inspect-brk` を渡すとネイティブモジュールがロードされる前に一時停止します) を介して、ターゲットデバイスでアプリの `.exe` を起動します。
+2. 開発マシン上で Visual Studio 2017 を起動します。
+3. ターゲットのデバイスに接続するためには、_デバッグ > プロセスにアタッチ..._ を選択し、デバイスの IP アドレスと Visual Studio Remote Debugger ツールに表示されているポート番号を入力します。
+4. _更新_ をクリックしてから、[割り当てるべき正しい Electron プロセス](../development/debug-instructions-windows.md) を選択します。
+5. アプリのネイティブモジュールのシンボルが正しくロードされていることを確認する必要がある場合があるでしょう。 To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
 5. Once attached, set any appropriate breakpoints and resume JavaScript execution using Chrome's [remote tools for Node](debugging-main-process.md).
 
 ## Getting additional help
