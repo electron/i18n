@@ -142,9 +142,9 @@ Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, wenn eine Aktivität von diesem Gerät auf einem anderen Gerät erfolgreich fortgesetzt wurde.
 
 ### Event: 'update-activity-state' *macOS*
 
@@ -152,7 +152,7 @@ Rückgabewert:
 
 * `event` Event
 * `type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - Enthält app-spezifischen Zustand, der von der Aktivität gespeichert wird.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
