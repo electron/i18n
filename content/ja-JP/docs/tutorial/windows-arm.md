@@ -1,17 +1,17 @@
-# Arm 上の Windows 10
+# Arm 版 Windows 10
 
-アプリを Electron 6.0.8 以降で実行している場合、Arm 上の Windows 10 向けにビルドできます。 これによりパフォーマンスが大幅に向上しますが、アプリで使用されているネイティブモジュールを再コンパイルする必要があります。 また、ビルドおよびパッケージ化スクリプトの小さな修正が必要になる場合があります。
+アプリを Electron 6.0.8 以降で実行している場合、Arm 版 Windows 10 向けにビルドできます。 これによりパフォーマンスが大幅に向上しますが、アプリで使用されているネイティブモジュールを再コンパイルする必要があります。 また、ビルドおよびパッケージ化スクリプトの小さな修正が必要になる場合があります。
 
 ## Running a basic app
-アプリがネイティブモジュールを使用していない場合は、アプリの Arm バージョンは簡単に作成できます。
+アプリがネイティブモジュールを使用していない場合は、アプリの Arm 版は簡単に作成できます。
 
 1. アプリの `node_modules` ディレクトリが空であることを確認してください。
 2. _コマンドプロンプト_ を使用して、`set npm_config_arch = arm64` を実行してから、同じように `npm install` / `yarn install` を実行します。
-3. [Electron を開発用依存関係としてインストールしている場合](first-app.md)、npm は arm64 バージョンをダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
+3. [Electron を開発用依存関係としてインストールしている場合](first-app.md)、npm は arm64 版をダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
 
-## General considerations
+## 一般的な考慮事項
 
-### Architecture-specific code
+### アーキテクチャ固有のコード
 
 Windows 固有のコードの多くには、if... else ロジックが含まれています。これは、x64 アーキテクチャと x86 アーキテクチャのどちらかを選択するものです。
 
@@ -23,13 +23,13 @@ if (process.arch === 'x64') {
 }
 ```
 
-arm64 をターゲットにしたい場合、このようなロジックは通常間違ったアーキテクチャを選択するため、アプリケーションを慎重に確認したうえで、このような条件のスクリプトを作成してください。 In custom build and packaging scripts, you should always check the value of `npm_config_arch` in the environment, rather than relying on the current process arch.
+arm64 をターゲットにしたい場合、このようなロジックは通常間違ったアーキテクチャを選択するため、アプリケーションを慎重に確認したうえで、このような条件のスクリプトを作成してください。 カスタムビルドおよびパッケージスクリプトでは、現在の process.arch に依存するのではなく、環境内の `npm_config_arch` の値を常に確認する必要があります。
 
-### Native modules
-If you use native modules, you must make sure that that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or or `.lib` files provided or referenced by the native module are available for Windows on Arm.
+### ネイティブモジュール
+ネイティブモジュールを使用する場合は、MSVC コンパイラの v142 (Visual Studio 2017 で提供) に対してコンパイルしていることを確認する必要があります。 また、ネイティブモジュールによって提供または参照されているビルド済みの `.dll` または `.lib` ファイルが Arm 版 Windows で使用できることも確認する必要があります。
 
-### Testing your app
-To test your app, use a Windows on Arm device running Windows 10 (version 1903 or later). Make sure that you copy your application over to the target device - Chromium's sandbox will not work correctly when loading your application assets from a network location.
+### アプリをテストする
+アプリをテストするには、Windows 10 (バージョン 1903 以降) を実行している Arm 版 Windows デバイスを使用します。 必ずターゲットデバイスにアプリケーションをコピーしてください。Chromium のサンドボックスは、ネットワーク位置上からアプリケーションアセットを読み込むと正しく機能しません。
 
 ## Development prerequisites
 ### Node.js/node-gyp
