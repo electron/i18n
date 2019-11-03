@@ -31,13 +31,13 @@ arm64 をターゲットにしたい場合、このようなロジックは通�
 ### アプリをテストする
 アプリをテストするには、Windows 10 (バージョン 1903 以降) を実行している Arm 版 Windows デバイスを使用します。 必ずターゲットデバイスにアプリケーションをコピーしてください。Chromium のサンドボックスは、ネットワーク位置上からアプリケーションアセットを読み込むと正しく機能しません。
 
-## Development prerequisites
+## 開発要件
 ### Node.js/node-gyp
 
-[Node.js v12.9.0 or later is recommended.](https://nodejs.org/en/) If updating to a new version of Node is  undesirable, you can instead [update npm's copy of node-gyp manually](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) to version 5.0.2 or later, which contains the required changes to compile native modules for Arm.
+[Node.js v12.9.0 以降を推奨します。](https://nodejs.org/en/) 新しいバージョンの Node へのアップデートが望ましくない場合は、代わりに [npm の node-gyp のコピーを手動でバージョン 5.0.2 以降に更新](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) できます。これには、Arm 向けのネイティブモジュールをコンパイルするために必要な変更が含まれています。
 
 ### Visual Studio 2017
-Visual Studio 2017 (any edition) is required for cross-compiling native modules. You can download Visual Studio Community 2017 via Microsoft's [Visual Studio Dev Essentials program](https://visualstudio.microsoft.com/dev-essentials/). After installation, you can add the Arm-specific components by running the following from a _Command Prompt_:
+ネイティブモジュールのクロスコンパイルには、Visual Studio 2017 (いずれかのエディション) が必要です。 Visual Studio Community 2017 は、Microsoft の [Visual Studio Dev Essentials プログラム](https://visualstudio.microsoft.com/dev-essentials/) からダウンロードできます。 インストール後、_コマンドプロンプト_ から次のコマンドを実行して、Arm 固有のコンポーネントを追加できます。
 
 ```powershell
 vs_installer.exe ^
@@ -48,14 +48,14 @@ vs_installer.exe ^
 --includeRecommended
 ```
 
-#### Creating a cross-compilation command prompt
-Setting `npm_config_arch=arm64` in the environment creates the correct arm64 `.obj` files, but the standard _Developer Command Prompt for VS 2017_ will use the x64 linker. To fix this:
+#### クロスコンパイルするコマンドプロンプトの作成
+環境で `npm_config_arch = arm64` を設定すると、正しい arm64 の `.obj` ファイルが作成されますが、VS 2017 標準の _開発者向けコマンドプロンプト for VS 2017_ は x64 リンカーを使用します 。 これを修正するには以下のようにします。
 
-1. Duplicate the _x64_x86 Cross Tools Command Prompt for VS 2017_ shortcut (e.g. by locating it in the start menu, right clicking, selecting _Open File Location_, copying and pasting) to somewhere convenient.
-2. Right click the new shortcut and choose _Properties_.
-3. Change the _Target_ field to read `vcvarsamd64_arm64.bat` at the end instead of `vcvarsamd64_x86.bat`.
+1. _x64_x86 Cross Tools Command Prompt for VS 2017_ ショートカットを複製します (たとえば、スタートメニューで見つけて、右クリックし、_ファイルの場所を開く_ を選択して、コピーアンドペーストします)。
+2. 新しいショートカットで右クリックして、_プロパティ_ を選びます。
+3. _Target_ フィールドを、`vcvarsamd64_x86.bat` ではなく、最後の`vcvarsamd64_arm64.bat` を読み取るように変更します。
 
-If done successfully, the command prompt should print something similar to this on startup:
+正常に完了すると、そのコマンドプロンプトは起動時に以下のようなものを出力するはずです。
 
 ```bat
 **********************************************************************
