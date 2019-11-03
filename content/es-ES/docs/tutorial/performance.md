@@ -23,25 +23,25 @@ To learn more about how to profile your app's code, familiarize yourself with th
 
 Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+1. [Descuidada incluyendo módulos](#1-carelessly-including-modules)
+2. [Cargando y ejecutando código demasiado pronto](#2-loading-and-running-code-too-soon)
+3. [Bloqueo del proceso principal](#3-blocking-the-main-process)
+4. [Bloqueo del proceso renderer](#4-blocking-the-renderer-process)
+5. [Polifiltros innecesarios](#5-unnecessary-polyfills)
+6. [Solicitudes de red innecesarias o de bloqueo](#6-unnecessary-or-blocking-network-requests)
+7. [Empaquete su código](#7-bundle-your-code)
 
 ## 1) Carelessly including modules
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+Antes de agregar un módulo Node.js a su aplicación, examine dicho módulo. ¿Cuántas dependencias ese módulo incluye? ¿Qué tipo de recursos necesita para simplemente ejecutar la sentencia `require()`? Podría encontrar que el módulo con más descargas en el registro de paquetes NPM o la mayoría de estrellas en GitHub no es de hecho el más simple o el más pequeño disponible.
 
 ### ¿Por què?
 
-The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
+El razonamiento detrás de esta recomendación es mejor ilustrado con un ejemplo de mundo real. Durante los primeros días del Electron, la detección fiable de la conectividad de la red fue un problema, resultando en que muchas aplicaciones usaran un módulo que expone un simple método `isOnline()`.
 
-That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
+Ese módulo detectaba la conectividad de su red al intentar comunicarse con un número de endpoints conocidos. Para la lista de esos endpoints, dependía de un módulo diferente, que también contenía un lista conocida de puertos. Esta dependencia se basaba en un módulo que contenía información sobre los puertos, que venía en forma de un archivo JSON con más de 100.000 líneas de contenido. Siempre que el modulo era cargado (usualmente en una sentencia `require('module')`) este debía cargar todas sus dependencias y eventualmente parsear este archivo JSON. El análisis de miles de líneas JSON es una operación muy costosa. En una máquina lenta esto puede tomar segundos enteros de tiempo.
 
-In many server contexts, startup time is virtually irrelevant. A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+En muchos contextos de servidor, el tiempo de inicio es prácticamente irrelevante. Un servidor Node.js que requiere información sobre todos los puertos es probable que sea "más eficiente" si carga toda la memoria requerida en la memoria cada vez que el servidor inicia con la ventaja de servir peticiones mas rápido. El módulo discutido en este ejemplo no es un "mal" módulo. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
 
 In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
 
@@ -78,7 +78,7 @@ Loading modules is a surprisingly expensive operation, especially on Windows. Wh
 
 This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
 
-Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
+Vamos a considerar Visual Studio Code como un ejemplo. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
 
 ### ¿Còmo?
 
@@ -179,7 +179,7 @@ Generally speaking, all advice for building performant web apps for modern brows
 
 *`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
-*Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
+*Web Workers* son una herramienta poderosa para correr código en un hilo separado. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
 
 
 ## 5) Unnecessary polyfills
@@ -198,7 +198,7 @@ It is rare for a JavaScript-based polyfill to be faster than the equivalent nati
 
 Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check \[caniuse.com\]\[https://caniuse.com/\] and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+In addition, carefully examine the libraries you use. ¿Son realmente necesarias? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 

@@ -1,17 +1,17 @@
-# Arm 上の Windows 10
+# Arm 版 Windows 10
 
-アプリを Electron 6.0.8 以降で実行している場合、Arm 上の Windows 10 向けにビルドできます。 これによりパフォーマンスが大幅に向上しますが、アプリで使用されているネイティブモジュールを再コンパイルする必要があります。 また、ビルドおよびパッケージ化スクリプトの小さな修正が必要になる場合があります。
+アプリを Electron 6.0.8 以降で実行している場合、Arm 版 Windows 10 向けにビルドできます。 これによりパフォーマンスが大幅に向上しますが、アプリで使用されているネイティブモジュールを再コンパイルする必要があります。 また、ビルドおよびパッケージ化スクリプトの小さな修正が必要になる場合があります。
 
-## Running a basic app
-アプリがネイティブモジュールを使用していない場合は、アプリの Arm バージョンは簡単に作成できます。
+## 基本的なアプリの実行
+アプリがネイティブモジュールを使用していない場合は、アプリの Arm 版は簡単に作成できます。
 
 1. アプリの `node_modules` ディレクトリが空であることを確認してください。
 2. _コマンドプロンプト_ を使用して、`set npm_config_arch = arm64` を実行してから、同じように `npm install` / `yarn install` を実行します。
-3. [Electron を開発用依存関係としてインストールしている場合](first-app.md)、npm は arm64 バージョンをダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
+3. [Electron を開発用依存関係としてインストールしている場合](first-app.md)、npm は arm64 版をダウンロードして解凍します。 その後、通常どおりアプリをパッケージ化して配布できます。
 
-## General considerations
+## 一般的な考慮事項
 
-### Architecture-specific code
+### アーキテクチャ固有のコード
 
 Windows 固有のコードの多くには、if... else ロジックが含まれています。これは、x64 アーキテクチャと x86 アーキテクチャのどちらかを選択するものです。
 
@@ -23,21 +23,21 @@ if (process.arch === 'x64') {
 }
 ```
 
-arm64 をターゲットにしたい場合、このようなロジックは通常間違ったアーキテクチャを選択するため、アプリケーションを慎重に確認したうえで、このような条件のスクリプトを作成してください。 In custom build and packaging scripts, you should always check the value of `npm_config_arch` in the environment, rather than relying on the current process arch.
+arm64 をターゲットにしたい場合、このようなロジックは通常間違ったアーキテクチャを選択するため、アプリケーションを慎重に確認したうえで、このような条件のスクリプトを作成してください。 カスタムビルドおよびパッケージスクリプトでは、現在の process.arch に依存するのではなく、環境内の `npm_config_arch` の値を常に確認する必要があります。
 
-### Native modules
-If you use native modules, you must make sure that that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or or `.lib` files provided or referenced by the native module are available for Windows on Arm.
+### ネイティブモジュール
+ネイティブモジュールを使用する場合は、MSVC コンパイラの v142 (Visual Studio 2017 で提供) に対してコンパイルしていることを確認する必要があります。 また、ネイティブモジュールによって提供または参照されているビルド済みの `.dll` または `.lib` ファイルが Arm 版 Windows で使用できることも確認する必要があります。
 
-### Testing your app
-To test your app, use a Windows on Arm device running Windows 10 (version 1903 or later). Make sure that you copy your application over to the target device - Chromium's sandbox will not work correctly when loading your application assets from a network location.
+### アプリをテストする
+アプリをテストするには、Windows 10 (バージョン 1903 以降) を実行している Arm 版 Windows デバイスを使用します。 必ずターゲットデバイスにアプリケーションをコピーしてください。Chromium のサンドボックスは、ネットワーク位置上からアプリケーションアセットを読み込むと正しく機能しません。
 
-## Development prerequisites
+## 開発要件
 ### Node.js/node-gyp
 
-[Node.js v12.9.0 or later is recommended.](https://nodejs.org/en/) If updating to a new version of Node is  undesirable, you can instead [update npm's copy of node-gyp manually](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) to version 5.0.2 or later, which contains the required changes to compile native modules for Arm.
+[Node.js v12.9.0 以降を推奨します。](https://nodejs.org/en/) 新しいバージョンの Node へのアップデートが望ましくない場合は、代わりに [npm の node-gyp のコピーを手動でバージョン 5.0.2 以降に更新](https://github.com/nodejs/node-gyp/wiki/Updating-npm's-bundled-node-gyp) できます。これには、Arm 向けのネイティブモジュールをコンパイルするために必要な変更が含まれています。
 
 ### Visual Studio 2017
-Visual Studio 2017 (any edition) is required for cross-compiling native modules. You can download Visual Studio Community 2017 via Microsoft's [Visual Studio Dev Essentials program](https://visualstudio.microsoft.com/dev-essentials/). After installation, you can add the Arm-specific components by running the following from a _Command Prompt_:
+ネイティブモジュールのクロスコンパイルには、Visual Studio 2017 (いずれかのエディション) が必要です。 Visual Studio Community 2017 は、Microsoft の [Visual Studio Dev Essentials プログラム](https://visualstudio.microsoft.com/dev-essentials/) からダウンロードできます。 インストール後、_コマンドプロンプト_ から次のコマンドを実行して、Arm 固有のコンポーネントを追加できます。
 
 ```powershell
 vs_installer.exe ^
@@ -48,14 +48,14 @@ vs_installer.exe ^
 --includeRecommended
 ```
 
-#### Creating a cross-compilation command prompt
-Setting `npm_config_arch=arm64` in the environment creates the correct arm64 `.obj` files, but the standard _Developer Command Prompt for VS 2017_ will use the x64 linker. To fix this:
+#### クロスコンパイルするコマンドプロンプトの作成
+環境で `npm_config_arch = arm64` を設定すると、正しい arm64 の `.obj` ファイルが作成されますが、VS 2017 標準の _開発者向けコマンドプロンプト for VS 2017_ は x64 リンカーを使用します 。 これを修正するには以下のようにします。
 
-1. Duplicate the _x64_x86 Cross Tools Command Prompt for VS 2017_ shortcut (e.g. by locating it in the start menu, right clicking, selecting _Open File Location_, copying and pasting) to somewhere convenient.
-2. Right click the new shortcut and choose _Properties_.
-3. Change the _Target_ field to read `vcvarsamd64_arm64.bat` at the end instead of `vcvarsamd64_x86.bat`.
+1. _x64_x86 Cross Tools Command Prompt for VS 2017_ ショートカットを複製します (たとえば、スタートメニューで見つけて、右クリックし、_ファイルの場所を開く_ を選択して、コピーアンドペーストします)。
+2. 新しいショートカットで右クリックして、_プロパティ_ を選びます。
+3. _Target_ フィールドを、`vcvarsamd64_x86.bat` ではなく、最後の`vcvarsamd64_arm64.bat` を読み取るように変更します。
 
-If done successfully, the command prompt should print something similar to this on startup:
+正常に完了すると、そのコマンドプロンプトは起動時に以下のようなものを出力するはずです。
 
 ```bat
 **********************************************************************
@@ -65,31 +65,31 @@ If done successfully, the command prompt should print something similar to this 
 [vcvarsall.bat] Environment initialized for: 'x64_arm64'
 ```
 
-If you want to develop your application directly on a Windows on Arm device, substitute `vcvarsx86_arm64.bat` in _Target_ so that cross-compilation can happen with the device's x86 emulation.
+Arm 版 Windows デバイスでアプリケーションを直接開発したい場合は、デバイスの x86 エミュレーションでクロスコンパイルが発生するように、_Target_ を `vcvarsx86_arm64.bat` に置き換えます。
 
-### Linking against the correct `node.lib`
+### 正しい `node.lib` に対してリンクする
 
-By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) To fix this:
+デフォルトでは、`node-gyp` は Electron の node ヘッダーをアンパックし、`node.lib` の x86 および x64 バージョンを `%APPDATA%\..\Local\node-gyp\Cache` にダウンロードします。ただし、arm64 バージョンはダウンロードされません ([この修正は開発中です](https://github.com/nodejs/node-gyp/pull/1875))。これを修正するには以下のようにします。
 
-1. Download the arm64 `node.lib` from https://atom.io/download/v6.0.9/win-arm64/node.lib
-2. Move it to `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
+1. https://atom.io/download/v6.0.9/win-arm64/node.lib から arm64 の `node.lib` をダウンロードします
+2. それを `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib` に移動します
 
-Substitute `6.0.9` for the version you're using.
+`6.0.9` は使用しているバージョンに置き換えてください。
 
 
-## Cross-compiling native modules
-After completing all of the above, open your cross-compilation command prompt and run `set npm_config_arch=arm64`. Then use `npm install` to build your project as normal. As with cross-compiling x86 modules, you may need to remove `node_modules` to force recompilation of native modules if they were previously compiled for another architecture.
+## ネイティブモジュールのクロスコンパイル
+上記のすべてを完了した後、クロスコンパイルコマンドプロンプトを開き、`set npm_config_arch = arm64` を実行します。 そして `npm install` を使用して、通常どおりプロジェクトをビルドします。 x86 モジュールのクロスコンパイルと同様に、事前に別のアーキテクチャ用にコンパイルされたネイティブモジュールを強制的に再コンパイルするには、`node_modules` を削除する必要があります。
 
-## Debugging native modules
+## ネイティブモジュールのデバッグ
 
-Debugging native modules can be done with Visual Studio 2017 (running on your development machine) and corresponding [Visual Studio Remote Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) running on the target device. To debug:
+ネイティブモジュールのデバッグは、Visual Studio 2017 (開発マシン上で実行) および対応する [Visual Studio Remote Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/remote-debugging-cpp?view=vs-2019) をターゲットのデバイス上で実行することで実行できます。 デバッグするには以下のようにします。
 
-1. Lanch your app `.exe` on the target device via the _Command Prompt_ (passing `--inspect-brk` to pause it before any native modules are loaded).
-2. Launch Visual Studio 2017 on your development machine.
-3. Connect to the target device by selecting _Debug > Attach to Process..._ and enter the device's IP address and the port number displayed by the Visual Studio Remote Debugger tool.
-4. Click _Refresh_ and select the [appropriate Electron process to attach](../development/debug-instructions-windows.md).
-5. You may need to make sure that any symbols for native modules in your app are loaded correctly. To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
-5. Once attached, set any appropriate breakpoints and resume JavaScript execution using Chrome's [remote tools for Node](debugging-main-process.md).
+1. _コマンドプロンプト_ (これで `-inspect-brk` を渡すとネイティブモジュールがロードされる前に一時停止します) を介して、ターゲットデバイスでアプリの `.exe` を起動します。
+2. 開発マシン上で Visual Studio 2017 を起動します。
+3. ターゲットのデバイスに接続するためには、_デバッグ > プロセスにアタッチ..._ を選択し、デバイスの IP アドレスと Visual Studio Remote Debugger ツールに表示されているポート番号を入力します。
+4. _更新_ をクリックしてから、[割り当てるべき正しい Electron プロセス](../development/debug-instructions-windows.md) を選択します。
+5. アプリのネイティブモジュールのシンボルが正しくロードされていることを確認する必要がある場合があるでしょう。 これを構成するには、Visual Studio 2017 で _デバッグ > オプション..._ に進み、_デバッグ > シンボル_ 下で `.pdb` シンボルが含まれたフォルダーを追加します。
+5. 接続したら、適切なブレークポイントを設定し、Chrome の [Node 向けリモートツール](debugging-main-process.md) を使用して JavaScript の実行を再開します。
 
-## Getting additional help
-If you encounter a problem with this documentation, or if your app works when compiled for x86 but not for arm64, please [file an issue](../development/issues.md) with "Windows on Arm" in the title.
+## さらなるヘルプが必要な場合
+このドキュメントで問題に遭遇した場合、または x86 向けにコンパイルされたアプリが動作しても arm64 向けにコンパイルされたアプリが動作しない場合は、タイトルに "Windows on Arm" と入れて [Issue を提出](../development/issues.md) してください。
