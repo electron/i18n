@@ -2,7 +2,7 @@
 
 アプリを Electron 6.0.8 以降で実行している場合、Arm 版 Windows 10 向けにビルドできます。 これによりパフォーマンスが大幅に向上しますが、アプリで使用されているネイティブモジュールを再コンパイルする必要があります。 また、ビルドおよびパッケージ化スクリプトの小さな修正が必要になる場合があります。
 
-## Running a basic app
+## 基本的なアプリの実行
 アプリがネイティブモジュールを使用していない場合は、アプリの Arm 版は簡単に作成できます。
 
 1. アプリの `node_modules` ディレクトリが空であることを確認してください。
@@ -88,8 +88,8 @@ Arm 版 Windows デバイスでアプリケーションを直接開発したい�
 2. 開発マシン上で Visual Studio 2017 を起動します。
 3. ターゲットのデバイスに接続するためには、_デバッグ > プロセスにアタッチ..._ を選択し、デバイスの IP アドレスと Visual Studio Remote Debugger ツールに表示されているポート番号を入力します。
 4. _更新_ をクリックしてから、[割り当てるべき正しい Electron プロセス](../development/debug-instructions-windows.md) を選択します。
-5. アプリのネイティブモジュールのシンボルが正しくロードされていることを確認する必要がある場合があるでしょう。 To configure this, head to _Debug > Options..._ in Visual Studio 2017, and add the folders containing your `.pdb` symbols under _Debugging > Symbols_.
-5. Once attached, set any appropriate breakpoints and resume JavaScript execution using Chrome's [remote tools for Node](debugging-main-process.md).
+5. アプリのネイティブモジュールのシンボルが正しくロードされていることを確認する必要がある場合があるでしょう。 これを構成するには、Visual Studio 2017 で _デバッグ > オプション..._ に進み、_デバッグ > シンボル_ 下で `.pdb` シンボルが含まれたフォルダーを追加します。
+5. 接続したら、適切なブレークポイントを設定し、Chrome の [Node 向けリモートツール](debugging-main-process.md) を使用して JavaScript の実行を再開します。
 
-## Getting additional help
-If you encounter a problem with this documentation, or if your app works when compiled for x86 but not for arm64, please [file an issue](../development/issues.md) with "Windows on Arm" in the title.
+## さらなるヘルプが必要な場合
+このドキュメントで問題に遭遇した場合、または x86 向けにコンパイルされたアプリが動作しても arm64 向けにコンパイルされたアプリが動作しない場合は、タイトルに "Windows on Arm" と入れて [Issue を提出](../development/issues.md) してください。
