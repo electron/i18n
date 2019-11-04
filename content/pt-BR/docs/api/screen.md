@@ -16,7 +16,7 @@ Um exemplo de criação de uma janela que preenche a tela inteira:
 
 let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
 
-    <br />Another example of creating a window in the external display:
+    <br />Outro exemplo de criação de uma janela na tela externa:
     
     ```javascript
     const { app, BrowserWindow, screen } = require('electron')
@@ -41,9 +41,9 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
 
 ## Eventos
 
-The `screen` module emits the following events:
+O módulo `screen` emite os seguintes eventos:
 
-### Event: 'display-added'
+### Evento: 'display-added'
 
 Retorna:
 
