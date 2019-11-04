@@ -23,21 +23,21 @@ To learn more about how to profile your app's code, familiarize yourself with th
 
 Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+1. [Moduli inclusi incautamente](#1-carelessly-including-modules)
+2. [Caricamento ed esecuzione del codice troppo presto](#2-loading-and-running-code-too-soon)
+3. [Bloccando il processo principale](#3-blocking-the-main-process)
+4. [Bloccando il processo di render](#4-blocking-the-renderer-process)
+5. [Polyfill non necessari](#5-unnecessary-polyfills)
+6. [Richieste di rete non necessarie o bloccate](#6-unnecessary-or-blocking-network-requests)
+7. [Impacchetta il tuo codice](#7-bundle-your-code)
 
 ## 1) Carelessly including modules
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+Prima di aggiungere un modulo Node.js alla tua applicazione, esamina tale modulo. Quante dipendenze include questo modulo? Che tipo di risorse necessita per essere semplicemente chiamato in una dichiarazione `require()`? Potresti trovare che il modulo con più download sul registro pacchetto NPM o le maggiori stelle su GitHub non è il più leggero o il più piccolo disponibile.
 
 ### Perchè?
 
-The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
+La ragione dietro questa raccomandazione è meglio illustrata con un esempio del mondo reale. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
 
 That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
 
