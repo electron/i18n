@@ -9,9 +9,9 @@ Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-pro
 ```diff
 Electron
 ├── atom/ - Codice sorgente C++.
-|   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
+|   ├── app/ - Codice di immissione del sistema.
+|   ├── browser/ - Il frontend che include la finestra principale e tutte le 
+|   |   |         cose del processo principale. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
