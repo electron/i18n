@@ -843,13 +843,13 @@ if (!gotTheLock) {
 
 Возвращает [`GPUFeatureStatus`](structures/gpu-feature-status.md) - статус функции графики из `chrome://gpu/`.
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**Примечание:** Эта информация может использоваться только после возникновения события `gpu-info-update`.
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - Может быть `basic` или `complete`.
 
-Returns `Promise<unknown>`
+Возвращает `Promise<unknown>`
 
 Для `infoType` равным `complete`: Промис выполняется с `объектом`, содержащий всю GPU информацию как в [объекте GPUInfo в chromium](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Это включает информацию о версии и драйвере, показанную на странице `chrome://gpu`.
 
@@ -975,8 +975,8 @@ app.setLoginItemSettings({
   * `applicationName` String (опиционально) - имя приложения.
   * `applicationVersion` String (опиционально) - версия приложения.
   * `copyright` String (опиционально) - copyright информация.
-  * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `version` String (опционально) *macOS* - номер версии сборки приложения.
+  * `credits` String (опционально) *macOS* - сredit информация.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
   * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
