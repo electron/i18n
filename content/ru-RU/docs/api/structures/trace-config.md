@@ -1,9 +1,9 @@
 # Объект TraceConfig
 
-* `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
-* `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.
-* `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
-* `enable_argument_filter` boolean (optional) - if true, filter event data according to a whitelist of events that have been manually vetted to not include any PII. See [the implementation in Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc) for specifics.
+* `recording_mode` String (опционально) - Может быть `record-until-full`, `record-continuously`, `record-as-much-as-possible` или `trace-to-console`. По умолчанию `record-until-full`.
+* `trace_buffer_size_in_kb` number (опционально) - максимальный размер буфера записи трассировки в килобайтах. По умолчанию 100MB.
+* `trace_buffer_size_in_events` number (опционально) - максимальный размер буфера записи трассировки в событиях.
+* `enable_argument_filter` boolean (орционально) -если значение true, данные событий отфильтруются в соответствии с белым списком событий, которые были проверены вручную, чтобы не включать PII. Более подробно смотрите [реализацию в Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc).
 * `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.
 * `excluded_categories` String[] (optional) - a list of tracing categories to exclude. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.
 * `included_process_ids` number[] (optional) - a list of process IDs to include in the trace. If not specified, trace all processes.
