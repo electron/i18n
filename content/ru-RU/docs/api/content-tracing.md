@@ -1,10 +1,10 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Собирает данные трассировки из содержимого модуля Chromium для поиска узких мест производительности и медленных операций.
 
 Процесс: [Основной](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
+Этот модуль не содержит веб-интерфейса. Для просмотра записанных треков, используйте [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), доступного по адресу `chrome://tracing` в Chrome.
 
 **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` модуля app не произошло.
 
