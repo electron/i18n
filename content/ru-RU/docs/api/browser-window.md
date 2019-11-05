@@ -435,7 +435,7 @@ win.on('app-command', (e, cmd) => {
 * `event` Event
 * `rotation` Float
 
-Генерируется жестом вращения трекпада. Непрерывно генерируется до тех пор, пока жест поворота не будет завершен. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Генерируется жестом вращения трекпада. Непрерывно генерируется до тех пор, пока жест поворота не будет завершен. Значение `rotation` при каждом выбросе - угол поворота в градусах, отсчитанный от последнего выброса. Последнее событие на жесте вращения всегда будет иметь значение `0`. Значения вращения против часовой стрелки положительные, по часовой стрелке отрицательные.
 
 #### Событие: 'sheet-begin' *macOS*
 
@@ -499,7 +499,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Возвращает `Record<String, ExtensionInfo>` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
 **Примечание:** Этот метод не может быть вызван до тех пор, пока событие `ready` модуля `app` не произойдет.
 
@@ -525,7 +525,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Возвращает `Record<string, ExtensionInfo>` - ключи это имена расширений, а каждое значение это объект, содержащий свойства `name` и `version`.
 
 To check if a DevTools extension is installed you can run the following:
 
@@ -557,11 +557,11 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.id` *Readonly*
 
-A `Integer` property representing the unique ID of the window.
+Свойство `Integer` представляющее уникальный идентификатор окна.
 
 #### `win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+Свойство `Boolean`, которое определяет, должна ли панель меню автоматически скрываться. После установки панель меню будет показываться, только когда пользователь нажмет на клавишу `Alt`.
 
 If the menu bar is already visible, setting this property to `true` won't hide it immediately.
 
