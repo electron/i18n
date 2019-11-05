@@ -39,7 +39,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 * 书写 [标准](https://npm.im/standard) JavaScript 样式
 * 文件名应使用 `-` 连接而不是 `_`, 例如. `file-name.js` 而不是 `file_name.js`, 因为在 [github/atom](https://github.com/github/atom)中模块名通常是 `module-name` 形式. 此规则仅适用于 `.js` 文件。
 * 酌情使用更新的 ES6 / ES2015 语法 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 用于需要的和其他的常数
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 用于需要的和其他的常数. If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) 用于定义变量
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 代替 `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) 而不是使用字符串连接符 `+`
