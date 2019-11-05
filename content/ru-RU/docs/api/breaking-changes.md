@@ -21,38 +21,38 @@
 `session.clearAuthCache` API больше не принимает параметры для очистки, а вместо этого безоговорочно очищает весь кэш.
 
 ```js
-// Deprecated
+// Устарело
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Заменить на
 session.clearAuthCache()
 ```
 
 ### `powerMonitor.querySystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Удалено в Electron 7.0
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Заменить на синхронный API
 const idleState = getSystemIdleState(threshold)
 ```
 
 ### `powerMonitor.querySystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Удалено в Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Заменить на синхронный API
 const idleTime = getSystemIdleTime()
 ```
 
 ### API webFrame изолированных миров
 
 ```js
-// Removed in Elecron 7.0
+// Удалено в Elecron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Заменить на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -62,9 +62,9 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removal of deprecated `marked` property on getBlinkMemoryInfo
+### Удаление устаревшего свойства `marked` на getBlinkMemoryInfo
 
-This property was removed in Chromium 77, and as such is no longer available.
+Это свойство было удалено в Chromium 77, и как таковое больше не доступно.
 
 ## Запланированные критические изменения API (6.0)
 
@@ -144,11 +144,11 @@ const idleTime = getSystemIdleTime()
 ### `app.enableMixedSandbox`
 
 ```js
-// Deprecated
+// Устарело
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+Режим смешанной песочницы теперь включен по умолчанию.
 
 ### `Tray`
 
