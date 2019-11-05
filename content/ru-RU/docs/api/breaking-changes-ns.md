@@ -1,22 +1,22 @@
 # Breaking changes (NetworkService) (Draft)
 
-This document describes changes to Electron APIs after migrating network code to NetworkService API.
+Этот документ описывает изменения в Electron API после миграции сетевого кода в NetworkService API.
 
-We don't currently have an estimate of when we will enable `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we might switch before Electron 10.
+В настоящее время у нас нет оценки того, когда мы включим ` NetworkService ` по умолчанию в Electron, но поскольку Chromium уже удаляет код, отличный от ` NetworkService `, мы могли бы переключиться до Electron 10.
 
-The content of this document should be moved to `breaking-changes.md` once we have determined when to enable `NetworkService` in Electron.
+Содержимое этого документа должно быть перемещено в `breaking-changes.md`, как только мы определим когда включить `NetworkService` в Electron.
 
 ## Запланированные критические изменения API
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
 
 ```javascript
-// Deprecated
+// Устаревшее
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// Заменить на
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -31,25 +31,25 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API теперь синхронизируются, и необязательный обратный вызов больше не требуется.
 
 ```javascript
-// Deprecated
+// Устаревшее
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// заменить на
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+Зарегистрированный или перехваченный протокол не влияет на текущую страницу до тех пор, пока не произойдет навигация.
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+Этот API является устаревшим, пользователи должны использовать `protocol.isProtocolRegistered` и `protocol.isProtocolIntercepted`.
 
 ```javascript
-// Deprecated
+// Устаревшее
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// Заменить на
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
