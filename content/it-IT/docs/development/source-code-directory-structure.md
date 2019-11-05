@@ -17,22 +17,22 @@ Electron
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
 |   |   |   ├── win/ - Sorgente specifico della GUI di Windows.
 |   |   |   └── cocoa/ - Codice sorgente specifico di Cocoa.
-L'implementazione delle principali API di processo.
-|   |   ├── net/ - Codice relativo alla gestione della rete.
+|   |   ├── api/ - L'implementazione delle principali API di processo.
+|   |   ├── net/ - Codice relativo alla gestione delle funzionalità di rete.
 |   |   ├── mac/ - Codice sorgente Objective-C specifico per Mac.
 |   |   └── resources/ - Icone, file dipendenti dalla piattaforma, ecc.
 |   ├── renderer/ - Codice eseguito dal renderer.
 |   |   └── api/ - L'implementazione delle principali API del processo renderer.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       |         including some utility functions and code to integrate node's
-|       |         message loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|                  Electron's built-in modules.
+└── common/ - Codice usato sia dal processo principale che dal processo renderer,
+|       |         incluse alcune funzioni di utilità e parti di codice impiegate per integrare il loop 
+|       |         dei messaggi dei nodi nel loop dei messaggi di Chromium.
+|       └── api/ - L'implementazione delle API comuni e le foundation dei
+|                  moduli base di Electron.
 ├── chromium_src/ - Codice sorgente preso da Chromium. Vedi sotto.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
+├── docs/ - Documentazione.
+├── lib/ - Codice sorgente JavaScript.
 |   ├── browser/ - Javascript main process initialization code.
 |   |   └── api/ - Javascript API implementation.
 |   ❤ common/ - JavaScript utilizzato sia dai processi principali che dal renderer
