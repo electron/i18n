@@ -742,7 +742,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (опционально) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (опционально) - переданная в `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
