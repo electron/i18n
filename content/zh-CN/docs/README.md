@@ -31,7 +31,7 @@
   * [使用 Electron 的 API](tutorial/application-architecture.md#using-electron-apis)
   * [使用Node.js的API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [性能策略](tutorial/performance.md)
 * 为你的应用添加功能 
   * [通知（Notifications）](tutorial/notifications.md)
   * [最近的文件](tutorial/recent-documents.md)
