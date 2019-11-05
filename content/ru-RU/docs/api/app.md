@@ -142,7 +142,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
 Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), после удачного возобновления на другом устройстве.
 
@@ -152,7 +152,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
 Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если Вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе, операция завершится ошибкой и будет вызвано `continue-activity-error`.
 
@@ -285,9 +285,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-info-update'
+### Событие: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+Выдается при каждом обновлении информации о GPU.
 
 ### Событие: 'gpu-process-crashed'
 
