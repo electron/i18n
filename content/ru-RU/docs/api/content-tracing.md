@@ -32,7 +32,7 @@ app.on('ready', () => {
 
 Возвращает `Promise<String[]>` - возвращает массив групп категорий, как только все дочерние процессы признают запрос `getCategories`
 
-Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+Получить набор групп категорий. Группы категорий могут меняться при достижении новых путей кода. Смотрите также [список встроенных категорий трассировки](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
@@ -44,7 +44,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording.
 
-If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
+Если запись уже запущена, promise будет немедленно разрешен, поскольку одновременно может выполняться только одна операция трассировки.
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
