@@ -44,13 +44,13 @@ app.on('ready', () => {
 
 ## --js-flags=`флаги`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Указывает флаги, передаваемые движку Node.js. Обязателен при запуске Electron, если вы хотите задействовать `flags` в основном процессе.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+Смотрите [документацию Node.js](https://nodejs.org/api/cli.html) или запустите `node --help` в командной строке для списка доступных флагов. Дополнительно, запустите `node --v8-options` для просмотра списка флагов, которые касаются JavaScript движка V8 в Node.js.
 
 ## --proxy-server=`адрес:порт`
 
@@ -104,11 +104,11 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-тогда любая `ссылка` заканчивающаяся на `example.com`, `foobar.com` и `baz` будут рассматриваться для интегрированной аутентификации. Without `*` prefix the URL has to match exactly.
+тогда любая `ссылка` заканчивающаяся на `example.com`, `foobar.com` и `baz` будут рассматриваться для интегрированной аутентификации. Без префикса `*`, ссылка будет полностью соответствовать.
 
 ## --auth-negotiate-delegate-whitelist=`ссылка`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+Список серверов, разделенных запятыми, для которых требуется делегирование полномочий пользователя. Без `*` префикс URL должен совпадать точно.
 
 ## --ignore-certificate-errors
 
@@ -154,4 +154,4 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Отключает песочницу Chromium, которая теперь включена по умолчанию. Используется только для тестирования.
