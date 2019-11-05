@@ -1,6 +1,6 @@
 # 构建步骤（Linux）
 
-遵循下面的步骤，在 Linux 上构建 Electron.
+遵循下面的准则在 Linux 上创建 Electron 。
 
 ## 前提条件
 
