@@ -10,19 +10,19 @@ Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-pro
 Electron
 ├── atom/ - Codice sorgente C++.
 |   ├── app/ - Codice di immissione del sistema.
-|   ├── browser/ - Il frontend che include la finestra principale e tutte le 
-|   |   |         cose del processo principale. This talks to the renderer to manage web
+|   ├── browser/ - Il frontend, che include la finestra principale, l'interfaccia utente,  e tutto ciò 
+|   |   |         che riguarda il processo principale. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
-| | | Oomen-Ruijten win/ - Codice sorgente specifico per Windows GUI.
+|   |   |   ├── win/ - Sorgente specifico della GUI di Windows.
 |   |   |   └── cocoa/ - Codice sorgente specifico di Cocoa.
 L'implementazione delle principali API di processo.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
+|   |   ├── net/ - Codice relativo alla gestione della rete.
+|   |   ├── mac/ - Codice sorgente Objective-C specifico per Mac.
+|   |   └── resources/ - Icone, file dipendenti dalla piattaforma, ecc.
+|   ├── renderer/ - Codice eseguito dal renderer.
+|   |   └── api/ - L'implementazione delle principali API del processo renderer.
 |   └── common/ - Code that used by both the main and renderer processes,
 |       |         including some utility functions and code to integrate node's
 |       |         message loop into Chromium's message loop.
