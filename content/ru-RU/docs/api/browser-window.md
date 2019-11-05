@@ -563,11 +563,11 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 Свойство `Boolean`, которое определяет, должна ли панель меню автоматически скрываться. После установки панель меню будет показываться, только когда пользователь нажмет на клавишу `Alt`.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+Если панель меню уже видна, установка этого свойства в `true` не будет скрывать ее немедленно.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+Свойство `Boolean` определяет, может ли окно быть вручную свернуто пользователем.
 
 On Linux the setter is a no-op, although the getter returns `true`.
 
