@@ -937,7 +937,7 @@ console.log(win.getBounds())
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (опционально) *macOS* *Windows* - Значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver` и ~~`dock`~~ (Устарело). По умолчанию `floating`, когда `flag` установлен true. `level` сбрасывается на `normal`, когда флаг устанавливается false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `level` String (опционально) *macOS* *Windows* - Значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver` и ~~`dock`~~ (Устарело). По умолчанию `floating`, когда `flag` установлен true. `level` сбрасывается на `normal`, когда флаг устанавливается false. Обратите внимание, что от `floating` до `status` включительно, окно находится под Dock в macOS и под панелью задач в Windows. От `pop-up-menu` и выше отображается над Dock на macOS и выше панели задач на Windows. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nswindow/level) для подробностей.
 * `relativeLevel` Integer (опционально) *macOS* - количество слоев выше, чтобы установить окно относительно заданного `level`. По умолчанию - `0`. Обратите внимание, что Apple не рекомендует устанавливать уровни выше, чем 1 верхнего `screen-saver`.
 
 Устанавливает, должно ли окно всегда показываться поверх остальных окон. После настройки, окно все еще является нормальным, не окно панели инструментов, которое не может быть сфокусировано.
@@ -1080,11 +1080,11 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 * `url` String
 * `options` Object (опционально) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer URL.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опционально) - HTTP Referrer.
   * `userAgent` String (опционально) - user-agent, создающий запрос.
   * `extraHeaders` String (опционально) - дополнительные заголовки, разделенные "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опционально)
-  * `baseURLForDataURL` String (optional) - Base URL (with trailing path separator) for files to be loaded by the data URL. This is needed only if the specified `url` is a data URL and needs to load other files.
+  * `baseURLForDataURL` String (опционально) - Базовый URL (с разделителем пути), для файлов, которые будут загружены по URL данных. Это необходимо, только если указанный `url` это URL данных и необходимо загрузить другие файлы.
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
@@ -1120,7 +1120,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (опционально) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
+  * `query` Record<String, String> (опционально) - переданная в `url.format()`.
   * `search` String (опционально) - переданная в `url.format()`.
   * `hash` String (опционально) - переданная в `url.format()`.
 
@@ -1152,7 +1152,7 @@ Same as `webContents.reload`.
 
 Удаляет индикатор прогресса, когда прогресс меньше 0; Изменяет в режим indeterminate, когда прогресс больше 1.
 
-На платформе Linux поддерживается только рабочая среда Unity, Вам необходимо указать имя файла `*.desktop` в поле `desktopName` в `package.json`. By default, it will assume `{app.name}.desktop`.
+На платформе Linux поддерживается только рабочая среда Unity, Вам необходимо указать имя файла `*.desktop` в поле `desktopName` в `package.json`. По умолчанию будет предполагаться `{app.name}.desktop`.
 
 На Windows режим может быть передан. Принимаемые значения: `none`, `normal`, `indeterminate`, `error` и `paused`. Если Вы вызовете `setProgressBar` без установленного режима (но со значением в пределах допустимого диапозона), будет предполагаться `normal`.
 
@@ -1167,7 +1167,7 @@ Same as `webContents.reload`.
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+Устанавливает, будет ли окно иметь тень.
 
 #### `win.hasShadow()`
 
@@ -1177,11 +1177,11 @@ Sets whether the window should have a shadow.
 
 * `opacity` Number - между 0.0 (полная прозрачность) и 1.0 (полная видимость)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+Устанавливает прозрачность окна. В Linux ничего не делает. Значения вне номера ограничены диапазоном [0, 1].
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость).
 
 #### `win.setShape(rects)` *Windows* *Linux* *Экспериментально*
 
