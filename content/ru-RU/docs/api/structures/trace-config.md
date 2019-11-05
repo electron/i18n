@@ -6,8 +6,8 @@
 * `enable_argument_filter` boolean (орционально) -если значение true, данные событий отфильтруются в соответствии с белым списком событий, которые были проверены вручную, чтобы не включать PII. Более подробно смотрите [реализацию в Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc).
 * `included_categories` String[] (опционально) - список категорий трассировки для включения. Может включать глобальные шаблоны, используя `*` в конце категории названия. Смотрите [категории](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) для списка категорий.
 * `excluded_categories` String[] (опционально) - список категорий трассировки для исключения. Может включать глобальные шаблоны, используя `*` в конце категории названия. Смотрите [категории](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) для списка категорий.
-* `included_process_ids` number[] (опционально) - список идентификаторов (ID) процессов для включения в трассировку. If not specified, trace all processes.
-* `histogram_names` String[] (optional) - a list of [histogram](https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md) names to report with the trace.
+* `included_process_ids` number[] (опционально) - список идентификаторов (ID) процессов для включения в трассировку. Если не указано, будут трассироваться все процессы.
+* `histogram_names` String[] (опционально) - список названий of [гистограмм](https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md) для отчета с трассировкой.
 * `memory_dump_config` Record<String, any> (optional) - if the `disabled-by-default-memory-infra` category is enabled, this contains optional additional configuration for data collection. See the [Chromium memory-infra docs](https://chromium.googlesource.com/chromium/src/+/master/docs/memory-infra/memory_infra_startup_tracing.md#the-advanced-way) for more information.
 
 An example TraceConfig that roughly matches what Chrome DevTools records:
