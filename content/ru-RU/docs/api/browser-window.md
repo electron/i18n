@@ -1391,7 +1391,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 #### `win.setBrowserView(browserView)` *Экспериментально*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Прикрепляет browserView к окну. Если к окну прикреплены другие browserView, они будут убраны с окна.
 
 #### `win.getBrowserView()` *Experimental*
 
@@ -1409,6 +1409,6 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 #### `win.getBrowserViews()` *Экспериментально*
 
-Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
+Возвращает `BrowserView[]` - массив всех BrowserViews которые были присоединены с `addBrowserView` или `setBrowserView`.
 
 **Примечание:** BrowserView API в настоящее время экспериментально и может измениться или быть удалено в будущих релизах Electron.
