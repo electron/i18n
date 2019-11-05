@@ -39,7 +39,7 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 * [standard](https://npm.im/standard) の JavaScript 形式で記述します。
 * ファイル名は、`_` の代わりに `-` で連結する必要があります。[github/atom](https://github.com/github/atom) モジュール名は通常は `module-name` の形式になるので、`file_name.js` ではなく、`file-name.js` としてください。 このルールは、`.js` ファイルにのみ適用されます。
 * 必要に応じて、より新しい ES6/ES2015 構文を使用します 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) は require とその他の定数に. If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) は require とその他の定数に. 値がプリミティブの場合、名前はすべて大文字にします (例 `const NUMBER_OF_RETRIES = 5`)。
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) は変数の定義に
   * [アロー関数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) で `function () { }` を代替する
   * [テンプレート文字列](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) で + を使用した文字列連結を代替する `+`
