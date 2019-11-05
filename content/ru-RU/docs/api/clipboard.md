@@ -151,15 +151,15 @@ clipboard.writeBookmark({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+Возвращает `String` - текст в панели поиска, который представляет собой информацию о текущем состоянии панели поиска активного приложения.
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Этот метод использует синхронный IPC при вызове в процессе рендеринга. Кэшированное значение пересчитывается из панели поиска всякий раз, когда приложение активируется.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+Записывает `text` в панель поиска (панель, которая содержит информацию о текущем состоянии панели поиска активного приложения) в виде простого текста. Этот метод использует синхронный IPC, когда вызывается в процессе рендеринга.
 
 ### `clipboard.clear([type])`
 
@@ -242,7 +242,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `html` String (опционально)
   * `image` [NativeImage](native-image.md) (опционально)
   * `rtf` String (опционально)
-  * `bookmark` String (optional) - The title of the URL at `text`.
+  * `bookmark` String (опционально) - заголовок ссылки на `text`.
 * `type` String (опционально) - может быть `selection` или `clipboard`; по умолчанию 'clipboard'. `selection` доступен только на Linux.
 
 Записывает `data` в буфер обмена.
