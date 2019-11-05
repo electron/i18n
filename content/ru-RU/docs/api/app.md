@@ -1020,7 +1020,7 @@ stopAccessingSecurityScopedResource()
 
 * `options` Object (опционально) 
   * `conflictHandler` Function<boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках. 
-    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
+    * `conflictType` String - Тип конфликта перемещения, с которым столкнулся обработчик; может быть `exists` или `existsAndRunning`, где `exists` означает, что приложение с тем же именем присутствует в каталоге приложений, а `existsAndRunning` означает, что он существует и работает в данный момент.
 
 Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, что если перемещение было успешным, то Ваше приложение будет закрыто и перезапущено.
 
@@ -1028,7 +1028,7 @@ stopAccessingSecurityScopedResource()
 
 **Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+По умолчанию, если приложение с тем же именем, что и перемещенное, существует в каталоге приложений и *не* запущено, существующее приложение будет помещено в корзину, а активное приложение перемещено на его место. Если оно *работает*, на уже существующее запущенное приложение переместится фокус, а ранее активное приложение само завершит работу. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
 Например:
 
