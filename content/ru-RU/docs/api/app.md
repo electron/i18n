@@ -977,9 +977,9 @@ app.setLoginItemSettings({
   * `copyright` String (опиционально) - copyright информация.
   * `version` String (опционально) *macOS* - номер версии сборки приложения.
   * `credits` String (опционально) *macOS* - сredit информация.
-  * `authors` String[] (optional) *Linux* - List of app authors.
-  * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `authors` String[] (опционально) *Linux* - список авторов приложения.
+  * `website` String (опционально) *Linux* - веб-сайт приложения.
+  * `iconPath` String (опционально) *Linux* - путь до иконки приложения. Будет показано как 64x64 пикселей с сохранением пропорций.
 
 Установите описание панели опций. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
@@ -1019,7 +1019,7 @@ stopAccessingSecurityScopedResource()
 ### `app.moveToApplicationsFolder([options])` *macOS*
 
 * `options` Object (опционально) 
-  * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
+  * `conflictHandler` Function<boolean> (опционально) - обработчик потенциальных конфликтов при неудачных попытках. 
     * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
 
 Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, что если перемещение было успешным, то Ваше приложение будет закрыто и перезапущено.
