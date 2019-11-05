@@ -39,7 +39,7 @@ Puede ejecutar `npm run lint-docs` para asegurarse de que los cambios en su docu
 * Escribe el estilo JavaScript [estándar](https://npm.im/standard).
 * Los nombres de los archivos deben concatenarse con `-` en lugar de `_`, por ejemplo `file-name.js` en vez de `file_name.js`, porque en el módulo [github/atom](https://github.com/github/atom) los nombres están generalmente en la forma `module-name`. Esta regla solo aplica a archivos `.js`.
 * Use la sintaxis ES6 / ES2015 más nueva cuando corresponda 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) Para solicitudes y otras constantes
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) Para solicitudes y otras constantes. If the value is a primitive, use uppercase naming (eg `const NUMBER_OF_RETRIES = 5`).
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) para definir variables
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) en lugar de `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) en lugar de el uso de cadenas concatenadas `+`
