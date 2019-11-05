@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 Обычно это событие происходит после события `did-finish-load`. Однако, страницы, включающие в себя удаленные ресурсы, могут продолжать подгружаться после происхождения события `did-finish-load`.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+Пожалуйста, обратите внимание, что использование этого события означает, что рендерер будет считаться "видимым" и отрисуется, даже если `show` является false. Это событие никогда не сработает, если вы используете `paintWhenInitiallyHidden: false`
 
 ## Настройка `backgroundColor`
 
@@ -113,7 +113,7 @@ child.once('ready-to-show', () = > {
 
 Процесс: [Главный](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`BrowserWindow` это[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Так создается новый экземпляр `BrowserWindow` с нативными свойствами, установленными в `options`.
 
@@ -301,7 +301,7 @@ window.onbeforeunload = (e) => {
 
 Происходит, когда веб-страница была отрисована (пока не отображена) и окно может быть отображено без визуального мерцания.
 
-Please note that using this event implies that the renderer will be considered "visible" and paint even though `show` is false. This event will never fire if you use `paintWhenInitiallyHidden: false`
+Пожалуйста, обратите внимание, что использование этого события означает, что рендерер будет считаться "видимым" и отрисуется, даже если `show` является false. Это событие никогда не сработает, если вы используете `paintWhenInitiallyHidden: false`
 
 #### Событие: 'maximize'
 
