@@ -6,7 +6,7 @@
 
 **См. также: [Подробное руководство о том, как внедрять обновления в Ваше приложение](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Платформа заметок
 
