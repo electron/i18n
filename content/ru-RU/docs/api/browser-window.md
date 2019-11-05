@@ -569,17 +569,17 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 Свойство `Boolean` определяет, может ли окно быть вручную свернуто пользователем.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+В Linux setter это невозможно, хотя getter возвращает `true`.
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+Свойство `Boolean` определяет, может ли окно быть вручную развернуто пользователем.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+В Linux setter это невозможно, хотя getter возвращает `true`.
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Свойство `Boolean` которое определяет, может ли кнопка увеличить/зумировать окно переключать полноэкранный режим или увеличивать до предела окно.
 
 #### `win.resizable`
 
@@ -589,13 +589,13 @@ A `Boolean` property that determines whether the window can be manually resized 
 
 A `Boolean` property that determines whether the window can be manually closed by user.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+В Linux setter это невозможно, хотя getter возвращает `true`.
 
 #### `win.movable`
 
 A `Boolean` property that determines Whether the window can be moved by user.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+В Linux setter это невозможно, хотя getter возвращает `true`.
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
