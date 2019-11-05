@@ -1181,7 +1181,7 @@ Same as `webContents.reload`.
 
 #### `win.getOpacity()`
 
-Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость).
+Возвращает `Number` - между 0.0 (полная прозрачность) и 1.0 (полная видимость). В Linux всегда возвращает 1.
 
 #### `win.setShape(rects)` *Windows* *Linux* *Экспериментально*
 
@@ -1325,7 +1325,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 Changes whether the window can be focused.
 
-On macOS it does not remove the focus from the window.
+На macOS он не снимает фокус с окна.
 
 #### `win.setParentWindow(parent)`
 
@@ -1375,11 +1375,11 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String | null - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для подробностей.
+* `type` String | null - Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` и `under-page`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для подробностей.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
+Обратите внимание, что `appearance-based`, `light`, `dark`, `medium-light` и `ultra-dark` устарела и будет удалена в следующей версии macOS.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
