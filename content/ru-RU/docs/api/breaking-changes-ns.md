@@ -1,4 +1,4 @@
-# Breaking changes (NetworkService) (Draft)
+# Критические изменения (NetworkService) (Черновик)
 
 Этот документ описывает изменения в Electron API после миграции сетевого кода в NetworkService API.
 
