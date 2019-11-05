@@ -296,7 +296,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+Возникает, когда процесс GPU аварийно завершает работу или завершается принудительно.
 
 ### Событие: 'renderer-process-crashed'
 
@@ -485,7 +485,7 @@ app.exit(0)
 
 Устанавливает или создает каталог логов Вашего приложения, которые затем могут быть обработаны с помощью `app.getPath()` или `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Вызов `app.setAppLogsPath()` без параметра `path` приведет к тому, что этот каталог будет установлен на `~/Library/Logs/YourAppName` на *macOS*, и внутри директории `userData` на *Linux* и *Windows*.
 
 ### `app.getAppPath()`
 
@@ -493,7 +493,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name: 
+* `name` String - Вы можете запросить следующие пути по имени: 
   * `home` домашний каталог пользователя.
   * `appData` каталог данных приложений для каждого пользователя, который по умолчанию указывает на: 
     * `%APPDATA%` на Windows
