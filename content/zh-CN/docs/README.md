@@ -101,7 +101,7 @@
 
 * [简介](api/synopsis.md)
 * [进程对象](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [支持的命令行开关](api/command-line-switches.md)
 * [环境变量](api/environment-variables.md)
 * [重大的API更新](api/breaking-changes.md)
 
