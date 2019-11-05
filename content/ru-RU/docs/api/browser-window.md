@@ -583,23 +583,23 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+Свойство `Boolean` определяет, может ли окно быть вручную изменено пользователем.
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+Свойство `Boolean` определяет, может ли окно быть вручную закрыто пользователем.
 
 В Linux setter это невозможно, хотя getter возвращает `true`.
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+Свойство `Boolean` определяет, может ли окно перемещаться пользователем.
 
 В Linux setter это невозможно, хотя getter возвращает `true`.
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+Свойство `Boolean` определяет, исключено ли окно из меню Windows приложения. `false` по умолчанию.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -719,7 +719,7 @@ Returns `Boolean` - Whether the window is in normal state (not maximized, not mi
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+* `extraSize` [Size](structures/size.md) (опционально) - дополнительный размер, который не будет включен при соотношении сторон.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
@@ -767,7 +767,7 @@ console.log(win.getBounds())
 
 #### `win.getBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `Object`.
+Возвращает [`Rectangle`](structures/rectangle.md) - `границы` окна как `объект`.
 
 #### `win.setContentBounds(bounds[, animate])`
 
@@ -778,7 +778,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window as `
 
 #### `win.getContentBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's client area as `Object`.
+Возвращает [`Rectangle`](structures/rectangle.md) - `границы` области клиентского окна как `объект`.
 
 #### `win.getNormalBounds()`
 
@@ -794,7 +794,7 @@ Returns [`Rectangle`](structures/rectangle.md) - The `bounds` of the window's cl
 
 #### `win.isEnabled()`
 
-Returns Boolean - whether the window is enabled.
+Возвращает Boolean - включено ли окно.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -937,7 +937,7 @@ Returns Boolean - whether the window is enabled.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
+* `level` String (опционально) *macOS* *Windows* - Значения включают `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver` и ~~`dock`~~ (Устарело). По умолчанию `floating`, когда `flag` установлен true. `level` сбрасывается на `normal`, когда флаг устанавливается false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
 * `relativeLevel` Integer (опционально) *macOS* - количество слоев выше, чтобы установить окно относительно заданного `level`. По умолчанию - `0`. Обратите внимание, что Apple не рекомендует устанавливать уровни выше, чем 1 верхнего `screen-saver`.
 
 Устанавливает, должно ли окно всегда показываться поверх остальных окон. После настройки, окно все еще является нормальным, не окно панели инструментов, которое не может быть сфокусировано.
