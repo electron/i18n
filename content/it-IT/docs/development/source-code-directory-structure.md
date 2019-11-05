@@ -1,6 +1,6 @@
 # Struttura della cartella del codice sorgente
 
-Il codice sorgente di Electron è suddiviso in più blocchi, per lo più adottando le medesime convenzioni di Chromium.
+Il codice sorgente di Electron è suddiviso in più blocchi, per lo più adottando le medesime convenzioni di Chromium sulla struttura del repository del sorgente.
 
 Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-processo di Chromium per una migliore comprensione del codice sorgente.
 
@@ -59,9 +59,9 @@ I file in `/chromium_src` sono di solito parti di Chromium che non appartengono 
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
-## Keeping Git Submodules Up to Date
+## Mantenere aggiornate le dipendenze dei moduli in Git
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Il repository di Electron dipende anche da software di terze parti, che è possibile trovare nella cartella [/vendor](https://github.com/electron/electron/tree/master/vendor). In alcuni casi potreste vedere un messaggio come questo in risposta all'esecuzione di `git status`:
 
 ```sh
 $ git status
@@ -70,13 +70,13 @@ $ git status
     modified:   vendor/boto (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Per aggiornare queste dipendenze eseguite il seguente comando:
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Se vi accorgete di eseguire il comando molto spesso, potete creare un alias nel vostro file `~/.gitconfig`:
 
 ```sh
 [alias]
