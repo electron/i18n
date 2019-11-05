@@ -84,7 +84,7 @@
 
 * `options` Object 
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
+  * `headers` Record<String, String> (опционально) *macOS* - заголовки HTTP-запроса.
   * `serverType` String (опционально) *macOS* - либо `json`, либо `default`, смотрите README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), для подробной информации.
 
 Задает `url` и инициализирует автоматическое обновление.
