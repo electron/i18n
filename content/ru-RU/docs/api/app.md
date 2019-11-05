@@ -1063,23 +1063,23 @@ app.moveToApplicationsFolder({
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+A `Menu | null`свойство, которое возвращает [`Menu`](menu.md) если оно было установлено, в противном случае возвращает `null`. Пользователи могут передать [Меню](menu.md), чтобы установить это свойство.
 
 ### `app.badgeCount` *Linux* *macOS*
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+Свойство `Integer`, которое возвращает значок количества для текущего приложения. Установка количества в `0` скроет значок.
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+В macOS установка этого значения с любым ненулевым целым числом отображается на значке дока. В Linux это свойство работает только для запуска Unity.
 
 **Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграция окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` *Readonly*
 
-A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+Объект [`CommandLine`](./command-line.md), который позволяет читать и манипулировать аргументами командной строки, используемыми Chromium.
 
 ### `app.dock` *macOS* *Readonly*
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+[`Dock`](./dock.md) объект, который позволяет выполнять действия на значке вашего приложения в пользовательской панели на macOS.
 
 ### `app.isPackaged` *Readonly*
 
@@ -1087,7 +1087,7 @@ A [`Dock`](./dock.md) object that allows you to perform actions on your app icon
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+Свойство `String`, указывающее имя текущего приложения, которое является именем в файле `package.json`.
 
 Обычно поле `name` в `package.json` является коротким именем, написанном в нижнем регистре, согласно спецификации модулей npm. Обычно Вы должны также указать поле `productName`, которое пишется заглавными буквами - имя вашего приложения, и которое будет предпочтительнее `name` для Electron.
 
@@ -1095,7 +1095,7 @@ A `String` property that indicates the current application's name, which is the 
 
 `Строка`, которая является строкой агента пользователя, которую Electron будет использовать в качестве глобального запаса.
 
-Это агент пользователя, который будет использоваться, если ни один агент пользователя не установлен на уровнях `webContents` или `session`. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+Это агент пользователя, который будет использоваться, если ни один агент пользователя не установлен на уровнях `webContents` или `session`. Это полезно для того, чтобы все ваше приложение имело один и тот же пользовательский агент. Установите пользовательское значение как можно раньше в инициализации Ваших приложений, чтобы убедиться, что используется переопределенное значение.
 
 ### `app.allowRendererProcessReuse`
 
