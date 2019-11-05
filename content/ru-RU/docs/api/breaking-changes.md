@@ -10,7 +10,7 @@
 
 ### Node Headers URL
 
-Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node. Both will be supported for the foreseeable future but it is recommended that you switch.
+Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node. Оба будут поддерживаться в обозримом будущем, но рекомендуется переключиться.
 
 Устарело: https://atom.io/download/electron
 
@@ -18,7 +18,7 @@
 
 ### `session.clearAuthCache(options)`
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API больше не принимает параметры для очистки, а вместо этого безоговорочно очищает весь кэш.
 
 ```js
 // Deprecated
