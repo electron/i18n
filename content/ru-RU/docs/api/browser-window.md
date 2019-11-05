@@ -122,8 +122,8 @@ child.once('ready-to-show', () = > {
 * `options` Object (опционально) 
   * `width` Integer (опционально) - ширина окна в пикселях. По умолчанию - `800`.
   * `height` Integer (опционально) - высота окна в пикселях. По умолчанию - `600`.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `x` Integer (опционально) - (**обязателен**, если используется y) отступ окна слева от экрана. Значение по умолчанию центрирует окно.
+  * `y` Integer (опционально) - (**обязателен**, если используется x) отступ окна сверху от экрана. Значение по умолчанию центрирует окно.
   * `useContentSize` Boolean (опционально) - `width` и `height` могут использоваться как размеры веб-страницы, это значит, что актуальный размер окна будет включать размер фрейма и будет немного крупнее. По умолчанию - `false`.
   * `center` Boolean (опционально) - показывает окно в центре экрана.
   * `minWidth` Integer (опционально) - минимальная ширина окна. По умолчанию - `0`.
@@ -145,14 +145,14 @@ child.once('ready-to-show', () = > {
   * `title` String (опционально) - заголовок окна по умолчанию. По умолчанию `"Electron"`. Если HTML-тег `<title>` определен в HTML-файле, загруженном с помощью `loadURL()`, то это свойство будет игнорироваться.
   * `icon` ([NativeImage](native-image.md) | String) (опционально) - иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
   * `show` Boolean (опционально) - будет ли показано окно, когда будет создано. По умолчанию - `true`.
-  * `paintWhenInitiallyHidden` Boolean (optional) - Whether the renderer should be active when `show` is `false` and it has just been created. In order for `document.visibilityState` to work correctly on first load with `show: false` you should set this to `false`. Setting this to `false` will cause the `ready-to-show` event to not fire. По умолчанию - `true`.
+  * `paintWhenInitiallyHidden` Boolean (опционально) - Должен ли рендерер быть активным, когда `show` равен `false` и он только что создан. Для `document.visibilityState` для корректной работы при первой загрузке с `show: false` необходимо установить значение `false`. Установка этого в `false` приведёт к тому, что события `ready-to-show` не будут запускаться. По умолчанию - `true`.
   * `frame` Boolean (опционально) - установите `false`, чтобы создать [окно без рамки](frameless-window.md). По умолчанию - `true`.
   * `parent` BrowserWindow (опционально) - устанавливает родительское окно. По умолчанию - `null`.
   * `modal` Boolean (опционально) - будет ли окно модальным. Работает только, когда окно является дочерним окном. По умолчанию - `false`.
   * `acceptFirstMouse` Boolean (опционально) - будет ли веб-окно принимать событие одиночного нажатия мыши, которое сразу активирует окно. По умолчанию - `false`.
   * `disableAutoHideCursor` Boolean (опционально) - будет ли спрятан курсор, во время печатания. По умолчанию - `false`.
   * `autoHideMenuBar` Boolean (опционально) - автоматическое убирание полоски меню, пока клавиша `Alt` не будет нажата. По умолчанию - `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. По умолчанию - `false`.
+  * `enableLargerThanScreen` Boolean (опционально) - позволяет окну изменять размер больше, чем экран. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. По умолчанию - `false`.
   * `backgroundColor` String (опционально) - фоновый цвет окна в HEX-формате, например `#66CD00`, `#FFF` или `#80FFFFFF` (альфа в формате #AARRGGBB поддерживается, если `transparent` установлено `true`). По умолчанию `#FFF` (белый).
   * `hasShadow` Boolean (опционально) - будет ли окно иметь тень. Реализовано только на macOS. По умолчанию - `true`.
   * `opacity` Number (опционально) - установить начальную прозрачность окна, между 0.0 (полная прозрачность) и 1.0 (полная видимость). Это реализовано только на Windows и macOS.
