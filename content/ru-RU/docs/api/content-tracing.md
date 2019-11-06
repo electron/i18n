@@ -65,4 +65,4 @@ app.on('ready', () => {
 * `value` Number
 * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+Максимальное использование в различных процессах буфера трассировки в процентах от полного состояния.
