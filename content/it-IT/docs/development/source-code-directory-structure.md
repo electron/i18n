@@ -29,8 +29,8 @@ Electron
 |       └── api/ - L'implementazione delle API comuni e le foundation dei
 |                  moduli base di Electron.
 ├── chromium_src/ - Codice sorgente preso da Chromium. Vedi sotto.
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
+├── default_app/ - La pagina predefinita da visualizzare quando Electron viene avviato senza
+|                  indicare un'applicazione.
 ├── docs/ - Documentazione.
 ├── lib/ - Codice sorgente JavaScript.
 |   ├── browser/ - Codice Javascript per l'inizializzazione del processo principale.
@@ -38,11 +38,11 @@ Electron
 |   ├── common/ - JavaScript utilizzato sia dai processi principali che dal renderer
 |   |   └── api/ - implementazione API Javascript.
 |   └── renderer/ - Codice Javascript per l'inizializzazione del processo del renderer.
-|       └── api/ - Javascript API implementation.
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
-└── BUILD.gn - Building rules of Electron.
+|       └── api/ - Implementazione API Javascript.
+├── native_mate/ - Una fork della libreria gin di Chromium per facilitare il marshaling dei tipi 
+|                  tra C++ e JavaScript.
+├── spec/ - Test automatizzati.
+└── BUILD.gn - Regole di compilazione di Electron.
 ```
 
 ## `/chromium_src`
@@ -53,11 +53,11 @@ I file in `/chromium_src` sono di solito parti di Chromium che non appartengono 
 
 * **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
 * **strumenti** - Script di Helper utilizzati dai file GN, a differenza di `script`, gli script inseriti qui non dovrebbero mai essere invocati direttamente dagli utenti.
-* **vendor** - Codice sorgente di dipendenze di terze parti, non abbiamo utilizzato `terzo_party` come nome perché confonderebbe la stessa directory nell'albero di codice sorgente di di Chromium.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **vendor** - Codice sorgente di dipendenze di terze parti, non abbiamo utilizzato `third_party` come nome perché confonderebbe la stessa directory nell'albero di codice sorgente di Chromium.
+* **node_modules** - Moduli di terze parti usati per la compilazione.
+* **out** - Directory temporanea di output di `ninja`.
+* **dist** - Cartella temporanea creata dallo script `script/create-dist.py` all'atto della creazione di una distribuzione.
+* **external_binaries** - Codice binario di framework di terze parti che non è possibile compilare con `gn`.
 
 ## Mantenere aggiornate le dipendenze dei moduli in Git
 
