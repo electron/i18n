@@ -31,12 +31,12 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Electron's APIs benutzen](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js APIs verwenden](tutorial/application-architecture.md#using-nodejs-apis)
   * [Native Node.js Module benutzen](tutorial/using-native-node-modules.md)
-  * [Strategie di prestazione](tutorial/performance.md)
-* إضافة ميزات إلى تطبيقك 
-  * [الإشعارات](tutorial/notifications.md)
+  * [Performance Strategies](tutorial/performance.md)
+* Features zu deiner App hinzufügen 
+  * [Benachrichtigungen](tutorial/notifications.md)
   * [Zuletzt verwendete Dokumente](tutorial/recent-documents.md)
-  * [Updaten der App](tutorial/progress-bar.md)
-  * [خصص شريط المهام](tutorial/macos-dock.md)
+  * [Anwendungsprozess](tutorial/progress-bar.md)
+  * [Benutzerdefiniertes Dockmenu](tutorial/macos-dock.md)
   * [Benutzerdefinierte Windows Taskleiste](tutorial/windows-taskbar.md)
   * [Benutzerdefinierte Linux Desktop Aktionen](tutorial/linux-desktop-actions.md)
   * [Tastenkürzel](tutorial/keyboard-shortcuts.md)
