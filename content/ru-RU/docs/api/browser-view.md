@@ -73,10 +73,10 @@ view.webContents.loadURL('https://electronjs.org')
 #### `view.setAutoResize(options)` *Экспериментально*
 
 * `options` Object 
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
+  * `width` Boolean (опционально) - если `true`, то ширина будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `height` Boolean (опционально) - если `true`, то высота будет увеличиваться и уменьшаться вместе с окном. По умолчанию `false`.
+  * `horizontal` Boolean (опционально) - если `true`, то положение по X и ширина будут увеличиваться и уменьшаться вместе с окном. `false` по умолчанию.
+  * `vertical` Boolean (опционально) - если `true`, то положение по Y и высота будут увеличиваться и уменьшаться вместе с окном. `false` по умолчанию.
 
 #### `view.setBounds(bounds)` *Экспериментально*
 
@@ -88,7 +88,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this BrowserView instance as `Object`.
+`bounds` этого экземпляра BrowserView как `Object`.
 
 #### `view.setBackgroundColor(color)` *Экспериментально*
 

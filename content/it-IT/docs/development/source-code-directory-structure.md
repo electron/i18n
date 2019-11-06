@@ -1,6 +1,6 @@
 # Struttura della cartella del codice sorgente
 
-Il codice sorgente di Electron è suddiviso in più blocchi, per lo più adottando le medesime convenzioni di Chromium.
+Il codice sorgente di Electron è suddiviso in più blocchi, per lo più adottando le medesime convenzioni di Chromium sulla struttura del repository del sorgente.
 
 Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-processo di Chromium per una migliore comprensione del codice sorgente.
 
@@ -10,39 +10,39 @@ Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-pro
 Electron
 ├── atom/ - Codice sorgente C++.
 |   ├── app/ - Codice di immissione del sistema.
-|   ├── browser/ - Il frontend che include la finestra principale e tutte le 
-|   |   |         cose del processo principale. This talks to the renderer to manage web
+|   ├── browser/ - Il frontend, che include la finestra principale, l'interfaccia utente,  e tutto ciò 
+|   |   |         che riguarda il processo principale. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
-| | | Oomen-Ruijten win/ - Codice sorgente specifico per Windows GUI.
+|   |   |   ├── win/ - Sorgente specifico della GUI di Windows.
 |   |   |   └── cocoa/ - Codice sorgente specifico di Cocoa.
-L'implementazione delle principali API di processo.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       |         including some utility functions and code to integrate node's
-|       |         message loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|                  Electron's built-in modules.
+|   |   ├── api/ - L'implementazione delle principali API di processo.
+|   |   ├── net/ - Codice relativo alla gestione delle funzionalità di rete.
+|   |   ├── mac/ - Codice sorgente Objective-C specifico per Mac.
+|   |   └── resources/ - Icone, file dipendenti dalla piattaforma, ecc.
+|   ├── renderer/ - Codice eseguito dal renderer.
+|   |   └── api/ - L'implementazione delle principali API del processo renderer.
+└── common/ - Codice usato sia dal processo principale che dal processo renderer,
+|       |         incluse alcune funzioni di utilità e parti di codice impiegate per integrare il loop 
+|       |         dei messaggi dei nodi nel loop dei messaggi di Chromium.
+|       └── api/ - L'implementazione delle API comuni e le foundation dei
+|                  moduli base di Electron.
 ├── chromium_src/ - Codice sorgente preso da Chromium. Vedi sotto.
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ❤ common/ - JavaScript utilizzato sia dai processi principali che dal renderer
-|   |   ❤ api/ - implementazione API Javascript.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
-└── BUILD.gn - Building rules of Electron.
+├── default_app/ - La pagina predefinita da visualizzare quando Electron viene avviato senza
+|                  indicare un'applicazione.
+├── docs/ - Documentazione.
+├── lib/ - Codice sorgente JavaScript.
+|   ├── browser/ - Codice Javascript per l'inizializzazione del processo principale.
+|   |   └── api/ - Implementazione API Javascript.
+|   ├── common/ - JavaScript utilizzato sia dai processi principali che dal renderer
+|   |   └── api/ - implementazione API Javascript.
+|   └── renderer/ - Codice Javascript per l'inizializzazione del processo del renderer.
+|       └── api/ - Implementazione API Javascript.
+├── native_mate/ - Una fork della libreria gin di Chromium per facilitare il marshaling dei tipi 
+|                  tra C++ e JavaScript.
+├── spec/ - Test automatizzati.
+└── BUILD.gn - Regole di compilazione di Electron.
 ```
 
 ## `/chromium_src`
@@ -53,15 +53,15 @@ I file in `/chromium_src` sono di solito parti di Chromium che non appartengono 
 
 * **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
 * **strumenti** - Script di Helper utilizzati dai file GN, a differenza di `script`, gli script inseriti qui non dovrebbero mai essere invocati direttamente dagli utenti.
-* **vendor** - Codice sorgente di dipendenze di terze parti, non abbiamo utilizzato `terzo_party` come nome perché confonderebbe la stessa directory nell'albero di codice sorgente di di Chromium.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **vendor** - Codice sorgente di dipendenze di terze parti, non abbiamo utilizzato `third_party` come nome perché confonderebbe la stessa directory nell'albero di codice sorgente di Chromium.
+* **node_modules** - Moduli di terze parti usati per la compilazione.
+* **out** - Directory temporanea di output di `ninja`.
+* **dist** - Cartella temporanea creata dallo script `script/create-dist.py` all'atto della creazione di una distribuzione.
+* **external_binaries** - Codice binario di framework di terze parti che non è possibile compilare con `gn`.
 
-## Keeping Git Submodules Up to Date
+## Mantenere aggiornate le dipendenze dei moduli in Git
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Il repository di Electron dipende anche da software di terze parti, che è possibile trovare nella cartella [/vendor](https://github.com/electron/electron/tree/master/vendor). In alcuni casi potreste vedere un messaggio come questo in risposta all'esecuzione di `git status`:
 
 ```sh
 $ git status
@@ -70,13 +70,13 @@ $ git status
     modified:   vendor/boto (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Per aggiornare queste dipendenze eseguite il seguente comando:
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Se vi accorgete di eseguire il comando molto spesso, potete creare un alias nel vostro file `~/.gitconfig`:
 
 ```sh
 [alias]

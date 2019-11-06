@@ -1,4 +1,4 @@
-# راهنمای رسمی
+# خطوط رسميه
 
 الرجاء التأكد من استخدام المستندات التي تطابق إصدار إلكترون الخاص بك. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
 
@@ -82,14 +82,14 @@
   * [الكاش ومصادر أخرى](tutorial/installation.md#custom-mirrors-and-caches)
   * [اكتشاف الأخطاء وإصلاحها](tutorial/installation.md#troubleshooting)
 * * [Versioning Policy](tutorial/electron-versioning.md)
-  * [5256783105227699](tutorial/electron-timelines.md)
+  * [Release Timelines](tutorial/electron-timelines.md)
   * [برنامج ملاحظات بيتا](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
   * [استخدام أرشيفات asar](tutorial/application-packaging.md#using-asar-archives)
   * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [العربيه](tutorial/testing-widevine-cdm.md)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *

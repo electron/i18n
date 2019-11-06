@@ -72,9 +72,9 @@ E per cross-compilare per `arm` o `ia32` devi passare il parametro `target_cpu` 
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
-## Costruzione
+## Compilazione
 
-Vedi [Istruzioni di Costruzione: GN](build-instructions-gn.md)
+Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 
 ## Risoluzione dei problemi
 
@@ -90,9 +90,9 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 La configurazione di costruzione predefinita è destinata alle principali distribuzioni Linux desktop. Per creare una distribuzione o un dispositivo specifico, le seguenti informazioni potrebbero essere di aiuto.
 
-### Usando il sistema `clang` invece dei binari `clang` scaricati
+### Usare `clang` di sistema invece dei binari `clang` scaricati
 
-Per impostazione predefinita Electron è costruito con binari [`clang`](https://clang.llvm.org/get_started.html) precostruiti forniti dal progetto Chromium. Se per qualche ragione vuoi costruire con il `clang` installato nel tuo sistema, puoi specificare l'argomento `clang_base_path` negli argomenti GN.
+Per impostazione predefinita Electron è compilato con binari [`clang`](https://clang.llvm.org/get_started.html) forniti dal progetto Chromium. Se per qualche ragione vuoi compilare con il `clang` installato nel tuo sistema, puoi specificare l'argomento `clang_base_path` negli argomenti GN.
 
 Per esempio se hai installato `clang` sotto `/usr/local/bin/clang`:
 
@@ -100,6 +100,6 @@ Per esempio se hai installato `clang` sotto `/usr/local/bin/clang`:
 $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-### Usando compilatori diversi da `clang`
+### Usare compilatori diversi da `clang`
 
-La costruzione di Electron con compilatori diversi da `clang` non è supportata.
+Non è possibile compilare Electron con compilatori diversi da `clang`.

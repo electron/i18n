@@ -10,7 +10,7 @@
 
 ### Node Headers URL
 
-Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node. Both will be supported for the foreseeable future but it is recommended that you switch.
+Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node. Оба будут поддерживаться в обозримом будущем, но рекомендуется переключиться.
 
 Устарело: https://atom.io/download/electron
 
@@ -18,41 +18,41 @@
 
 ### `session.clearAuthCache(options)`
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API больше не принимает параметры для очистки, а вместо этого безоговорочно очищает весь кэш.
 
 ```js
-// Deprecated
+// Устарело
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// Заменить на
 session.clearAuthCache()
 ```
 
 ### `powerMonitor.querySystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Удалено в Electron 7.0
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// Заменить на синхронный API
 const idleState = getSystemIdleState(threshold)
 ```
 
 ### `powerMonitor.querySystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Удалено в Electron 7.0
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// Заменить на синхронный API
 const idleTime = getSystemIdleTime()
 ```
 
 ### API webFrame изолированных миров
 
 ```js
-// Removed in Elecron 7.0
+// Удалено в Elecron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Заменить на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -62,9 +62,9 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removal of deprecated `marked` property on getBlinkMemoryInfo
+### Удаление устаревшего свойства `marked` на getBlinkMemoryInfo
 
-This property was removed in Chromium 77, and as such is no longer available.
+Это свойство было удалено в Chromium 77, и как таковое больше не доступно.
 
 ## Запланированные критические изменения API (6.0)
 
@@ -144,11 +144,11 @@ const idleTime = getSystemIdleTime()
 ### `app.enableMixedSandbox`
 
 ```js
-// Deprecated
+// Устарело
 app.enableMixedSandbox()
 ```
 
-Mixed-sandbox mode is now enabled by default.
+Режим смешанной песочницы теперь включен по умолчанию.
 
 ### `Tray`
 
@@ -209,19 +209,19 @@ webFrame.setIsolatedWorldInfo(
 
 ## `webFrame.setSpellCheckProvider`
 
-The `spellCheck` callback is now asynchronous, and `autoCorrectWord` parameter has been removed.
+Параметр `spellCheck` теперь асинхронный, а параметр `autoCorrectWord` был удален.
 
 ```js
-// Deprecated
+// Устаревшее
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck: (text) => {
-    return !spellchecker.isMisspelled(text)
+    return !spellchecker. sMisspelled(text)
   }
 })
-// Replace with
-webFrame.setSpellCheckProvider('en-US', {
+// Заменить на
+webFrame. etSpellCheckProvider('en-US', {
   spellCheck: (words, callback) => {
-    callback(words.filter(text => spellchecker.isMisspelled(text)))
+    callback(слова. ilter(text => spellchecker.isMisspelled(text)))
   }
 })
 ```
@@ -525,6 +525,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
-Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Starting at 2.0, the unprefixed file will no longer be published.
+Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 
 Для подробностей см. [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).

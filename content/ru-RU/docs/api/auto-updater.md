@@ -6,7 +6,7 @@
 
 **См. также: [Подробное руководство о том, как внедрять обновления в Ваше приложение](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Платформа заметок
 
@@ -84,7 +84,7 @@
 
 * `options` Object 
   * `url` String
-  * `headers` Record<String, String> (optional) *macOS* - HTTP request headers.
+  * `headers` Record<String, String> (опционально) *macOS* - заголовки HTTP-запроса.
   * `serverType` String (опционально) *macOS* - либо `json`, либо `default`, смотрите README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), для подробной информации.
 
 Задает `url` и инициализирует автоматическое обновление.
