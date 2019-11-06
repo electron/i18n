@@ -47,7 +47,7 @@ window.electron.doThing()
 
 ### API オブジェクト
 
-The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean` or another nested object that meets the same conditions.
+[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) に指定する `api` オブジェクトは、キーが文字列で値が `Function`、`String`、`Number`、`Array`、`Boolean`、または同じ条件を満たすオブジェクトがネストされたものです。
 
 `Function` values are proxied to the other context and all other values are **copied** and **frozen**.  I.e. Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
 
