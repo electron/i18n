@@ -1,13 +1,13 @@
 # Istruzioni per la compilazione (Windows)
 
-Segui le linee guida sotto per costruire Electron su Windows.
+Segui le linee guida sotto per compilare Electron su Windows.
 
 ## Prerequisiti
 
 * Windows 10 / Server 2012 R2 o superiore
 * Visual Studio 2017 15.7.2 o superiore - [scarica VS 2019 Community Edition gratis](https://www.visualstudio.com/vs/) 
-  * Vedi [la documentazione di compilazione Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) per ulteriori dettagli su quali componenti Visual Studio sono richiesti.
-  * Se il tuo Visual Studio è installato in una directory diversa da quella predefinita, avrai bisogno di impostare poche variabili ambientali per puntare le catene di costruzione al tuo percorso di installazione. 
+  * Vedi [la documentazione di compilazione Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) per ulteriori dettagli su quali componenti Visual Studio siano richiesti.
+  * Se il tuo Visual Studio è installato in una directory diversa da quella predefinita, avrai bisogno di impostare alcune variabili d'ambiente per far puntare gli strumenti di compilazione al tuo attuale percorso di installazione. 
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (rimpiazza `2019` e `Community` con le tue versioni installate)
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
 * [Python 2.7.10 o superiore](http://www.python.org/download/releases/2.7/) 
@@ -25,19 +25,19 @@ La costruzione di Electron viene eseguita interamente con script da riga di coma
 
 **Nota:** Anche se Visual Studio non è usato per costruire, è comunque **richiesto** perché ci servono le catene di costruzione che fornisce.
 
-## Costruzione
+## Compilazione
 
-Vedi [Istruzioni di Costruzione: GN](build-instructions-gn.md)
+Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 
-## Build 32bit
+## Compilazione a 32bit
 
-Per costruire l'obiettivo 32bit, devi passare `target_cpu = "x86"` come arg GN. Puoi costruire l'obiettivo 32bit accanto all'obiettivo 64bit usando una directory di output differente per GN, es. `out/Release-x86`, con differenti argomenti.
+Per compilare a 32bit, devi passare `target_cpu = "x86"` come argomento a GN. Puoi compilare per la piattaforma a 32 bit e per quella a 64 bit usando una directory di output differente per GN, ad es. `out/Release-x86`, passando argomenti differenti per le due piattaforme.
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
-Le altre fasi di costruzione sono esattamente le stesse.
+Le altre fasi di compilazione sono esattamente le stesse.
 
 ## Progetto Visual Studio
 
@@ -51,7 +51,7 @@ $ gn gen out/Debug --ide=vs2017
 
 ### Comando xxxx non trovato
 
-Se hai incontrato un errore come `Comando xxxx non trovato` potresti provare ad usare la console `VS2015 Prompt dei Comandi` per eseguire gli script di costruzione.
+Se hai incontrato un errore come `Comando xxxx non trovato` potresti provare ad usare la console `VS2015 Prompt dei Comandi` per eseguire gli script di compilazione.
 
 ### Errore fatale nel compilatore interno: C1001
 
@@ -71,7 +71,7 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp non è riconosciuto come comando interno o esterno
 
-Puoi ottenere questo errore se stai usando Git Bash per costruire, dovresti usare, invece, PowerShell o il Prompt dei Comandi VS2015.
+Puoi incontrare questo errore se stai usando Git Bash per compilare, dovresti usare, invece, PowerShell o il Prompt dei Comandi VS2015.
 
 ### impossibile creare la directory a '...' Nome file troppo lungo
 
@@ -83,12 +83,12 @@ $ git config --system core.longpaths true
 
 ### errore: uso dell'identificatore non dichiarato 'DefaultDelegateCheckMode'
 
-Ciò può succedere durante la costruzione, quando gli Strumenti di Debug per Windows sono stati installati con il Kit Driver di Windows. Disinstalla il Kit Driver Windows ed installa gli Strumenti di Debug con i passaggi sopra descritti.
+Ciò può succedere durante la compilazione, quando i Debugging Tools per Windows sono stati installati con il Kit Driver di Windows. Disinstalla il Kit Driver di Windows e installa i Debugging Tools seguendo le istruzioni riportate nella sezione "Prerequisiti".
 
 ### Errore di importazione: nessun modulo denominato win32file
 
 Assicurati di aver installato `pywin32` con `pip install pywin32`.
 
-### Costruisci Script Hang Until Keypress
+### Gli script di compilazione risultano bloccati fino alla pressione di un tasto
 
 Questo bug è una "funzionalità" del prompt dei comandi di Windows. Succede quando si clicca all'interno della finestra del prompt con `QuickEdit` abilitato ed è inteso per consentire la selezione e la copia del testo di output in modo facile. Visto che ogni click accidentale metterà in pausa il processo di costruzione, potresti voler disabilitare questa funzionalità nelle proprietà del prompt dei comandi.
