@@ -33,11 +33,11 @@ Electron
 |                  providing an app.
 ├── docs/ - Documentazione.
 ├── lib/ - Codice sorgente JavaScript.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
+|   ├── browser/ - Codice Javascript per l'inizializzazione del processo principale.
+|   |   └── api/ - Implementazione API Javascript.
 |   ├── common/ - JavaScript utilizzato sia dai processi principali che dal renderer
 |   |   └── api/ - implementazione API Javascript.
-|   └── renderer/ - Javascript renderer process initialization code.
+|   └── renderer/ - Codice Javascript per l'inizializzazione del processo del renderer.
 |       └── api/ - Javascript API implementation.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
