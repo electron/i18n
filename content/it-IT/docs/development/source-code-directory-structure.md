@@ -35,8 +35,8 @@ Electron
 ├── lib/ - Codice sorgente JavaScript.
 |   ├── browser/ - Javascript main process initialization code.
 |   |   └── api/ - Javascript API implementation.
-|   ❤ common/ - JavaScript utilizzato sia dai processi principali che dal renderer
-|   |   ❤ api/ - implementazione API Javascript.
+|   ├── common/ - JavaScript utilizzato sia dai processi principali che dal renderer
+|   |   └── api/ - implementazione API Javascript.
 |   └── renderer/ - Javascript renderer process initialization code.
 |       └── api/ - Javascript API implementation.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
