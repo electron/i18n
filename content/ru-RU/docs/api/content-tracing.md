@@ -48,19 +48,19 @@ app.on('ready', () => {
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
-* `resultFilePath` String (optional)
+* `resultFilePath` String (опционально)
 
-Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Возвращает `Promise<String>` - возвращает путь к файлу, который содержит данные трассировки, как только все дочерние процессы признают запрос `stopRecording`
 
 Останавливает запись во всех процессах.
 
-Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить Chromium ассинхронно запрашивает все дочерние процессы, чтобы очистить оставшиеся данные трассировки.
 
-Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+Данные трассировки будут записаны в `resultFilePath`. Если `resultFilePath` является пустым или не указано, Данные трассировки будут записаны во временный файл, и путь будет возвращен в promise.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+Возвращает `Promise <Object> ` - разрешается с объектом, содержащим `value` и `percentage` максимального использования буфера трассировки
 
 * `value` Number
 * `percentage` Number
