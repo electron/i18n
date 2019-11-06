@@ -159,27 +159,27 @@
     "name": "Italian",
     "code": "it",
     "phrases": "11534",
-    "translated": "5220",
+    "translated": "5232",
     "approved": "1303",
     "words": "108782",
-    "words_translated": "38702",
+    "words_translated": "38801",
     "words_approved": "9239",
     "translated_progress": 35,
     "approved_progress": 8,
-    "qa_issues": 1443
+    "qa_issues": 1449
   },
   {
     "name": "Japanese",
     "code": "ja",
     "phrases": "11534",
-    "translated": "11466",
+    "translated": "11512",
     "approved": "3140",
     "words": "108782",
-    "words_translated": "108352",
+    "words_translated": "108775",
     "words_approved": "27247",
     "translated_progress": 99,
     "approved_progress": 25,
-    "qa_issues": 257
+    "qa_issues": 258
   },
   {
     "name": "Korean",
