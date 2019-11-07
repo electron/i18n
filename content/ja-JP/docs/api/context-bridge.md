@@ -47,11 +47,11 @@ window.electron.doThing()
 
 ### API オブジェクト
 
-The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean` or another nested object that meets the same conditions.
+[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) に指定する `api` オブジェクトは、キーが文字列で値が `Function`、`String`、`Number`、`Array`、`Boolean`、または同じ条件を満たすオブジェクトがネストされたものです。
 
-`Function` values are proxied to the other context and all other values are **copied** and **frozen**.  I.e. Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
+`Function` 値は他のコンテキストへプロキシされ、他のすべての値は **コピー** か **凍結** されます。  つまり、API オブジェクトで送信されるデータ/プリミティブはイミュータブルであり、ブリッジの一方で更新しても、他方のものは更新されません。
 
-An example of a complex API object is shown below.
+複合的な API オブジェクトの例を以下に示します。
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -79,26 +79,26 @@ contextBridge.exposeInMainWorld(
 )
 ```
 
-### API Functions
+### API 関数
 
-`Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
+`contextBridge` を介してバインドした `Function` 値は、コンテキストが分離されたままになるように Electron を介してプロキシされます。  これにより、以下に概説するいくつかの重要な制限が生じます。
 
-#### Parameter / Error / Return Type support
+#### 引数 / エラー / 戻り値型のサポート
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge there are only certain types that can be used. At a high level if the type you want to use can be serialized and un-serialized into the same object it will work.  A table of type support has been included below for completeness.
+引数、エラー、戻り値は、ブリッジを介して送信されるときに **コピー** されるため、使用できるのは特定の型のみです。 高水準なものにおいて、使用する型をシリアライズおよび非シリアライズして、同じように動作するオブジェクトにできる場合、  以下の型サポートの表に完全性が載っています。
 
-| 種類                                                                                                             | Complexity | Parameter Support | Return Value Support | 制限事項                                                                                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `String`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                 |
-| `Number`                                                                                                       | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                 |
-| `Boolean`                                                                                                      | Simple     | ✅                 | ✅                    | N/A                                                                                                                                                                                                 |
-| `Object`                                                                                                       | Complex    | ✅                 | ✅                    | Keys must be supported "Simple" types in this table.  Values must be supported in this table.  Prototype modifications are dropped.  Sending custom classes will copy values but not the prototype. |
-| `Array`                                                                                                        | Complex    | ✅                 | ✅                    | Same limitations as the `Object` type                                                                                                                                                               |
-| `Error`                                                                                                        | Complex    | ✅                 | ✅                    | Errors that are thrown are also copied, this can result in the message and stack trace of the error changing slightly due to being thrown in a different context                                    |
-| `Promise`                                                                                                      | Complex    | ✅                 | ✅                    | Promises are only proxied if they are a the return value or exact parameter.  Promises nested in arrays or obejcts will be dropped.                                                                 |
-| `Function`                                                                                                     | Complex    | ✅                 | ✅                    | Prototype modifications are dropped.  Sending classes or constructors will not work.                                                                                                                |
-| [Cloneable Types](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | Simple     | ✅                 | ✅                    | See the linked document on cloneable types                                                                                                                                                          |
-| `Symbol`                                                                                                       | N/A        | ❌                 | ❌                    | Symbols cannot be copied across contexts so they are dropped                                                                                                                                        |
+| 種類                                                                                                   | 複雑さ | 引数サポート | 戻り値サポート | 制限事項                                                                                                            |
+| ---------------------------------------------------------------------------------------------------- | --- | ------ | ------- | --------------------------------------------------------------------------------------------------------------- |
+| `String`                                                                                             | 単純  | ✅      | ✅       | なし                                                                                                              |
+| `Number`                                                                                             | 単純  | ✅      | ✅       | なし                                                                                                              |
+| `Boolean`                                                                                            | 単純  | ✅      | ✅       | なし                                                                                                              |
+| `Object`                                                                                             | 複雑  | ✅      | ✅       | キーにはこの表の "単純" な型をサポートしています。  値にはこの表のものをサポートしています。  プロトタイプの変更は削除されます。  カスタムクラスを送信すると、値はコピーされますが、プロトタイプはコピーされません。 |
+| `Array`                                                                                              | 複雑  | ✅      | ✅       | 制限は `Object` 型と同じです                                                                                             |
+| `Error`                                                                                              | 複雑  | ✅      | ✅       | スローされるエラーもコピーされます。これにより、異なるコンテキストでスローされるためにエラーのメッセージとスタックトレースがわずかに変化する可能性があります。                                 |
+| `Promise`                                                                                            | 複雑  | ✅      | ✅       | Promise は、戻り値や実引数である場合にのみプロキシされます。  配列またはオブジェクトにネストされた Promise は削除されます。                                         |
+| `Function`                                                                                           | 複雑  | ✅      | ✅       | プロトタイプの変更は削除されます。  クラスまたはコンストラクターを送信しても動作しません。                                                                  |
+| [複製可能型](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 単純  | ✅      | ✅       | 複製可能型に関してはリンクのドキュメントを参照してください                                                                                   |
+| `Symbol`                                                                                             | なし  | ❌      | ❌       | Symbol はコンテキスト間でコピーできないため、削除されます                                                                                |
 
 
-If the type you care about is not in the above table it is probably not supported.
+関心のある型が上記の表にない場合、それはおそらくサポートされていません。
