@@ -95,7 +95,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
 
-The `callback` has to be called with a `response` object.
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -138,7 +138,7 @@ The `callback` has to be called with a `response` object.
 
 `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
 
-The `callback` has to be called with a `response` object.
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
