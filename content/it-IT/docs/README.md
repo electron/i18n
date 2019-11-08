@@ -1,10 +1,10 @@
 # Guide Ufficiali
 
-Assicuratevi di usare la documentazione corrispondente alla versione in uso di Electron. Il numero di versione deve essere parte dell'URL della pagina. Se non lo è, probabilmente si sta utilizzando la documentazione di un ramo di sviluppo che può contenere modifiche alle API che non sono compatibili con la versione di Electron in uso. Per visualizzare le versioni precedenti della documentazione, è possibile [navigare per tag](https://github.com/electron/electron/tree/v1.4.0) su GitHub aprendo il menu a tendina "Switch branches/tags" e selezionando il tag che corrisponde alla versione in uso.
+Assicuratevi di usare la documentazione corrispondente alla versione in uso di Electron. Il numero di versione deve essere parte dell'URL della pagina. Se non lo è, probabilmente state utilizzando la documentazione di un ramo di sviluppo che può contenere modifiche alle API che non sono compatibili con la versione di Electron in uso. Per visualizzare le versioni precedenti della documentazione, è possibile [navigare per tag](https://github.com/electron/electron/tree/v1.4.0) su GitHub aprendo il menu a tendina "Switch branches/tags" e selezionando il tag che corrisponde alla versione in uso.
 
 ## FAQ (Domande frequenti)
 
-Alcune domande vengono poste molto spesso. Scorri con attenzione questa lista prima di sottoporre una nuova domanda:
+Alcune domande vengono poste molto spesso. Cercate con attenzione questa lista prima di sottoporre una nuova domanda:
 
 * [Domande frequenti su Electron](faq.md)
 
@@ -73,9 +73,9 @@ Alcune domande vengono poste molto spesso. Scorri con attenzione questa lista pr
   * [Applicando Aggiornamenti](tutorial/updates.md#applying-updates)
 * [Ottenere Supporto](tutorial/support.md)
 
-## Tutorial dettagliati
+## Tutorial di approfondimento
 
-Questi tutorial approfondiscono temi discussi nelle guide sopra elencate.
+I tutorial seguenti approfondiscono temi discussi nelle guide sopra elencate.
 
 * [Installare Electron](tutorial/installation.md) 
   * [Proxy](tutorial/installation.md#proxies)
