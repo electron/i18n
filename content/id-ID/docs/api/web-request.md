@@ -91,11 +91,11 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `callback` Lokasi: 
       * `Tanggapan` Benda 
         * `batalkan` Boolean (opsional)
-        * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
+        * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
   
   Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.
   
-  `panggilan kembali` harus dipanggil dengan `respon` objek.
+  The `callback` has to be called with a `response` object.
   
   #### `webRequest.onSendHeaders([filter, ]pendengar)`
   
@@ -133,12 +133,12 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `callback` Fungsi 
       * `Tanggapan` Obyek 
         * `batalkan` Boolean (opsional)
-        * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
+        * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
         * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
   
   `pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.
   
-  `panggilan kembali` harus dipanggil dengan `respon` objek.
+  The `callback` has to be called with a `response` object.
   
   #### `webRequest.onResponseStarted([filter, ]listener)`
   
@@ -175,6 +175,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `timestamp` Duakali
       * `redirectURL` String
       * `statusCode` Bilangan bulat
+      * `statusGaris` String
       * `ip` String (opsional) - Alamat IP server yang meminta benar-benar dikirim ke.
       * `dariCache` Boolean
       * `responseHeaders` Record<string, string> (optional)
