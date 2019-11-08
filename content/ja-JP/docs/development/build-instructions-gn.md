@@ -91,10 +91,9 @@ $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 
 これはデバッグビルドの設定とともに `src/` 下の `out/Testing` ビルドディレクトリに生成されます。 `Testing` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Testing` を実行してエディタを呼び出します。
 
-To see the list of available build configuration options, run `gn args
-out/Testing --list`.
+利用可能なビルド設定を一覧するには、`gn args out/Testing --list` を実行してください。
 
-**For generating Testing build config of Electron:**
+**Electron の Testing ビルド設定は以下のとおりです。**
 
 ```sh
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
@@ -108,7 +107,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
 
-For the testing configuration:
+テスト構成は以下のとおりです。
 
 ```sh
 $ ninja -C out/Testing electron
@@ -122,15 +121,15 @@ $ ninja -C out/Release electron
 
 これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
 
-次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
+次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Testing` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
-The built executable will be under `./out/Testing`:
+実行形式は `./out/Testing` 下に置かれます。
 
 ```sh
 $ ./out/Testing/Electron.app/Contents/MacOS/Electron
-# or, on Windows
+# Windowsの場合
 $ ./out/Testing/electron.exe
-# or, on Linux
+# Linuxの場合
 $ ./out/Testing/electron
 ```
 
