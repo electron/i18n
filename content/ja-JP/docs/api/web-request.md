@@ -91,11 +91,11 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `callback` Function 
     * `応答` Object 
       * `cancel` Boolean (任意)
-      * `requestHeaders` Record<string, string> (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
+      * `requestHeaders` Record<string, string | string[]> (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
 リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
 
-`callback` は、`response` オブジェクトで呼ぶ必要があります。
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -133,12 +133,12 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `callback` Function 
     * `応答` Object 
       * `cancel` Boolean (任意)
-      * `responseHeaders` Record<string, string> (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
+      * `responseHeaders` Record<string, string | string[]> (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
       * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
 `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
 
-`callback` は、`response` オブジェクトで呼ぶ必要があります。
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -175,6 +175,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
+    * `statusLine` String
     * `ip` String (任意) - リクエストが実際に送信されたサーバーの IP アドレス。
     * `fromCache` Boolean
     * `responseHeaders` Record<string, string> (任意)
