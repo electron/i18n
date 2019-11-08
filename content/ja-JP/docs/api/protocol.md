@@ -349,9 +349,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
       * `url` String
       * `method` String (任意)
       * `session` Session | null (任意)
-      * `uploadData` Object (任意) 
-        * `contentType` String - コンテンツの MIME タイプ。
-        * `data` String - 送信されるコンテンツ。
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (任意)
 * `completion` Function (任意) 
   * `error` Error
 
