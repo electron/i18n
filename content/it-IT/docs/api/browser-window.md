@@ -1247,7 +1247,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icona` [ImmagineNativa](native-image.md)
+* `icon` [NativeImage](native-image.md) | String
 
 Changes window icon.
 
