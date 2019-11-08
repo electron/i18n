@@ -349,9 +349,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Objecto (opcional) 
-        * `contentType` String - Tipo MIME del contenido.
-        * `data` String - Contenido a ser enviado.
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (opcional) 
   * `error` Error
 

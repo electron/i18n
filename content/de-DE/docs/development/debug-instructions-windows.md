@@ -4,7 +4,7 @@ If you experience crashes or issues in Electron that you believe are not caused 
 
 **See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
-## Requirements
+## Anforderungen
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
@@ -17,14 +17,14 @@ If you experience crashes or issues in Electron that you believe are not caused 
 To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
 
 ```powershell
-$ ./out/Debug/electron.exe ~/my-electron-app/
+$ ./out/Testing/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### Breakpoints setzen
 
 Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
-Relevant code files can be found in `./atom/`.
+Die wichtigen Code Files findest du in `./atom/`.
 
 ### Attaching
 

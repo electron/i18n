@@ -5,7 +5,7 @@
 Ejecutar `gn gen` con el argumento --ide=xcode.
 
 ```sh
-$ gn gen out/Debug --ide=xcode
+$ gn gen out/Testing --ide=xcode
 ```
 
 Esto generará el electron.ninja.xcworkspace. Tendrás que abrir este espacio de trabajo para establecer puntos de interrupción e inspeccionar.

@@ -359,9 +359,7 @@ protocol.registerSchemesAsPrivileged([
                             * `url` String
                             * `method` String (optional)
                             * `session` Session | null (optional)
-                            * `uploadData` Objek (opsional) 
-                              * `contentType` String - jenis konten MIME.
-                              * `data` String - Konten yang akan dikirim.
+                            * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
                       * `penyelesaian` Fungsi (opsional) 
                         * Kesalahan `kesalahan`
                       

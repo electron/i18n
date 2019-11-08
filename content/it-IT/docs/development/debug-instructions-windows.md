@@ -17,7 +17,7 @@ Se si verificano arresti anomali o problemi in Electron che si ritiene non siano
 Per iniziare una sessione di debug, apri PowerShell/CMD ed esegui la tua build di debug di Electron, usando l'applicazione per aprirlo come parametro.
 
 ```powershell
-$ ./out/Debug/electron.exe ~/my-electron-app/
+$ ./out/Testing/electron.exe ~/my-electron-app/
 ```
 
 ### Impostare Breakpoint

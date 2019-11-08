@@ -1247,7 +1247,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icon` [NativeImage](native-image.md) | String
 
 ウインドウのアイコンを変更します。
 

@@ -91,11 +91,11 @@ Some examples of valid `urls`:
   * `callback` Function 
     * `response` Object 
       * `cancel` Boolean (可选)
-      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
 一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
 
-必须使用 `response` 对象调用` callback `。
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -133,12 +133,12 @@ Some examples of valid `urls`:
   * `callback` Function - 回调函数 
     * `response` Object 
       * `cancel` Boolean (可选)
-      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
 
-必须使用 `response` 对象调用` callback `。
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -175,6 +175,7 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
+    * `statusLine` String
     * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
     * `fromCache` Boolean
     * `responseHeaders` Record<string, string> (optional)

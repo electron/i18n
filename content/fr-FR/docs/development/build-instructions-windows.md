@@ -44,7 +44,7 @@ Les autres étapes pour la compilation sont exactement les mêmes.
 To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ gn gen out/Debug --ide=vs2017
+$ gn gen out/Testing --ide=vs2017
 ```
 
 ## Résolution de problème

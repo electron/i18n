@@ -91,11 +91,11 @@ Algunos ejemplos de `urls` válidas:
   * `callback` Function 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
-      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
 El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -133,12 +133,12 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
   * `callback` Function 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
-      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
 
 El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -175,6 +175,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `fecha y hora` Doble
     * `redirectURL` String
     * `Estatus de código` entero
+    * `linea de estatus` Cadena
     * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
     * `Desde cache` Booleano
     * `responseHeaders` Record<string, string> (optional)

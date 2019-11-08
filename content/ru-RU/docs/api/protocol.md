@@ -349,9 +349,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Object (опционально) 
-        * `contentType` String - тип содержимого MIME.
-        * `data` String - Содержимое для отправки.
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (необязательно) 
   * `error` Error
 

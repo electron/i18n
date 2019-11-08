@@ -10,12 +10,12 @@
 
 ## 附加并调试 Electron
 
-要启动调试会话，打开命令行并启动 `lldb` ，并传递一个调试版本的 Electron 作为参数。
+To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
 
 ```sh
-$ lldb ./out/Debug/Electron.app
-(lldb) target create "./out/Debug/Electron.app"
-Current executable set to './out/Debug/Electron.app' (x86_64).
+$ lldb ./out/Testing/Electron.app
+(lldb) target create "./out/Testing/Electron.app"
+Current executable set to './out/Testing/Electron.app' (x86_64).
 ```
 
 ### 设置断点
@@ -41,14 +41,10 @@ Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
+Process 25244 launched: '/Users/fr/Code/electron/out/Testing/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(
-    this=0x0000000108b14f20, name="Electron"
-) + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(
-    this=0x0000000108b14f20, name="Electron"
-) + 20 at browser.cc:118
+* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
    115  }
    116
    117  void Browser::SetName(const std::string& name) {

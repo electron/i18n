@@ -44,7 +44,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 要生成 Visual Studio 项目，可以传递 `--ide=vs2017` 参数 给 `gn gen`：
 
 ```powershell
-$ gn gen out/Debug --ide=vs2017
+$ gn gen out/Testing --ide=vs2017
 ```
 
 ## 故障排查

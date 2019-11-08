@@ -349,9 +349,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Object (選用) 
-        * `contentType` String - 內容的 MIME 類型。
-        * `data` String - 要傳送的內容。
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (選用) 
   * `error` Error
 

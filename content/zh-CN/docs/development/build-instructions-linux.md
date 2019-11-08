@@ -69,7 +69,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
 若要为 `arm` 或 `ia32` 平台的目标设备交叉编译，您应当为 `target_cpu` 添加`gn gen` 参数：
 
 ```sh
-gn gen out/Debug --args='import(...) target_cpu="arm"'
+$ gn gen out/Testing --args='import(...) target_cpu="arm"'
 ```
 
 ## 构建
@@ -97,7 +97,7 @@ Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Li
 例如如果你的 `clang`安装在 `/usr/local/bin/clang`下：
 
 ```sh
-gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
+$ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### 使用 `clang` 之外的其它编译器

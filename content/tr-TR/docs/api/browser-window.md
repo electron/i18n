@@ -1247,7 +1247,7 @@ Pencerenin görev çubuğu düğmesinin özelliklerini ayarlar.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [DoğalGörüntü](native-image.md)
+* `icon` [NativeImage](native-image.md) | String
 
 Pencere simgesi değiştirme.
 
