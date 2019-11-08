@@ -89,7 +89,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
+これはデバッグビルドの設定とともに `src/` 下の `out/Testing` ビルドディレクトリに生成されます。 `Testing` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Testing` を実行してエディタを呼び出します。
 
 To see the list of available build configuration options, run `gn args
 out/Testing --list`.
