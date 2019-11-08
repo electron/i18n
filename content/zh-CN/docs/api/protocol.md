@@ -349,9 +349,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
       * `url` String
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `uploadData` Object (可选) 
-        * `contentType` String - 内容的MIME类型。
-        * `data` String - 要发送的内容。
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `completion` Function (可选) 
   * `error` Error
 
