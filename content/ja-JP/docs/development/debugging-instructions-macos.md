@@ -10,7 +10,7 @@ JavaScript アプリケーションに起因しないと思われるクラッシ
 
 ## Electronへの接続とデバッグ
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+デバッグセッションを始めるには、ターミナルを開いて Electron のリリースでないビルドを引数として渡して `lldb` を実行します。
 
 ```sh
 $ lldb ./out/Testing/Electron.app
