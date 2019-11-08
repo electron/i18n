@@ -349,9 +349,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
       * `url` Dize
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `bilgiyi yükle` Obje (opsiyonel) 
-        * `contentType` Dize - İçeriğin MIME türünü gösterir.
-        * `data` Dize - Gönderilecek içerik.
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
