@@ -17,7 +17,7 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 Untuk memulai sesi debugging, membuka PowerShell / CMD dan melaksanakan debug membangun Anda Elektron , menggunakan aplikasi untuk membuka sebagai parameter.
 
 ```powershell
-$ ./out/Debug/electron.exe ~/my-electron-app/
+$ ./out/Testing/electron.exe ~/my-electron-app/
 ```
 
 ### Pengaturan Breakpoints
