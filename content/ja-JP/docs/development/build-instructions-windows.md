@@ -44,7 +44,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 Visual Studio プロジェクトを生成するには、`--ide=vs2017` 引数を`gn gen`に渡します。
 
 ```powershell
-$ gn gen out/Debug --ide=vs2017
+$ gn gen out/Testing --ide=vs2017
 ```
 
 ## トラブルシューティング
