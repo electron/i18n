@@ -358,9 +358,7 @@ protocol.registerSchemesAsPrivileged([
                                           * ` URL </ 0>  Zeichenfolge</li>
 <li><code>method` String (optional)
                                           * `session` Session | null (optional)
-                                          * `uploadData` Objekt (optional) 
-                                            * `contentType` String - MIME type of the content.
-                                            * `data` String - Content to be sent.
+                                          * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
                                     * `completion` Function (optional) 
                                       * ` Fehler </ 0> Fehler</li>
 </ul></li>
