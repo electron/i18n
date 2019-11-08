@@ -5,7 +5,7 @@
 `gn gen` に --ide=xcode 引数を加えて実行します。
 
 ```sh
-$ gn gen out/Debug --ide=xcode
+$ gn gen out/Testing --ide=xcode
 ```
 
 これで、electron.ninja.xcworkspace を生成します。 このワークスペースを開いて、ブレークポイントをセットしてインスペクトしなければなりません。
