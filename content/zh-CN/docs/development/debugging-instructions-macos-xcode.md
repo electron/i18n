@@ -5,7 +5,7 @@
 运行 `gn gen` 并带上 --ide=xcode 参数
 
 ```sh
-$ gn gen out/Debug --ide=xcode
+$ gn gen out/Testing --ide=xcode
 ```
 
 这会生成 electron.ninja.xcworkspace。 您需要打开这个工作区来设置断点和检查。
