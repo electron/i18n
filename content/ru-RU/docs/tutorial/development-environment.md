@@ -26,7 +26,7 @@ npm -v
 
 > Electron поддерживает Windows 7 и выше - разрабатывать Electron приложения на предыдущих версиях Windows не получится. Microsoft бесплатно предоставляeт [виртуальные машины с Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) для разработчиков.
 
-Первым делом нужно установить последнюю версию Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Перейдите на [страницу загрузки Node.js](https://nodejs.org/en/download/), и выберите `Windows установщик`. После скачивания, запустите установщик, и следуйте инструкциям.
+Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем Вам установить последнюю доступную `LTS` или `Current` версию. Перейдите на [страницу загрузки Node.js](https://nodejs.org/en/download/), и выберите `Windows установщик`. После скачивания, запустите установщик, и следуйте инструкциям.
 
 На экране, который позволяет настроить установку, убедитесь, что на опциях `Node.js runtime`, `npm package manager`, и `Add to PATH` установлен флажок.
 
