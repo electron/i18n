@@ -1247,7 +1247,7 @@ Same as `webContents.reload`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icon` [NativeImage](native-image.md) | String
 
 Меняет иконку окна.
 
