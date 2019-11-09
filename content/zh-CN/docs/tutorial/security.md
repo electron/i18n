@@ -611,10 +611,6 @@ app.on('remote-get-current-window', (event, webContents) => {
 app.on('remote-get-current-web-contents', (event, webContents) => {
   event.preventDefault()
 })
-
-app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) => {
-  event.preventDefault()
-})
 ```
 
 ## 17) 使用当前版本的 Electron
