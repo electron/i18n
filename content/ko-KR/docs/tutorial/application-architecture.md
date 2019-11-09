@@ -45,8 +45,8 @@ const win = new BrowserWindow()
 프로세스 간의 통신 가능하기 때문에, 렌더러 프로세스는 작업을 수행하기위해 메인 프로세스를 호출할 수 있습니다. Electron 은보통 메인 프로세스에서만 사용가능한 API들을 노출시키는 `remote` 라는 모듈을 함께 제공합니다. 렌더러 프로세스에서 `BrowserWindow`를 만들기 위해 remote 모듈을 중간자(middle-man) 로 사용:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// 이것은 렌더러 프로세스에서는 작동할 것이지만,
+// 메인 프로세스에서는 `undefined`이 될 것입니다:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -57,7 +57,7 @@ const win = new BrowserWindow()
 
 Electron은 메인과 렌더러 프로세스에서 Node.js 전체 접근이 가능합니다. 이것은 두가지 중요한 의미를 가집니다.
 
-1) Node.js에서 사용할 수 있는 모든 Api 들은 Electron에서 사용할 수 있습니다. Electron 응용 프로그램에서 호출 하는 다음 코드는 작동:
+1) Node.js에서 사용할 수 있는 모든 API들은 Electron에서 사용할 수 있습니다. Electron 응용 프로그램에서 호출 하는 다음 코드는 작동:
 
 ```javascript
 const fs = require('fs')
