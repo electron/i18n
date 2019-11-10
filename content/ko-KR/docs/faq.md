@@ -144,7 +144,7 @@ npm uninstall -g electron
 
 ![subpixel 렌더링 예시](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (더 많은 정보는 [이 이슈](https://github.com/electron/electron/issues/6344#issuecomment-420371918)에서 확인하세요).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
