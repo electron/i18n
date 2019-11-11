@@ -44,7 +44,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 Для генерации проекта в Visual Studio, вы можете передать параметр `--ide=vs2017` в `gn gen`:
 
 ```powershell
-$ gn gen out/Debug --ide=vs2017
+$ gn gen out/Testing --ide=vs2017
 ```
 
 ## Устранение проблем

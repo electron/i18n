@@ -1246,7 +1246,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icon` [NativeImage](native-image.md) | String
 
 设置窗口图标
 

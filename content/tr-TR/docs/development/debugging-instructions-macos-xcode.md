@@ -5,10 +5,10 @@
 Run `gn gen` with the --ide=xcode argument.
 
 ```sh
-$ gn gen out/Debug --ide=xcode
+$ gn gen out/Testing --ide=xcode
 ```
 
-This will generate the electron.ninja.xcworkspace. Hata noktalarını bulmak ve incelemek için bu workspace'i açmanız gerekecek.
+Bu "electron.ninja.xcworkspace"i oluşturacaktır. Hata noktalarını bulmak ve incelemek için bu workspace'i açmanız gerekecek.
 
 See `gn help gen` for more information on generating IDE projects with GN.
 

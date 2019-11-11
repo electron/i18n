@@ -32,14 +32,14 @@ npm install --platform=win32 electron
 
 ## プロキシ
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PROXY` 変数を任意の値に設定する必要があります。さらに、ホストシステムの Node のバージョンに応じて追加の環境変数を設定する必要があります。
 
-* [Node 10 and above](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
-* [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
+* [Node 10 以降](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
+* [Node 10 以前](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)
 
 ## ミラーとキャッシュのカスタマイズ
 
-During installation, the `electron` module will call out to [`@electron/get`](https://github.com/electron/get) to download prebuilt binaries of Electron for your platform. これはGithubのリリースダウンロードページ(`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION`はElectronの詳細なバージョン)からそうします。
+インストール中、`electron` モジュールは [`@electron/get`](https://github.com/electron/get) を呼び出して、プラットフォーム用のビルド済み Electron バイナリをダウンロードします。 これはGithubのリリースダウンロードページ(`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION`はElectronの詳細なバージョン)からそうします。
 
 もしGithubにアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
@@ -54,7 +54,7 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 例として、中国のミラーを使うにはこうします。
 
 ```plaintext
-ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### キャッシュ

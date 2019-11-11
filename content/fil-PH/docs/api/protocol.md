@@ -349,9 +349,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` Tali
       * `method` String (optional)
       * `session` Session | null (optional)
-      * `ang uploadData` Na Bagay (opsyonal) 
-        * `contentType` String - Ang uri ng MIME ng mga nilalaman.
-        * `data` String - Mga nilalaman na ipapadala.
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
 

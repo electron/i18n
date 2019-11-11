@@ -196,7 +196,7 @@ JavaScript ベースの polyfill が Electron の同等のネイティブ機能�
 
 ### どうすればいいの？
 
-Electron の現在のバージョンへの ployfill は不要であるという仮定の下で操作します。 疑問がある場合は、\[caniuse.com\]\[https://caniuse.com/\] を確認し、[利用している Electron のバージョンに対応した Chromium のバージョン](../api/process.md#processversionschrome-readonly) が必要な機能をサポートしているかどうかを確認してください。
+Electron の現在のバージョンへの ployfill は不要であるという仮定の下で操作します。 If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
 さらに、使用するライブラリを注意深く調べてください。 本当に必要なものでしょうか。 たとえば、`jQuery` は非常に成功したため、その機能の多くが [利用可能な標準 JavaScript 機能セット](http://youmightnotneedjquery.com/) の一部になりました。
 

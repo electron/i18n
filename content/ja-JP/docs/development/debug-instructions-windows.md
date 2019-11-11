@@ -17,7 +17,7 @@ JavaScriptアプリケーションによらないと思われるクラッシュ�
 デバッグセッションを始めるには、PowerShell/CMD を開いて Electron のデバッグビルドを実行し、引数として開くアプリケーションを渡して使用します。
 
 ```powershell
-$ ./out/Debug/electron.exe ~/my-electron-app/
+$ ./out/Testing/electron.exe ~/my-electron-app/
 ```
 
 ### ブレークポイントの設定

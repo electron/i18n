@@ -1269,7 +1269,7 @@ win.loadURL(url)
                               
                               #### `win.setIcon(icon)` *Windows* *Linux*
                               
-                              * `ikon` [NativeImage](native-image.md)
+                              * `icon` [NativeImage](native-image.md) | String
                               
                               Ubah ikon jendela.
                               

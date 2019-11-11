@@ -580,7 +580,7 @@ const mainWindow = new BrowserWindow({
 ### どうすればいいの？
 
 ```js
-const readOnlyFsProxy = require(/* ... */) // ファイル読み取り機能のみを公開している
+const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
 
 const allowedModules = new Set(['crypto'])
 const proxiedModules = new Map(['fs', readOnlyFsProxy])
@@ -613,10 +613,6 @@ app.on('remote-get-current-window', (event, webContents) => {
 })
 
 app.on('remote-get-current-web-contents', (event, webContents) => {
-  event.preventDefault()
-})
-
-app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) => {
   event.preventDefault()
 })
 ```

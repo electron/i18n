@@ -78,7 +78,7 @@ $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 # this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 Windows 上(任意の引数はなし):
@@ -86,18 +86,17 @@ Windows 上(任意の引数はなし):
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-これはデバッグビルドの設定とともに `src/` 配下の `out/Debug` ビルドディレクトリに生成されます。 `Debug` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Debug` を実行してエディタを呼び出します。
+これはデバッグビルドの設定とともに `src/` 下の `out/Testing` ビルドディレクトリに生成されます。 `Testing` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Testing` を実行してエディタを呼び出します。
 
-利用可能なビルド設定を一覧するには、`gn args
-out/Debug --list` を実行してください。
+利用可能なビルド設定を一覧するには、`gn args out/Testing --list` を実行してください。
 
-**Electron の Debug (別名 "component" または "shared") ビルド設定は以下のとおりです。**
+**Electron の Testing ビルド設定は以下のとおりです。**
 
 ```sh
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 **Electron の Release (別名 "non-component" または "static") ビルド設定は以下のとおりです。**
@@ -108,10 +107,10 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
 
-デバッグ構成は以下のとおりです。
+テスト構成は以下のとおりです。
 
 ```sh
-$ ninja -C out/Debug electron
+$ ninja -C out/Testing electron
 ```
 
 リリース構成は以下のとおりです。
@@ -122,16 +121,16 @@ $ ninja -C out/Release electron
 
 これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
 
-次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Debug` を実行するように、エディタで開いてファイルの末尾に追加してください。
+次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Testing` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
-実行形式は `./out/Debug` 下に置かれます。
+実行形式は `./out/Testing` 下に置かれます。
 
 ```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron
+$ ./out/Testing/Electron.app/Contents/MacOS/Electron
 # Windowsの場合
-$ ./out/Debug/electron.exe
+$ ./out/Testing/electron.exe
 # Linuxの場合
-$ ./out/Debug/electron
+$ ./out/Testing/electron
 ```
 
 ### パッケージ化
@@ -153,7 +152,7 @@ ninja -C out/Release electron:electron_dist_zip
 構築しているプラットフォームと同じでないプラットフォーム用にコンパイルするには、`target_cpu` 及び `target_os` GN 引数を設定します。 例えば、x64 ホストから x86 ターゲットをコンパイルするには、`gn args` で `target_cpu = "x86"` と指定します。
 
 ```sh
-$ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
+$ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 ```
 
 ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。
@@ -218,7 +217,7 @@ gclient sync -f --with_branch_heads --with_tags
       このテストを実行するために、あなたは最初に、このビルドプロセスの一部としてビルドする Node.js と同じバージョンに対してテストモジュールをビルドする必要があります。 再びコンパイルするモジュールのためのビルドヘッダを生成するために、<code>src/</code>ディレクトリの下で以下のように実行します。
     </p>
     
-    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
+    <pre><code class="sh">$ ninja -C out/Testing third_party/electron_node:headers
 </code></pre>
     
     <p>
@@ -229,7 +228,7 @@ gclient sync -f --with_branch_heads --with_tags
       もし何かをデバッグ中であれば、以下のフラグを Electron バイナリに渡すと役に立つかもしれません。
     </p>
     
-    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+    <pre><code class="sh">$ npm run test -- \
   --enable-logging -g 'BrowserWindow module'
 </code></pre>
     

@@ -91,11 +91,11 @@ Some examples of valid `urls`:
   * `обратно повикване` Функция 
     * `response` Object 
       * `cancel` Boolean (optional)
-      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
-The `callback` has to be called with an `response` object.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -133,12 +133,12 @@ The `listener` will be called with `listener(details)` just before a request is 
   * `callback` Функция 
     * `response` Object 
       * `cancel` Boolean (optional)
-      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-The `callback` has to be called with an `response` object.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -175,6 +175,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
+    * `statusLine` String
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
     * `responseHeaders` Record<string, string> (optional)

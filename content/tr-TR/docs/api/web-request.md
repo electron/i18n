@@ -91,11 +91,11 @@ Some examples of valid `urls`:
   * `geri aramak` Function 
     * `response` Nesne 
       * `cancel` Boolean (isteğe bağlı)
-      * `requestHeaders` Record<string, string> (optional) - When provided, request will be made with these headers.
+      * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
 Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. Bu, bir sunucuya TCP bağlantısı yapıldığında ortaya çıkabilir ancak öncesinde herhangi bir http verisi gönderilmiştir.
 
-`callback` bir `response` nesnesi ile birlikte çağırılacak.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -133,12 +133,12 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
   * `geri aramak` Function 
     * `response` Nesne 
       * `cancel` Boolean (isteğe bağlı)
-      * `responseHeaders` Record<string, string> (optional) - When provided, the server is assumed to have responded with these headers.
+      * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
 İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
 
-`callback` bir `response` nesnesi ile birlikte çağırılacak.
+The `callback` has to be called with a `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -175,6 +175,7 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Tamsayı
+    * `statusLine` String
     * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
     * `responseHeaders` Record<string, string> (optional)

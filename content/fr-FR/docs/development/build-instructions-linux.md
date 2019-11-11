@@ -69,7 +69,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
 And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
 
 ```sh
-$ gn gen out/Debug --args='import(...) target_cpu="arm"'
+$ gn gen out/Testing --args='import(...) target_cpu="arm"'
 ```
 
 ## Compilation
@@ -97,7 +97,7 @@ Par défaut, Electron est compilé avec les binaires précompilés de [`clang`](
 For example if you installed `clang` under `/usr/local/bin/clang`:
 
 ```sh
-$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
+$ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### Utiliser un compilateur autre que `clang`

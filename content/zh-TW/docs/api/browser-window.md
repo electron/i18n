@@ -1245,7 +1245,7 @@ Sets the properties for the window's taskbar button.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icon` [NativeImage](native-image.md) | String
 
 Changes window icon.
 

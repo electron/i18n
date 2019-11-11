@@ -76,9 +76,9 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# 다음 줄은 sccache와 함께 빌드하는 경우만 필요합니다
+# this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 Windows 환경이라면 (추가적인 인자는 없음):
@@ -86,18 +86,18 @@ Windows 환경이라면 (추가적인 인자는 없음):
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\")"
 ```
 
-위의 명령어를 실행하면 `src/` 아래에 debug 빌드 설정을 가진 `out/Debug`라는 빌드 디렉토리가 생성될 것입니다. `Debug`라는 이름은 다른 이름으로 변경할 수 있습니다. 단, `out`의 서브 디렉토리여야만 합니다. 또한 `gn gen`을 다시 실행할 수 없습니다—빌드 인자를 변경하고 싶다면, 에디터를 불러오기 위해 `gn args out/Debug` 명령을 실행할 수 있습니다.
+This will generate a build directory `out/Testing` under `src/` with the testing build configuration. You can replace `Testing` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Testing` to bring up an editor.
 
-이용 가능한 빌드 설정 옵션 목록을 보려면, `gn args
-out/Debug --list` 명령어를 실행하세요.
+To see the list of available build configuration options, run `gn args
+out/Testing --list`.
 
-**Electron의 Debug ("component" 또는 "shared" 라고 부르기도 함) 빌드 설정을 생성하려면:**
+**For generating Testing build config of Electron:**
 
 ```sh
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
 
 **Electron의 Release ("non-component" 또는 "static" 이라고 부르기도 함) 빌드 설정을 생성하려면:**
@@ -108,10 +108,10 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **빌드하고 `electron` 타켓과 함께 `ninja`를 실행하려면:** 주의하세요: 이 작업은 시간이 좀 걸릴 수 있습니다.
 
-debug 설정:
+For the testing configuration:
 
 ```sh
-$ ninja -C out/Debug electron
+$ ninja -C out/Testing electron
 ```
 
 release 설정:
@@ -122,16 +122,16 @@ $ ninja -C out/Release electron
 
 이 명령어는 이전에 'libchromiumcontent' (`chromium` 디렉토리의 `content/` 디렉토리와 WebKit 및 V8을 포함한 관련 의존성) 였던 모든 것을 빌드하는 것이기 때문에 상당한 시간이 걸릴 것입니다.
 
-반복된 빌드 작업 속도를 향상시키기 위해 [sccache](https://github.com/mozilla/sccache)를 사용할 수 있습니다. `gn args out/Debug` 명령어를 통해 에디터가 파일을 열면 제일 마지막 부분에 `cc_wrapper = "sccache"`를 입력해서 GN 인자를 추가할 수 있습니다.
+반복된 빌드 작업 속도를 향상시키기 위해 [sccache](https://github.com/mozilla/sccache)를 사용할 수 있습니다. Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
-실행 가능한 빌드 결과는 `./out/Debug` 디렉토리 안에 존재할 것입니다.
+The built executable will be under `./out/Testing`:
 
 ```sh
-$ ./out/Debug/Electron.app/Contents/MacOS/Electron
-# Windows 환경에서는
-$ ./out/Debug/electron.exe
-# 리눅스 환경에서는
-$ ./out/Debug/electron
+$ ./out/Testing/Electron.app/Contents/MacOS/Electron
+# or, on Windows
+$ ./out/Testing/electron.exe
+# or, on Linux
+$ ./out/Testing/electron
 ```
 
 ### 패키징
@@ -153,7 +153,7 @@ ninja -C out/Release electron:electron_dist_zip
 현재 빌드 작업을 하고 있는 플랫폼 환경과 동일하지 않은 플랫폼을 대상으로 컴파일하려면, `target_cpu` 및 `target_os` 를 GN 인자에서 설정하세요 예를 들어, x64 시스템 환경에서 x86을 대상으로 컴파일하는 경우, `gn args`에서 `target_cpu = "x86"`으로 설정하세요.
 
 ```sh
-$ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
+$ gn gen out/Testing-x86 --args='... target_cpu = "x86"'
 ```
 
 Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지는 않습니다.
@@ -218,7 +218,7 @@ gclient sync -f --with_branch_heads --with_tags
       테스트를 실행하려면 우선 빌드 과정에서 빌드된 Node.js 버전과 같은 버전을 기준으로 테스트 모듈을 빌드해야합니다. 컴파일하려는 모듈을 위한 빌드 헤더를 생성하려면 <code>src/</code> 디렉토리 안에서 다음 명령어를 실행하세요.
     </p>
     
-    <pre><code class="sh">$ ninja -C out/Debug third_party/electron_node:headers
+    <pre><code class="sh">$ ninja -C out/Testing third_party/electron_node:headers
 </code></pre>
     
     <p>
@@ -229,7 +229,7 @@ gclient sync -f --with_branch_heads --with_tags
       Electron 바이너리에 추가 플래그를 넘겨주면 디버깅하는데 도움이 될 것입니다:
     </p>
     
-    <pre><code class="sh">$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
+    <pre><code class="sh">$ npm run test -- \
   --enable-logging -g 'BrowserWindow module'
 </code></pre>
     
