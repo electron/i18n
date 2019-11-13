@@ -81,8 +81,8 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
   * [Proxiuri](tutorial/installation.md#proxies)
   * [Oglinzi și cacheuri personalizate](tutorial/installation.md#custom-mirrors-and-caches)
   * [Depanare](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
+* Eliberări Electron & FeedBack Dezvoltător 
+  * [Poliță de Versiuni](tutorial/electron-versioning.md)
   * [Release Timelines](tutorial/electron-timelines.md)
   * [App Feedback Program](tutorial/app-feedback-program.md)
 * [Packaging App Source Code with asar](tutorial/application-packaging.md) 
