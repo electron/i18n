@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# Ghid de documentare Electron
 
 Acestea sunt liniile directoare pentru scrierea documentației Electron.
 
@@ -58,23 +58,22 @@ Următoarele reguli se aplică doar la documentația API-urilor.
 
 ### Titlul paginii
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Fiecare pagină trebuie să utilizeze numele obiectului returnat de ` require („electron”) ` ca titlu, cum ar fi ` BrowserWindow `, ` autoUpdater ` și ` session-sesiune `.
 
-Under the page title must be a one-line description starting with `>`.
+Sub titlul paginii trebuie să existe o descriere de o linie care începe cu ` > `.
 
-Using `session` as example:
+Exemplu de utilizare a `session-sesiune`:
 
 ```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+# session -sesiune
+> Gestionați sesiunile browserului, cookie-urile, memoria cache, setările proxy etc.
 ```
 
-### Module methods and events
+### Modulele metode și evenimente
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Pentru modulele care nu sunt clase, metodele și evenimentele lor trebuie enumerate în secțiunea de mai jos capitolele ` ## Metode ` și ` ## Evenimente `.
 
-Using `autoUpdater` as an example:
+Exemplu de utilizare a `autoUpdater`:
 
 ```markdown
 # autoUpdater
@@ -88,13 +87,13 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Clase
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* Clasele API sau clasele care fac parte din module trebuie să fie enumerate în capitolul ` ## Class: TheClassName `.
+* O pagină poate avea multiple clase.
+* Constructorii trebuie să fie enumerați cu titluri de nivel ` ### `.
+* [ Static Methods-Metode statice ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) trebuie listate la un capitol ` ### Static Methods-Metode statice `.
+* [Instance Methods- Metode de instanță ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) trebuie listate la un capitol ` ### Instance Methods-Metode de instanță `.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
