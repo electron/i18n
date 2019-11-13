@@ -8,7 +8,7 @@ The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html
 
 See [ipcMain](ipc-main.md) for code examples.
 
-## Methods
+## Metode
 
 The `ipcRenderer` module has the following method to listen for events and send messages:
 
