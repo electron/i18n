@@ -24,7 +24,7 @@ contextBridge.exposeInMainWorld(
 window.electron.doThing()
 ```
 
-## Glossary
+## Glosar
 
 ### Main World
 
