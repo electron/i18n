@@ -13,7 +13,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## Metode
 
 The `clipboard` module has the following methods:
 
