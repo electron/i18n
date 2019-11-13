@@ -191,7 +191,7 @@ A `String` which is a list of strings which specifies the blink features to be e
 
 A `String` which is a list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
 
-## Methods
+## Metode
 
 The `webview` tag has the following methods:
 
