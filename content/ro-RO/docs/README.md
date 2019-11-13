@@ -31,7 +31,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Utilizarea API-ului Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Utilizarea API-ului Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Utilizarea modulelor native Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [Strategii de Performanță](tutorial/performance.md)
 * Adăugarea funcționalităților în aplicația ta 
   * [Notificări](tutorial/notifications.md)
   * [Documente recente](tutorial/recent-documents.md)
