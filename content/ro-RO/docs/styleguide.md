@@ -97,17 +97,17 @@ Exemplu de utilizare a `autoUpdater`:
 * Toate metodele care au o valoare returnată trebuie să înceapă descrierea lor cu „Returnări `[TYPE]` - Return description-Întoarcere descriere" 
   * Dacă metoda returnează un ` Object-Obiect `, structura sa poate fi specificată folosind o colonă urmată de o linie nouă, atunci o listă de proprietăți neordonate în același stil ca și parametrii funcției.
 * Instance Events- Evenimentele de Instanță trebuie să fie listate sub un capitol ca `### Instance Events`.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Instance Properties- Propietăți de Instanță trebuie să fie listate sub un `### Instance Properties - Propietăți de Instanță` capitol. 
+  * Propietățile de instanță trebuie să înceapă cu "A[Property Type]..."
 
-Using the `Session` and `Cookies` classes as an example:
+Exemplu de utilizare a claselor `Session` și `Cookies`:
 
 ```markdown
 # session
 
 ## Methods
 
-### session.fromPartition(partition)
+### session.fromPartition(partiție)
 
 ## Static Properties
 
@@ -120,55 +120,40 @@ Using the `Session` and `Cookies` classes as an example:
 #### Event: 'will-download'
 
 ### Instance Methods
-
-#### `ses.getCacheSize()`
-
-### Instance Properties
-
-#### `ses.cookies`
-
-## Class: Cookies
-
-### Instance Methods
-
-#### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Metode
 
-The methods chapter must be in the following form:
+Metodele capitolului trebuie să fie sub următoarea formă:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
-
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `required` String -Descriere a parametrului.
+* `optional` Integer (optional) - Altă descriere a parametrului...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Titlul poate fi la nivelul `###` sau ` ####` depinzând dacă este o metodă a unui modul sau o clasă.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Pentru module, `objectName-Obiectul Numelui` este numele modulului. Pentru clase, poate fi numele instanței sau a clasei și nu poate fi la fel ca și numele modului.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+De exemplu, metodele clasei ` Session` sub modulul de `session` trebuie să utilizeze `ses` ca și `objectName-Numele Obiectului`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Argumentele opționale sunt notate sub paranteze pătrate `[]` ce înconjoară argumentul opțional la fel ca și virgula cerută dacă acest opțional argument urmează după alt argument:
 
 ```sh
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Mai jos de metodă este mai multă informație detaliată a fiecărui argument. Tipul argumentului este notat prin tipurile comune:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`String- Șir`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number -Număr`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Object - Obiect`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array - mulțime`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Sau un tip personalizat al Electron cum ar fi [` WebContent `](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+Dacă un argument sau o metodă este unică pentru diverse platforme, acele platforme se diferențiază utilizând o listă de spațiu delimitat cu caracter italic în urma tipului de date. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
