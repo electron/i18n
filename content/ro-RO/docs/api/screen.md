@@ -39,7 +39,7 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
     })
     
 
-## Events
+## Events-Evenimente
 
 The `screen` module emits the following events:
 
