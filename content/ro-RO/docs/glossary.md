@@ -26,41 +26,41 @@ Limbajul descrierii interfeței(Idl, în engleză). Scrie semnături funcțional
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC reprezintă o Comunicare inter-proces. Electron utilizează IPC pentru a trimite mesaje JSON serializate între procesele[ [main-principal] ](#main-process) și [[renderer]](#renderer-process).
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+O împărtășire a bibliotecii care include [[Chromium Content module]](https://www.chromium.org/developers/content-module) și toate dependențele sale (e.g., Blink, [[V8]](#v8), etc.). De asemenea menționat ca "libcc".
 
-- [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
+- [- \[github.com/electron/libchromiumcontent\](https://github.com/electron/libchromiumcontent)](https://github.com/electron/libchromiumcontent)
 
-### main process
+### proces principal
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Procesul principal, de obicei un fișier numit `` `main.js` ``, este punctul de intrare în fiecare aplicație Electron. Acesta controlează durata de viață a aplicației, de la deschis la închis. De asemenea, gestionează elemente autohtone, cum ar fi Meniul, Bara de meniu, Dock, Tava, etc. Procesul principal este responsabil pentru crearea fiecărui proces de redare din aplicație. API-ul complet al nodului este încorporat.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Fișierul principal de proces al fiecărei aplicații este specificat în proprietatea `` `main-principal` `` din `` `pachet-package.json` ``. Acesta este modul în care `` `electron` `` știe ce fișier trebuie executat la pornire.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+În Chromium, acest proces este denumit `browser-process-proces browser`. Este redenumit în Electron pentru a evita confuziile cu procesele de randare.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Vezi de asemenea: [[process]](#process),[ [renderer-process]](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acronim pentru Apple App Store Mac. Pentru detalii despre trimiterea aplicației la MAS, consultați [[Mac App Store Submission Guide-Ghidul de trimitere a App App pentru Mac]](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Un sistem IPC pentru comunicarea intra- sau inter-proces este important deoarece Chrome este dornic să-și poată împărți munca în procese separate sau nu, în funcție de presiunile de memorie etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Vezi: https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### native modules
+### module autohtone
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Module autohtone (numite deasemenea- [[addons]](https://nodejs.org/api/addons.html) în Node.js) sunt module scrise în C sau C ++ care pot fi încărcate în Node.js sau Electron folosind funcția require () și utilizate ca și cum ar fi un modul Node.js obișnuit. Acestea sunt utilizate în principal pentru a oferi o interfață între JavaScript care rulează în bibliotecile Node.js și C / C ++.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Modulele Nod Native sunt acceptate de Electron, însă, deoarece Electron este foarte probabil să folosească o versiune V8 diferită de cea binară Node instalată în sistemul dvs., trebuie să specificați manual locația anteturilor Electron atunci când construiți module native.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Vezi:[ [Utilizând Native Node Modules]](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
