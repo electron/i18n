@@ -94,9 +94,9 @@ Exemplu de utilizare a `autoUpdater`:
 * Constructorii trebuie să fie enumerați cu titluri de nivel ` ### `.
 * [ Static Methods-Metode statice ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) trebuie listate la un capitol ` ### Static Methods-Metode statice `.
 * [Instance Methods- Metode de instanță ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) trebuie listate la un capitol ` ### Instance Methods-Metode de instanță `.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
+* Toate metodele care au o valoare returnată trebuie să înceapă descrierea lor cu „Returnări `[TYPE]` - Return description-Întoarcere descriere" 
+  * Dacă metoda returnează un ` Object-Obiect `, structura sa poate fi specificată folosind o colonă urmată de o linie nouă, atunci o listă de proprietăți neordonate în același stil ca și parametrii funcției.
+* Instance Events- Evenimentele de Instanță trebuie să fie listate sub un capitol ca `### Instance Events`.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
