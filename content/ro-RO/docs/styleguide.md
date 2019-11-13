@@ -153,17 +153,17 @@ Mai jos de metodă este mai multă informație detaliată a fiecărui argument. 
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Sau un tip personalizat al Electron cum ar fi [` WebContent `](api/web-contents.md)
 
-Dacă un argument sau o metodă este unică pentru diverse platforme, acele platforme se diferențiază utilizând o listă de spațiu delimitat cu caracter italic în urma tipului de date. Values can be `macOS`, `Windows` or `Linux`.
+Dacă un argument sau o metodă este unică pentru diverse platforme, acele platforme se diferențiază utilizând o listă de spațiu delimitat cu caracter italic în urma tipului de date. Valorile pot fi `macOS`, `Windows` sau `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animează lucrul.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array- Mulțime`tipul argumentului trebuie să specifice ce elemente ar putea să includă mulțimea în descrierea de mai jos.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Descrierea pentru `Function` tipul argumentelor ar trebuie să lase clar cum ar trebui să fie numită și listează tipurile de parametrii care vor trece.
 
-### Events
+### Events-Evenimente
 
 The events chapter must be in following form:
 
