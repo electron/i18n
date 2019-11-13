@@ -6,5 +6,5 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarGroup(options)` *Experimental*
 
-* `opțiuni` Object 
+* `opțiuni` Object - Obiect 
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.
