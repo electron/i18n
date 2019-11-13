@@ -98,16 +98,16 @@ La fel ca Node, Electron este concentrat pe faptul că are un set mic de API-uri
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 este sursa deschisă a motorului JavaScript din Google. Este scris în C ++ și este utilizat în Google Chrome. V8 poate rula autonom sau poate fi încorporat în orice aplicație C++.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron construiește V8 ca parte a Chromium și apoi indică Node către acel V8 atunci când îl construiește.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Numărul de versiuni V8 corespund întotdeauna celor ale Google Chrome. Chrome 59 include V8 5.9, Chrome 58 include V8 5.8 etc.
 
-- [developers.google.com/v8](https://developers.google.com/v8)
-- [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
-- [docs/development/v8-development.md](development/v8-development.md)
+- [- [developers.google.com/v8]](https://developers.google.com/v8)
+- [- [nodejs.org/api/v8.html]](https://nodejs.org/api/v8.html)
+- [- [docs/development/v8-development.md]](development/v8-development.md)
 
-### webview
+### vizionare web
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+Etichetele `` `webview` `` sunt utilizate pentru a încorpora conținutul „ guest-invitat”(cum ar fi paginile web externe) în aplicația Electron. Sunt similare cu `` `iframe`s ``, dar diferă prin faptul că fiecare vizionare web rulează într-un proces separat. Nu are aceleași permisiuni ca pagina web și toate interacțiunile între aplicația ta și conținutul încorporat nu se vor sincroniza. Acest lucru păstrează în siguranță aplicația ta de conținutul încorporat.
