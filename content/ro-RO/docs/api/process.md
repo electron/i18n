@@ -33,7 +33,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `mas`
 * `windowsStore`
 
-## Events
+## Events-Evenimente
 
 ### Event: 'loaded'
 
