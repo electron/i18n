@@ -41,7 +41,7 @@ patches
 ### 使い方
 
 #### 新しいパッチの追加
-```bash session
+```bash
 $ cd src/third_party/electron_node
 $ vim some/code/file.cc
 $ git commit
@@ -53,7 +53,7 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 パッチを再エクスポートすると、無関連なパッチの SHA サムが変更される場合があります。 これは一般に無害であり、無視することができます (ただし、これらの変更を PR に追加しても他の人には見えません)。
 
 #### 既存のパッチを編集する
-```bash session
+```bash
 $ cd src/v8
 $ vim some/code/file.cc
 $ git log
@@ -64,7 +64,7 @@ $ ../electron/script/git-export-patches -o ../electron/patches/v8
 ```
 
 #### パッチを削除する
-```bash session
+```bash
 $ vim src/electron/patches/node/.patches
 # 削除するパッチ名の行を削除します
 $ cd src/third_party/electron_node
@@ -78,7 +78,7 @@ $ ../../electron/script/git-export-patches -o ../../electron/patches/node
 #### コンフリクトの解決
 上流の依存関係を更新するとき、パッチをきれいに適用できない場合があります。 多くの場合、3 ウェイマージを使用して git で競合を自動的に解決できます。 `-3` の引数を渡すことで、3 ウェイマージアルゴリズムを使用するように `git-import-patches` に指示できます。
 
-```bash session
+```bash
 $ cd src/third_party/electron_node
 # パッチの適用が途中で失敗した場合は、以下のようにしてリセットできます。
 $ git am --abort

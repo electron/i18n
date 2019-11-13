@@ -1,4 +1,4 @@
 # FilePathWithHeaders Object
 
-* `path` String - The path to the file to send.
+* `path`字符串 -文件发送的路径
 * `headers` Record<string, string> (optional) - Additional headers to be sent.
