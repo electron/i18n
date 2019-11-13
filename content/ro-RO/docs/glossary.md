@@ -64,37 +64,37 @@ Vezi:[ [Utilizând Native Node Modules]](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System este un instrument creat de un Instalator de script pentru Microsoft Windows. Este lansat sub o combinație de licențe de software gratuit și este o alternativă pe scară largă folosită pentru produse comerciale proprietare, cum ar fi InstallShield. [[electron-builder]](https://github.com/electron-userland/electron-builder) acceptă NSIS ca țintă de construire.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (interpretare în afara ecranului) poate fi utilizat pentru încărcarea paginii grele în fundal și apoi afișarea ei după (va fi mult mai rapid). Permite să redați pagina fără a o afișa pe ecran.
 
-### process-proces
+### proces
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Un proces este o instanță a unui program de calculator care este executat. Aplicațiile Electron care utilizează procesul [[main-principal]](#main-process) și unul sau multe procese [[renderer]](#renderer-process) rulează de fapt mai multe programe simultan.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+În Node.js și Electron, fiecare proces care rulează are un obiect `` `process` ``. Acest obiect este global și oferă informații despre și controlul asupra procesului curent. Ca global, acesta este întotdeauna disponibil pentru aplicații fără a utiliza require ().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Vezi: [[main process]](#main-process),[ [renderer process]](#renderer-process)
 
-### renderer process
+### proces de redare
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Procesul de redare este o fereastră de browser din aplicația dvs. Spre deosebire de procesul principal, pot exista mai multe dintre acestea și fiecare este rulat într-un proces separat. Ele pot fi, de asemenea, ascunse.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+În browserele normale, paginile web rulează de obicei într-un mediu al cutiilor cu nisip și nu li se permite accesul la resurse native. Utilizatorii Electron au, însă, puterea de a utiliza API-urile Node.js în paginile web care permit interacțiuni cu un sistem de operare de nivel inferior.
 
-See also: [process](#process), [main process](#main-process)
+Vezi: [[process]](#process),[ [main process]](#main-process)
 
-### Squirrel
+### Veverița
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel(Veverița) este un cadru open-source care permite aplicațiilor Electron să se actualizeze automat odată cu lansarea noilor versiuni. Vedeți API-ul [[autoUpdater]](api/auto-updater.md) pentru informații despre începerea cu Squirrel.
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Acest termen provine din comunitatea Unix, unde „userland” sau „userpace” s-au referit la programe care rulează în afara nucleului sistemului de operare. Mai recent, termenul a fost popularizat în comunitatea Node și npm pentru a distinge între caracteristicile disponibile în „Node core” față de pachetele publicate în registrul npm de către comunitatea mult mai mare „user”.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+La fel ca Node, Electron este concentrat pe faptul că are un set mic de API-uri care oferă toate elementele primitive necesare pentru dezvoltarea aplicațiilor multi-plataforme pentru desktop. Această filozofie de design permite Electron să rămână un instrument flexibil, fără a fi prea prescriptiv cu privire la modul în care ar trebui utilizat. Userland le permite utilizatorilor să creeze și să partajeze instrumente care oferă funcționalitate suplimentară pe partea de care este disponibil în „core”.
 
 ### V8
 
