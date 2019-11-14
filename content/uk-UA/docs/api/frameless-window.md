@@ -1,12 +1,12 @@
 # Безамкові вікна
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Відкривайте вікно без панелі інструментів, рамок чи іншого графічного "хрому".
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Безрамкове віко - це вікно що не має [хрому](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), частин його вікон, як панелей інструментів, які не є частиною веб сторінки. Є деякі опції в [`BrowserWindow`](browser-window.md) класі.
 
-## Create a frameless window
+## Створіть безрамкове вікно
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Щоб створити безрамкове вікно, вам потрібно властивості `frame` присвоїти значення `false` у [BrowserWindow](browser-window.md)'их `options`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -14,7 +14,7 @@ let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
-### Alternatives on macOS
+### Альтернативи на macOS
 
 There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
