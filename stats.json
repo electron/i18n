@@ -172,12 +172,12 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "11532",
-    "translated": "11530",
+    "translated": "11532",
     "approved": "3166",
     "words": "108757",
-    "words_translated": "108661",
+    "words_translated": "108757",
     "words_approved": "27453",
-    "translated_progress": 99,
+    "translated_progress": 100,
     "approved_progress": 25,
     "qa_issues": 258
   },
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "11532",
-    "translated": "4467",
+    "translated": "4474",
     "approved": "1650",
     "words": "108757",
-    "words_translated": "27967",
+    "words_translated": "28034",
     "words_approved": "12252",
     "translated_progress": 25,
     "approved_progress": 11,
-    "qa_issues": 1139
+    "qa_issues": 1143
   },
   {
     "name": "Vietnamese",
