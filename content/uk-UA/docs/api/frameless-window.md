@@ -1,4 +1,4 @@
-# Frameless Window
+# Безамкові вікна
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
