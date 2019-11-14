@@ -1,4 +1,4 @@
-# Electron Documentation Style Guide
+# Ghid de documentare Electron
 
 Acestea sunt liniile directoare pentru scrierea documentației Electron.
 
@@ -58,23 +58,22 @@ Următoarele reguli se aplică doar la documentația API-urilor.
 
 ### Titlul paginii
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Fiecare pagină trebuie să utilizeze numele obiectului returnat de ` require („electron”) ` ca titlu, cum ar fi ` BrowserWindow `, ` autoUpdater ` și ` session-sesiune `.
 
-Under the page title must be a one-line description starting with `>`.
+Sub titlul paginii trebuie să existe o descriere de o linie care începe cu ` > `.
 
-Using `session` as example:
+Exemplu de utilizare a `session-sesiune`:
 
 ```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+# session -sesiune
+> Gestionați sesiunile browserului, cookie-urile, memoria cache, setările proxy etc.
 ```
 
-### Module methods and events
+### Modulele metode și evenimente
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Pentru modulele care nu sunt clase, metodele și evenimentele lor trebuie enumerate în secțiunea de mai jos capitolele ` ## Metode ` și ` ## Evenimente `.
 
-Using `autoUpdater` as an example:
+Exemplu de utilizare a `autoUpdater`:
 
 ```markdown
 # autoUpdater
@@ -88,27 +87,27 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Clase
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Clasele API sau clasele care fac parte din module trebuie să fie enumerate în capitolul ` ## Class: TheClassName `.
+* O pagină poate avea multiple clase.
+* Constructorii trebuie să fie enumerați cu titluri de nivel ` ### `.
+* [ Static Methods-Metode statice ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) trebuie listate la un capitol ` ### Static Methods-Metode statice `.
+* [Instance Methods- Metode de instanță ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) trebuie listate la un capitol ` ### Instance Methods-Metode de instanță `.
+* Toate metodele care au o valoare returnată trebuie să înceapă descrierea lor cu „Returnări `[TYPE]` - Return description-Întoarcere descriere" 
+  * Dacă metoda returnează un ` Object-Obiect `, structura sa poate fi specificată folosind o colonă urmată de o linie nouă, atunci o listă de proprietăți neordonate în același stil ca și parametrii funcției.
+* Instance Events- Evenimentele de Instanță trebuie să fie listate sub un capitol ca `### Instance Events`.
+* Instance Properties- Propietăți de Instanță trebuie să fie listate sub un `### Instance Properties - Propietăți de Instanță` capitol. 
+  * Propietățile de instanță trebuie să înceapă cu "A[Property Type]..."
 
-Using the `Session` and `Cookies` classes as an example:
+Exemplu de utilizare a claselor `Session` și `Cookies`:
 
 ```markdown
 # session
 
 ## Methods
 
-### session.fromPartition(partition)
+### session.fromPartition(partiție)
 
 ## Static Properties
 
@@ -121,65 +120,50 @@ Using the `Session` and `Cookies` classes as an example:
 #### Event: 'will-download'
 
 ### Instance Methods
-
-#### `ses.getCacheSize()`
-
-### Instance Properties
-
-#### `ses.cookies`
-
-## Class: Cookies
-
-### Instance Methods
-
-#### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Metode
 
-The methods chapter must be in the following form:
+Metodele capitolului trebuie să fie sub următoarea formă:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
-
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `required` String -Descriere a parametrului.
+* `optional` Integer (optional) - Altă descriere a parametrului...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Titlul poate fi la nivelul `###` sau ` ####` depinzând dacă este o metodă a unui modul sau o clasă.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Pentru module, `objectName-Obiectul Numelui` este numele modulului. Pentru clase, poate fi numele instanței sau a clasei și nu poate fi la fel ca și numele modului.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+De exemplu, metodele clasei ` Session` sub modulul de `session` trebuie să utilizeze `ses` ca și `objectName-Numele Obiectului`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Argumentele opționale sunt notate sub paranteze pătrate `[]` ce înconjoară argumentul opțional la fel ca și virgula cerută dacă acest opțional argument urmează după alt argument:
 
 ```sh
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Mai jos de metodă este mai multă informație detaliată a fiecărui argument. Tipul argumentului este notat prin tipurile comune:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`String- Șir`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number -Număr`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Object - Obiect`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array - mulțime`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Sau un tip personalizat al Electron cum ar fi [` WebContent `](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+Dacă un argument sau o metodă este unică pentru diverse platforme, acele platforme se diferențiază utilizând o listă de spațiu delimitat cu caracter italic în urma tipului de date. Valorile pot fi `macOS`, `Windows` sau `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animează lucrul.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array- Mulțime`tipul argumentului trebuie să specifice ce elemente ar putea să includă mulțimea în descrierea de mai jos.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Descrierea pentru `Function` tipul argumentelor ar trebuie să lase clar cum ar trebui să fie numită și listează tipurile de parametrii care vor trece.
 
-### Events
+### Events-Evenimente
 
 The events chapter must be in following form:
 

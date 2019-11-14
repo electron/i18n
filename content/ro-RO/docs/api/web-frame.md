@@ -14,7 +14,7 @@ const { webFrame } = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## Metode
 
 The `WebFrame` class has the following instance methods:
 

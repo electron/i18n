@@ -4,7 +4,7 @@
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-## Events
+## Events-Evenimente
 
 The `nativeTheme` module emits the following events:
 

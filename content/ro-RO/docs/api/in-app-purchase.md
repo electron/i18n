@@ -4,7 +4,7 @@
 
 Proces-ul: [Main](../glossary.md#main-process) - Principal</0>
 
-## Events
+## Events-Evenimente
 
 The `inAppPurchase` module emits the following events:
 
@@ -17,7 +17,7 @@ Returns:
 * `event` Event
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
-## Methods
+## Metode
 
 The `inAppPurchase` module has the following methods:
 

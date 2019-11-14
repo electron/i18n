@@ -9,7 +9,7 @@ const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Events-Evenimente
 
 The `systemPreferences` object emits the following events:
 
@@ -44,7 +44,7 @@ Returns:
 
 **Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
 
-## Methods
+## Metode
 
 ### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
 

@@ -44,20 +44,20 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Fișier reprezentant pentru macOS BrowserWindows](tutorial/represented-file.md)
   * [Fișier nativ drag & drop](tutorial/native-file-drag-drop.md)
   * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
-  * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Suportarea modului negru macOS](tutorial/mojave-dark-mode-guide.md)
 * [Accesibilitate](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Activarea accesibilității](tutorial/accessibility.md#enabling-accessibility)
 * [Testare și depanare](tutorial/application-debugging.md) 
   * [Depanarea procesului principal](tutorial/debugging-main-process.md)
-  * [Debugging the Main Process with Visual Studio Code](tutorial/debugging-main-process-vscode.md)
+  * [Debugarea procesului principal cu Visual Studio Code](tutorial/debugging-main-process-vscode.md)
   * [Utilizarea Selenium și WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [Testarea pe sistemele Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Extensia DevTools](tutorial/devtools-extension.md)
   * [Testare automată cu un driver personalizat](tutorial/automated-testing-with-a-custom-driver.md)
 * [Distribuţie](tutorial/application-distribution.md) 
-  * [Supported Platforms](tutorial/support.md#supported-platforms)
+  * [Platforme Suportate](tutorial/support.md#supported-platforms)
   * [Semnarea codului](tutorial/code-signing.md)
   * [Magazin de aplicații Mac](tutorial/mac-app-store-submission-guide.md)
   * [Magazin Windows](tutorial/windows-store-guide.md)
@@ -71,7 +71,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Implementarea unui server de actualizare](tutorial/updates.md#deploying-an-update-server)
   * [Implementarea actualizărilor în aplicația ta](tutorial/updates.md#implementing-updates-in-your-app)
   * [Aplicarea actualizărilor](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [Primirea suportului](tutorial/support.md)
 
 ## Tutoriale detaliate
 
@@ -81,17 +81,17 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
   * [Proxiuri](tutorial/installation.md#proxies)
   * [Oglinzi și cacheuri personalizate](tutorial/installation.md#custom-mirrors-and-caches)
   * [Depanare](tutorial/installation.md#troubleshooting)
-* Electron Releases & Developer Feedback 
-  * [Versioning Policy](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
-* [Packaging App Source Code with asar](tutorial/application-packaging.md) 
+* Eliberări Electron & FeedBack Dezvoltător 
+  * [Poliță de Versiuni](tutorial/electron-versioning.md)
+  * [Elliberări de cronologii](tutorial/electron-timelines.md)
+  * [Program de FeedBack a Aplicațiilor](tutorial/app-feedback-program.md)
+* [Împachetarea Codului Sursă a Aplicațiilor cu asar](tutorial/application-packaging.md) 
   * [Generarea arhivelor asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Utilizarea arhivelor asar](tutorial/application-packaging.md#using-asar-archives)
   * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adăugarea fișierelor despachetate în arhivele asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Utilizarea pluginului Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -101,7 +101,7 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 
 * [Rezumat](api/synopsis.md)
 * [Obiectul procesului](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Comutatoare de linie de comandă acceptate](api/command-line-switches.md)
 * [Variabile de mediu](api/environment-variables.md)
 * [Ruperea modificărilor API](api/breaking-changes.md)
 
@@ -127,30 +127,30 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)
-* [Notification](api/notification.md)
+* [Notificare](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [screen](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [BaraDeAtingere](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Module pentru randarea procesului (pagina web):
 
-* [desktopCapturer](api/desktop-capturer.md)
+* [desktopCapturer-capturareaDesktop-ului](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
-* [webFrame](api/web-frame.md)
+* [remote-de la distanță](api/remote.md)
+* [webFrame-cadruWeb](api/web-frame.md)
 
 ### Module pentru ambele procese:
 
-* [clipboard](api/clipboard.md)
+* [clipboard-clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
-* [shell](api/shell.md)
+* [nativeImage-ImagineNativă](api/native-image.md)
+* [shell-coajă](api/shell.md)
 
 ## Dezvoltare
 

@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Events-Evenimente
 
 The `app` object emits the following events:
 
@@ -416,7 +416,7 @@ Returns:
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-## Methods
+## Metode
 
 The `app` object has the following methods:
 
@@ -521,7 +521,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 * `path` String
 * `opțiuni` Object -Obiect (opțional) 
-  * `size` String 
+  * `size` String- Șir 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.

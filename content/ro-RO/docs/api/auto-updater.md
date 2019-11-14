@@ -30,7 +30,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
 
-## Events
+## Events-Evenimente
 
 The `autoUpdater` object emits the following events:
 
@@ -76,7 +76,7 @@ This event is emitted after a user calls `quitAndInstall()`.
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
-## Methods
+## Metode
 
 The `autoUpdater` object has the following methods:
 

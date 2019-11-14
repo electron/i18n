@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Methods
+## Metode
 
 The `net` module has the following methods:
 

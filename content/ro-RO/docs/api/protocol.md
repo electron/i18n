@@ -53,7 +53,7 @@ app.on('ready', () => {
 })
 ```
 
-## Methods
+## Metode
 
 The `protocol` module has the following methods:
 
