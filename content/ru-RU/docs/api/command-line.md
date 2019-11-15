@@ -28,7 +28,7 @@ app.commandLine.hasSwitch('disable-gpu')
 
 * `value` String - аргумент для добавления в командную строку
 
-Добавляет аргумент в командную строку Chromium. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Добавляет аргумент в командную строку Chromium. Аргумент будет указан правильно. Переключатели будут предшествовать аргументам независимо от порядка добавления.
 
 Если Вы добавляете аргумент, такой как `--switch=value`, вместо этого рассмотрите использование `appendSwitch('switch', 'value')`.
 
