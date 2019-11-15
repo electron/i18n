@@ -1,10 +1,10 @@
 ## Class: CommandLine
 
-> Manipulate the command line arguments for your app that Chromium reads
+> Манипулирование аргументами командной строки для вашего приложения, которое читает Chromium
 
 Процесс: [Главный](../glossary.md#main-process)
 
-The following example shows how to check if the `--disable-gpu` flag is set.
+В следующем примере показано, как проверить, установлен ли флаг `--disable-gpu`.
 
 ```javascript
 const { app } = require('electron')
