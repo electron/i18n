@@ -1,4 +1,4 @@
-# Mojave Dark Mode
+# Тёмный режим Mojave
 
 В macOS 10.14 Mojave, Apple представила новый [системный темный режим](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) для всех компьютеров macOS. Если у вашего приложения есть темный режим, вы можете заставить ваше приложение Electron учитывать настройку системного темного режима.
 
