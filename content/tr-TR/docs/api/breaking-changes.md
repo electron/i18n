@@ -4,7 +4,7 @@ Burada önemli değişiklikler yer alacak ve JS e eklenen son iptal edilen metod
 
 ## `FIXME` yorumları
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+Fixme cümleri bir sonraki sürümde düzeltilecek kodlar için kod içi açıklamalarını ifade eder. Bu linke bakınız: https://github.com/electron/electron/search?q=fixme
 
 ## Planned Breaking API Changes (7.0)
 
