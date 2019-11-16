@@ -1,17 +1,17 @@
 ## Class: CommandLine
 
-> Manipulate the command line arguments for your app that Chromium reads
+> Манипулирование аргументами командной строки для вашего приложения, которое читает Chromium
 
 Процесс: [Главный](../glossary.md#main-process)
 
-The following example shows how to check if the `--disable-gpu` flag is set.
+В следующем примере показано, как проверить, установлен ли флаг `--disable-gpu`.
 
 ```javascript
 const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Chrome Command Line Switches](./chrome-command-line-switches.md) document.
+Для получения более подробной информации о том, какие флаги и ключи можно использовать, смотрите на [Ключи командной строки Chrome](./chrome-command-line-switches.md).
 
 ### Методы экземпляра
 
@@ -22,17 +22,17 @@ For more information on what kinds of flags and switches you can use, check out 
 
 Добавьте переключатель (с опциональным значением `value`) Chromium в командной строке.
 
-**Примечание:** Это не повлияет на `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примечание:** Это не повлияет на `process.argv`. Предполагаемое использование этой функции — управлять поведением Chromium.
 
 #### `commandLine.appendArgument(value)`
 
 * `value` String - аргумент для добавления в командную строку
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+Добавляет аргумент в командную строку Chromium. Аргумент будет указан правильно. Переключатели будут предшествовать аргументам независимо от порядка добавления.
 
 Если Вы добавляете аргумент, такой как `--switch=value`, вместо этого рассмотрите использование `appendSwitch('switch', 'value')`.
 
-**Примечание:** Это не повлияет на `process.argv`. The intended usage of this function is to control Chromium's behavior.
+**Примечание:** Это не повлияет на `process.argv`. Предполагаемое использование этой функции — управлять поведением Chromium.
 
 #### `commandLine.hasSwitch(switch)`
 
