@@ -68,7 +68,7 @@ Bir güncelleme indirildiğinde ortaya çıkan.
 
 Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+** Not: ** Bu olayı ele almak kesinlikle gerekli değildir. Başarıyla İndirilen güncelleme, uygulamanın bir sonraki başlatılışında yine de uygulanacaktır.
 
 ### Event: 'before-quit-for-update'
 
@@ -103,4 +103,4 @@ Uygulamayı yeniden başlatır ve indirmeler bittikten sonra güncellemeyi yükl
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+** Not: **Bir güncelleme uygulamak bu metodu çağırmak kesinlikle gerekli değildir, Başarılı bir şekilde indirilmiş bir güncelleme uygulamanın bir sonraki başlatılmasında yinede devreye girecektir.
