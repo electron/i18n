@@ -1,6 +1,6 @@
 # Önemli Değişiklikler
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Burada önemli değişiklikler yer alacak ve JS e eklenen son iptal edilen metod uyarıları, mümkün oldukça yeni ana sürüm kullanıma açılmadan önce burada ilan edilecektir.
 
 ## `FIXME` yorumları
 
