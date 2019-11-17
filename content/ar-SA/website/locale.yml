@@ -79,12 +79,12 @@ releases:
   beta_releases: إصدارات بيتا
   beta_desc: جرب تطبيقك مع التغييرات القادمة
   nightly_releases: الاصدارات ليلية
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  nightly_desc: جربه مع أحدث الميزات
+  next: التالي
+  next_page: الصّفحة التّالية
+  previous: السابقة
+  previous_page: الصفحة السابقة
+  page: الصفحة
   all_releases: كل الاصدارات
   back_to_index: العودة إلى الرئيسية
 electron_is_easy:
@@ -135,7 +135,7 @@ help_translate: "المساعدة في الترجمة"
 footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
 companies:
-  title: Built on Electron
+  title: مبنية على Electron
   description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
