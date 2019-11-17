@@ -19,22 +19,22 @@ keyboard_modal:
   key: النوع
   action: النشاط
   focus_search: فوکوس روی نوار جستجو
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  focus_and_clear: تركيز على شريط البحث وتنظيفه
+  scroll_down: تحديد نتيجة البحث الآتية
+  scroll_up: تحديد نتيجة البحث السابقة
+  open: فتح نتيجة البحث المحددة
+  open_new_tab: فتح نتيجة البحث المحددة في نافذة جديدة
 docs:
   title: مستندات إلكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "دليل: البدء مع Electron"
   api_reference: مرجع API
   api_structures: بنية الواجهة البرمجية API
   advanced: خيارات متقدمة
-  detailed: In Detail
+  detailed: في التفاصيل
   custom_dom: عناصر DOM مخصصة
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
+  main_proc_modules: معالجة الوحدات الرئيسية
+  renderer_proc_modules: مصيير الوحدات الرئيسية
   both_proc_modules: Modules for Both Process Types
   footer:
     propose_change: تحسين هذه الوثيقة
