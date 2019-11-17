@@ -1,10 +1,10 @@
-# Breaking Changes
+# Önemli Değişiklikler
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Burada önemli değişiklikler yer alacak ve JS e eklenen son iptal edilen metod uyarıları, mümkün oldukça yeni ana sürüm kullanıma açılmadan önce burada ilan edilecektir.
 
 ## `FIXME` yorumları
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+Fixme cümleri bir sonraki sürümde düzeltilecek kodlar için kod içi açıklamalarını ifade eder. Bu linke bakınız: https://github.com/electron/electron/search?q=fixme
 
 ## Planned Breaking API Changes (7.0)
 
