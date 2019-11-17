@@ -35,7 +35,7 @@ docs:
   custom_dom: عناصر DOM مخصصة
   main_proc_modules: معالجة الوحدات الرئيسية
   renderer_proc_modules: مصيير الوحدات الرئيسية
-  both_proc_modules: Modules for Both Process Types
+  both_proc_modules: وحدات لكلهما أنواع Process
   footer:
     propose_change: تحسين هذه الوثيقة
     version_history: تاريخ الإصدار
@@ -43,7 +43,7 @@ docs:
     view_all_docs: جميع الوثائق في صفحة واحدة
 languages:
   choose_language: اختر لغة الموقع الخاصة بك
-  view_more_details: View More Language Details
+  view_more_details: اعرض المزيد من تفاصيل اللغة
   translation_progress: سير الترجمة
   current: الاختيار الحالي
 community:
@@ -53,8 +53,8 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>ابق على اطلاع</b></a> من خلال متابعتنا <a href='https://twitter.com/electronjs'>@electronjs</a> في تويتر والاشتراك في <a href='/blog'>المدونة</a>."
     localized_docs: "<a href='/languages'><b>اطلع على التوثيقات بلغتك الأم</b></a> من خلال زيارة <a href='/languages'>صفحة اللغات</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>احصل على المساعدة والردود</b></a> بالإنضمام إلى <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, بالنشر على <a href='https://discuss.atom.io/c/electron'>Discuss</a>, أو زيارة <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>بلغ عن الثغرات الأمنية</b></a> بإرسال رسالة بريد إلكتروني إلى <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>بلغ عن الأخطاء البرمجية</b></a> من خلال فتح تذكرة في مستودع <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>اطلب تحسينات </b></a> من خلال فتح مذكرة في مستودع <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>ابلغ عن انتهاكات المدونة السلوكية</b></a> بمراسلتنا على <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -71,14 +71,14 @@ community:
   awesome_notice: هذه قائمة تم تكوينها من <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> شيء مفقود؟ <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">تقديم طلب سحب للمستودع</a>.
   meetup_notice: لإضافة اجتماع ، عدِّل<code>data/meetups.json</code> و <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">تقديم طلب سحب</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
+  show_releases: "عرض الإصدارات:"
+  show_only_releases_from: "عرض الإصدارات من:"
+  all_versions: جميع الإصدارات
+  stable_releases: الإصدارات المستقر
+  stable_desc: إصدارات منتظمة الدعم
+  beta_releases: إصدارات بيتا
+  beta_desc: جرب تطبيقك مع التغييرات القادمة
+  nightly_releases: الاصدارات ليلية
   nightly_desc: Experiment with the latest features
   next: Next
   next_page: Next Page
