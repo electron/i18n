@@ -1,6 +1,6 @@
 # MouseWheelInputEvent Object extends `MouseInputEvent`
 
-* `type` String - The type of the event, can be `mouseWheel`.
+* `type` String - Der Event-Typ. Kann nur `mouseWheel` sein.
 * `deltaX` Integer (optional)
 * `deltaY` Integer (optional)
 * `wheelTicksX` Integer (optional)
