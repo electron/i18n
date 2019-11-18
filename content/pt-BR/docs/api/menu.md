@@ -258,7 +258,7 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notas sobre o Menu de aplicativo no macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+as aplicações no macOS tem um estilo de menu completamente diferente do Windows e do Linux. Aqui temos algumas nota sobre como fazer o menu do seu app mais "nativo".
 
 ### Menus Padrão
 
