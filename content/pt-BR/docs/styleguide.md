@@ -146,7 +146,7 @@ O capítulo de métodos deve estar no seguinte formato:
 * `optional` Integer (optional) - Outra descrição de parâmetro...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+O título pode ser `###` ou `###`-levels dependendo do caso de ser um método de um módulo ou de uma classe.
 
 Para módulos, o `objectName` é o nome do módulo. Para classes, será o nome da instância da classe, e não pode ter o mesmo nome do módulo.
 
