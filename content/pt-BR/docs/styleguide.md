@@ -140,19 +140,17 @@ Usando as classes `Session` e `Cookies` como exemplo:
 O capítulo de métodos deve estar no seguinte formato:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.Metodo(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `required` String - Uma descrição de parâmetro.
+* `optional` Integer (optional) - Outra descrição de parâmetro...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Para módulos, o `objectName` é o nome do módulo. Para classes, será o nome da instância da classe, e não pode ter o mesmo nome do módulo.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` como `objectName`.
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
@@ -181,34 +179,34 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### Eventos
 
-The events chapter must be in following form:
+O capítulo de eventos deve estar na seguinte forma:
 
 ```markdown
-### Event: 'wake-up'
+### Evento: 'wake-up'
 
-Returns:
+Retorno:
 
 * `time` String
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+O título pode ser `###` ou `####`-níveis, dependendo se se trata de um evento de módulo ou classe.
 
-The arguments of an event follow the same rules as methods.
+Os argumentos de um evento seguem as mesmas regras e métodos.
 
 ### Propriedades
 
-The properties chapter must be in following form:
+O capítulo de propriedades deve estar no seguinte formulário:
 
 ```markdown
-### session.defaultSession
+### session.defaultsession
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+O título pode ser `###` ou `####`-níveis, dependendo se é uma propriedade de um módulo ou uma classe.
 
-## Documentation Translations
+## Traduções da documentação
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Veja [electron/i18n](https://github.com/electron/i18n#readme)
