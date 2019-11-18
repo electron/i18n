@@ -1,4 +1,4 @@
-# KeyboardInputEvent Object erweitert `InputEvent`
+# KeyboardInputEvent Objekt, erbt von `InputEvent`
 
-* `type` String - The type of the event, can be `keyDown`, `keyUp` or `char`.
-* `keyCode` String - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](../accelerator.md).
+* `type` String - Die Art (Typ) des Events, kann `keyDown`, `keyUp` oder `char` sein.
+* `keyCode` String - Das Zeichen, das als Keyboard-Event gesendet wird. Sollte nur gültige KeyCodes aus dem [Accelerator](../accelerator.md) enthalten.
