@@ -150,9 +150,9 @@ O capítulo de métodos deve estar no seguinte formato:
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Para módulos, o `objectName` é o nome do módulo. Para classes, será o nome da instância da classe, e não pode ter o mesmo nome do módulo.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Por exemplo, os métodos da classe `Session` sob o módulo `session` usa `ses` como `objectName`.
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
@@ -195,7 +195,7 @@ Returns:
 
 The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
 
-The arguments of an event follow the same rules as methods.
+Os argumentos de um evento seguem as mesmas regras e métodos.
 
 ### Propriedades
 
@@ -209,6 +209,6 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## Traduções da documentação
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Veja [electron/i18n](https://github.com/electron/i18n#readme)
