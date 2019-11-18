@@ -140,12 +140,10 @@ Usando as classes `Session` e `Cookies` como exemplo:
 O capítulo de métodos deve estar no seguinte formato:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.Metodo(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `required` String - Uma descrição de parâmetro.
+* `optional` Integer (optional) - Outra descrição de parâmetro...
 ```
 
 The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
@@ -181,33 +179,33 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### Eventos
 
-The events chapter must be in following form:
+O capítulo de eventos deve estar na seguinte forma:
 
 ```markdown
-### Event: 'wake-up'
+### Evento: 'wake-up'
 
-Returns:
+Retorno:
 
 * `time` String
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+O título pode ser `###` ou `####`-níveis, dependendo se se trata de um evento de módulo ou classe.
 
 Os argumentos de um evento seguem as mesmas regras e métodos.
 
 ### Propriedades
 
-The properties chapter must be in following form:
+O capítulo de propriedades deve estar no seguinte formulário:
 
 ```markdown
-### session.defaultSession
+### session.defaultsession
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+O título pode ser `###` ou `####`-níveis, dependendo se é uma propriedade de um módulo ou uma classe.
 
 ## Traduções da documentação
 
