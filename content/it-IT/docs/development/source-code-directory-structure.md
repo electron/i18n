@@ -11,8 +11,7 @@ Electron
 ├── atom/ - Codice sorgente C++.
 |   ├── app/ - Codice di immissione del sistema.
 |   ├── browser/ - Il frontend, che include la finestra principale, l'interfaccia utente,  e tutto ciò 
-|   |   |         che riguarda il processo principale. This talks to the renderer to manage web
-|   |   |          pages.
+|   |   |         che riguarda il processo principale. Questo parla con il renderer per gestire le pagine web.
 |   |   ├── ui/ - Implementazione dell'inrefaccia utente (UI) per le varie piattaforme.
 |   |   |   ├── cocoa/ - Codice sorgente specifico di Cocoa.
 |   |   |   ├── win/ - Sorgente specifico della GUI di Windows.
