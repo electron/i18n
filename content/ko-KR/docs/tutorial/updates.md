@@ -84,11 +84,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: '새로운 버전이 다운로드 되었습니다. 애플리케이션을 재시작하여 업데이트를 적용해 주세요.'
+    detail: '새로운 버전이 다운로드 되었습니다. Restart the application to apply the updates.'
   }
 
-  dialog.showMessageBox(dialogOpts, (response) => {
-    if (response === 0) autoUpdater.quitAndInstall()
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
 })
 ```
