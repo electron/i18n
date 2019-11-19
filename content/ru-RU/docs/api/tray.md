@@ -177,7 +177,7 @@ app.on('ready', () => {
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Устанавливает `image` ассоциированный с значком в трее.
 
 #### `tray.setPressedImage(image)` *macOS*
 
@@ -220,12 +220,12 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Отображает всплывающее сообщение в трее.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - Позиция всплывающего сообщения.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
