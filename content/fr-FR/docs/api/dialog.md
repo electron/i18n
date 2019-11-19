@@ -36,9 +36,9 @@ Le module `dialog` dispose des méthodes suivantes :
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `promptToCreate` *Windows* - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
+    * `noResolveAliases` *macOS* - Désactive la resolution automatique des alias (symlink). Les alias sélectionnés retourneront dorénavant leur chemin au lieu de celui de leur cible.
+    * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -83,9 +83,9 @@ dialog.showOpenDialogSync(mainWindow, {
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
     * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `promptToCreate` *Windows* - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
+    * `noResolveAliases` *macOS* - Désactive la resolution automatique des alias (symlink). Les alias sélectionnés retourneront dorénavant leur chemin au lieu de celui de leur cible.
+    * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
