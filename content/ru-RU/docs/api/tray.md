@@ -102,20 +102,20 @@ app.on('ready', () => {
 
 #### Событие: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Возникает, когда всплывающее сообщение в трее закрыто из-за тайм-аута или вручную пользователем.
 
 #### Событие: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Возникает при перетаскивании элементов на значок в трее.
 
 #### Событие: 'drop-files' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - Пути брошенных файлов.
 
-Emitted when dragged files are dropped in the tray icon.
+Возникает при перетаскивании файлов на значок в трее.
 
 #### Событие: 'drop-text' *macOS*
 
