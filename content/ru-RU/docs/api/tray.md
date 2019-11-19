@@ -227,22 +227,22 @@ app.on('ready', () => {
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Контекстное меню всплывает вверх со значка в трее. Когда `menu` передается, `menu` будет отображаться вместо контекстного меню иконки в трее.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` доступна только для Windows, и это (0, 0) по умолчанию.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Устанавливает контекстное меню для этого значка.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+`bounds` значка в трее как `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Возвращает `Boolean` - уничтожен ли значок в трее.
