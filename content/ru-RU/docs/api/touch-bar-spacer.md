@@ -8,6 +8,6 @@
 
 * `options` Object 
   * `size` String (optional) - Размер spacer, возможные значения: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+    * `small` - Небольшое пространство между элементами.
+    * `large` - Большое пространство между элементами.
+    * `flexible` - Занимает всё доступное пространство.
