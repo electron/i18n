@@ -122,21 +122,21 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` Event
-* `text` String - брошенная текстовая строка.
+* `text` String - Брошенная текстовая строка.
 
-Emitted when dragged text is dropped in the tray icon.
+Возникает при перетаскивании строки на значок в трее.
 
 #### Событие: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Возникает, когда операция перетаскивания происходит на иконке в трее.
 
 #### Событие: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Возникает, когда операция перетаскивания завершилась на иконке в трее.
 
 #### Событие: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Возникает, когда операция перетаскивания заканчивается в трее или заканчивается в другом месте.
 
 #### Событие: 'mouse-enter' *macOS*
 
