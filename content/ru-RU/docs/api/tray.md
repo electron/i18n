@@ -122,7 +122,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` Event
-* `text` String - the dropped text string.
+* `text` String - брошенная текстовая строка.
 
 Emitted when dragged text is dropped in the tray icon.
 
