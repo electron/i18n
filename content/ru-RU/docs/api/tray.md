@@ -26,9 +26,9 @@ app.on('ready', () => {
 **Ограничения платформ:**
 
 * В Linux индикатор приложения будет использован, если он поддерживается, иначе будет использован `GtkStatusIcon`.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* Значок приложения будет показан только в случае присутствия у приложения контекстного меню.
-* Если приложение запущено на Linux, то событие `click` по иконке не сработает.
+* В дистрибутивах Linux, которые поддерживают только индикаторы приложений, вы должны установите `libappindicator1`, чтобы значок в трее заработал.
+* Индикатор приложения будет отображаться только при наличии контекстного меню.
+* Когда индикатор приложения используется в Linux, событие `click` игнорируется.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
