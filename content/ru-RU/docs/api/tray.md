@@ -195,7 +195,7 @@ app.on('ready', () => {
 
 * `title` String
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
 
 #### `tray.getTitle()` *macOS*
 
