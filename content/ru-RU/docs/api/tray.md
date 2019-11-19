@@ -69,8 +69,8 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - Границы иконки в трее.
-* `position` [Point](structures/point.md) - Позиция события.
+* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
+* `position` [Point](structures/point.md) - позиция события.
 
 Вызывается при двойном клике на иконке в трее.
 
@@ -79,7 +79,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - Границы иконки в трее.
+* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
 
 Возникает при правом клике на иконке в трее.
 
@@ -88,7 +88,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - Границы иконки в трее.
+* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
 
 Вызывается при двойном нажатии на иконку в трее.
 
@@ -113,7 +113,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` Event
-* `files` String[] - Пути брошенных файлов.
+* `files` String[] - пути брошенных файлов.
 
 Возникает при перетаскивании файлов на значок в трее.
 
@@ -122,7 +122,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` Event
-* `text` String - Брошенная текстовая строка.
+* `text` String - брошенная текстовая строка.
 
 Возникает при перетаскивании строки на значок в трее.
 
@@ -143,7 +143,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - Позиция события.
+* `position` [Point](structures/point.md) - позиция события.
 
 Возникает при входе курсора мыши на иконку в трее.
 
@@ -152,7 +152,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - Позиция события.
+* `position` [Point](structures/point.md) - позиция события.
 
 Возникает при выходе курсора мыши с иконки в трее.
 
@@ -161,7 +161,7 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - Позиция события.
+* `position` [Point](structures/point.md) - позиция события.
 
 Возникает при перемещении мыши на значке в трее.
 
@@ -199,19 +199,19 @@ app.on('ready', () => {
 
 #### `tray.getTitle()` *macOS*
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Возвращает `String` - заголовок, отображаемый рядом со значком в области уведомлений в строке состояния
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Устанавливает опцию игнорирования событий двойного щелчка. Игнорирование этих событий позволяет вам обнаруживать каждый отдельный щелчок по иконке в трее.
 
-This value is set to false by default.
+Значение по умолчанию установлено в значение false.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+Возвращает `Boolean` - будет ли игнорироваться события двойного щелчка.
 
 #### `tray.displayBalloon(options)` *Windows*
 
@@ -225,7 +225,7 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - Позиция всплывающего сообщения.
+* `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
