@@ -183,13 +183,13 @@ app.on('ready', () => {
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Устанавливает `image`, связанное с этим значком в трее, при нажатии в macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Устанавливает текст отображаемый при наведении на значок в трее.
 
 #### `tray.setTitle(title)` *macOS*
 
