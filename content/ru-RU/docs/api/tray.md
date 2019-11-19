@@ -145,7 +145,7 @@ app.on('ready', () => {
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - Позиция события.
 
-Emitted when the mouse enters the tray icon.
+Возникает при входе курсора мыши на иконку в трее.
 
 #### Событие: 'mouse-leave' *macOS*
 
@@ -154,24 +154,24 @@ Emitted when the mouse enters the tray icon.
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - Позиция события.
 
-Emitted when the mouse exits the tray icon.
+Возникает при выходе курсора мыши с иконки в трее.
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### Событие: 'mouse-move' *macOS* *Windows*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `position` [Point](structures/point.md) - Позиция события.
 
-Emitted when the mouse moves in the tray icon.
+Возникает при перемещении мыши на значке в трее.
 
 ### Методы экземпляра
 
-The `Tray` class has the following methods:
+Класс `Tray` имеет следующие методы:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Немедленно уничтожить иконку в трее.
 
 #### `tray.setImage(image)`
 
