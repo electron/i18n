@@ -35,7 +35,7 @@ Le module `dialog` dispose des méthodes suivantes :
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -82,7 +82,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
