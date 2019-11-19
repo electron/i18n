@@ -987,7 +987,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Retourne `Promise<void>`
 
 Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
@@ -1002,7 +1002,7 @@ contents.setVisualZoomLevelLimits(1, 3)
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Retourne `Promise<void>`
 
 Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
 
@@ -1065,7 +1065,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Returns `Promise<void>`
+Retourne `Promise<void>`
 
 Insère le `text` à l'élément ciblé.
 
