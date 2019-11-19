@@ -1,4 +1,4 @@
-# Writing Your First Electron App
+# Menulis Aplikasi Elektron Pertama Anda
 
 Elektron memungkinkan Anda untuk membuat aplikasi desktop dengan murni JavaScript dengan menyediakan runtime yang kaya asli (sistem operasi) api. Anda bisa melihatnya sebagai varian dari runtime Node.js yang difokuskan pada aplikasi desktop bukan server web.
 
