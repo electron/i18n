@@ -1,7 +1,7 @@
 # MemoryInfo Object
 
 * `workingSetSize` Integer - Die Speichergrösse, die gerade dem physischen RAM zugewiesen ist.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer (optional) _Windows_ - The amount of memory not shared by other processes, such as JS heap or HTML content.
+* `peakWorkingSetSize` Integer - Das Maximum an je reserviertem Speicher auf dem physikalischen RAM.
+* `privateBytes` Integer (optional) _Windows_ - Die Anzahl Bytes im Speicher die nicht mit anderen Prozessen (wie JS-Heap oder HTML-Content) geteilt werden.
 
 Beachten Sie, dass alle Statistiken in Kilobyte angegeben werden.

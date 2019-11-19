@@ -73,7 +73,7 @@ setInterval(() => {
 
 Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
 
-## Applying Updates
+## Áp dụng cập nhật
 
 Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
 
@@ -87,8 +87,8 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     detail: 'A new version has been downloaded. Restart the application to apply the updates.'
   }
 
-  dialog.showMessageBox(dialogOpts, (response) => {
-    if (response === 0) autoUpdater.quitAndInstall()
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall()
   })
 })
 ```

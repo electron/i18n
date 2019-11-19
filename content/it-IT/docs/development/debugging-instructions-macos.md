@@ -10,7 +10,7 @@ Se si verificano arresti anomali o problemi in Electron che si ritiene non siano
 
 ## Allegare a e Debug Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+Per iniziare una sessione di debug, apri il Terminale ed avvia `lldb` passando una build non rilasciata di Electron come parametro.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
