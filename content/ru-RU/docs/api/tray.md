@@ -52,7 +52,7 @@ app.on('ready', () => {
 
 * В Windows рекомендуется использовать значки `ICO` для получения лучших визуальных эффектов.
 
-Если вы хотите добиться одинаковой работы вашего приложения на всех платформах, то не следует полагаться на событие `click` и всегда создавать контекстное меню для иконки в трее.
+Если вы хотите сохранить одинаковое поведение на всех платформах, вам не следует полагаться на событие `click` и всегда прикреплять контекстное меню к значку в трее.
 
 ### `new Tray(image)`
 
@@ -69,36 +69,36 @@ app.on('ready', () => {
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - Границы иконки в трее.
+* `position` [Point](structures/point.md) - Позиция события.
 
-Emitted when the tray icon is clicked.
+Вызывается при двойном клике на иконке в трее.
 
 #### Событие: 'right-click' *macOS* *Windows*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Границы иконки в трее.
 
-Emitted when the tray icon is right clicked.
+Возникает при правом клике на иконке в трее.
 
 #### Событие: 'double-click' *macOS* *Windows*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - Границы иконки в трее.
 
 Вызывается при двойном нажатии на иконку в трее.
 
 #### Событие: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Возникает при всплывающем сообщении в трее.
 
 #### Событие: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Вызывается при клике на всплывающем сообщении в трее.
 
 #### Событие: 'balloon-closed' *Windows*
 
@@ -143,7 +143,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - Позиция события.
 
 Emitted when the mouse enters the tray icon.
 
@@ -152,7 +152,7 @@ Emitted when the mouse enters the tray icon.
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - Позиция события.
 
 Emitted when the mouse exits the tray icon.
 
@@ -161,7 +161,7 @@ Emitted when the mouse exits the tray icon.
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - Позиция события.
 
 Emitted when the mouse moves in the tray icon.
 
