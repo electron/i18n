@@ -37,11 +37,11 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 * `url` String - 2081 caractères max. sur Windows.
 * `options` Object (facultatif) 
   * `activate` Boolean (facultatif) *macOS* - `true` pour placer l'application ouverte au premier plan. Défaut : `true`.
-  * `workingDirectory` String (optional) *Windows* - The working directory.
+  * `workingDirectory` String (optional) *Windows* - Le dossier de travail.
 
-Returns `Promise<void>`
+Retourne `Promise<void>`
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Ouvre l'URL externe donnée en utilisant la méthode par défaut du système, en fonction de son protocole. (Par exemple, les URLs mailto: s'ouvrent avec l'agent de messagerie par défaut).
 
 ### `shell.moveItemToTrash(fullPath)`
 
