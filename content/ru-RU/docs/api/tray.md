@@ -1,10 +1,10 @@
 ## Class: Tray
 
-> Добавляет иконки и контекстное меню в область уведомлений ОС.
+> Добавить иконки и контекстные меню в системную область уведомлений.
 
 Процесс: [Main](../glossary.md#main-process)
 
-`Tray` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'ом.
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -18,7 +18,7 @@ app.on('ready', () => {
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Это мое приложение.')
   tray.setContextMenu(contextMenu)
 })
 ```
