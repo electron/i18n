@@ -66,6 +66,33 @@ webFrame.setIsolatedWorldInfo(
 
 This property was removed in Chromium 77, and as such is no longer available.
 
+### `webkitdirectory` attribute for `<input type="file"/>`
+
+￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+
+    console
+    ￼folder
+    ￼├── file1
+    ￼├── file2
+    ￼└── file3
+    ￼ ￼ ￼In Electron <=6, this would return a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼path/to/folder
+    ￼ ￼ ￼In Electron 7, this now returns a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼/path/to/folder/file3
+    ￼/path/to/folder/file2
+    ￼/path/to/folder/file1
+    ￼ ￼ ￼Note that 
+
+`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+
 ## Planned Breaking API Changes (6.0)
 
 ### `win.setMenu(null)`
@@ -193,7 +220,7 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ### webFrame Isolated World APIs
 
 ```js
-// Deprecated
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -269,7 +296,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `app`
+### `ang app`
 
 ```js
 // Deprecated
@@ -282,7 +309,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-### `Ang Browser ng Window`
+### `Kulayan ang bintana`
 
 ```js
 // Deprecated
@@ -330,7 +357,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-### `kalabog ng tagapagbalita`
+### `crashReporter`
 
 ```js
 // Deprecated
@@ -450,13 +477,13 @@ Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--di
 
 Deprecated: https://atom.io/download/atom-shell
 
-Palitan ng: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-### `Ang Browser ng Window`
+### `Kulayan ang bintana`
 
 ```js
 // Deprecated
@@ -521,7 +548,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Gayahin ang mga ARM Asset
+### Duplicate ARM Assets
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
