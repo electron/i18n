@@ -66,6 +66,33 @@ webFrame.setIsolatedWorldInfo(
 
 This property was removed in Chromium 77, and as such is no longer available.
 
+### `webkitdirectory` attribute for `<input type="file"/>`
+
+￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+
+    console
+    ￼folder
+    ￼├── file1
+    ￼├── file2
+    ￼└── file3
+    ￼ ￼ ￼In Electron <=6, this would return a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼path/to/folder
+    ￼ ￼ ￼In Electron 7, this now returns a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼/path/to/folder/file3
+    ￼/path/to/folder/file2
+    ￼/path/to/folder/file1
+    ￼ ￼ ￼Note that 
+
+`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+
 ## Cambiamenti Pianificati API (6.0)
 
 ### `win.setMenu(null)`
@@ -193,7 +220,7 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ### webFrame Isolated World APIs
 
 ```js
-// Deprecated
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -347,7 +374,7 @@ crashReporter.start({
 })
 ```
 
-### `immagineNativa`
+### `nativeImage`
 
 ```js
 // Deprecato
@@ -401,7 +428,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-### `contenutiWeb`
+### `webContents`
 
 ```js
 // Deprecato
@@ -476,7 +503,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-### `immagineNativa`
+### `nativeImage`
 
 ```js
 // Rimosso
@@ -494,7 +521,7 @@ nativeImage.toJPEG()
 
 * `process.versions.electron` e `process.version.chrome` diventeranno delle proprietà di sola lettura coerentemente con le altre proprietà `process.versions` impostate da Node.
 
-### `contenutiWeb`
+### `webContents`
 
 ```js
 // Rimosso
