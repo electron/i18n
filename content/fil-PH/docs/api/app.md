@@ -258,10 +258,8 @@ Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
-* `kahilingan` Bagay 
-  * `method` na String
+* `authenticationResponseDetails` Bagay 
   * `url` Ang URL
-  * `referrer`Ang URL
 * `ang authInfo` Bagay 
   * `isProxy` Ang Boolean
   * `scheme` na String
@@ -279,9 +277,9 @@ The default behavior is to cancel all authentications. To override this you shou
 ```javascript
 const { app } = require('electron')
 
-app.on('login', (mga event, mga webContents, mga kahilingan, mga authInfo, mga mulingtawag) => {
+app.on('login', (event, webContents, details, authInfo, callback) => {
   event.preventDefault()
-  mulingtawag('username', 'secret')
+  callback('username', 'secret')
 })
 ```
 
