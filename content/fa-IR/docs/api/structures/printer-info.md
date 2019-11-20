@@ -1,6 +1,6 @@
 # PrinterInfo Object
 
-* `نام وسیله` رشته
+* PrinterInfo Object
 * `شناسه وسیله` رشته
 * `y` عدد
 * `isDefault` بولین
