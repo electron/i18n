@@ -309,7 +309,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-### `BrowserWindow`
+### `Browserfenster`
 
 ```js
 // Veraltet
@@ -333,7 +333,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `Zwischenablage (clipboard)`
+### `clipboard`
 
 ```js
 // Veraltet
@@ -483,7 +483,7 @@ Replace with: https://atom.io/download/electron
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-### `BrowserWindow`
+### `Browserfenster`
 
 ```js
 // Veraltet
