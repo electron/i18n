@@ -117,7 +117,7 @@ contentTracing.getTraceBufferUsage().then(infoObject => {
 })
 ```
 
-### `electron.screen` in renderer process
+### 渲染进程中的 `electron.screen`
 
 ```js
 // 不推荐
@@ -126,7 +126,7 @@ require('electron').screen
 require('electron').remote.screen
 ```
 
-### `require` in sandboxed renderers
+### 沙盒渲染器中的`require`
 
 ```js
 // 不推荐
@@ -191,7 +191,7 @@ tray.setHighlightMode(mode)
 
 ### `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+不推荐使用以下 `webPreferences` 选项默认值，以支持下面列出的新默认值。
 
 | 属性                 | 不推荐使用的默认值                       | 新的默认值   |
 | ------------------ | ------------------------------- | ------- |
@@ -199,7 +199,7 @@ The following `webPreferences` option default values are deprecated in favor of 
 | `nodeIntegration`  | `true`                          | `false` |
 | `webviewTag`       | `nodeIntegration` 未设置过则是 `true` | `false` |
 
-E.g. Re-enabling the webviewTag
+例如，重新启用 webviewTag
 
 ```js
 const w = new BrowserWindow({
@@ -213,9 +213,9 @@ const w = new BrowserWindow({
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled, unless `nodeIntegrationInSubFrames` is `true.
 
-### Privileged Schemes Registration
+### 带权限的 Scheme 注册
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+移除 Renderer process APIs `webFrame.setLSSemeAsPrivieged` 和 `webFrame.registerURLLSQUIseAswersegCSP` 以及浏览器 process API `protocol.registerStardsSchemes`. 新的 API `protocol.registerSchemeasviliged` 已被添加，并用于注册具有必要权限的自定义 scheme。 自定义 scheme 需要在 app 触发 ready 事件之前注册。
 
 ### webFrame Isolated World APIs
 
@@ -255,7 +255,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ## 计划重写的 API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+以下包含了Electron 4.0中重大的API更新
 
 ### `app.makeSingleInstance`
 
@@ -290,11 +290,11 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 查看 [原生模块指南](/docs/tutorial/using-native-node-modules.md) 以获取更多信息.
 
 ## 重大的API更新 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+以下包含了Electron 3.0中重大的API更新
 
 ### `app`
 
@@ -333,7 +333,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `剪贴板`
+### `clipboard`
 
 ```js
 // 过时的
@@ -385,7 +385,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `进程`
+### `process`
 
 ```js
 // 弃用
@@ -475,13 +475,13 @@ webview.onkeyup = () => { /* handler */ }
 
 这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
-Deprecated: https://atom.io/download/atom-shell
+过时的: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+替换为: https://atom.io/download/electron
 
 ## 重大的API更新 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+以下包含了Electron 2.0中重大的API更新
 
 ### `BrowserWindow`
 
@@ -517,7 +517,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `进程`
+### `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
@@ -548,10 +548,10 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-### Duplicate ARM Assets
+### 重复的 ARM 资源
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the unprefixed file will no longer be published.
+为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
