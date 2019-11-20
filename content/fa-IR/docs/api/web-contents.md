@@ -415,10 +415,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Returns:
 
 * `event` Event
-* `request` شئ 
-  * `method` String
+* `authenticationResponseDetails` شئ 
   * `url` URL
-  * `referrer` URL
 * `authInfo` شئ 
   * `isProxy` Boolean
   * `scheme` String

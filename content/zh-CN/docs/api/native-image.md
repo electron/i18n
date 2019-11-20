@@ -268,9 +268,9 @@ Returns [`Size`](structures/size.md)
 
 添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
 
-## 属性
+### 实例属性
 
-### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` *macOS*
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

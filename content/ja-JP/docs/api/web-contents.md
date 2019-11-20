@@ -415,10 +415,8 @@ win.webContents.on('before-input-event', (event, input) => {
 戻り値:
 
 * `event` Event
-* `request` Object 
-  * `method` String
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String

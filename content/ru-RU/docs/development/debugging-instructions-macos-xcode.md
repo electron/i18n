@@ -1,6 +1,6 @@
 ## Отладка через XCode
 
-### Generate xcode project for debugging sources (cannot build code from xcode)
+### Генерировать xcode проект для отладки исходников (невозможно собрать код из xcode)
 
 Run `gn gen` with the --ide=xcode argument.
 
@@ -8,12 +8,12 @@ Run `gn gen` with the --ide=xcode argument.
 $ gn gen out/Testing --ide=xcode
 ```
 
-This will generate the electron.ninja.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
+Это будет генерировать electron.ninja.xcworkspace. Вам придётся открыть этот проект для установки точек останова и проверки.
 
-See `gn help gen` for more information on generating IDE projects with GN.
+Смотрите `gn help gen` для получения дополнительной информации о генерации проектов IDE с помощью GN.
 
-### Debugging and breakpoints
+### Отладка и точки останова
 
-Launch Electron app after build. You can now open the xcode workspace created above and attach to the Electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
+Запустить Electron приложение после сборки. Теперь вы можете открыть xcode рабочую область, созданную выше, и прикрепить к процессу Electron через Debug > Attach To Process > Electron debug menu. [Примечание: если вы хотите отладить процесс рендеринга, вам также нужно присоединиться к Electron Helper.]
 
-You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the Chromium source. To set break points in the Chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
+Теперь вы можете установить точки останова в любом из индексированных файлов. Тем не менее, вы не сможете установить точки останова непосредственно в исходниках Chromium. Установить точки останова в исходниках Chromium, вы можете выбрать Debug > Breakpoints > Create Symbolic Breakpoint и установить любое имя функции в качестве символа. Это установит точку останова для всех функций с таким именем, из всех классов, если их несколько. Вы также можете сделать этот шаг установки точек останова до прикрепления отладчика, однако, фактические точки останова для символической точки останова могут не появиться до тех пор, пока отладчик не будет прикреплен к приложению.

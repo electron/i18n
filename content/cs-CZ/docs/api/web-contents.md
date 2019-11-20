@@ -415,10 +415,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Vrací:
 
 * `event` Event
-* `request` Objekt 
-  * `method` String
+* `authenticationResponseDetails` Objekt 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Objekt 
   * `isProxy` Boolean
   * `scheme` String

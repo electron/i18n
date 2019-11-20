@@ -89,7 +89,7 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `callback` פונקציה 
-    * `response` Object 
+    * `beforeSendResponse` Object 
       * `cancel` Boolean (optional)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -131,7 +131,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusCode` Integer
     * `responseHeaders` Record<string, string> (optional)
   * `callback` פונקציה 
-    * `response` Object 
+    * `headersReceivedResponse` Object 
       * `cancel` Boolean (optional)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.

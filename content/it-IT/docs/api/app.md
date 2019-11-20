@@ -259,10 +259,8 @@ Restituisce:
 
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `richiesta` Oggetto 
-  * `method` String
+* `authenticationResponseDetails` Oggetto 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Oggetto 
   * `isProxy` Boolean
   * `scheme` String
@@ -280,7 +278,7 @@ Il comportamento standard è di cancellare tutte le autenticazioni. Per modifica
 ```javascript
 const { app } = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
+app.on('login', (event, webContents, details, authInfo, callback) => {
   event.preventDefault()
   callback('username', 'secret')
 })

@@ -89,7 +89,7 @@ Some examples of valid `urls`:
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `geri aramak` Function 
-    * `response` Nesne 
+    * `beforeSendResponse` Nesne 
       * `cancel` Boolean (isteğe bağlı)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -131,7 +131,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `statusCode` Tamsayı
     * `responseHeaders` Record<string, string> (optional)
   * `geri aramak` Function 
-    * `response` Nesne 
+    * `headersReceivedResponse` Nesne 
       * `cancel` Boolean (isteğe bağlı)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.

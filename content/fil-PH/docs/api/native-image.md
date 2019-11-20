@@ -261,9 +261,9 @@ Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
 Magdagdag ng naka presentang larawan para sa tinutukoy na scale factor. Pwede rin itong gamitin para magdagdag ng ibang representasyong scale factor sa isang imahe. Pwede itong tawaging imaheng walang laman.
 
-## Mga Katangian
+### Mga Katangian ng Instance
 
-### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` *macOS*
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

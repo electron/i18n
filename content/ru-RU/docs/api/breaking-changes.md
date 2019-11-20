@@ -66,6 +66,33 @@ webFrame.setIsolatedWorldInfo(
 
 Это свойство было удалено в Chromium 77, и как таковое больше не доступно.
 
+### `webkitdirectory` attribute for `<input type="file"/>`
+
+￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+
+    console
+    ￼folder
+    ￼├── file1
+    ￼├── file2
+    ￼└── file3
+    ￼ ￼ ￼In Electron <=6, this would return a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼path/to/folder
+    ￼ ￼ ￼In Electron 7, this now returns a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼/path/to/folder/file3
+    ￼/path/to/folder/file2
+    ￼/path/to/folder/file1
+    ￼ ￼ ￼Note that 
+
+`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+
 ## Запланированные критические изменения API (6.0)
 
 ### `win.setMenu(null)`
@@ -193,11 +220,11 @@ API графического процесса `webFrame.setRegisterURLSchemeAsPr
 ### API webFrame изолированных миров
 
 ```js
-// Устарело
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Заменено на
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -263,7 +290,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
@@ -444,7 +471,7 @@ webview.onkeydown&nbsp;= () => { /* обработчик */ }
 webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
-### Node Headers URL
+### URL заголовков Node
 
 Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 

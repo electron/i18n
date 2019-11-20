@@ -258,10 +258,8 @@ Devuelve:
 
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
-* `request` Object 
-  * `method` String
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
@@ -279,7 +277,7 @@ El comportamiento por defecto es cancelar todas las autenticaciones. Para sobres
 ```javascript
 const { app } = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
+app.on('login', (event, webContents, details, authInfo, callback) => {
   event.preventDefault()
   callback('username', 'secret')
 })

@@ -400,10 +400,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
   Pengembalian:
   
   * `acara` Acara
-  * `permintaan` Obyek 
-    * `method` String
+  * `authenticationResponseDetails` Obyek 
     * `url` URL
-    * `perujuk` URL
   * `authInfo` Obyek 
     * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String

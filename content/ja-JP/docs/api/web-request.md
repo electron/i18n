@@ -89,7 +89,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `requestHeaders` Record<string, string>
   * `callback` Function 
-    * `応答` Object 
+    * `beforeSendResponse` Object 
       * `cancel` Boolean (任意)
       * `requestHeaders` Record<string, string | string[]> (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
@@ -131,7 +131,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `responseHeaders` Record<string, string> (任意)
   * `callback` Function 
-    * `応答` Object 
+    * `headersReceivedResponse` Object 
       * `cancel` Boolean (任意)
       * `responseHeaders` Record<string, string | string[]> (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
       * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。

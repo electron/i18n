@@ -261,9 +261,9 @@ Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde m
 
 Belirli ölçek faktörü için bir görüntü gösterimi ekleyin. Bu kullanılabilir görüntüye açıkca farklı ölçek faktörü gösterimleri eklemek için kullanılabilir. Bu boş görüntülerde çağrılabilir.
 
-## Özellikler
+### Örnek Özellikleri
 
-### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` *macOS*
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 

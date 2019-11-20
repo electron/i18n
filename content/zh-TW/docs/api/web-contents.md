@@ -414,10 +414,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 回傳:
 
 * `event` Event
-* `request` Object 
-  * `title` [string]
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String

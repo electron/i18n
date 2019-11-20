@@ -1,4 +1,4 @@
-# NotificationAction Object
+# NotificationAction Objekt
 
 * `type` String - Der Typ der Aktion, beispielsweise `button`.
 * `text` String (optional) - Die Bezeichnung für die Aktion.

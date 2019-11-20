@@ -258,10 +258,8 @@ Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `request` Objet 
-  * `method` String
+* `authenticationResponseDetails` Objet 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Objet 
   * `isProxy` Boolean
   * `scheme` String
@@ -279,7 +277,7 @@ The default behavior is to cancel all authentications. To override this you shou
 ```javascript
 const { app } = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
+app.on('login', (event, webContents, details, authInfo, callback) => {
   event.preventDefault()
   callback('username', 'secret')
 })
@@ -846,7 +844,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fon
 
 * `infoType` String - Can be `basic` or `complete`.
 
-Returns `Promise<unknown>`
+Retourne `Promise<unknown>`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Cela inclut les informations de version et driver montrées sur la page `chrome://gpu`.
 

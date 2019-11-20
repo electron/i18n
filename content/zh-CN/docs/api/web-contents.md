@@ -415,10 +415,8 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
 返回:
 
 * `event` Event
-* `request` Object 
-  * `method` String
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String

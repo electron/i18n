@@ -415,10 +415,8 @@ Kullanımı [the `select-client-certificate` olayı `app`](app.md#event-select-c
 Dönüşler:
 
 * `event` Event
-* `istek` Nesne 
-  * `method` Dizi
+* `authenticationResponseDetails` Nesne 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
   * `scheme` String

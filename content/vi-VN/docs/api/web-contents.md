@@ -415,10 +415,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Trả về:
 
 * `event` Event
-* `request` Object 
-  * `method` String
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String

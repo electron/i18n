@@ -66,6 +66,30 @@ webFrame.setIsolatedWorldInfo(
 
 このプロパティは Chromium 77 で削除されたため、利用できなくなりました。
 
+### `<input type="file"/>` の `webkitdirectory` 属性
+
+`webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。 例として、以下の構造のフォルダーを使用します。
+
+    console
+    folder
+    ├── file1
+    ├── file2
+    └── file3 Electron <= 6では、以下のような 
+
+`File` オブジェクトが 1 つ入った `FileList` を返します。
+
+    console
+    path/to/folder Electron 7 では、以下のような 
+
+`File` オブジェクトが入った `FileList` を返します。
+
+    console
+    /path/to/folder/file3
+    /path/to/folder/file2
+    /path/to/folder/file1
+
+`webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
+
 ## 予定されている破壊的なAPIの変更 (6.0)
 
 ### `win.setMenu(null)`
@@ -193,7 +217,7 @@ const w = new BrowserWindow({
 ### webFrame Isolated World APIs
 
 ```js
-// 非推奨
+// Electron 7.0 で削除
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -263,7 +287,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 

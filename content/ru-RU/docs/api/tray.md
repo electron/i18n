@@ -1,10 +1,10 @@
 ## Class: Tray
 
-> Добавляет иконки и контекстное меню в область уведомлений ОС.
+> Добавить иконки и контекстные меню в системную область уведомлений.
 
 Процесс: [Main](../glossary.md#main-process)
 
-`Tray` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'ом.
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -18,7 +18,7 @@ app.on('ready', () => {
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Это мое приложение.')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -26,10 +26,10 @@ app.on('ready', () => {
 **Ограничения платформ:**
 
 * В Linux индикатор приложения будет использован, если он поддерживается, иначе будет использован `GtkStatusIcon`.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* Значок приложения будет показан только в случае присутствия у приложения контекстного меню.
-* Если приложение запущено на Linux, то событие `click` по иконке не сработает.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* В дистрибутивах Linux, которые поддерживают только индикаторы приложений, вы должны установите `libappindicator1`, чтобы значок в трее заработал.
+* Индикатор приложения будет отображаться только при наличии контекстного меню.
+* Когда индикатор приложения используется в Linux, событие `click` игнорируется.
+* На Linux, чтобы изменения, внесенные в отдельные элементы `MenuItem`, вступили в силу, Вы должны снова вызвать `setContextMenu`. Например:
 
 ```javascript
 const { app, Menu, Tray } = require('electron')
@@ -50,168 +50,168 @@ app.on('ready', () => {
 })
 ```
 
-* Для лучшего качества иконок на платформе Windows рекомендуется использовать `ICO` иконки.
+* В Windows рекомендуется использовать значки `ICO` для получения лучших визуальных эффектов.
 
-Если вы хотите добиться одинаковой работы вашего приложения на всех платформах, то не следует полагаться на событие `click` и всегда создавать контекстное меню для иконки в трее.
+Если вы хотите сохранить одинаковое поведение на всех платформах, вам не следует полагаться на событие `click` и всегда прикреплять контекстное меню к значку в трее.
 
 ### `new Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Создаёт новую иконку в трее, связанная с `image`.
+Создаёт новую иконку в трее, связанную с `image`.
 
 ### События экземпляра
 
-Модуль `Tray` имеет эти события:
+Модуль `Tray` генерирует следующие события:
 
 #### Событие: 'click'
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
-* `position` [Point](structures/point.md) - The position of the event.
+* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
+* `position` [Point](structures/point.md) - позиция события.
 
-Emitted when the tray icon is clicked.
+Вызывается при двойном клике на иконке в трее.
 
 #### Событие: 'right-click' *macOS* *Windows*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
 
-Emitted when the tray icon is right clicked.
+Возникает при правом клике на иконке в трее.
 
 #### Событие: 'double-click' *macOS* *Windows*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon.
+* `bounds` [Rectangle](structures/rectangle.md) - границы иконки в трее.
 
 Вызывается при двойном нажатии на иконку в трее.
 
 #### Событие: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Возникает при всплывающем сообщении в трее.
 
 #### Событие: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Вызывается при клике на всплывающем сообщении в трее.
 
 #### Событие: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Возникает, когда всплывающее сообщение в трее закрыто из-за тайм-аута или вручную пользователем.
 
 #### Событие: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Возникает при перетаскивании элементов на значок в трее.
 
 #### Событие: 'drop-files' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - пути брошенных файлов.
 
-Emitted when dragged files are dropped in the tray icon.
+Возникает при перетаскивании файлов на значок в трее.
 
 #### Событие: 'drop-text' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `text` String - the dropped text string.
+* `text` String - брошенная текстовая строка.
 
-Emitted when dragged text is dropped in the tray icon.
+Возникает при перетаскивании строки на значок в трее.
 
 #### Событие: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Возникает, когда операция перетаскивания происходит на иконке в трее.
 
 #### Событие: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Возникает, когда операция перетаскивания завершилась на иконке в трее.
 
 #### Событие: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Возникает, когда операция перетаскивания заканчивается в трее или заканчивается в другом месте.
 
 #### Событие: 'mouse-enter' *macOS*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - позиция события.
 
-Emitted when the mouse enters the tray icon.
+Возникает при входе курсора мыши на иконку в трее.
 
 #### Событие: 'mouse-leave' *macOS*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - позиция события.
 
-Emitted when the mouse exits the tray icon.
+Возникает при выходе курсора мыши с иконки в трее.
 
-#### Event: 'mouse-move' *macOS* *Windows*
+#### Событие: 'mouse-move' *macOS* *Windows*
 
 Возвращает:
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
-* `position` [Point](structures/point.md) - The position of the event.
+* `position` [Point](structures/point.md) - позиция события.
 
-Emitted when the mouse moves in the tray icon.
+Возникает при перемещении мыши на значке в трее.
 
 ### Методы экземпляра
 
-The `Tray` class has the following methods:
+Класс `Tray` имеет следующие методы:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Немедленно уничтожить иконку в трее.
 
 #### `tray.setImage(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Устанавливает `image` ассоциированный с значком в трее.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Устанавливает `image`, связанное с этим значком в трее, при нажатии в macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Устанавливает текст отображаемый при наведении на значок в трее.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Устанавливает заголовок, отображаемый рядом со значком в строке состояния (поддержка ANSI цветов).
 
 #### `tray.getTitle()` *macOS*
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Возвращает `String` - заголовок, отображаемый рядом со значком в области уведомлений в строке состояния
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
-* `ignore` Логическое значение
+* `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Устанавливает опцию игнорирования событий двойного щелчка. Игнорирование этих событий позволяет вам обнаруживать каждый отдельный щелчок по иконке в трее.
 
-This value is set to false by default.
+Значение по умолчанию установлено в значение false.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+Возвращает `Boolean` - будет ли игнорироваться события двойного щелчка.
 
 #### `tray.displayBalloon(options)` *Windows*
 
@@ -220,29 +220,29 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Отображает всплывающее сообщение в трее.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Контекстное меню всплывает вверх со значка в трее. Когда `menu` передается, `menu` будет отображаться вместо контекстного меню иконки в трее.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` доступна только для Windows, и это (0, 0) по умолчанию.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Устанавливает контекстное меню для этого значка.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+`bounds` значка в трее как `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Возвращает `Boolean` - уничтожен ли значок в трее.

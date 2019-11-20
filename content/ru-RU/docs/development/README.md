@@ -2,10 +2,10 @@
 
 Эти руководства предназначены для людей, которые работают над Electron самостоятельно. Для руководств по разработке приложения Electron, посетите [/docs/README.md](../README.md#guides-and-tutorials).
 
-* [Нормы поведения](../../CODE_OF_CONDUCT.md)
+* [Кодекс поведения](../../CODE_OF_CONDUCT.md)
 * [Вклад в Elecetron](../../CONTRIBUTING.md)
-* [Задачи](issues.md)
-* [Пулл реквесты](pull-requests.md)
+* [Вопросы](issues.md)
+* [Запросы на слияние](pull-requests.md)
 * [Руководство по написанию документации](coding-style.md#documentation)
 * [Структура каталога с исходным кодом](source-code-directory-structure.md)
 * [Стиль кода](coding-style.md)
@@ -20,5 +20,5 @@
 * [Отладка под Windows](debug-instructions-windows.md)
 * [Отладка под macOS](debugging-instructions-macos.md)
 * [Настройка сервера символов в отладчике](setting-up-symbol-server.md)
-* [Patches](patches.md)
+* [Патчи](patches.md)
 * [Обновление Node](upgrading-node.md)

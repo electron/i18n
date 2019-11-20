@@ -415,10 +415,8 @@ Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.
 Ibinabalik ang:
 
 * `kaganapan` kaganapan
-* `kahilingan` Bagay 
-  * `method` na String
+* `authenticationResponseDetails` Bagay 
   * `url` Ang URL
-  * `referrer`Ang URL
 * `ang authInfo` Bagay 
   * `isProxy` Ang Boolean
   * `scheme` na String

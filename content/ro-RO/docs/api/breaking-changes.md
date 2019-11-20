@@ -66,6 +66,33 @@ webFrame.setIsolatedWorldInfo(
 
 This property was removed in Chromium 77, and as such is no longer available.
 
+### `webkitdirectory` attribute for `<input type="file"/>`
+
+￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+
+    console
+    ￼folder
+    ￼├── file1
+    ￼├── file2
+    ￼└── file3
+    ￼ ￼ ￼In Electron <=6, this would return a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼path/to/folder
+    ￼ ￼ ￼In Electron 7, this now returns a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼/path/to/folder/file3
+    ￼/path/to/folder/file2
+    ￼/path/to/folder/file1
+    ￼ ￼ ￼Note that 
+
+`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+
 ## Modificări Plănuite ale API (6.0)
 
 ### `win.setMenu(null)`
@@ -190,11 +217,11 @@ Generarea proceselor API `webFrame.setRegisterURLSchemeAsPrivileged ` si `webFra
 ### webFrame API-urile lumii izolate
 
 ```js
-// Dezaprobate
- webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+// Removed in Electron 7.0
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Înlocuite cu 
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -303,7 +330,7 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `clipboard`
+### `clipboard-clipboard`
 
 ```js
 // Dezaprobată 
@@ -344,7 +371,7 @@ crashReporter.start({
 })
 ```
 
-### `nativeImage`
+### `nativeImage-ImagineNativă`
 
 ```js
 // Dezaprobată 
@@ -355,7 +382,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process-proces`
+### `proces`
 
 ```js
 // Dezaprobată 
@@ -411,7 +438,7 @@ webContents.setSize(options)
 // Acest API nu a fost înlocuit
 ```
 
-### `webFrame`
+### `webFrame-cadruWeb`
 
 ```js
 // Dezaprobată 
@@ -473,7 +500,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-### `nativeImage`
+### `nativeImage-ImagineNativă`
 
 ```js
 // Eliminată 
@@ -487,7 +514,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process- proces`
+### `proces`
 
 * `process.versions.electron` și `process.version.chrome` vor fi făcute propietăți read-only - doarcitit, pentru a avea consistență cu celelalte propietăți setate de Node `process.versions`.
 
@@ -500,7 +527,7 @@ webContents.setZoomLevelLimits(1, 2)
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-### `webFrame`
+### `webFrame-cadruWeb`
 
 ```js
 // Eliminată 

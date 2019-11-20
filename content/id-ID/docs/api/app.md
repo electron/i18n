@@ -269,10 +269,8 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     * `acara` Acara
     * `webContents` [WebContents](web-contents.md)
-    * `permintaan` Obyek 
-      * `method` String
+    * `authenticationResponseDetails` Obyek 
       * `url` URL
-      * `perujuk` URL
     * `authInfo` Obyek 
       * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String
@@ -288,9 +286,11 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
     
     ```javascript
-    const { app } = require('electron') app.on('login', (event, webContents, request, authInfo, callback) => {
-     event.preventDefault()
-     callback('username', 'secret')
+    const { app } = require('electron')
+    
+    app.on('login', (event, webContents, details, authInfo, callback) => {
+      event.preventDefault()
+      callback('username', 'secret')
     })
     ```
     

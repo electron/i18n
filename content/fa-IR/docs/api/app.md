@@ -258,10 +258,8 @@ Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` شئ 
-  * `method` String
+* `authenticationResponseDetails` شئ 
   * `url` URL
-  * `referrer` URL
 * `authInfo` شئ 
   * `isProxy` Boolean
   * `scheme` String
@@ -279,7 +277,7 @@ The default behavior is to cancel all authentications. To override this you shou
 ```javascript
 const { app } = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
+app.on('login', (event, webContents, details, authInfo, callback) => {
   event.preventDefault()
   callback('username', 'secret')
 })

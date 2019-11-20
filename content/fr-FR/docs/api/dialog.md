@@ -35,14 +35,14 @@ Le module `dialog` dispose des méthodes suivantes :
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
+    * `promptToCreate` *Windows* - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
+    * `noResolveAliases` *macOS* - Désactive la resolution automatique des alias (symlink). Les alias sélectionnés retourneront dorénavant leur chemin au lieu de celui de leur cible.
+    * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
-Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+Retourne `String[] | undefined` - le chemin du fichier choisi par l'utilisateur ; si la boîte de dialogue est annulée retourne `undefined`.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -82,10 +82,10 @@ dialog.showOpenDialogSync(mainWindow, {
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.
     * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
+    * `promptToCreate` *Windows* - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
+    * `noResolveAliases` *macOS* - Désactive la resolution automatique des alias (symlink). Les alias sélectionnés retourneront dorénavant leur chemin au lieu de celui de leur cible.
+    * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -239,7 +239,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Sur macOS, ceci affiche une boîte de dialogue modale présentant un message, les informations du certificat et donnant à l'utilisateur la possibilité de se fier/importer le certificat. Si vous fournissez une argument `browserWindow`, la boîte de dialogue sera attachée à la fenêtre parente.
 
 On Windows the options are more limited, due to the Win32 APIs used:
 
