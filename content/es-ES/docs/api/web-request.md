@@ -89,7 +89,7 @@ Algunos ejemplos de `urls` válidas:
     * `fecha y hora` Doble
     * `requestHeaders` Record<string, string>
   * `callback` Function 
-    * `respuesta` Object 
+    * `beforeSendResponse` Object 
       * `cancelar` Booleano (opcional)
       * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
 
@@ -131,7 +131,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `Estatus de código` entero
     * `responseHeaders` Record<string, string> (optional)
   * `callback` Function 
-    * `respuesta` Object 
+    * `headersReceivedResponse` Object 
       * `cancelar` Booleano (opcional)
       * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
