@@ -89,7 +89,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `timestamp` Duakali
       * `requestHeaders` Record<string, string>
     * `callback` Lokasi: 
-      * `Tanggapan` Benda 
+      * `beforeSendResponse` Benda 
         * `batalkan` Boolean (opsional)
         * `requestHeaders` Record<string, string | string[]> (optional) - When provided, request will be made with these headers.
   
@@ -131,7 +131,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `statusCode` Bilangan bulat
       * `responseHeaders` Record<string, string> (optional)
     * `callback` Fungsi 
-      * `Tanggapan` Obyek 
+      * `headersReceivedResponse` Obyek 
         * `batalkan` Boolean (opsional)
         * `responseHeaders` Record<string, string | string[]> (optional) - When provided, the server is assumed to have responded with these headers.
         * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
