@@ -985,7 +985,7 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
@@ -1000,7 +1000,7 @@ contents.setVisualZoomLevelLimits(1, 3)
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
 
@@ -1063,7 +1063,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Вставляет `text` в элемент с фокусом.
 
