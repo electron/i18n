@@ -259,7 +259,7 @@ Restituisce:
 
 * `event` Event
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `authenticationResponseDetails` Oggetto 
+* `DettagliRispostaautenticazione` Oggetto 
   * `url` URL
 * `authInfo` Oggetto 
   * `isProxy` Boolean
