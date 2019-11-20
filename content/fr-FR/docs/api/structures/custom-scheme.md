@@ -1,6 +1,6 @@
 # Objet CustomScheme
 
-* `scheme` String - Custom schemes to be registered with options.
+* `scheme` String - Schémas personnalisés à enregistrer avec les options.
 * `privileges` Object (facultatif) 
   * `standart` Boolean (optionnel) - Faux par défaut.
   * `secure` Boolean (optionnel) - Faux par défaut.
