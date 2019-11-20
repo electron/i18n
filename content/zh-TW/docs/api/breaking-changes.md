@@ -385,7 +385,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `處理序`
 
 ```js
 // Deprecated
@@ -475,9 +475,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Deprecated: https://atom.io/download/atom-shell
+已被取代: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+請改用: https://atom.io/download/electron
 
 ## Breaking API Changes (2.0)
 
@@ -517,7 +517,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `處理序`
 
 * `process.versions.electron` 及 `process.version.chrome` 將變為唯讀的屬性，與其他由 Node 設定的 `process.versions` 一致。
 
