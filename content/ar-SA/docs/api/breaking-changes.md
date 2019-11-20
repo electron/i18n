@@ -68,7 +68,7 @@ This property was removed in Chromium 77, and as such is no longer available.
 
 ### `webkitdirectory` سمة لـ`<input type="file"/>`
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+￼ ￼الـ `webkitdirectory` ￼خاصية في المدخلات ملف HTML تسمح لهم بتحديد المجلدات. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
 
     console
     ￼مجلد
@@ -220,7 +220,7 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Electron 7.0
+// تمت إزالتها في Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
