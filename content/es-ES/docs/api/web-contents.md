@@ -415,10 +415,8 @@ El uso es el mismo con [the `select-client-certificate` evento de `app`](app.md#
 Devuelve:
 
 * `event` Event
-* `request` Object 
-  * `method` String
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
