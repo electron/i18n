@@ -261,9 +261,9 @@ Retorna `Float` - A proporção de tela da imagem.
 
 Adiciona uma imagem de representação para um específico fator de escala. Esse pode ser usado para adicionar explicitamente representações de fatores de escala diferentes para uma imagem. Isso pode ser chamado em imagens vazias.
 
-## Propriedades
+### Propriedades de Instância
 
-### `nativeImage.isMacTemplateImage` *macOS*
+#### `nativeImage.isMacTemplateImage` *macOS*
 
 A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
