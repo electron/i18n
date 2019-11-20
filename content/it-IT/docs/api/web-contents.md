@@ -415,7 +415,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Restituisce:
 
 * `event` Event
-* `authenticationResponseDetails` Oggetto 
+* `DettagliRispostaautenticazione` Oggetto 
   * `url` URL
 * `infoautore` Oggetto 
   * `èProxy` Booleano
