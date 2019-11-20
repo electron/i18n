@@ -415,10 +415,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Restituisce:
 
 * `event` Event
-* `richiesta` Oggetto 
-  * `metodo` Stringa
+* `authenticationResponseDetails` Oggetto 
   * `url` URL
-  * `prescrivente` URL
 * `infoautore` Oggetto 
   * `èProxy` Booleano
   * `schema` Stringa
