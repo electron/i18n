@@ -66,6 +66,33 @@ webFrame.setIsolatedWorldInfo(
 
 このプロパティは Chromium 77 で削除されたため、利用できなくなりました。
 
+### `webkitdirectory` attribute for `<input type="file"/>`
+
+￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+
+    console
+    ￼folder
+    ￼├── file1
+    ￼├── file2
+    ￼└── file3
+    ￼ ￼ ￼In Electron <=6, this would return a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼path/to/folder
+    ￼ ￼ ￼In Electron 7, this now returns a 
+
+`FileList` with a `File` object for: ￼
+
+    console
+    ￼/path/to/folder/file3
+    ￼/path/to/folder/file2
+    ￼/path/to/folder/file1
+    ￼ ￼ ￼Note that 
+
+`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+
 ## 予定されている破壊的なAPIの変更 (6.0)
 
 ### `win.setMenu(null)`
@@ -193,11 +220,11 @@ const w = new BrowserWindow({
 ### webFrame Isolated World APIs
 
 ```js
-// 非推奨
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// こちらに置換
+// Replace with
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -263,7 +290,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 
