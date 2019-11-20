@@ -258,10 +258,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 * `event` Събитие
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
-  * `method` String
+* `authenticationResponseDetails` Object 
   * `url` URL
-  * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
@@ -279,9 +277,9 @@ The default behavior is to cancel all authentications. To override this you shou
 ```javascript
 const { app } = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
-   event.preventDefault()
-   callback('username', 'secret')
+app.on('login', (event, webContents, details, authInfo, callback) => {
+  event.preventDefault()
+  callback('username', 'secret')
 })
 ```
 
