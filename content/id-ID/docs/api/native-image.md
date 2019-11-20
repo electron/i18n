@@ -269,9 +269,9 @@ Mengembalikan ` gambar asli </ 0></p>
   
   Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
   
-  ## properti
+  ### Contoh properti
   
-  ### `nativeImage.isMacTemplateImage` *macOS*
+  #### `nativeImage.isMacTemplateImage` *macOS*
   
   A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
   
