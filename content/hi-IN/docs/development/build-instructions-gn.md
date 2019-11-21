@@ -1,18 +1,18 @@
-# Build Instructions
+# निर्देश बनाएँ
 
-Follow the guidelines below for building Electron.
+इलेक्ट्रॉन के निर्माण के लिए नीचे दिए गए दिशानिर्देशों का पालन करें।
 
-## Platform prerequisites
+## प्लेटफ़ॉर्म पूर्वापेक्षाएँ
 
-Check the build prerequisites for your platform before proceeding
+आगे बढ़ने से पहले अपने प्लेटफ़ॉर्म के लिए बिल्ड पूर्वापेक्षाएँ जांचें
 
 - [मैकओएस](build-instructions-macos.md#prerequisites)
 - [लिनक्स](build-instructions-linux.md#prerequisites)
 - [विंडोज](build-instructions-windows.md#prerequisites)
 
-## GN prerequisites
+## जीएन पूर्वापेक्षाएँ
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+आपको टूलसेट depot_tools इंस्टॉल करना होगा क्रोमियम और इसकी निर्भरता लाने के लिए उपयोग किया जाता है।
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
