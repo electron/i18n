@@ -1,8 +1,8 @@
 # In-App Purchase (macOS)
 
-## Preparing
+## Hazırlık
 
-### Paid Applications Agreement
+### Ücretli Uygulamalar Sözleşmesi
 
 If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
 
