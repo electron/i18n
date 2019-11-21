@@ -133,14 +133,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "11540",
-    "translated": "1726",
+    "translated": "1733",
     "approved": "184",
     "words": "108903",
-    "words_translated": "15287",
+    "words_translated": "15324",
     "words_approved": "437",
     "translated_progress": 14,
     "approved_progress": 0,
-    "qa_issues": 1348
+    "qa_issues": 1355
   },
   {
     "name": "Indonesian",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "11540",
-    "translated": "7499",
+    "translated": "7506",
     "approved": "2016",
     "words": "108903",
-    "words_translated": "59451",
+    "words_translated": "59526",
     "words_approved": "15461",
     "translated_progress": 54,
     "approved_progress": 14,
-    "qa_issues": 2461
+    "qa_issues": 2466
   },
   {
     "name": "Ukrainian",
