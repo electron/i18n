@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "11540",
-    "translated": "1380",
+    "translated": "1399",
     "approved": "154",
     "words": "108903",
-    "words_translated": "8471",
+    "words_translated": "8556",
     "words_approved": "367",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 448
+    "qa_issues": 457
   },
   {
     "name": "Bulgarian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "11540",
-    "translated": "10283",
+    "translated": "10287",
     "approved": "3042",
     "words": "108903",
-    "words_translated": "94396",
+    "words_translated": "94486",
     "words_approved": "26449",
     "translated_progress": 86,
     "approved_progress": 24,
-    "qa_issues": 2985
+    "qa_issues": 2988
   },
   {
     "name": "Tagalog",
