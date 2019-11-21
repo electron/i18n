@@ -21,7 +21,7 @@ Electron uygulamanız için yeni bir dosya oluşturun. Komut satırı istemciniz
 npm init
 ```
 
-npm sizi basit bir `package.json` dosyası oluşturacaktır. `main` bölümünün belirttiği program uygulamanızın ana işlemde çalışacak başlangıç programıdır. `package.json` dosyanızın bir örneği aşağıdaki gibidir:
+npm size basit bir `package.json` dosyası oluşturacaktır. `main` bölümünün belirttiği program uygulamanızın ana işlemde çalışacak başlangıç programıdır. `package.json` dosyanızın bir örneği aşağıdaki gibidir:
 
 ```json
 {
@@ -181,9 +181,9 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 ## Bu Örneği Deneme
 
-Klonlayın ve bu eğitimdeki kodu [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) kullanarak çalıştırın.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) klonlayın ve bu eğitimdeki kodu kullanarak çalıştırın.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Not**: Bunu çalıştırmak [Git](https://git-scm.com) ve [npm](https://www.npmjs.com/) gerektirir.
 
 ```sh
 # Depoyı klonla
