@@ -416,7 +416,7 @@ Returns:
 
 * `event` Event
 * `authenticationResponseDetails` الكائنات 
-  * `url` URL
+  * `رابط` URL
 * `authInfo` الكائنات 
   * `isProxy` Boolean
   * `scheme` String

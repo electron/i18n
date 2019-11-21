@@ -1,14 +1,14 @@
 # In-App Purchase (macOS)
 
-## Preparing
+## Hazırlık
 
-### Paid Applications Agreement
+### Ücretli Uygulamalar Sözleşmesi
 
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+Henüz yapmadıysanız, Ücretli Uygulamalar Sözleşmesini imzalamanız, bankacılık ve vergi bilgilerinizi iTunes Connect'e ayarlamanız gerekir.
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect Developer Yardımı: Anlaşmalar, vergi ve bankacılığa genel bakış](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
+### Uygulamanızın Satınalma İşlemini oluşturun
 
 Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
 

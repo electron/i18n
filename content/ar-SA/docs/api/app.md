@@ -259,7 +259,7 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `authenticationResponseDetails` الكائنات 
-  * `url` URL
+  * `رابط` URL
 * `authInfo` الكائنات 
   * `isProxy` Boolean
   * `scheme` String
