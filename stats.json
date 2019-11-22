@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "11540",
-    "translated": "8805",
+    "translated": "8806",
     "approved": "2253",
     "words": "108903",
-    "words_translated": "76382",
+    "words_translated": "76391",
     "words_approved": "18014",
     "translated_progress": 70,
     "approved_progress": 16,
@@ -296,7 +296,7 @@
     "words_approved": "432",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 688
+    "qa_issues": 689
   },
   {
     "name": "Turkish",
