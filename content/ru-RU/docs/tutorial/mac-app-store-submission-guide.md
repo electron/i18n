@@ -138,7 +138,7 @@ After signing your app, you can use Application Loader to upload it to iTunes Co
 
 After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## Ограничения сборки MAS
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
@@ -197,7 +197,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
-Electron uses following cryptographic algorithms:
+Electron использует следующие криптографические алгоритмы:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
