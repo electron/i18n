@@ -86,4 +86,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 有一个非常重要的提示: 原生Node.js模块 (即指，需要编译源码过后才能被使用的模块) 需要在编译后才能和Electron一起使用。
 
-绝大多数的Node.js模块都*不*是原生的， Only 400 out of the ~650,000 modules are native. 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
+绝大多数的Node.js模块都*不*是原生的， 在650000个模块中只有400是原生的。 当然了，如果你的确需要原生模块，可以在这里查询[如何重新为Electron编译原生模块](./using-native-node-modules.md)(很简单)。
