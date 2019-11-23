@@ -56,7 +56,7 @@
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
   * [5256783105227699](tutorial/automated-testing-with-a-custom-driver.md)
-* [5256783105227699](tutorial/application-distribution.md) 
+* [Разпределения](tutorial/application-distribution.md) 
   * [Поддържани платформи](tutorial/support.md#supported-platforms)
   * [5256783105227699](tutorial/code-signing.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
@@ -65,33 +65,33 @@
 * [Сигурност](tutorial/security.md) 
   * [Докладване на проблеми със сигурността](tutorial/security.md#reporting-security-issues)
   * [Проблеми със сигурността и обновяване на Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Предупреждения за сигурността при Електрон](tutorial/security.md#electron-security-warnings)
+  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Списък за сигурност](tutorial/security.md#checklist-security-recommendations)
 * [5256783105227699](tutorial/updates.md) 
-  * [Дистрибуция на обновен сървър](tutorial/updates.md#deploying-an-update-server)
+  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Добавяне на новости във вашето приложение](tutorial/updates.md#implementing-updates-in-your-app)
   * [Прилагане на новости](tutorial/updates.md#applying-updates)
-* [5256783105227699](tutorial/support.md)
+* [Getting Support](tutorial/support.md)
 
-## Детайлни уроци
+## รายละเอียดบทความสอน
 
-Тези индивидуални уроци добавят към темите, обсъдени в ръководството по-горе.
+บทความสอนแต่ละบทจะขยายความจากหัวข้อคำแนะนำข้างบน.
 
 * [Инсталиране на Електрон](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Потребителски mirrors и кеширане](tutorial/installation.md#custom-mirrors-and-caches)
   * [Отстраняване на неизправности](tutorial/installation.md#troubleshooting)
-* 5256783105227699 
-  * [5256783105227699](tutorial/electron-versioning.md)
-  * [5256783105227699](tutorial/electron-timelines.md)
-  * [5256783105227699](tutorial/app-feedback-program.md)
+* Versiones Electron & Comentarios de desarrollador 
+  * [Versiebeleidid](tutorial/electron-versioning.md)
+  * [Calendrier de release9996](tutorial/electron-timelines.md)
+  * [525678310522769](tutorial/app-feedback-program.md)
 * [5256783105227699](tutorial/application-packaging.md) 
-  * [Генериране на asar архиви](tutorial/application-packaging.md#generating-asar-archives)
-  * [Използване на asar архиви](tutorial/application-packaging.md#using-asar-archives)
+  * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
+  * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Добавяне на непакетирани файлове към asar архивите](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [5256783105227699](tutorial/testing-widevine-cdm.md)
-* [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [การใช้ปลั้กอิน Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
 
@@ -99,10 +99,10 @@
 
 ## Функционална документация
 
-* [Обзор](api/synopsis.md)
-* [Обект Process](api/process.md)
+* [บทย่อ](api/synopsis.md)
+* [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
-* [Променливи на средата](api/environment-variables.md)
+* [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 * [5256783105227699](api/breaking-changes.md)
 
 ### Персонални DOM елементи:
