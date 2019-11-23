@@ -1,32 +1,30 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Const { app, globalShortcut} = require('electron') app. on('ready', () => { // Register a 'CommandOrControl+X' shortcut listener. const ret = globalShortcut. register('CommandOrControl+X', () => { console. log('CommandOrControl+X is pressed')}) if (! ret) { console. log('registration failed')} // Check whether a shortcut is registered. console. log(globalShortcut. isRegistered('CommandOrControl+X'))}) app. on('will-quit', () => { // Unregister a shortcut. globalShortcut. unregister('CommandOrControl+X') // Unregister all shortcuts. globalShortcut. unregisterAll()})
 
-Messages 
+Messages </a>
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
-const { app, globalShortcut } = require('electron')
-
-app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
+   // Daftarkan pendatang jalan pintas 'CommandOrControl + X'.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X 被按了')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('註冊失敗')
   }
 
-  // Check whether a shortcut is registered.
+  // 檢查快速鍵是否註冊成功。
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // ショートカットを登録解除します。
   globalShortcut.unregister('CommandOrControl+X')
 
   // Unregister all shortcuts.
