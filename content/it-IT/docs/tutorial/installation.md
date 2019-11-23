@@ -1,6 +1,6 @@
 # Installazione
 
-Per l'installazione di file binari precompilati, usa [`npm`](https://docs.npmjs.com). Il metodo preferito è installare Electron come dipendenza a scopo di sviluppo nella tua applicazione:
+Per l'installazione di file binari precompilati, usa [`npm`](https://docs.npmjs.com). Il metodo migliore è installare Electron come dipendenza a scopo di sviluppo nella tua applicazione:
 
 ```sh
 npm install electron --save-dev
@@ -24,7 +24,7 @@ Se desideri modificare l'architettura che verrà scaricata (ad esempio, `ia32` s
 npm install --arch=ia32 electron
 ```
 
-Inoltre per cambiare architettura, puoi anche specificare la piattaforma (ad esempio, `win32`, `linux`, etc.) usando la bandiera `--piattaforma`:
+Inoltre per cambiare architettura, puoi anche specificare la piattaforma (ad esempio, `win32`, `linux`, etc.) usando la flag `--piattaforma`:
 
 ```shell
 npm install --platform=win32 electron
@@ -32,7 +32,7 @@ npm install --platform=win32 electron
 
 ## Proxy
 
-If you need to use an HTTP proxy, you need to set the `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
+Se ti serve usare un HTTP proxy, devi impostare `ELECTRON_GET_USE_PROXY` variable to any value, plus additional environment variables depending on your host system's Node version:
 
 * [Node 10 and above](https://github.com/gajus/global-agent/blob/v2.1.5/README.md#environment-variables)
 * [Before Node 10](https://github.com/np-maintain/global-tunnel/blob/v2.7.1/README.md#auto-config)

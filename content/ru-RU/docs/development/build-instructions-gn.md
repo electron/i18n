@@ -76,7 +76,7 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
+# эта следующая строка нужна только в случае сборки с помощью sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
 ```
@@ -124,13 +124,13 @@ This will build all of what was previously 'libchromiumcontent' (i.e. the `conte
 
 Для ускорения последующих сборок можно использовать [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Testing` to bring up an editor and adding a line to the end of the file.
 
-The built executable will be under `./out/Testing`:
+Собранный исполняемый файл будет находиться в `./out/Testing`:
 
 ```sh
 $ ./out/Testing/Electron.app/Contents/MacOS/Electron
-# or, on Windows
+# или, на Windows
 $ ./out/Testing/electron.exe
-# or, on Linux
+# или, на Linux
 $ ./out/Testing/electron
 ```
 
