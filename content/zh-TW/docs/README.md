@@ -49,7 +49,7 @@
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [啟用協助工具](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [記錄與除錯](tutorial/application-debugging.md) 
   * [Debug 主處理序](tutorial/debugging-main-process.md)
   * [使用 Visual Studio Code debug 主處理序](tutorial/debugging-main-process-vscode.md)
   * [使用 Selenium 及 WebDriver](tutorial/using-selenium-and-webdriver.md)
