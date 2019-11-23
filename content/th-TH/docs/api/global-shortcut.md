@@ -27,14 +27,14 @@ app.on('will-quit', () => {
   // ショートカットを登録解除します。
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // すべてのショートカットを登録解除します。
   globalShortcut.unregisterAll()
 })
 ```
 
 ## วิธีการ
 
-The `globalShortcut` module has the following methods:
+Il modulo `globalShortcut` ha i seguenti metodi:
 
 ### `globalShortcut.register(accelerator, callback)`
 
