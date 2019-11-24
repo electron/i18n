@@ -1,4 +1,4 @@
-# Безрамное окно
+# Окно без рамки
 
 > Откройте окно без панелей инструментов, границ или другого графического «chrome».
 
@@ -16,7 +16,7 @@ win.show()
 
 ### Альтернативы на macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Существует альтернативный способ указать окно chromeless. Вместо установки `frame` в `false`, которая отключает элементы заголовка и окна, вы можете скрыть строку заголовка, и ваш контент будет расширен до полного размера окна, при этом по-прежнему сохранятся элементы управления окном («светофор») для стандартных действий окна. Вы можете сделать это, указав параметр `titleBarStyle`:
 
 #### `hidden`
 
