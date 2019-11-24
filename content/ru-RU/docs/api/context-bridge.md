@@ -47,11 +47,11 @@ window.electron.doThing()
 
 ### API Objects
 
-The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean` or another nested object that meets the same conditions.
+Объект `api`, предоставленный для [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental), должен быть объектом, ключи которого являются строками, а значения являются `Function`, `String`, `Number`, `Array`, `Boolean` или другой вложенный объект, удовлетворяющий тем же условиям.
 
-`Function` values are proxied to the other context and all other values are **copied** and **frozen**.  I.e. Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
+Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**.  То есть Любые данные / примитивы, отправленные в объекте API, становятся неизменяемыми, и обновления на любой стороне моста не приводят к обновлению на другой стороне.
 
-An example of a complex API object is shown below.
+Пример сложного объекта API показан ниже.
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -79,9 +79,9 @@ contextBridge.exposeInMainWorld(
 )
 ```
 
-### API Functions
+### Функции API
 
-`Function` values that you bind through the `contextBridge` are proxied through Electron to ensure that contexts remain isolated.  This results in some key limitations that we've outlined below.
+Значения `Function`, которые вы связываете через `contextBridge`, передаются через Electron, чтобы гарантировать, что контексты остаются изолированными.  This results in some key limitations that we've outlined below.
 
 #### Parameter / Error / Return Type support
 
