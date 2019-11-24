@@ -41,22 +41,26 @@ The `globalShortcut` module has the following methods:
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback` Function (選用
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+Devuelve `Boolean` - Si el acceso fue registrado con éxito.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Mendaftarkan pintasan global ` akselerator </ 0>. The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+<p>Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. This behavior is intended by operating systems, since they don't
+want applications to fight for global shortcuts.</p>
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+<p>The following accelerators will not be registered successfully on macOS 10.14 Mojave unless
+the app has been authorized as a <a href="https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html">trusted accessibility client</a>:</p>
 
-* "Media Play/Pause"
-* "Media Next Track"
-* "Media Previous Track"
-* "Media Stop"
+<ul>
+<li>"Media Play/Pause"</li>
+<li>"Media Next Track"</li>
+<li>"Media Previous Track"</li>
+<li>"Media Stop"</li>
+</ul>
 
-### `globalShortcut.registerAll(accelerators, callback)`
+<h3><code>globalShortcut.registerAll(accelerators, callback)`</h3> 
 
 * `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
 * `callback` Function
