@@ -174,6 +174,6 @@ Returns `Double` - Number of seconds since the UNIX epoch when the download was 
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+Свойство `String`, которое определяет путь к файлу сохранения элемента загрузки.
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+Свойство доступно только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через свойство, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
