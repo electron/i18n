@@ -101,6 +101,6 @@ session.defaultSession.cookies.set(cookie)
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+Возвращает `Promise<void>` - Promise, которое разрешается, когда хранилище cookie было очищено
 
 Записывает непрочитанные cookies на диск.
