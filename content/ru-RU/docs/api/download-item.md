@@ -4,14 +4,14 @@
 
 Process: [Main](../glossary.md#main-process)
 
-`DownloadItem` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), который представляет элемент загрузки в Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), который представляет элемент загрузки в Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
 
 ```javascript
 // В основном процессе.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // Установите путь сохранения, чтобы Electron не отображал диалоговое окно сохранения.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -42,25 +42,25 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Возвращает:
 
 * Событие типа `event`
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - Может быть `progressing` или `interrupted`.
 
-Emitted when the download has been updated and is not done.
+Возникает, когда загрузка была обновлена и не завершена.
 
-The `state` can be one of following:
+`state` может быть одним из следующих:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - Загрузка находится в процессе загрузки.
+* `interrupted` - загрузка прервалась и может быть возобновлена.
 
 #### Событие: 'done'
 
 Возвращает:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - может быть завершено `completed`, отменено `cancelled` или прервано `interrupted`.
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
-The `state` can be one of following:
+`state` может быть одним из следующих:
 
 * `completed` - The download completed successfully.
 * `cancelled` - The download has been cancelled.
