@@ -91,7 +91,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
-* `canceled` Boolean - был ли диалог отменен.
+* `canceled` Boolean - независимо от того, был ли диалог отменен.
 * `filePaths` String[] - массив путей файлов, выбранных пользователем. Если диалог отменён, это будет пустой массив.
 * `bookmarks` String[] (необязательно) *macOS* *mas* - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы.
 
@@ -157,11 +157,11 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
   * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
-    * `canceled` Boolean - whether or not the dialog was canceled.
-    * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+    * `canceled` Boolean - независимо от того, был ли диалог отменен.
+    * `filePath` String (опционально) - если диалог отменен, будет `undefined`.
+    * `bookmark` String (optional) _macOS_ _mas_ - Строка в кодировке base64, содержащая зкладку с областью безопасности сохранённого файла. `securityScopedBookmarks` должны быть активированы для её использования.
     
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
@@ -179,8 +179,8 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` Строка - содержимое сообщения.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `detail` String (опционально) - Дополнительные сведения о сообщении.
+  * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
@@ -202,8 +202,8 @@ Shows a message box, it will block the process until the message box is closed. 
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` Строка - содержимое сообщения.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `detail` String (опционально) - Дополнительные сведения о сообщении.
+  * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (optional)
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
