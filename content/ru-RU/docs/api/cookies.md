@@ -63,11 +63,11 @@ session.defaultSession.cookies.set(cookie)
 #### `cookies.get(filter)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
+  * `url` String (опционально) - Извлекает cookies, которые связаны с `url`. Пустой подразумевает получение cookies всех URL.
+  * `name` String (опционально) - Фильтрует cookies по имени.
+  * `domain` String (опционально) - Изменяет cookies, чьи домены совпадают или являются поддоменами `domains`.
+  * `path` String (опционально) - Извлекает cookies чей путь совпадает с `path`.
+  * `secure` Boolean (опционально) - Фильтрует cookies по их защищенному свойству.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 
 Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
