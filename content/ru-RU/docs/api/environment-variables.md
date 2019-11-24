@@ -72,9 +72,9 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+Установите реализацию корзины в Linux. По умолчанию `gio`.
 
-Options:
+Параметры:
 
 * `gvfs-trash`
 * `trash-cli`
@@ -107,7 +107,7 @@ Options:
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
