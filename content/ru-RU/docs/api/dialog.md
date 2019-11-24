@@ -212,23 +212,23 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 
 Возвращает `Promise<Object>` - разрешает Promise, содержащие следующие свойства:
 
-    * `response` Number - The index of the clicked button.
-    * `checkboxChecked` Boolean - The checked state of the checkbox if
-    `checkboxLabel` was set. Otherwise `false`.
+    * `response` Number - индекс нажатой кнопки.
+    * `checkboxChecked` Boolean - Проверяется состояние отмеченного флажка, если
+    `checkboxLabel` был установлен. В противном случае `false`.
     
 
-Shows a message box, it will block the process until the message box is closed.
+Показывает окно сообщения, оно будет блокировать процесс, пока не будет закрыто окно сообщения.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - Заголовок для отображения в поле ошибки.
+* `title` String - Текстовое содержимое для отображения в поле ошибки.
 
-Displays a modal dialog that shows an error message.
+Отображает модальное диалоговое окно, показывающее сообщение об ошибке.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Этот API можно безопасно вызывать до события `ready`, которое выдает модуль `app`, он обычно используется для сообщений об ошибках на ранней стадии запуска. При вызове до события app `ready` в Linux, сообщение будет выдано в stderr, и диалоговое окно GUI не появится.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
 
