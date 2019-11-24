@@ -84,7 +84,7 @@ crashReporter.start({
 * `key` String - Параметр ключа должен содержать не более 64 символов.
 * `value` String - Значение параметра должно быть не более 64 символов.
 
-Установите дополнительный параметр, который будет отправлен с отчетом о сбое. Значения, указанные здесь, будут отправлены в дополнении к значениям, установленным через `extra` после того, как `start` был вызван. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+Установите дополнительный параметр, который будет отправлен с отчетом о сбое. Значения, указанные здесь, будут отправлены в дополнении к значениям, установленным через `extra` после того, как `start` был вызван. Этот API доступен только в macOS и Windows. Если вам требуется добавить/обновить дополнительные параметры в Linux после первого вызова `start`, вы можете вызвать `start` еще раз с уже обновленными `extra` параметрами.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
