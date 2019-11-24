@@ -95,22 +95,22 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+Это делает переход по веб-странице по окончании `el`, и возвращается к нормальному состоянию за ее пределами.
 
 ## Регион переноса (drag-and-drop)
 
 По-умолчанию, безрамное окно невозможно перетаскивать. В коде приложения необходимо указать в стилях CSS `-webkit-app-region: drag`, чтобы за выделенную область было возможно переносить окно (как за заголовок стандартного окна), также можно использовать `-webkit-app-region: no-drag` для исключения непереносимой области внутри переносимой. Обратите внимание, что в настоящий момент поддерживается прямоугольная форма области.
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+Примечание: `-webkit-app-region: drag` имеет проблемы, пока инструменты разработчика открыты. Смотрите [Проблемы GitHub](https://github.com/electron/electron/issues/3647) для получения дополнительной информации, включая обход.
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+Чтобы сделать все окно перетаскиваемым, вы можете добавить `-webkit-app-region: drag` как стиль `body`:
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+И обратите внимание, что если вы перетащили окно целиком, вы также должны отметить кнопки как не перетаскиваемые, иначе пользователям было бы невозможно на них нажать:
 
 ```css
 button {
@@ -118,11 +118,11 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Если вы устанавливаете перетаскиваемым только пользовательский заголовок, вам нужно все кнопки в заголовке сделать без возможности перетаскивания.
 
 ## Выделение текста
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+В окне без рамки поведение перетаскивания может конфликтовать с выделением текста. Например, когда вы перетащите заголовок, вы можете случайно выбрать текст на панели заголовка. Чтобы предотвратить это, вам нужно отключить выбор текста в перетаскиваемой области, такой как:
 
 ```css
 .titlebar {
