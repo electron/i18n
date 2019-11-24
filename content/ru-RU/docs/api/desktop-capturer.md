@@ -74,8 +74,8 @@ const constraints = {
 
 * `options` Object 
   * `types` String[] - массив строк, который отображает типы источников рабочего стола для захвата, доступные типы `screen` и `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `thumbnailSize` [Size](structures/size.md) (опционально) - Размер, до которого должен быть масштабирован эскиз источника мультимедиа. По умолчанию это `150` x `150`. Установите ширину или высоту в 0, если вам не нужны эскизы. Это сэкономит время на обработку содержимого каждого окна и экрана.
+  * `fetchWindowIcons` Boolean (опционально) - установите значение true, чтобы включить загрузку значков окна. Значение по умолчанию false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
