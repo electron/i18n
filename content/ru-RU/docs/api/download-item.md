@@ -118,7 +118,7 @@ Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+Возвращает `String` - URL источника, из которого загружается элемент.
 
 #### `downloadItem.getMimeType()`
 
