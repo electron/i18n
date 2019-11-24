@@ -75,12 +75,12 @@ const constraints = {
 * `options` Object 
   * `types` String[] - массив строк, который отображает типы источников рабочего стола для захвата, доступные типы `screen` и `window`.
   * `thumbnailSize` [Size](structures/size.md) (опционально) - Размер, до которого должен быть масштабирован эскиз источника мультимедиа. По умолчанию это `150` x `150`. Установите ширину или высоту в 0, если вам не нужны эскизы. Это сэкономит время на обработку содержимого каждого окна и экрана.
-  * `fetchWindowIcons` Boolean (опционально) - установите значение true, чтобы включить загрузку значков окна. Значение по умолчанию false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `fetchWindowIcons` Boolean (опционально) - установите значение true, чтобы включить загрузку значков окна. Значение по умолчанию false. Если false, то свойство appIcon из источников возвращает null. То же самое, если источник имеет тип экрана.
 
-Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Возвращает `Promise<DesktopCapturerSource[]>` - разрешается с массивом объектов [`DesktopCapturerSource`](structures/desktop-capturer-source.md), каждый `DesktopCapturerSource ` представляет экран или отдельное окно, которое может быть захвачено.
 
-## Caveats
+## Предупреждения
 
-`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+`navigator.mediaDevices. etUserMedia` не работает в macOS из-за фундаментального ограничения, из-за которого приложениям, желающим получить доступ к звуку системы, требуется [подписанное расширение ядра](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, и расширение Electron, не предоставляет этого.
 
-It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.
+Это ограничение можно обойти путем захвата системного звука с помощью другого приложения macOS вроде Soundflower и передачи его через виртуальное устройство ввода. Это виртуальное устройство может быть запрошено с помощью `navigator.mediaDevices.getUserMedia`.
