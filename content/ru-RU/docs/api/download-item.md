@@ -58,41 +58,41 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 * `event` Event
 * `state` String - может быть завершено `completed`, отменено `cancelled` или прервано `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Возникает, когда загрузка находится в терминальном состоянии. Оно включает в себя завершенную загрузку, отмененную загрузку (через `downloadItem.cancel()`) и прерванная загрузка, которая не может быть возобновлена.
 
 `state` может быть одним из следующих:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - Загрузка завершена успешно.
+* `cancelled` - загрузка была отменена.
+* `interrupted` - загрузка прервалась и не может быть возобновлена.
 
 ### Методы экземпляра
 
-The `downloadItem` object has the following methods:
+Объект `downloadItem` имеет следующие методы:
 
 #### `downloadItem.setSavePath(path)`
 
 * `path` String - Установить путь сохраняемого элемента загрузки.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+API доступен только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через API, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SaveDialogOptions - Установите параметры диалога сохранения. Этот объект имеет те же свойства, что и параметры `options` в [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+Этот API позволяет пользователю установить пользовательские параметры для диалогового окна сохранения, которое открывается для элемента загрузки по умолчанию. API доступен только в сессии `will-download` функции обратного вызова.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+Возвращает `SaveDialogOptions` - Возвращает ранее установленный объект `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 
