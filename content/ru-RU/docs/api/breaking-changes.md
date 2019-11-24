@@ -81,17 +81,17 @@ webFrame.setIsolatedWorldInfo(
 
     console
     ￼path/to/folder
-    ￼ ￼ ￼In Electron 7, this now returns a 
+    ￼ ￼ ￼В Electron 7, теперь он вернет 
 
-`FileList` with a `File` object for: ￼
+`FileList` с объектом `File` для: ￼
 
     console
     ￼/path/to/folder/file3
     ￼/path/to/folder/file2
     ￼/path/to/folder/file1
-    ￼ ￼ ￼Note that 
+    ￼ ￼ ￼Обратите внимание, что 
 
-`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+`webkitdirectory` больше не возвращает путь к выбранной папке. ￼Если вам нужен путь к выбранной папке, а не к содержимому папки, ￼смотрите `dialog.showOpenDialog` API ([Ссылка](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 
