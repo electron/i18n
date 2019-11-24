@@ -20,7 +20,7 @@ win.show()
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+В результате скроется заголовок и содержимое станет во все окно, но заголовок по-прежнему будет иметь стандартное окно контроля ("светофоры") сверху слева.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. This option is only applicable for frameless windows.
+Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. Полноэкранная кнопка недоступна из-за ограничений безрамных окон, поскольку они взаимодействуют с масками окон MacOS от Apple. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -62,10 +62,10 @@ win.show()
 
 ### Ограничения
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
+* Вы не можете кликнуть по прозрачной области. Мы собираемся ввести API, чтобы установить форму окна для решения этой задачи, смотрите [нашу проблему](https://github.com/electron/electron/issues/1335).
+* Прозрачные окна не изменяются. Установка `resizable` в `true` может сделать так, что прозрачное окно может перестать работать на некоторых платформах.
+* Фильтр `blur` применяется только к веб-странице, поэтому невозможно применить эффект размытия к содержимому под окном (т.е. другие приложения открываются в системе пользователя).
+* В операционных системах Windows прозрачные окна не будут работать, когда DWM отключена.
 * On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
 * On Mac, the native window shadow will not be shown on a transparent window.
 
