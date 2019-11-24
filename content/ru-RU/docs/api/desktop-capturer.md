@@ -7,7 +7,7 @@
 Следующий пример демонстрирует захват видео с окна рабочего стола с названием `Electron`:
 
 ```javascript
-// In the renderer process.
+// В графическом процессе.
 const { desktopCapturer } = require('electron')
 
 desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Для захвата видео из источника, предоставленного `desktopCapturer` ограничения, передаваемые [`navigator.mediaDevices.getUserMedia`] должны включать `chromeMediaSource: 'desktop'`, и `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Для захвата аудио и видео со всего рабочего стола ограничения, принятые в [`navigator.mediaDevices. etUserMedia`] должны включать `chromeMediaSource: 'Desktop'`, для `аудио` и `видео`, но не должны включать ограничение `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {
@@ -73,7 +73,7 @@ const constraints = {
 ### `desktopCapturer.getSources(options)`
 
 * `options` Object 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
+  * `types` String[] - массив строк, который отображает типы источников рабочего стола для захвата, доступные типы `screen` и `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 
