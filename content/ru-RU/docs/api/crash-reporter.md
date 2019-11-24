@@ -40,9 +40,9 @@ crashReporter.start({
   * `companyName` String
   * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
   * `productName` String (опционально) - Значение по умолчанию - `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `uploadToServer` Boolean (опционально) - Должны ли отчеты быть загружены на сервер. Значение по умолчанию - `true`.
   * `ignoreSystemCrashHandler` Boolean (опционально) - Значение по умолчанию - `false`.
-  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Только строковые свойства могут быть посланы корректно. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
+  * `extra` Record<String, String> Object (опционально) - Объект, который вы можете задать, он будет отправлен вместе с отчетом. Только строковые свойства могут быть посланы корректно. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
   * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
 Вы должны обращаться к этому методу перед тем, как использовать другие вызовы, принадлежащие `crashReporter` и каждому процессу (main/renderer), с помощью которого вы хотите собирать отчеты о сбоях. Вы можете передавать различные параметры в вызов `crashReporter.start` при обращении из разных процессов.
