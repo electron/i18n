@@ -86,18 +86,18 @@ session.defaultSession.cookies.set(cookie)
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+Возвращает `Promise<void>` - Promise, которое разрешается после установки файла cookie
 
-Sets a cookie with `details`.
+Устанавливает cookie с `details`.
 
 #### `cookies.remove(url, name)`
 
 * `url` String - URL-дарес, связанный с cookie.
 * `name` String - Название cookie для удаления.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+Возвращает `Promise<void>` - Promise, которое разрешается после удаления файла cookie
 
-Removes the cookies matching `url` and `name`
+Удаляет cookies, соответствующие `url` и `name`
 
 #### `cookies.flushStore()`
 
