@@ -156,7 +156,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+Возвращает `String[]` - полная URL-цепочка до элемента, включая любые перенаправления.
 
 #### `downloadItem.getLastModifiedTime()`
 
