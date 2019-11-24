@@ -73,6 +73,6 @@ win.webContents.debugger.sendCommand('Network.enable')
 * `method` String - имя метода, должно быть одним из методов, определенных [удаленным протоколом отладки](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` any (опционально) - JSON объект с параметрами запроса.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+Возвращает `Promise<any>` - Promise, которое разрешается с ответом, определенным атрибутом 'returns' описания команды в протоколе удаленной отладки, или отклоняется, указывая на сбой команды.
 
 Отправьте заданную команду на цель отладки.
