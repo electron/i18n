@@ -19,7 +19,7 @@ session.defaultSession.cookies.get({})
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// Запрос всех cookies, связанных с определенным Url.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
@@ -27,8 +27,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
     console.log(error)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Установить cookie с данными объекта cookie;
+// перезаписывает эквивалентные cookie, если такие есть.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
