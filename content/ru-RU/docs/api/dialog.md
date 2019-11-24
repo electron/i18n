@@ -234,17 +234,17 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 
 * `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
 * `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+  * `certificate` [Certificate](structures/certificate.md) - Сертификат доверия/импорта.
+  * `message` String - Сообщение, отображаемое пользователю.
 
-Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+Возвращает `Promise<void>` - выполняется, когда показано диалоговое окно доверия сертификата.
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+На macOS отображается модальное диалоговое окно, которое показывает сообщение и сертификат информации, и предоставляет пользователю возможность доверия/импорта сертификата. Если вы укажете аргумент `browserWindow`, диалоговое окно будет присоединено к родительскому окну, что сделает его модальным.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+В Windows параметры более ограничены, благодаря используемым API Win32:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Не используется аргумент `message`, так как ОС предоставляет свое собственное подтверждение диалогового окна.
+* Экран `browserWindow` игнорируется, поскольку невозможно сделать это диалоговое окно подтверждения.
 
 ## "Листы"
 
