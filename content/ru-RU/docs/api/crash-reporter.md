@@ -22,13 +22,13 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
+Или используйте стороннее решение:
 
 * [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Отчеты о сбоях сохраняются в директории временных фалов приложения. Отчеты для `productName:` `'YourName'` сохраняются в папку `YourName Crashes`, которая расположена во временной директории. Перед составлением отчета о сбоях вы можете изменить путь ко временной директории для вашего приложения, вызывая `app.setPath('temp', '/my/custom/temp')`.
+Отчеты о сбоях сохраняются локально в папке temp-каталога конкретного приложения. Отчеты для `productName:` `'YourName'` сохраняются в папку `YourName Crashes`, которая расположена во временной директории. Перед составлением отчета о сбоях вы можете изменить путь ко временной директории для вашего приложения, вызывая `app.setPath('temp', '/my/custom/temp')`.
 
 ## Методы
 
@@ -39,7 +39,7 @@ Or use a 3rd party hosted solution:
 * `options` Object 
   * `companyName` String
   * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
-  * `productName` String (optional) - Defaults to `app.name`.
+  * `productName` String (опционально) - Значение по умолчанию - `app.name`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (опционально) - Значение по умолчанию - `false`.
   * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Только строковые свойства могут быть посланы корректно. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
