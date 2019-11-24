@@ -66,8 +66,8 @@ win.show()
 * Прозрачные окна не изменяются. Установка `resizable` в `true` может сделать так, что прозрачное окно может перестать работать на некоторых платформах.
 * Фильтр `blur` применяется только к веб-странице, поэтому невозможно применить эффект размытия к содержимому под окном (т.е. другие приложения открываются в системе пользователя).
 * В операционных системах Windows прозрачные окна не будут работать, когда DWM отключена.
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* В Linux пользователи должны поставить `--enable-transparent-visuals --disable-gpu` в командной строке, чтобы отключить GPU процессор и позволить ARGB создать прозрачное окно, это вызвано вышестоящей ошибкой, когда [альфа-канал не работает на некоторых драйверах NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) на Linux.
+* На Mac, тень родного окна не будет отображаться в прозрачном окне.
 
 ## Невзаимодействующее окно
 
@@ -82,7 +82,7 @@ win.setIgnoreMouseEvents(true)
 
 ### Пересылка
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+Игнорирование сообщений мыши заставляет веб-страницу забыть о движении мыши, что означает, что события движения мыши не будут вырабатываться. В операционных системах Windows дополнительный параметр может быть использован для передачи сообщений о перемещении мыши на веб-странице, что позволяют такие события как `mouseleave`:
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
