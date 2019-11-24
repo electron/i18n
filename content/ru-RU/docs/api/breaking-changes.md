@@ -68,16 +68,16 @@ webFrame.setIsolatedWorldInfo(
 
 ### `webkitdirectory` атрибут для `<input type="file"/>`
 
-￼ ￼ `webkitdirectory` свойство на входах HTML-файлов позволяет им выбирать папки. ￼Предыдущие версии Electron имели неправильную реализацию, где `event.target.files` ￼ввода возвращала `FileList`, который возвращал один `File`, соответствующий выбранной папке. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+￼ ￼ `webkitdirectory` свойство на входах HTML-файлов позволяет им выбирать папки. ￼Предыдущие версии Electron имели неправильную реализацию, где `event.target.files` ￼ввода возвращала `FileList`, который возвращал один `File`, соответствующий выбранной папке. ￼ ￼Начиная с Electron 7 этот `FileList`теперь является списком всех ￼файлов, содержащихся в папке, аналогично Chrome, Firefox и Edge ￼([ссылка на MDN документ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼В качестве иллюстрации возьмем папку с такой структурой: ￼
 
     console
     ￼folder
     ￼├── file1
     ￼├── file2
     ￼└── file3
-    ￼ ￼ ￼In Electron <=6, this would return a 
+    ￼ ￼ ￼В Electron <=6, это вернет 
 
-`FileList` with a `File` object for: ￼
+`FileList` с объектом `File` для: ￼
 
     console
     ￼path/to/folder
