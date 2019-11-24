@@ -45,16 +45,16 @@ session.defaultSession.cookies.set(cookie)
 #### Событие: 'changed'
 
 * Событие типа `event`
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - Cookie, который был изменен.
+* `cause` String - Причина изменения с одним из следующих значений: 
+  * `explic` - Cookie был изменен непосредственно действием потребителя.
+  * `overwrite` - Cookie был автоматически удален из-за операции вставки, которая перезаписала его.
+  * `expired` - Cookie был автоматически удален по истечении срока его действия.
+  * `evicted` - Cookie был автоматически исключен во время сбора мусора.
+  * `expired-overwrite` - Cookie был перезаписан с уже истекшим сроком действия.
+* `removed` Boolean - `true` если cookie был удален, в противном случае `false`.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Возникает при изменении cookie, так как она была добавлена, изменена, удалена или истекла.
 
 ### Методы экземпляра
 
