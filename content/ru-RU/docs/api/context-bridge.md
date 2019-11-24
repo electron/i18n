@@ -26,22 +26,22 @@ window.electron.doThing()
 
 ## Глоссарий
 
-### Main World/Основной Мир
+### Main World / Основной Мир
 
 "Main World" - это контекст javascript, который запускается вашим основным кодом рендера.  По умолчанию загружаемая вами страница выполняет код в этом мире.
 
-### Isolated World
+### Isolated World / Изолированный Мир
 
-When `contextIsolation` is enabled in your `webPreferences` your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [BrowserWindow](browser-window.md) docs.
+Когда `contextIsolation` включен в вашем `webPreferences` ваши `preload` скрипты выполняются в "Isolated World".  Вы можете прочитать больше о контекстной изоляции и на что это влияет в документации [BrowserWindow](browser-window.md).
 
 ## Методы
 
-The `contextBridge` module has the following methods:
+Модуль `contextBridge` имеет следующие методы:
 
 ### `contextBridge.exposeInMainWorld(apiKey, api)` _Experimental_
 
-* `apiKey` String - The key to inject the API onto `window` with.  The API will be accessible on `window[apiKey]`.
-* `api` Record<String, any> - Your API object, more information on what this API can be and how it works is available below.
+* `apiKey` String - Ключ для вставки API в `window`.  API будет доступен в `window[apiKey]`.
+* `api` Record<String, any> - Ваш объект API, более подробная информация о том, что это и как он будет работать, доступна ниже.
 
 ## Использование
 
