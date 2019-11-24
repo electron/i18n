@@ -1,13 +1,13 @@
 # contextBridge
 
-> Create a safe, bi-directional, synchronous bridge across isolated contexts
+> Создает безопасный, двунаправленный, синхронный мост через изолированные контексты
 
 Процесс: [Графический](../glossary.md#renderer-process)
 
-An example of exposing an API to a renderer from an isolated preload script is given below:
+Пример предоставления API-интерфейса средству визуализации из изолированного сценария предварительной загрузки приведен ниже:
 
 ```javascript
-// Preload (Isolated World)
+// Предварительная загрузка (Isolated World/Изолированный Мир)
 const { contextBridge, ipcRenderer } = require('electron')
 
 contextBridge.exposeInMainWorld(
@@ -19,16 +19,16 @@ contextBridge.exposeInMainWorld(
 ```
 
 ```javascript
-// Renderer (Main World)
+// Рендер (Main World/Основной Мир)
 
 window.electron.doThing()
 ```
 
 ## Глоссарий
 
-### Main World
+### Main World/Основной Мир
 
-The "Main World" is the javascript context that your main renderer code runs in.  By default the page you load in your renderer executes code in this world.
+"Main World" - это контекст javascript, который запускается вашим основным кодом рендера.  По умолчанию загружаемая вами страница выполняет код в этом мире.
 
 ### Isolated World
 
