@@ -133,4 +133,4 @@ button {
 
 ## Контекстное меню
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+На некоторых платформах перетаскиваемая область будет рассматриваться как неклиентский фрейм, поэтому при щелчке правой кнопкой мыши на ней появится системное меню. Чтобы контекстное меню работало правильно на всех платформах, вы никогда не должны использовать настраиваемое контекстное меню в перетаскиваемых областях.
