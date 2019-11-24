@@ -80,7 +80,7 @@ session.defaultSession.cookies.set(cookie)
   * `url` String - URL для привязки к cookie. Promise будет отклонён, если URL недействителен.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `domain` String (необязательно) - домен файла cookie; он будет нормализован с предшествующей точкой, так что он также действителен для поддоменов. Пусто по умолчанию, если опущено.
   * `path` String (optional) - The path of the cookie. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
