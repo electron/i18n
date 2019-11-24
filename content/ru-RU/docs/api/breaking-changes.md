@@ -68,7 +68,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### `webkitdirectory` атрибут для `<input type="file"/>`
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+￼ ￼ `webkitdirectory` свойство на входах HTML-файлов позволяет им выбирать папки. ￼Предыдущие версии Electron имели неправильную реализацию, где `event.target.files` ￼ввода возвращала `FileList`, который возвращал один `File`, соответствующий выбранной папке. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
 
     console
     ￼folder
