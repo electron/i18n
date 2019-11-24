@@ -72,12 +72,12 @@ session.defaultSession.cookies.set(cookie)
 
 Возвращает `Promise<Cookie[]>` - промисы, которые разрешают массив Cookie объектов.
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+Отправляет запрос на получение всех cookies, соответствующих `filter`, и выдает promise с ответом.
 
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
+  * `url` String - URL для привязки к cookie. Promise будет отклонён, если URL недействителен.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
