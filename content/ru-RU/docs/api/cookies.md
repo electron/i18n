@@ -68,9 +68,9 @@ session.defaultSession.cookies.set(cookie)
   * `domain` String (опционально) - Изменяет cookies, чьи домены совпадают или являются поддоменами `domains`.
   * `path` String (опционально) - Извлекает cookies чей путь совпадает с `path`.
   * `secure` Boolean (опционально) - Фильтрует cookies по их защищенному свойству.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `session` Boolean (опционально) - Отфильтровывает сеансовые или постоянные файлы cookie.
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+Возвращает `Promise<Cookie[]>` - промисы, которые разрешают массив Cookie объектов.
 
 Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
 
