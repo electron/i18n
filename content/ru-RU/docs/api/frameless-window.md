@@ -1,4 +1,4 @@
-# Безрамное окно
+# Окно без рамки
 
 > Откройте окно без панелей инструментов, границ или другого графического «chrome».
 
@@ -16,11 +16,11 @@ win.show()
 
 ### Альтернативы на macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Существует альтернативный способ указать окно chromeless. Вместо установки `frame` в `false`, которая отключает элементы заголовка и окна, вы можете скрыть строку заголовка, и ваш контент будет расширен до полного размера окна, при этом по-прежнему сохранятся элементы управления окном («светофор») для стандартных действий окна. Вы можете сделать это, указав параметр `titleBarStyle`:
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+В результате скроется заголовок и содержимое станет во все окно, но заголовок по-прежнему будет иметь стандартное окно контроля ("светофоры") сверху слева.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. This option is only applicable for frameless windows.
+Использует кастомные кнопки закрыть и уменьшить, которые display при наведении на верхний левый угол окна. Полноэкранная кнопка недоступна из-за ограничений безрамных окон, поскольку они взаимодействуют с масками окон MacOS от Apple. Эти кастомные кнопки предотвращают проблемы с методами мыши, случающиеся со стандартными кнопками панели инструментов. Эта опция применима только для окон без рамки.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -62,12 +62,12 @@ win.show()
 
 ### Ограничения
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* Вы не можете кликнуть по прозрачной области. Мы собираемся ввести API, чтобы установить форму окна для решения этой задачи, смотрите [нашу проблему](https://github.com/electron/electron/issues/1335).
+* Прозрачные окна не изменяются. Установка `resizable` в `true` может сделать так, что прозрачное окно может перестать работать на некоторых платформах.
+* Фильтр `blur` применяется только к веб-странице, поэтому невозможно применить эффект размытия к содержимому под окном (т.е. другие приложения открываются в системе пользователя).
+* В операционных системах Windows прозрачные окна не будут работать, когда DWM отключена.
+* В Linux пользователи должны поставить `--enable-transparent-visuals --disable-gpu` в командной строке, чтобы отключить GPU процессор и позволить ARGB создать прозрачное окно, это вызвано вышестоящей ошибкой, когда [альфа-канал не работает на некоторых драйверах NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) на Linux.
+* На Mac, тень родного окна не будет отображаться в прозрачном окне.
 
 ## Невзаимодействующее окно
 
@@ -82,7 +82,7 @@ win.setIgnoreMouseEvents(true)
 
 ### Пересылка
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+Игнорирование сообщений мыши заставляет веб-страницу забыть о движении мыши, что означает, что события движения мыши не будут вырабатываться. В операционных системах Windows дополнительный параметр может быть использован для передачи сообщений о перемещении мыши на веб-странице, что позволяют такие события как `mouseleave`:
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -95,22 +95,22 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+Это делает переход по веб-странице по окончании `el`, и возвращается к нормальному состоянию за ее пределами.
 
 ## Регион переноса (drag-and-drop)
 
 По-умолчанию, безрамное окно невозможно перетаскивать. В коде приложения необходимо указать в стилях CSS `-webkit-app-region: drag`, чтобы за выделенную область было возможно переносить окно (как за заголовок стандартного окна), также можно использовать `-webkit-app-region: no-drag` для исключения непереносимой области внутри переносимой. Обратите внимание, что в настоящий момент поддерживается прямоугольная форма области.
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+Примечание: `-webkit-app-region: drag` имеет проблемы, пока инструменты разработчика открыты. Смотрите [Проблемы GitHub](https://github.com/electron/electron/issues/3647) для получения дополнительной информации, включая обход.
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+Чтобы сделать все окно перетаскиваемым, вы можете добавить `-webkit-app-region: drag` как стиль `body`:
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+И обратите внимание, что если вы перетащили окно целиком, вы также должны отметить кнопки как не перетаскиваемые, иначе пользователям было бы невозможно на них нажать:
 
 ```css
 button {
@@ -118,11 +118,11 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Если вы устанавливаете перетаскиваемым только пользовательский заголовок, вам нужно все кнопки в заголовке сделать без возможности перетаскивания.
 
 ## Выделение текста
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+В окне без рамки поведение перетаскивания может конфликтовать с выделением текста. Например, когда вы перетащите заголовок, вы можете случайно выбрать текст на панели заголовка. Чтобы предотвратить это, вам нужно отключить выбор текста в перетаскиваемой области, такой как:
 
 ```css
 .titlebar {
@@ -133,4 +133,4 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 
 ## Контекстное меню
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+На некоторых платформах перетаскиваемая область будет рассматриваться как неклиентский фрейм, поэтому при щелчке правой кнопкой мыши на ней появится системное меню. Чтобы контекстное меню работало правильно на всех платформах, вы никогда не должны использовать настраиваемое контекстное меню в перетаскиваемых областях.

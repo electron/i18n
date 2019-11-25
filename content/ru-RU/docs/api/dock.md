@@ -1,10 +1,10 @@
-## Class: Dock
+## Класс: Dock
 
-> Control your app in the macOS dock
+> Управляйте вашим приложением в macOS dock
 
 Процесс: [Главный](../glossary.md#main-process)
 
-The following example shows how to bounce your icon on the dock.
+Следующий пример показывает, как отскочить вашу иконку в dock.
 
 ```javascript
 const { app } = require('electron')
@@ -15,15 +15,15 @@ app.dock.bounce()
 
 #### `dock.bounce([type])` _macOS_
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (опционально) - Может быть `critical` или `informational`. По умолчанию `informational`
 
-Returns `Integer` - an ID representing the request.
+Возвращает `Integer` - ID, представляющий запрос.
 
 Когда передается `critical`, значок dock будет отскакивать, пока приложение не станет активным или запрос отменился.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Когда `informational` пропущен, значок dock будет подпрыгивать в течение одной секунды. Тем не менее, запрос остается активным, пока приложение не станет активным или запрос не будет отменен.
 
-**Nota Bene:** This method can only be used while the app is not focused; when the app is focused it will return -1.
+**Обратите внимание:** Этот метод можно использовать только тогда, когда приложение не сфокусировано; когда приложение сфокусировано, оно вернет -1.
 
 #### `dock.cancelBounce(id)` _macOS_
 
@@ -63,11 +63,11 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 * `menu` [Menu](menu.md)
 
-Sets the application's \[dock menu\]\[dock-menu\].
+Устанавливает Dock меню приложения [dock-menu].
 
 #### `dock.getMenu()` _macOS_
 
-Returns `Menu | null` - The application's \[dock menu\]\[dock-menu\].
+Возвращает `Menu | null` - Dock меню приложения [dock-menu].
 
 #### `dock.setIcon(image)` _macOS_
 

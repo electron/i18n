@@ -66,32 +66,32 @@ webFrame.setIsolatedWorldInfo(
 
 Это свойство было удалено в Chromium 77, и как таковое больше не доступно.
 
-### `webkitdirectory` attribute for `<input type="file"/>`
+### `webkitdirectory` атрибут для `<input type="file"/>`
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+￼ ￼ `webkitdirectory` свойство на входах HTML-файлов позволяет им выбирать папки. ￼Предыдущие версии Electron имели неправильную реализацию, где `event.target.files` ￼ввода возвращала `FileList`, который возвращал один `File`, соответствующий выбранной папке. ￼ ￼Начиная с Electron 7 этот `FileList`теперь является списком всех ￼файлов, содержащихся в папке, аналогично Chrome, Firefox и Edge ￼([ссылка на MDN документ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼В качестве иллюстрации возьмем папку с такой структурой: ￼
 
     console
     ￼folder
     ￼├── file1
     ￼├── file2
     ￼└── file3
-    ￼ ￼ ￼In Electron <=6, this would return a 
+    ￼ ￼ ￼В Electron <=6, это вернет 
 
-`FileList` with a `File` object for: ￼
+`FileList` с объектом `File` для: ￼
 
     console
     ￼path/to/folder
-    ￼ ￼ ￼In Electron 7, this now returns a 
+    ￼ ￼ ￼В Electron 7, теперь он вернет 
 
-`FileList` with a `File` object for: ￼
+`FileList` с объектом `File` для: ￼
 
     console
     ￼/path/to/folder/file3
     ￼/path/to/folder/file2
     ￼/path/to/folder/file1
-    ￼ ￼ ￼Note that 
+    ￼ ￼ ￼Обратите внимание, что 
 
-`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+`webkitdirectory` больше не возвращает путь к выбранной папке. ￼Если вам нужен путь к выбранной папке, а не к содержимому папки, ￼смотрите `dialog.showOpenDialog` API ([Ссылка](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 

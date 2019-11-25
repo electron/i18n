@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files:
+Пример для показа диалога выбора нескольких файлов:
 
 ```javascript
 const { dialog } = require('electron')
@@ -40,9 +40,9 @@ console.log(dialog)
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
   * `message` String (необязательно) *macOS* - Сообщение, которое будет отображено над полями ввода.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (необязательно) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
-Returns `String[] | undefined`, the file paths chosen by the user; if the dialog is cancelled it returns `undefined`.
+Возвращает `String[] | undefined` - пути файла, выбранные пользователем; если диалог отменен, то возвращает `undefined`.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
@@ -87,12 +87,12 @@ dialog.showOpenDialogSync(mainWindow, {
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
   * `message` String (необязательно) *macOS* - Сообщение, которое будет отображено над полями ввода.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (необязательно) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
-* `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
+* `canceled` Boolean - независимо от того, был ли диалог отменен.
+* `filePaths` String[] - массив путей файлов, выбранных пользователем. Если диалог отменён, это будет пустой массив.
 * `bookmarks` String[] (необязательно) *macOS* *mas* - Массив строк, соответствующих массиву `filePaths`, в кодировке base64, который содержит закладки с областью безопасности. Для его использования, `securityScopedBookmarks` должны быть активированы.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
@@ -138,7 +138,7 @@ dialog.showOpenDialog(mainWindow, {
   * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
   * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
-Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
+Возвращает `String | undefined`, путь к файлу, выбранному пользователем; если диалог отменен, то возвращает `undefined`.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
@@ -157,11 +157,11 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
   * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
-    * `canceled` Boolean - whether or not the dialog was canceled.
-    * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+    * `canceled` Boolean - независимо от того, был ли диалог отменен.
+    * `filePath` String (опционально) - если диалог отменен, будет `undefined`.
+    * `bookmark` String (optional) _macOS_ _mas_ - Строка в кодировке base64, содержащая зкладку с областью безопасности сохранённого файла. `securityScopedBookmarks` должны быть активированы для её использования.
     
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
@@ -179,17 +179,17 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` Строка - содержимое сообщения.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. По умолчанию - `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `detail` String (опционально) - Дополнительные сведения о сообщении.
+  * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
+  * `checkboxChecked` Boolean (опционально) - Первоначальное проверяемое состояние флажка. `false` по умолчанию.
+  * `icon` ([NativeImage](native-image.md) | String) (опционально)
+  * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
+  * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.
+  * `normalizeAccessKeys` Boolean (опционально) - Нормализация клавиш доступа к клавиатуре на разных платформах. По умолчанию - `false`. Включение этого предполагает, что `&` используется в метках кнопок для размещения клавиши быстрого доступа, и метки будут преобразованы, чтобы они правильно работали на каждой платформе, символы `&` удаляются в macOS, преобразуются в `_` в Linux и остаются нетронутыми в Windows. Например, метка кнопки `Vie&w` будет преобразована в `Vie_w` в Linux и `View ` в macOS и может быть выбрана с помощью `Alt-W` в Windows и Linux.
 
-Returns `Integer` - the index of the clicked button.
+Возвращает `Integer` - индекс нажатой кнопки.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Показывает окно сообщения, оно будет блокировать процесс до тех пор, пока окно сообщения не будет закрыто. Он возвращает индекс нажатой кнопки.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
@@ -202,52 +202,52 @@ Shows a message box, it will block the process until the message box is closed. 
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` Строка - содержимое сообщения.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. По умолчанию - `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `detail` String (опционально) - Дополнительные сведения о сообщении.
+  * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
+  * `checkboxChecked` Boolean (опционально) - Первоначальное проверяемое состояние флажка. `false` по умолчанию.
+  * `icon` [NativeImage](native-image.md) (опционально)
+  * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
+  * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.
+  * `normalizeAccessKeys` Boolean (опционально) - Нормализация клавиш доступа к клавиатуре на разных платформах. По умолчанию - `false`. Включение этого предполагает, что `&` используется в метках кнопок для размещения клавиши быстрого доступа, и метки будут преобразованы, чтобы они правильно работали на каждой платформе, символы `&` удаляются в macOS, преобразуются в `_` в Linux и остаются нетронутыми в Windows. Например, метка кнопки `Vie&w` будет преобразована в `Vie_w` в Linux и `View ` в macOS и может быть выбрана с помощью `Alt-W` в Windows и Linux.
 
-Returns `Promise<Object>` - resolves with a promise containing the following properties:
+Возвращает `Promise<Object>` - разрешает Promise, содержащие следующие свойства:
 
-    * `response` Number - The index of the clicked button.
-    * `checkboxChecked` Boolean - The checked state of the checkbox if
-    `checkboxLabel` was set. Otherwise `false`.
+    * `response` Number - индекс нажатой кнопки.
+    * `checkboxChecked` Boolean - Проверяется состояние отмеченного флажка, если
+    `checkboxLabel` был установлен. В противном случае `false`.
     
 
-Shows a message box, it will block the process until the message box is closed.
+Показывает окно сообщения, оно будет блокировать процесс, пока не будет закрыто окно сообщения.
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box.
-* `content` String - The text content to display in the error box.
+* `title` String - Заголовок для отображения в поле ошибки.
+* `title` String - Текстовое содержимое для отображения в поле ошибки.
 
-Displays a modal dialog that shows an error message.
+Отображает модальное диалоговое окно, показывающее сообщение об ошибке.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Этот API можно безопасно вызывать до события `ready`, которое выдает модуль `app`, он обычно используется для сообщений об ошибках на ранней стадии запуска. При вызове до события app `ready` в Linux, сообщение будет выдано в stderr, и диалоговое окно GUI не появится.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
 
 * `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
 * `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+  * `certificate` [Certificate](structures/certificate.md) - Сертификат доверия/импорта.
+  * `message` String - Сообщение, отображаемое пользователю.
 
-Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
+Возвращает `Promise<void>` - выполняется, когда показано диалоговое окно доверия сертификата.
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+На macOS отображается модальное диалоговое окно, которое показывает сообщение и сертификат информации, и предоставляет пользователю возможность доверия/импорта сертификата. Если вы укажете аргумент `browserWindow`, диалоговое окно будет присоединено к родительскому окну, что сделает его модальным.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+В Windows параметры более ограничены, благодаря используемым API Win32:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Не используется аргумент `message`, так как ОС предоставляет свое собственное подтверждение диалогового окна.
+* Экран `browserWindow` игнорируется, поскольку невозможно сделать это диалоговое окно подтверждения.
 
 ## "Листы"
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+В macOS диалоговые окна представляются в виде листов, прикрепленных к окну, если вы указали ссылку [`BrowserWindow`](browser-window.md) в параметре `browserWindow`, или являются модальными, если окно не предусмотрено.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Вы можете вызвать `BrowserWindow.getCurrentWindow().SetSheetOffset(offset)`, чтобы изменить смещение рамки окна, к которой прикреплены листы.

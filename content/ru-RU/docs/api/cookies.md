@@ -19,7 +19,7 @@ session.defaultSession.cookies.get({})
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// Запрос всех cookies, связанных с определенным Url.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
@@ -27,8 +27,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' })
     console.log(error)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Установить cookie с данными объекта cookie;
+// перезаписывает эквивалентные cookie, если такие есть.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
   .then(() => {
@@ -45,16 +45,16 @@ session.defaultSession.cookies.set(cookie)
 #### Событие: 'changed'
 
 * Событие типа `event`
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - Cookie, который был изменен.
+* `cause` String - Причина изменения с одним из следующих значений: 
+  * `explic` - Cookie был изменен непосредственно действием потребителя.
+  * `overwrite` - Cookie был автоматически удален из-за операции вставки, которая перезаписала его.
+  * `expired` - Cookie был автоматически удален по истечении срока его действия.
+  * `evicted` - Cookie был автоматически исключен во время сбора мусора.
+  * `expired-overwrite` - Cookie был перезаписан с уже истекшим сроком действия.
+* `removed` Boolean - `true` если cookie был удален, в противном случае `false`.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Возникает при изменении cookie, так как она была добавлена, изменена, удалена или истекла.
 
 ### Методы экземпляра
 
@@ -63,44 +63,44 @@ Emitted when a cookie is changed because it was added, edited, removed, or expir
 #### `cookies.get(filter)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `url` String (опционально) - Извлекает cookies, которые связаны с `url`. Пустой подразумевает получение cookies всех URL.
+  * `name` String (опционально) - Фильтрует cookies по имени.
+  * `domain` String (опционально) - Изменяет cookies, чьи домены совпадают или являются поддоменами `domains`.
+  * `path` String (опционально) - Извлекает cookies чей путь совпадает с `path`.
+  * `secure` Boolean (опционально) - Фильтрует cookies по их защищенному свойству.
+  * `session` Boolean (опционально) - Отфильтровывает сеансовые или постоянные файлы cookie.
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+Возвращает `Promise<Cookie[]>` - промисы, которые разрешают массив Cookie объектов.
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+Отправляет запрос на получение всех cookies, соответствующих `filter`, и выдает promise с ответом.
 
 #### `cookies.set(details)`
 
 * `details` Object 
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
+  * `url` String - URL для привязки к cookie. Promise будет отклонён, если URL недействителен.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `domain` String (необязательно) - домен файла cookie; он будет нормализован с предшествующей точкой, так что он также действителен для поддоменов. Пусто по умолчанию, если опущено.
   * `path` String (optional) - The path of the cookie. Empty by default if omitted.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+Возвращает `Promise<void>` - Promise, которое разрешается после установки файла cookie
 
-Sets a cookie with `details`.
+Устанавливает cookie с `details`.
 
 #### `cookies.remove(url, name)`
 
 * `url` String - URL-дарес, связанный с cookie.
 * `name` String - Название cookie для удаления.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+Возвращает `Promise<void>` - Promise, которое разрешается после удаления файла cookie
 
-Removes the cookies matching `url` and `name`
+Удаляет cookies, соответствующие `url` и `name`
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+Возвращает `Promise<void>` - Promise, которое разрешается, когда хранилище cookie было очищено
 
 Записывает непрочитанные cookies на диск.

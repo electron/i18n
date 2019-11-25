@@ -22,13 +22,13 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
+Или используйте стороннее решение:
 
 * [Backtrace](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Отчеты о сбоях сохраняются в директории временных фалов приложения. Отчеты для `productName:` `'YourName'` сохраняются в папку `YourName Crashes`, которая расположена во временной директории. Перед составлением отчета о сбоях вы можете изменить путь ко временной директории для вашего приложения, вызывая `app.setPath('temp', '/my/custom/temp')`.
+Отчеты о сбоях сохраняются локально в папке temp-каталога конкретного приложения. Отчеты для `productName:` `'YourName'` сохраняются в папку `YourName Crashes`, которая расположена во временной директории. Перед составлением отчета о сбоях вы можете изменить путь ко временной директории для вашего приложения, вызывая `app.setPath('temp', '/my/custom/temp')`.
 
 ## Методы
 
@@ -39,11 +39,11 @@ Or use a 3rd party hosted solution:
 * `options` Object 
   * `companyName` String
   * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
-  * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
+  * `productName` String (опционально) - Значение по умолчанию - `app.name`.
+  * `uploadToServer` Boolean (опционально) - Должны ли отчеты быть загружены на сервер. Значение по умолчанию - `true`.
   * `ignoreSystemCrashHandler` Boolean (опционально) - Значение по умолчанию - `false`.
-  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Только строковые свойства могут быть посланы корректно. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
-  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `extra` Record<String, String> Object (опционально) - Объект, который вы можете задать, он будет отправлен вместе с отчетом. Только строковые свойства могут быть посланы корректно. Вложенные объекты не поддерживаются. При использовании Windows имена и значения свойств должны быть меньше 64 символов.
+  * `crashesDirectory` String (опционально) -Папка для временного хранения отчетов об ошибках (используется только когда crashReporter запущен через `process.crashReporter.start`).
 
 Вы должны обращаться к этому методу перед тем, как использовать другие вызовы, принадлежащие `crashReporter` и каждому процессу (main/renderer), с помощью которого вы хотите собирать отчеты о сбоях. Вы можете передавать различные параметры в вызов `crashReporter.start` при обращении из разных процессов.
 
@@ -51,13 +51,13 @@ Or use a 3rd party hosted solution:
 
 **Примечание:** Если вам нужно послать дополнительные/обновленные `extra` параметры после вашего первого вызова `start`, вы можете вызвать `addExtraParameter` в системе macOS или вызвать `start` вновь с новыми/обновленными `extra` параметрами в системах Linux и Windows.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. Если вы хотите включить отчеты о сбоях, инициализация `crashpad` из главного процесса с использованием `crashReporter.start` требуется вне зависимости, из какого процесса вы хотите собирать отчеты. После инициализации этим способом обработчик будет собирать сбои от всех процессов. Несмотря на это, вам все равно придется вызывать `crashReporter.start` из дочернего процесса или из процесса рендеринга, в противном случае отчеты о сбоях не будут иметь `companyName`, `productName` или любую другую `extra` информацию.
+**Примечание:** В системе macOS и Windows Electron использует новый `crashpad` клиент для сбора сбоев и составления отчетов. Если вы хотите включить отчеты о сбоях, инициализация `crashpad` из главного процесса с использованием `crashReporter.start` требуется вне зависимости, из какого процесса вы хотите собирать отчеты. После инициализации этим способом обработчик будет собирать сбои от всех процессов. Несмотря на это, вам все равно придется вызывать `crashReporter.start` из дочернего процесса или из процесса рендеринга, в противном случае отчеты о сбоях не будут иметь `companyName`, `productName` или любую другую `extra` информацию.
 
 ### `crashReporter.getLastCrashReport()`
 
 Возвращает [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+Возвращает дату и ID последнего отчёта об ошибке. Будут возвращены только загруженные отчеты об ошибках; даже если отчет об ошибке присутствует на диске, он не будет возвращен до тех пор, пока он не будет загружен. Если нет загруженных отчетов, возвращается `null`.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -84,7 +84,7 @@ Returns the date and ID of the last crash report. Only crash reports that have b
 * `key` String - Параметр ключа должен содержать не более 64 символов.
 * `value` String - Значение параметра должно быть не более 64 символов.
 
-Установите дополнительный параметр, который будет отправлен с отчетом о сбое. Значения, указанные здесь, будут отправлены в дополнении к значениям, установленным через `extra` после того, как `start` был вызван. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+Установите дополнительный параметр, который будет отправлен с отчетом о сбое. Значения, указанные здесь, будут отправлены в дополнении к значениям, установленным через `extra` после того, как `start` был вызван. Этот API доступен только в macOS и Windows. Если вам требуется добавить/обновить дополнительные параметры в Linux после первого вызова `start`, вы можете вызвать `start` еще раз с уже обновленными `extra` параметрами.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 

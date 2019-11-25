@@ -24,7 +24,7 @@ $ electron
 
 ### `NODE_OPTIONS`
 
-Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+Electron включает поддержку подмножества Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). Большинство поддерживаются за исключением тех, которые конфликтуют с использованием Chromium BoringSSL.
 
 Пример:
 
@@ -32,7 +32,7 @@ Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Unsupported options are:
+Неподдерживаемые опции:
 
 ```sh
 --use-bundled-ca
@@ -42,17 +42,17 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+`NODE_OPTIONS` явно запрещены в пакетах приложений.
 
 ### `GOOGLE_API_KEY`
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Вы можете предоставить ключ API для запроса на геокодирование веб-сервиса Google. Чтобы сделать это, поместите следующий код в ваш основной файл перед открытием любых окон браузера, которые будут делать геокодирование запросов:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы разрешить использование запросов геолокации, [посетите данную страницу](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+Инструкции по получению ключа API Google можно получить [на данной странице](https://developers.google.com/maps/documentation/javascript/get-api-key). По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы разрешить использование запросов геолокации, [посетите данную страницу](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 
@@ -72,9 +72,9 @@ For instructions on how to acquire a Google API key, visit [this page](https://d
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+Установите реализацию корзины в Linux. По умолчанию `gio`.
 
-Options:
+Параметры:
 
 * `gvfs-trash`
 * `trash-cli`
@@ -107,7 +107,7 @@ Options:
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+При запуске из `electron` пакета, эта переменная дает команду `electron` использовать указанную сборку Electron вместо загруженной по `npm install`. Использование:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug

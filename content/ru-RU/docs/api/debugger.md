@@ -40,7 +40,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 * Событие типа `event`
 * `reason` String - причина отсоединения отладчика.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Возникает при завершении сеанса отладки. Это происходит либо когда `webContents` закрыт или devtools вызывается для присоединения к `webContents`.
 
 #### Событие: 'message'
 
@@ -48,9 +48,9 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 * `event` Event
 * `method` String - имя метода.
-* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` unknown - параметры события, определенные 'параметрами' атрибута в протоколе удаленной отладки.
 
-Emitted whenever the debugging target issues an instrumentation event.
+Возникает при отладке инструментальных событий.
 
 ### Методы экземпляра
 
@@ -70,9 +70,9 @@ Emitted whenever the debugging target issues an instrumentation event.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` any (optional) - JSON object with request parameters.
+* `method` String - имя метода, должно быть одним из методов, определенных [удаленным протоколом отладки](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` any (опционально) - JSON объект с параметрами запроса.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+Возвращает `Promise<any>` - Promise, которое разрешается с ответом, определенным атрибутом 'returns' описания команды в протоколе удаленной отладки, или отклоняется, указывая на сбой команды.
 
 Отправьте заданную команду на цель отладки.

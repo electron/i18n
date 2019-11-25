@@ -4,14 +4,14 @@
 
 Process: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` это [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), который представляет элемент загрузки в Electron. Он используется в событии `will-download` класса `Session` и позволяет пользователям управлять элементом загрузки.
 
 ```javascript
 // В основном процессе.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // Установите путь сохранения, чтобы Electron не отображал диалоговое окно сохранения.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
@@ -42,57 +42,57 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Возвращает:
 
 * Событие типа `event`
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - Может быть `progressing` или `interrupted`.
 
-Emitted when the download has been updated and is not done.
+Возникает, когда загрузка была обновлена и не завершена.
 
-The `state` can be one of following:
+`state` может быть одним из следующих:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - Загрузка находится в процессе загрузки.
+* `interrupted` - загрузка прервалась и может быть возобновлена.
 
 #### Событие: 'done'
 
 Возвращает:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - может быть завершено `completed`, отменено `cancelled` или прервано `interrupted`.
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Возникает, когда загрузка находится в терминальном состоянии. Оно включает в себя завершенную загрузку, отмененную загрузку (через `downloadItem.cancel()`) и прерванная загрузка, которая не может быть возобновлена.
 
-The `state` can be one of following:
+`state` может быть одним из следующих:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - Загрузка завершена успешно.
+* `cancelled` - загрузка была отменена.
+* `interrupted` - загрузка прервалась и не может быть возобновлена.
 
 ### Методы экземпляра
 
-The `downloadItem` object has the following methods:
+Объект `downloadItem` имеет следующие методы:
 
 #### `downloadItem.setSavePath(path)`
 
 * `path` String - Установить путь сохраняемого элемента загрузки.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+API доступен только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через API, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SaveDialogOptions - Установите параметры диалога сохранения. Этот объект имеет те же свойства, что и параметры `options` в [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+Этот API позволяет пользователю установить пользовательские параметры для диалогового окна сохранения, которое открывается для элемента загрузки по умолчанию. API доступен только в сессии `will-download` функции обратного вызова.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+Возвращает `SaveDialogOptions` - Возвращает ранее установленный объект `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 
@@ -118,7 +118,7 @@ Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+Возвращает `String` - URL источника, из которого загружается элемент.
 
 #### `downloadItem.getMimeType()`
 
@@ -156,7 +156,7 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+Возвращает `String[]` - полная URL-цепочка до элемента, включая любые перенаправления.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -174,6 +174,6 @@ Returns `Double` - Number of seconds since the UNIX epoch when the download was 
 
 #### `downloadItem.savePath`
 
-A `String` property that determines the save file path of the download item.
+Свойство `String`, которое определяет путь к файлу сохранения элемента загрузки.
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+Свойство доступно только в сессии `will-download` функции обратного вызова. Если пользователь не устанавливает путь сохранения через свойство, Electron будет использовать исходную процедуру для определения пути сохранения; здесь обычно вызывается диалоговое окно сохранения.
