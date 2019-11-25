@@ -250,27 +250,27 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "11540",
-    "translated": "7487",
+    "translated": "7637",
     "approved": "3897",
     "words": "108903",
-    "words_translated": "60410",
+    "words_translated": "62536",
     "words_approved": "30486",
-    "translated_progress": 55,
+    "translated_progress": 57,
     "approved_progress": 27,
-    "qa_issues": 1398
+    "qa_issues": 1458
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "11540",
-    "translated": "10287",
+    "translated": "10288",
     "approved": "3042",
     "words": "108903",
-    "words_translated": "94486",
+    "words_translated": "94502",
     "words_approved": "26449",
     "translated_progress": 86,
     "approved_progress": 24,
-    "qa_issues": 2988
+    "qa_issues": 2989
   },
   {
     "name": "Tagalog",
