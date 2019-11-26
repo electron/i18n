@@ -1,6 +1,6 @@
 # Автоматическое тестирование с помощью специального драйвера
 
-Для написания автоматических тестов для вашего приложения Electron вам понадобится способ "управлять" вашим приложением. [Spectron](https://electronjs.org/spectron) is a commonly-used solution which lets you emulate user actions via [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
+Для написания автоматических тестов для вашего приложения Electron вам понадобится способ "управлять" вашим приложением. [Spectron](https://electronjs.org/spectron) - это широко используемое решение, которое позволяет вам эмулировать действия пользователя через [WebDriver](http://webdriver.io/). However, it's also possible to write your own custom driver using node's builtin IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
 
 Для создания пользовательского драйвера мы будем использовать API [child_process](https://nodejs.org/api/child_process.html) из Node.js. Набор тестов вызовет процесс Electron, а затем установит простой протокол обмена сообщениями:
 
