@@ -182,9 +182,9 @@ Generally speaking, all advice for building performant web apps for modern brows
 *Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
 
 
-## 5) Unnecessary polyfills
+## 5) Ненужные polyfills
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Одним из преимуществ Electron является то, что вы точно знаете, какой движок будет парсить ваш JavaScript, HTML и CSS. Если вы повторно используете код, который был написан для веб в целом, убедитесь, что вы не должны полифилить функции, включенные в Electron.
 
 ### Почему?
 
