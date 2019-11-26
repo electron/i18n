@@ -34,9 +34,9 @@ process.on('message', (msg) => {
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+Теперь мы можем передавать данные из теста в приложению Electron, используя объект `appProcess`.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Для удобства, вы можете обернуть `appProcess` в объект драйвера, который предоставляет более высокоуровневые функции. Here is an example of how you can do this:
 
 ```js
 class TestDriver {
