@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "11540",
-    "translated": "8806",
+    "translated": "8810",
     "approved": "2253",
     "words": "108903",
-    "words_translated": "76391",
+    "words_translated": "76478",
     "words_approved": "18014",
     "translated_progress": 70,
     "approved_progress": 16,
@@ -133,14 +133,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "11540",
-    "translated": "1733",
+    "translated": "1734",
     "approved": "184",
     "words": "108903",
-    "words_translated": "15324",
+    "words_translated": "15325",
     "words_approved": "437",
     "translated_progress": 14,
     "approved_progress": 0,
-    "qa_issues": 1355
+    "qa_issues": 1356
   },
   {
     "name": "Indonesian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "11540",
-    "translated": "7637",
+    "translated": "7676",
     "approved": "3897",
     "words": "108903",
-    "words_translated": "62536",
+    "words_translated": "63051",
     "words_approved": "30486",
     "translated_progress": 57,
     "approved_progress": 27,
-    "qa_issues": 1458
+    "qa_issues": 1474
   },
   {
     "name": "Spanish",
