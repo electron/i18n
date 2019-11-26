@@ -81,7 +81,7 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+В приложении вам нужно будет написать простой обработчик для вызовов RPC:
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Затем в тесте можно использовать тестовый драйвер следующим образом:
 
 ```js
 var test = require('ava')
