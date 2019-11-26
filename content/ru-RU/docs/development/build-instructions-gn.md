@@ -94,7 +94,7 @@ This will generate a build directory `out/Testing` under `src/` with the testing
 To see the list of available build configuration options, run `gn args
 out/Testing --list`.
 
-**For generating Testing build config of Electron:**
+**Для генерации тестовой сборки Electron:**
 
 ```sh
 $ gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") $GN_EXTRA_ARGS"
@@ -108,7 +108,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **Чтобы построить, запустите `ninja` с целью `electron`:** Nota Bene: Это займет некоторое время и, вероятно, нагревает ваш ноутбук.
 
-For the testing configuration:
+Для конфигурации тестирования:
 
 ```sh
 $ ninja -C out/Testing electron
