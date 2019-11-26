@@ -13,31 +13,31 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 创建填充整个屏幕的窗口的示例:
 
 ```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
-
 let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+```
 
-    <br />Another example of creating a window in the external display:
+Another example of creating a window in the external display:
     
-    ```javascript
-    const { app, BrowserWindow, screen } = require('electron')
-    
-    let win
-    
-    app.on('ready', () => {
-      let displays = screen.getAllDisplays()
-      let externalDisplay = displays.find((display) => {
-        return display.bounds.x !== 0 || display.bounds.y !== 0
-      })
-    
-      if (externalDisplay) {
-        win = new BrowserWindow({
-          x: externalDisplay.bounds.x + 50,
-          y: externalDisplay.bounds.y + 50
-        })
-        win.loadURL('https://github.com')
-      }
+```javascript
+const { app, BrowserWindow, screen } = require('electron')
+
+let win
+
+app.on('ready', () => {
+  let displays = screen.getAllDisplays()
+  let externalDisplay = displays.find((display) => {
+    return display.bounds.x !== 0 || display.bounds.y !== 0
+  })
+
+  if (externalDisplay) {
+    win = new BrowserWindow({
+      x: externalDisplay.bounds.x + 50,
+      y: externalDisplay.bounds.y + 50
     })
-    
+    win.loadURL('https://github.com')
+  }
+})
+```
 
 ## 事件
 
