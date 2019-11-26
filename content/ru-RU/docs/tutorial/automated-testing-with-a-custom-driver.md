@@ -1,31 +1,31 @@
-# Автоматическое тестирование с помощью специального драйвера
+# Автоматическое тестирование с помощью собственного драйвера
 
-Для написания автоматических тестов для вашего приложения Electron вам понадобится способ "управлять" вашим приложением. [Spectron](https://electronjs.org/spectron) - это широко используемое решение, которое позволяет вам эмулировать действия пользователя через [WebDriver](http://webdriver.io/). Тем не менее, также можно написать свой собственный драйвер с помощью встроенного в узел IPC-over-STDIO. The benefit of a custom driver is that it tends to require less overhead than Spectron, and lets you expose custom methods to your test suite.
+Для написания автоматических тестов для вашего приложения Electron вам понадобится способ "управлять" вашим приложением. [Spectron](https://electronjs.org/spectron) - это широко используемое решение, которое позволяет вам эмулировать действия пользователя через [WebDriver](http://webdriver.io/). Тем не менее, также можно написать свой собственный драйвер с помощью встроенного в узел IPC-over-STDIO. Преимущество собственного драйвера состоит в том, что он требует меньше служебных данных, чем Spectron, и позволяет вам использовать собственные методы для вашего набора тестов.
 
-Для создания пользовательского драйвера мы будем использовать API [child_process](https://nodejs.org/api/child_process.html) из Node.js. Набор тестов вызовет процесс Electron, а затем установит простой протокол обмена сообщениями:
+Чтобы создать собственный драйвер, мы будем использовать Node.js API [child_process](https://nodejs.org/api/child_process.html). Набор тестов вызовет процесс Electron, а затем установит простой протокол обмена сообщениями:
 
 ```js
 var childProcess = require('child_process')
 var electronPath = require('electron')
 
-// spawn the process
+// создаем процесс
 var env = { /* ... */ }
 var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+var appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
 
-// listen for IPC messages from the app
+// лушаем IPC сообщений из приложения
 appProcess.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the app
+// отправляем IPC сообщение в приложение
 appProcess.send({ my: 'message' })
 ```
 
 Из приложения Electron вы можете прослушивать сообщения и посылать ответы с помощью API [process](https://nodejs.org/api/process.html) из Node.js:
 
 ```js
-// listen for IPC messages from the test suite
+// слушаем IPC сообщение из теста
 process.on('message', (msg) => {
   // ...
 })
