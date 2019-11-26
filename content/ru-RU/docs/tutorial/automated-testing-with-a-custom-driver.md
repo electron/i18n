@@ -30,7 +30,7 @@ process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// отправляем IPC сообщение в тест
 process.send({ my: 'message' })
 ```
 
