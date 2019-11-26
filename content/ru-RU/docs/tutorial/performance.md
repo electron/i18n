@@ -198,7 +198,7 @@ It is rare for a JavaScript-based polyfill to be faster than the equivalent nati
 
 Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+Кроме того, внимательно изучите используемые вами библиотеки. Действительно ли они необходимы? Например, `jQuery`, был настолько успешным, что многие его функции теперь являются частью [стандартного набора возможностей JavaScript](http://youmightnotneedjquery.com/).
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 
