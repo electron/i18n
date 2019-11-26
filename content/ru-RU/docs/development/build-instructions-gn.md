@@ -222,7 +222,7 @@ gclient sync -f --with_branch_heads --with_tags
 </code></pre>
     
     <p>
-      You can now <a href="testing.md#unit-tests">run the tests</a>.
+      Теперь вы можете <a href="testing.md#unit-tests">запустить тесты</a>.
     </p>
     
     <p>
