@@ -1,11 +1,11 @@
 # Istruzioni per la compilazione (Linux)
 
-Segui le seguenti linee guida per compilare Electron su Linux.
+Di seguito sono riportate le linee guida per compilare Electron in ambiente Linux.
 
 ## Prerequisiti
 
 * Almeno 25 GB di spazio su disco e 8 GB di RAM.
-* Python 2.7.x. Alcune distribuzioni, come ad esempio CentOS 6.x, utilizzano ancora Python 2.6.x potresti quindi avere la necessità di controllare la versione di Python installata con `python -V`.
+* Python 2.7.x. Alcune distribuzioni, come ad esempio CentOS 6.x, utilizzano ancora Python 2.6.x, quindi potrebbe rendersi necessario controllare la versione di Python installata con il comando `python -V`.
     
     Ti preghiamo inoltre di verificare che il tuo sistema e la versione di Python attualmente installata supportino almeno TLS 1.2. Puoi controllare rapidamente eseguendo questo script:
     
@@ -48,7 +48,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    nss-devel python-dbusmock openjdk-8-jre
 ```
 
-Altre distribuzioni possono offrire pacchetti simili per l'installazione tramite gestori di pacchetti come pacman. Oppure si possono compilare dai sorgenti.
+Altre distribuzioni possono offrire pacchetti simili per l'installazione tramite gestori di pacchetti come pacman. In alternativa è possibile compilare dai sorgenti.
 
 ### Compilazione per altre architetture
 
@@ -66,7 +66,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-E per cross-compilare per `arm` o `ia32` devi passare il parametro `target_cpu` a `gn gen`:
+E per compilare anche per le architetture `arm` o `ia32` devi passare il parametro `target_cpu` a `gn gen`:
 
 ```sh
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
@@ -78,23 +78,23 @@ Vedi [Istruzioni di Compilazione: GN](build-instructions-gn.md)
 
 ## Risoluzione dei problemi
 
-### Errore Durante il Caricamento delle Librerie Condivise: libtingo.so.5
+### Errore Durante il Caricamento delle Librerie Condivise: libtinfo.so.5
 
-`clang` precostruito proverà a collegarsi a `libtinfo.so.5`. In base all'architettura dell'host, symlink a `libncurses` appropriate:
+Il compilatore `clang` predefinito proverà a collegare le librerie `libtinfo.so.5`. In base all'architettura dell'host, creare un collegamento simbolico alla versione corretta di `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Argomenti avanzati
+## Impostazioni avanzate
 
-La configurazione di costruzione predefinita è destinata alle principali distribuzioni Linux desktop. Per creare una distribuzione o un dispositivo specifico, le seguenti informazioni potrebbero essere di aiuto.
+La configurazione predefinita di compilazione è destinata alle principali distribuzioni Linux desktop. Se desiderassi invece compilare per una distribuzione o un dispositivo specifico, le informazioni seguenti potrebbero esserti di aiuto.
 
 ### Usare `clang` di sistema invece dei binari `clang` scaricati
 
 Per impostazione predefinita Electron è compilato con binari [`clang`](https://clang.llvm.org/get_started.html) forniti dal progetto Chromium. Se per qualche ragione vuoi compilare con il `clang` installato nel tuo sistema, puoi specificare l'argomento `clang_base_path` negli argomenti GN.
 
-Per esempio se hai installato `clang` sotto `/usr/local/bin/clang`:
+Per esempio se hai installato `clang` nella cartella `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
