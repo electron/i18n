@@ -43,7 +43,7 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+Возвращает `Boolean` - был ли ярлык успешно зарегистрирован.
 
 Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
@@ -58,7 +58,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 ### `globalShortcut.registerAll(accelerators, callback)`
 
-* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `accelerators` String[] - массив [Accelerator](accelerator.md).
 * `callback` Function
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
@@ -88,4 +88,4 @@ Unregisters the global shortcut of `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Отменяет регистрацию всех глобальных ярлыков.
