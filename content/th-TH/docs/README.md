@@ -105,11 +105,11 @@ Please make sure that you use the documents that match your Electron version. �
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
 * [ทำลายการเปลี่ยนแปลง API](api/breaking-changes.md)
 
-### การสร้างสมาชิก DOM
+### องค์ประกอบที่กำหนดเอง (Automatic Translation)
 
 * [ออบเจค `File`](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [ฟังก์ชัน `window.open`](api/window-open.md)
+* [Tag `<webview>`](api/webview-tag.md)
+* [Funkcja `window.open`](api/window-open.md)
 * [`BrowserWindowProxy` Object](api/browser-window-proxy.md)
 
 ### โมดูลสำหรับกระบวนการหลัก:
@@ -126,8 +126,8 @@ Please make sure that you use the documents that match your Electron version. �
 * [เมนู](api/menu.md)
 * [รายการบนเมนู](api/menu-item.md)
 * [เน็ต](api/net.md)
-* [เน็ตล็อค](api/net-log.md)
-* [การแจ้งเตือน](api/notification.md)
+* [netLog](api/net-log.md)
+* [Pemberitahuan](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
