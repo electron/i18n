@@ -8,36 +8,43 @@ This module cannot be used until the `ready` event of the `app` module is emitte
 
 `screen` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Remarque :** Dans le renderer / DevTools, `window.screen` est une propriété réservée au DOM, alors écrire `let { screen } = require('electron')` ne fonctionnera pas.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
+```javascript fiddle='docs/fiddles/screen/fit-screen'
+const { app, BrowserWindow, screen } = require('electron')
 
-let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win
+app.on('ready', () => {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
+  win.loadURL('https://github.com')
+})
+```
 
-    <br />Another example of creating a window in the external display:
-    
-    ```javascript
-    const { app, BrowserWindow, screen } = require('electron')
-    
-    let win
-    
-    app.on('ready', () => {
-      let displays = screen.getAllDisplays()
-      let externalDisplay = displays.find((display) => {
-        return display.bounds.x !== 0 || display.bounds.y !== 0
-      })
-    
-      if (externalDisplay) {
-        win = new BrowserWindow({
-          x: externalDisplay.bounds.x + 50,
-          y: externalDisplay.bounds.y + 50
-        })
-        win.loadURL('https://github.com')
-      }
+Un autre exemple de création d'une fenêtre dans l'écran externe :
+
+```javascript
+const { app, BrowserWindow, screen } = require('electron')
+
+let win
+
+app.on('ready', () => {
+  let displays = screen.getAllDisplays()
+  let externalDisplay = displays.find((display) => {
+    return display.bounds.x !== 0 || display.bounds.y !== 0
+  })
+
+  if (externalDisplay) {
+    win = new BrowserWindow({
+      x: externalDisplay.bounds.x + 50,
+      y: externalDisplay.bounds.y + 50
     })
-    
+    win.loadURL('https://github.com')
+  }
+})
+```
 
 ## Événements
 
@@ -54,7 +61,7 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Retourne :
+Renvoie :
 
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)
@@ -101,7 +108,7 @@ Retourne [`Display`](structures/display.md) - L'écran le plus proche du point s
 
 Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les limites d'intersection données.
 
-### `screen.screenToDipPoint(point)` *Windows*
+### `screen.screenToDipPoint(point)` _Windows_
 
 * `point` [Point](structures/point.md)
 
@@ -109,7 +116,7 @@ Retourne [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
-### `screen.dipToScreenPoint(point)` *Windows*
+### `screen.dipToScreenPoint(point)` _Windows_
 
 * `point` [Point](structures/point.md)
 
@@ -117,7 +124,7 @@ Retourne [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
-### `screen.screenToDipRect(window, rect)` *Windows*
+### `screen.screenToDipRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
@@ -126,7 +133,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 
 Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
 
-### `screen.dipToScreenRect(window, rect)` *Windows*
+### `screen.dipToScreenRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
