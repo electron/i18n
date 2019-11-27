@@ -1,6 +1,6 @@
 # Производительность
 
-Developers frequently ask about strategies to optimize the performance of Electron applications. Software engineers, consumers, and framework developers do not always agree on one single definition of what "performance" means. This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
+Разработчики часто спрашивают о стратегиях оптимизации производительности приложений Electron. Software engineers, consumers, and framework developers do not always agree on one single definition of what "performance" means. This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
 
 Wisdom and information about how to build performant websites with JavaScript generally applies to Electron apps, too. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
 
@@ -8,7 +8,7 @@ This list is provided for your convenience – and is, much like our [security c
 
 ## Measure, Measure, Measure
 
-The list below contains a number of steps that are fairly straightforward and easy to implement. However, building the most performant version of your app will require you to go beyond a number of steps. Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
+В приведенном ниже списке содержится ряд шагов, которые достаточно просты и легко осуществить. Тем не менее, создание наиболее эффективной версии вашего приложения потребует вас выйти за рамки нескольких шагов. Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
 
 Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
 
@@ -140,7 +140,7 @@ module.exports = { parser }
 
 In short, allocate resources "just in time" rather than allocating them all when your app starts.
 
-## 3) Blocking the main process
+## 3) Блокировка основного процесса
 
 Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
 
@@ -182,9 +182,9 @@ Generally speaking, all advice for building performant web apps for modern brows
 *Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
 
 
-## 5) Unnecessary polyfills
+## 5) Ненужные polyfills
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Одним из преимуществ Electron является то, что вы точно знаете, какой движок будет парсить ваш JavaScript, HTML и CSS. Если вы повторно используете код, который был написан для веб в целом, убедитесь, что вы не должны полифилить функции, включенные в Electron.
 
 ### Почему?
 
@@ -198,7 +198,7 @@ It is rare for a JavaScript-based polyfill to be faster than the equivalent nati
 
 Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+Кроме того, внимательно изучите используемые вами библиотеки. Действительно ли они необходимы? Например, `jQuery`, был настолько успешным, что многие его функции теперь являются частью [стандартного набора возможностей JavaScript](http://youmightnotneedjquery.com/).
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 
