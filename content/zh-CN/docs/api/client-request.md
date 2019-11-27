@@ -36,7 +36,7 @@ const request = net.request({
 
 ### 实例事件
 
-#### Event: 'response'
+#### 事件: 'response'
 
 返回:
 
@@ -83,15 +83,15 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### 事件：'finish'
 
 在 `request` 最终的 chunk 数据后写入 `request` 后触发
 
-#### Event: 'abort'
+#### 事件: 'abort'
 
 当 `request`请求被中止时发出。如果`request` 请求已经关闭， `abort`中止事件将不会被触发。
 
-#### Event: 'error'
+#### 事件: 'error'
 
 返回:
 
@@ -103,7 +103,7 @@ request.on('login', (authInfo, callback) => {
 
 作为HTTP 的 request-response 中的最后一个事件发出。 `close`事件表明，在`request`或`response` 对象中不会发出更多的事件。
 
-#### Event: 'redirect'
+#### 事件: 'redirect'
 
 返回:
 
