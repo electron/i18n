@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // и загрузить index.html приложения.
   win.loadFile('index.html')
 }
 
@@ -116,7 +116,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // и загрузить index.html приложения.
   win.loadFile('index.html')
 
   // Отображаем средства разработчика.
@@ -164,15 +164,15 @@ app.on('activate', () => {
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Привет мир!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    <h1>Привет мир!</h1>
+    Мы используем node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    и Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
