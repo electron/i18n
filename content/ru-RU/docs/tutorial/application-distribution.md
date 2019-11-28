@@ -79,12 +79,12 @@ electron/resources/
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
