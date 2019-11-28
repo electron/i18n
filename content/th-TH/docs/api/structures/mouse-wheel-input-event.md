@@ -1,6 +1,6 @@
 # 0601020006470
 
-* `type` String - The type of the event, can be `mouseWheel`.
+* Alounkone
 * `deltaX` Integer (optional)
 * `deltaY` Integer (optional)
 * `wheelTicksX` Integer (optional)
