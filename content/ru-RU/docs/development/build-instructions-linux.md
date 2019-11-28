@@ -66,7 +66,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+И для кросс-компиляции для `arm` или `ia32`, вам нужно использовать `--target_arch` параметр для `` скрипта:
 
 ```sh
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'

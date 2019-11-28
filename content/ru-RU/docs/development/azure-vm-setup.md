@@ -4,7 +4,7 @@ Electron CI на Windows использует AppVeyor, который в сво
 
 Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
 
-Example Use Case:
+Пример применения:
 
     * We need `VS15.9` and we have `VS15.7` installed; this would require us to update an Azure image.
     
