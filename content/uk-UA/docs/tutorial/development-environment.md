@@ -1,10 +1,10 @@
 # Середовище розробника
 
-Розробка Electron це, по суті, розробка Node.js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Розробка Electron це, по суті, розробка Node.js. Щоб перетворити вашу операційну систему в середовище, здатне створювати настільні програми за допомогою Electron, вам знадобляться лише Node.js, npm, редактор коду на ваш вибір і елементарне розуміння клієнта командного рядка вашої операційної системи.
 
-## Налаштовування macOS
+## Налаштовування в macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron підтримує macOS 10.10 (Yosemite) та вище. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
 First, install a recent version of Node.js. We recommend that you install either the latest `LTS` or `Current` version available. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
