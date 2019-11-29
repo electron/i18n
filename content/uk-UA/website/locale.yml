@@ -16,8 +16,8 @@ nav:
   governance: Керування
 keyboard_modal:
   title: Гарячі Клавіші
-  key: Ключі
-  action: Дії
+  key: Клавіша
+  action: Дія
   focus_search: Сфокусуватися на полі пошуку
   focus_and_clear: Foque na barra de pesquisa e apague o texto
   scroll_down: Вибрати наступний результат пошуку

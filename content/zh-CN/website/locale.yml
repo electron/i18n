@@ -165,8 +165,8 @@ clipboard:
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: 启动
+  launch_in_fiddle: 在Fiddle中启动
 or: 或
 pages:
   '/':
@@ -237,8 +237,8 @@ governance:
   description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
   wgs: 工作组
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: 生态
+    description: 关注可以更方便开发Electron应用的项目
   outreach:
     title: 覆盖
     description: 壮大 Electron 社区
@@ -259,7 +259,7 @@ governance:
     description: 行政工作组监督整个治理和项目。
   api:
     title: 应用开发接口（API）
-    description: Oversees public API design based on project principles.
+    description: 根据项目原则监督公共API设计。
   global:
     overview: 概览
     associated_repos: 相关代码仓库
