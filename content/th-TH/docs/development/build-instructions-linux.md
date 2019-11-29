@@ -4,8 +4,8 @@
 
 ## Требования
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* https://crowdin. com/translate/electron/66772/en-th#2272188
+* ALOUNKONE
     
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
