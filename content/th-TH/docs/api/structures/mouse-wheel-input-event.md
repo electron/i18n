@@ -1,6 +1,6 @@
-# 0601020006470
+# MouseWheelInputEvent Object extends `MouseInputEvent`
 
-* Alounkone
+* `type` String - The type of the event, can be `mouseWheel`.
 * `deltaX` Integer (optional)
 * `deltaY` Integer (optional)
 * `wheelTicksX` Integer (optional)
