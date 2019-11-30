@@ -38,13 +38,13 @@ Process: [Main](../glossary.md#main-process)
 
 Роли позволяют элементам класса menu иметь заранее определенные поведения.
 
-Лучше всего указать `role` для любого элемента меню, который соответствует стандартной роли, а не пытаться вручную реализовать поведение в функции `click`. The built-in `role` behavior will give the best native experience.
+Лучше всего указать `role` для любого элемента меню, который соответствует стандартной роли, а не пытаться вручную реализовать поведение в функции `click`. Встроенное поведение `role` даст наилучшую нативную возможность использования.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+Значения `label` и `accelerator` необязательны при использовании `role` и по умолчанию будут присваиваться для каждой для каждой платформы.
 
-Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+Каждый элемент меню должен иметь `role` или `label`, или в случае разделителя `type`.
 
-The `role` property can have following values:
+Свойство `role` может иметь следующие значения:
 
 * `undo - Отменить`
 * `redo - Восстановить`
