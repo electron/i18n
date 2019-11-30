@@ -54,19 +54,19 @@ The `role` property can have following values:
 * `pasteAndMatchStyle - Вставить и применить стиль`
 * `selectAll - Выделить все`
 * `delete - Удалить`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit` - Quit the application.
-* `reload` - Reload the current window.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `togglefullscreen` - Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
-* `fileMenu` - Whole default "File" menu (Close / Quit)
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `minimize` - Свернуть текущее окно.
+* `close` - Закрыть текущее окно.
+* `quit` - Выйти из приложения.
+* `reload` - Перезагрузить текущее окно.
+* `forceReload` - Перезагрузить текущее окно, игнорировать кэш.
+* `toggleDevTools` - Включить инструмент разработчика для текущего окна.
+* `togglefullscreen` -Включить полноэкранный режим для текущего окна.
+* `resetZoom` - Сброс измененного масштаба страницы до исходного размера.
+* `zoomIn` - Увеличение масштаба страницы на 10%.
+* `zoomOut` - Уменьшение масштаба страницы на 10%.
+* `fileMenu` - Полное меню "Файл" по умолчанию (Закрыть/Выйти)
+* `editMenu` - Полное меню "Редактировать" (Отменить, копировать и т. д.).
+* `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on *macOS*:
