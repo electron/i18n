@@ -30,23 +30,23 @@ Process: [Main](../glossary.md#main-process)
 
 `error` Error - Содержит строку ошибки, идентифицирующую причину отказа.
 
-Возникает при обнаружении ошибки во время потоковой передачи ответных данных. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Возникает при обнаружении ошибки во время потоковой передачи ответных данных. Например, если сервер закрывает базовый объект во время потоковой передачи ответа, объекту ответа будет выдано `error`, а событие `close` впоследствии будет выдано объекту запроса.
 
 ### Свойства экземпляра
 
-An `IncomingMessage` instance has the following readable properties:
+`IncomingMessage` имеет следующие свойства для чтения:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+`Integer` с указанием кода ответа HTTP.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+`String`, представляющая сообщение о состоянии HTTP.
 
 #### `response.headers`
 
-An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Record<string, string[]>` представляет заголовки ответа HTTP. Объект `headers` имеет следующий формат:
 
 * All header names are lowercased.
 * Each header name produces an array-valued property on the headers object.
