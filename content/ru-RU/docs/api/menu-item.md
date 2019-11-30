@@ -46,14 +46,14 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 The `role` property can have following values:
 
-* `undo`
-* `redo`
-* `cut`
-* `копировать`
-* `paste`
-* `pasteAndMatchStyle`
-* `selectAll`
-* `delete`
+* `undo - Отменить`
+* `redo - Восстановить`
+* `cut - Вырезать`
+* `copy - Копировать`
+* `paste - Вставить`
+* `pasteAndMatchStyle - Вставить и применить стиль`
+* `selectAll - Выделить все`
+* `delete - Удалить`
 * `minimize` - Minimize current window.
 * `close` - Close current window.
 * `quit` - Quit the application.
