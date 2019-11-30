@@ -67,11 +67,11 @@ The `role` property can have following values:
 * `fileMenu` - Полное меню "Файл" по умолчанию (Закрыть/Выйти)
 * `editMenu` - Полное меню "Редактировать" (Отменить, копировать и т. д.).
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
+* `windowMenu` - Полное меню "Окно" по умолчанию (Свернуть, масштаб и т. д.).
 
 The following additional roles are available on *macOS*:
 
-* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
 * `about` - Map to the `orderFrontStandardAboutPanel` action.
 * `hide` - Map to the `hide` action.
 * `hideOthers` - Map to the `hideOtherApplications` action.
@@ -87,7 +87,7 @@ The following additional roles are available on *macOS*:
 * `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
 * `window` - The submenu is a "Window" menu.
 * `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
+* `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
 * `recentDocuments` - The submenu is an "Open Recent" menu.
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
@@ -117,19 +117,19 @@ The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.submenu`
 
-A `Menu` (optional) containing the menu item's submenu, if present.
+`Menu` (опционально), содержащие подменю пункты, если таковые имеются.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+`Строка`с указанием типа предмета. Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
 
 #### `menuItem.role`
 
-`Строка` (опционально) с указанием роли элемента, если установлено. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+`String` (опционально) с указанием роли элемента, если установлено. Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu`
 
 #### `menuItem.accelerator`
 
-A `Accelerator` (optional) indicating the item's accelerator, if set.
+`Accelerator` (опционально) с указанием ускорителя элемента, если установлено.
 
 #### `menuItem.icon`
 
