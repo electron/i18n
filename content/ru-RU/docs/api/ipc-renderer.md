@@ -49,20 +49,20 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 * `channel` String (Строка)
 * `...args` any[]
 
-Отправить сообщение в основной процесс асинхронно через `channel`, также можно отправить произвольные аргументы. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Отправить сообщение в основной процесс асинхронно через `channel`, также можно отправить произвольные аргументы. Аргументы будут упорядоченны внутри в формате JSON и поэтому не будут включены в функции или цепочки прототипов.
 
-The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+Основной процесс обрабатывает его путем прослушивания `channel` с модулем [`ipcMain`](ipc-main.md).
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Returns `Promise<any>` - Resolves with the response from the main process.
+Возвращает `Promise<any>` - Разрешается с ответом от основного процесса.
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Отправьте сообщение основному процессу асинхронно по `channel` и ожидайте асинхронного результата. Аргументы будут упорядоченны внутри в формате JSON и поэтому не будут включены в функции или цепочки прототипов.
 
-The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+Основной процесс должен прослушивать `channel` с [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Например:
 
@@ -98,7 +98,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` String (Строка)
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+Отправляет сообщение в окно с помощью `webContentsId` через `channel`.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
