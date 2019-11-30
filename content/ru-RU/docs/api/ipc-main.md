@@ -86,7 +86,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 Добавляет обработчик `invoke` с IPC. Этот обработчик будет вызываться всякий раз, когда устройство вызовет `ipcRenderer.invoke(channel, ...args)`.
 
-If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+Если `listener` возвращает Promise, то конечный результат Promise, будет возвращен в качестве ответа удаленному вызывающему объекту. В противном случае, возвращаемое значение слушателя будет использоваться как значение ответа.
 
 ```js
 // Main process
