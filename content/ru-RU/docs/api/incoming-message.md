@@ -14,21 +14,21 @@ Process: [Main](../glossary.md#main-process)
 
 * `chunk` Buffer - Часть данных в теле ответа.
 
-The `data` event is the usual method of transferring response data into applicative code.
+Событие `data` является обычным способом передачи данных ответа в применимый код.
 
 #### Событие: 'end'
 
-Indicates that response body has ended.
+Указывает, что тело ответа закончилось.
 
 #### Событие: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Возникает, когда запрос был отменен во время текущей HTTP-транзакции.
 
 #### Событие: 'error'
 
 Возвращает:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - Содержит строку ошибки, идентифицирующую причину отказа.
 
 Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
