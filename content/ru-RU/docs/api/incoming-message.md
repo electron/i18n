@@ -54,11 +54,11 @@ An `Record<string, string[]>` представляет заголовки отв
 
 #### `response.httpVersion`
 
-`String` с указанием номера HTTP протокола. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+`String` с указанием номера HTTP протокола. Типичные значения: «1.0» или «1.1». Дополнительно `httpVersionMajor` и `httpVersionMinor` являются двумя целочисленными читаемыми свойствами, которые возвращают соответственно основные и второстепенные номера версий HTTP.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+`Integer` с указанием основной версии протокола HTTP.
 
 #### `response.httpVersionMinor`
 
