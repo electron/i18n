@@ -61,7 +61,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Добавляет функцию `listener` для события. При этом `listener` вызывается только тогда, когда сообщение отправляется в `channel`, после чего оно удаляется.
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -84,7 +84,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Добавляет обработчик `invoke` с IPC. Этот обработчик будет вызываться всякий раз, когда устройство вызовет `ipcRenderer.invoke(channel, ...args)`.
+Добавляет обработчик для `invoke` вызываемого IPC. Этот обработчик будет вызываться всякий раз, когда устройство вызовет `ipcRenderer.invoke(channel, ...args)`.
 
 Если `listener` возвращает Promise, то конечный результат Promise, будет возвращен в качестве ответа удаленному вызывающему объекту. В противном случае, возвращаемое значение слушателя будет использоваться как значение ответа.
 
@@ -111,13 +111,13 @@ async () => {
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Обрабатывает одно `invoke` вызываемое IPC сообщение, а затем удаляет слушателя. Смотрите `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 
 * `channel` String (Строка)
 
-Removes any handler for `channel`, if present.
+Удаляет обработчик для `channel`, если он присутствует.
 
 ## IpcMainEvent object
 
