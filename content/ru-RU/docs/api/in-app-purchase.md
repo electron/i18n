@@ -26,9 +26,9 @@
 * `productID` String - Идентификаторы продукта для покупки. (Идентификатор `com.example.app.product1` это `product1`).
 * `quantity` Integer (опционально) - Количество товаров, которое хочет приобрести пользователь.
 
-Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
+Возвращает `Promise<Boolean>` - Возвращает `true`, если товар действителен и добавлен в очередь платежей.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Вы должны начать считывать событие `transactions-updated` как можно скорее и в любом случае перед тем, как вызвать `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs)`
 
