@@ -105,7 +105,7 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` String (Строка)
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Как `ipcRenderer.send`, но событие будет отправлено в элемент `<webview>` на главной странице вместо основного процесса.
 
 ## Объект события
 
