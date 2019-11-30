@@ -20,11 +20,11 @@ Process: [Main](../glossary.md#main-process)
   * `toolTip` String (опционально) *macOS* - Текст при наведении на этот пункт меню.
   * `accelerator` [Accelerator](accelerator.md) (опционально)
   * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `registerAccelerator` Boolean (optional) *Linux* *Windows* - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `enabled` Boolean (опционально) - Если false, пункт меню выделится серым цветом и не будет нажимться.
+  * `acceleratorWorksWhenHidden` Boolean (опционально) *macOS* - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
+  * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
+  * `checked` Boolean (опционально) - Должно быть указано только для `checkbox` или `radio` типов элементов меню.
+  * `registerAccelerator` Boolean (опционально) *Linux* *Windows* - Если false, accelerator не будет зарегистрирован в системе, но он будет по-прежнему отображаться. По умолчанию true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
