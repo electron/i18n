@@ -10,7 +10,7 @@
 
 ### Статические методы
 
-The `Menu` class has the following static methods:
+Класс `Menu` имеет следующие статические методы:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -90,7 +90,7 @@ The `Menu` class has the following static methods:
 
 ### События экземпляра
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Объекты созданные с помощью `new Menu` или возвращенные из `Menu.buildFromTemplate` вызывают следующие события:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
