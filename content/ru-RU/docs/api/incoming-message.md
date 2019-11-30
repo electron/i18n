@@ -12,7 +12,7 @@ Process: [Main](../glossary.md#main-process)
 
 Возвращает:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Часть данных в теле ответа.
 
 The `data` event is the usual method of transferring response data into applicative code.
 
