@@ -109,4 +109,4 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 ## Объект события
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+Документацию для объекта `event`, передаваемого в `callback`, можно найти в документации по структуре [`ipc-renderer-event`](structures/ipc-renderer-event.md).
