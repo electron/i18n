@@ -62,4 +62,4 @@ An `Record<string, string[]>` представляет заголовки отв
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+`Integer`, указание номера младшей версии протокола HTTP.
