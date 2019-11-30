@@ -6,25 +6,25 @@
 
 ## События
 
-The `inAppPurchase` module emits the following events:
+Модуль `inAppPurchase` генерирует следующие события:
 
 ### Ивент: 'transactions-updated'
 
-Emitted when one or more transactions have been updated.
+Возникает при обновлении одной или нескольких транзакций.
 
 Возвращает:
 
 * Событие типа `event`
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` Transaction[] - Массив [`Transaction`](structures/transaction.md) объектов.
 
 ## Методы
 
-The `inAppPurchase` module has the following methods:
+Модуль `inAppPurchase` имеет следующие методы:
 
 ### `inAppPurchase.purchaseProduct(productID[, quantity])`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
-* `quantity` Integer (optional) - The number of items the user wants to purchase.
+* `productID` String - Идентификаторы продукта для покупки. (Идентификатор `com.example.app.product1` это `product1`).
+* `quantity` Integer (опционально) - Количество товаров, которое хочет приобрести пользователь.
 
 Returns `Promise<Boolean>` - Returns `true` if the product is valid and added to the payment queue.
 
