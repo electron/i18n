@@ -48,13 +48,13 @@ Process: [Main](../glossary.md#main-process)
 
 An `Record<string, string[]>` представляет заголовки ответа HTTP. Объект `headers` имеет следующий формат:
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Все имена заголовков в нижнем регистре.
+* Каждое название заголовка создает свойство массива в объекте заголовков.
+* Каждое значение заголовка попадает в массив, связанный с его именем заголовка.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+`String` с указанием номера HTTP протокола. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
 
 #### `response.httpVersionMajor`
 
