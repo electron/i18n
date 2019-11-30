@@ -102,7 +102,7 @@ async () => {
 }
 ```
 
-The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+`event`, которое передается обработчику в качестве первого аргумента, такое же, какое передается обычному прослушивателю событий. Оно включает информацию о том, какой WebContents является источником запроса на вызов.
 
 ### `ipcMain.handleOnce(channel, listener)`
 
