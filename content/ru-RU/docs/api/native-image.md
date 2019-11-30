@@ -29,7 +29,7 @@ console.log(appIcon)
 
 В настоящее время поддерживаются форматы изображений `PNG` и `JPEG`. Рекомендуется `PNG`, поскольку он поддерживает прозрачность и сжатие без потерь.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+В Windows вы также можете загрузить значки `ICO` из путей к файлам. Для лучшего визуального качества рекомендуется включить по крайней мере следующие размеры:
 
 * Мелкие значки 
  * 16x16 (100% DPI scale)
