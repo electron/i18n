@@ -31,27 +31,27 @@ Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended bec
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
-* Small icon 
+* Мелкие значки 
  * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
  * 32x32 (200% DPI scale)
-* Large icon 
+* Большие значки 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
  * 64x64 (200% DPI scale)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Проверьте раздел *Size requirements* в [этой статье](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
 ## Изображения с высоким разрешением
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+На платформах, имеющих поддержку высокого DPI, таких как дисплеи Apple Retina, вы можете добавить `@2x` после имени файла изображения, чтобы пометить его как изображение с высоким разрешением.
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Например, если `icon.png` является нормальным изображением, которое имеет стандартное разрешение, то `icon@2x.png` будет рассматриваться как изображение с высоким разрешением, с двойной плотностью DPI.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+Если вы хотите поддерживать дисплей с разными частотами DPI одновременно, вы можете поместить изображения с разными размерами в одну и ту же папку и использовать имя файла без суффиксов DPI. Например:
 
 ```plaintext
 images/
@@ -80,7 +80,7 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## Шаблон изображения
 
 Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `NativeImage`
 
