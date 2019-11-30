@@ -16,7 +16,7 @@ let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+Или прочтите изображение из буфера обмена, который возвращает `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -27,7 +27,7 @@ console.log(appIcon)
 
 ## Поддерживаемые форматы
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+В настоящее время поддерживаются форматы изображений `PNG` и `JPEG`. Рекомендуется `PNG`, поскольку он поддерживает прозрачность и сжатие без потерь.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
@@ -125,16 +125,16 @@ console.log(image)
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap pixel data returned by `toBitmap()`. The specific format is platform-dependent.
+Создает новый `NativeImage` экземпляр из `buffer`, который содержит необработанную растровую карту пиксельных данных, возвращенных `toBitmap()`. Конкретный формат зависит от платформы.
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (опционально) * `width` Integer (опционально) - требуется для буферов растровых изображений. * `height` Integer (опционально) - требуется для буферов растровых изображений. * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JPEG first.
+Создает новый `NativeImage` из `buffer`. Сначала пытается декодировать как PNG или JPEG.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -142,12 +142,12 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+Создает новый `NativeImage` из `dataURL`.
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
 * `imageName` String
-* `hslShift` Number[] (optional)
+* `hslShift` Number[] (опционально)
 
 Возвращает `NativeImage`
 
