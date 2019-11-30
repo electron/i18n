@@ -121,8 +121,8 @@ async () => {
 
 ## IpcMainEvent object
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+Документацию для объекта `event`, передаваемого в `callback`, можно найти в документации по структуре [`ipc-main-event`](structures/ipc-main-event.md).
 
 ## IpcMainInvokeEvent object
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+Документацию по объекту `event`, переданном обратным вызовом `handle`, можно найти в документации по структуре [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md).
