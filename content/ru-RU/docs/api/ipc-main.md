@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
+Модуль `ipcMain` представляет собой [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
 
 ## Отправка сообщений
 
@@ -12,7 +12,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* Чтобы отправить ассинхронное сообщение назад отправителю, используйте `event.reply(...)`. Этот вспомогательный метод автоматически обрабатывает сообщения, поступающие из фреймов, которые не являются основным фреймом (например, iframe), в то время как `event.sender.send(...)` всегда будет посылать в основной фрейм.
 
 Пример отправки и обработки сообщений между render и main процессами:
 
