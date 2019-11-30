@@ -73,7 +73,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (опционально)
 
 Удаляет всех слушателей `channel`.
 
@@ -84,7 +84,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+Добавляет обработчик `invoke` с IPC. Этот обработчик будет вызываться всякий раз, когда устройство вызовет `ipcRenderer.invoke(channel, ...args)`.
 
 If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
 
