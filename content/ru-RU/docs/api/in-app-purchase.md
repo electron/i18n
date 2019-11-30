@@ -32,26 +32,26 @@
 
 ### `inAppPurchase.getProducts(productIDs)`
 
-* `productIDs` String[] - The identifiers of the products to get.
+* `productIDs` String[] - Идентификаторы получаемых продуктов.
 
-Returns `Promise<Product[]>` - Resolves with an array of [`Product`](structures/product.md) objects.
+Возвращает `Promise<Product[]>` - Разрешает с массив объектов [`Product`](structures/product.md).
 
-Retrieves the product descriptions.
+Получает описания товара.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Возвращает `Boolean`, может ли пользователь произвести платеж.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Возвращает `String`, путь к чеку (квитанции).
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Завершает все ожидающие транзакции.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - Дата завершения транзакции в формате ISO.
 
-Completes the pending transactions corresponding to the date.
+Завершает отложенные транзакции, соответствующие дате.
