@@ -47,9 +47,9 @@ app.on('will-quit', () => {
 
 Регистрирует глобальную комбинацию клавиш `accelerator`. `callback` вызывается, когда зарегистрированное сочетание нажато пользователем.
 
-Когда ускоритель уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
+Когда accelerator уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Следующие accelerators не будут успешно зарегистрированы на macOS 10.14 Mojave, если приложение не было авторизовано в качестве [доверенного клиента специальных возможностей](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
 * "Media Play/Pause"
 * "Media Next Track"
@@ -65,7 +65,7 @@ Registers a global shortcut of all `accelerator` items in `accelerators`. The `c
 
 Когда определенный ускоритель уже занят другими приложениями, этот вызов будет молча завершаться ошибкой. Такое поведение назначается операционными системами, поскольку они не хотят, чтобы приложения боролись за глобальные сочетания клавиш.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Следующие accelerators не будут успешно зарегистрированы на macOS 10.14 Mojave, если приложение не было авторизовано в качестве [доверенного клиента специальных возможностей](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
 * "Media Play/Pause"
 * "Media Next Track"
