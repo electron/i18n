@@ -14,11 +14,11 @@ Emitted when something in the underlying NativeTheme has changed. This normally 
 
 ## 属性
 
-The `nativeTheme` module has the following properties:
+`nativeTheme` 模块具备以下属性：
 
-### `nativeTheme.shouldUseDarkColors` _Readonly_
+### `nativeTheme.shouldUseDarkColors` _只读_
 
-A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is being instructed to show a dark-style UI.  If you want to modify this value you should use `themeSource` below.
+此属性的值为一个 `Boolean` 类型的值，代表着当前OS / Chromium是否正处于dark模式。或者应用程序是否正被建议使用dark模式的皮肤  如果你希望修改此属性的值，你应该使用下面的 `themeSource`属性
 
 ### `nativeTheme.themeSource`
 

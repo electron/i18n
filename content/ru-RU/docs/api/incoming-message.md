@@ -12,54 +12,54 @@ Process: [Main](../glossary.md#main-process)
 
 Возвращает:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Часть данных в теле ответа.
 
-The `data` event is the usual method of transferring response data into applicative code.
+Событие `data` является обычным способом передачи данных ответа в применимый код.
 
 #### Событие: 'end'
 
-Indicates that response body has ended.
+Указывает, что тело ответа закончилось.
 
 #### Событие: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Возникает, когда запрос был отменен во время текущей HTTP-транзакции.
 
 #### Событие: 'error'
 
 Возвращает:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - Содержит строку ошибки, идентифицирующую причину отказа.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Возникает при обнаружении ошибки во время потоковой передачи ответных данных. Например, если сервер закрывает базовый объект во время потоковой передачи ответа, объекту ответа будет выдано `error`, а событие `close` впоследствии будет выдано объекту запроса.
 
 ### Свойства экземпляра
 
-An `IncomingMessage` instance has the following readable properties:
+`IncomingMessage` имеет следующие свойства для чтения:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+`Integer` с указанием кода ответа HTTP.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+`String`, представляющая сообщение о состоянии HTTP.
 
 #### `response.headers`
 
-An `Record<string, string[]>` representing the response HTTP headers. The `headers` object is formatted as follows:
+An `Record<string, string[]>` представляет заголовки ответа HTTP. Объект `headers` имеет следующий формат:
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Все имена заголовков в нижнем регистре.
+* Каждое название заголовка создает свойство массива в объекте заголовков.
+* Каждое значение заголовка попадает в массив, связанный с его именем заголовка.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+`String` с указанием номера HTTP протокола. Типичные значения: «1.0» или «1.1». Дополнительно `httpVersionMajor` и `httpVersionMinor` являются двумя целочисленными читаемыми свойствами, которые возвращают соответственно основные и второстепенные номера версий HTTP.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+`Integer` с указанием основной версии протокола HTTP.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+`Integer`, указание номера младшей версии протокола HTTP.

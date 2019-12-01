@@ -1,12 +1,12 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Асинхронное взаимодействие между процессом визуализации и основным процессом.
 
 Процесс: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+Модуль `ipcRenderer` представляет собой [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Он предоставляет несколько методов, чтобы вы могли отправлять синхронные и асинхронные сообщения из процесса визуализации (веб-страницы) в основной процесс. Вы также можете получать ответы от главного процесса.
 
-See [ipcMain](ipc-main.md) for code examples.
+Примеры кода смотрите в [ipcMain](ipc-main.md).
 
 ## Методы
 
@@ -42,27 +42,27 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 * `channel` String (Строка)
 
-Removes all listeners, or those of the specified `channel`.
+Удаляет всех слушателей или слушателей из указанного `channel`.
 
 ### `ipcRenderer.send(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Отправить сообщение в основной процесс асинхронно через `channel`, также можно отправить произвольные аргументы. Аргументы будут упорядоченны внутри в формате JSON и поэтому не будут включены в функции или цепочки прототипов.
 
-The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
+Основной процесс обрабатывает его путем прослушивания `channel` с модулем [`ipcMain`](ipc-main.md).
 
 ### `ipcRenderer.invoke(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Returns `Promise<any>` - Resolves with the response from the main process.
+Возвращает `Promise<any>` - Разрешается с ответом от основного процесса.
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Отправьте сообщение основному процессу асинхронно по `channel` и ожидайте асинхронного результата. Аргументы будут упорядоченны внутри в формате JSON и поэтому не будут включены в функции или цепочки прототипов.
 
-The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
+Основной процесс должен прослушивать `channel` с [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
 Например:
 
@@ -98,15 +98,15 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 * `channel` String (Строка)
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+Отправляет сообщение в окно с помощью `webContentsId` через `channel`.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` String (Строка)
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Как `ipcRenderer.send`, но событие будет отправлено в элемент `<webview>` на главной странице вместо основного процесса.
 
 ## Объект события
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+Документацию для объекта `event`, передаваемого в `callback`, можно найти в документации по структуре [`ipc-renderer-event`](structures/ipc-renderer-event.md).

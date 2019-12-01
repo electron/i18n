@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
+Модуль `ipcMain` представляет собой [Event Emitter](https://nodejs.org/api/events.html#events_class_eventemitter). При использовании в основном процессе он обрабатывает асинхронные и синхронные сообщения, отправленные из процесса рендеринга (веб-страницы). Сообщения, отправленные из процесса рендеринга, будут направлены в этот модуль.
 
 ## Отправка сообщений
 
@@ -12,7 +12,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
+* Чтобы отправить ассинхронное сообщение назад отправителю, используйте `event.reply(...)`. Этот вспомогательный метод автоматически обрабатывает сообщения, поступающие из фреймов, которые не являются основным фреймом (например, iframe), в то время как `event.sender.send(...)` всегда будет посылать в основной фрейм.
 
 Пример отправки и обработки сообщений между render и main процессами:
 
@@ -61,7 +61,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
   * `event` IpcMainEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Добавляет функцию `listener` для события. При этом `listener` вызывается только тогда, когда сообщение отправляется в `channel`, после чего оно удаляется.
 
 ### `ipcMain.removeListener(channel, listener)`
 
@@ -73,7 +73,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (опционально)
 
 Удаляет всех слушателей `channel`.
 
@@ -84,9 +84,9 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Adds a handler for an `invoke`able IPC. This handler will be called whenever a renderer calls `ipcRenderer.invoke(channel, ...args)`.
+Добавляет обработчик для `invoke` вызываемого IPC. Этот обработчик будет вызываться всякий раз, когда устройство вызовет `ipcRenderer.invoke(channel, ...args)`.
 
-If `listener` returns a Promise, the eventual result of the promise will be returned as a reply to the remote caller. Otherwise, the return value of the listener will be used as the value of the reply.
+Если `listener` возвращает Promise, то конечный результат Promise, будет возвращен в качестве ответа удаленному вызывающему объекту. В противном случае, возвращаемое значение слушателя будет использоваться как значение ответа.
 
 ```js
 // Main process
@@ -102,7 +102,7 @@ async () => {
 }
 ```
 
-The `event` that is passed as the first argument to the handler is the same as that passed to a regular event listener. It includes information about which WebContents is the source of the invoke request.
+`event`, которое передается обработчику в качестве первого аргумента, такое же, какое передается обычному прослушивателю событий. Оно включает информацию о том, какой WebContents является источником запроса на вызов.
 
 ### `ipcMain.handleOnce(channel, listener)`
 
@@ -111,18 +111,18 @@ The `event` that is passed as the first argument to the handler is the same as t
   * `event` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Обрабатывает одно `invoke` вызываемое IPC сообщение, а затем удаляет слушателя. Смотрите `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 
 * `channel` String (Строка)
 
-Removes any handler for `channel`, if present.
+Удаляет обработчик для `channel`, если он присутствует.
 
 ## IpcMainEvent object
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+Документацию для объекта `event`, передаваемого в `callback`, можно найти в документации по структуре [`ipc-main-event`](structures/ipc-main-event.md).
 
 ## IpcMainInvokeEvent object
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+Документацию по объекту `event`, переданном обратным вызовом `handle`, можно найти в документации по структуре [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md).
