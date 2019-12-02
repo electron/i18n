@@ -4,40 +4,49 @@
 
 Процесс: [Главный](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+This module cannot be used until the `ready` event of the `app`
+module is emitted.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` is an [EventEmitter][event-emitter].
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM
+property, so writing `let { screen } = require('electron')` will not work.
 
 An example of creating a window that fills the whole screen:
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
+```javascript fiddle='docs/fiddles/screen/fit-screen'
+const { app, BrowserWindow, screen } = require('electron')
 
-let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win
+app.on('ready', () => {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
+  win.loadURL('https://github.com')
+})
+```
 
-    <br />Another example of creating a window in the external display:
-    
-    ```javascript
-    const { app, BrowserWindow, screen } = require('electron')
-    
-    let win
-    
-    app.on('ready', () => {
-      let displays = screen.getAllDisplays()
-      let externalDisplay = displays.find((display) => {
-        return display.bounds.x !== 0 || display.bounds.y !== 0
-      })
-    
-      if (externalDisplay) {
-        win = new BrowserWindow({
-          x: externalDisplay.bounds.x + 50,
-          y: externalDisplay.bounds.y + 50
-        })
-        win.loadURL('https://github.com')
-      }
+Another example of creating a window in the external display:
+
+```javascript
+const { app, BrowserWindow, screen } = require('electron')
+
+let win
+
+app.on('ready', () => {
+  let displays = screen.getAllDisplays()
+  let externalDisplay = displays.find((display) => {
+    return display.bounds.x !== 0 || display.bounds.y !== 0
+  })
+
+  if (externalDisplay) {
+    win = new BrowserWindow({
+      x: externalDisplay.bounds.x + 50,
+      y: externalDisplay.bounds.y + 50
     })
-    
+    win.loadURL('https://github.com')
+  }
+})
+```
 
 ## События
 
