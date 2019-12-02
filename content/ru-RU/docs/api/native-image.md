@@ -4,9 +4,9 @@
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+В Electron для API, которые принимают изображения, можно передать либо пути к файлам, либо экземпляры`NativeImage`. При передаче значения `null` будет использоваться пустое изображение.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Например, при создании вкладки в области уведомлений или установке иконки окна можно задать путь к файлу изображения в виде `String`:
 
 ```javascript
 const { BrowserWindow, Tray } = require('electron')
@@ -82,7 +82,7 @@ Following suffixes for DPI are also supported:
 
 ## Шаблон изображения
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Шаблоны изображений состоят из черного и Альфа-канала. Шаблоны изображений не предназначены для использования в качестве автономных изображений и обычно смешиваются с другим содержимым для создания желаемого конечного вида.
 
 The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
 
