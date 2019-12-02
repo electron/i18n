@@ -82,26 +82,26 @@ Following suffixes for DPI are also supported:
 
 ## Шаблон изображения
 
-Шаблоны изображений состоят из черного и Альфа-канала. Шаблоны изображений не предназначены для использования в качестве автономных изображений и обычно смешиваются с другим содержимым для создания желаемого конечного вида.
+Шаблонные изображения состоят из черного и Альфа-канала. Шаблонные изображения не предназначены для использования в качестве автономных изображений и обычно смешиваются с другим содержимым для создания желаемого конечного вида.
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+Наиболее распространенный вариант - использование шаблонных изображений для значка панели меню, с тем чтобы он мог адаптироваться как к светлым, так и темным панелям меню.
 
-**Note:** Template image is only supported on macOS.
+**Внимание:** Шаблонные изображения поддерживаются только на macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Чтобы пометить изображение как шаблонное, его имя должно заканчиваться словом `Template`. Например:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## Методы
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+Модуль `nativeImage` имеет следующие методы, все из которых возвращают экземпляр класса `NativeImage`:
 
 ### `nativeImage.createEmpty()`
 
 Возвращает `NativeImage`
 
-Creates an empty `NativeImage` instance.
+Создает пустой экземпляр `NativeImage`.
 
 ### `nativeImage.createFromPath(path)`
 
@@ -109,7 +109,7 @@ Creates an empty `NativeImage` instance.
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Создает новый экземпляр `NativeImage` из файла, расположенного по адресу `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
