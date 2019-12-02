@@ -8,9 +8,9 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
-## Manual distribution
+## Manuelle Verteilung
 
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Sie können ihre Anwendung auch manuell zur Verteilung bereit machen. Die benötigten Schritte sind unten erläutert.
 
 Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
 
@@ -79,12 +79,12 @@ Die Struktur der umbenannten App könnte so aussehen:
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
