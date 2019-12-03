@@ -267,8 +267,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Відбуваєтся коли `webContents` робить базову автентифікацію.
 
@@ -282,6 +282,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   callback('username', 'secret')
 })
 ```
+
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
@@ -393,7 +395,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Виконується коли викликається `remote.getCurrentWindow()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене за допомогою встановлення `event.returnValue`.
+Виконується коли викликається `remote.getCurrentWindow()` в процесі рендерингу `webContents`. Виклик `event.preventDefault()` запобігає поверненню об'єкта. Користувацьке значення може бути повернене встановленням `event.returnValue`.
 
 ### Подія: 'remote-get-current-web-contents'
 
