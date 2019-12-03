@@ -283,7 +283,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+ユーザー名またはパスワードを渡さずに `callback` を呼び出すと、認証リクエストはキャンセルされ、認証エラーがページに返されます。
 
 ### イベント: 'gpu-info-update'
 
