@@ -67,7 +67,7 @@ Alternatif olarak yerel önbelleği geçersiz kılabilirsiniz. `electron-downloa
 
 Electron'un daha eski sürümlerinin kullanıldığı çevrelerde önbelleği `~/.electron` içinde bulabilirsiniz.
 
-Yerel önbellek konumunu `ELECTRON_CACHE` çevre değişkenini sağlayarak değiştirebilirsiniz.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 Önbellek, sağlama toplamını barındırdığı gibi, sürümün resmi zip dosyasını da bir metin dosyası şeklinde barındırır. Tipik bir önbellek aşağıdaki gibidir:
 
