@@ -1,22 +1,22 @@
 # Utiliser Modules Natifs de Node
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Les modules natifs de Node sont pris en charge par Electron, mais étant donné qu'Electron est très susceptible d'utiliser une version V8 différente du binaire Node installée sur votre système, les modules que vous utiliserez devront être recompilés pour Electron. Sinon, vous obtiendrez l'erreur de classe suivante lorsque vous essaierez d'exécuter votre application :
 
 ```sh
-Error: The module '/path/to/native/module.node'
-was compiled against a different Node.js version using
-NODE_MODULE_VERSION $XYZ. This version of Node.js requires
-NODE_MODULE_VERSION $ABC. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).
+Erreur : Le module '/path/to/native/module.node'
+a été compilé avec une version de Node.js différente en utilisant
+NODE_MODULE_VERSION $XYZ. Cette version de Node.js nécessite
+NODE_MODULE_VERSION $ABC. Veuillez essayer de re-compiler ou de réinstaller
+le module (par exemple, en utilisant `npm rebuild` ou `npm install`).
 ```
 
 ## Comment installer des modules natifs
 
-There are several different ways to install native modules:
+Il y a plusieurs façons d'installer des modules natifs :
 
 ### Installation et compilation de modules pour Electron
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+Vous pouvez choisir d'installer les modules comme les autres projets Node, puis recompiler les modules pour Electron avec le paquet [`electron-rebuild`](https://github.com/electron/electron-rebuild). Ce module peut automatiquement obtenir la version d'Electron et gérer les étapes manuelles de téléchargement des en-têtes, compiler les modules natifs pour votre application.
 
 For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
 
