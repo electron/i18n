@@ -2,7 +2,7 @@
 
 > 子ブラウザウィンドウを操作します。
 
-Processo: [Renderizador](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 Ang mga bagay sa `BrowserWindowProxy` ay bumabalik mula sa `window.open` at nagbibigay ng limitadong pag-andar sa maliliit na window.
 

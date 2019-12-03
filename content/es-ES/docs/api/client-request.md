@@ -18,7 +18,7 @@ Process: [Main](../glossary.md#main-process)
   * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
   * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
   * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
-  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. Cuando el modo es `manual` la redirección será aplaza hasta que el procedimiento [`request.followRedirect`](#requestfollowredirect) sea llamado. Listado por el evento [`redirigir`](#event-redirect) en este modo para obtener más detalles sobre las solicitudes de redirección.
+  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 `opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
 
@@ -53,8 +53,8 @@ Devuelve:
   * `puerto` Íntegro
   * `realm` Cadena
 * `callback` Function 
-  * `username` Cadena
-  * `contraseña` Cadena
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido cuando un proxy de autenticación requiere las credenciales del usuario.
 
@@ -112,7 +112,7 @@ Devuelve:
 * `Redirigir Url` Cadena
 * `responseHeaders` Record<String, String[]>
 
-Emitido cuando hay una redirección y el modo es `manual`. Llamar a [`request.followRedirect`](#requestfollowredirect) continuará con la redirección.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Propiedades de la instancia
 
@@ -167,7 +167,7 @@ Cancela una transacción HTTP en proceso. Si la solicitud ya emitió el evento d
 
 #### `request.followRedirect()`
 
-Sigue cualquier solicitud de redirección diferida cuando el modo de redirección es `manual`.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 

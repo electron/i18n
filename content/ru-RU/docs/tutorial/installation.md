@@ -67,7 +67,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 В старом Electron возможно использование папки `~/.electron`.
 
-Также можно переопределить место кеша с помощью переменной окружения `ELECTRON_CACHE`.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 Кеш состоит из файлов zip для каждой версии с файлами контрольных сумм в текстовом формате. Например:
 

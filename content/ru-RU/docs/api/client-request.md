@@ -18,7 +18,7 @@
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
   * `path` String (опционально) - часть пути запроса URL.
-  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. Когда режим `manual`, перенаправление будет отложено до тех пор, пока [`request.followRedirect`](#requestfollowredirect) не будет вызван. Прослушивайте событие [`redirect`](#event-redirect) в этом режиме, чтобы получить больше информации о перенаправлении запроса.
+  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 Свойства `options`, такие как `protocol`, `host`, `hostname`, `port` и `path`, строго следуют модели Node.js, которая описана в модуле [URL](https://nodejs.org/api/url.html).
 
@@ -53,8 +53,8 @@ const request = net.request({
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Происходит, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
 
@@ -112,7 +112,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Происходит, когда присутствует перенаправление, а режим `manual`. Вызов [`request.followRedirect`](#requestfollowredirect) продолжит перенаправление.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Свойства экземпляра
 
@@ -167,7 +167,7 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.followRedirect()`
 
-Продолжает любой отложенный запрос перенаправления, когда режим перенаправления `manual`.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 

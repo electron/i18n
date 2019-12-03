@@ -1,16 +1,16 @@
 # Veröffentlichung der Anwendung
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Um ihre app mit Electron zu Verteilen müssen sie sie packagen und rebranden. Der einfachste Weg dies zu tun ist eine der folgenden third party Tools zu Benutzen:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Diese Tools werden sich um alle Schritte kümmern, die benötigt werden um am Ende eine verbreitbare Electron Anwendung zu Haben.
 
-## Manual distribution
+## Manuelle Verteilung
 
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Sie können ihre app auch manuell zur Verteilung bereit machen. Die benötigten Schritte sind unten erläutert.
 
 Um eine App mit Electron zu veröffentlichen, müssen Sie die vorgefertigten [Electron-Dateien](https://github.com/electron/electron/releases) herunterladen. Als nächstes sollte der Ordner, der die App beinhaltet, `app` genannt werden und in das Electron-Resources-Verzeichnis verschoben werden, wie in den unten stehenden Beispielen zu erkennnen ist. Achten Sie darauf, dass das Verzeichnis der vorgefertigten Electron-Dateien in den Beispielen mit `electron/` angegeben ist.
 
@@ -79,12 +79,12 @@ Die Struktur der umbenannten App könnte so aussehen:
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -93,7 +93,7 @@ Sie können der ausführbaren `electron`-Datei einen beliebigen Namen geben.
 
 ## Änderung des Names durch Neukompilieren des Quellcodes von Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Es ist auch möglich Electron zu rebranden, indem man den Produktnamen ändert und es vom Sourcecode buildet. Um dies zu Tun müssen sie das Buildargument, das zum Produktnamen gehört (`electron_product_name = "IhrProduktName"`) in der `args.gn` Datei setzen und rebuilden.
 
 ### Erstellen eines angepassten Electron Forks
 
@@ -116,7 +116,7 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 3. Setzen Sie die folgenden Umgebungsvariablen:
 
 * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - Der Ort an dem sie Node.js Header und symbols hochladen werden
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
 * `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen

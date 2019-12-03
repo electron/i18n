@@ -278,8 +278,8 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
       * `port` Integer
       * `realm` String
     * `callback` Fungsi 
-      * `namapengguna` String
-      * `katasandi` String
+      * `username` String (optional)
+      * `password` String (optional)
     
     Emitted ketika `webContents` ingin melakukan auth dasar.
     
@@ -293,6 +293,8 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
       callback('username', 'secret')
     })
     ```
+    
+    If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
     
     ### Event: 'gpu-info-update'
     

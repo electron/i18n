@@ -18,7 +18,7 @@ Proses: [Main](../glossary.md#main-process)
   * `nama host` String (opsional) - nama host server.
   * `Port` Bulat (opsional) - nomor port server mendengarkan.
   * `jalan` String (opsional) - bagian jalan dari URL permintaan.
-  * `mengarahkan` String (opsional) - modus redirect untuk permintaan ini. Harus menjadi salah satu `mengikuti` `kesalahan` atau `manual`. Default untuk `mengikuti`. Bila mode `kesalahan`, pengalihan apapun akan dibatalkan. Bila mode `manual` pengalihan akan ditunda sampai [`request.followRedirect`](#requestfollowredirect) dipanggil. Mendengarkan untuk [`mengarahkan`](#event-redirect) acara dalam mode ini untuk mendapatkan rincian lebih lanjut tentang redirect permintaan.
+  * `mengarahkan` String (opsional) - modus redirect untuk permintaan ini. Harus menjadi salah satu `mengikuti` `kesalahan` atau `manual`. Default untuk `mengikuti`. Bila mode `kesalahan`, pengalihan apapun akan dibatalkan. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 `pilihan` properti seperti `protokol`, `host`, `nama host`, `pelabuhan` dan `jalan` secara ketat mengikuti model Node.js seperti yang dijelaskan dalam modul [URL](https://nodejs.org/api/url.html).
 
@@ -47,8 +47,8 @@ Mengembalikan:
   * `port` Integer
   * `realm` String
 * `callback` Fungsi 
-  * `namapengguna` String
-  * `katasandi` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Dibunyikan apabila otentikasi proxy meminta kredensial pengguna.
 
@@ -96,7 +96,7 @@ Kembali:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.followRedirect`](#requestfollowredirect) akan melanjutkan dengan pengalihan.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Contoh properti
 
@@ -151,7 +151,7 @@ Membatalkan transaksi HTTP yang sedang berlangsung. Jika permintaan telah sudah 
 
 #### `request.followRedirect()`
 
-Terus ditangguhkan pengalihan permintaan ketika pengalihan modus `manual`.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 

@@ -67,7 +67,7 @@ Alternativamente, puede anular la memoria caché local. `electron-download` alma
 
 En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.
 
-También se puede anular la ubicación de almacenamiento en caché local al proporcionar una variable de entorno `ELECTRON_CACHE`.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 El caché contiene el archivo zip oficial de la versión, así como una suma de comprobación almacenada como un archivo de texto. Un caché típico podría verse así:
 

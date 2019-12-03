@@ -18,7 +18,7 @@
   * `hostname` String (可选) - 服务器主机名.
   * `port` Integer (可选) - 服务器侦听的端口号.
   * `path` String (可选) - 请求URL的路径部分.
-  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. 当模式为 `manual`时，表示延迟重定向直到调用了 [`request.followRedirect`](#requestfollowredirect)。 在此模式中侦听 [`redirect`](#event-redirect)事件，以获得关于重定向请求的更多细节。
+  * `redirect` String (可选) - 请求的重定向模式. 可选值为 `follow`, `error` 或 `manual`. 默认值为 `follow`. 当模式为`error`时, 重定向将被终止. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 `options` 属性，如 `protocol`, `host`, `hostname`, `port` 和 `path`，在 [URL](https://nodejs.org/api/url.html) 模块中会严格遵循 Node.js 的模式
 
@@ -53,8 +53,8 @@ const request = net.request({
   * `port` Integer
   * `realm` String
 * `callback` Function - 回调函数 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 当身份验证代理请求用户认证时触发
 
@@ -112,7 +112,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-当发出重定，并且模式为 `manuals(手动)`时触发。调用[`request.followRedirect`](#requestfollowredirect) 将持续重定向
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### 实例属性
 
@@ -167,7 +167,7 @@ Returns `String` - The value of a previously set extra header name.
 
 #### `request.followRedirect()`
 
-当重定向模式为 ` manual 手动 ` 时, 将继续延迟的重定向请求。
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 

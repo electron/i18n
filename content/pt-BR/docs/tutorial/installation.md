@@ -67,7 +67,7 @@ Como alternativa, você pode substituir o cache local. O `electron-download` arm
 
 Em ambientes que usam versões mais antigas do Electron, você pode encontrar cache também em `~/.electron`.
 
-Você também pode sobrescrever o local do cache local fornecendo uma variável `ELECTRON_CACHE` de ambiente.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 O cache contém o arquivo zip oficial da versão, bem como uma soma de verificação, armazenada como um arquivo de texto. Um cache típico pode se parecer com isso:
 

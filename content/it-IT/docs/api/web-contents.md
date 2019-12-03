@@ -424,8 +424,8 @@ Restituisce:
   * `porta` Numero Intero
   * `regno` Stringa
 * `callback` Function 
-  * `nomeutente` Stringa
-  * `password` Stringa
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 

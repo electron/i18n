@@ -18,7 +18,7 @@
   * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
   * `port` Integer (isteğe bağlı) - Sunucunun dinlenen port numarası.
   * `path` String (isteğe bağlı) - İstek URL'sinin yolu.
-  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowredirect) çağırılana kadar yönlendirme ertelenir. [`redirect`](#event-redirect) olayı için bu modda yönlendirme isteği hakkında daha fazla bilgi almak için dinleyin.
+  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
@@ -53,8 +53,8 @@ Dönüşler:
   * `port` Tamsayı
   * `realm` Dizi
 * `geri aramak` Fonksiyon 
-  * `username` Dizi
-  * `password` Dizi
+  * `username` String (optional)
+  * `password` String (optional)
 
 Kimlik doğrulaması yapan bir proxy, kullanıcı bilgilerini istendiğinde yayınlar.
 
@@ -112,7 +112,7 @@ Dönüşler:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowredirect)'i çağırmak yönlendirme ile devam edecektir.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Örnek Özellikleri
 
@@ -167,7 +167,7 @@ Devam eden bir HTTP işlemini iptal eder. Eğer istek `close` olayını önceden
 
 #### `request.followRedirect()`
 
-Yeniden yönlendirme modu `manuel olduğunda` ertelenen yeniden yönlendirme isteğini sürdürür.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 

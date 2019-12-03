@@ -67,7 +67,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 在使用旧版本 Electron 的环境中，您也可以在`~/.electron`中找到缓存。
 
-您也可以通过提供一个 `ELECTRON_CACHE` 环境变量来覆盖本地缓存位置。
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 缓存包含版本的官方zip文件以及校验和，存储为文本文件。 典型的缓存可能如下所示：
 

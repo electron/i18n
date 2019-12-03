@@ -1,4 +1,4 @@
-# CustomScheme Object
+# CustomScheme オブジェクト
 
 * `scheme` String - オプションで登録されるカスタムスキーム。
 * `privileges` Object (任意) 

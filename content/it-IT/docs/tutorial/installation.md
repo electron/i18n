@@ -67,7 +67,7 @@ Alternativamente, puoi annullare la cache locale. `electron-download` accumuler√
 
 In ambienti che usano versioni di Electron precedenti, potresti trovare la cache anche in `~/.electron`.
 
-Puoi anche annullare la posizione della cache locale fornendo una variabile ambiente `ELECTRON_CACHE`.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 La cache contiene il file zip ufficiale cos√¨ come una somma di dati, archiviati come file di testo. Una cache tipica potrebbe sembrare come la seguente:
 

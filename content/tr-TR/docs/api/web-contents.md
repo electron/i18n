@@ -424,8 +424,8 @@ Dönüşler:
   * `port` Tamsayı
   * `realm` Dizi
 * `geri aramak` Function 
-  * `username` Dizi
-  * `password` Dizi
+  * `username` String (optional)
+  * `password` String (optional)
 
 `webContents` temel doğrulama yapmak istediğinde çıkarılır.
 

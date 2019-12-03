@@ -324,7 +324,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 戻り値:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
+* `newBounds` [Rectangle](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
 
 ウィンドウのサイズが変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウのリサイズを阻害します。
 
@@ -339,7 +339,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 戻り値:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - ウインドウが移動されようとしている位置。
+* `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
 ウィンドウの位置が変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウの移動を阻害します。
 

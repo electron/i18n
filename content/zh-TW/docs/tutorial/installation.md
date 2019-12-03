@@ -67,7 +67,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 在使用舊版 Electron 的環境中，快取可能放在 `~/.electron` 裡。
 
-你也可以透過 `ELECTRON_CACHE` 環境變數蓋過本機快取位置的預設值。
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 快取內容包含檔案官方的 Zip 檔及純文字檢查碼檔案，一般的快取看起來像這樣:
 

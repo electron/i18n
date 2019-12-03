@@ -18,7 +18,7 @@
   * `име на хост` Низ (по избор) - името на хоста на сървъра.
   * `порт` Цяло число (по избор) - слушане номера на порта на сървъра.
   * `path` String (по избор) - Пътя на бисквитката.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 свойства на `Опции` като `протокол`, `хост`, `име на хост`, `пристанището` и `пътя` следват стриктно Node.js модела, както е описано в модула [URL](https://nodejs.org/api/url.html).
 
@@ -53,8 +53,8 @@ const request = net.request({
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `потребителско име` Низ
-  * `парола` Низ
+  * `username` String (optional)
+  * `password` String (optional)
 
 Отделяни при автентичността прокси е asking за потребителски идентификационни данни.
 
@@ -110,7 +110,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Инстантни свойства
 
@@ -165,7 +165,7 @@ Cancels an ongoing HTTP transaction. If the request has already emitted the `clo
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 

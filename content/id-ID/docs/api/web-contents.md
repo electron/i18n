@@ -409,8 +409,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
     * `port` Integer
     * `realm` String
   * `callback` Fungsi 
-    * `namapengguna` String
-    * `katasandi` String
+    * `username` String (optional)
+    * `password` String (optional)
   
   Emitted ketika `webContents` ingin melakukan auth dasar.
   

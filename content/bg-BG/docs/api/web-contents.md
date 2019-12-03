@@ -424,8 +424,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `порт` Цяло число
   * `царство` Низ
 * `обратно повикване` Функция 
-  * `потребителско име` Низ
-  * `парола` Низ
+  * `username` String (optional)
+  * `password` String (optional)
 
 Излъчено, когато `webContents` иска да направи базово удостоверяване.
 

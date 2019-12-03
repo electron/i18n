@@ -424,8 +424,8 @@ Returns:
   * `port` Integer
   * `realm` String
 * `callback` 함수 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 `webContents`가 기본 인증을 필요로 할 때 발생된다.
 

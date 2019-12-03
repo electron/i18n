@@ -424,8 +424,8 @@ Devuelve:
   * `puerto` Íntegro
   * `realm` Cadena
 * `callback` Function 
-  * `username` Cadena
-  * `contraseña` Cadena
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 

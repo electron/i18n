@@ -66,7 +66,7 @@ Sebagai alternatif, Anda dapat mengganti cache lokal. `elektron-download` akan c
 
 Pada lingkungan yang telah menggunakan Elektron versi lama, Anda mungkin juga menemukan cache di ` ~ /.electron `.
 
-Anda juga dapat mengganti lokasi cache lokal dengan menyediakan ` ELECTRON_CACHE ` di environment variabel.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 Cache berisi file zip yang baik seperti versi checksum, yang disimpan sebagai sebuah file teks. Sebuah tipikal Cache mungkin terlihat seperti ini:
 

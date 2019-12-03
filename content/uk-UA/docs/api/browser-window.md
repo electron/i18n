@@ -324,7 +324,7 @@ Please note that using this event implies that the renderer will be considered "
 Повертає:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Розмір до якого буде змінено розмір вікна.
+* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Викликається перед зміною розміру вікна. Виклик `event.preventDefault()` запобігає зміні розміру вікна.
 
@@ -339,7 +339,7 @@ Please note that using this event implies that the renderer will be considered "
 Повертає:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Позиція куди буде пересуното вікно.
+* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Викликається перед тим як вікно буде пересунуто. Виклик `event.preventDefault()` запобігає пересуванню вікна.
 

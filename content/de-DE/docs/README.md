@@ -44,7 +44,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Repräsentative Datei für macOS BrowserWindows](tutorial/represented-file.md)
   * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
-  * [MakOS Dunkler Modus unterstützen](tutorial/mojave-dark-mode-guide.md)
+  * [MacOS Dunkler Modus unterstützen](tutorial/mojave-dark-mode-guide.md)
 * [Zugänglichkeit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

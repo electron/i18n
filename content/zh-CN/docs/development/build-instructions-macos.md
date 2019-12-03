@@ -27,7 +27,7 @@ $ brew install python@2 && brew link python@2 --force
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+您可以使用 `pip` 安装它：
 
 ```sh
 $ pip install pyobjc

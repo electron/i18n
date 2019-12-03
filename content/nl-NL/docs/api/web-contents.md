@@ -424,8 +424,8 @@ Geeft terug:
   * `port` Integer
   * `realm` String
 * `callback` Functie 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitted when `webContents` wants to do basic auth.
 

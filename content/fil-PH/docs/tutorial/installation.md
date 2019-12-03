@@ -67,7 +67,7 @@ Bilang kahalili, maaari mong i-override ang cache ng lokal. Ang ` electron-downl
 
 Sa mga kapaligiran na gumagamit ng mga mas lumang bersyon ng Electron, maaari mong makita ang cache din sa ` ~/.electron `.
 
-Maaari mo ring i-override ang lokal na lokasyon ng cache sa pamamagitan ng pagbibigay ng ` ELECTRON_CACHE `.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 Ang cache ay naglalaman ng opisyal na zip file ng bersyon pati na rin ang checksum, na naka-imbak bilang isang file ng teksto. Maaaring ganito ang isang karaniwang cache:
 
