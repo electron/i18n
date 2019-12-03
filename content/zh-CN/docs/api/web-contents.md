@@ -424,8 +424,8 @@ Emitted when the user is requesting to change the zoom level using the mouse whe
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
