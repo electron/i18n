@@ -225,11 +225,11 @@ landing:
     create_app: Créez votre application
     description: Electron Fiddle vous permet de créer et de jouer avec de petites expériences Electron. Il vous accueille avec un modèle qui vous permettra de vite démarrer - changez quelques éléments, choisissez la version d'Electron que vous désirez et amusez-vous ! Ensuite, sauvegardez votre Fiddle en tant que GitHub Gist ou dans un dossier local. Une fois qu'il sera push sur GitHub, n'importe qui pourra essayer votre Fiddle en utilisant son URL.
     explore: Explorer Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    explore_desc: "Essayez Electron sans installer de dépendances : Fiddle inclut tout ce dont vous aurez besoin pour explorer la plateforme. Il inclut également des exemples pour toutes les API disponibles dans Electron. Si vous voulez rapidement vérifier ce que fait une BrowserView ou comment fonctionne le desktopCapturer, Fiddle a ce qu'il vous faut."
     code_with_types: Développez avec les Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    code_with_types_desc: Fiddle inclut l'excellent Monaco Editor de Microsoft, le même éditeur qui sert de base à Visual Studio Code. De plus, il installe automatiquement les définitions de type pour la version actuellement sélectionnée d'Electron, vous assurant de toujours garder les APIs d'Electron à quelques coups de clavier de distance.
     compile_and_package: Compiler et empaqueter
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    compile_and_package_desc: Fiddle peut automatiquement convertir votre expérimentation en fichiers que vous pourrez partager à vos amis, collègues ou grand-parents. Cette fonctionnalité est rendue possible par <a href="https://electronforge.io/">electron-forge</a>, vous permettant de convertir votre fiddle entre application Windows, macOS ou Linux.
     easy_start: Commencez par Fiddle, puis continuez où vous voulez
     easy_start_desc: Fiddle n'est pas un IDE – c'est cependant un excellent point de départ. Une fois votre fiddle grandi, exportez-le comme un projet avec ou sans <a href="https://electronforge.io/">electron-forge</a>. Ensuite, utilisez votre éditeur préféré et prenez le monde !
 governance:
@@ -237,8 +237,8 @@ governance:
   description: Le système de gouvernance d'Electron est composé de groupes de travail qui supervisent différents aspects de l'écosystème d'Electron, et d'un groupe de travail administratif s'occupant de résoudre les conflits entre eux.
   wgs: Groupes de travail
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: Écosystème
+    description: Supervise les projets facilitant le développement des applications Electron.
   outreach:
     title: Sensibilisation
     description: Développement de la communauté Electron
@@ -253,13 +253,13 @@ governance:
     description: Supervise le retrait ou le bannissement de la communauté.
   security:
     title: Sécurité
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: Assure proactivement la sécurité d'Electron en tant que projet, répond aux incidents signalés et supervise le déploiement des correctifs.
   admins:
     title: Administratif
     description: Le groupe de travail administratif supervise l'ensemble de la gouvernance et du projet.
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: Supervise la conception des API publiques selon des principes communs à tous les projets.
   global:
     overview: Vue d'ensemble
     associated_repos: Dépôts associés
@@ -279,8 +279,8 @@ governance:
       - Ils décident d'eux-mêmes et publient publiquement leurs règles, par exemple la façon dont les décisions sont prises, lorsque des réunions sont organisées et qui peuvent y assister.
       - 'Ils vont <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">sélectionner</a> un représentant pour <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>représenter</a> le groupe.'
       - Ils gardent les notes de réunion, y compris les ordres du jour, les points de discussion et les conclusions de la réunion pour que tout le monde puisse les consulter.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+      - 'Ils devront collaborer et travailler <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">de bonne foi</a> avec les autres Groupes de travail.'
+    see_charter: Consultez la <a href="https://github.com/electron/governance/tree/master/charter/README.md">charte</a> pour plus d'informations.
   code_of_conduct: L'organisation Electron et tous ses dépôts adhèrent au code de conduite suivant <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">.</a>
   license: Electron est sous licence MIT <a href="https://github.com/electron/electron/blob/master/LICENSE"></a>.
   repository: Consultez le dépôt de gouvernance <a href="https://github.com/electron/governance"></a> pour obtenir plus d'informations sur la structure de gouvernance.
