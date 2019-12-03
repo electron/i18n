@@ -6,7 +6,7 @@ Prozess: [Haupt](../glossary.md#main-process)
 
 **Siehe auch: [Eine detaillierte Anleitung zur Implementierung von Updates in Ihrer Anwendung](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Plattform-Hinweise
 
@@ -92,7 +92,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
-<h3><code>autoUpdater.setFeedURL(options)`</h3> 
+<h3><code>autoUpdater.setFeedURL(optionen)`</h3> 
 
 * `optionen` Object 
   * ` URL </ 0>  Zeichenfolge</li>
