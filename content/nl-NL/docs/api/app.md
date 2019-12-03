@@ -267,8 +267,8 @@ Geeft terug:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitted when `webContents` wants to do basic auth.
 
@@ -282,6 +282,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   callback('username', 'secret')
 })
 ```
+
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
@@ -928,7 +930,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Bijvoorbeeld:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -1028,7 +1030,7 @@ No confirmation dialog will be presented by default. If you wish to allow the us
 
 By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
 
-Bijvoorbeeld:
+For example:
 
 ```js
 app.moveToApplicationsFolder({
