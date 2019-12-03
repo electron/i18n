@@ -424,8 +424,8 @@ Ibinabalik ang:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
