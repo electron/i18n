@@ -323,7 +323,7 @@ Please note that using this event implies that the renderer will be considered "
 返回:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - 将要调整到的窗口尺寸。
+* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 在调整窗口大小之前发出。调用` event.preventDefault() `会阻止窗口大小被调整。
 
@@ -338,7 +338,7 @@ Please note that using this event implies that the renderer will be considered "
 返回:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - 将要移动的新的窗口位置。
+* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 在移动窗口之前发出。调用` event.preventDefault() `会阻止窗口被移动。
 
