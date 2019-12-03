@@ -67,7 +67,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 이전 버전의 electron을 사용하는 환경에서는, `~/.electron`에서 캐시를 찾을 수 있습니다.
 
-`ELECTRON_CACHE` 환경 변수를 제공하여 로컬 캐시 위치를 재정의 할 수도 있습니다.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 캐시에는 버전의 공식 zip 파일 뿐만아니라 텍스트 파일로 저장된 체크섬 파일도 포함하고 있습니다. 일반적인 캐시는 다음과 같습니다.
 
