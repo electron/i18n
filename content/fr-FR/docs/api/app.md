@@ -267,8 +267,8 @@ Retourne :
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
@@ -282,6 +282,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   callback('username', 'secret')
 })
 ```
+
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
