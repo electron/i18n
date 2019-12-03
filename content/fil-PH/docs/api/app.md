@@ -267,8 +267,8 @@ Ibinabalik ang:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
@@ -283,13 +283,15 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+
 ### Event: 'gpu-info-update'
 
 Emitted whenever there is a GPU info update.
 
 ### Event: 'gpu-process-crashed'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `killed` Ang Boolean
@@ -298,7 +300,7 @@ Emitted when the GPU process crashes or is killed.
 
 ### Event: 'renderer-process-crashed'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -308,16 +310,16 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `accessibilitySupportEnabled` Boolean - `true` kapag ang parating na suporta ng Chrome ay pinagana, `false` kung hindi.
 
-Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
+Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ### Event: 'session-created'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `session` [Session](session.md)
 
@@ -333,7 +335,7 @@ app.on('session-created', (event, session) => {
 
 ### Event: 'second-instance'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan`Kaganapan
 * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
@@ -341,7 +343,7 @@ Ibinabalik ang:
 
 This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
+`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
@@ -349,7 +351,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'desktop-capturer-get-sources'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -358,7 +360,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 ### Event: 'remote-require'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -368,7 +370,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 ### Event: 'remote-get-global'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -378,7 +380,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 
 ### Event: 'remote-get-builtin'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -388,7 +390,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process of `webCont
 
 ### Event: 'remote-get-current-window'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -397,7 +399,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process of `w
 
 ### Event: 'remote-get-current-web-contents'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -406,7 +408,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process 
 
 ### Event: 'remote-get-guest-web-contents'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
@@ -416,15 +418,15 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process of `
 
 ## Mga Paraan
 
-Ang `app` na object ay maroong mga sumusunod na mga method:
+The `app` object has the following methods:
 
 **Note:** Ang ilang mga method ay magagamit lamang sa ibang partikular na mga operating system at may label na katulad nito.
 
 ### `app.quit()`
 
-Susubukang isira ang lahat ng mga window. Ang `before-quit` na event ay unang ibrobrodkast. Kung ang lahat ng mga window ay nasara, ang `will-quit` na event ay ibrobrodkast at ang default na application ay ihihinto.
+Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
-Ang method na ito ay ginagarantiya na ang lahat ng `beforeunload` at `unload` na mga event handler ay saktong isasagawa. Ito ay posible na kakanselahin ng window ang pag-alis sa pamamagitan ng pagbabalik ng `false` sa `beforeunload` ng event handler.
+This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
@@ -440,15 +442,15 @@ All windows will be closed immediately without asking the user, and the `before-
   * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
-Muling ilulunsad ang app kapag ang kasalukuyang kahilingan ay nawala na.
+Relaunches the app when current instance exits.
 
-By default, the new instance will use the same working directory and command line arguments with current instance. Kapag ang `args` ay tinukoy na, ang `args` ay maaaring ipasa sa halip na ang mga argumento ng linya ng command. Kapag ang `execPath` ay tinukoy na, ang `execPath` ay gagawin para sa muling paglunsad sa halip na ang kasalukuyang app.
+By default, the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
-Tandaan na ang pamamaraan na ito ay hindi inaalis ang app kapag pinairal, dapat mong tawagin ang `app.quit` o ang `app.exit` matapos tawagin ang `app.relaunch` para ang app ay magsimula muli.
+Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-Kapag ang `app.relaunch` ay tinawag ng maraming beses, maraming mga kahilingan ang magsisimula pagkatapos na lumabas ang kasalukuyang kahilingan.
+When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
 
-Isang halimbawa ng agad na muling pagsisimula ng kasalukuyang kahilingan at pagdaragdag ng isang bagong argumento ng linya ng command sa bagong kahilingan:
+An example of restarting current instance immediately and adding a new command line argument to the new instance:
 
 ```javascript
 const { app } = require('electron')
@@ -459,7 +461,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` kung ang Electron ay tapos na sa pagsisimula, `false` kung hindi man.
+Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
 
 ### `app.whenReady()`
 
@@ -467,15 +469,15 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 ### `app.focus()`
 
-Sa Linux, naka-pokus sa unang makikitang window. Sa macOS, ginagawa ang aplikasyon na aktibong app. Sa Windows, naka-pokus sa unang window ng aplikasyon.
+On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
 ### `app.hide()` *macOS*
 
-Itinatago ang lahat ng mga window ng aplikasyon nang hindi ito pinapaliit.
+Hides all application windows without minimizing them.
 
 ### `app.show()` *macOS*
 
-Ipinapakita ang mga window ng aplikasyon pagkatapos na sila ay itago. Ay hindi kusang tumutok sa kanila.
+Shows application windows after they were hidden. Does not automatically focus them.
 
 ### `app.setAppLogsPath([path])`
 
@@ -487,7 +489,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getAppPath()`
 
-Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
+Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
@@ -526,9 +528,9 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
-Kukunin ang kaugnay na icon ng isang landas.
+Fetches a path's associated icon.
 
-Sa *Windows*, may 2 uri ng mga icon:
+On *Windows*, there a 2 kinds of icons:
 
 * Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, atbp.
 * Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
@@ -540,21 +542,21 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 * `name` String
 * `path` String
 
-Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
 
-Maaari mo lang i-override ang mga landas ng isang `name` na tinukoy sa `app.getPath`.
+You can only override paths of a `name` defined in `app.getPath`.
 
-Sa pamamagitan ng default, ang cookies at caches ng web page ay ii-imbak sa ilalim ng direktoryo ng `userData`. Kung gusto mong baguhin ang lokasyon, kailangan mong i-override ang landas ng `userData` bago ang event ng `ready` sa module ng `app` ay ilalabas.
+By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
-Magbabalik ng `String` - Ang bersyon ng na-load na aplikasyon. Kung walang bersyon ang nakita sa loob ng `package.json` file ng aplikasyon, ang bersyon ng kasalukuyang bundle o executable ay ibabalik.
+Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
 
 ### `app.getName()`
 
-Magbabalik ng `String` - Ang pangalan ng kasalukuyang aplikasyon, kung saan ito ang pangalan ng `package.json` file ng aplikasyon.
+Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 **[Deprecated](modernization/property-updates.md)**
 
@@ -562,7 +564,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 * `name` String
 
-Ino-override ang pangalan ng kasalukuyang aplikasyon.
+Overrides the current application's name.
 
 **[Deprecated](modernization/property-updates.md)**
 
@@ -572,7 +574,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
-**Tandaan:** Habang ipinamamahagi ang iyong naka-package na app, dapat mo ring isama ang polder ng `locales`.
+**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
 **Note:** On Windows, you have to call it after the `ready` events gets emitted.
 
@@ -586,13 +588,13 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 * `path` String
 
-Nagdadagdag ng `path` sa listahan ng mga bagong dokumento.
+Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Buburahin ang listahan ng mga bagong dokumento.
+Clears the recent documents list.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
@@ -600,17 +602,17 @@ Buburahin ang listahan ng mga bagong dokumento.
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Whether the call succeeded.
 
-Ang paraan na ito ay nagtatakda sa kasalukuyang maipapatupad bilang ang default handler para sa isang protocol (aka pamamaraan ng URI). Ito ay nagpapahintulot sa iyo na isama ang iyong app pailalim patungo sa operating system. Sakaling marehistro, ang lahat ng links na may `your-protocol://` ay mabubuksan ng kasalukuyang pagpapatupad. Ang kabuuang link, kasama ang protocol, ay makakalampas sa iyong aplikasyon bilang isang parameter.
+This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
 On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
-**Note:** Sa macOS, maaari mo lamang irehistro ang mga protocol na naging karagdagan sa iyong mga app `info.plist`, kung saan ay hindi na mababago habang nasa oras ng paggana. Kahit papaano ay maaari mong baguhin ang file sa pamamagitan ng isang simpleng editor ng teksto o script habang nasa oras ng pagbuo. Pakiusap sumangguni sa [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para sa mga detalye.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-Ang API ay ginagamit ang Windows Registry at ang LSSetDefaultHandlerForURLScheme sa loob nito.
+The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[,path, args])` *macOS* *Windows*
 
@@ -618,9 +620,9 @@ Ang API ay ginagamit ang Windows Registry at ang LSSetDefaultHandlerForURLScheme
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Whether the call succeeded.
 
-Ang mga paraan na ito ay sinusuri kung ang kasalukuyang naipapatupad bilang default handler para sa isang protocol (aka URI scheme), Kung gayon, tatanggalin nito ang app bilang default handler.
+This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
@@ -630,11 +632,11 @@ Ang mga paraan na ito ay sinusuri kung ang kasalukuyang naipapatupad bilang defa
 
 Returns `Boolean`
 
-Ang mga paran na ito ay sinusuri kung ang kasalukuyang naipapatupad ay ang default handler (aka URI scheme), Kung gayon, ito ay babalik na totoo. Knug hindi man, ito ay babalik na mali.
+This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
-**Note:** Sa macOS, magagamit mo ang pamamaraan na ito para suriin kung ang app ay nakarehistro na bilang default protocol handler para sa isang protocol. Maaari mo rin itong patunayan sa pamamagitan ng pagsusuri sa `-/Library/Preferences/com.apple.LaunchServices.plist` sa makina ng macOS. Pakiusap sumangguni sa [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) para sa mga detalye.
+**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
 
-Ang API ay ginagamit ang Windows Registry at LSCopyDefaultHandlerForURLScheme sa loob nito.
+The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -642,15 +644,15 @@ Ang API ay ginagamit ang Windows Registry at LSCopyDefaultHandlerForURLScheme sa
 
 Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
 
-`tasks` ay isang hanay ng [`Task`](structures/task.md) na mga bagay.
+`tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Whether the call succeeded.
 
-**Note:** Kung gusto mo pang ipasadya ang Jump List ng higit pa gamitin sa halip ang `app.setJumpList(categories)`.
+**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
@@ -659,7 +661,7 @@ Nagbabalik ng mga `bagay`:
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
 
-Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ibinabalik ang isa sa mga sumusunod na string:
+Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
 * `ok` - Walang nangyaring mali.
 * `error` - Isa or higit pang pagkakamali ang naganap, paganahin ang runtime logging para malaman ang inaasahang dahilan.
@@ -667,13 +669,13 @@ Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ib
 * `fileTypeRegistrationError` - Isang pagtatangka ang ginawa para magdagdag ng file link sa Jump List para sa isang uri ng file na ang app ay hindi rehistrado para hawakan ito.
 * `customCategoryAccessDeniedError` - Ang mga pasadyang kategorya ay hindi maaaring idagdag sa Jump List dahil sa privacy ng gumagamit o mga setting ng group policy.
 
-Kung ang `categories` ay `null`, ang dati ng naitakda na pasadyang Jump List (kung mayroon man) ay mapapalitan ng standard na Jump List para sa app (na pinamamahalaan ng Windows).
+If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
 **Note:** Kung ang `JumpListCategory` ang bagay ay hindi ang `type` o ang `name` itinakda ang katangian pagkatapos ito ay `type` ay ipinapalagay na `tasks`. Kung ang `name` ang katangian ay itinakda ngunit ang `type` ang katangian ay tinanggal pagkatapos ang `type` ay ipinalagay na `custom`.
 
-**Note:** Ang mga user ay maaaring magtanggal ng mga item mula sa mga pasadyang kategorya, at ang Windows ay hindi pinapayagan na ang tinggal na aytem ay ibalik na muli sa pasadyang kategorya hanggang **after**ang susunod na matagumpay na pagtawag sa `app.setJumpList(categories)`. Kahit na anong pagtatangka na muling idagdag ang isang tinanggal na aytem nang mas maaga pa ay magreresulta na ang buong pasadyang kategorya ay tinanggal na mula sa Jump List. Ang listahan ng mga natanggal na aytem ay maaring makuha gamit ang `app.getJumpListSettings()`.
+**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
-Narito ang isang napakasimpleng halimbawa ng paggawa ng isang pasadyang Jump List:
+Here's a very simple example of creating a custom Jump List:
 
 ```javascript
 const { app } = require('electron')
@@ -743,7 +745,7 @@ I.e. This method returns `true` if your process is the primary instance of your 
 
 On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
-Ang isang halimbawa ng pag-aktibeyt ng window ng pangunahing instansya ay kapag nagsimula na ang ikalawang instansya:
+An example of activating the window of primary instance when a second instance starts:
 
 ```javascript
 const { app } = require('electron')
@@ -784,11 +786,11 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `userInfo` any - App-specific state to store for use by another device.
 * `webpageURL` String (opsyonal) - ay ang webpage sa isang browser na ilo-load kung walang angkop na app ang naka-install sa aparatong nagpasimulang muli. Ang dapat na pamamaraan ay `http` o `https`.
 
-Ay lumilikha ng isang `NSUserActivity` at ito ang nagtatakda bilang kasalukuyang aktibidad. Ang aktibidad ay karapat-dapat para sa [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sa iba pang aparato pagkatapos nito.
+Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
+Returns `String` - The type of the currently running activity.
 
 ### `app.invalidateCurrentActivity()` *macOS* 
 
@@ -803,13 +805,13 @@ Marks the current [Handoff](https://developer.apple.com/library/ios/documentatio
 * `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` any - App-specific state to store for use by another device.
 
-Ini-update ang kasalukuyang aktibidad kung tumutugma ito`type`, pinagsamasama ang mga entry mula sa `userInfo` sa kasalukuyan nitong diksyonaryo ng `userInfo`.
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
+Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
 ### `app.importCertificate(options, callback)` *Linux*
 
@@ -819,19 +821,19 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `callback` Function 
   * `result` Integer - Ang resulta ng pag-import.
 
-Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `ang app.disableHardwareAcceleration()`
 
-Hindi pinagana ang akselerasyon ng hardware para sa kasalukuyang app.
+Disables hardware acceleration for current app.
 
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
+This method can only be called before app is ready.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-Sa pamamagitan ng default, hindi pinagana ng Chromium ang mga 3D API (hal.WebGL) hanggang sa muling pagbukas sa bawat domain na basehan kung ang mga proseso ng GPU ay masyadong madalas bumagsak. Ang punsyon na ito ay hindi pinapagana ang ganoong katangian.
+By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
+This method can only be called before app is ready.
 
 ### `ang app.getAppMetrics()`
 
@@ -839,7 +841,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 ### `ang app.getGPUFeatureStatus()`
 
-Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga Tampok na Katayuan ng mga Grapiko mula sa `chrome://gpu/`.
+Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
 **Note:** This information is only usable after the `gpu-info-update` event is emitted.
 
@@ -882,9 +884,9 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
 
 * ang `count` Integer
 
-Returns `Boolean` - Kung ang tawag ay nagtagumpay.
+Returns `Boolean` - Whether the call succeeded.
 
-Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay `0`.
+Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
@@ -894,13 +896,13 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabilang ng badge.
+Returns `Integer` - The current value displayed in the counter badge.
 
 **[Deprecated](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
-Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Unity.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
@@ -910,7 +912,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -926,9 +928,9 @@ Nagbabalik ng mga `bagay`:
   * `path` String (opsyonal) *Windows* - Ang maipapatupad para maglunsad sa login. Ay mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ipapasa sa ipinapatupad. Mga default sa isang walang lamang hanay. Alalayan para isama ang mga landas sa mga quote.
 
-I-set ang mga login aytem setting ng app.
+Set the app's login item settings.
 
-Makipagtulungan sa `autoUpdater` ng Electron sa Windows,kung saan gumagamit ng [Squirrel](https://github.com/Squirrel/Squirrel.Windows),gusto mong i-set ang landas ng pag-launch patungo sa Update.exe, at ipasa ang mga argumento na nagsasaad ng pangalan ng iyong aplikasyon. Halimbawa:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Halimbawa:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -949,7 +951,7 @@ Context | Request Context
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 **[Deprecated](modernization/property-updates.md)**
 
@@ -981,7 +983,7 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `website` String (optional) *Linux* - The app's website.
   * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
 
-I-set ang mga pagpipilian tungkol sa panel. This will override the values defined in the app's `.plist` file on MacOS. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 ### `app.isEmojiPanelSupported()`
 
@@ -1010,7 +1012,7 @@ Start accessing a security scoped resource. With this method Electron applicatio
 
 Enables full sandbox mode on the app.
 
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
+This method can only be called before app is ready.
 
 ### `app.isInApplicationsFolder()` *macOS* 
 
@@ -1089,7 +1091,7 @@ A `Boolean` property that returns `true` if the app is packaged, `false` otherwi
 
 A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
+Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 ### `app.userAgentFallback`
 
