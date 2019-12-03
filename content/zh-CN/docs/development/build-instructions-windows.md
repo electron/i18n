@@ -6,9 +6,9 @@
 
 * Windows 10 / Server 2012 R2 或更高版本
 * Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2019 社区版](https://www.visualstudio.com/vs/) 
-  * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
-  * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path. 
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (replace `2019` and `Community` with your installed versions)
+  * 请参阅[Chromium构建文档](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio)，以了解有哪些Visual Studio 组件需要安装等详细信息。
+  * 如果您的 Visual Studio 安装在非默认目录中， 您需要 设置几个环境变量来将工具链指向您的安装路径。 
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`( 将`2019` 和 `Community`替换成你安装的版本)
     * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
 * [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/) 
   * 与下面 `depot_tools` 的安装说明不同，你必须安装 2.7.10 以上版本的 Python（支持 TLS 1.2）。 为此，应确保 **PATH** 中 Python 的安装目录在 `depot_tools` 之前。 目前 `depot_tools` 仍捆绑 Python 2.7.6，这将导致 `gclient` 命令失效（见 https://crbug.com/868864）。
