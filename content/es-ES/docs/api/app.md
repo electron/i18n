@@ -267,8 +267,8 @@ Devuelve:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
@@ -282,6 +282,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   callback('username', 'secret')
 })
 ```
+
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
@@ -402,7 +404,7 @@ Devuelve:
 * `event` Event
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `remote.getCurrentWebContents()` es llamado en el renderer process de `webContents`. Llamando `event.preventDefault()` evetará que el objeto sea retornado. El valor personalizado puede ser retornado por la configuración `event.returnValue`.
 
 ### Evento: 'remote-get-guest-web-contents'
 
@@ -412,7 +414,7 @@ Devuelve:
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitido cuando `<webview>.getWebContents()` es llamado en el proceso renderizador de `webContents`. Llamando `event.preventDefault()` evitará que el objeto sea retornado. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
+Emitido cuando `<webview>.getWebContents()` es llamado en el proceso renderizador de `webContents`. Llamar a `event.preventDefault()` impedirá que el objeto sea devuelto. Un valor personalizado puede ser devuelto estableciendo `event.returnValue`.
 
 ## Métodos
 
