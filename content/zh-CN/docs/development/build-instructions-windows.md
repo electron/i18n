@@ -91,4 +91,4 @@ $ git config --system core.longpaths true
 
 ### 构建脚本挂起, 直到某个按键按下才有响应
 
-This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
+这个bug 是 Windows 命令提示符的一个"功能" It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
