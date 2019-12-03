@@ -473,7 +473,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 
 ### `app.show()` *macOS*
 
@@ -564,7 +564,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 * `name` String
 
-Overrides the current application's name.
+重寫當前應用程式的名稱。
 
 **[已被取代](modernization/property-updates.md)**
 
@@ -588,13 +588,13 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 * `path` String
 
-Adds `path` to the recent documents list.
+將 `路徑` 加入到最近使用的文件清單。
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+清除最近使用的文件清單。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
