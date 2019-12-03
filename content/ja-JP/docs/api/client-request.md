@@ -18,7 +18,7 @@
   * `hostname` String (任意) - サーバーホスト名。
   * `port` Integer (任意) - サーバーのリスニングポート番号。
   * `path` String (任意) - リクエストURLのパスの部分。
-  * `redirect` String (任意) - このリクエストのリダイレクトモード。 `follow`、`error` または `manual` のいずれかにする必要があります。 省略値は、`follow` です。 モードが `error` のとき、リダイレクトは中止されます。 When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
+  * `redirect` String (任意) - このリクエストのリダイレクトモード。 `follow`、`error` または `manual` のいずれかにする必要があります。 省略値は、`follow` です。 モードが `error` のとき、リダイレクトは中止されます。 モードが `manual` のときは、[`request.followRedirect`](#requestfollowredirect) が呼び出されるまで [`redirect`](#event-redirect) イベントは同期的に中止されます。
 
 `protocol`、`host`、`hostname`、`port` や `path` といった `options` プロパティは、[URL](https://nodejs.org/api/url.html) モジュールで説明されている Node.js モデルに厳密に従うようにしてください。
 
@@ -112,7 +112,7 @@ HTTPのリクエストからレスポンスまでのやり取りの最後のイ�
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+サーバーがリダイレクトのレスポンス (301 Moved Permanently など) を返すときに生成されます。 [`request.followRedirect`](#requestfollowredirect) を呼び出すと、リダイレクトが続行されます。 このイベントを処理する場合、[`request.followRedirect`](#requestfollowredirect) を **同期的に** で呼び出す必要があります。でなければ、リクエストはキャンセルされます。
 
 ### インスタンスプロパティ
 
@@ -167,7 +167,7 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+保留中のリダイレクトを続行します。`'redirect'` イベント中にのみ呼び出すことができます。
 
 #### `request.getUploadProgress()`
 
