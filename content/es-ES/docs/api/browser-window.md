@@ -324,7 +324,7 @@ Aparece cuando se restaura la ventana de un estado minimizado.
 Devuelve:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Tamaño a la que se esta se esta re dimensionando la ventana.
+* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Emitido antes de que la ventana sea redmencionada. Llamando a `event.preventDefault()` se evitará que la ventana sea redimensionada.
 
@@ -339,7 +339,7 @@ Emitido después que la ventana se haya redimensionada.
 Devuelve:
 
 * `evento` Evento
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Ubicación a la que la ventana se esta moviendo.
+* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitido antes de que se mueva la ventana. Llamar `event.preventDefault()` impedirá que la ventana se mueva.
 
