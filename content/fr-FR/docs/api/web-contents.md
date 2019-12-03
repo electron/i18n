@@ -424,8 +424,8 @@ Retourne :
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
