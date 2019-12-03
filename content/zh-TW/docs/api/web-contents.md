@@ -423,8 +423,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitted when `webContents` wants to do basic auth.
 
