@@ -426,8 +426,8 @@ Rückgabewert:
   * `port` Integer
   * `realm` String
 * `callback` Funktion 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitted when `webContents` wants to do basic auth.
 
