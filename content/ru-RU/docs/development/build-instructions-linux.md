@@ -69,7 +69,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
 И для кросс-компиляции для `arm` или `ia32`, вам нужно использовать `--target_arch` параметр для `` скрипта:
 
 ```sh
-$ gn gen out/Testing --args='import(...) target_cpu="arm"'
+$ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## Сборка
