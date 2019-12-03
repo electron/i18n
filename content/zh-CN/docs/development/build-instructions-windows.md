@@ -89,6 +89,6 @@ $ git config --system core.longpaths true
 
 确保已使用 `pip install pywin32` 安装了 `pywin32`。
 
-### Build Scripts Hang Until Keypress
+### 构建脚本挂起, 直到某个按键按下才有响应
 
 This bug is a "feature" of Windows' command prompt. It happens when clicking inside the prompt window with `QuickEdit` enabled and is intended to allow selecting and copying output text easily. Since each accidental click will pause the build process, you might want to disable this feature in the command prompt properties.
