@@ -9,7 +9,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 * `options` Objet 
   * `label` String (facultatif) - Texte du bouton.
   * `backgroundColor` String (facultatif) - Couleur de fond hexadécimal du bouton, c.-à-d. `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
+  * `icon` [NativeImage](native-image.md) | String(facultatif) - Icône du bouton.
   * `iconPosition` String (facultatif) -Peut être `left`, `right` ou `overlay`.
   * `click` Function (facultatif) - Fonction à appeler lorsque le bouton est cliqué.
 
