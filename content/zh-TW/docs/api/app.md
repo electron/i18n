@@ -267,8 +267,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitted when `webContents` wants to do basic auth.
 
@@ -282,6 +282,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   callback('username', 'secret')
 })
 ```
+
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
@@ -471,7 +473,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-將所有應用程式視窗隱藏但沒有將視窗縮到最小。
+Hides all application windows without minimizing them.
 
 ### `app.show()` *macOS*
 
@@ -562,7 +564,7 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 * `name` String
 
-重寫當前應用程式的名稱。
+Overrides the current application's name.
 
 **[已被取代](modernization/property-updates.md)**
 
@@ -586,13 +588,13 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 * `path` String
 
-將 `路徑` 加入到最近使用的文件清單。
+Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-清除最近使用的文件清單。
+Clears the recent documents list.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
