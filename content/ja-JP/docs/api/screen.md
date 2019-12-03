@@ -8,36 +8,43 @@
 
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
-**注釈:** レンダラー / 開発者向けツールでは、`window.screen` は予約済みの DOM プロパティなので、`let { screen } = require('electron')` と書くことはできません。
+**注意:** レンダラー / デベロッパー ツールでは、`window.screen` は予約された DOM プロパティなので、`let { screen } = require('electron')` と書くことはできません。
 
 以下は画面全体を埋めるウインドウを作成する例です。
 
-```javascript fiddle='docs/fiddles/screen/fit-screen' const { app, BrowserWindow, screen } = require('electron')
+```javascript fiddle='docs/fiddles/screen/fit-screen'
+const { app, BrowserWindow, screen } = require('electron')
 
-let win app.on('ready', () => { const { width, height } = screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https://github.com') })
+let win
+app.on('ready', () => {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
+  win.loadURL('https://github.com')
+})
+```
 
-    <br />別の例として外部ディスプレイへのウィンドウ作成を示します。
-    
-    ```javascript
-    const { app, BrowserWindow, screen } = require('electron')
-    
-    let win
-    
-    app.on('ready', () => {
-      let displays = screen.getAllDisplays()
-      let externalDisplay = displays.find((display) => {
-        return display.bounds.x !== 0 || display.bounds.y !== 0
-      })
-    
-      if (externalDisplay) {
-        win = new BrowserWindow({
-          x: externalDisplay.bounds.x + 50,
-          y: externalDisplay.bounds.y + 50
-        })
-        win.loadURL('https://github.com')
-      }
+以下は外部ディスプレイにウィンドウを作成するもう一つの例です。
+
+```javascript
+const { app, BrowserWindow, screen } = require('electron')
+
+let win
+
+app.on('ready', () => {
+  let displays = screen.getAllDisplays()
+  let externalDisplay = displays.find((display) => {
+    return display.bounds.x !== 0 || display.bounds.y !== 0
+  })
+
+  if (externalDisplay) {
+    win = new BrowserWindow({
+      x: externalDisplay.bounds.x + 50,
+      y: externalDisplay.bounds.y + 50
     })
-    
+    win.loadURL('https://github.com')
+  }
+})
+```
 
 ## イベント
 
@@ -101,23 +108,23 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
 
 戻り値 [`Display`](structures/display.md) - 指定した矩形に最も近い display。
 
-### `screen.screenToDipPoint(point)` *Windows*
+### `screen.screenToDipPoint(point)` _Windows_
 
 * `point` [Point](structures/point.md)
 
 戻り値 [`Point`](structures/point.md)
 
-スクリーンの物理ポイントをスクリーンの DIP ポイントに変換します。DPI スケールは物理ポイントを含むディスプレイと相対的に計算されます。
+スクリーン上の物理的な点をスクリーン上の DIP な点に変換します。 DPI スケールは、物理的な点のあるディスプレイに対して相対的なものになります。
 
-### `screen.dipToScreenPoint(point)` *Windows*
+### `screen.dipToScreenPoint(point)` _Windows_
 
 * `point` [Point](structures/point.md)
 
 戻り値 [`Point`](structures/point.md)
 
-スクリーンの DIP ポイントをスクリーンの物理ポイントに変換します。DPI スケールは DIP ポイントを含むディスプレイと相対的に計算されます。
+スクリーン上の DIP な点をスクリーン上の物理的な点に変換します。 DPI スケールは、DIP な点のあるディスプレイに対して相対的なものになります。
 
-### `screen.screenToDipRect(window, rect)` *Windows*
+### `screen.screenToDipRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
@@ -126,7 +133,7 @@ let win app.on('ready', () => { const { width, height } = screen.getPrimaryDispl
 
 スクリーンの物理矩形をスクリーンのの DIP 矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
 
-### `screen.dipToScreenRect(window, rect)` *Windows*
+### `screen.dipToScreenRect(window, rect)` _Windows_
 
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
