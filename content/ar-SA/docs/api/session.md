@@ -184,7 +184,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.resolveProxy(url)`
 
-* `url` URL
+* `رابط` URL
 
 Returns `Promise<String>` - Resolves with the proxy information for `url`.
 
