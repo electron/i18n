@@ -67,7 +67,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 古いバージョンのElectronを使用していた場合は、`~/.electron`内にキャッシュがあるかもしれません。
 
-更に `ELECTRON_CACHE` 環境変数を設けることで、ローカルキャッシュの場所を上書きできます。
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 キャッシュには、バージョンの公式のzipファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。典型的なキャッシュは、次のようになっています。
 
