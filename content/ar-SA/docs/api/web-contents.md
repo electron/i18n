@@ -401,7 +401,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 Returns:
 
 * `event` Event
-* `url` URL
+* `رابط` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` دالة 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
@@ -424,8 +424,8 @@ Returns:
   * `port` Integer
   * `realm` String
 * `callback` دالة 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitted when `webContents` wants to do basic auth.
 
