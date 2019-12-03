@@ -15,8 +15,8 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
   * `selectedStyle` String (optionnel) - Le style de l'élément sélectionné. `null` par défaut.
   * `overlayStyle` String (optionnel) - Le style de l'élément superposé. `null` par défaut.
   * `showArrowButtons` Boolean (optionnel) - `false` par défaut.
-  * `mode` String (optional) - Defaults to `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+  * `mode` String (optionnel) - `free` par défaut.
+  * `continuous` Boolean (optionnel) - `true` par défaut.
 
 ### Propriétés d'instance
 
