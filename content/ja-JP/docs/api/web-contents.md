@@ -424,8 +424,8 @@ win.webContents.on('before-input-event', (event, input) => {
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (任意)
+  * `password` String (任意)
 
 `webContents` がBasic認証を要求すると発生します。
 
