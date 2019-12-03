@@ -267,8 +267,8 @@ Retorna:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
@@ -282,6 +282,8 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
   callback('username', 'secret')
 })
 ```
+
+If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
 
 ### Event: 'gpu-info-update'
 
@@ -618,7 +620,7 @@ A API usa internamente o Registro do Windows e o LSSetDefaultHandlerForURLScheme
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Retorna `Boolean` - Se a chamada foi realizada com sucesso ou não.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele removerá a aplicação como o manipulador padrão.
 
