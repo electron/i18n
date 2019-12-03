@@ -18,7 +18,7 @@ Il y a plusieurs façons d'installer des modules natifs :
 
 Vous pouvez choisir d'installer les modules comme les autres projets Node, puis recompiler les modules pour Electron avec le paquet [`electron-rebuild`](https://github.com/electron/electron-rebuild). Ce module peut automatiquement obtenir la version d'Electron et gérer les étapes manuelles de téléchargement des en-têtes, compiler les modules natifs pour votre application.
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+Par exemple, pour installer `electron-rebuild` puis recompiler les modules avec via une ligne de commande :
 
 ```sh
 npm install --save-dev electron-rebuild
@@ -30,19 +30,20 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools, consult the project's README.
+Pour plus d'informations sur l'usage et l'intégration avec les autres outils, consultez le README du projet.
 
 ### À l'aide de `npm`
 
 En définissant quelques variables d’environnement, vous pouvez utiliser `npm` pour installer des modules directement.
 
-For example, to install all dependencies for Electron:
+Par exemple, pour installer toutes les dépendances d'Electron :
 
 ```sh
 # Version d'Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
-# for supported architectures.
+# L'architecture d'Electron, consultez
+https://electronjs.org/docs/tutorial/support#supported-platforms
+# pour les architectures prises en charge.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Télécharge les en-têtes pour Electron.
@@ -64,14 +65,14 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
-- `HOME=~/.electron-gyp` changes where to find development headers.
-- `--target=1.2.3` is the version of Electron.
-- `--dist-url=...` specifies where to download the headers.
-- `--arch=x64` says the module is built for a 64-bit system.
+- `HOME=~/.electron-gyp` indique où trouver les en-têtes pour le développement.
+- `--target=1.2.3` est la version d'Electron.
+- `--dist-url=...` indique où télécharger les en-têtes.
+- `--arch=x64` spécifie que le module est prévu pour un système 64 bits.
 
-### Manually building for a custom build of Electron
+### Compilation manuelle pour une compilation personnalisée d'Electron
 
-To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Pour compiler des modules Node natifs avec une compilation personnalisée d'Electron qui ne correspond pas à une release publique, utilisez la commande `npm` pour utiliser la version de Node que vous avez empaquetée avec votre compilation personnalisée.
 
 ```sh
 npm rebuild --nodedir=/path/to/electron/vendor/node
@@ -79,14 +80,14 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 ## Résolution de problème
 
-If you installed a native module and found it was not working, you need to check the following things:
+Si vous avez installé un module natif et trouvé que cela ne fonctionnait pas, vous devez vérifier ces éléments suivants :
 
 - En cas de doute, exécutez d'abord `electron-rebuild`.
-- Make sure the native module is compatible with the target platform and architecture for your Electron app.
-- Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
+- Assurez-vous que le module natif est compatible avec la plateforme cible et l'architecture pour votre application Electron.
+- Assurez-vous que `win_delay_load_hook` n'est pas défini comme `false` dans le module `binding.gyp`.
 - Après avoir mise à jour Electron, vous devez habituellement recompiler les modules.
 
-### A note about `win_delay_load_hook`
+### Une remarque sur `win_delay_load_hook`
 
 On Windows, by default, `node-gyp` links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
