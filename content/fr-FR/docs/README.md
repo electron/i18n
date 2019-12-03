@@ -31,7 +31,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Utilisation des APIs Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Utilisation des APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Utilisation des Modules Natifs de Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [Stratégies de performance](tutorial/performance.md)
 * Ajouter des fonctionnalités à votre App 
   * [Notifications](tutorial/notifications.md)
   * [Documents récents](tutorial/recent-documents.md)
@@ -101,7 +101,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Commandes Supportées](api/command-line-switches.md)
 * [Variables d'environnement](api/environment-variables.md)
 * [Changements majeurs prévus de l'API](api/breaking-changes.md)
 
