@@ -323,7 +323,7 @@ Please note that using this event implies that the renderer will be considered "
 Retourne :
 
 * `event` Événement
-* `newBounds` [`Rectangle`](structures/rectangle.md) - La taille donnée à la fenêtre ciblée.
+* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
 
 Émis avant que la fenêtre ne soit redimensionnée. Appeler `event.preventDefault()` empêchera la fenêtre d'être redimensionnée.
 
@@ -338,7 +338,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 Retourne :
 
 * `event` Événement
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
 Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
 
