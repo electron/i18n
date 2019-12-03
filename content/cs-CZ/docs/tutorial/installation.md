@@ -67,7 +67,7 @@ Alternatively, you can override the local cache. `electron-download` will cache 
 
 On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+You can also override the local cache location by providing a `electron_config_cache` environment variable.
 
 The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
 
