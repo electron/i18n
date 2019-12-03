@@ -21,7 +21,7 @@ Context | Request Context
   * `hostname` String (opsyonal) - Ang host name ng server.
   * `port` Integer (opsyonal) - Ang listening port number ng server.
   * `path` String (opsyonal) - Ang path na parte sa request URL.
-  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowredirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
+  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
 
 `options` properties gaya ng `protocol`, `host`, `hostname`, `port` at `path` mahigpit na sundan ang Node.js na model gaya ng inilarawan sa [URL](https://nodejs.org/api/url.html) module.
 
@@ -56,8 +56,8 @@ Pagbabalik:
   * `port` Integer
   * `realm` String
 * `callback` Punsyon 
-  * `username` String
-  * `password` String
+  * `username` String (optional)
+  * `password` String (optional)
 
 Ang pinalabas kapag ang isang proxy na nagpapatunay ay humihiling ng mga kredensyal ng gumagamit.
 
@@ -115,7 +115,7 @@ Ibinabalik ang:
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`request.followRedirect`](#requestfollowredirect) ay magpapatuloy sa redirection.
+Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
 
 ### Mga Katangian ng Instansya
 
@@ -170,7 +170,7 @@ Nagkakansela ng isang patuloy na HTTP na transaksyon. Kung ang request ay nagtan
 
 #### `request.followRedirect()`
 
-Pinapatuloy ang alinmang pinapaliban na redirection request kung ang redirection mode ay 0>manual</code>.
+Continues any pending redirection. Can only be called during a `'redirect'` event.
 
 #### `request.getUploadProgress()`
 
