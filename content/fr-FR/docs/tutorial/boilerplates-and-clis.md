@@ -6,7 +6,7 @@ Ce niveau de modularité et d'extensibilité garantit que tous les développeurs
 
 ## Boilerplate vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Une "Boilerplayer" n'est qu'un point de départ - une toile, pour ainsi dire - à partir de laquelle vous construisez votre application. They usually come in the form of a repository you can clone and customize to your heart's content.
 
 A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
 
