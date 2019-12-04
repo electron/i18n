@@ -28,15 +28,15 @@
 
 Параметры свойства `dark` имеют следующие эффекты:
 * `nativeTheme.shouldUseDarkColors` при обращении будет `true`
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
+* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь темный интерфейс.
+* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь темный интерфейс.
 * The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `dark` mode.
 * The `updated` event will be emitted
 
 Settings this property to `light` will have the following effects:
 * `nativeTheme.shouldUseDarkColors` will be `false` when accessed
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
+* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. will use the light UI.
+* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. will use the light UI.
 * The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `light` mode.
 * The `updated` event will be emitted
 
