@@ -25,25 +25,25 @@ app.on('ready', async () => {
 
 * `path` String - путь к файлу для записи сетевых журналов.
 * `options` Object (опционально) 
-  * `captureMode` String (опционально) - Какие типы данных должны быть зафиксированы. По умолчанию будут записаны только метаданные о запросах. Установка этого в `includeSensitive` будет включать cookies и данные аутентификации. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
-  * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
+  * `captureMode` String (опционально) - Какие типы данных должны быть зафиксированы. По умолчанию будут записаны только метаданные о запросах. Установка этого в `includeSensitive` будет включать cookies и данные аутентификации. Установка на `everything` включит все байты, передаваемые на сокеты. Может быть `default`, `includeSensitive` или `everything`.
+  * `maxFileSize` Number (опционально) - Когда журнал заполнится и станет больше этого размера, регистрация автоматически прекратится. По умолчанию неограничено.
 
-Returns `Promise<void>` - resolves when the net log has begun recording.
+Возвращает `Promise<void>` - разрешает, когда сетевой журнал начал запись.
 
-Starts recording network events to `path`.
+Запускает запись сетевых событий в `path`.
 
 ### `netLog.stopLogging()`
 
-Returns `Promise<String>` - resolves with a file path to which network logs were recorded.
+Возвращает `Promise<String>` - разрешает путь к файлу, в который были записаны сетевые журналы.
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+Остановка записи сетевых событий. Если не вызвано, ведение сетевого журнала автоматически закроется при выходе из приложения.
 
 ## Свойства
 
-### `netLog.currentlyLogging` *Readonly*
+### `netLog.currentlyLogging` *Только чтение*
 
-A `Boolean` property that indicates whether network logs are recorded.
+Свойство `Boolean`, указывающее на запись сетевых журналов.
 
-### `netLog.currentlyLoggingPath` *Readonly* *Deprecated*
+### `netLog.currentlyLoggingPath` *Только чтение* *Устарело*
 
-A `String` property that returns the path to the current log file.
+Свойство `String`, которое возвращает путь к текущему файлу журнала.
