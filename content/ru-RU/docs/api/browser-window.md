@@ -324,7 +324,7 @@ window.onbeforeunload = (e) => {
 Возвращает:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [Rectangle](structures/rectangle.md) - Размер окна, на который будет изменено.
 
 Происходит перед изменением размера окна. Вызов `event.preventDefault()` предотвратит изменение размера окна.
 
@@ -339,7 +339,7 @@ window.onbeforeunload = (e) => {
 Возвращает:
 
 * `event` Event
-* `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [Rectangle](structures/rectangle.md) - Расположение, куда окно будет перемещено.
 
 Происходит перед перемещением окна. Вызов `event.preventDefault()` предотвратит перемещение окна.
 
