@@ -109,7 +109,7 @@ Following suffixes for DPI are also supported:
 
 Возвращает `NativeImage`
 
-Создает новый экземпляр `NativeImage` из файла, расположенного по адресу `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Создает новый экземпляр `NativeImage` из файла, расположенного по адресу `path`. Этот метод возвращает пустое изображение, если путь `path` не существует, не может быть прочитан или является некорректным.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -151,9 +151,9 @@ console.log(image)
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+Создает новый экземпляр `NativeImage` из NSImage, который сопоставляется с заданным именем изображения. Смотрите [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) для получения списка возможных значений.
 
-The `hslShift` is applied to the image with the following rules
+`hslShift` применяется к изображению со следующими правилами
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
