@@ -245,7 +245,7 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (опционально) - желаемое качество изображения при изменения размера. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (опционально) - желаемое качество изображения при изменения размера. Возможные значения `good` - хорошее, `better` - лучшее или `best` - самое лучшее. По-умолчанию - `best`. Эти значения выражают желаемый компромисс между качеством и скоростью. Они переводятся в алгоритм конкретного метода, который зависит от возможностей (CPU, GPU) базовой платформы. Все три метода можно сопоставить с одним и тем же алгоритмом на данной платформе.
 
 Returns `NativeImage` - The resized image.
 
@@ -257,7 +257,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` Object * `scaleFactor` Double - Коэффициент масштаба для добавления представления изображения. * `width` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `height` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
