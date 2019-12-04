@@ -40,17 +40,17 @@
 * Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `light`.
 * Возникнет событие `updated`
 
-The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
+Использование этого свойства должно совпадать с классическим "темным режимом" машины в вашем приложении, где у пользователя есть три варианта.
 * `Follow OS` --> `themeSource = 'system'`
 * `Dark Mode` --> `themeSource = 'dark'`
 * `Light Mode` --> `themeSource = 'light'`
 
-Your application should then always use `shouldUseDarkColors` to determine what CSS to apply.
+В этом случае ваше приложение должно всегда использовать `shouldUseDarkColors`, чтобы определить, какой CSS будет применяться.
 
-### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Только чтение_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-constrast UI.
+`Boolean` - в данный момент для текущей OS / Chromium включен режим отбражения с высокой контрастностью или дается указание отображать пользовательский интерфейс с высокой контрастностью.
 
-### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Только чтение_
 
 A `Boolean` for if the OS / Chromium currently has an inverted color scheme or is being instructed to use an inverted color scheme.
