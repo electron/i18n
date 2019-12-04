@@ -112,7 +112,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением. Если событие обработано, [`request.followRedirect`](#requestfollowredirect) должен вызываться **синхронно**, в противном случае запрос будет отменен.
 
 ### Свойства экземпляра
 
@@ -167,7 +167,7 @@ request.on('login', (authInfo, callback) => {
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+Продолжает любое ожидаемое перенаправление. Может быть вызван только во время события `'redirect'`.
 
 #### `request.getUploadProgress()`
 
