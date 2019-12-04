@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Также поддерживаются следующие суффиксы DPI:
 
 * `@1x`
 * `@1.25x`
@@ -227,7 +227,7 @@ console.log(image)
 
 * `option` Boolean
 
-Marks the image as a template image.
+Помечает изображение как шаблон изображения.
 
 **[Устарело](modernization/property-updates.md)**
 
@@ -245,7 +245,7 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
