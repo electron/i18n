@@ -257,7 +257,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - Коэффициент масштаба для добавления представления изображения. * `width` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `height` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` Object * `scaleFactor` Double - Коэффициент масштаба для добавления представления изображения. * `width` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `height` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `buffer` Buffer (опционально) - Буфер, содержащий сырые данные изображения. * `dataURL` String (опционально) - URL-адрес данных, содержащий закодированное в base64 изображение в формате PNG или JPEG.
 
 Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
 
