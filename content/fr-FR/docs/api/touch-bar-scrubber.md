@@ -8,15 +8,15 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 
 * `options` Objet 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Un tableau d'éléments à placer dans ce scrubber.
-  * `select` Function (optional) - Called when the user taps an item that was not the last tapped item. 
+  * `select` Function (optionnel) - Appelée lorsque l'utilisateur clique sur un élément qui n'était par le dernier élément cliqué. 
     * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
-  * `highlight` Function (optional) - Called when the user taps any item. 
+  * `highlight` Function (optionnel) - Appelée lorsque l'utilisateur clique sur un élément quelconque. 
     * `highlightedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
-  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Defaults to `free`.
-  * `continuous` Boolean (optional) - Defaults to `true`.
+  * `selectedStyle` String (optionnel) - Le style de l'élément sélectionné. `null` par défaut.
+  * `overlayStyle` String (optionnel) - Le style de l'élément superposé. `null` par défaut.
+  * `showArrowButtons` Boolean (optionnel) - `false` par défaut.
+  * `mode` String (optionnel) - `free` par défaut.
+  * `continuous` Boolean (optionnel) - `true` par défaut.
 
 ### Propriétés d'instance
 

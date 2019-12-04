@@ -11,4 +11,4 @@
 * `description` String (facultatif) - Description de la tâche (affichée dans une info-bulle). Doit être défini uniquement si le `type` est `task`.
 * `iconPath` String (facultatif) - Le chemin d'accès absolu d'une icône à afficher dans une liste de raccourcis, qui peut être une ressource arbitraire d'un fichier de ressource contenant une icône. (`.ico`, `.exe`, `.dll`). Vous pouvez généralement spécifier `process.execPath` pour afficher l’icône du programme.
 * `iconIndex` Number (facultatif) - L'index de l'icône dans le fichier de ressource. Si un fichier de ressource contient plusieurs icône, cette valeur peut être utilisée pour spécifier l'index de l'icône devant être affichée pour cette tâche. Si un fichier de ressource ne contient qu'une seule icône, alors cette propriété doit être définie à zéro.
-* `workingDirectory` String (optional) - The working directory. Default is empty.
+* `workingDirectory` String (optionnel) - Le répertoire de travail. Vide par défaut.

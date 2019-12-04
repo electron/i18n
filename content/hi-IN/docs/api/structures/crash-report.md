@@ -1,4 +1,4 @@
-# CrashReport वस्तु
+# CrashReport Object
 
-* `date`दिनांक
+* `date`
 * `id` String

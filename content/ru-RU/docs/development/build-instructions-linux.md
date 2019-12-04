@@ -45,7 +45,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   nss-devel python-dbusmock openjdk-8-jre
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 Другие дистрибутивы могут предложить аналогичные пакеты для установки через менеджеры пакетов, такие как pacman. Либо можно скомпилировать их из исходного кода.
@@ -69,7 +69,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
 И для кросс-компиляции для `arm` или `ia32`, вам нужно использовать `--target_arch` параметр для `` скрипта:
 
 ```sh
-$ gn gen out/Testing --args='import(...) target_cpu="arm"'
+$ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## Сборка

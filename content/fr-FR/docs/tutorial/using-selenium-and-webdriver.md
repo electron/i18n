@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Un test simple pour vérifier si une fenêtre visible est ouverte avec un titre
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,19 +24,18 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Check if the window is visible
+    // Vérifie si la fenêtre est visible
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
     assert.strictEqual(isVisible, true)
-    // Get the window's title
+    // Récupère le titre de la fenêtre
     const title = await app.client.getTitle()
-    // Verify the window's title
+    // Vérifie le titre de la fenêtre
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Log any failures
+    // Note toute erreur rencontrée
     console.error('Test failed', error.message)
   }
-  // Stop the application
+  // Arrête l'application
   await app.stop()
 }
 
@@ -125,12 +124,12 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // Utilisez localhost comme serveur ChromeDriver
+  port: 9515,        // "9515" est le port ouvert par ChromeDriver.
   desiredCapabilities: {
     browserName: 'chrome',
-    'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
+    chromeOptions: {
+      binary: '/Path-to-Your-App/electron', // Chemin vers votre binaire Electron.
       args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
@@ -153,4 +152,4 @@ client
 
 Pour tester votre application sans re-compiler Electron, il suffit de [placer](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) la source de votre app dans le dossier des ressources d'Electron.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+Vous pouvez également passer un argument a exécuter avec votre binaire Electron qui pointe vers le dossier de votre application. Cela évite d’avoir à copier-coller votre application dans le répertoire des ressources d'Electron.
