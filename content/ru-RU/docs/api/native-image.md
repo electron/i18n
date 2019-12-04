@@ -193,31 +193,31 @@ console.log(image)
 
 * `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит копию сырых данных растровых пикселей изображения.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `String` - The data URL of the image.
+Возвращает `String` - данные URL изображения.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит сырые данные растровых пикселей изображения.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+Разница между `getBitmap()` и `toBitmap()` заключается в том, что `getBitmap()` не копирует растровые данные, поэтому необходимо немедленно использовать возвращаемый буфер в тикере цикла текущего события, иначе данные могут быть изменены или уничтожены.
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) в котором хранится указатель C на базовый собственный дескриптор изображения. На macOS возвращается указатель на экземпляр `NSImage`.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Обратите внимание, что возвращаемый указатель - это слабый указатель на исходное изображение, а не на копию, поэтому вы *должны* убедиться, что связанный с ним экземпляр `NativeImage` находится рядом.
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Возвращает `Boolean` - признак того что изображение пустое.
 
 #### `image.getSize()`
 
