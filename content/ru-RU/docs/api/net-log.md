@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events for a session.
+> Журналирование сетевых событий сессии.
 
 Процесс: [Главный](../glossary.md#main-process)
 
@@ -9,23 +9,23 @@ const { netLog } = require('electron')
 
 app.on('ready', async () => {
   await netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // После некоторых сетевых событий
   const path = await netLog.stopLogging()
   console.log('Net-logs written to', path)
 })
 ```
 
-See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+Смотрите [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) для регистрации сетевых событий на протяжении всего жизненного цикла приложения.
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Примечание:** Все методы, если не указано другого, могут быть использованы только после того, как событие `ready` модуля `app` будет отправлено.
 
 ## Методы
 
 ### `netLog.startLogging(path[, options])`
 
-* `path` String - File path to record network logs.
+* `path` String - путь к файлу для записи сетевых журналов.
 * `options` Object (опционально) 
-  * `captureMode` String (optional) - What kinds of data should be captured. By default, only metadata about requests will be captured. Setting this to `includeSensitive` will include cookies and authentication data. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
+  * `captureMode` String (опционально) - Какие типы данных должны быть зафиксированы. По умолчанию будут записаны только метаданные о запросах. Установка этого в `includeSensitive` будет включать cookies и данные аутентификации. Setting it to `everything` will include all bytes transferred on sockets. Can be `default`, `includeSensitive` or `everything`.
   * `maxFileSize` Number (optional) - When the log grows beyond this size, logging will automatically stop. Defaults to unlimited.
 
 Returns `Promise<void>` - resolves when the net log has begun recording.
