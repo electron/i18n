@@ -30,15 +30,15 @@
 * `nativeTheme.shouldUseDarkColors` при обращении будет `true`
 * Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь темный интерфейс.
 * Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь темный интерфейс.
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `dark` mode.
-* The `updated` event will be emitted
+* Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `dark`.
+* Возникнет событие `updated`
 
-Settings this property to `light` will have the following effects:
-* `nativeTheme.shouldUseDarkColors` will be `false` when accessed
-* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. will use the light UI.
-* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. will use the light UI.
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `light` mode.
-* The `updated` event will be emitted
+Параметры свойства `light` имеют следующие эффекты:
+* `nativeTheme.shouldUseDarkColors` при обращении будет `false`
+* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь светлый интерфейс.
+* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь светлый интерфейс.
+* Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `light`.
+* Возникнет событие `updated`
 
 The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
 * `Follow OS` --> `themeSource = 'system'`
