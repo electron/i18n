@@ -53,4 +53,4 @@
 
 ### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Только чтение_
 
-A `Boolean` for if the OS / Chromium currently has an inverted color scheme or is being instructed to use an inverted color scheme.
+`Boolean` - в данный момент для текущей OS / Chromium включен режим инвертирования цветовой схемы или дается указание отображать пользовательский интерфейс с инвертированной цветовой схемой.
