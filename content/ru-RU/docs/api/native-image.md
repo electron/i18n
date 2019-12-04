@@ -245,7 +245,7 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (опционально) - желаемое качество изображения при изменения размера. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
