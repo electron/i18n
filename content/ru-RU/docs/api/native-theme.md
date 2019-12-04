@@ -1,16 +1,16 @@
-# nativeTheme
+# nativeTheme (Родная тема)
 
-> Read and respond to changes in Chromium's native color theme.
+> Читайте и реагируйте на изменения в родной цветовой теме Chromium.
 
 Процесс: [Главный](../glossary.md#main-process)
 
 ## События
 
-The `nativeTheme` module emits the following events:
+Объект `nativeTheme` имеет следующие события:
 
 ### Событие: 'updated'
 
-Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
+Возникает, когда в основной NativeTheme что-то изменилось. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
 
 ## Свойства
 
