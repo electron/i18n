@@ -265,6 +265,6 @@ Add an image representation for a specific scale factor. This can be used to exp
 
 #### `nativeImage.isMacTemplateImage` *macOS*
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+Свойство `Boolean` определяет, считается ли [изображение шаблоном](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Пожалуйста, обратите внимание, что это свойство влияет только на macOS.
