@@ -53,8 +53,8 @@ const request = net.request({
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (опционально)
+  * `password` String (опционально)
 
 Происходит, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
 
