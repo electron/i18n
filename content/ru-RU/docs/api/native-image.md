@@ -233,7 +233,7 @@ console.log(image)
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Возвращает `Boolean` - признак того что изображение является шаблоном.
 
 **[Устарело](modernization/property-updates.md)**
 
@@ -247,9 +247,9 @@ Returns `Boolean` - Whether the image is a template image.
 
 * `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (опционально) - желаемое качество изображения при изменения размера. Возможные значения `good` - хорошее, `better` - лучшее или `best` - самое лучшее. По-умолчанию - `best`. Эти значения выражают желаемый компромисс между качеством и скоростью. Они переводятся в алгоритм конкретного метода, который зависит от возможностей (CPU, GPU) базовой платформы. Все три метода можно сопоставить с одним и тем же алгоритмом на данной платформе.
 
-Returns `NativeImage` - The resized image.
+Возвращает `NativeImage` - измененый размер изображения.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
 
 #### `image.getAspectRatio()`
 
@@ -259,7 +259,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 * `options` Object * `scaleFactor` Double - Коэффициент масштаба для добавления представления изображения. * `width` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `height` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `buffer` Buffer (опционально) - Буфер, содержащий сырые данные изображения. * `dataURL` String (опционально) - URL-адрес данных, содержащий закодированное в base64 изображение в формате PNG или JPEG.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Добавьте представление изображения для определенного коэффициента масштабирования. Это можно использовать для явного добавления к изображению различных представлений коэффициента масштабирования. Можно использовать на пустых изображениях.
 
 ### Instance Properties
 
