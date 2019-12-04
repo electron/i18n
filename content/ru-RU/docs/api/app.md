@@ -267,8 +267,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (опционально)
+  * `password` String (опционально)
 
 Происходит, когда `webContents` выполняет базовую аутентификацию.
 
@@ -283,7 +283,7 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+Если ` calllback` вызывается без имени пользователя или пароля, запрос аутентификации будет отменен и ошибка аутентификации будет возвращена на страницу.
 
 ### Событие: 'gpu-info-update'
 
