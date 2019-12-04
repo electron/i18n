@@ -94,7 +94,7 @@ The default building configuration is targeted for major desktop Linux distribut
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+For example if you installed `clang` under `/user/local/bin/clang`:
 
 ```sh
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
