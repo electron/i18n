@@ -1,6 +1,6 @@
 # autoUpdater
 
-> Дозволяє застосункам автоматично оновлювати себе.
+> Enable apps to automatically update themselves.
 
 Процес: [Main](../glossary.md#main-process)
 

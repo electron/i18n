@@ -1,56 +1,56 @@
-# nativeTheme
+# nativeTheme (Родная тема)
 
-> Read and respond to changes in Chromium's native color theme.
+> Читайте и реагируйте на изменения в родной цветовой теме Chromium.
 
 Процесс: [Главный](../glossary.md#main-process)
 
 ## События
 
-The `nativeTheme` module emits the following events:
+Объект `nativeTheme` имеет следующие события:
 
 ### Событие: 'updated'
 
-Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
+Возникает, когда в основной NativeTheme что-то изменилось. Это обычно означает, что значение `shouldUseDarkColors` (использовать темные цвета), `shouldUseHighContrastColors` (использовать высококонтрастные цвета) или `shouldUseInvertedColorScheme` (использовать инвертированную цветовую гамму) - изменилось. Вам придется проверить их для того, чтобы определить, какие из них были изменены.
 
 ## Свойства
 
-The `nativeTheme` module has the following properties:
+Объект `nativeTheme` имеет следующие свойства:
 
-### `nativeTheme.shouldUseDarkColors` _Readonly_
+### `nativeTheme.shouldUseDarkColors` _Только чтение_
 
-A `Boolean` for if the OS / Chromium currently has a dark mode enabled or is being instructed to show a dark-style UI.  If you want to modify this value you should use `themeSource` below.
+`Boolean` - в данный момент для текущей OS / Chromium включен темный режим или дается указание отображать пользовательский интерфейс в темном режиме.  Если вы хотите изменить это значение, вы должны использовать `themeSource` ниже.
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supercede the value that Chromium has chosen to use internally.
+Свойство `String` может быть `system`, `light` или `dark`.  Используется для переопределения и замены значения, которое Chromium выбрал для внутреннего использования.
 
-Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
+Установка этого свойства на `system` удалит переопределение и все будет сброшено на установленное ОС по умолчанию.  По умолчанию `themeSource` является `system`.
 
-Settings this property to `dark` will have the following effects:
-* `nativeTheme.shouldUseDarkColors` will be `true` when accessed
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the dark UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the dark UI.
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `dark` mode.
-* The `updated` event will be emitted
+Параметры свойства `dark` имеют следующие эффекты:
+* `nativeTheme.shouldUseDarkColors` при обращении будет `true`
+* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь темный интерфейс.
+* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь темный интерфейс.
+* Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `dark`.
+* Возникнет событие `updated`
 
-Settings this property to `light` will have the following effects:
-* `nativeTheme.shouldUseDarkColors` will be `false` when accessed
-* Any UI Electron renders on Linux and Windows including context menus, devtools, etc. will use the light UI.
-* Any UI the OS renders on macOS including menus, window frames, etc. will use the light UI.
-* The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS query will match `light` mode.
-* The `updated` event will be emitted
+Параметры свойства `light` имеют следующие эффекты:
+* `nativeTheme.shouldUseDarkColors` при обращении будет `false`
+* Любой интерфейс Electron, отображаемый в Linux и Windows, включая контекстные меню, devtools, и т. д. будет иметь светлый интерфейс.
+* Любой интерфейс, который ОС отображает на macOS с меню, оконными рамками и т. д. будет иметь светлый интерфейс.
+* Запрос [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS будет соответствовать режиму `light`.
+* Возникнет событие `updated`
 
-The usage of this property should align with a classic "dark mode" state machine in your application where the user has three options.
+Использование этого свойства должно совпадать с классическим "темным режимом" машины в вашем приложении, где у пользователя есть три варианта.
 * `Follow OS` --> `themeSource = 'system'`
 * `Dark Mode` --> `themeSource = 'dark'`
 * `Light Mode` --> `themeSource = 'light'`
 
-Your application should then always use `shouldUseDarkColors` to determine what CSS to apply.
+В этом случае ваше приложение должно всегда использовать `shouldUseDarkColors`, чтобы определить, какой CSS будет применяться.
 
-### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseHighContrastColors` _macOS_ _Windows_ _Только чтение_
 
-A `Boolean` for if the OS / Chromium currently has high-contrast mode enabled or is being instructed to show a high-constrast UI.
+`Boolean` - в данный момент для текущей OS / Chromium включен режим отбражения с высокой контрастностью или дается указание отображать пользовательский интерфейс с высокой контрастностью.
 
-### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Readonly_
+### `nativeTheme.shouldUseInvertedColorScheme` _macOS_ _Windows_ _Только чтение_
 
-A `Boolean` for if the OS / Chromium currently has an inverted color scheme or is being instructed to use an inverted color scheme.
+`Boolean` - в данный момент для текущей OS / Chromium включен режим инвертирования цветовой схемы или дается указание отображать пользовательский интерфейс с инвертированной цветовой схемой.

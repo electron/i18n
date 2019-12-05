@@ -54,7 +54,7 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 Na przykład aby użyć China mirror:
 
 ```plaintext
-ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
 #### Cache

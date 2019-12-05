@@ -54,7 +54,7 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 예를 들어, 중국 mirror는 다음과 같습니다.
 
 ```plaintext
-ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ```
 
 #### 캐시(Cache)

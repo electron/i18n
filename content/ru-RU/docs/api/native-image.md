@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Также поддерживаются следующие суффиксы DPI:
 
 * `@1x`
 * `@1.25x`
@@ -109,7 +109,7 @@ Following suffixes for DPI are also supported:
 
 Возвращает `NativeImage`
 
-Создает новый экземпляр `NativeImage` из файла, расположенного по адресу `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Создает новый экземпляр `NativeImage` из файла, расположенного по адресу `path`. Этот метод возвращает пустое изображение, если путь `path` не существует, не может быть прочитан или является некорректным.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -151,25 +151,25 @@ console.log(image)
 
 Возвращает `NativeImage`
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
+Создает новый экземпляр `NativeImage` из NSImage, который сопоставляется с заданным именем изображения. Смотрите [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) для получения списка возможных значений.
 
-The `hslShift` is applied to the image with the following rules
+`hslShift` применяется к изображению со следующими правилами
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+* `hsl_shift[0]` (оттенок): Абсолютное значение оттенка для изображения - 0 и 1 соотносится с 0 и 360 на цветовом круге оттенков (красный).
+* `hsl_shift[1]` (насыщенность): Изменение насыщенности изображения с помощью следующих значений ключа: 0 = удалить весь цвет. 0.5 = оставить без изменений. 1 = полностью насыщенное изображение.
+* `hsl_shift[2]` (яркость): Изменение яркости изображения с помощью следующих значений ключа: 0 = удалить всю яркость (сделать все пикселы чёрными). 0,5 = оставить без изменений. 1 = полная яркость (сделать все точки белыми).
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+Это означает, что `[-1, 0, 1]` сделает изображение полностью белым, а `[-1, 1, 0]` сделает изображение полностью чёрным.
 
-In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+В некоторых случаях `NSImageName` не соответствует строковому представлению; одним из примеров может служить `NSFolderImageName`, строковое представление которого будет `NSFolder`. Поэтому вам нужно определить правильное представление строк для вашего изображения, перед тем как его передавать. Это можно сделать следующим образом:
 
 `echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
 
-where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+где `SYSTEM_IMAGE_NAME` следует заменить любым значением из [этого списка](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
 
 ## Класс: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> Встроенная упаковка изображений, таких как область уведомлений, док-станция и значки приложений.
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
@@ -179,45 +179,45 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `PNG`.
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer - Between 0 - 100.
+* `quality` Integer - Качество От 0 до 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `JPEG`.
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит копию сырых данных растровых пикселей изображения.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `String` - The data URL of the image.
+Возвращает `String` - данные URL изображения.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит сырые данные растровых пикселей изображения.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+Разница между `getBitmap()` и `toBitmap()` заключается в том, что `getBitmap()` не копирует растровые данные, поэтому необходимо немедленно использовать возвращаемый буфер в тикере цикла текущего события, иначе данные могут быть изменены или уничтожены.
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) в котором хранится указатель C на базовый собственный дескриптор изображения. На macOS возвращается указатель на экземпляр `NSImage`.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Обратите внимание, что возвращаемый указатель - это слабый указатель на исходное изображение, а не на копию, поэтому вы *должны* убедиться, что связанный с ним экземпляр `NativeImage` находится рядом.
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Возвращает `Boolean` - признак того что изображение пустое.
 
 #### `image.getSize()`
 
@@ -227,13 +227,13 @@ Returns `Boolean` - Whether the image is empty.
 
 * `option` Boolean
 
-Marks the image as a template image.
+Помечает изображение как шаблон изображения.
 
 **[Устарело](modernization/property-updates.md)**
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Возвращает `Boolean` - признак того что изображение является шаблоном.
 
 **[Устарело](modernization/property-updates.md)**
 
@@ -245,11 +245,11 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (опционально) - желаемое качество изображения при изменения размера. Возможные значения `good` - хорошее, `better` - лучшее или `best` - самое лучшее. По-умолчанию - `best`. Эти значения выражают желаемый компромисс между качеством и скоростью. Они переводятся в алгоритм конкретного метода, который зависит от возможностей (CPU, GPU) базовой платформы. Все три метода можно сопоставить с одним и тем же алгоритмом на данной платформе.
 
-Returns `NativeImage` - The resized image.
+Возвращает `NativeImage` - измененый размер изображения.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Если указаны только `height` или `width`, то текущее соотношение сторон будет сохранено в изображении.
 
 #### `image.getAspectRatio()`
 
@@ -257,14 +257,14 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` Object * `scaleFactor` Double - Коэффициент масштаба для добавления представления изображения. * `width` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `height` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `buffer` Buffer (опционально) - Буфер, содержащий сырые данные изображения. * `dataURL` String (опционально) - URL-адрес данных, содержащий закодированное в base64 изображение в формате PNG или JPEG.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Добавьте представление изображения для определенного коэффициента масштабирования. Это можно использовать для явного добавления к изображению различных представлений коэффициента масштабирования. Можно использовать на пустых изображениях.
 
 ### Instance Properties
 
 #### `nativeImage.isMacTemplateImage` *macOS*
 
-A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+Свойство `Boolean` определяет, считается ли [изображение шаблоном](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
 
 Пожалуйста, обратите внимание, что это свойство влияет только на macOS.

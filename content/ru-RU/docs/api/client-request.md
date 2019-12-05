@@ -18,7 +18,7 @@
   * `hostname` String (опционально) – доменное имя сервера.
   * `port` Integer (опционально) – номер порта сервера.
   * `path` String (опционально) - часть пути запроса URL.
-  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
+  * `redirect` String (опционально) - режим перенаправления для запроса. Должно быть одно из `follow`, `error` или `manual`. По умолчанию - `follow`. Когда режим `error`, любые перенаправления будут отменены. В режиме `manual` переадресация будет отменена, если синхронно во время события [`redirect`](#event-redirect) не будет вызван [`request.followRedirect`](#requestfollowredirect).
 
 Свойства `options`, такие как `protocol`, `host`, `hostname`, `port` и `path`, строго следуют модели Node.js, которая описана в модуле [URL](https://nodejs.org/api/url.html).
 
@@ -53,8 +53,8 @@ const request = net.request({
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (опционально)
+  * `password` String (опционально)
 
 Происходит, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
 
@@ -112,7 +112,7 @@ request.on('login', (authInfo, callback) => {
 * `redirectUrl` String
 * `responseHeaders` Record<String, String[]>
 
-Emitted when the server returns a redirect response (e.g. 301 Moved Permanently). Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection. If this event is handled, [`request.followRedirect`](#requestfollowredirect) must be called **synchronously**, otherwise the request will be cancelled.
+Используется при возврате сервером перенаправленного ответа (например, 301 Перемещено навсегда). Вызов [`request.followRedirect`](#requestfollowredirect) продолжится с перенаправлением. Если событие обработано, [`request.followRedirect`](#requestfollowredirect) должен вызываться **синхронно**, в противном случае запрос будет отменен.
 
 ### Свойства экземпляра
 
@@ -167,7 +167,7 @@ Emitted when the server returns a redirect response (e.g. 301 Moved Permanently)
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+Продолжает любое ожидаемое перенаправление. Может быть вызван только во время события `'redirect'`.
 
 #### `request.getUploadProgress()`
 
