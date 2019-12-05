@@ -39,7 +39,7 @@ Electron
 |   |   └── api/ - Ang pagpapatupad ng "Javascript API".
 |   └── renderer/ - Ang "Javascript renderer" pinoproseso ang inisyalisasyon ng "code".
 |       └── api/ - Ang pagpapatupad ng "Javascript API".
-├── spec/ - Automatic tests.
+├── spec/ - Kusang pagsubok.
 └── BUILD.gn - Building rules of Electron.
 ```
 
