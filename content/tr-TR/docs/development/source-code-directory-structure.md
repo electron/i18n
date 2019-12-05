@@ -37,9 +37,7 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |   ├── ortak / - JavaScript kullanılan ana ve işleyici işlemler tarafından |   |   └── API / - Javascript API uygulama.
 |   └── Oluşturucu / - Javascript işleyici işlemi başlatma kodu.
 |       └── API / - Javascript API uygulama.
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
-├── spec / - otomatik testler.
+├── spec/ - Automatic tests.
 └── BUILD.gn - Building rules of Electron.
 ```
 
