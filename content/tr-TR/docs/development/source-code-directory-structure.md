@@ -37,7 +37,7 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |   ├── ortak / - JavaScript kullanılan ana ve işleyici işlemler tarafından |   |   └── API / - Javascript API uygulama.
 |   └── Oluşturucu / - Javascript işleyici işlemi başlatma kodu.
 |       └── API / - Javascript API uygulama.
-├── spec/ - Automatic tests.
+├── spec / - otomatik testler.
 └── BUILD.gn - Building rules of Electron.
 ```
 
