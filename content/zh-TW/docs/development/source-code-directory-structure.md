@@ -39,8 +39,6 @@ Electron
 |   |   └── api/ - JavaScript API 實作。
 |   └── renderer/ - JavaScript 畫面轉譯處理序初始化程式碼。
 |       └── api/ - JavaScript API 實作。
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
 ├── spec/ - 自動測試案例。
 └── BUILD.gn - Building rules of Electron.
 ```
