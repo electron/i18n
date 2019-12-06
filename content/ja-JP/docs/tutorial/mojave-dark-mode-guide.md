@@ -1,4 +1,4 @@
-# Mojave Dark Mode
+# Mojave ダークモード
 
 macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) を全ての macOS コンピュータに導入しました。 アプリにダークモードが設定されている場合は、Electron アプリにシステム側のダークモード設定を適用させることができます。
 
@@ -10,7 +10,7 @@ macOS 10.15 Catalina にて、Apple は新しい "自動" ダークモードオ�
 
 ## 自作のインターフェースを自動的に更新する
 
-アプリに独自のダークモードがある場合は、システムのダークモード設定と同期してオンとオフを切り替える必要があります。 これを行うには Electron の `systemPreferences` モジュールでテーマ変更イベントを監視します。 例
+アプリに独自のダークモードがある場合は、システムのダークモード設定と同期してオンとオフを切り替える必要があります。 これを行うには Electron の `systemPreferences` モジュールでテーマ変更イベントを監視します。 以下は例です。
 
 ```js
 const { systemPreferences } = require('electron')
