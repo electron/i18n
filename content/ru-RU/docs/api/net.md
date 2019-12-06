@@ -6,10 +6,10 @@ Process: [Main](../glossary.md#main-process)
 
 Модуль `net` представляет собой клиентский API для выдачи HTTP(S) запросов. Он похож на модули [HTTP](https://nodejs.org/api/http.html) и [HTTPS](https://nodejs.org/api/https.html) в Node.js, но использует собственную сетевую библиотеку Chromium вместо реализации Node.js, обеспечивая лучшую поддержку веб-прокси.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Ниже приведен неполный список причин, по которым вы можете рассмотреть использование модуля `net` вместо собственных модулей Node.js:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
+* Автоматическое управление конфигурацией прокси системы, поддержка протокола wpad и файлов pac конфигурации прокси.
+* Автоматическое туннелирование HTTPS запросов.
 * Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
 
