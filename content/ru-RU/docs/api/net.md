@@ -10,12 +10,12 @@ Process: [Main](../glossary.md#main-process)
 
 * Автоматическое управление конфигурацией прокси системы, поддержка протокола wpad и файлов pac конфигурации прокси.
 * Автоматическое туннелирование HTTPS запросов.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Поддержка аутентификации прокси с помощью BASIC, DIGEST, NTLM, KERBEROS или NEGOTIATE схем аутентификации.
+* Поддержка прокси-серверов для мониторинга трафика: Fiddler-подобные прокси, используемые для контроля доступа и мониторинга.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+Компоненты API (включая классы, методы, свойства и имена событий) похожи на компоненты, используемые в Node.js.
 
-Example usage:
+Пример использования:
 
 ```javascript
 const { app } = require('electron')
@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+API `net` можно использовать только после того, как приложение выдаст событие `ready`. Попытка использовать модуль до события `ready` вызовет ошибку.
 
 ## Методы
 
@@ -44,7 +44,7 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 ### `net.request(options)`
 
-* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
+* `options` (ClientRequestConstructorOptions | String) - Параметры конструктора `ClientRequest`.
 
 Возвращает [`ClientRequest`](./client-request.md)
 
