@@ -8,8 +8,8 @@ Segui le linee guida sotto per compilare Electron su Windows.
 * Visual Studio 2017 15.7.2 o superiore - [scarica VS 2019 Community Edition gratis](https://www.visualstudio.com/vs/) 
   * Vedi [la documentazione di compilazione Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) per ulteriori dettagli su quali componenti Visual Studio siano richiesti.
   * Se il tuo Visual Studio è installato in una directory diversa da quella predefinita, avrai bisogno di impostare alcune variabili d'ambiente per far puntare gli strumenti di compilazione al tuo attuale percorso di installazione. 
-    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community` (rimpiazza `2019` e `Community` con le tue versioni installate)
-    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`
+    * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
+    * `WINDOWSSDKDIR = DRIVE:\path\to\Windows Kits\10`, replacing `DRIVE:` with the drive that Windows Kits is on. Often, this will be `C:`.
 * [Python 2.7.10 o superiore](http://www.python.org/download/releases/2.7/) 
   * Contrariamente alle istruzioni di configurazione `depot_tools` collegate sotto, avrai bisogno di usare il tuo Python installato localmente con almeno la versione 2.7.10 (con supporto per TLS 1.2). Per farlo, assicurati che in **PATH**, il tuo Python localmente installato venga prima della cartella `depot_tools`. Adesso `depot_tools` viene ancora con Python 2.7.6, che causerà il fallimento del comando `gclient` (vedi https://crbug.com/868864).
   * [Python per Estensioni Windows /pywin32)](https://pypi.org/project/pywin32/#files) è anch'esso necessario per eseguire il processo di costruzione.
