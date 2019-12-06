@@ -102,4 +102,4 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 
 ### Использование других компиляторов вместо `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Создание Electron с компиляторами, отличными от `clang` не поддерживается.
