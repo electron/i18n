@@ -39,8 +39,6 @@ Electron
 |   |   └── api/ - Ang pagpapatupad ng "Javascript API".
 |   └── renderer/ - Ang "Javascript renderer" pinoproseso ang inisyalisasyon ng "code".
 |       └── api/ - Ang pagpapatupad ng "Javascript API".
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
 ├── spec/ - Kusang pagsubok.
 └── BUILD.gn - Building rules of Electron.
 ```

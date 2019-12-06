@@ -39,8 +39,6 @@ Electron
 |   |   └── api/ - Javascript API 実装。
 |   └── renderer/ - Javascript レンダラープロセス初期化コード。
 |       └── api/ - Javascript API 実装。
-├── native_mate/ - Chromium の gin ライブラリのフォークで、
-|                  C++ と JavaScript の間で型を簡単にマーシャリングできます。
 ├── spec/ - 自動テスト。
 └── BUILD.gn - Electronのビルドルール。
 ```

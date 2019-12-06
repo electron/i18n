@@ -39,8 +39,6 @@ Electron
 |   |   └── api/ - Javascript API 구현 코드.
 |   └── renderer/ - Javascript 렌더러 프로세스 초기화 코드.
 |       └── api/ - Javascript API 구현 코드.
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
 ├── spec/ - 자동화 테스트.
 └── BUILD.gn - Electron의 빌드 규칙.
 ```
