@@ -1,10 +1,10 @@
-# キーボード ショートカット
+# キーボードショートカット
 
 > ローカルおよびグローバルなキーボードショートカットを設定します。
 
 ## ローカルショートカット
 
-[Menu](../api/menu.md)モジュールを使用して、アプリケーションにフォーカスがあるときにのみ起動されるキーボードショートカットを設定できます。 これを行うには、[MenuItem](../api/menu-item.md)を作成するときは、[`accelerator`] プロパティを使用します。
+[Menu](../api/menu.md) モジュールを使用して、アプリケーションにフォーカスがあるときにのみ起動されるキーボードショートカットを設定できます。 これをするには、[MenuItem](../api/menu-item.md) の作成時に [`accelerator`] プロパティを指定します。
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-ユーザーのオペレーティングシステムに基づいて異なるキーの組み合わせを構成することは簡単です。
+ユーザーのオペレーティングシステムに基づいて、さまざまなキーの組み合わせを構成できます。
 
 ```js
 {
@@ -25,7 +25,7 @@ menu.append(new MenuItem({
 }
 ```
 
-## グローバル ショートカット
+## グローバルショートカット
 
 アプリケーションからキーボードのフォーカスが外れている場合でも、 [globalShortcut](../api/global-shortcut.md) モジュールを使用すればキーボード操作を検出できます。
 
@@ -41,46 +41,40 @@ app.on('ready', () => {
 
 ## BrowserWindow 内のショートカット
 
-[BrowserWindow](../api/browser-window.md)のキーボードショートカットを処理する場合は、レンダラープロセス内のウィンドウオブジェクトで`keyup`および`keydown`イベントリスナーを使用できます。
+[BrowserWindow](../api/browser-window.md) のキーボードショートカットを処理する場合は、レンダラープロセス内のそのウィンドウオブジェクトの `keyup` と `keydown` イベントリスナーを使用できます。
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-3番目のパラメータ`true`に注意してください。これは、リスナーが他のリスナーの前に常にキー押下を受け取り、`stopPropagation()`を呼び出すことができないことを意味します。
+第 3 引数の `true` に注意してください。これは、このリスナーが常に他のリスナーより先にキー押下を受け取ります。そのため、`stopPropagation()` を呼び出さないでください。
 
-[`before-input-event`](../api/web-contents.md#event-before-input-event)イベントは`keydown`イベントと`keyup`イベントをディスパッチする前に出力されます。 メニューに表示されないカスタムショートカットをキャッチして処理するため使用することができます。
+[`before-input-event`](../api/web-contents.md#event-before-input-event) イベントは `keydown` イベントと `keyup` イベントをディスパッチするより前に発生します。 メニューに表示されないカスタムショートカットをキャッチして処理するため使用することができます。
 
-実行したくない場合は[mousetrap](https://github.com/ccampbell/mousetrap)などキーを検出高度なマニュアル ショートカット解析を行うライブラリがあります。
+手動ショートカット解析を行いたくない場合でも、[mousetrap](https://github.com/ccampbell/mousetrap) などの高度なキー検出を行うライブラリがあります。
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
+Mousetrap.bind('?', () => { console.log('ショートカット一覧!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// コンビネーション（複数キーの組み合わせ）
+// 組み合わせ
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// 複数のコンビネーションを1つのコールバックに割り当てる
+// 複数の組み合わせを 1 つのコールバックに割り当てる
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // false を返すと、デフォルトの動作を妨げイベントのバブリングを中止します
   return false
 })
 
-// Gmailスタイルのシーケンス
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// Gmail スタイルのシーケンス
+Mousetrap.bind('g i', () => { console.log('受信箱へ') })
+Mousetrap.bind('* a', () => { console.log('全選択') })
 
-// コナミコマンド
- 
-Context | Request Context
-
+// コナミコマンド!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
-  console.log('konami code')
+  console.log('コナミコマンド')
 })
- 
-Context | Request Context
-
 ```
