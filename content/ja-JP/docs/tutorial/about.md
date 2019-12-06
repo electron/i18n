@@ -1,6 +1,6 @@
 # Electron について
 
-[Electron](https://electronjs.org)は、HTML, CSS, JavaScriptで作られたクロスプラットフォーム デスクトップ アプリケーションを作成するために、GitHubによって開発されたオープンソースライブラリです。 Electronは、[Chromium](https://www.chromium.org/Home)と[Node.js](https://nodejs.org)を一つのランタイムとして組み合わせることで、この目的を達成しており、Mac, Windows, Linux用にアプリをパッケージ化することが出来ます。
+[Electron](https://electronjs.org) は、HTML、CSS、JavaScript でクロスプラットフォームデスクトップアプリケーションを作成するために GitHub によって開発されたオープンソースライブラリです。 Electron は [Chromium](https://www.chromium.org/Home) と [Node.js](https://nodejs.org) を一つのランタイムとして組み合わせることでこれを達成しており、Mac、Windows、Linux 向けにアプリをパッケージすることが出来ます。
 
 Electronは、GitHubのカスタマイズ可能なテキストエディタである[Atom](https://atom.io)用のフレームワークとして2013年に開発が始まりました。ElectronとAtomは2014年の春にオープンソースになっています。
 
