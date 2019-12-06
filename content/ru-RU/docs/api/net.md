@@ -1,6 +1,6 @@
 # net
 
-> Выполнение HTTP/HTTPS-запросов с использованием найтивной сетевой библиотеки Chromium
+> Выполнение HTTP/HTTPS запросов с использованием родной сетевой библиотеки Chromium
 
 Process: [Main](../glossary.md#main-process)
 
