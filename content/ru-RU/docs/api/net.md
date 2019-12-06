@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+Модуль `net` представляет собой клиентский API для выдачи HTTP(S) запросов. Он похож на модули [HTTP](https://nodejs.org/api/http.html) и [HTTPS](https://nodejs.org/api/https.html) в Node.js, но использует собственную сетевую библиотеку Chromium вместо реализации Node.js, обеспечивая лучшую поддержку веб-прокси.
 
 The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
 
