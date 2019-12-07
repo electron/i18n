@@ -19,7 +19,7 @@ Process: [Main](../glossary.md#main-process)
   * `sublabel` String (опционально)
   * `toolTip` String (опционально) *macOS* - Текст при наведении на этот пункт меню.
   * `accelerator` [Accelerator](accelerator.md) (опционально)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `icon` ([NativeImage](native-image.md) | String) (опционально)
   * `enabled` Boolean (опционально) - Если false, пункт меню выделится серым цветом и не будет нажимться.
   * `acceleratorWorksWhenHidden` Boolean (опционально) *macOS* - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
   * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
@@ -69,7 +69,7 @@ Process: [Main](../glossary.md#main-process)
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
 * `windowMenu` - Полное меню "Окно" по умолчанию (Свернуть, масштаб и т. д.).
 
-The following additional roles are available on *macOS*:
+На *macOS* доступны следующие дополнительные роли:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
 * `about` - Map to the `orderFrontStandardAboutPanel` action.
