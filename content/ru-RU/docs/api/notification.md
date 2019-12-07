@@ -38,11 +38,11 @@ Process: [Main](../glossary.md#main-process)
   * `replyPlaceholder` String (опционально) *macOS* - Заполнитель для записи в поле ввода встроенного ответа.
   * `sound` String (опционально) *macOS* - Имя звукового файла, воспроизводимого при отображении уведомления.
   * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) *macOS* - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `closeButtonText` String (опционально) *macOS* - Пользовательское название для кнопки закрытия оповещения. Пустая строка приведет к использованию локализованного текста по умолчанию.
 
 ### События экземпляра
 
-Objects created with `new Notification` emit the following events:
+Объекты созданные с помощью `new Notification` имеют следующие события:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
@@ -52,7 +52,7 @@ Objects created with `new Notification` emit the following events:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Возникает, когда уведомление отображается пользователю, обратите внимание, что оно может быть вызвано несколько раз, поскольку уведомление может быть показано несколько раз с помощью метода `show()`.
 
 #### Событие: 'click'
 
@@ -60,7 +60,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Возникает при нажатии на уведомление пользователя.
 
 #### Событие: 'close'
 
@@ -68,20 +68,20 @@ Emitted when the notification is clicked by the user.
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Возникает при закрытии уведомления вручную пользователем.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+Не гарантируется, что это событие будет отправлено во всех случаях, когда уведомление закрыто.
 
-#### Event: 'reply' *macOS*
+#### Событие: 'reply' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field.
+* `reply` String - Строка, введенная пользователем в поле ответа в строке ответа.
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+Возникает при нажатии пользователем кнопки "Ответить" в уведомлении с `hasReply: true`.
 
-#### Event: 'action' *macOS*
+#### Событие: 'action' *macOS*
 
 Возвращает:
 
