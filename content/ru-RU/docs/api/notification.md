@@ -10,7 +10,7 @@ Process: [Main](../glossary.md#main-process)
 
 ## Class: Notification / Уведомление
 
-> Create OS desktop notifications
+> Создание уведомлений на рабочем столе ОС
 
 Process: [Main](../glossary.md#main-process)
 
