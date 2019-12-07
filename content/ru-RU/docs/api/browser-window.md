@@ -1126,11 +1126,11 @@ win.loadURL('http://localhost:8000/post', {
 
 Возвращает `Promise<void>` - промис будет разрешен, когда страница завершит загрузку (см. [`did-finish-load`](web-contents.md#event-did-finish-load)), и отклоняет, если страница не удачно загрузилась (см. [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Так же, как `webContents.loadFile`, `filePath` должен быть путем к файлу HTML относительно корня вашего приложения. Смотрите `webContents` docs для получения дополнительной информации.
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Тоже, что и `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
