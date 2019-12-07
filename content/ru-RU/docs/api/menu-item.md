@@ -72,16 +72,16 @@ Process: [Main](../glossary.md#main-process)
 На *macOS* доступны следующие дополнительные роли:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `about` - Сопоставляется с действием `orderFrontStandardAboutPanel`.
-* `hide` - Map to the `hide` action.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
+* `about` - Сопоставляется с `orderFrontStandardAboutPanel`.
+* `hide` -Сопоставляется с `hide`.
+* `hideOthers` - Сопоставляется с `hideOtherApplications`.
+* `unhide` - Сопоставляется с `unhideAllApplications`.
+* `startSpeaking` - Сопоставляется с `startSpeaking`.
+* `stopSpeaking` - Сопоставляется с `stopSpeaking`.
+* `front` - Сопоставляется с `arrangeInFront`.
+* `zoom` - Сопоставляется с `performZoom`.
+* `toggleTabBar` - Сопоставляется с `toggleTabBar`.
+* `selectNextTab` - Сопоставляется с `selectNextTab`.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
 * `mergeAllWindows` - Map to the `mergeAllWindows` action.
 * `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
