@@ -91,13 +91,13 @@ Process: [Main](../glossary.md#main-process)
 * `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
 * `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
 
-При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр <0role></code>, например `toggledevtools`, все еще поддерживается.
+При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 
 **Обратите внимание:** Параметры `enabled` и `visibility` не доступны для элементов верхнего уровня меню на MacOS.
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `MenuItem`:
+Для экземпляров `MenuItem` доступны следующие свойства:
 
 #### `menuItem.id`
 
@@ -141,25 +141,25 @@ The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.toolTip` *macOS*
 
-`String`с указанием текста, который появляется при наведении курсора на элемент.
+`String` с указанием текста, который появляется при наведении курсора на элемент.
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+`Boolean` указывает, включен ли элемент, это свойство может быть динамически изменено.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+`Boolean` указывает, видим ли элемент, это свойство может быть динамически изменено.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+`Boolean` указывает, помечен ли элемент флажком, это свойство может быть динамически изменено.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Элемент меню `checkbox` будет включать и выключать свойство `checked` при его выборе.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`Radio` пункт меню включит его свойство `checked` при нажатии, и отключит это свойство для всех смежных пунктов в том же меню.
 
-You can add a `click` function for additional behavior.
+Вы можете добавить функцию `click` для дополнительного поведения.
 
 #### `menuItem.registerAccelerator`
 
