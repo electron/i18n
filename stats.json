@@ -251,13 +251,13 @@
     "code": "ru",
     "phrases": "11547",
     "translated": "8145",
-    "approved": "3941",
+    "approved": "3940",
     "words": "108997",
     "words_translated": "67631",
-    "words_approved": "31004",
+    "words_approved": "31000",
     "translated_progress": 62,
     "approved_progress": 28,
-    "qa_issues": 1655
+    "qa_issues": 1654
   },
   {
     "name": "Spanish",
@@ -289,14 +289,14 @@
     "name": "Thai",
     "code": "th",
     "phrases": "11547",
-    "translated": "1522",
+    "translated": "1530",
     "approved": "253",
     "words": "108997",
-    "words_translated": "8299",
+    "words_translated": "8433",
     "words_approved": "447",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 712
+    "qa_issues": 714
   },
   {
     "name": "Turkish",
