@@ -4,32 +4,32 @@
 
 Process: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Использование процесса отрисовки
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Если вы хотите отобразить уведомления в процессе отрисовки, вы должны использовать [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Class: Notification / Уведомление
 
 > Create OS desktop notifications
 
 Process: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+Так создается новый экземпляр `BrowserWindow` с собственными свойствами, установленными в `options`.
 
 ### Статические методы
 
-The `Notification` class has the following static methods:
+Класс `Notification` имеет следующие статические методы:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Возвращает `Boolean` - Поддерживаются ли уведомления рабочего стола в текущей системе
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` *Экспериментально*
 
 * `options` Object (опционально) 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
+  * `title` String - Заголовок для уведомления, который будет отображаться в верхней части окна уведомления, когда он будет показан.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
