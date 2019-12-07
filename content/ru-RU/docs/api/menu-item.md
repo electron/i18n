@@ -82,14 +82,14 @@ Process: [Main](../glossary.md#main-process)
 * `zoom` - Сопоставляется с `performZoom`.
 * `toggleTabBar` - Сопоставляется с `toggleTabBar`.
 * `selectNextTab` - Сопоставляется с `selectNextTab`.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
+* `selectPreviousTab` - Сопоставляется с `selectPreviousTab`.
+* `mergeAllWindows` - Сопоставляется с `mergeAllWindows`.
+* `moveTabToNewWindow` - Сопоставляется с `moveTabToNewWindow`.
+* `window` - Подменю в меню "Окно".
+* `help` - Подменю в меню "Help".
 * `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
+* `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
