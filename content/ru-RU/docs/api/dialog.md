@@ -175,8 +175,8 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 * `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
+  * `buttons` String[] (опционально) - массив текстов для кнопок. В Windows пустой массив приведет к одной кнопке с названием "OK".
+  * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` Строка - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
