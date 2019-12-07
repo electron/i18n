@@ -1070,7 +1070,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect])`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (опционально) - границы захвата
 
 Возвращает `Promise<NativeImage>` - разрешается с [NativeImage](native-image.md)
 
