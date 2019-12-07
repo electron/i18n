@@ -84,11 +84,11 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 * `channel` String (Строка)
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+Возвращает `any` - Значение, отправленное обработчиком [`ipcMain`](ipc-main.md).
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Аргументы будут упорядоченны внутри в формате JSON и поэтому не будут включены в функции или цепочки прототипов.
+Отправить сообщение в основной процесс синхронно через `channel`, также можно отправить произвольные аргументы. Аргументы будут упорядоченны внутри в формате JSON и поэтому не будут включены в функции или цепочки прототипов.
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
+Основной процесс обрабатывает его, прослушивая `channel` с помощью модуля [`ipcMain`](ipc-main.md), и отвечая, установив `event.returnValue`.
 
 **Примечание:** Отправка синхронного сообщения будет блокировать все процессы визуализации, если вы не знаете что делаете никогда не используйте его.
 
