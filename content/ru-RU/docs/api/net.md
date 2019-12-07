@@ -1,21 +1,21 @@
 # net
 
-> Выполнение HTTP/HTTPS-запросов с использованием найтивной сетевой библиотеки Chromium
+> Выполнение HTTP/HTTPS запросов с использованием родной сетевой библиотеки Chromium
 
 Process: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+Модуль `net` представляет собой клиентский API для выдачи HTTP(S) запросов. Он похож на модули [HTTP](https://nodejs.org/api/http.html) и [HTTPS](https://nodejs.org/api/https.html) в Node.js, но использует собственную сетевую библиотеку Chromium вместо реализации Node.js, обеспечивая лучшую поддержку веб-прокси.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Ниже приведен неполный список причин, по которым вы можете рассмотреть использование модуля `net` вместо собственных модулей Node.js:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Автоматическое управление конфигурацией прокси системы, поддержка протокола wpad и файлов pac конфигурации прокси.
+* Автоматическое туннелирование HTTPS запросов.
+* Поддержка аутентификации прокси с помощью BASIC, DIGEST, NTLM, KERBEROS или NEGOTIATE схем аутентификации.
+* Поддержка прокси-серверов для мониторинга трафика: Fiddler-подобные прокси, используемые для контроля доступа и мониторинга.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+Компоненты API (включая классы, методы, свойства и имена событий) похожи на компоненты, используемые в Node.js.
 
-Example usage:
+Пример использования:
 
 ```javascript
 const { app } = require('electron')
@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+API `net` можно использовать только после того, как приложение выдаст событие `ready`. Попытка использовать модуль до события `ready` вызовет ошибку.
 
 ## Методы
 
@@ -44,8 +44,8 @@ The `net` API can be used only after the application emits the `ready` event. Tr
 
 ### `net.request(options)`
 
-* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
+* `options` (ClientRequestConstructorOptions | String) - Параметры конструктора `ClientRequest`.
 
 Возвращает [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Создает экземпляр [`ClientRequest`](./client-request.md), используя предоставленные `options`, которые напрямую передаются конструктору `ClientRequest`. Метод `net.request` будет использован для выполнения как безопасных, так и небезопасных HTTP-запросов в соответствии со схемой указанного протокола в объекте `options`.

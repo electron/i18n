@@ -220,11 +220,11 @@ API графического процесса `webFrame.setRegisterURLSchemeAsPr
 ### API webFrame изолированных миров
 
 ```js
-// Removed in Electron 7.0
+// Удалено в Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// Заменить на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {

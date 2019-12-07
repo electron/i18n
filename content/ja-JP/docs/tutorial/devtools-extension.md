@@ -1,8 +1,8 @@
-# DevTools 拡張
+# デベロッパー ツール拡張
 
-Electron は、Web フレームワークをデバッグするために使われている Devtools の機能を拡張することができる、[Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools) をサポートしています。
+Electron は、ウェブフレームワークをデバッグするために使われているデベロッパー ツールの機能を拡張することができる、[Chrome デベロッパー ツール拡張](https://developer.chrome.com/extensions/devtools) をサポートしています。
 
-## DevTools 拡張の読み込み方
+## デベロッパー ツール拡張の読み込み方法
 
 このドキュメントは手動で拡張機能を読み込むためのプロセスを概説します。 Chrome ウェブストアから直接拡張機能をダウンロードするサードパーティ製のツール、[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer) を試すこともできます。
 
@@ -40,9 +40,9 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
 
 それを削除するには `BrowserWindow.removeDevToolsExtension` API にその拡張機能の名前を渡すことでできます。 `BrowserWindow.addDevToolsExtension` で拡張機能の名前が返され、`BrowserWindow.getDevToolsExtension` API を用いてインストールされたデベロッパーツール拡張機能らの名前を取得できます。
 
-## サポートされている DevTools 拡張
+## サポートされているデベロッパー ツール拡張
 
-Electron は限られた `chrome.*` API しかサポートしていないため、Chrome 拡張機能のうちサポートされていない `chrome.*` API を使用している拡張は機能しないかもしれません。 以下の Devtools 拡張は Electron で動作することがテストされ保証されています。
+Electron は限られた `chrome.*` API しかサポートしていないため、Chrome 拡張機能のうちサポートされていない `chrome.*` API を使用している拡張は機能しないかもしれません。 以下のデベロッパー ツール拡張は Electron で動作することがテストされ保証されています。
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -54,7 +54,7 @@ Electron は限られた `chrome.*` API しかサポートしていないため�
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### DevTools 拡張が機能していない場合はどうすればいいですか?
+### デベロッパー ツール拡張が機能していない場合はどうすればいいですか?
 
 まずは拡張機能がまだメンテナンスされていることを確認してください。最近のバージョンの Chrome ブラウザでも機能しない拡張機能もあります。それらの機能は実行できません。
 

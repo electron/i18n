@@ -1145,7 +1145,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Example usage:
+Пример использования:
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }

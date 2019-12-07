@@ -1,16 +1,16 @@
 # インストール作業
 
-Electronのビルド済みバイナリを使用するためには、[`npm`](https://docs.npmjs.com)を使用してください。 Electronをアプリでの開発用依存ファイルとして追加するのにおすすめの方法は：
+ビルド済み Electron バイナリをインストールするには、[`npm`](https://docs.npmjs.com) を使用します。Electron をアプリ開発の依存関係として追加する際は、以下のようにすることを推奨します。
 
 ```sh
 npm install electron --save-dev
 ```
 
-あなたのアプリ内でElectronのバージョンを管理する方法については、[Electronのバージョン管理](./electron-versioning.md)を参照して下さい。
+アプリ内で Electron のバージョンを管理する方法については、[Electron のバージョン管理](./electron-versioning.md) を参照して下さい。
 
 ## グローバルインストール
 
-`$PATH`に`electron`コマンドをグローバルインストールするにはこう実行してください：
+`$PATH` に `electron` コマンドをグローバルインストールするには、以下も実行します。
 
 ```sh
 npm install electron -g
@@ -18,13 +18,13 @@ npm install electron -g
 
 ## カスタマイズ
 
-ダウンロードするアーキテクチャを変更したい場合(例えば`ia32`を、 `x64`マシン上にインストールする)、npm installに`--arch`フラグを指定するか、`npm_config_arch`環境変数を指定してください：
+ダウンロードするアーキテクチャを変更したい (例えば `ia32` を `x64` マシン上にインストールする) 場合、以下のように npm install に `--arch` フラグを指定するか、`npm_config_arch` 環境変数を指定してください。
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-アーキテクチャに加えてプラットフォーム(`win32`、`linux`など)も変更する場合は、`--platform`フラグを更に指定できます。
+アーキテクチャに加えてプラットフォーム (`win32`、`linux`など) も変更する場合は、更に `--platform`フラグを指定できます。
 
 ```shell
 npm install --platform=win32 electron
@@ -39,9 +39,9 @@ HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PRO
 
 ## ミラーとキャッシュのカスタマイズ
 
-インストール中、`electron` モジュールは [`@electron/get`](https://github.com/electron/get) を呼び出して、プラットフォーム用のビルド済み Electron バイナリをダウンロードします。 これはGithubのリリースダウンロードページ(`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION`はElectronの詳細なバージョン)からそうします。
+インストール中、`electron` モジュールは [`@electron/get`](https://github.com/electron/get) を呼び出して、プラットフォーム用のビルド済み Electron バイナリをダウンロードします。 これは Github のリリースダウンロードページ (`https://github.com/electron/electron/releases/tag/v$VERSION`、 `$VERSION` は Electron の正確なバージョン) からダウンロードします。
 
-もしGithubにアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
+もし Github にアクセス出来ないかカスタムビルドを提供する必要がある場合、他に提供されているミラーや既存のキャッシュからダウンロードできます。
 
 #### ミラー
 
@@ -65,11 +65,11 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` または `~/AppData/Local/electron/Cache/`
 
-古いバージョンのElectronを使用していた場合は、`~/.electron`内にキャッシュがあるかもしれません。
+古いバージョンの Electron を使用していた環境の場合は、`~/.electron` 内にもキャッシュがあるかもしれません。
 
 また、`electron_config_cache` 環境変数を設けることでローカルキャッシュの場所を上書きできます。
 
-キャッシュには、バージョンの公式のzipファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。典型的なキャッシュは、次のようになっています。
+キャッシュには、バージョンの公式の zip ファイルと共に、テキストファイルとして格納されているチェックサムが含まれています。典型的なキャッシュは、次のようになっています。
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -86,11 +86,11 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 ## バイナリダウンロードのスキップ
 
-`electron` NPM パッケージをインストールすると、電子バイナリが自動的にダウンロードされます。
+`electron` NPM パッケージをインストールすると、electron バイナリが自動的にダウンロードされます。
 
 これは時々不要になることがあります。CI 環境で、他のコンポーネントをテストするときなどです。
 
-すべての npm 依存関係をインストールするときにバイナリがダウンロードされないようにするには、環境変数 `ELECTRON_SKIP_BINARY_DOWNLOAD` を設定します。 例えば:
+すべての npm 依存関係をインストールするときにバイナリがダウンロードされないようにするには、環境変数 `ELECTRON_SKIP_BINARY_DOWNLOAD` を設定します。以下はその例です。
 
 ```sh
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
@@ -102,7 +102,7 @@ ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 
 ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 最善の解決策は、ネットワークの切り替えを試みるか、少し待ってからもう一度インストールを試みることです。
 
-`npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
+`npm` 経由でのインストールに失敗する場合、Electron を [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
 
 `EACCESS` エラーでインストールが失敗した場合は、おそらく [npmの権限を修正する](https://docs.npmjs.com/getting-started/fixing-npm-permissions) 必要があります。
 
@@ -118,4 +118,4 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-強制的に再ダウンロードする必要がある場合は、`force_no_cache`環境変数を`true`に設定してください。
+強制的に再ダウンロードする必要がある場合は、`force_no_cache` 環境変数を `true` に設定してください。

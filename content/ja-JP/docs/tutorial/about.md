@@ -1,52 +1,52 @@
 # Electron について
 
-[Electron](https://electronjs.org)は、HTML, CSS, JavaScriptで作られたクロスプラットフォーム デスクトップ アプリケーションを作成するために、GitHubによって開発されたオープンソースライブラリです。 Electronは、[Chromium](https://www.chromium.org/Home)と[Node.js](https://nodejs.org)を一つのランタイムとして組み合わせることで、この目的を達成しており、Mac, Windows, Linux用にアプリをパッケージ化することが出来ます。
+[Electron](https://electronjs.org) は、HTML、CSS、JavaScript でクロスプラットフォームデスクトップアプリケーションを作成するために GitHub によって開発されたオープンソースライブラリです。 Electron は [Chromium](https://www.chromium.org/Home) と [Node.js](https://nodejs.org) を一つのランタイムとして組み合わせることでこれを達成しており、Mac、Windows、Linux 向けにアプリをパッケージすることが出来ます。
 
-Electronは、GitHubのカスタマイズ可能なテキストエディタである[Atom](https://atom.io)用のフレームワークとして2013年に開発が始まりました。ElectronとAtomは2014年の春にオープンソースになっています。
+Electron は、GitHub のカスタマイズ可能なテキストエディタである [Atom](https://atom.io) 用のフレームワークとして 2013 年に開発が始まりました。Electron と Atom は 2014 年の春にオープンソースになっています。
 
-そのときから、オープンソース開発者、ベンチャー企業、古参の企業で使われる人気のツールになっています。Electronによって[どんなアプリケーションが作られているか](https://electronjs.org/apps)も見てみてください。
+以来、オープンソース開発者、ベンチャー企業、大手企業で使われる人気ツールになりました。[Electron で作られているものを見てみましょう](https://electronjs.org/apps)。
 
-Electronの開発者やリリースについてもっと詳しく知りたいか、Electronでアプリケーションの開発を進めたい場合は、[クイックスタートガイド](quick-start.md)をお読みください。
+Electron の貢献者とリリースについてもっと詳しく知りたい、もしくは Electron を始めたい場合については [クイックスタートガイド](quick-start.md) にあります。
 
 ## コアチームと貢献者
 
-ElectronはGitHubのチームと、コミュニティで[活動中の開発貢献者](https://github.com/electron/electron/graphs/contributors)によってメンテナンスされています。 貢献者には、個人の開発者の方も居れば、Electronでアプリを作成中の大企業で働いている方も居ます。 頻繁に貢献している方を、プロジェクトのメンテナとしてよろこんで迎えたいと思っています。 詳しくは、[Electronへの貢献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)をご覧ください。
+Electron は、GitHub のチームとコミュニティの [積極的な貢献者](https://github.com/electron/electron/graphs/contributors) らによってメンテナンスされています。 貢献者には、個人開発者の方も居れば、Electron でアプリを開発している大企業に勤めている方も居ます。 頻繁に貢献している方を、プロジェクトのメンテナとしてよろこんで迎えたいと思っています。 詳しくは、[Electronへの貢献](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)をご覧ください。
 
 ## リリース
 
-[Electronは頻繁にリリースされます](https://github.com/electron/electron/releases)。明らかなバグ修正・新しいAPI・ChromiumまたはNode.jsのアップデートがあるときあたらしいバージョンがリリースされます。
+[Electron のリリース](https://github.com/electron/electron/releases) は頻繁に行われます。明瞭なバグ修正、新しい API、Chromium や Node.js のアップデート時に新しいバージョンがリリースされます。
 
 ### 依存関係の更新
 
-Electronに含まれるChromiumのバージョンは、新しい安定版のChromiumがリリースされてから、変更内容の大きさに応じて、1〜2週間以内にアップデートされます。
+Electron に含まれる Chromium のバージョンは、新しい安定版の Chromium がリリースされてから、その変更内容の大きさに応じて 1~2 週間以内に更新されます。
 
 Node.js の新しいバージョンがリリースされたとき、より安定したバージョンを使用できるように、Electron の Node.js を更新するのを通常約1か月待ちます。
 
-Electronでは、Node.jsとChromiumで使用しているV8は単一インスタンス、通常ではChromiumが使用している物が共用されます。ほとんどの場合でこのアプローチは*うまいこといきます*が、時折、Node.jsにパッチを当てて改修する作業が必要になります。
+Electron では、Node.js と Chromium で使用している V8 は単一インスタンスです。これは通常、Chromium で使用されている物が共用されます。ほとんどの場合はこのアプローチで *うまく動作します*。しかし、時々 Node.js にパッチを当てる必要があります。
 
 ### バージョン管理
 
-バージョン2.0から、Electronは[`semver`に従います](https://semver.org)。 最近のバージョンのnpmを使っていれば、ほとんどのアプリケーションで `$ npm install electron` が正しく動作するでしょう。
+バージョン 2.0 から Electron は [`semver` に準拠しています](https://semver.org)。 最近のバージョンの npm を使用している、ほとんどのアプリケーションであれば、`$ npm install electron` は正常に動作します。
 
-バージョンアップのプロセスは、[Electronのバージョン管理](electron-versioning.md)に詳しく記載されています。
+バージョン更新の手順は、[Electronのバージョン管理](electron-versioning.md) で詳しく解説されています。
 
 ### LTS（長期サポート版）
 
-現在のところ、長期的にサポートを行うElectronの古いバージョンは存在しません。 Electronの現在のバージョンでうまく動作しているなら、そのバージョンを使い続けることが出来ます。 もし新しく入ってきた機能を使っていきたいなら、新しいバージョンにアップグレードしていかなければなりません。
+現在、長期サポートを行っている旧バージョンの Electron は存在しません。 現在のバージョンの Electron でうまく動作するのであれば、そのバージョンを使い続けるとよいでしょう。 新機能を使いたい場合は、新しいバージョンにアップグレードしていく必要があります。
 
-大きな更新が`v.1.0.0`でありました。 もしこのバージョンを使用していない場合は、[`v1.0.0`での変更について](https://electronjs.org/blog/electron-1-0)をお読みください。
+メジャーアップデートがバージョン `v1.0.0` でありました。 未だにこのバージョンを使用している場合は、[`v1.0.0` の変更の詳細を読んでください](https://electronjs.org/blog/electron-1-0)。
 
 ## 基本理念
 
-Electronのファイルサイズを小さく、そして依存とAPIを維持可能なものとするために、本プロジェクトの扱う領域は制限されます。
+Electron を (ファイルサイズで) 小さく、(依存関係とAPIの広がりを) 持続可能に保つために、このプロジェクトは内部プロジェクトの範囲を制限します。
 
-例えば、ElectronはChromiumのすべてというよりも、Chromiumのレンダリングライブラリのみを使用するようになっています。 これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
+例えば、Electron は Chromium のすべてというより、Chromium の描画ライブラリのみを使用します。 これにより Chromium の更新が容易になりますが、Google Chrome にある機能のいくつかが Electron には無いということです。
 
-Electronに追加される新しい機能はネイティブAPIであるべきです。 独立したNode.jsモジュールとして機能可能なものはモジュールのままで問題ありません。 [コミュニティによって作成されたツール](https://electronjs.org/community) を参照してください。
+Electron に追加される新機能は、基本的にネイティブ API であるべきです。 その機能が独立した Node.js モジュールになり得る場合は、おそらくそうあるべきです。 これについては [コミュニティ製の Electron ツール](https://electronjs.org/community) を参照してください。
 
 ## 履歴
 
-Electronのマイルストーンは以下の通りです。
+以下は、Electron の歴史におけるマイルストーンです。
 
 | :calendar:     | :tada:                                                                                                          |
 | -------------- | --------------------------------------------------------------------------------------------------------------- |

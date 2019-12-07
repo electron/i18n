@@ -1,6 +1,6 @@
-# Notification
+# Notification (Оповещения)
 
-> Create OS desktop notifications
+> Создание уведомлений на рабочем столе ОС
 
 Process: [Main](../glossary.md#main-process)
 
