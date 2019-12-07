@@ -1003,13 +1003,13 @@ Starts or stops flashing the window to attract user's attention.
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+Не отображает окно в панели задач.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Входит или покидает режим киоска.
 
 #### `win.isKiosk()`
 
@@ -1017,52 +1017,52 @@ Returns `Boolean` - Whether the window is in kiosk mode.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Возвращает `Buffer` - Определенный для платформы маркер окна.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Нативный тип маркера это `HWND` на Windows, `NSView*` на macOS и `Window` (`unsigned long`) на Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Перехватывает сообщение окна. `callback` вызывается, когда сообщение получено в WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Возвращает `Boolean` - `true` или `false`, в зависимости от того, какое сообщение было перехвачено.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+Пропускает сообщение окна.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Пропускает все сообщения окна.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Устанавливает путь к файлу, который представляет окно, и иконки файла, которая будет отображаться в строке заголовка окна.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Возвращает `String` - путь до файла, который представляет окно.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Определяет, был ли отредактирован документ окна, иконка в заголовке станет серой, когда установлено `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Возвращает `Boolean` - был ли изменен документ окна.
 
 #### `win.focusOnWebView()`
 
@@ -1263,15 +1263,15 @@ Same as `webContents.reload`.
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Устанавливает, должна ли панель меню автоматически прятать себя. После установки панель меню будет показываться, только когда пользователи нажмут на клавишу `Alt`.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Если панель меню уже видна, вызов `setAutoHideMenuBar(true)` не спрячет ее немедленно.
 
 **[Устарело](modernization/property-updates.md)**
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Возвращает `Boolean` - прячет ли меню себя автоматически.
 
 **[Устарело](modernization/property-updates.md)**
 
@@ -1279,7 +1279,7 @@ Returns `Boolean` - Whether menu bar automatically hides itself.
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Устанавливает видимость панели меню. Если панель меню прячется автоматически, пользователи все еще могут открыть панель меню нажатием на клавишу `Alt`.
 
 #### `win.isMenuBarVisible()`
 
@@ -1291,13 +1291,13 @@ Returns `Boolean` - Whether the menu bar is visible.
 * `options` Object (опционально) 
   * `visibleOnFullScreen` Boolean (опционально) *macOS* - устанавливает видимость панели меню в полноэкранном режиме окна
 
-Sets whether the window should be visible on all workspaces.
+Устанавливает видимость окна на всех рабочих местах.
 
-**Note:** This API does nothing on Windows.
+**Примечание:** Этот API ничего не делает в Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Возвращает `Boolean` - видно ли окно на всех рабочих местах.
 
 **Примечание:** Данный API всегда возвращает false в Windows.
 
@@ -1309,7 +1309,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 Включает для окна игнорирование событий от мыши.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Все события мыши, произошедшие в этом окне, будут переданы окну позади этого окна, но, если это окно сфокусировано, оно все еще будет получать события клавиатуры.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
@@ -1317,13 +1317,13 @@ All mouse events happened in this window will be passed to the window below this
 
 Предотвращает захват содержимого окна другими приложениями.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+На macOS это устанавливает NSWindow sharingType в NSWindowSharingNone. На Windows это вызывает SetWindowDisplayAffinity с `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *macOS* *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Меняет, может ли окно быть сфокусировано.
 
 На macOS он не снимает фокус с окна.
 
@@ -1331,7 +1331,7 @@ Changes whether the window can be focused.
 
 * `parent` BrowserWindow | null
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Устанавливает `parent` как родителя текущего окна, передав `null` превратит текущее окно в окно верхнего уровня.
 
 #### `win.getParentWindow()`
 
@@ -1345,43 +1345,43 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Контролирует скрытие курсора при вводе текста.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Выбирает предыдущую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Выбирает следующую вкладку, когда нативные вкладки включены и в окне присутствуют другие вкладки.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Объединяет все окна в одно окно с множественными вкладками, когда нативные вкладки включены и в присутствуют открытые окна больше, чем 1.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Перемещает текущую вкладку в новое окно, если нативные вкладки включены и присутствует больше, чем одна вкладка, в текущем окне.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Переключает видимость вкладки, если включены нативные вкладки и присутствует только одна вкладка в текущем окне.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Добавляет окно, как вкладку, в это окно, после вкладки экземпляра окна.
 
 #### `win.setVibrancy(type)` *macOS*
 
 * `type` String | null - Может быть `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window` и `under-page`. Смотрите [документацию macOS](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) для подробностей.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Добавляет динамичность окну браузера. Передав `null` или пустой массив строк, динамичность окна будет убрана.
 
 Обратите внимание, что `appearance-based`, `light`, `dark`, `medium-light` и `ultra-dark` устарела и будет удалена в следующей версии macOS.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Экспериментально*
 
 * `touchBar` TouchBar | null
 
