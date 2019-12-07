@@ -72,7 +72,7 @@ Process: [Main](../glossary.md#main-process)
 На *macOS* доступны следующие дополнительные роли:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `about` - Сопоставляется с действием `orderFrontStandardAboutPanel`.
 * `hide` - Map to the `hide` action.
 * `hideOthers` - Map to the `hideOtherApplications` action.
 * `unhide` - Map to the `unhideAllApplications` action.
