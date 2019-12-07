@@ -28,7 +28,7 @@
   * `event` IpcRendererEvent
   * `...args` any[]
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Добавляет функцию `listener` для события. При этом `listener` вызывается только тогда, когда сообщение отправляется в `channel`, после чего оно удаляется.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
