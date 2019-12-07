@@ -30,14 +30,14 @@ Process: [Main](../glossary.md#main-process)
 
 * `options` Object (опционально) 
   * `title` String - Заголовок для уведомления, который будет отображаться в верхней части окна уведомления, когда он будет показан.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
+  * `subtitle` String (опционально) *macOS* - Подзаголовок для уведомления, который будет отображаться под заголовком.
+  * `body` String - Текст уведомления, который будет отображаться под заголовком или подзаголовком.
+  * `silent` Boolean (опционально) - Использовать ли звук уведомления ОС при отображении уведомления.
+  * `icon` (String | [NativeImage](native-image.md)) (опционально) - Значок для отображения в уведомлении.
+  * `hasReply` Boolean (опционально) *macOS* - Нужно ли добавлять встроенный ответ к уведомлению.
+  * `replyPlaceholder` String (опционально) *macOS* - Заполнитель для записи в поле ввода встроенного ответа.
+  * `sound` String (опционально) *macOS* - Имя звукового файла, воспроизводимого при отображении уведомления.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) *macOS* - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
 ### События экземпляра
