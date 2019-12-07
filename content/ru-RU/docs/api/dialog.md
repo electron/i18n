@@ -177,8 +177,8 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
   * `buttons` String[] (опционально) - массив текстов для кнопок. В Windows пустой массив приведет к одной кнопке с названием "OK".
   * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` Строка - содержимое сообщения.
+  * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
+  * `message` String - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
   * `checkboxChecked` Boolean (опционально) - Первоначальное проверяемое состояние флажка. `false` по умолчанию.
@@ -197,10 +197,10 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 
 * `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
 * `options` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
+  * `buttons` String[] (опционально) - массив текстов для кнопок. В Windows пустой массив приведет к одной кнопке с названием "OK".
+  * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
+  * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `message` Строка - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
