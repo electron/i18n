@@ -91,9 +91,9 @@ Process: [Main](../glossary.md#main-process)
 * `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
 * `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр <0role></code>, например `toggledevtools`, все еще поддерживается.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Обратите внимание:** Параметры `enabled` и `visibility` не доступны для элементов верхнего уровня меню на MacOS.
 
 ### Свойства экземпляра
 
