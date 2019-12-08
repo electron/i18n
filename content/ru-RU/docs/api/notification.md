@@ -138,15 +138,15 @@ Process: [Main](../glossary.md#main-process)
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+A [`NotificationAction[]`](structures/notification-action.md) свойство, представляющее действия уведомления.
 
-### Playing Sounds
+### Воспроизведение звуков
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. В дополнение к пользовательским звуковым файлам можно использовать любой из звуков по умолчанию (в разделе Системные настройки > Звук). Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Смотрите документацию [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) для получения дополнительной информации.
