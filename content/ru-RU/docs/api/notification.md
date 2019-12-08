@@ -4,45 +4,45 @@
 
 Process: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Использование процесса отрисовки
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Если вы хотите отобразить уведомления в процессе отрисовки, вы должны использовать [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Class: Notification / Уведомление
 
-> Create OS desktop notifications
+> Создание уведомлений на рабочем столе ОС
 
 Process: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` является [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+Так создается новый экземпляр `BrowserWindow` с собственными свойствами, установленными в `options`.
 
 ### Статические методы
 
-The `Notification` class has the following static methods:
+Класс `Notification` имеет следующие статические методы:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Возвращает `Boolean` - Поддерживаются ли уведомления рабочего стола в текущей системе
 
-### `new Notification([options])` *Experimental*
+### `new Notification([options])` *Экспериментально*
 
 * `options` Object (опционально) 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `title` String - Заголовок для уведомления, который будет отображаться в верхней части окна уведомления, когда он будет показан.
+  * `subtitle` String (опционально) *macOS* - Подзаголовок для уведомления, который будет отображаться под заголовком.
+  * `body` String - Текст уведомления, который будет отображаться под заголовком или подзаголовком.
+  * `silent` Boolean (опционально) - Использовать ли звук уведомления ОС при отображении уведомления.
+  * `icon` (String | [NativeImage](native-image.md)) (опционально) - Значок для отображения в уведомлении.
+  * `hasReply` Boolean (опционально) *macOS* - Нужно ли добавлять встроенный ответ к уведомлению.
+  * `replyPlaceholder` String (опционально) *macOS* - Заполнитель для записи в поле ввода встроенного ответа.
+  * `sound` String (опционально) *macOS* - Имя звукового файла, воспроизводимого при отображении уведомления.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) *macOS* - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
+  * `closeButtonText` String (опционально) *macOS* - Пользовательское название для кнопки закрытия оповещения. Пустая строка приведет к использованию локализованного текста по умолчанию.
 
 ### События экземпляра
 
-Objects created with `new Notification` emit the following events:
+Объекты созданные с помощью `new Notification` имеют следующие события:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
@@ -52,7 +52,7 @@ Objects created with `new Notification` emit the following events:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Возникает, когда уведомление отображается пользователю, обратите внимание, что оно может быть вызвано несколько раз, поскольку уведомление может быть показано несколько раз с помощью метода `show()`.
 
 #### Событие: 'click'
 
@@ -60,7 +60,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Возникает при нажатии на уведомление пользователя.
 
 #### Событие: 'close'
 
@@ -68,20 +68,20 @@ Emitted when the notification is clicked by the user.
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Возникает при закрытии уведомления вручную пользователем.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+Не гарантируется, что это событие будет отправлено во всех случаях, когда уведомление закрыто.
 
-#### Event: 'reply' *macOS*
+#### Событие: 'reply' *macOS*
 
 Возвращает:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field.
+* `reply` String - Строка, введенная пользователем в поле ответа в строке ответа.
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+Возникает при нажатии пользователем кнопки "Ответить" в уведомлении с `hasReply: true`.
 
-#### Event: 'action' *macOS*
+#### Событие: 'action' *macOS*
 
 Возвращает:
 

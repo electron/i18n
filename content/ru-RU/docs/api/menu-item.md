@@ -19,7 +19,7 @@ Process: [Main](../glossary.md#main-process)
   * `sublabel` String (опционально)
   * `toolTip` String (опционально) *macOS* - Текст при наведении на этот пункт меню.
   * `accelerator` [Accelerator](accelerator.md) (опционально)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `icon` ([NativeImage](native-image.md) | String) (опционально)
   * `enabled` Boolean (опционально) - Если false, пункт меню выделится серым цветом и не будет нажимться.
   * `acceleratorWorksWhenHidden` Boolean (опционально) *macOS* - по умолчанию `true`, когда `false`, accelerator не допустит активации элемента, если элемент не отображается.
   * `visible` Boolean (опционально) - Если false, пункт меню будет полностью скрыт.
@@ -69,35 +69,35 @@ Process: [Main](../glossary.md#main-process)
 * `viewMenu` - Полное меню "Вид" по умолчанию (перезагрузка, переключение инструментов разработчика и т. д.)
 * `windowMenu` - Полное меню "Окно" по умолчанию (Свернуть, масштаб и т. д.).
 
-The following additional roles are available on *macOS*:
+На *macOS* доступны следующие дополнительные роли:
 
 * `appMenu` - Полное меню "App" по умолчанию (О программе, службах и т. д.)
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
+* `about` - Сопоставляется с `orderFrontStandardAboutPanel`.
+* `hide` -Сопоставляется с `hide`.
+* `hideOthers` - Сопоставляется с `hideOtherApplications`.
+* `unhide` - Сопоставляется с `unhideAllApplications`.
+* `startSpeaking` - Сопоставляется с `startSpeaking`.
+* `stopSpeaking` - Сопоставляется с `stopSpeaking`.
+* `front` - Сопоставляется с `arrangeInFront`.
+* `zoom` - Сопоставляется с `performZoom`.
+* `toggleTabBar` - Сопоставляется с `toggleTabBar`.
+* `selectNextTab` - Сопоставляется с `selectNextTab`.
+* `selectPreviousTab` - Сопоставляется с `selectPreviousTab`.
+* `mergeAllWindows` - Сопоставляется с `mergeAllWindows`.
+* `moveTabToNewWindow` - Сопоставляется с `moveTabToNewWindow`.
+* `window` - Подменю в меню "Окно".
+* `help` - Подменю в меню "Help".
 * `services` - Подменю меню ["Сервисы"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Оно предназначено только для использования в Меню Приложений и *не* то же самое, что и подменю "Сервисы", используемое в контекстных меню приложений macOS, которое не реализовано в Electron.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `RecentDocuments` - Подменю представляет собой меню "Открыть недавние".
+* `clearRecentDocuments` - Сопоставляется с `clearRecentDocuments`.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+При задании `role` на macOS, `label` и `accelerator` являются единственными параметрами, которые влияют на пункт меню. Все остальные параметры будут проигнорированы. Нижний регистр `role`, например `toggledevtools`, все еще поддерживается.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Обратите внимание:** Параметры `enabled` и `visibility` не доступны для элементов верхнего уровня меню на MacOS.
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `MenuItem`:
+Для экземпляров `MenuItem` доступны следующие свойства:
 
 #### `menuItem.id`
 
@@ -141,25 +141,25 @@ The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.toolTip` *macOS*
 
-`String`с указанием текста, который появляется при наведении курсора на элемент.
+`String` с указанием текста, который появляется при наведении курсора на элемент.
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+`Boolean` указывает, включен ли элемент, это свойство может быть динамически изменено.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+`Boolean` указывает, видим ли элемент, это свойство может быть динамически изменено.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+`Boolean` указывает, помечен ли элемент флажком, это свойство может быть динамически изменено.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Элемент меню `checkbox` будет включать и выключать свойство `checked` при его выборе.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`Radio` пункт меню включит его свойство `checked` при нажатии, и отключит это свойство для всех смежных пунктов в том же меню.
 
-You can add a `click` function for additional behavior.
+Вы можете добавить функцию `click` для дополнительного поведения.
 
 #### `menuItem.registerAccelerator`
 

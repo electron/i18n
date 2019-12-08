@@ -142,7 +142,7 @@ dialog.showOpenDialog(mainWindow, {
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+`filters` определяет массив типов файлов, которые могут быть отображены. Для примера смотрите `dialog.showOpenDialog`.
 
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
@@ -166,23 +166,23 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 
 Аргумент `browserWindow` позволяет диалоговому окну прикрепляться к родительскому, что делает его модальным.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+`filters` определяет массив типов файлов, которые могут быть отображены. Для примера смотрите `dialog.showOpenDialog`.
 
 **Заметка:** На MacOS, рекомендуется асинхронная версия, чтобы избежать проблем при расширении и свёртывании окна.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` Строка - содержимое сообщения.
+  * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
+  * `buttons` String[] (опционально) - массив текстов для кнопок. В Windows пустой массив приведет к одной кнопке с названием "OK".
+  * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
+  * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
+  * `message` String - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
   * `checkboxChecked` Boolean (опционально) - Первоначальное проверяемое состояние флажка. `false` по умолчанию.
-  * `icon` ([NativeImage](native-image.md) | String) (опционально)
+  * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `cancelId` Integer (опционально) - Индекс кнопки, которая будет использоваться для отмены диалога, через клавишу `Esc`. По умолчанию это назначается первой кнопке с меткой "Отмена" или "Нет". Если этот параметр не установлен и нет таких отмеченных кнопок, как возвращаемое значение будет использоваться `0`.
   * `noLink` Boolean (опционально) - В Windows Electron попытается выяснить, какие из `buttons` являются общими кнопками (например, «Отмена» или «Да»), и отобразить остальные как ссылки команд в диалоговом окне. Это может сделать диалог в стиле современных приложений Windows. Если вам не нравится такое поведение, вы можете установить `noLink` на `true`.
   * `normalizeAccessKeys` Boolean (опционально) - Нормализация клавиш доступа к клавиатуре на разных платформах. По умолчанию - `false`. Включение этого предполагает, что `&` используется в метках кнопок для размещения клавиши быстрого доступа, и метки будут преобразованы, чтобы они правильно работали на каждой платформе, символы `&` удаляются в macOS, преобразуются в `_` в Linux и остаются нетронутыми в Windows. Например, метка кнопки `Vie&w` будет преобразована в `Vie_w` в Linux и `View ` в macOS и может быть выбрана с помощью `Alt-W` в Windows и Linux.
@@ -197,10 +197,10 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 
 * `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
 * `options` Object 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
+  * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
+  * `buttons` String[] (опционально) - массив текстов для кнопок. В Windows пустой массив приведет к одной кнопке с названием "OK".
+  * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
+  * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `message` Строка - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.

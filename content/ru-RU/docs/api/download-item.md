@@ -80,7 +80,7 @@ API доступен только в сессии `will-download` функции
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Возвращает `String` - путь сохранения элемента загрузки. Это будет либо путь, установленный через `downloadItem.setSavePath(path)`, либо путь, выбранный из показанного диалогового окна сохранения.
 
 **[Устаревшее](modernization/property-updates.md): используйте вместо этого свойство `savePath`.**
 
@@ -100,21 +100,21 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Возвращает `Boolean` - приостановлена ли загрузка.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Возобновляет загрузку, которая была приостановлена.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Примечание:** для включения возобновляемой загрузки сервер, с которого выполняется загрузка, должен поддерживать запросы диапазона и предоставлять значения заголовков `Last-Modified` и `ETag`. В противном случае `resume()` удалит ранее полученные байты и перезапустит загрузку с начала.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Возвращает `Boolean` - Может ли загрузка возобновиться.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Отменяет операцию загрузки.
 
 #### `downloadItem.getURL()`
 
@@ -122,37 +122,37 @@ Cancels the download operation.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Возвращает `String` - Файлы mime типа.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Возвращает `Boolean` - Есть ли у загрузки пользовательский жест.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Возвращает `String` - Имя файла элемента загрузки.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Внимание:** Имя файла не всегда совпадает с именем файла, сохраненным на локальном диске. Если пользователь изменит имя файла в запрашиваемом диалоговом окне сохранения файла, то действительное имя файла будет отличаться.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Возвращает `Integer` - Общий размер элемента загрузки в байтах.
 
-If the size is unknown, it returns 0.
+Если размер неизвестен, он возвращает 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Возвращает `Integer` - Полученные байты элемента загрузки.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Возвращает `String` - Поле Content-Disposition из заголовка ответа.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Возвращает `String` - текущее состояние. Может быть `progressing`, `completed`, `cancelled` или `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Примечание:** Следующие методы особенно полезны для возобновления элемента `cancelled` при перезапуске сеанса.
 
 #### `downloadItem.getURLChain()`
 
@@ -160,17 +160,17 @@ Returns `String` - The current state. Can be `progressing`, `completed`, `cancel
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Возвращает `String` - Последнее измененное значение заголовка.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Возвращает `String` - значение ETag заголовка.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Возвращает `Double` - Количество секунд с начала UNIX, когда началась загрузка.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `downloadItem.savePath`
 
