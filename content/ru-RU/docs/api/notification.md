@@ -100,7 +100,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### `notification.close()`
 
-Dismisses the notification.
+Отклоняет уведомление.
 
 ### Instance Properties
 
