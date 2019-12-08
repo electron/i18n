@@ -35,12 +35,12 @@ powerSaveBlocker.stop(id)
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Идентификатор блокировщика энергосбережения, возвращённый `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Останавливает указанный блокировщик энергосбережения.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Идентификатор блокировщика энергосбережения, возвращённый `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Возвращает `Boolean` - Запущен ли соответствующий `powerSaveBlocker`.
