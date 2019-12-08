@@ -60,10 +60,10 @@ app.on('ready', () => {
 
 Возвращает `String` - текущее состояние системы. Может быть `active`, `idle`, `locked` или `unknown`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+Расчет состояния простоя системы. `idleThreshold` - это количество времени (в секундах) до того, как считать его простаивающим. `locked` доступен только на поддерживаемых системах.
 
 ### `powerMonitor.getSystemIdleTime()`
 
-Returns `Integer` - Idle time in seconds
+Возвращает `Integer` - время простоя в секундах
 
 Calculate system idle time in seconds.
