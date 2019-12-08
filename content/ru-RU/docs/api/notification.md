@@ -106,19 +106,19 @@ Process: [Main](../glossary.md#main-process)
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+Свойство `String`, представляющее собой заголовок уведомления.
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+Свойство `String`, представляющее собой подзаголовок уведомления.
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+Свойство `String`, представляющее собой тело уведомления.
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+Свойство `String`, представляющее собой заполнитель ответа уведомления.
 
 #### `notification.sound`
 
