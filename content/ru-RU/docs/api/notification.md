@@ -102,7 +102,7 @@ Process: [Main](../glossary.md#main-process)
 
 Отклоняет уведомление.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `notification.title`
 
