@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+Этот модуль нельзя использовать до тех пор, пока событие `ready` в `app` не будет готово к использованию.
 
 Например:
 
@@ -20,15 +20,15 @@ app.on('ready', () => {
 
 ## События
 
-The `powerMonitor` module emits the following events:
+Модуль `powerMonitor` выдает следующие события:
 
 ### Событие: 'suspend'
 
-Emitted when the system is suspending.
+Возникает, когда система приостановлена.
 
 ### Событие: 'resume'
 
-Emitted when system is resuming.
+Возникает при возобновлении работы системы.
 
 ### Событие: 'on-ac' *Windows*
 
