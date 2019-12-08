@@ -4,7 +4,7 @@
 
 Процесс: [Главный](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+Этот модуль нельзя использовать до тех пор, пока событие `ready` в `app` не будет готово к использованию.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
