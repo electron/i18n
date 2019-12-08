@@ -11,8 +11,8 @@ Process: [Main](../glossary.md#main-process)
 * `options` Object 
   * `click` Function (опционально) - будет вызван `click(menuItem, browserWindow, event)` при нажатии на пункт меню. 
     * `menuItem` MenuItem
-    * ` browserWindow </ 0> <a href="browser-window.md"> BrowserWindow </ 1>Line</li>
-<li><code>event` [KeyboardEvent](structures/keyboard-event.md)
+    * `browserWindow` [BrowserWindow](browser-window.md)
+    * `event` [KeyboardEvent](structures/keyboard-event.md)
   * `role` String (опционально) - Может быть `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` или `windowMenu` - Определенное действие элемента меню, если указано, свойство `click` будет игнорироваться. Смотрите [роли](#roles).
   * `type` String (опционально) - Может быть `normal`, `separator`, `submenu`, `checkbox` или `radio`.
   * `label` String (опционально)
