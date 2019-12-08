@@ -144,9 +144,9 @@ A [`NotificationAction[]`](structures/notification-action.md) свойство, 
 
 В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. В дополнение к пользовательским звуковым файлам можно использовать любой из звуков по умолчанию (в разделе Системные настройки > Звук). Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `~/Library/Sounds (~/Библиотека/Звуки)`
+* `/Library/Sounds (/Библиотека/Звуки)`
+* `/Network/Library/Sounds (/Сеть/Библиотека/Звуки)`
+* `/System/Library/Sounds (/Система/Библиотека/Звуки)`
 
 Смотрите документацию [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) для получения дополнительной информации.
