@@ -8,7 +8,7 @@
 
 ## Песочница
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+В песочнице графический объект `process` содержит только подмножество API:
 
 * `crash()`
 * `hang()`
