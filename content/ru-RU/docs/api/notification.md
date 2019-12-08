@@ -86,7 +86,7 @@ Process: [Main](../glossary.md#main-process)
 Возвращает:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Number - Индекс действия, которое было активировано.
 
 ### Методы экземпляра
 
