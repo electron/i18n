@@ -106,35 +106,35 @@ Process: [Main](../glossary.md#main-process)
 
 #### `notification.title`
 
-Свойство `String`, представляющее собой заголовок уведомления.
+Свойство `String`, представляющее заголовок уведомления.
 
 #### `notification.subtitle`
 
-Свойство `String`, представляющее собой подзаголовок уведомления.
+Свойство `String`, представляющее подзаголовок уведомления.
 
 #### `notification.body`
 
-Свойство `String`, представляющее собой тело уведомления.
+Свойство `String`, представляющее тело уведомления.
 
 #### `notification.replyPlaceholder`
 
-Свойство `String`, представляющее собой заполнитель ответа уведомления.
+Свойство `String`, представляющее заполнитель ответа уведомления.
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+Свойство `String`, представляющее звук уведомления.
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+Свойство `String`, представляющее текст кнопки закрытия уведомления.
 
 #### `notification.silent`
 
-A `Boolean` property representing whether the notification is silent.
+Свойство `Boolean`, представляющее, является ли уведомление беззвучным.
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+Свойство `Boolean`, представляющее, есть ли в уведомлении действие для ответа.
 
 #### `notification.actions`
 
