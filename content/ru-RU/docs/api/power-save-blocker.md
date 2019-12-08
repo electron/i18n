@@ -17,13 +17,13 @@ powerSaveBlocker.stop(id)
 
 ## Методы
 
-The `powerSaveBlocker` module has the following methods:
+Модуль `powerSaveBlocker` имеет следующие методы:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `type` String -Типы блокировки функции энергосбережения. 
+  * `prevent-app-suspension` - Предотвращение приостановки приложения. Сохраняет систему активной, но позволяет отключить экран. Примеры использования: загрузка файла или воспроизведение аудио.
+  * `prevent-display-sleep` - Предотвращение переключения дисплея в спящий режим. Держит систему и экран активными. Пример использования: воспроизведение видео.
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker.
 
