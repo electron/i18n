@@ -90,7 +90,7 @@ Process: [Main](../glossary.md#main-process)
 
 ### Методы экземпляра
 
-Objects created with `new Notification` have the following instance methods:
+Объекты, созданные с помощью `New Notification`, имеют следующие методы экземпляра:
 
 #### `notification.show()`
 
