@@ -66,4 +66,4 @@ app.on('ready', () => {
 
 Возвращает `Integer` - время простоя в секундах
 
-Calculate system idle time in seconds.
+Расчет времени простоя системы в секундах.
