@@ -32,33 +32,33 @@ app.on('ready', () => {
 
 ### Событие: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+Используется при переключении системы на питание от переменного тока (блока питания).
 
 ### Событие: 'on-battery' *Windows*
 
-Emitted when system changes to battery power.
+Используется при переключении системы на питание от батареи.
 
-### Event: 'shutdown' *Linux* *macOS*
+### Событие: 'shutdown' *Linux* *macOS*
 
-Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
+Возникает, когда система собирается перезагрузиться или выключиться. Если обработчик события вызывает `e.preventDefault()`, Electron попытается отложить завершение работы системы, чтобы приложение корректно завершило работу. Если вызывается `e.preventDefault()`, приложение должно выйти как можно скорее, вызвав что-то вроде `app.quit()`.
 
-### Event: 'lock-screen' *macOS* *Windows*
+### Событие: 'lock-screen' *macOS* *Windows*
 
-Emitted when the system is about to lock the screen.
+Возникает, когда система собирается заблокировать экран.
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### Событие: 'unlock-screen' *macOS* *Windows*
 
-Emitted as soon as the systems screen is unlocked.
+Возникает, как только система разблокирует экран.
 
 ## Методы
 
-The `powerMonitor` module has the following methods:
+Модуль `powerMonitor` имеет следующие методы:
 
 ### `powerMonitor.getSystemIdleState(idleThreshold)`
 
 * `idleThreshold` Integer
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Возвращает `String` - текущее состояние системы. Может быть `active`, `idle`, `locked` или `unknown`.
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
 
