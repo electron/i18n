@@ -17,7 +17,7 @@
 * `getBlinkMemoryInfo() - Информация о памяти Blink`
 * `getProcessMemoryInfo() - Сведения о памяти процесса`
 * `getSystemMemoryInfo()`
-* `getSystemVersion()`
+* `getSystemVersion() - Версия системы`
 * `getCPUUsage()`
 * `getIOCounters()`
 * `argv`
