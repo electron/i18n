@@ -14,7 +14,7 @@
 * `hang() - Зависание`
 * `getCreationTime() - Время создания`
 * `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
-* `getBlinkMemoryInfo()`
+* `getBlinkMemoryInfo() - Информация о памяти Blink`
 * `getProcessMemoryInfo() - Сведения о памяти процесса`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
