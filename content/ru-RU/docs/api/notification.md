@@ -86,67 +86,67 @@ Process: [Main](../glossary.md#main-process)
 Возвращает:
 
 * `event` Event
-* `index` Number - The index of the action that was activated.
+* `index` Number - Индекс действия, которое было активировано.
 
 ### Методы экземпляра
 
-Objects created with `new Notification` have the following instance methods:
+Объекты, созданные с помощью `New Notification`, имеют следующие методы экземпляра:
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Сразу же показывает уведомление пользователю, обратите внимание, что это означает, в отличие от реализации HTML5 Notification, создание экземпляра `new Notification` не сразу показывает его пользователю, вам нужно вызвать этот метод, прежде чем ОС покажет его.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Если уведомление было показано ранее, этот метод отклонит ранее показанное уведомление и создаст новое с идентичными свойствами.
 
 #### `notification.close()`
 
-Dismisses the notification.
+Отклоняет уведомление.
 
-### Instance Properties
+### Свойства экземпляра
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+Свойство `String`, представляющее заголовок уведомления.
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+Свойство `String`, представляющее подзаголовок уведомления.
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+Свойство `String`, представляющее тело уведомления.
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+Свойство `String`, представляющее заполнитель ответа уведомления.
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+Свойство `String`, представляющее звук уведомления.
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+Свойство `String`, представляющее текст кнопки закрытия уведомления.
 
 #### `notification.silent`
 
-A `Boolean` property representing whether the notification is silent.
+Свойство `Boolean`, представляющее, является ли уведомление беззвучным.
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+Свойство `Boolean`, представляющее, есть ли в уведомлении действие для ответа.
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+A [`NotificationAction[]`](structures/notification-action.md) свойство, представляющее действия уведомления.
 
-### Playing Sounds
+### Воспроизведение звуков
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+В macOS вы можете указать название звука, который вы хотели бы воспроизвести, когда отображается уведомление. В дополнение к пользовательским звуковым файлам можно использовать любой из звуков по умолчанию (в разделе Системные настройки > Звук). Убедитесь, что звуковой файл скопирован в папку пакета приложений (например, `YourApp.app/Contents/Resources`), или в одно из следующих мест:
 
-* `~/Library/Sounds`
-* `/Library/Sounds`
-* `/Network/Library/Sounds`
-* `/System/Library/Sounds`
+* `~/Library/Sounds (~/Библиотека/Звуки)`
+* `/Library/Sounds (/Библиотека/Звуки)`
+* `/Network/Library/Sounds (/Сеть/Библиотека/Звуки)`
+* `/System/Library/Sounds (/Система/Библиотека/Звуки)`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Смотрите документацию [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) для получения дополнительной информации.

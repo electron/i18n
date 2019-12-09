@@ -1,18 +1,18 @@
 # process
 
-> Extensions to process object.
+> Расширения для обработки объекта.
 
 Процессы: [Основной](../glossary.md#main-process), [Графический](../glossary.md#renderer-process)
 
 Объект Electron `process` является расширенной версией объекта [Node.js `process`](https://nodejs.org/api/process.html). Он добавляет следующие события, свойства и методы:
 
-## Sandbox
+## Песочница
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+В песочнице графический объект `process` содержит только подмножество API:
 
-* `crash()`
-* `hang()`
-* `getCreationTime()`
+* `crash() - Падение`
+* `hang() - Зависание`
+* `getCreationTime() - Время создания`
 * `getHeapStatistics()`
 * `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
