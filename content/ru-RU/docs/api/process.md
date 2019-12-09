@@ -167,7 +167,7 @@ Returns an object with Blink memory information. It can be useful for debugging 
 
 Возвращает объект, содержащий статистику использования памяти о текущем процессе. Заметьте, что вся статистика представлена в Килобайтах. Это API необходимо вызывать только после готовности приложения.
 
-Chromium не предоставляет значение `residentSet` для macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium не предоставляет значение `residentSet` для macOS. Это связано с тем, что MacOS сжимает в памяти страницы, которые в последнее время не использовались. В результате значение размера резидентного набора не соответствует ожидаемому. `private` память является более репрезентативной для фактического использования перед сжатием памяти процесса в MacOS.
 
 ### `process.getSystemMemoryInfo()`
 
