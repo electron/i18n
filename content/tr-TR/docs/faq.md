@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Efekt sadece (bazı?) LCD ekranlarda görülür. Bir fark görmese bile, kullanıcılarınızın bazıları görebilir. Yapmamak için nedenleriniz yoksa, arka planı daima bu şekilde ayarlamak en iyisidir.
 
 Notice that just setting the background in the CSS does not have the desired effect.
