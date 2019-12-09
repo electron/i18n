@@ -15,7 +15,7 @@
 * `getCreationTime() - Время создания`
 * `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
 * `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
+* `getProcessMemoryInfo() - Сведения о памяти процесса`
 * `getSystemMemoryInfo()`
 * `getSystemVersion()`
 * `getCPUUsage()`
@@ -57,7 +57,7 @@ process.once('loaded', () => {
 
 `Boolean`. Когда app запущено, будучи переданным в качестве параметра в default app, это свойство принимает значение `true` в main process, иначе `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` *Только чтение*
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
