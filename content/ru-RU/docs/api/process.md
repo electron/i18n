@@ -13,7 +13,7 @@
 * `crash() - Падение`
 * `hang() - Зависание`
 * `getCreationTime() - Время создания`
-* `getHeapStatistics()`
+* `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
 * `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
