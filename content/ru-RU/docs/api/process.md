@@ -10,9 +10,9 @@
 
 В песочнице графический объект `process` содержит только подмножество API:
 
-* `crash()`
-* `hang()`
-* `getCreationTime()`
+* `crash() - Падение`
+* `hang() - Зависание`
+* `getCreationTime() - Время создания`
 * `getHeapStatistics()`
 * `getBlinkMemoryInfo()`
 * `getProcessMemoryInfo()`
