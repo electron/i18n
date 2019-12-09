@@ -142,9 +142,9 @@ Bununla birlikte, yerleşik modülü kullanıyorsanız ancak yine de bu hatayı 
 
 Eğer [ alt piksel kenar yumuşatmayı ](http://alienryderflex.com/sub_pixel/) devre dışı bırakırsa, LCD ekranlardaki yazı tipleri bulanık görünebilir. Örnek:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![alt piksel oluşturma örneği](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Alt piksel kenar yumuşatma için font gliflerini içeren katmanın saydam olmayan bir arka planına ihtiyacı vardır. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
