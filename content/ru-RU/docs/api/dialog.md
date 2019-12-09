@@ -24,13 +24,13 @@ console.log(dialog)
 
 ### `dialog.showOpenDialogSync([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
-  * `title` String (необязательно)
+  * `title` String (опционально)
   * `defaultPath` String (опционально)
-  * `buttonLabel` String(необязательно) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
-  * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
-  * `properties` String[] (необязательно) - Содержит список функций, которые будут доступны в диалоговом окне. Возможны следующие значения: 
+  * `buttonLabel` String(опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
+  * `properties` String[] (опционально) - Содержит список функций, которые будут доступны в диалоговом окне. Возможны следующие значения: 
     * `openFile` - Позволяет выбирать файлы.
     * `openDirectory` - Позволяет выбирать папки.
     * `multiSelections` - Позволяет выбрать несколько объектов.
@@ -40,7 +40,7 @@ console.log(dialog)
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
   * `message` String (необязательно) *macOS* - Сообщение, которое будет отображено над полями ввода.
-  * `securityScopedBookmarks` Boolean (необязательно) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
 Возвращает `String[] | undefined` - пути файла, выбранные пользователем; если диалог отменен, то возвращает `undefined`.
 
@@ -76,8 +76,8 @@ dialog.showOpenDialogSync(mainWindow, {
   * `title` String (опционально)
   * `defaultPath` String (опционально)
   * `buttonLabel` String (опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
-  * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
-  * `properties` String[] (необязательно) - Содержит список функций, которые будут доступны в диалоговом окне. Возможны следующие значения: 
+  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
+  * `properties` String[] (опционально) - Содержит список функций, которые будут доступны в диалоговом окне. Возможны следующие значения: 
     * `openFile` - Позволяет выбирать файлы.
     * `openDirectory` - Позволяет выбирать папки.
     * `multiSelections` - Позволяет выбрать несколько объектов.
@@ -86,8 +86,8 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
-  * `message` String (необязательно) *macOS* - Сообщение, которое будет отображено над полями ввода.
-  * `securityScopedBookmarks` Boolean (необязательно) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
+  * `message` String (опционально) *macOS* - Сообщение, которое будет отображено над полями ввода.
+  * `securityScopedBookmarks` Boolean (опционально) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
@@ -127,12 +127,12 @@ dialog.showOpenDialog(mainWindow, {
 
 ### `dialog.showSaveDialogSync([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `title` String (опционально)
   * `defaultPath` String (необязательно) - Абсолютный путь к директории, файлу или имя файла выбранного по умолчанию.
-  * `buttonLabel` String (необязательно) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
-  * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
+  * `buttonLabel` String (опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
   * `message` String (необязательно) *macOS* - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (необязательно) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
   * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
@@ -146,16 +146,16 @@ dialog.showOpenDialog(mainWindow, {
 
 ### `dialog.showSaveDialog([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `title` String (опционально)
-  * `defaultPath` String (необязательно) - Абсолютный путь к директории, файлу или имя файла выбранного по умолчанию.
-  * `buttonLabel` String (необязательно) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
-  * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
-  * `message` String (необязательно) *macOS* - Сообщение, которое будет показано над полями ввода.
-  * `nameFieldLabel` String (необязательно) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
-  * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
-  * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
+  * `defaultPath` String (опционально) - Абсолютный путь к директории, файлу или имя файла выбранного по умолчанию.
+  * `buttonLabel` String (опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
+  * `message` String (опционально) *macOS* - Сообщение, которое будет показано над полями ввода.
+  * `nameFieldLabel` String (опционально) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
+  * `showsTagField` Boolean (опционально) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
+  * `securityScopedBookmarks` Boolean (опционально) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
@@ -195,12 +195,12 @@ dialog.showOpenDialog(mainWindow, {
 
 ### `dialog.showMessageBox([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `type` String (опционально) - Может быть `"none"`, `"info"`, `"error"`, `"question"` или `"warning"`. В Windows, `"question"` отображает ту же иконку, что и `"info"`, если вы не установили иконку, используя опцию `"icon"`. На macOS и `"warning"` и `"error"` отображают ту же иконку предупреждения (warning).
   * `buttons` String[] (опционально) - массив текстов для кнопок. В Windows пустой массив приведет к одной кнопке с названием "OK".
   * `defaultId` Integer (опционально) - Индекс кнопки в массиве кнопок, который будет выбран по умолчанию при открытии окна сообщения.
-  * `title` String (необязательно) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
+  * `title` String (опционально) - Заголовок окна сообщения, некоторые платформы не смогут его отобразить.
   * `message` Строка - содержимое сообщения.
   * `detail` String (опционально) - Дополнительные сведения о сообщении.
   * `checkboxLabel` String (опционально) - Если это предусмотрено, в окне сообщения будет установлен флажок с данной меткой.
@@ -232,7 +232,7 @@ dialog.showOpenDialog(mainWindow, {
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - Сертификат доверия/импорта.
   * `message` String - Сообщение, отображаемое пользователю.
