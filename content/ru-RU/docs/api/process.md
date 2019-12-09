@@ -61,7 +61,7 @@ process.once('loaded', () => {
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` *Только чтение*
 
 `Boolean`. Для Mac App Store сборки это свойство `true`, для остальных сборок `undefined`.
 
@@ -77,11 +77,11 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` *Только чтение*
 
 `String`. Представляет из себя путь до каталога с ресурсами.
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` *Только чтение*
 
 `Boolean`. Когда renderer process добавлен в sandbox это свойство принимает значение `true`, иначе `undefined`.
 
@@ -97,11 +97,11 @@ A `Boolean` that controls whether or not deprecations printed to `stderr` includ
 
 A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type` *Readonly*
+### `process.type` *Только чтение*
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` *Только чтение*
 
 A `String` representing Chrome's version string.
 
@@ -133,7 +133,7 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Возвращает [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -149,13 +149,13 @@ Returns [`IOCounters`](structures/io-counters.md)
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Возвращает объект со статистикой кучи V8. Обратите внимание, что вся статистика отображается в Килобайтах.
 
 ### `process.getBlinkMemoryInfo()`
 
 Возвращает `Object`:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
+* `allocated` Integer - Размер всех выделенных объектов в Килобайтах.
 * `marked` Integer - Size of all marked objects in Kilobytes.
 * `total` Integer - Total allocated space in Kilobytes.
 
