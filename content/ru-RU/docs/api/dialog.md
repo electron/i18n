@@ -71,11 +71,11 @@ dialog.showOpenDialogSync(mainWindow, {
 
 ### `dialog.showOpenDialog([browserWindow, ]options)`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (необязательно)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
-  * `title` String (необязательно)
+  * `title` String (опционально)
   * `defaultPath` String (опционально)
-  * `buttonLabel` String (необязательно) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `buttonLabel` String (опционально) - Пользовательский текст кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (необязательно)
   * `properties` String[] (необязательно) - Содержит список функций, которые будут доступны в диалоговом окне. Возможны следующие значения: 
     * `openFile` - Позволяет выбирать файлы.
