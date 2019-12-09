@@ -144,7 +144,7 @@ Eğer [ alt piksel kenar yumuşatmayı ](http://alienryderflex.com/sub_pixel/) d
 
 ![alt piksel oluşturma örneği](images/subpixel-rendering-screenshot.gif)
 
-Alt piksel kenar yumuşatma için font gliflerini içeren katmanın saydam olmayan bir arka planına ihtiyacı vardır. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Alt piksel kenar yumuşatma için font gliflerini içeren katmanın saydam olmayan bir arka planına ihtiyacı vardır. (Daha fazla bilgi için [ bu konu'yu ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) gör).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
