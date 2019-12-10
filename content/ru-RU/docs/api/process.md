@@ -13,11 +13,11 @@
 * `crash() - Падение`
 * `hang() - Зависание`
 * `getCreationTime() - Время создания`
-* `getHeapStatistics()`
-* `getBlinkMemoryInfo()`
-* `getProcessMemoryInfo()`
+* `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
+* `getBlinkMemoryInfo() - Информация о памяти Blink`
+* `getProcessMemoryInfo() - Сведения о памяти процесса`
 * `getSystemMemoryInfo()`
-* `getSystemVersion()`
+* `getSystemVersion() - Версия системы`
 * `getCPUUsage()`
 * `getIOCounters()`
 * `argv`
@@ -57,11 +57,11 @@ process.once('loaded', () => {
 
 `Boolean`. Когда app запущено, будучи переданным в качестве параметра в default app, это свойство принимает значение `true` в main process, иначе `undefined`.
 
-### `process.isMainFrame` *Readonly*
+### `process.isMainFrame` *Только чтение*
 
 A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `process.mas` *Readonly*
+### `process.mas` *Только чтение*
 
 `Boolean`. Для Mac App Store сборки это свойство `true`, для остальных сборок `undefined`.
 
@@ -77,11 +77,11 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
-### `process.resourcesPath` *Readonly*
+### `process.resourcesPath` *Только чтение*
 
 `String`. Представляет из себя путь до каталога с ресурсами.
 
-### `process.sandboxed` *Readonly*
+### `process.sandboxed` *Только чтение*
 
 `Boolean`. Когда renderer process добавлен в sandbox это свойство принимает значение `true`, иначе `undefined`.
 
@@ -97,11 +97,11 @@ A `Boolean` that controls whether or not deprecations printed to `stderr` includ
 
 A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type` *Readonly*
+### `process.type` *Только чтение*
 
 A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `process.versions.chrome` *Readonly*
+### `process.versions.chrome` *Только чтение*
 
 A `String` representing Chrome's version string.
 
@@ -133,7 +133,7 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Возвращает [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -149,25 +149,25 @@ Returns [`IOCounters`](structures/io-counters.md)
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Возвращает объект со статистикой кучи V8. Обратите внимание, что вся статистика отображается в Килобайтах.
 
 ### `process.getBlinkMemoryInfo()`
 
 Возвращает `Object`:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `allocated` Integer - Размер всех выделенных объектов в Килобайтах.
+* `marked` Integer - Размер всех отмеченных объектов в Килобайтах.
+* `total` Integer - Всего выделено места в Килобайтах.
 
 Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+Возвращает `Promise<ProcessMemoryInfo>` - Разрешается с [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Возвращает объект, содержащий статистику использования памяти о текущем процессе. Заметьте, что вся статистика представлена в Килобайтах. Это API необходимо вызывать только после готовности приложения.
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium не предоставляет значение `residentSet` для macOS. Это связано с тем, что MacOS сжимает в памяти страницы, которые в последнее время не использовались. В результате значение размера резидентного набора не соответствует ожидаемому. `private` память является более репрезентативной для фактического использования перед сжатием памяти процесса в MacOS.
 
 ### `process.getSystemMemoryInfo()`
 

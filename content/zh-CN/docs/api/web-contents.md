@@ -1112,7 +1112,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 获取系统打印机列表
 
-返回 [`PrinterInfo[]`](structures/printer-info.md).
+返回 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 

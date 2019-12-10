@@ -142,9 +142,9 @@ Bununla birlikte, yerleşik modülü kullanıyorsanız ancak yine de bu hatayı 
 
 Eğer [ alt piksel kenar yumuşatmayı ](http://alienryderflex.com/sub_pixel/) devre dışı bırakırsa, LCD ekranlardaki yazı tipleri bulanık görünebilir. Örnek:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![alt piksel oluşturma örneği](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Alt piksel kenar yumuşatma için font gliflerini içeren katmanın saydam olmayan bir arka planına ihtiyacı vardır. (Daha fazla bilgi için [ bu konu'yu ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) gör).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Efekt sadece (bazı?) LCD ekranlarda görülür. Bir fark görmese bile, kullanıcılarınızın bazıları görebilir. Yapmamak için nedenleriniz yoksa, arka planı daima bu şekilde ayarlamak en iyisidir.
 
 Notice that just setting the background in the CSS does not have the desired effect.

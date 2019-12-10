@@ -1112,7 +1112,7 @@ Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` captur
 
 Obtiene la lista de impresora del sistema.
 
-Devuelve [`PrinterInfo[]`](structures/printer-info.md).
+Devuelve [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
