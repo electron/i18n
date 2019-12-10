@@ -1112,7 +1112,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 Récupère la liste des imprimantes système.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
