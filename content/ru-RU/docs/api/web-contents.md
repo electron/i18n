@@ -1112,7 +1112,7 @@ console.log(requestId)
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
