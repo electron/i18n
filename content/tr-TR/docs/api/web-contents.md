@@ -1112,7 +1112,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 Sistemdeki yazıcıların listesini alır.
 
-[`PrinterInfo[]`](structures/printer-info.md) dönütünü verir.
+[`PrinterInfo[]`](structures/printer-info.md) dönütünü verir
 
 #### `contents.print([options], [callback])`
 
