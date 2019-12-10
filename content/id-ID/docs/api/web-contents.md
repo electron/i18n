@@ -1087,7 +1087,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
       
       Dapatkan daftar printer sistem.
       
-      Mengembalikan [`membuatinfo[]`](structures/printer-info.md).
+      Returns [`PrinterInfo[]`](structures/printer-info.md)
       
       #### `contents.print([options], [callback])`
       
