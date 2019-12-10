@@ -1111,7 +1111,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 Get the system printer list.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+回傳 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
