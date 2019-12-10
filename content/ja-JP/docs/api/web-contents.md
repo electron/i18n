@@ -1112,7 +1112,7 @@ console.log(requestId)
 
 システムプリンタのリストを取得します。
 
-戻り値 [`PrinterInfo[]`](structures/printer-info.md).
+戻り値 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
