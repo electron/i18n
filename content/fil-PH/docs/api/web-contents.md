@@ -1113,7 +1113,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 
 Kunin ang listahan ng sistema ng printer.
 
-Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `mga nilalaman.print([options], [callback])`
 
