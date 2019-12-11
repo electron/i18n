@@ -131,6 +131,7 @@ headings:
   languages: Ngôn ngữ
 taglines:
   languages: Nội dung được dịch từ cộng đồng các developer tuyệt vời của chúng tôi.
+  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "Tham gia dịch"
 footer:
   see_the_faq: Xem các câu hỏi thường gặp
