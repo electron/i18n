@@ -1,22 +1,22 @@
-# Технические различия между Electron и NW.js (прежний node-webkit)
+# Технічні відмінності між Electron та NW.js (раніше node-webkit)
 
-**Note: Electron was previously named Atom Shell.**
+**Примітка: Електрон раніше називався Atom Shell.**
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+Як і NW.js, Electron пропонує платформу для написання настільних додатків за допомогою JavaScript та HTML і має інтеграцію з Node.js для надання доступу до системи низького рівня з веб-сторінок.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Однак існують також принципові відмінності між двома проектами, які роблять Electron абсолютно несхожим на NW.js:
 
-**1. Entry of Application**
+**1. Точка входу в застосунок**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+У NW.js основною точкою входу програми є веб-сторінка або сценарій JS. Ви вказуєте html або js файл у `package.json`, і він відкривається у вікні браузера, як головне вікно програми (у випадку точки входу html) або сценарій.
 
-Для Electron, вхідною точкою є JavaScript сценарій. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Для Electron, вхідною точкою є JavaScript сценарій. Замість надання безпосередньо URL-адреси ви вручну створюєте вікно браузера та завантажуєте HTML-файл за допомогою API. Також потрібно прослуховувати події вікна, щоб вирішити, коли вийти з застосунку.
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
-**2. Система зборки**
+**2. Система збірки**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Щоб уникнути складності створення всього на Chromium, Electron використовує [`libchromiumcontent`](https://github.com/electron/libchromiumcontent), щоб отримати доступ до Content API Chromium. `libchromiumcontent` - це єдина спільна бібліотека, що включає модуль Chromium Content та всі залежності. Users don't need a powerful machine to build Electron.
 
 **3. Node Integration**
 
