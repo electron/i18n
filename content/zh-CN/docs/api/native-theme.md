@@ -1,16 +1,16 @@
 # nativeTheme
 
-> Read and respond to changes in Chromium's native color theme.
+> 读取并响应Chromium本地色彩主题中的变化。
 
 进程：[主进程](../glossary.md#main-process)
 
 ## 事件
 
-The `nativeTheme` module emits the following events:
+`nativeTheme`模块包括以下事件：
 
 ### 事件名: 'updated'
 
-Emitted when something in the underlying NativeTheme has changed. This normally means that either the value of `shouldUseDarkColors`, `shouldUseHighContrastColors` or `shouldUseInvertedColorScheme` has changed. You will have to check them to determine which one has changed.
+当以下NativeTheme属性发生变化时会触发此事件： `shouldUseDarkColors`, `shouldUseHighContrastColors`或`shouldUseInvertedColorScheme` 。 你需要自己检查到底是哪个属性发生了变化。
 
 ## 属性
 
