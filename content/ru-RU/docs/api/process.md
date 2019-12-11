@@ -16,10 +16,10 @@
 * `getHeapStatistics() - Статистика кучи (распределяемой памяти)`
 * `getBlinkMemoryInfo() - Информация о памяти Blink`
 * `getProcessMemoryInfo() - Сведения о памяти процесса`
-* `getSystemMemoryInfo()`
+* `getSystemMemoryInfo() - Информация о системной памяти`
 * `getSystemVersion() - Версия системы`
-* `getCPUUsage()`
-* `getIOCounters()`
+* `getCPUUsage() - Использование процессора`
+* `getIOCounters() - Счетчики IO`
 * `argv`
 * `execPath`
 * `env`
