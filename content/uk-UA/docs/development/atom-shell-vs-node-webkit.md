@@ -24,8 +24,8 @@ Electron працює подібніше до Node.js. API Electron є біль�
 
 **4. Мультиконтекст**
 
-If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
+Якщо ви досвідчений користувач NW.js, ви повинні знати поняття контексту Node.js та веб-контексту. Ці концепції були винайдені через те, як було реалізовано NW.js.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Використовуючи функцію [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) Node.js, Electron не вводить новий веб-контекст JavaScript на веб-сторінках.
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Примітка: NW.js підтримує multi-contex з версії 0.13.
