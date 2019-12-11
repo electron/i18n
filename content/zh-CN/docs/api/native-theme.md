@@ -22,7 +22,7 @@
 
 ### `nativeTheme.themeSource`
 
-A `String` property that can be `system`, `light` or `dark`.  It is used to override and supercede the value that Chromium has chosen to use internally.
+一个类型为`String`的属性，此属性可能的值为：`system`, `light` or `dark`.  它被用来覆盖、重写Chromium内部的相应的值
 
 Setting this property to `system` will remove the override and everything will be reset to the OS default.  By default `themeSource` is `system`.
 
