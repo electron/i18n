@@ -12,15 +12,15 @@
 
 Для Electron, вхідною точкою є JavaScript сценарій. Замість надання безпосередньо URL-адреси ви вручну створюєте вікно браузера та завантажуєте HTML-файл за допомогою API. Також потрібно прослуховувати події вікна, щоб вирішити, коли вийти з застосунку.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron працює подібніше до Node.js. API Electron є більш низькорівневим, тому ви можете використовувати його для тестування браузера замість [PhantomJS](http://phantomjs.org/).
 
 **2. Система збірки**
 
-Щоб уникнути складності створення всього на Chromium, Electron використовує [`libchromiumcontent`](https://github.com/electron/libchromiumcontent), щоб отримати доступ до Content API Chromium. `libchromiumcontent` - це єдина спільна бібліотека, що включає модуль Chromium Content та всі залежності. Users don't need a powerful machine to build Electron.
+Щоб уникнути складності створення всього на Chromium, Electron використовує [`libchromiumcontent`](https://github.com/electron/libchromiumcontent), щоб отримати доступ до Content API Chromium. `libchromiumcontent` - це єдина спільна бібліотека, що включає модуль Chromium Content та всі залежності. Користувачам не потрібна потужна конфігурація комп'ютера для створення Electron застосунку.
 
-**3. Node Integration**
+**3. Інтеграція з Node.js**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+У NW.js інтеграція з Node.js вимагає застосування патчів для Chromium, тоді як в Electron ми обрали інший спосіб інтеграції циклу libuv у цикл повідомлень кожної платформи, щоб уникнути змін у Chromium. Дивіться код [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common), як це було зроблено.
 
 **4. Мультиконтекст**
 
