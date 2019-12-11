@@ -131,6 +131,7 @@ headings:
   languages: اللغات
 taglines:
   languages: محتوى مترجم من مجتمعنا العالمي المذهل من المطورين.
+  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "المساعدة في الترجمة"
 footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
@@ -261,7 +262,7 @@ governance:
     title: API
     description: Oversees public API design based on project principles.
   global:
-    overview: Overview
+    overview: النظرة عامة
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
