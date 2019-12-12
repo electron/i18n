@@ -131,6 +131,7 @@ headings:
   languages: ภาษา
 taglines:
   languages: เนื้อหาที่แปลเป็นภาษาท้องถิ่นจากชุมชนนักพัฒนาระดับโลกของเรา
+  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "ช่วยแปลภาษา"
 footer:
   see_the_faq: คำถามที่พบบ่อยๆ

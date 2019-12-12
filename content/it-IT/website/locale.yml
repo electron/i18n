@@ -131,6 +131,7 @@ headings:
   languages: Lingue
 taglines:
   languages: Contenuti localizzati dalla nostra fantastica comunità di sviluppatori globali.
+  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "Aiuta a tradurre"
 footer:
   see_the_faq: Vedi le domande frequenti

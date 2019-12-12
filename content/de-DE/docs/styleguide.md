@@ -157,7 +157,7 @@ For example, the methods of the `Session` class under the `session` module must 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
 ```sh
-required[, optional]
+erforderlich[, optional]
 ```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
@@ -169,7 +169,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Werte können `macOS`, `Windows` oder `Linux` sein.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
@@ -184,9 +184,9 @@ The description for `Function` type arguments should make it clear how it may be
 The events chapter must be in following form:
 
 ```markdown
-### Event: 'wake-up'
+### Ereignis: 'aufwachen'
 
-Returns:
+Gibt zurück:
 
 * `time` String
 

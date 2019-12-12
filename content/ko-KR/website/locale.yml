@@ -131,6 +131,7 @@ headings:
   languages: 다국어 지원
 taglines:
   languages: 멋진 글로벌 개발자 커뮤니티에서 번역한 콘텐츠.
+  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
