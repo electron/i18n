@@ -1,4 +1,4 @@
-# プロセス
+# process
 
 > プロセスオブジェクトの拡張。
 
@@ -55,15 +55,15 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` *読み出し専用*
 
-`Boolean`。デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
+`Boolean`。引数としてデフォルトアプリに渡された形でアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
 ### `process.isMainFrame` *読み出し専用*
 
-`Boolean` で、現在のレンダラコンテキストが「メイン」レンダラフレームである場合は `true` です。現在のフレームの ID が欲しいならば、`webFrame.routingId` を使うべきです。
+`Boolean`。現在のレンダラーコンテキストが "メイン" レンダラフレームである場合は `true` です。現在のフレームの ID がほしい場合は、`webFrame.routingId` を使用してください。
 
 ### `process.mas` *読み出し専用*
 
-`Boolean`。Mac App Store ビルドの場合、このプロパティは `true`、他のビルドでは `undefined` です。
+`Boolean`。このプロパティは、Mac App Store ビルドの場合 `true`、他のビルドでは `undefined` になります。
 
 ### `process.noAsar`
 
@@ -123,9 +123,9 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.getCreationTime()`
 
-`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
+戻り値 `Number | null` - 発生からのミリ秒数です。情報が利用できない場合は `null` を返します。
 
-アプリケーションの作成時を示します。 発生からのミリ秒数を表します。プロセス作成時間が有効でない場合はnullを返します。
+アプリケーションの生成時刻を示します。この時間はエポックからのミリ秒数を表します。プロセスの生成時刻が有効でない場合は null を返します。
 
 ### `process.getCPUUsage()`
 
@@ -189,9 +189,9 @@ Chromium は macOS には `residentSet` の値を提供しません。 これは
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// macOS の -> '10.13.6'
-// Windows の -> '10.0.17763'
-// Linux の -> '4.15.0-45-generic'
+// macOS -> '10.13.6'
+// Windows -> '10.0.17763'
+// Linux -> '4.15.0-45-generic'
 ```
 
 **注釈:** `os.release()` とは異なり、macOS ではカーネルバージョンではなく実際のオペレーティングシステムのバージョンを返します。
@@ -202,7 +202,7 @@ console.log(version)
 
 戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
 
-V8ヒープを取得して、`filePath`にそれを保存します。
+V8 ヒープのスナップショットを撮り、それを `filePath` に保存します。
 
 ### `process.hang()`
 
