@@ -1,6 +1,6 @@
 # process
 
-> プロセスオブジェクトの拡張。
+> process オブジェクトの拡張です。
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -8,7 +8,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 
 ## サンドボックス
 
-サンドボックス化されたレンダラーでは、`process` オブジェクトは以下の API の部分のみを含んでいます。
+サンドボックス化されたレンダラーでは、`process` オブジェクトには以下に示す一部の API のみが含まれます。
 
 * `crash()`
 * `hang()`
