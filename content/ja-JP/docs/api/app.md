@@ -270,7 +270,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String (任意)
   * `password` String (任意)
 
-`webContents` がBasic認証を要求すると発生します。
+`webContents` が Basic 認証を要求すると発生します。
 
 既定の動作では、全てに認証をキャンセルします。 これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
 
