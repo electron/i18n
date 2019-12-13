@@ -2,17 +2,17 @@
 
 Firma de código es una tecnología de seguridad que usas para certificar que una aplicación fue creada por ti.
 
-En macOS el sistema puede detectar algún cambio en la aplicación, si el cambio es introducido accidentalmente o por código malicioso.
+On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
 En Windows el sistema asigna un nivel de confianza a tu certificado de firma de código, si tu nivel de confianza es bajo o no tienes, se mostrará un dialogo de seguridad que aparecerá cuando el usuario comience a usar tu aplicación. El nivel de confianza aumenta con el tiempo, por lo que es mejor iniciar la firma del código lo antes posible.
 
-Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Por ejemplo, esto es lo que los usuarios de macOS ven cuando intentan iniciar una aplicación sin firmar:
+Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![advertencia de aplicación sin firma en macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-> La aplicación no puede ser abierta porque es de un desarrollador no identificado
+As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
-Si tu estas haciendo una aplicación Electron que tu quieres empaquetar y distribuir, debería ser de código firmado. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
+If you are building an Electron app that you intend to package and distribute, it should be code-signed. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
 
 # Firmando compilaciones Mac
 
@@ -20,7 +20,7 @@ Antes de Firmar aplicaciones macOS, debes hacer lo siguiente:
 
 1. Afiliate en el [Apple Developer Program](https://developer.apple.com/programs/) (requiere un pago anual)
 2. Descarga e instala [Xcode](https://developer.apple.com/xcode)
-3. Genera, descarga e instala [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+3. Genera, descarga e instala [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 Hay una serie de herramientas para firmar su aplicación empaquetada:
 
@@ -29,7 +29,15 @@ Hay una serie de herramientas para firmar su aplicación empaquetada:
     - [`electron-forge`] usa `electron-packager` internamente, tu puede colocar la opción `osxSign` en tu configuración.
 - [`electron-builder`] tiene incorporada capacidades de firma de código. Mira [electron.build/code-signing](https://www.electron.build/code-signing)
 
-Para mas información, mira la [ Guia de envio de la Mac App Store ](mac-app-store-submission-guide.md).
+## Notarization
+
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+
+To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+
+## Mac App Store
+
+See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 # Firmando compilaciones Windows
 
