@@ -12,9 +12,9 @@
 
 通过多次的尝试，我们发现，构建高性能的Electron应用程序，最成功的策略是分析正在运行的代码，查找其中最耗资源的部分，然后对其进行优化。 一遍又一遍地重复这个“搬砖”的过程，将极大地提高应用程序的性能。 在大型应用程序（例如Visual Studio Code、Slack）中的实践经验证明了这是目前最可靠的性能提升策略。
 
-To learn more about how to profile your app's code, familiarize yourself with the Chrome Developer Tools. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
+要了解更多关于如何分析应用程序代码的信息，请熟悉Chrome开发者工具。 如果想同时对多个进程进行深入分析，请考虑使用[Chrome Tracing]工具。
 
-### Recommended Reading
+### 推荐阅读
 
  * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
  * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
