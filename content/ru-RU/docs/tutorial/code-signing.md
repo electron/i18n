@@ -2,17 +2,17 @@
 
 Подпись кода - это технология безопасности, которую вы используете для удостоверения того, что приложение было создано вами.
 
-MacOS обнаруживает любое изменение приложения — случайное или вредоносное.
+On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
 Windows назначает уровень доверия к подписи сертификата; если у вас его нет — система не будет доверять приложению и будет показывать окна безопасности перед запуском. Уровень доверия строится со временем, поэтому лучше начинать подписывание кода как можно раньше.
 
-Можно распространять неподписанные приложения, но не рекомендуется. Вот что видят пользователи macOS, когда запускают неподписанные приложения:
+Можно распространять неподписанные приложения, но не рекомендуется. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![предупреждение об отсутствии подписи приложения в macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-> Программа не может быть открыта, так как её автор является неустановленным разработчиком
+As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
-Если вы создаете приложение Electron, которое собираетесь упаковывать и распространять, оно должно быть подписано. В магазинах приложений Mac и Windows не разрешены неподписанные приложения.
+If you are building an Electron app that you intend to package and distribute, it should be code-signed. В магазинах приложений Mac и Windows не разрешены неподписанные приложения.
 
 # Подписывание сборок для macOS
 
@@ -20,7 +20,7 @@ Windows назначает уровень доверия к подписи се�
 
 1. Зарегистрироваться в [Apple Developer Program](https://developer.apple.com/programs/) (требует оплату раз в год)
 2. Загрузить и установить [Xcode](https://developer.apple.com/xcode)
-3. Сгенерировать [подписанные сертификаты](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+3. Сгенерировать [подписанные сертификаты](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 Существует ряд инструментов для подписывания приложений:
 
@@ -29,7 +29,15 @@ Windows назначает уровень доверия к подписи се�
     - [`electron-forge`] использует `electron-packager` внутри, поэтому можно использовать аргумент `osxSign` в конфиге.
 - [`electron-builder`] имеет в себе возможности подписывания. Смотри страницу [electron.build/code-signing](https://www.electron.build/code-signing)
 
-Больше информации на странице [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
+## Notarization
+
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+
+To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+
+## Mac App Store
+
+See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 # Подписывание сборок для Windows
 
@@ -51,6 +59,6 @@ You can get a code signing certificate from a lot of resellers. Prices vary, so 
 - [`electron-forge`] подписывает инсталляторы, сгенерированные через Squirrel.Windows или MSI.
 - [`electron-builder`] подписывает некоторые приложения для Windows
 
-## Магазин приложений Windows
+## Windows Store
 
 Смотри страницу [Windows Store Guide](windows-store-guide.md).
