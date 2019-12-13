@@ -10,7 +10,7 @@
 
 以下列举了一些直截了当、易于实现的方式。 但是，如果你想构建性能最优秀的应用，仅仅这些是不够的。 你需要仔细检查应用中运行的所有代码，认真地进行分析和衡量。 瓶颈在哪里？ 当用户点击按钮时，哪些操作的执行占用了最多的时间？ 当应用程序被挂起时，哪些对象占用了最多的内存？
 
-通过多次的尝试，我们发现，构建高性能的Electron应用程序，最成功的策略是分析正在运行的代码，查找其中最耗资源的部分，然后对其进行优化。 Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
+通过多次的尝试，我们发现，构建高性能的Electron应用程序，最成功的策略是分析正在运行的代码，查找其中最耗资源的部分，然后对其进行优化。 一遍又一遍地重复这个“搬砖”的过程，将极大地提高应用程序的性能。 在大型应用程序（例如Visual Studio Code、Slack）中的实践经验证明了这是目前最可靠的性能提升策略。
 
 To learn more about how to profile your app's code, familiarize yourself with the Chrome Developer Tools. For advanced analysis looking at multiple processes at once, consider the [Chrome Tracing] tool.
 
