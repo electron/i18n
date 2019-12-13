@@ -8,7 +8,7 @@
 
 ## 再三权衡
 
-The list below contains a number of steps that are fairly straightforward and easy to implement. However, building the most performant version of your app will require you to go beyond a number of steps. Instead, you will have to closely examine all the code running in your app by carefully profiling and measuring. Where are the bottlenecks? When the user clicks a button, what operations take up the brunt of the time? While the app is simply idling, which objects take up the most memory?
+以下列举了一些直截了当、易于实现的方式。 但是，如果你想构建性能最优秀的应用，仅仅这些是不够的。 你需要仔细检查应用中运行的所有代码，认真地进行分析和衡量。 瓶颈在哪里？ 当用户点击按钮时，哪些操作的执行占用了最多的时间？ 当应用程序被挂起时，哪些对象占用了最多的内存？
 
 Time and time again, we have seen that the most successful strategy for building a performant Electron app is to profile the running code, find the most resource-hungry piece of it, and to optimize it. Repeating this seemingly laborious process over and over again will dramatically increase your app's performance. Experience from working with major apps like Visual Studio Code or Slack has shown that this practice is by far the most reliable strategy to improve performance.
 
