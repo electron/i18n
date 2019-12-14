@@ -2,17 +2,17 @@
 
 코드 서명(code signing)은 이 앱을 당신이 만들었다고 인증하는데 사용하는 보안 기술입니다.
 
-macOS 에서 시스템은 앱의 변경이 실수 또는 악성 코드에 의해 생긴 변경인지 아닌지 감지 할 수 있습니다.
+On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
 Windows에서 시스템은 코드 서명 인증서에 신뢰 수준을 할당합니다. 인증서가없는 경우 또는 신뢰 수준이 낮 으면 사용자가 응용 프로그램을 사용할 때 보안 대화 상자가 표시됩니다. 신뢰 수준은 시간이지나면서 만들어지므로, 가능한 한 빨리 코드 서명을 시작하는 것이 좋습니다.
 
-서명 되지 않은 애플리케이션을 배포할 수 있지만 권장 되지 않습니다. 예를 들어 macOS 사용자가 서명되지 않은 앱을 시작하려고 할 때 표시되는 내용은 다음과 같습니다:
+서명 되지 않은 애플리케이션을 배포할 수 있지만 권장 되지 않습니다. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-> App can't be opened because it is from an unidentified developer
+As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+If you are building an Electron app that you intend to package and distribute, it should be code-signed. The Mac and Windows app stores do not allow unsigned apps.
 
 # Signing macOS builds
 
@@ -20,7 +20,7 @@ MacO에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
 1. (연회비 필요) [애플 개발자 프로그램](https://developer.apple.com/programs/)에 등록
 2. Download and install [Xcode](https://developer.apple.com/xcode)
-3. [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates) 생성, 다운로드, 및 설치
+3. [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates) 생성, 다운로드, 및 설치
 
 패키지 된 응용 프로그램 서명을 위한 도구가 몇개 있습니다:
 
@@ -29,7 +29,15 @@ MacO에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
     - [<0 electron-forge</code>] 는 `electron-packager`를 내부적으로 사용하기 때문에, 위조 설정에서 `osxSign` 옵션을 설정할 수 있습니다.
 - [`electron-builder`] 에는 코드 서명 기능이 내장되어 있습니다. [electron.build/code-signing](https://www.electron.build/code-signing) 을 확인하세요.
 
-자세한 정보는 [Mac App Store Submission Guide](mac-app-store-submission-guide.md)을 참조하세요.
+## Notarization
+
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+
+To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+
+## Mac App Store
+
+See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 # Signing Windows builds
 

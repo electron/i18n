@@ -2,17 +2,17 @@
 
 コード署名はセキュリティ技術のひとつで、アプリを作成したのがあなたであることを確実にするために使用します。
 
-macOS では、システムは変更が誤りか悪意のあるコードによって導入されたのかにかかわらず、アプリに対する変更を検出できます。
+On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
 Windows では、コード署名証明書に信頼レベルが割り当てられています。そうでない場合や、信頼レベルが低いと、ユーザがアプリケーションを使用しようとしたときにセキュリティダイアログが表示されます。 信頼レベルは時間とともに高まるので、できるだけ早くコード署名を開始することをお勧めします。
 
-未署名のアプリを配布することは可能ですが、非推奨です。 例えば、以下は未署名のアプリを起動しようとしたときに macOS ユーザに表示されるものです。
+未署名のアプリを配布することは可能ですが、非推奨です。 Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![macOS 上の未署名アプリの警告](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-> アプリは、開発元が未確認のため開けません
+As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
-パッケージ化して配布する予定の Electron アプリケーションを作成している場合は、コード署名されている必要があります。 Mac と Windows の App Store では、未署名のアプリは許可されていません。
+If you are building an Electron app that you intend to package and distribute, it should be code-signed. Mac と Windows の App Store では、未署名のアプリは許可されていません。
 
 # macOS ビルドの署名
 
@@ -20,7 +20,7 @@ macOS ビルドに署名する前に、以下のことをしなければなり�
 
 1. [Apple Developer Program](https://developer.apple.com/programs/) に登録する (年会費が必要)
 2. [Xcode](https://developer.apple.com/xcode) をダウンロードしてインストールする
-3. [署名証明書](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates) を生成、ダウンロードして、インストールする
+3. [署名証明書](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates) を生成、ダウンロードして、インストールする
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
@@ -29,7 +29,15 @@ macOS ビルドに署名する前に、以下のことをしなければなり�
     - [`electron-forge`] は内部で `electron-packager` を使用するので、forge コンフィグ内で `osxSign` オプションを設定できます。
 - [`electron-builder`] には組み込みのコード署名機能があります。 [electron.build/code-signing](https://www.electron.build/code-signing) を参照してください
 
-更なる情報は、[Mac App Store Submission Guide](mac-app-store-submission-guide.md) を参照してください。
+## Notarization
+
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+
+To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+
+## Mac App Store
+
+See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 # Windows ビルドの署名
 

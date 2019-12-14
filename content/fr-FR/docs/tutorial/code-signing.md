@@ -2,17 +2,17 @@
 
 La signature de code est une technologie de sécurité que vous utilisez pour certifier qu'une application a bien été créée par vous.
 
-Sur macOS le système peut détecter tout changement apporté à l'application, qu'il s'agisse d'une modification introduite accidentellement ou par du code malicieux.
+On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
 Sur Windows le système assigne un niveau de confiance à votre certificat de signature de code qui, selon que vous n'en ayez pas ou que son niveau de confiance est trop bas, fera apparaître des messages de sécurité lorsque les utilisateurs démarreront votre application. Le niveau de confiance évoluant jour après jour, il est recommandé d'utiliser la signature de code le plus tôt possible.
 
-Bien qu'il reste possible de distribuer des applications non signées, cela n'est pas recommandé. Par exemple, voici ce que les utilisateurs macOS voient lorsqu'ils tentent de démarrer une application non signée :
+Bien qu'il reste possible de distribuer des applications non signées, cela n'est pas recommandé. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
 
-![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-> L'application ne peut être ouverte parce qu'elle provient d'un développeur non identifié
+As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
-Si vous développez une application Electron destinée à être empaquetée et distribuée, son code devrait être signé. Les Stores Mac et Windows n'acceptent pas les applications non signées.
+If you are building an Electron app that you intend to package and distribute, it should be code-signed. Les Stores Mac et Windows n'acceptent pas les applications non signées.
 
 # Signing macOS builds
 
@@ -20,7 +20,7 @@ Before signing macOS builds, you must do the following:
 
 1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
 2. Download and install [Xcode](https://developer.apple.com/xcode)
-3. Generate, download, and install [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+3. Generate, download, and install [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 There are a number of tools for signing your packaged app:
 
@@ -29,7 +29,15 @@ There are a number of tools for signing your packaged app:
     - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
-For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
+## Notarization
+
+Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+
+To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+
+## Mac App Store
+
+See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
 # Signing Windows builds
 
