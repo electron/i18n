@@ -10,7 +10,7 @@ While it is possible to distribute unsigned apps, it is not recommended. Both Wi
 
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. لا تريد مستخدميك رؤية علبة الحوار هذه.
+كما ترى، يحصل المستخدمين على خيارين: نقل التطبيق مباشرة إلى سلة المهملات أو إلغاء تشغيله. لا تريد مستخدميك رؤية علبة الحوار هذه.
 
 If you are building an Electron app that you intend to package and distribute, it should be code-signed. The Mac and Windows app stores do not allow unsigned apps.
 
