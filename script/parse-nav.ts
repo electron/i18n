@@ -19,13 +19,10 @@ function getNav(locale: string) {
   return nav
 }
 
-const navsByLocale = locales.reduce(
-  (acc, locale) => {
-    acc[locale] = getNav(locale)
-    return acc
-  },
-  {} as Record<string, string>
-)
+const navsByLocale = locales.reduce((acc, locale) => {
+  acc[locale] = getNav(locale)
+  return acc
+}, {} as Record<string, string>)
 
 i18n.navs = navsByLocale
 
