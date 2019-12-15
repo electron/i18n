@@ -10,7 +10,7 @@ While it is possible to distribute unsigned apps, it is not recommended. Both Wi
 
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+As you can see, users get two options: Move the app straight to the trash or cancel running it. لا تريد مستخدميك رؤية علبة الحوار هذه.
 
 If you are building an Electron app that you intend to package and distribute, it should be code-signed. The Mac and Windows app stores do not allow unsigned apps.
 
@@ -22,26 +22,26 @@ Before signing macOS builds, you must do the following:
 2. Download and install [Xcode](https://developer.apple.com/xcode)
 3. Generate, download, and install [signing certificates](https://github.com/electron/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-There are a number of tools for signing your packaged app:
+يوجد رقم للأداة لأجل توقيع حزمة تطبيقك:
 
 - [`electron-osx-sign`] is a standalone tool for signing macOS packages.
 - [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build. 
     - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
-## Notarization
+## التوثيق
 
 Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
 
-To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+لجعل العملية آلية، يمكنك استعمال وحدة [`electron-notarize`]. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
 
 ## Mac App ore
 
-See the [Mac App Store Guide](mac-app-store-submission-guide.md).
+انظر الى [ دليل متجر التطبيقات Mac](mac-app-store-submission-guide.md).
 
 # Signing Windows builds
 
-Before signing Windows builds, you must do the following:
+قبل التوقيع بناءات Windows، يجب عليك القيام بما يلي:
 
 1. Get a Windows Authenticode code signing certificate (requires an annual fee)
 2. Install Visual Studio 2015/2017 (to get the signing utility)
