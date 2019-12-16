@@ -45,7 +45,7 @@ If you are unable to access GitHub or you need to provide a custom build, you ca
 
 #### مصدر اخر
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+يمكنك استخدام متغيرات البيئة لتجاوز عنوان URL الأساسي والمسار الذي تبحث فيه عن ثنائيات الإلكترون واسم الملف الثنائي. يتكون عنوان url المستخدم بواسطة ` @ electron / get ` كما يلي:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
