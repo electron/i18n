@@ -45,7 +45,7 @@ Se você não conseguir acessar o GitHub ou precisar fornecer uma compilação p
 
 #### Mirror (espelhamento)
 
-Você pode usar variáveis de ambiente para substituir a URL base, o caminho no qual procurar por binários Electron e o nome do arquivo binário. A Url usada pelo `electron-download` é composta da seguinte maneira:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -54,12 +54,12 @@ url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 Por exemplo, para usar o mirror da China:
 
 ```plaintext
-ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 ```
 
 #### Cache
 
-Como alternativa, você pode substituir o cache local. O `electron-download` armazenará em cache os binários baixados em um diretório local para não estressar sua rede. Você pode usar essa pasta de cache para fornecer construções personalizadas do Electron ou evitar contato com a rede.
+Como alternativa, você pode substituir o cache local. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Você pode usar essa pasta de cache para fornecer construções personalizadas do Electron ou evitar contato com a rede.
 
 * Linux: `$XDG_CACHE_HOME` ou `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -72,16 +72,26 @@ You can also override the local cache location by providing a `electron_config_c
 O cache contém o arquivo zip oficial da versão, bem como uma soma de verificação, armazenada como um arquivo de texto. Um cache típico pode se parecer com isso:
 
 ```sh
-├── electron-v1.7.9-darwin-x64.zip
-├── electron-v1.8.1-darwin-x64.zip
-├── electron-v1.8.2-beta.1-darwin-x64.zip
-├── electron-v1.8.2-beta.2-darwin-x64.zip
-├── electron-v1.8.2-beta.3-darwin-x64.zip
-├── SHASUMS256.txt-1.7.9
-├── SHASUMS256.txt-1.8.1
-├── SHASUMS256.txt-1.8.2-beta.1
-├── SHASUMS256.txt-1.8.2-beta.2
-├── SHASUMS256.txt-1.8.2-beta.3
+├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9electron-v1.7.9-darwin-x64.zip
+│   └── electron-v1.7.9-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.7.9SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1electron-v1.8.1-darwin-x64.zip
+│   └── electron-v1.8.1-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.1SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1electron-v1.8.2-beta.1-darwin-x64.zip
+│   └── electron-v1.8.2-beta.1-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.1SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2electron-v1.8.2-beta.2-darwin-x64.zip
+│   └── electron-v1.8.2-beta.2-darwin-x64.zip
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.2SHASUMS256.txt
+│   └── SHASUMS256.txt
+├── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3electron-v1.8.2-beta.3-darwin-x64.zip
+│   └── electron-v1.8.2-beta.3-darwin-x64.zip
+└── httpsgithub.comelectronelectronreleasesdownloadv1.8.2-beta.3SHASUMS256.txt
+    └── SHASUMS256.txt
 ```
 
 ## Skip binary download
