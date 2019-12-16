@@ -26,7 +26,7 @@
 * `pid`
 * `arch`
 * `platform`
-* `sandboxed`
+* `sandboxed - Запущена ли песочница`
 * `тип`
 * `версия`
 * `versions`
