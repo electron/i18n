@@ -4,9 +4,9 @@
 
 Process: [Main](../glossary.md#main-process)
 
-## Использование процесса отрисовки
+## Использование в Рендерер-процессе
 
-Если вы хотите отобразить уведомления в процессе отрисовки, вы должны использовать [HTML5 Notification API](../tutorial/notifications.md)
+Если вы хотите отобразить уведомления в Рендерер-процессе, вы должны использовать [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification / Уведомление
 
