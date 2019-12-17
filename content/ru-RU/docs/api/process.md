@@ -26,12 +26,12 @@
 * `pid`
 * `arch`
 * `platform`
-* `sandboxed`
+* `sandboxed - Запущена ли песочница`
 * `тип`
 * `версия`
-* `versions`
-* `mas`
-* `windowsStore`
+* `versions - Список с версиями и их зависимостями`
+* `сборкой Mac App Storek_5df7fa6a6a2316.75293405mas - Является ли сборкой Mac App Store`
+* `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
 
@@ -53,7 +53,7 @@ process.once('loaded', () => {
 
 ## Свойства
 
-### `process.defaultApp` *Readonly*
+### `process.defaultApp` *Только чтение*
 
 `Boolean`. Когда app запущено, будучи переданным в качестве параметра в default app, это свойство принимает значение `true` в main process, иначе `undefined`.
 
