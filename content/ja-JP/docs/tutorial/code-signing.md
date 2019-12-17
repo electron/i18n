@@ -2,11 +2,11 @@
 
 コード署名はセキュリティ技術のひとつで、アプリを作成したのがあなたであることを確実にするために使用します。
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+macOS システムでは、その変更が誤りか悪意のあるコードによって導入されたのかにかかわらず、アプリに対する変更を検出できます。
 
 Windows では、コード署名証明書に信頼レベルが割り当てられています。そうでない場合や、信頼レベルが低いと、ユーザがアプリケーションを使用しようとしたときにセキュリティダイアログが表示されます。 信頼レベルは時間とともに高まるので、できるだけ早くコード署名を開始することをお勧めします。
 
-未署名のアプリを配布することは可能ですが、非推奨です。 Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+未署名のアプリを配布することは可能ですが、非推奨です。 Windows と macOS の両方は、デフォルトで、未署名のアプリケーションのダウンロードまたは実行を阻害します。 macOS Catalina (バージョン 10.15) 以降では、ユーザーが署名されていないアプリケーションを開くには、複数ある手動の手順を実行する必要があります。
 
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
