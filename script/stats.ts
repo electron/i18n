@@ -5,9 +5,9 @@ import * as fs from 'fs'
 import * as path from 'path'
 const url = 'https://electronjs.org/crowdin/status'
 
-got(url, { responseType: 'json' }).then(data => {
+got(url).json().then(body => {
   fs.writeFileSync(
     path.join(__dirname, '../stats.json'),
-    JSON.stringify(data.body, null, 2)
+    JSON.stringify(body, null, 2)
   )
 })

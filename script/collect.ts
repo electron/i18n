@@ -90,10 +90,7 @@ async function fetchApiData() {
     )
   }
 
-  const response = await got(asset.browser_download_url, {
-    responseType: 'json',
-  })
-  const apis = response.body
+  const apis = await got(asset.browser_download_url).json()
   const filename = path.join(englishBasepath, 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(
