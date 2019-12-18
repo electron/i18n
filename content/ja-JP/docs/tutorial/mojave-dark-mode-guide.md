@@ -13,12 +13,12 @@ macOS 10.15 Catalina にて、Apple は新しい "自動" ダークモードオ�
 アプリに独自のダークモードがある場合は、システムのダークモード設定と同期してオンとオフを切り替える必要があります。 これを行うには Electron の `systemPreferences` モジュールでテーマ変更イベントを監視します。 以下は例です。
 
 ```js
-const { systemPreferences } = require('electron')
+const { nativeTheme } = require('electron')
 
 systemPreferences.subscribeNotification(
   'AppleInterfaceThemeChangedNotification',
   function theThemeHasChanged () {
-    updateMyAppTheme(systemPreferences.isDarkMode())
+    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
   }
 )
 ```
