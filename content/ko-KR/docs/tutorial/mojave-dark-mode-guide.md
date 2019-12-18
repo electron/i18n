@@ -13,12 +13,12 @@ In macOS 10.15 Catalina, Apple introduced a new "automatic" dark mode option for
 앱에 자체 다크 모드가 있는 경우 시스템의 다크 모드 설정과 동기화하여 켜거나 꺼야 합니다. Electron의 `systemPreferences` 모듈에서 테마 변경 이벤트를 수신하여 이를 수행할 수 있습니다. 예:
 
 ```js
-const { systemPreferences } = require('electron')
+const { nativeTheme } = require('electron')
 
 systemPreferences.subscribeNotification(
   'AppleInterfaceThemeChangedNotification',
   function theThemeHasChanged () {
-    updateMyAppTheme(systemPreferences.isDarkMode())
+    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
   }
 )
 ```
