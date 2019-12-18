@@ -1,4 +1,4 @@
-# 建置步驟 (Linux)
+# 建置步驟 (macOS)
 
 Follow the guidelines below for building Electron on Linux.
 
