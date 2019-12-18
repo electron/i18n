@@ -13,12 +13,12 @@ En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "autom
 Si tu aplicación tiene su propio modo oscuro deberías activarlo y deshabilitar la sincronización con la configuración de modo oscuro del sistema. Puede hacer esto escuchando por el evento theme changed en el `systemPreferences` del modulo de Electron. Por ejemplo.
 
 ```js
-const { systemPreferences } = require('electron')
+const { nativeTheme } = require('electron')
 
 systemPreferences.subscribeNotification(
   'AppleInterfaceThemeChangedNotification',
   function theThemeHasChanged () {
-    updateMyAppTheme(systemPreferences.isDarkMode())
+    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
   }
 )
 ```

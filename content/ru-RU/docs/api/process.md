@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5df7fa6a6a2316.75293405mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5df9701595cf95.70014234mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -59,7 +59,7 @@ process.once('loaded', () => {
 
 ### `process.isMainFrame` *Только чтение*
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+`Boolean`, `true`, когда текущий рендерер является рендерером основного "main" фрейма. Если вам нужен идентификатор текущего фрейма, используйте `webFrame.routingId`.
 
 ### `process.mas` *Только чтение*
 

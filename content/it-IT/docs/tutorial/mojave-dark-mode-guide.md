@@ -13,12 +13,12 @@ A partire da macOS 10.15 Catalina, Apple ha introdotto una nuova opzione "automa
 If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. Puoi farlo intercettando l'evento corrispondente al cambio di tema nel modulo `systemPreferences`. Per esempio
 
 ```js
-const { systemPreferences } = require('electron')
+const { nativeTheme } = require('electron')
 
 systemPreferences.subscribeNotification(
   'AppleInterfaceThemeChangedNotification',
   function theThemeHasChanged () {
-    updateMyAppTheme(systemPreferences.isDarkMode())
+    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
   }
 )
 ```

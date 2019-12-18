@@ -2,17 +2,17 @@
 
 コード署名はセキュリティ技術のひとつで、アプリを作成したのがあなたであることを確実にするために使用します。
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+macOS システムでは、その変更が誤りか悪意のあるコードによって導入されたのかにかかわらず、アプリに対する変更を検出できます。
 
 Windows では、コード署名証明書に信頼レベルが割り当てられています。そうでない場合や、信頼レベルが低いと、ユーザがアプリケーションを使用しようとしたときにセキュリティダイアログが表示されます。 信頼レベルは時間とともに高まるので、できるだけ早くコード署名を開始することをお勧めします。
 
-未署名のアプリを配布することは可能ですが、非推奨です。 Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+未署名のアプリを配布することは可能ですが、非推奨です。 Windows と macOS の両方は、デフォルトで、未署名のアプリケーションのダウンロードまたは実行を阻害します。 macOS Catalina (バージョン 10.15) 以降では、ユーザーが署名されていないアプリケーションを開くには、複数ある手動の手順を実行する必要があります。
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![macOS Catalina Gatekeeper の警告: このアプリは、開発元が未確認のため開けません](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+見かけ上、ユーザーには 2 つの選択肢があります。アプリをゴミ箱に直接移動するか、実行をキャンセルするかです。 ユーザーにそのダイアログを表示させたくはないでしょう。
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed. Mac と Windows の App Store では、未署名のアプリは許可されていません。
+パッケージ化して配布する予定の Electron アプリケーションを作成している場合は、コード署名されている必要があります。 Mac と Windows の App Store では、未署名のアプリは許可されていません。
 
 # macOS ビルドの署名
 
@@ -29,15 +29,15 @@ macOS ビルドに署名する前に、以下のことをしなければなり�
     - [`electron-forge`] は内部で `electron-packager` を使用するので、forge コンフィグ内で `osxSign` オプションを設定できます。
 - [`electron-builder`] には組み込みのコード署名機能があります。 [electron.build/code-signing](https://www.electron.build/code-signing) を参照してください
 
-## Notarization
+## 公証
 
-Starting with macOS Catalina, Apple requires applications to be notarized. "Notarization" as defined by Apple means that you upload your previously signed application to Apple for additional verification *before* distributing the app to your users.
+macOS Catalina 以降、Apple はアプリケーションの公証を要求しています。 Apple が定義する "公証" とは、ユーザーにアプリを配布する *前* に、事前に署名したアプリケーションを Apple にアップロードして追加の検証をすることを意味します。
 
-To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
+この処理を自動化するには、[`electron-notarize`] モジュールが利用できます。 必ずしも作成するすべてのビルドに対してこの手順を遂行する必要はなく、ユーザーに配布する予定のビルドにだけで構いません。
 
 ## Mac App Store
 
-See the [Mac App Store Guide](mac-app-store-submission-guide.md).
+[Mac App Store Guide](mac-app-store-submission-guide.md) を参照してください。
 
 # Windows ビルドの署名
 

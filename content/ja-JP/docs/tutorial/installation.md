@@ -1,4 +1,4 @@
-# インストール作業
+# インストール
 
 ビルド済み Electron バイナリをインストールするには、[`npm`](https://docs.npmjs.com) を使用します。Electron をアプリ開発の依存関係として追加する際は、以下のようにすることを推奨します。
 
@@ -45,7 +45,7 @@ HTTP プロキシを使用する必要がある場合は、`ELECTRON_GET_USE_PRO
 
 #### ミラー
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+基底 URL、Electron のバイナリを見つけるためのパス、バイナリのファイル名は、環境変数を用いて上書きできます。URL は `@electron/get` で使用されている以下のように構成されたものです。
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 #### キャッシュ
 
-代わりに、ローカルキャッシュを上書きできます。 `@electron/get` will cache downloaded binaries in a local directory to not stress your network. そのキャッシュフォルダは、Electronのカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
+代わりに、ローカルキャッシュを上書きできます。 `@electron/get` はあなたのネットワークに負荷がかからないように、ダウンロードしたバイナリをローカルディレクトリにキャッシュします。 そのキャッシュフォルダは、Electron のカスタムビルドの提供やネットワークとの接続を回避するために使用できます。
 
 * Linux: `$XDG_CACHE_HOME` または `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
