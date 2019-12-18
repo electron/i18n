@@ -1,6 +1,6 @@
 # Node 升版
 
-## 討論
+## Tartışma
 
 Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
 
