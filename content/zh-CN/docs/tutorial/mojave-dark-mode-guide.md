@@ -13,12 +13,12 @@
 如果你的应用本身就有黑暗模式，那么你需要跟系统同步他的开与关。 你可以通过监听 Electron 的 `systemPreferences` 模块上的主题变更事件来实现。 如下:
 
 ```js
-const { systemPreferences } = require('electron')
+const { nativeTheme } = require('electron')
 
 systemPreferences.subscribeNotification(
   'AppleInterfaceThemeChangedNotification',
   function theThemeHasChanged () {
-    updateMyAppTheme(systemPreferences.isDarkMode())
+    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
   }
 )
 ```
