@@ -45,7 +45,7 @@ If you are unable to access GitHub or you need to provide a custom build, you ca
 
 #### مصدر اخر
 
-يمكنك استخدام متغيرات البيئة لتجاوز عنوان URL الأساسي والمسار الذي تبحث فيه عن ثنائيات الإلكترون واسم الملف الثنائي. يتكون عنوان url المستخدم بواسطة ` @ electron / get ` كما يلي:
+يمكنك استخدام متغيرات البيئة لتجاوز عنوان URL الأساسي، المسار الذي تبحث فيه عن ثنائيات Electron واسم الملف الثنائي. الرابط المستخدم بواسطة `@electron/get` ومتكون كما إتبعنا:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 #### الكاش
 
-Alternatively, you can override the local cache. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatively, you can override the local cache. ستخبأ `@electron/get` ثنائيات التي تم تنزيلها في مجلدنا لكي لا تضغط على شبكتك. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
