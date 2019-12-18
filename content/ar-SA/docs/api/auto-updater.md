@@ -1,6 +1,6 @@
 # تحديث تلقائي
 
-> Enable apps to automatically update themselves.
+> Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
 العملية: [Main](../glossary.md#main-process)
 
