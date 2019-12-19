@@ -1,12 +1,12 @@
 # Electron中的问题
 
-* [How to Contribute to Issues](#how-to-contribute-to-issues)
-* [请求一般的帮助](#asking-for-general-help)
+* [Issue でコントリビュートする方法](#how-to-contribute-to-issues)
+* [Https://crowdin.com/translate/electron/156/en-vi#12327](#asking-for-general-help)
 * [提交漏洞报告](#submitting-a-bug-report)
 * [鉴定漏洞报告](#triaging-a-bug-report)
 * [解决漏洞报告](#resolving-a-bug-report)
 
-## How to Contribute to Issues
+## Issue でコントリビュートする方法
 
 对于任何问题，个人可以通过三种方式贡献：
 

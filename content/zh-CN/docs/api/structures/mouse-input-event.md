@@ -1,4 +1,4 @@
-# MouseInputEvent Object extends `InputEvent`
+# MouseInputEvent 对象扩展自 `InputEvent`
 
 * `type` String - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` or `mouseMove`.
 * `x` Integer

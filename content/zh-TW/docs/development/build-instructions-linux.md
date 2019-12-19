@@ -1,4 +1,4 @@
-# 建置步驟 (Linux)
+# 建置步驟 (macOS)
 
 Follow the guidelines below for building Electron on Linux.
 
@@ -42,10 +42,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
 在 Fedora 上，安將下列程式庫:
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
-                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   nss-devel python-dbusmock openjdk-8-jre
+                   
 ```
 
 其他分發版也可能通過包管理器提供相似的包來安裝，例如pacman，或者一個可以從源代碼編譯的文件
