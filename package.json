@@ -28,7 +28,7 @@
     "get-crowdin-file-ids": "^1.1.1",
     "github-slugger": "^1.2.0",
     "globals": "^12.0.0",
-    "got": "^9.6.0",
+    "got": "^10.1.0",
     "href-type": "^1.0.1",
     "hubdown": "^2.3.0",
     "husky": "^3.0.1",
