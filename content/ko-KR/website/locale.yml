@@ -27,7 +27,7 @@ keyboard_modal:
 docs:
   title: Electron 문서
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
-  guides: "Guides: Getting Started with Electron"
+  guides: "가이드 : Electron으로 시작하기"
   api_reference: API 참조
   api_structures: API 구조
   advanced: 상급(advanced) 주제
@@ -35,7 +35,7 @@ docs:
   custom_dom: 사용자 지정 DOM 요소
   main_proc_modules: 메인 프로세스 모듈
   renderer_proc_modules: 렌더러 프로세스 모듈
-  both_proc_modules: Modules for Both Process Types
+  both_proc_modules: 두 프로세스 타입에 대한 모듈
   footer:
     propose_change: 문서 개선 작업 참여
     version_history: 버전 역사
@@ -113,7 +113,7 @@ get_started:
 explore:
   title: Electron API를 탐색하세요
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 데모 앱</a>은 대화식으로 Electron API의 가장 중요한 부분을 설명합니다. 샘플 코드와 유용한 팁으로 앱을 제작하는 데에 무엇이 가능할지 알아보세요."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
+  fiddle_title: Electron Fiddle과 함께 강력한 경험을 시도해보세요
   see_more_info: 자세히 보기
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
@@ -131,15 +131,15 @@ headings:
   languages: 다국어 지원
 taglines:
   languages: 멋진 글로벌 개발자 커뮤니티에서 번역한 콘텐츠.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  openjsf: Electron이 OpenJS 재단에 참여했습니다. <a href="/blog/electron-joins-openjsf">공지</a>에서 자세히 살펴보세요!
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
 companies:
-  title: Built on Electron
+  title: Electron으로 설계된 애플리케이션
   description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'Electron과 함께라면 여러분의 회사에서 데스크톱 애플리케이션을 개발하는 것은 쉬운 일입니다. <a href=''/apps''>커뮤니티에서 개발한 앱 목록</a>또는 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">여러분이 직접 개발한 앱을 추가하기</a>를 확인해보세요!'
   view_more: 더 많은 애플리케이션 보기
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
@@ -166,8 +166,8 @@ clipboard:
   copy_to_clipboard: 클립보드에 복사하기
   copied: 복사됨
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: 실행
+  launch_in_fiddle: Fiddle로 실행
 or: 또는
 pages:
   '/':
@@ -262,7 +262,7 @@ governance:
     title: API
     description: Oversees public API design based on project principles.
   global:
-    overview: Overview
+    overview: 개요
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
