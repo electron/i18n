@@ -6,7 +6,7 @@
 
 ## 自动更新原生界面
 
-“原生界面”包括文件选择器、窗口边框、对话框、上下文菜单等等； 这些UI基本来源于 macOS ，而不是您的应用。 Electron 7.0.0默认自动根据系统选择主题。 如果您不想自动切换主题，您必须在 `Info.plist` 文件中将 `NSRequiresAquaSystemAppearance` 设为 `true`。 请注意，一旦Electron开始使用 10.14 SDK 构建，您就不再能禁用主题的切换。
+“原生界面”包括文件选择器、窗口边框、对话框、上下文菜单等等； 这些UI基本来源于 macOS ，而不是您的应用。 Electron 7.0.0默认自动根据系统切换主题。 如果您不想自动切换主题，您必须在 `Info.plist` 文件中将 `NSRequiresAquaSystemAppearance` 设为 `true`。 请注意，一旦Electron开始使用 10.14 SDK 构建，您就不再能禁用主题的切换。
 
 ## 自动更新你的接口
 
