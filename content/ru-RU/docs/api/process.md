@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe7c6e1d0d65.01324114mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe7eb46da016.47907193mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -141,8 +141,8 @@ process.once('loaded', () => {
 
 * `totalHeapSize` Integer - Память, выделенная для кучи
 * `totalHeapSizeExecutable` Integer - Память для исполняемого файла
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
+* `totalPhysicalSize` Integer - Доступный размер
+* `totalAvailableSize` Integer - Доступный размер кучи
 * `usedHeapSize` Integer
 * `heapSizeLimit` Integer
 * `mallocedMemory` Integer
