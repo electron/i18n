@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe6e4b197920.27197773mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe720f735e52.66674124mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -111,11 +111,11 @@ process.once('loaded', () => {
 
 ### `process.windowsStore` *Только чтение*
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+`Boolean`. Когда приложение запущено как приложение Windows Store (appx), это свойство принимает значение `true`, иначе `undefined`.
 
 ## Методы
 
-The `process` object has the following methods:
+Объект `process` имеет следующие методы:
 
 ### `process.crash()`
 
