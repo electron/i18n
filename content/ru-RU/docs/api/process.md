@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe720f735e52.66674124mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe7555a71109.54444340mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -119,17 +119,17 @@ process.once('loaded', () => {
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Вызывает сбой основного потока текущего процесса.
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+Возвращает `Number | null` - Количество миллисекунд с начала эпохи, или `null`, если информация недоступна
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Показывает время создания приложения. Время представлено как количество миллисекунд с начала эпохи. Возвращает null, если не получается получить время создания процесса.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Возвращает [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
