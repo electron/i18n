@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe5b94dfb6c8.25166928mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe5de8a87949.56893997mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -67,15 +67,15 @@ process.once('loaded', () => {
 
 ### `process.noAsar`
 
-`Boolean`. Контролирует поддержку ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку `asar` архивов в Node's built-in модулях.
+`Boolean`. Управляет поддержкой ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку архивов `asar` во встроенных модулях Node.
 
 ### `process.noDeprecation`
 
-`Boolean` который управляет тем, будут ли предупреждения об устаревании выводиться в `stderr` или нет. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
+`Boolean` который управляет тем, будут ли предупреждения об устаревании выводиться в `stderr` или нет. Установка в `true` заглушит предупреждения об устаревании. Это свойство используется вместо флага командной строки `--no-deprecation`.
 
 ### `process.enablePromiseAPIs`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
+`Boolean`, управляет тем, выводятся ли уведомления об устаревании в `stderr`, когда прежние API, основанные на обратном вызове, преобразованные в Promises, вызывались с использованием обратных вызовов. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath` *Только чтение*
 
