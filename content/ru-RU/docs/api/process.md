@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe7eb46da016.47907193mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe83d30fe1b6.64487773mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -141,13 +141,13 @@ process.once('loaded', () => {
 
 * `totalHeapSize` Integer - Память, выделенная для кучи
 * `totalHeapSizeExecutable` Integer - Память для исполняемого файла
-* `totalPhysicalSize` Integer - Доступный размер
+* `totalPhysicalSize` Integer - Заданный размер
 * `totalAvailableSize` Integer - Доступный размер кучи
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
+* `usedHeapSize` Integer - Память, используемая данными приложения
+* `heapSizeLimit` Integer - Абсолютный предел, который куча не может превышать
+* `mallocedMemory` Integer - Текущий объем памяти, полученный через malloc
+* `peakMallocedMemory` Integer - Пиковый объем памяти, полученный через malloc
+* `doesZapGarbage` Boolean - Включена ли опция --zap_code_space
 
 Возвращает объект со статистикой кучи V8. Обратите внимание, что вся статистика отображается в Килобайтах.
 
@@ -159,7 +159,7 @@ process.once('loaded', () => {
 * `marked` Integer - Размер всех отмеченных объектов в Килобайтах.
 * `total` Integer - Всего выделено места в Килобайтах.
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Возвращает объект с информацией о памяти Blink. Он может быть полезен для отладки проблем с памятью, связанной с рендерингом / DOM. Обратите внимание, что все значения указываются в килобайтах.
 
 ### `process.getProcessMemoryInfo()`
 
@@ -182,7 +182,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+Возвращает `String` - Версию операционной системы хоста.
 
 Пример:
 
