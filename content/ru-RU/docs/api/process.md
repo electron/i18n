@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe6beb1324b2.20367552mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe6e4b197920.27197773mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -95,21 +95,21 @@ process.once('loaded', () => {
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+`Boolean`, определяет, будут ли предупреждения процесса, выдаваемые в `stderr`, включать трассировку стека. Установка значения `true` напечатает трассировку стека для предупреждений процесса (включая устаревания). Это свойство вместо флага командной строки `--trace-warnings`.
 
 ### `process.type` *Только чтение*
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+`String`, представляющая тип текущего процесса, может быть `"browser"` (основной процесс), `"renderer"`, или `"worker"` (т.е. веб-работник).
 
 ### `process.versions.chrome` *Только чтение*
 
-A `String` representing Chrome's version string.
+`String`, представляющая строку версии Chrome.
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` *Только чтение*
 
-A `String` representing Electron's version string.
+`String`, представляющая строку версии Electron.
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` *Только чтение*
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
