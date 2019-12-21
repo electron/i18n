@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe83d30fe1b6.64487773mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe861d41fbc6.90734558mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -189,12 +189,12 @@ Returns an object giving memory usage statistics about the entire system. Note t
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+// В macOS -> '10.13.6'
+// В Windows -> '10.0.17763'
+// В Linux -> '4.15.0-45-generic'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**Примечание:** В отличие от `os.release()` он возвращает фактическую версию операционной системы, а не версию ядра на MacOS.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -202,7 +202,7 @@ console.log(version)
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 ### `process.hang()`
 
