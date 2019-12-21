@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe60469e1bf9.72822355mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe64f2e42001.19333582mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -87,7 +87,7 @@ process.once('loaded', () => {
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+`Boolean`, определяет, будут ли предупреждения об устаревании выдаваться как исключения. Установка значения `true` приведет к выдаче ошибок при устаревании. Это свойство используется вместо флага командной строки `--throw-deprecation`.
 
 ### `process.traceDeprecation`
 
