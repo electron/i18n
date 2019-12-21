@@ -53,7 +53,7 @@ const win = new BrowserWindow()
 
 ## 使用 Node.js 的 API
 
-Electron同时在主进程和渲染进程中对Node.js 暴露了所有的接口。 这里有两个重要的定义：
+Electron同时对主进程和渲染进程暴露了Node.js 所有的接口。 这里有两个重要的定义：
 
 1)所有在Node.js可以使用的API，在Electron中同样可以使用。 在Electron中调用如下代码是有用的：
 
