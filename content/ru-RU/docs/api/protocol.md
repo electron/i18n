@@ -315,7 +315,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (опционально) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет `String` в качестве ответа.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -332,7 +332,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (опционально) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет `Buffer` в качестве ответа.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -353,7 +353,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (опционально) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет новый HTTP-запрос в качестве ответа.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -370,7 +370,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (опционально) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+То же самое, что и `protocol.registerStreamProtocol`, за исключением того, что он заменяет существующий обработчик протокола.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
