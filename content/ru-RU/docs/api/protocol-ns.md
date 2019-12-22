@@ -98,7 +98,7 @@ Registering a scheme as standard will allow access to files through the [FileSys
 
 To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. `filePath` должен быть абсолютным путем.
 
-By default the `scheme` is treated like `http:`, which is parsed differently from protocols that follow the "generic URI syntax" like `file:`.
+По умолчанию `scheme` обрабатывается как `http:`, который анализируется иначе, чем протоколы, которые следуют "общему синтаксису URI", как `file:`.
 
 ### `protocol.registerBufferProtocol(scheme, handler)`
 
@@ -108,9 +108,9 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+Регистрирует протокол `scheme`, который отправит `Buffer` в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
+То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с объектом `Buffer` или с объектом, имеющим свойство `data`.
 
 Пример:
 
@@ -128,9 +128,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Регистрирует протокол `scheme`, который отправит `String` в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data` property.
+То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с `String` или с объектом, имеющим свойство `data`.
 
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
@@ -140,7 +140,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
   * `callback` Function
     * `response` ProtocolResponse
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
 
