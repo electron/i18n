@@ -1,4 +1,4 @@
-# протокол (NetworkService) (Проект)
+# протокол (NetworkService) (Черновик)
 
 В этом документе описываются API нового протокола, основанное на [NetworkService](https://www.chromium.org/servicification).
 
