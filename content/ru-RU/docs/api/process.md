@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfe861d41fbc6.90734558mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dffb6c6b5b209.27752279mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -173,12 +173,12 @@ Chromium не предоставляет значение `residentSet` для m
 
 Возвращает `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `total` Integer - Общий объем физической памяти в килобайтах, доступный системе.
+* `free` Integer - Общий объем памяти, не используемый приложениями или дисковым кэшем.
+* `swapTotal` Integer *Windows* *Linux* - Общий объем памяти подкачки в килобайтах, доступной системе.
+* `swapFree` Integer *Windows* *Linux* - Свободный объем памяти подкачки в килобайтах, доступный системе.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Возвращает объект, дающий статистику использования памяти по всей системе. Обратите внимание, что вся статистика выдается в килобайтах.
 
 ### `process.getSystemVersion()`
 
@@ -198,18 +198,18 @@ console.log(version)
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Путь к выходному файлу.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Возвращает `Boolean`, который указывает успешно ли создан снимок.
 
 Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Вызывает зависание основного потока текущего процесса.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Устанавливает мягкое ограничение дескрипторов файлов до `maxDescriptors` или жесткое ограничение операционной системы, в зависимости от того, какое значение ниже для текущего процесса.
