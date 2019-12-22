@@ -110,7 +110,7 @@ protocol.registerSchemesAsPrivileged([
 
 Регистрирует протокол `scheme`, который отправит `Buffer` в качестве ответа.
 
-То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с объектом `Buffer` или с объектом, имеющим свойство `data`.
+Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться либо с объектом `Buffer`, либо с объектом, имеющим свойство `data`.
 
 Пример:
 
@@ -130,7 +130,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Регистрирует протокол `scheme`, который отправит `String` в качестве ответа.
 
-То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с `String` или с объектом, имеющим свойство `data`.
+Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться либо с помощью `String`, либо с помощью объекта, имеющего свойство `data`.
 
 ### `protocol.registerHttpProtocol(scheme, handler)`
 
@@ -142,7 +142,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
-То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с объектом, имеющим свойство `url`.
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
 
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
