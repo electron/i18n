@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "11555",
-    "translated": "5233",
+    "translated": "5242",
     "approved": "1327",
     "words": "109142",
-    "words_translated": "38841",
+    "words_translated": "38894",
     "words_approved": "9405",
     "translated_progress": 35,
     "approved_progress": 8,
-    "qa_issues": 1444
+    "qa_issues": 1447
   },
   {
     "name": "Japanese",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "11555",
-    "translated": "4287",
+    "translated": "4302",
     "approved": "1925",
     "words": "109142",
-    "words_translated": "20957",
+    "words_translated": "21185",
     "words_approved": "9282",
     "translated_progress": 19,
     "approved_progress": 8,
-    "qa_issues": 674
+    "qa_issues": 679
   },
   {
     "name": "Portuguese, Brazilian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "11555",
-    "translated": "8295",
+    "translated": "8362",
     "approved": "3845",
     "words": "109142",
-    "words_translated": "68770",
+    "words_translated": "69586",
     "words_approved": "29708",
     "translated_progress": 63,
     "approved_progress": 27,
-    "qa_issues": 1805
+    "qa_issues": 1830
   },
   {
     "name": "Spanish",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "11555",
-    "translated": "2174",
+    "translated": "2184",
     "approved": "487",
     "words": "109142",
-    "words_translated": "9850",
+    "words_translated": "9894",
     "words_approved": "1081",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 524
+    "qa_issues": 526
   }
 ]
