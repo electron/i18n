@@ -182,7 +182,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Регистрирует протокол `scheme`, который отправит `String` в качестве ответа.
 
-То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с `String` или с объектом, имеющим свойства `data`, `mimeType` и `charset`.
+Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться либо со свойством `String`, либо с объектом, имеющим свойства `data`, `mimeType` и `charset`.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -205,7 +205,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться с объектом `redirectRequest`, имеющим свойства `url`, `method`, `referrer`, `uploadData` и `session`.
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
