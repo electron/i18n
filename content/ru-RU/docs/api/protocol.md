@@ -126,9 +126,9 @@ protocol.registerSchemesAsPrivileged([
 * `completion` Function (опционально) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
+Регистрирует протокол `scheme`, который отправит файл в качестве ответа. Обработчик `handler` будет вызван с помощью `handler(request, callback)`, когда запрос `request` будет создан с помощью схемы `scheme`. `completion` будет вызван с `completion(null)` когда `scheme` будет успешно зарегистрирована или с `completion(error)` при неудаче.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
+Для обработки запроса `request`, обратный вызов `callback` должен быть вызван либо с путём к файлу, либо с объектом, который имеет свойство `path`, например, `callback(filePath)` или `callback({ path: filePath })`. Объект также может иметь свойство `headers`, которое дает карту заголовков к значениям заголовков ответа, например,`callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
 When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
