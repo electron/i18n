@@ -208,7 +208,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет файл в качестве ответа.
 
 ### `protocol.interceptStringProtocol(scheme, handler)`
 
