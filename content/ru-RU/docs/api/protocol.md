@@ -1,10 +1,10 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Регистрация пользовательского протокола и перехват существующих запросов протокола.
 
 Process: [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Пример реализации протокола, имеющего тот же эффект, что и протокол `file://`:
 
 ```javascript
 const { app, protocol } = require('electron')
@@ -20,13 +20,13 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Примечание:** Все методы, если не указано другого, могут быть использованы только после того, как событие `ready` модуля `app` будет отправлено.
 
-## Using `protocol` with a custom `partition` or `session`
+## Использование протокола `protocol` с пользовательским разделом `partition` или сеансом `session`
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+Протокол регистрируется для определенного Electron объекта [`session`](./session.md). Если вы не укажете сеанс, то ваш `protocol` будет применен сеансу по умолчанию, который использует Electron. Однако, если вы определите `partition` или `session` в `браузереWindow` в `webPreferences`, то это окно будет использовать другой сеанс, и ваш пользовательский протокол не будет работать, если вы просто используете `electron.protocol.XXX`.
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+Для того, чтобы ваш пользовательский протокол работал в сочетании с пользовательским сеансом, вам необходимо явно зарегистрировать его в этом сеансе.
 
 ```javascript
 const { session, app, protocol } = require('electron')
@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ## Методы
 
-The `protocol` module has the following methods:
+Модуль `protocol` имеет следующие методы:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
