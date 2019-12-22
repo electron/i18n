@@ -81,18 +81,18 @@ protocol.registerSchemesAsPrivileged([
 Например, когда вы загружаете следующую страницу с помощью пользовательского протокола, не регистрируя его как стандартную схему, изображение не будет загружено, потому что нестандартные схемы не могут распознать относительные URL-адреса:
 
 ```html
-&lt;body&gt;
-  &lt;img src='test.png'&gt;
-&lt;/body&gt;
+<body>
+  <img src='test.png'>
+</body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Регистрация схемы в качестве стандарта позволит получить доступ к файлам через [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). В противном случае программа для схемы выдаст ошибку безопасности.
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. Поэтому в общем случае, если вы хотите зарегистрировать пользовательский протокол для замены протокола `http`, необходимо зарегистрировать его как стандартную схему.
 
-`protocol.registerSchemesAsPrivileged` can be used to replicate the functionality of the previous `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` and `protocol.registerServiceWorkerSchemes` functions that existed prior to Electron 5.0.0, for example:
+`protocol.registerSchemesAsPrivileged` может быть использован для копирования функциональности предыдущих функций, таких как `protocol.registerStandardSchemes`, `webFrame.registerURLSchemeAs*` и `protocol.registerServiceWorkerSchemes`, существовавших до Electron 5.0.0, например:
 
-**before (<= v4.x)**
+**до (<= v4.x)**
 
 ```javascript
 // Main
@@ -102,7 +102,7 @@ webFrame.registerURLSchemeAsPrivileged('scheme1', { secure: true })
 webFrame.registerURLSchemeAsPrivileged('scheme2', { secure: true })
 ```
 
-**after (>= v5.x)**
+**после (>= v5.x)**
 
 ```javascript
 protocol.registerSchemesAsPrivileged([
@@ -122,7 +122,7 @@ protocol.registerSchemesAsPrivileged([
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (optional)
+    * `filePath` String | [FilePathWithHeaders](structures/file-path-with-headers.md) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
