@@ -1,10 +1,10 @@
-# protocol (NetworkService) (Draft)
+# протокол (NetworkService) (Проект)
 
-This document describes the new protocol APIs based on the [NetworkService](https://www.chromium.org/servicification).
+В этом документе описываются API нового протокола, основанное на [NetworkService](https://www.chromium.org/servicification).
 
-We don't currently have an estimate of when we will enable the `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we will probably switch before Electron 10.
+В настоящее время мы не можем сказать, когда мы включим `NetworkService` по умолчанию в Electron, но поскольку Chromium уже удаляет код, отличный от `NetworkService`, мы, вероятно, переключимся до Electron 10.
 
-The content of this document should be moved to `protocol.md` after we have enabled the `NetworkService` by default in Electron.
+Содержимое этого документа должно быть перемещено в `protocol.md`, после того, как мы включим `NetworkService` в Electron.
 
 > Register a custom protocol and intercept existing protocol requests.
 
