@@ -145,13 +145,13 @@ protocol.registerSchemesAsPrivileged([
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+Регистрирует протокол `scheme`, который отправит `Buffer` в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с объектом `Buffer` или с объектом, имеющим свойства `data`, `mimeType` и `charset`.
 
 Пример:
 
@@ -176,13 +176,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Регистрирует протокол `scheme`, который отправит `String` в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с `String` или с объектом, имеющим свойства `data`, `mimeType` и `charset`.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -197,13 +197,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
+      * `method` String (опционально)
+      * `session` Session | null (опционально)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
 
@@ -311,7 +311,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (optional)
+    * `data` (String | [StringProtocolResponse](structures/string-protocol-response.md)) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
@@ -347,9 +347,9 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String (optional)
-      * `session` Session | null (optional)
-      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (optional)
+      * `method` String (опционально)
+      * `session` Session | null (опционально)
+      * `uploadData` [ProtocolResponseUploadData](structures/protocol-response-upload-data.md) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
