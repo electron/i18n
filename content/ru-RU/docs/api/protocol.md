@@ -228,7 +228,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Регистрирует протокол `scheme`, который отправит `Readable` в качестве ответа.
 
-Использование аналогично использованию другого `register{Any}Protocol`, за исключением того, что `callback` должен вызываться либо с помощью объекта `Readable`, либо с помощью объекта, имеющего свойства `data`, `statusCode` и `headers`.
+Использование аналогично использованию другого `register{Any}Protocol`, за исключением того, что `callback` должен вызываться либо с объектом `Readable`, либо с объектом, имеющим свойства `data`, `statusCode` и `headers`.
 
 Пример:
 
