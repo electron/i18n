@@ -298,7 +298,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
 * `completion` Function (необязательно) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет файл в качестве ответа.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
