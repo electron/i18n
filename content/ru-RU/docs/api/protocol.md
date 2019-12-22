@@ -130,9 +130,9 @@ protocol.registerSchemesAsPrivileged([
 
 Для обработки запроса `request`, обратный вызов `callback` должен быть вызван либо с путём к файлу, либо с объектом, который имеет свойство `path`, например, `callback(filePath)` или `callback({ path: filePath })`. Объект также может иметь свойство `headers`, которое дает карту заголовков к значениям заголовков ответа, например,`callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
-When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Когда `callback` вызывается без значения, с числом или объектом, имеющим свойство `error`, запрос `request` завершится ошибкой `error` с номером, который вы указали. Доступные номера ошибок, которые вы можете использовать, смотрите в [списке ошибок сети](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`.
+По умолчанию `scheme` обрабатывается как `http:`, который анализируется иначе, чем протоколы, которые следуют "общему синтаксису URI", как `file:`.
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
