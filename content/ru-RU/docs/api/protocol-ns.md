@@ -142,7 +142,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Регистрирует протокол `scheme`, который отправит HTTP-запрос в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
+То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с объектом, имеющим свойство `url`.
 
 ### `protocol.registerStreamProtocol(scheme, handler)`
 
@@ -152,9 +152,9 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
   * `callback` Function
     * `response` (ReadableStream | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a stream as a response.
+Регистрирует протокол `scheme`, который отправит поток в качестве ответа.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable) object or an object that has the `data` property.
+То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` либо с объектом [`ReadableStream`](https://nodejs.org/api/stream.html#stream_class_stream_readable), либо с объектом, имеющим свойство `data`.
 
 Пример:
 
