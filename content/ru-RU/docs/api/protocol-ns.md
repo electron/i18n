@@ -6,11 +6,11 @@
 
 Содержимое этого документа должно быть перемещено в `protocol.md`, после того, как мы включим `NetworkService` в Electron.
 
-> Register a custom protocol and intercept existing protocol requests.
+> Регистрация пользовательского протокола и перехват существующих запросов протокола.
 
 Процесс: [Главный](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Пример реализации протокола, имеющего тот же эффект, что и протокол `file://`:
 
 ```javascript
 const { app, protocol } = require('electron')
@@ -24,7 +24,7 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Примечание:** Все методы, если не указано другого, могут быть использованы только после того, как событие `ready` модуля `app` будет отправлено.
 
 ## Использование протокола `protocol` с пользовательским разделом `partition` или сеансом `session`
 
@@ -51,7 +51,7 @@ app.on('ready', () => {
 
 ## Методы
 
-The `protocol` module has the following methods:
+Модуль `protocol` имеет следующие методы:
 
 ### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
@@ -70,11 +70,11 @@ protocol.registerSchemesAsPrivileged([
 ])
 ```
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Стандартная схема соответствует вызовам RFC 3986 [универсальный синтаксис URI ](https://tools.ietf.org/html/rfc3986#section-3). Например, `http` и `https` являются стандартными схемами, в то время как `file` не является.
 
-Регистрация схемы в качестве стандартной позволяет правильно разрешать относительные и абсолютные ресурсы при обслуживании. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Регистрация схемы в качестве стандартной позволяет правильно разрешать относительные и абсолютные ресурсы при обслуживании. В противном случае схема будет вести себя как протокол `file`, но без возможности разрешения относительных URL-адресов.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Например, когда вы загружаете следующую страницу с помощью пользовательского протокола, не регистрируя его как стандартную схему, изображение не будет загружено, потому что нестандартные схемы не могут распознать относительные URL-адреса:
 
 ```html
 <body>
@@ -82,7 +82,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Регистрация схемы в качестве стандарта позволит получить доступ к файлам через [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). В противном случае программа для схемы выдаст ошибку безопасности.
 
 По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. Поэтому в общем случае, если вы хотите зарегистрировать пользовательский протокол для замены протокола `http`, необходимо зарегистрировать его как стандартную схему.
 
@@ -96,7 +96,7 @@ Registering a scheme as standard will allow access to files through the [FileSys
 
 Регистрирует протокол `scheme`, который отправит файл в качестве ответа. Обработчик `handler` будет вызван с запросом `request` и обратным вызовом `callback`, где запрос `request` является входящим запросом для схемы `scheme`.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. `filePath` должен быть абсолютным путем.
+Для обработки запроса `request`, обратный вызов `callback` должен быть вызван либо с путём к файлу, либо с объектом, который имеет свойство `path`, например, `callback(filePath)` или `callback({ path: filePath })`. `filePath` должен быть абсолютным путем.
 
 По умолчанию `scheme` обрабатывается как `http:`, который анализируется иначе, чем протоколы, которые следуют "общему синтаксису URI", как `file:`.
 
@@ -180,7 +180,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Возможно передать любой объект, реализующий читаемый потоковый API (выдающий `data`/`end`/`error` события). Например, вот как может быть возвращен файл:
 
 ```javascript
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -192,13 +192,13 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Unregisters the custom protocol of `scheme`.
+Отменяет регистрацию пользовательского протокола `scheme`.
 
 ### `protocol.isProtocolRegistered(scheme)`
 
 * `scheme` String
 
-Returns `Boolean` - Whether `scheme` is already registered.
+Возвращает `Boolean` - является ли `scheme` уже зарегистрированной.
 
 ### `protocol.interceptFileProtocol(scheme, handler)`
 
