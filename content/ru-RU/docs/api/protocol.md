@@ -61,11 +61,11 @@ app.on('ready', () => {
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**Примечание:** Этот метод можно использовать только до отправки события `ready` модуля `app` и может быть вызван только один раз.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Регистрирует `scheme` как стандартную, безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+Укажите привилегию со значением `true` чтобы включить эту возможность. Пример регистрации привилегированной схемы, которая обходит Политику безопасности контента:
 
 ```javascript
 const { protocol } = require('electron')
@@ -74,11 +74,11 @@ protocol.registerSchemesAsPrivileged([
 ])
 ```
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Стандартная схема соответствует вызовам RFC 3986 [универсальный синтаксис URI](https://tools.ietf.org/html/rfc3986#section-3). Например, `http` и `https` являются стандартными схемами, в то время как `file` не является.
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Регистрация схемы в качестве стандартной позволит правильно разрешать относительные и абсолютные ресурсы при обслуживании. В противном случае схема будет вести себя как протокол `file`, но без возможности разрешения относительных URL-адресов.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Например, когда вы загружаете следующую страницу с помощью пользовательского протокола, не регистрируя его как стандартную схему, изображение не будет загружено, потому что нестандартные схемы не могут распознать относительные URL-адреса:
 
 ```html
 &lt;body&gt;
