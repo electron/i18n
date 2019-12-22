@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5dfc15f3caf8c8.12705169mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5dfe861d41fbc6.90734558mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События
@@ -67,15 +67,15 @@ process.once('loaded', () => {
 
 ### `process.noAsar`
 
-`Boolean`. Контролирует поддержку ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку `asar` архивов в Node's built-in модулях.
+`Boolean`. Управляет поддержкой ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку архивов `asar` во встроенных модулях Node.
 
 ### `process.noDeprecation`
 
-`Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
+`Boolean` который управляет тем, будут ли предупреждения об устаревании выводиться в `stderr` или нет. Установка в `true` заглушит предупреждения об устаревании. Это свойство используется вместо флага командной строки `--no-deprecation`.
 
 ### `process.enablePromiseAPIs`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
+`Boolean`, управляет тем, выводятся ли уведомления об устаревании в `stderr`, когда прежние API, основанные на обратном вызове, преобразованные в Promises, вызывались с использованием обратных вызовов. Установка значения `true` включит предупреждения о устаревании.
 
 ### `process.resourcesPath` *Только чтение*
 
@@ -87,49 +87,49 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+`Boolean`, определяет, будут ли предупреждения об устаревании выдаваться как исключения. Установка значения `true` приведет к выдаче ошибок при устаревании. Это свойство используется вместо флага командной строки `--throw-deprecation`.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+`Boolean`, определяет, будут ли сообщения об устаревании выдаваемые в `stderr`, включать трассировку стека. Установка значения `true` напечатает трассировку стека при устаревании. Это свойство вместо флага командной строки `--trace-deprecation`.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+`Boolean`, определяет, будут ли предупреждения процесса, выдаваемые в `stderr`, включать трассировку стека. Установка значения `true` напечатает трассировку стека для предупреждений процесса (включая устаревания). Это свойство вместо флага командной строки `--trace-warnings`.
 
 ### `process.type` *Только чтение*
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+`String`, представляющая тип текущего процесса, может быть `"browser"` (основной процесс), `"renderer"`, или `"worker"` (т.е. веб-работник).
 
 ### `process.versions.chrome` *Только чтение*
 
-A `String` representing Chrome's version string.
+`String`, представляющая строку версии Chrome.
 
-### `process.versions.electron` *Readonly*
+### `process.versions.electron` *Только чтение*
 
-A `String` representing Electron's version string.
+`String`, представляющая строку версии Electron.
 
-### `process.windowsStore` *Readonly*
+### `process.windowsStore` *Только чтение*
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+`Boolean`. Когда приложение запущено как приложение Windows Store (appx), это свойство принимает значение `true`, иначе `undefined`.
 
 ## Методы
 
-The `process` object has the following methods:
+Объект `process` имеет следующие методы:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Вызывает сбой основного потока текущего процесса.
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+Возвращает `Number | null` - Количество миллисекунд с начала эпохи, или `null`, если информация недоступна
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Показывает время создания приложения. Время представлено как количество миллисекунд с начала эпохи. Возвращает null, если не получается получить время создания процесса.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Возвращает [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
@@ -139,15 +139,15 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 
 Возвращает `Object`:
 
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
+* `totalHeapSize` Integer - Память, выделенная для кучи
+* `totalHeapSizeExecutable` Integer - Память для исполняемого файла
+* `totalPhysicalSize` Integer - Заданный размер
+* `totalAvailableSize` Integer - Доступный размер кучи
+* `usedHeapSize` Integer - Память, используемая данными приложения
+* `heapSizeLimit` Integer - Абсолютный предел, который куча не может превышать
+* `mallocedMemory` Integer - Текущий объем памяти, полученный через malloc
+* `peakMallocedMemory` Integer - Пиковый объем памяти, полученный через malloc
+* `doesZapGarbage` Boolean - Включена ли опция --zap_code_space
 
 Возвращает объект со статистикой кучи V8. Обратите внимание, что вся статистика отображается в Килобайтах.
 
@@ -159,7 +159,7 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 * `marked` Integer - Размер всех отмеченных объектов в Килобайтах.
 * `total` Integer - Всего выделено места в Килобайтах.
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Возвращает объект с информацией о памяти Blink. Он может быть полезен для отладки проблем с памятью, связанной с рендерингом / DOM. Обратите внимание, что все значения указываются в килобайтах.
 
 ### `process.getProcessMemoryInfo()`
 
@@ -182,19 +182,19 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+Возвращает `String` - Версию операционной системы хоста.
 
 Пример:
 
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+// В macOS -> '10.13.6'
+// В Windows -> '10.0.17763'
+// В Linux -> '4.15.0-45-generic'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**Примечание:** В отличие от `os.release()` он возвращает фактическую версию операционной системы, а не версию ядра на MacOS.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -202,7 +202,7 @@ console.log(version)
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Делает снимок кучи V8 и сохраняет его в `filePath`.
 
 ### `process.hang()`
 
