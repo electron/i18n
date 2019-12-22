@@ -268,8 +268,8 @@ Restituisce:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opzionale)
+  * `password` String (opzionale)
 
 Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
@@ -284,11 +284,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+Se il parametro `callback` viene richiamato senza username o password, la richiesta di autenticazione verrà cancellata e verrà restituito un errore.
 
-### Event: 'gpu-info-update'
+### Evento: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+Emesso quando c'è un aggiornamento di informazioni riguardanti GPU.
 
 ### Evento: 'processi-gpu-crashati'
 
