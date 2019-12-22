@@ -151,7 +151,7 @@ protocol.registerSchemesAsPrivileged([
 
 Регистрирует протокол `scheme`, который отправит `Buffer` в качестве ответа.
 
-То же самое с `registerFileProtocol`, за исключением того, что следует вызвать `callback` с объектом `Buffer` или с объектом, имеющим свойства `data`, `mimeType` и `charset`.
+Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться либо с объектом `Buffer`, либо с объектом, имеющим свойства `data`, `mimeType` и `charset`.
 
 Пример:
 
@@ -207,9 +207,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 Использование аналогично `registerFileProtocol`, за исключением того, что `callback` должен вызываться с объектом `redirectRequest`, имеющим свойства `url`, `method`, `referrer`, `uploadData` и `session`.
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+По умолчанию запрос HTTP будет повторно использовать текущий сеанс. Если вы хотите, чтобы запрос имел другой сеанс, вы должны установить `session` в `null`.
 
-For POST requests the `uploadData` object must be provided.
+Для POST-запросов должен быть предоставлен объект `uploadData`.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
@@ -222,13 +222,13 @@ For POST requests the `uploadData` object must be provided.
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+Регистрирует протокол `scheme`, который отправит `Readable` в качестве ответа.
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+Использование аналогично использованию другого `register{Any}Protocol`, за исключением того, что `callback` должен вызываться либо с помощью объекта `Readable`, либо с помощью объекта, имеющего свойства `data`, `statusCode` и `headers`.
 
 Пример:
 
@@ -256,7 +256,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Возможно передать любой объект, реализующий читаемый потоковый API (выдающий `data`/`end`/`error` события). Например, вот как может быть возвращен файл:
 
 ```javascript
 const { protocol } = require('electron')
@@ -275,7 +275,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Function (опционально) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+Отменяет регистрацию пользовательского протокола `scheme`.
 
 ### `protocol.isProtocolHandled(scheme)`
 
@@ -366,7 +366,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (опционально)
 * `completion` Function (опционально) 
   * `error` Error
 
