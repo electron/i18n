@@ -84,7 +84,7 @@ For example when you load following page with custom protocol without registerin
 
 Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
+По умолчанию веб-хранилище Apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) отключено для нестандартных схем. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
 ### `protocol.registerFileProtocol(scheme, handler)`
 
