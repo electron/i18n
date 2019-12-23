@@ -20,7 +20,7 @@ node -v
 npm -v
 ```
 
-إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! قبل البداية، يفضل منك تنصيب محرر أكواد يدعم البرمجة بـJavaScript.
 
 ## اعداد نظام الويندوز (Windows)
 
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! قبل البداية، يفضل منك تنصيب محرر أكواد يدعم البرمجة بـJavaScript.
 
 ## اعداد نظام لينكس (Linux)
 
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! قبل البداية، يفضل منك تنصيب محرر أكواد يدعم البرمجة بـJavaScript.
 
 ## A Good Editor
 
