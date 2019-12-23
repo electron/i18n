@@ -1,8 +1,8 @@
 # Napisz swoją Pierwszą Aplikację Używając Electron
 
-Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScriptu poprzez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako odmianę środowiska wykonawczego Node.js, która jest skupiona na programach komputerowych zamiast na serwerach sieci web.
+Electron umożliwia tworzenie aplikacji komputerowych przy użyciu czystego JavaScriptu poprzez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz sobie je wyobrazić jako odmianę środowiska wykonawczego Node.js, która jest skupiona na programach komputerowych zamiast na serwerach sieci web.
 
-To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficznego interfejsu użytkownika (GUI). Zamiast tego Electron używa stron internetowych jako GUI, więc możesz też myśleć o tym jak o minimalnej przeglądarce Chromium, sterowanej przez JavaScript.
+To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficznego interfejsu użytkownika (GUI). Zamiast tego Electron używa stron internetowych jako GUI, więc można to postrzegać jak minimalną przeglądarkę Chromium, sterowaną za pomocą JavaScript.
 
 **Uwaga**: Ten przykład jest dostępny także jako repozytorium przez co możesz [go pobrać i uruchomić od razu](#trying-this-example).
 
@@ -21,7 +21,7 @@ Stwórz nowy pusty folder dla twojej nowej aplikacji napisanej w Electron`ie. Ot
 npm init
 ```
 
-npm poprowadzi Cię przez proces tworzenia podstawowego pliku `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm poprowadzi Cię przez proces tworzenia podstawowego pliku `package.json`. Skrypt określony przez pole `main` jest skryptem początkowym aplikacji, który uruchomi jej główny proces. Przykładowy plik `package.json` może wyglądać tak:
 
 ```json
 {

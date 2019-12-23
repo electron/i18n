@@ -35,7 +35,7 @@ Starting with macOS Catalina, Apple requires applications to be notarized. "Nota
 
 To automate this process, you can use the [`electron-notarize`] module. You do not necessarily need to complete this step for every build you make – just the builds you intend to ship to users.
 
-## Mac App Store
+## Mở App store
 
 See the [Mac App Store Guide](mac-app-store-submission-guide.md).
 
