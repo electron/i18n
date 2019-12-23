@@ -8,39 +8,39 @@
 
 أولا، عليك تثبيت إصدار حديث من "Node.js". ننصحك بأن تختار بين الخيارين التاليان، إما `LTS` و التي تعني أحدث إصدار ثابت أو `Current` و التي تعني الإصدار الأخير المتوفر حاليا.</0>. قم بزيارة [الموقع الرسمي لـ "Node.js"](https://nodejs.org/en/download/) و تحميل النسخة الخاصة بنظام الـ "Mac Os". بينما يكون "Homebrew" خيارا مطروحا للإستعمال، إلا أننا ننصحك بعدم إستعماله في هذه الحالة لسبب إمكانية كون العديد من الأدوات غير قادرة على العمل إلى جانبه.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+بمجرد إنتهاء التحميل، قم بتثبيت البرنامج و ذلك بمساعدة التوجيهات.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+عند الإنتهاء من التثبيت، قم بالتثبت أن كل شيء يعمل بشكل جيد. قم بإستعمال الـ "Terminal" من أجل التحقق من توفر node و npm من خلال الأوامر التالية. :
 
 ```sh
-# This command should print the version of Node.js
+# هذا الأمر يجب أن يظهر لك إصدار الـnode المتوفر على جهازك
 node -v
 
-# This command should print the version of npm
+# هذا الأمر يجب أن يظهر لك إصدار الـnpm المتوفر على جهازك
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## اعداد نظام الويندوز (Windows)
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
-أولا، عليك تثبيت إصدار حديث من "Node.js". ننصحك بأن تختار بين الخيارين التاليان، إما `LTS` و التي تعني أحدث إصدار ثابت أو `Current` و التي تعني الإصدار الأخير المتوفر حاليا.</0>. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+أولا، عليك تثبيت إصدار حديث من "Node.js". ننصحك بأن تختار بين الخيارين التاليان، إما `LTS` و التي تعني أحدث إصدار ثابت أو `Current` و التي تعني الإصدار الأخير المتوفر حاليا.</0>. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. بمجرد إنتهاء التحميل، قم بتثبيت البرنامج و ذلك بمساعدة التوجيهات.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+عند الإنتهاء من التثبيت، قم بالتثبت أن كل شيء يعمل بشكل جيد. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+# هذا الأمر يجب أن يظهر لك إصدار الـnode المتوفر على جهازك
 node -v
 
-# This command should print the version of npm
+# هذا الأمر يجب أن يظهر لك إصدار الـnpm المتوفر على جهازك
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## اعداد نظام لينكس (Linux)
 
@@ -51,14 +51,14 @@ If both commands printed a version number, you are all set! Before you get start
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# هذا الأمر يجب أن يظهر لك إصدار الـnode المتوفر على جهازك
 node -v
 
-# This command should print the version of npm
+# هذا الأمر يجب أن يظهر لك إصدار الـnpm المتوفر على جهازك
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+إن قامتا كلا الأمرين بطباعة أعداد، فهنيئا! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
 ## A Good Editor
 
