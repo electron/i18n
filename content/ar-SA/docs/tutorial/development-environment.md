@@ -6,7 +6,7 @@
 
 > "Electron" يدعم نظام التشغيل "Mac Os 10.10" المعروف بـ (Yosemite) و جميع الإصدارات اللاحقة. "Apple" لا تتيح إمكانية تشغيل نظامها كنظام إفتراضي ما لم يكن الجهاز المستضيف هو بالأساس أحد أجهزتها، لذا إن وجدت نفسك في حاجة لحاسوب من حواسيب "Apple"، عليك إستعمال خدمة "Cloud" التي تتيح لك الحصول على إذن التحكم لأجهزة "Mac Os".
 
-أولا، عليك تثبيت إصدار حديث من "Node.js". ننصحك بأن تختار بين الخيارين التاليان، إما `LTS` و التي تعني أحدث إصدار ثابت أو `Current` و التي تعني الإصدار الأخير المتوفر حاليا.</0>. قم بزيارة [الموقع الرسمي لـ "Node.js"](https://nodejs.org/en/download/) و تحميل النسخة الخاصة بنظام الـ "Mac Os". While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+أولا، عليك تثبيت إصدار حديث من "Node.js". ننصحك بأن تختار بين الخيارين التاليان، إما `LTS` و التي تعني أحدث إصدار ثابت أو `Current` و التي تعني الإصدار الأخير المتوفر حاليا.</0>. قم بزيارة [الموقع الرسمي لـ "Node.js"](https://nodejs.org/en/download/) و تحميل النسخة الخاصة بنظام الـ "Mac Os". بينما يكون "Homebrew" خيارا مطروحا للإستعمال، إلا أننا ننصحك بعدم إستعماله في هذه الحالة لسبب إمكانية كون العديد من الأدوات غير قادرة على العمل إلى جانبه.
 
 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
