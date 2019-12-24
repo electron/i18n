@@ -140,13 +140,13 @@ Tuy nhiên nếu bạn đang sử dụng các module được xây dựng sẵn 
 
 ## Các ký tự rất mờ, tại sao và tôi phải làm gì ?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+Nếu [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) bị tắt, thì font chữ trên màn hình LCD có thể bị mờ. Ví dụ:
 
 ![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (Xem chi tiết tại đây [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) ).
+Sub-pixel anti-aliasing cần một nền không trong suốt của lớp có chứa các font glyphs. ([Xem chi tiết ](https://github.com/electron/electron/issues/6344#issuecomment-420371918)).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Để đạt được mục tiêu, bạn cần đặt hình nền cho [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Hiệu ứng chỉ hiển thị trên một số màn hình LCD. Ngay cả khi bạn không thấy sự khác biệt, một số người dùng khác của bạn có thể thấy rõ. Tốt nhất là bạn luôn đặt nền theo cách này, trừ khi bạn có lý do để không làm như vậy.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Lưu ý rằng chỉ thiết lập nền trong CSS sẽ không có hiệu ứng mong muốn.
