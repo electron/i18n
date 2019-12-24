@@ -12,7 +12,7 @@ Các công cụ này sẽ đảm nhiệm tất cả các bước bạn cần th�
 
 Bạn cũng có thể chọn tự làm cho ứng dụng của mình sẵn sàng để phân phối. Các bước cần thiết để làm điều này được nêu dưới đây.
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Để phân phối ứng dụng của bạn với Electron, bạn cần tải xuống [ Electron](https://github.com/electron/electron/releases). Tiếp theo, thư mục chứa ứng dụng của bạn nên đặt tên là `app` và được đặt trong thư mục của Electron's như ví dụ dưới. Lưu ý rằng vị trí của bản dựng sẵn của Electron được biểu thị bằng ` electron / ` trong ví dụ phía dưới.
 
 Trên macOS:
 
@@ -23,7 +23,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Trên Windows và Linux:
 
 ```plaintext
 electron/resources/app
