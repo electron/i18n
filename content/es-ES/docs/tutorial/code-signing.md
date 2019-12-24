@@ -1,6 +1,6 @@
 # Firma de código
 
-Firma de código es una tecnología de seguridad que usas para certificar que una aplicación fue creada por ti.
+La firma de código es una tecnología de seguridad que usas para certificar que una aplicación fue creada por ti.
 
 En macOS el sistema puede detectar cualquier cambio en la aplicación, tanto si el cambio es introducido accidentalmente como por código malicioso.
 
@@ -10,7 +10,7 @@ Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Tanto
 
 ![Advertencia de macOS Catalina Gatekeeper: La aplicación no se puede abrir porque el desarrollador no puede ser verificado](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+Como puedes ver, los usuarios tienen dos opciones: Mover la aplicación directamente a la papelera o cancelar la ejecución. Tú no quieres que tus usuarios vean ese diálogo.
 
 If you are building an Electron app that you intend to package and distribute, it should be code-signed. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
 
