@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "11555",
-    "translated": "7404",
+    "translated": "7405",
     "approved": "1851",
     "words": "109142",
-    "words_translated": "55344",
+    "words_translated": "55361",
     "words_approved": "11425",
     "translated_progress": 50,
     "approved_progress": 10,
-    "qa_issues": 1602
+    "qa_issues": 1603
   },
   {
     "name": "German",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "11555",
-    "translated": "10258",
+    "translated": "10272",
     "approved": "3099",
     "words": "109142",
-    "words_translated": "94103",
+    "words_translated": "94303",
     "words_approved": "26722",
     "translated_progress": 86,
     "approved_progress": 24,
-    "qa_issues": 2951
+    "qa_issues": 2958
   },
   {
     "name": "Tagalog",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "11555",
-    "translated": "2184",
+    "translated": "2208",
     "approved": "487",
     "words": "109142",
-    "words_translated": "9894",
+    "words_translated": "10212",
     "words_approved": "1081",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 526
+    "qa_issues": 534
   }
 ]
