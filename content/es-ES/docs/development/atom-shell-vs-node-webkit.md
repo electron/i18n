@@ -10,11 +10,11 @@ Pero también hay diferencias fundamentales entre los dos proyectos que hacen de
 
 En NW.js el punto de entrada principal de una aplicación es una página web o un script JS. Se especifica un HTML o archivo JS en el `package.json` y se abre en una ventana del navegador como la ventana principal de la aplicación (en caso de un punto de entrada HTML) o el script se ejecuta.
 
-En Electron, el punto de entrada es un script JavaScript. En lugar de proporcionar directamente una URL, se crea manualmente una ventana del navegador y se carga un archivo HTML utilizando la API. También necesita escuchar los eventos de ventana para decidir cuando salir de la aplicación.
+En Electron, el punto de entrada es un script JavaScript. En lugar de proporcionar directamente una URL, se crea manualmente una ventana del navegador y se carga un archivo HTML utilizando la API. También necesita escuchar los eventos de la ventana para decidir cuándo salir de la aplicación.
 
-Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Electron son inferiores por lo que puede utilizar para navegador de pruebas en lugar de [PhantomJS](http://phantomjs.org/).
+Electron funciona más como el tiempo de ejecución de Node.js. Las APIs de Electron son de menor nivel así que puede usarlo para las pruebas del navegador en lugar de [PhantomJS](http://phantomjs.org/).
 
-**2. Compilar el Sistema**
+**2. Compilar el sistema**
 
 Con el fin de evitar la complejidad de la construcción de todos los de cromo, Electron utiliza [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) para tener acceso API contenido de cromo. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de Chromium y todas sus dependencias. Los usuarios no necesitan una máquina potente para construir con Electron.
 
