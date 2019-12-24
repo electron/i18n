@@ -4,9 +4,9 @@
 
 Como NW.js, Electron proporciona una plataforma para escribir aplicaciones de escritorio con JavaScript y HTML y tiene integración con Node para conceder el acceso al sistema de bajo nivel desde las páginas web.
 
-Pero también hay diferencias fundamentales entre los dos proyectos que Electron un producto totalmente independiente de NW.js:
+Pero también hay diferencias fundamentales entre los dos proyectos que hacen de Electron un producto completamente separado de NW.js:
 
-**1. Entrada de Aplicación**
+**1. Entrada de aplicación**
 
 En NW.js el punto de entrada principal de una aplicación es una página web o un script JS. Tú especificaste un archivo html o js en el `package.json` y es abierto en una ventana de buscador como la ventana principal de la aplicación (en caso de un punto de entrada html) o el guión es ejecutado.
 
