@@ -31,7 +31,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Uso de APIs de Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Uso de APIs de Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Uso de Módulos Nativos de Node.js](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [Estrategias de rendimiento](tutorial/performance.md)
 * Agregar características a su aplicación 
   * [Notificaciones](tutorial/notifications.md)
   * [Documentos recientes](tutorial/recent-documents.md)
@@ -101,7 +101,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 
 * [Sinopsis](api/synopsis.md)
 * [Objeto de proceso](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Cambios de línea de comandos soportados](api/command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
 * [Rupturas de cambios de la API](api/breaking-changes.md)
 
