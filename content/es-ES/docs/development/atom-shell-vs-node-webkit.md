@@ -20,7 +20,7 @@ Para evitar la complejidad de construir todo de Chromium, Electron utiliza [`lib
 
 **3. Integración de Node**
 
-En NW.js, la integración de Node en las páginas web requiere parches de Chromium para trabajar, mientras que en Electron optamos por una forma diferente de integrar el circuito de libuv con bucle de mensajes de la plataforma para evitar hacking de Chromium. Ver el código de [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) por lo fue hecho.
+En NW. s, la integración de Node en las páginas web requiere parchear Chromium para trabajar, mientras que en Electron elegimos una manera diferente de integrar el bucle libuv con el bucle de mensajes de cada plataforma para evitar hackear Chromium. Mira el código [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) para ver cómo se hizo eso.
 
 **4. Multi-contexto**
 
