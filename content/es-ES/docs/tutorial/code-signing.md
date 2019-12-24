@@ -2,13 +2,13 @@
 
 Firma de código es una tecnología de seguridad que usas para certificar que una aplicación fue creada por ti.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+En macOS el sistema puede detectar cualquier cambio en la aplicación, tanto si el cambio es introducido accidentalmente como por código malicioso.
 
 En Windows el sistema asigna un nivel de confianza a tu certificado de firma de código, si tu nivel de confianza es bajo o no tienes, se mostrará un dialogo de seguridad que aparecerá cuando el usuario comience a usar tu aplicación. El nivel de confianza aumenta con el tiempo, por lo que es mejor iniciar la firma del código lo antes posible.
 
-Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Tanto Windows como macOS evitarán, por defecto, la descarga o la ejecución de aplicaciones sin firmar. A partir de macOS Catalina (versión 10.15), los usuarios tienen que pasar por múltiples pasos manuales para abrir aplicaciones sin firmar.
 
-![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
+![Advertencia de macOS Catalina Gatekeeper: La aplicación no se puede abrir porque el desarrollador no puede ser verificado](../images/gatekeeper.png)
 
 As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
 
