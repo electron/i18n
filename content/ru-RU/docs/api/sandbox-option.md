@@ -64,8 +64,8 @@ app.on('ready', () => {
 и preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of Electron renderer APIs. We must be
+// Этот файл загружается каждый раз в контексте javascript. Он запускается в 
+// приватной области, которая может получить доступ к подмножеству API рендерера Electron. We must be
 // careful to not leak any objects into the global scope!
 const { ipcRenderer, remote } = require('electron')
 const fs = remote.require('fs')
