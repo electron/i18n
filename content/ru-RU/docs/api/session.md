@@ -48,7 +48,7 @@ console.log(ses.getUserAgent())
 
 Процесс: [Главный](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Вы можете создать объект `Session` в модуле `session`:
 
 ```javascript
 const { session } = require('electron')
@@ -68,7 +68,7 @@ console.log(ses.getUserAgent())
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Возникает, когда Electron собирается загрузить `item` в `webContents`.
 
 Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
