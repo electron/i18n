@@ -87,18 +87,18 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 Возвращает:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - URL-адрес, запрашиваемый рендерером для предварительного подключения.
+* `allowCredentials` Boolean - True если рендерер запрашивает, чтобы соединение включало учетные данные (см. [spec](https://w3c.github.io/resource-hints/#preconnect) для получения более подробной информации.)
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Возникает, когда в процессе рендеринга запрашивается предварительное подключение к URL, как правило, из-за [подсказки ресурса](https://w3c.github.io/resource-hints/).
 
 ### Методы экземпляра
 
-The following methods are available on instances of `Session`:
+Для экземпляров `Session` доступны следующие методы:
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Возвращает `Promise<Integer>` - текущий размер кэша сеанса, в байтах.
 
 #### `ses.clearCache()`
 
