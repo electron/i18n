@@ -146,9 +146,9 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
 * `http=foopy:80;ftp=foopy2` - Использовать HTTP прокси `foopy:80` для URL `http://`, и HTTP прокси `foopy2:80` для URL `ftp://`.
 * `foopy:80` - Использовать HTTP прокси `foopy:80` для всех URL.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `foopy:80,bar,direct://` - Использовать HTTP прокси `foopy:80` для всех URL-адресов, переключение на `bar`, если `foopy:80` недоступен, и после этого прокси не использовать.
+* `socks4://foopy` - Использовать SOCKS v4 прокси `foopy:1080` для всех URL.
+* `http=foopy,socks5://bar.com` - Использовать HTTP-прокси `foopy` для http-адресов и и переключиться на прокси SOCKS5 `bar.com`, если `foopy` недоступен.
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
