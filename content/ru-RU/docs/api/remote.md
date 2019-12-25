@@ -21,7 +21,7 @@ win.loadURL('https://github.com')
 * [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
 * [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
 
-## Remote Objects
+## Удаленные объекты
 
 Каждый объект (включая функции) возвращаемый модулем `remote` представляет собой объект в основном процессе (мы называем это удаленным объектом или удаленной функцией). Когда вы вызываете метод удаленного объекта, удаленную функцию или создаете новый объект удаленным конструктором (функцией), на самом деле вы посылаете синхронное межпроцессное сообщение.
 
@@ -153,4 +153,4 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.process` *Только чтение*
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Объект `NodeJS.Process`. Объект `process` в основном процессе. является тем же самым, что и `remote.getGlobal('process')` но кэшируется.
