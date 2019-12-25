@@ -103,7 +103,7 @@ window.open = customWindowOpen
 
 The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+В настоящее время функция `require`, представленная в области предварительной загрузки, раскрывает следующие модули:
 
 - `electron` 
   - `crashReporter`
@@ -112,7 +112,7 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `nativeImage`
   - `remote`
   - `webFrame`
-- `события`
+- `events`
 - `timers`
 - `url`
 
