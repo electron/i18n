@@ -89,8 +89,8 @@ window.open = customWindowOpen
 
 Важные вещи, на которые следует обратить внимание в скрипте предварительной загрузки:
 
-- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
+- Несмотря на то, что в песочнице не запущен Node.js, он все равно имеет доступ к ограниченной node-подобной среде: `Buffer`, `process`, `setImmediate`, `clearImmediate` и `require` доступны.
+- Скрипт предварительной загрузки может косвенно получить доступ ко всем API из основного процесса через модули `remote` и `ipcRenderer`.
 - The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
 
 To create a browserify bundle and use it as a preload script, something like the following should be used:
