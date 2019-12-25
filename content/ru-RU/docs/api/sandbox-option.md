@@ -101,7 +101,7 @@ window.open = customWindowOpen
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+Флаг `-x` следует использовать с любым необходимым модулем, который уже задействован в области предварительной загрузки, и сообщает browserify использовать вложенную для него функцию `require`. `--insert-global-vars` будет гарантировать, что `process`, `Buffer` и `setImmediate` также взяты из прилагаемой области видимости (обычно browserify вводит код для них).
 
 В настоящее время функция `require`, представленная в области предварительной загрузки, раскрывает следующие модули:
 
