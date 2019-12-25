@@ -70,7 +70,7 @@ console.log(ses.getUserAgent())
 
 Возникает, когда Electron собирается загрузить `item` в `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Вызов `event.preventDefault()` отменит загрузку, и `item` не будет доступен со следующего тика процесса.
 
 ```javascript
 const { session } = require('electron')
@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Событие: 'preconnect' *Экспериментально*
 
 Возвращает:
 
