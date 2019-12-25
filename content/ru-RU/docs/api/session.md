@@ -128,24 +128,24 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Возвращает `Promise<void>` - Разрешение после завершения процесса настройки прокси.
 
-Sets the proxy settings.
+Установка настроек прокси.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+При совместном использовании `pacScript` и `proxyRules` опция `proxyRules` игнорируется, и применяется конфигурация `pacScript`.
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` должен следовать следующим правилам:
 
 ```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
+proxyRules = schemeProxies[";"<;0>]
+schemeProxies = [<;1>"="]<;2>
 urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+proxyURIList = <;3>[","<;2>]
+proxyURL = [<;4>"://"]<;5>[":"<;6>]
 ```
 
 Например:
 
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `http=foopy:80;ftp=foopy2` - Использовать HTTP прокси `foopy:80` для URL `http://`, и HTTP прокси `foopy2:80` для URL `ftp://`.
+* `foopy:80` - Использовать HTTP прокси `foopy:80` для всех URL.
 * `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
 * `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
 * `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
