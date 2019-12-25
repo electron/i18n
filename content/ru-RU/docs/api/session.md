@@ -102,16 +102,16 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+Возвращает `Promise<void>` - выполняется после завершения операции очистки кэша.
 
-Clears the session’s HTTP cache.
+Очищает HTTP-кэш сеанса.
 
 #### `ses.clearStorageData([options])`
 
 * `options` Object (опционально) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
+  * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
 
