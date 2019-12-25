@@ -180,19 +180,19 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Совпадение локальных адресов. Значение `<local>` заключается в том,совпадает ли хост с: "127.0.0.1", ":1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Returns `Promise<String>` - Resolves with the proxy information for `url`.
+Возвращает `Promise<String>` - Разрешение с информацией прокси для `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - Место загрузки.
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Устанавливает директорию для скачивания. По умолчанию директория загрузки будет каталогом `Downloads` в соответствующей папке приложения.
 
 #### `ses.enableNetworkEmulation(options)`
 
