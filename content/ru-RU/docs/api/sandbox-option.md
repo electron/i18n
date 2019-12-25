@@ -30,23 +30,23 @@ app.on('ready', () => {
 })
 ```
 
-В приведенном выше коде у созданного [`BrowserWindow`](browser-window.md) отключен Node.js и он может общаться только через IPC. Использование этой опции не позволяет Electron создавать в рендерере среду выполнения Node.js. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+В приведенном выше коде у созданного [`BrowserWindow`](browser-window.md) отключен Node.js и он может общаться только через IPC. Использование этой опции не позволяет Electron создавать в рендерере среду выполнения Node.js. Также внутри этого нового окна `window.open` следует родному поведению (по умолчанию Electron создает [`BrowserWindow`](browser-window.md) и возвращает прокси к нему через `window.open`).
 
-[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) может использоваться для принудительной установки `sandbox: true` для всех экземпляров `BrowserWindow`.
 
 ```js
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // нет необходимости передавать `sandbox: true`, так как был вызван `app.enableSandbox ()`.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
 
-## Preload
+## Предварительная загрузка
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Приложение может вносить изменения в рендереры в песочницей, используя скрипт предварительной загрузки. Вот пример:
 
 ```js
 let win
@@ -61,7 +61,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+и preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
