@@ -31,7 +31,7 @@ win.loadURL('https://github.com')
 
 **Примечание:** Массивы и Buffers при доступе к ним через модуль `remote` копируются через IPC. Изменения, которые в них вносит рендер-процесс не отображаются в основном процессе и наоборот.
 
-## Lifetime of Remote Objects
+## Время жизни удаленных объектов
 
 Electron следит за тем, что пока удаленный объект в рендер-процессе жив (другими словами, не будет удален сборщиком мусора) соответствующий объект в основном процессе не будет освобожден. Когда удаленный объект будет утилизирован сборщиком мусора, соответствующий объект в основном процессе также будет освобожден для сборщика.
 
@@ -76,7 +76,7 @@ console.log(withRendererCb, withLocalCb)
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // Окно было закрыто...
 })
 ```
 
@@ -151,6 +151,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## Свойства
 
-### `remote.process` *Readonly*
+### `remote.process` *Только чтение*
 
 A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
