@@ -91,9 +91,9 @@ window.open = customWindowOpen
 
 - Несмотря на то, что в песочнице не запущен Node.js, он все равно имеет доступ к ограниченной node-подобной среде: `Buffer`, `process`, `setImmediate`, `clearImmediate` и `require` доступны.
 - Скрипт предварительной загрузки может косвенно получить доступ ко всем API из основного процесса через модули `remote` и `ipcRenderer`.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
+- Скрипт для предварительной загрузки должен содержаться в одном скрипте, но может иметь сложный код для предварительной загрузки, состоящий из нескольких модулей, используя такие инструменты, как webpack или browserify. Ниже приведен пример использования browserify.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Чтобы создать пакет browserify пакета и использовать его в качестве скрипта предварительной загрузки, можно сделать что-то вроде этого:
 
 ```sh
   browserify preload/index.js \
