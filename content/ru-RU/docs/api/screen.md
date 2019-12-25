@@ -131,7 +131,7 @@ app.on('ready', () => {
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-Преобразует физический прямоугольник экрана в DIP-прямоугольник экрана. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Преобразует физический прямоугольник экрана в DIP-прямоугольник экрана. Шкала DPI выполняется относительно дисплея, ближайшего к `window`. Если `window` равен нулю, то масштабирование будет производиться до ближайшего к `rect`.
 
 ### `screen.dipToScreenRect(window, rect)` _Windows_
 
@@ -140,4 +140,4 @@ app.on('ready', () => {
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Преобразовывает DIP-прямоуголник экрана в физический прямоугольник экрана. Шкала DPI выполняется относительно дисплея, ближайшего к `window`. Если `window` равен нулю, то масштабирование будет производиться до ближайшего к `rect`.
