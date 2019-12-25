@@ -102,7 +102,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 #### `ses.clearCache()`
 
-Возвращает `Promise<void>` - выполняется после завершения операции очистки кэша.
+Возвращает `Promise<void>` - Разрешение после завершения операции очистки кэша.
 
 Очищает HTTP-кэш сеанса.
 
@@ -113,7 +113,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
   * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
 
-Возвращает `Promise<void>` - разрешает, когда данные хранилища были очищены.
+Возвращает `Promise<void>` - Разрешение после завершения очистки данных хранилища.
 
 #### `ses.flushStorageData()`
 
@@ -126,7 +126,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
   * `proxyRules` String - Правила, указывающие какие прокси использовать.
   * `proxyBypassRules` String - Правила, указывающие, какие URL должны обходить настройки прокси.
 
-Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+Возвращает `Promise<void>` - Разрешение после завершения процесса настройки прокси.
 
 Sets the proxy settings.
 
