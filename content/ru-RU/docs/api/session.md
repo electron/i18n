@@ -148,35 +148,35 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 * `foopy:80` - Использовать HTTP прокси `foopy:80` для всех URL.
 * `foopy:80,bar,direct://` - Использовать HTTP прокси `foopy:80` для всех URL-адресов, переключение на `bar`, если `foopy:80` недоступен, и после этого прокси не использовать.
 * `socks4://foopy` - Использовать SOCKS v4 прокси `foopy:1080` для всех URL.
-* `http=foopy,socks5://bar.com` - Использовать HTTP-прокси `foopy` для http-адресов и и переключиться на прокси SOCKS5 `bar.com`, если `foopy` недоступен.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy,socks5://bar.com` - Использовать HTTP прокси `foopy` для http URL-адресов и и переключиться на прокси SOCKS5 `bar.com`, если `foopy` недоступен.
+* `http=foopy,direct://` - Использовать HTTP прокси `foopy` для http URL-адресов и не использовать прокси, если `foopy` недоступен.
+* `http=foopy;socks=foopy2` - Использовать HTTP прокси `foopy` для http URL-адресов и использовать `socks4://foopy2` для всех других URL.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+`proxyBypassRules` - это список правил, разделенных запятыми:
 
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <;0> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  Сопоставьте все имена хостов, которые соответствуют шаблону HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Например: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Соответствует суффиксу конкретного домена.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Например: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Сравнивать URL, которые являются знаками IP-адресов.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Например: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Сопоставьте любой URL-адрес с IP-литералом, который находится между заданным диапазоном. Диапазон IP задается с помощью нотации CIDR.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Например: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
