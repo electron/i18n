@@ -1,6 +1,6 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Session Управление сеансами браузера, куками, кешем, настройками прокси и т. д.
 
 Process: [Main](../glossary.md#main-process)
 
