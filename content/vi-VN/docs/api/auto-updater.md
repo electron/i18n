@@ -1,6 +1,6 @@
-# ตัวอัพเดทอัตโนมัติ
+# autoUpdater
 
-> Mở ứng dụng để tự động cập nhật.
+> Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
 Quá trình: [Main](../glossary.md#main-process)
 

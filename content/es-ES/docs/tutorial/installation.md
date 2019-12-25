@@ -45,7 +45,7 @@ Si no puede acceder a GitHub o necesita proporcionar una compilación personaliz
 
 #### Espejo
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `@electron/get` is composed as follows:
+Puede utilizar variables de entorno para sobrescribir la URL base, la ruta en la que buscar binarios de Electron y el nombre del archivo binario. La url utilizada por `@electron/get` se compone de la siguiente manera:
 
 ```plaintext
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -59,7 +59,7 @@ ELECTRON_MIRROR="https://cdn.npm.taobao.org/dist/electron/"
 
 #### Caché
 
-Alternativamente, puede anular la memoria caché local. `@electron/get` will cache downloaded binaries in a local directory to not stress your network. Puede usar esa carpeta de caché para proporcionar compilaciones personalizadas de Electron o para evitar hacer contacto con la red en absoluto.
+Alternativamente, puede anular la memoria caché local. `@electron-get` almacenará en caché los archivos binarios descargados en un directorio local para no sobrecargar tu red. Puede usar esa carpeta de caché para proporcionar compilaciones personalizadas de Electron o para evitar hacer contacto con la red en absoluto.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`

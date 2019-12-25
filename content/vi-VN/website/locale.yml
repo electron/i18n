@@ -18,8 +18,8 @@ keyboard_modal:
   title: Các phím tắt
   key: Key
   action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
+  focus_search: Tập trung vào thanh tìm kiếm
+  focus_and_clear: Tập trung vào thanh tìm kiếm và làm sạch nó
   scroll_down: Chọn kết quả tìm kiếm tiếp theo
   scroll_up: Chọn những kết quả tìm kiếm trước đó
   open: Mở kết quả tìm kiếm được chọn
@@ -33,7 +33,7 @@ docs:
   advanced: Nâng cao
   detailed: Chi Tiết
   custom_dom: Tùy chỉnh các DOM Element
-  main_proc_modules: Main Process Modules
+  main_proc_modules: Mô-đun chính - Main Process
   renderer_proc_modules: Renderer Process Modules
   both_proc_modules: Modules for Both Process Types
   footer:
@@ -53,8 +53,8 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'> <b> Bắt đầu </ b> </a> xây dựng một  ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> nhanh chóng hướng dẫn đầu tiên </a> .\n \n"
     updates: "<a href='https://twitter.com/electronjs'> <b> Luôn cập nhật </ b> </a> bằng cách theo dõi <a href='https://twitter.com/electronjs'> @ electronjs </a> trên Twitter và đăng ký <a href='/blog'> nguồn cấp dữ liệu blog </a> ."
     localized_docs: "<a href='/languages'> <b> Đọc tài liệu bằng ngôn ngữ mẹ đẻ của bạn </ b> </a> bằng cách truy cập <a href='/languages'> trang ngôn ngữ </a> .\n"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Hỗ trợ và giải đáp</b></a> trên <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, được đăng trên <a href='https://discuss.atom.io/c/electron'>Discuss</a>, hoặc <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Báo cáo vấn đề bảo mật</b></a> qua email <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'> <b> Báo cáo lỗi </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
     feature_requests: "<a href='https://github.com/electron/electron/issues'> <b> Yêu cầu các tính năng </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
     code_of_conduct: "<a href='mailto:vipchiase@gmail.com'> <b> Báo cáo vi phạm Quy tắc ứng xử </ b></a> bằng cách gửi email tới <a href='mailto:vipchiase@gmail.com'> vipchiase@gmail.com  </a> ."

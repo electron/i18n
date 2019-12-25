@@ -1,18 +1,18 @@
 # Phân phối ứng dụng
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Để xây dựng ứng dụng của bạn với Electron, bạn cần đóng gói và đổi thương hiệu cho nó. Cách dễ nhất để làm điều này là sử dụng một trong các công cụ đóng gói của bên thứ ba sau:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Các công cụ này sẽ đảm nhiệm tất cả các bước bạn cần thực hiện để kết thúc với các ứng dụng Electron có thể xây dựng ứng dụng, chẳng hạn như đóng gói ứng dụng của bạn, đặt lại thương hiệu thực thi, đặt biểu tượng phù hợp và tùy chọn tạo trình cài đặt.
 
-## Manual distribution
+## Phân phối thủ công
 
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Bạn cũng có thể chọn tự làm cho ứng dụng của mình sẵn sàng để phân phối. Các bước cần thiết để làm điều này được nêu dưới đây.
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Để phân phối ứng dụng của bạn với Electron, bạn cần tải xuống [ Electron](https://github.com/electron/electron/releases). Tiếp theo, thư mục chứa ứng dụng của bạn nên đặt tên là `app` và được đặt trong thư mục của Electron's như ví dụ dưới. Lưu ý rằng vị trí của bản dựng sẵn của Electron được biểu thị bằng ` electron / ` trong ví dụ phía dưới.
 
 Trên macOS:
 
@@ -23,7 +23,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+Trên Windows và Linux:
 
 ```plaintext
 electron/resources/app

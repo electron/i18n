@@ -21,7 +21,7 @@ win.loadURL('https://github.com')
 * [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
 * [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
 
-## Remote Objects
+## Удаленные объекты
 
 Каждый объект (включая функции) возвращаемый модулем `remote` представляет собой объект в основном процессе (мы называем это удаленным объектом или удаленной функцией). Когда вы вызываете метод удаленного объекта, удаленную функцию или создаете новый объект удаленным конструктором (функцией), на самом деле вы посылаете синхронное межпроцессное сообщение.
 
@@ -31,7 +31,7 @@ win.loadURL('https://github.com')
 
 **Примечание:** Массивы и Buffers при доступе к ним через модуль `remote` копируются через IPC. Изменения, которые в них вносит рендер-процесс не отображаются в основном процессе и наоборот.
 
-## Lifetime of Remote Objects
+## Время жизни удаленных объектов
 
 Electron следит за тем, что пока удаленный объект в рендер-процессе жив (другими словами, не будет удален сборщиком мусора) соответствующий объект в основном процессе не будет освобожден. Когда удаленный объект будет утилизирован сборщиком мусора, соответствующий объект в основном процессе также будет освобожден для сборщика.
 
@@ -76,7 +76,7 @@ console.log(withRendererCb, withLocalCb)
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // Окно было закрыто...
 })
 ```
 
@@ -151,6 +151,6 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ## Свойства
 
-### `remote.process` *Readonly*
+### `remote.process` *Только чтение*
 
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Объект `NodeJS.Process`. Объект `process` в основном процессе. является тем же самым, что и `remote.getGlobal('process')` но кэшируется.

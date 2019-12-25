@@ -4,23 +4,23 @@
 
 Como NW.js, Electron proporciona una plataforma para escribir aplicaciones de escritorio con JavaScript y HTML y tiene integración con Node para conceder el acceso al sistema de bajo nivel desde las páginas web.
 
-Pero también hay diferencias fundamentales entre los dos proyectos que Electron un producto totalmente independiente de NW.js:
+Pero también hay diferencias fundamentales entre los dos proyectos que hacen de Electron un producto completamente separado de NW.js:
 
-**1. Entrada de Aplicación**
+**1. Entrada de aplicación**
 
-En NW.js el punto de entrada principal de una aplicación es una página web o un script JS. Tú especificaste un archivo html o js en el `package.json` y es abierto en una ventana de buscador como la ventana principal de la aplicación (en caso de un punto de entrada html) o el guión es ejecutado.
+En NW.js el punto de entrada principal de una aplicación es una página web o un script JS. Se especifica un HTML o archivo JS en el `package.json` y se abre en una ventana del navegador como la ventana principal de la aplicación (en caso de un punto de entrada HTML) o el script se ejecuta.
 
-En Electron, el punto de entrada es un script de JavaScript. En lugar de proporcionar directamente una URL, manualmente se crea una ventana del navegador y se carga un archivo HTML utilizando la API. También necesita escuchar los eventos de ventana para decidir cuando salir de la aplicación.
+En Electron, el punto de entrada es un script JavaScript. En lugar de proporcionar directamente una URL, se crea manualmente una ventana del navegador y se carga un archivo HTML utilizando la API. También necesita escuchar los eventos de la ventana para decidir cuándo salir de la aplicación.
 
-Electron funciona más como el tiempo de ejecución de Node.js. Las APIs del Electron son inferiores por lo que puede utilizar para navegador de pruebas en lugar de [PhantomJS](http://phantomjs.org/).
+Electron funciona más como el tiempo de ejecución de Node.js. Las APIs de Electron son de menor nivel así que puede usarlo para las pruebas del navegador en lugar de [PhantomJS](http://phantomjs.org/).
 
-**2. Compilar el Sistema**
+**2. Compilar el sistema**
 
-Con el fin de evitar la complejidad de la construcción de todos los de cromo, Electron utiliza [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) para tener acceso API contenido de cromo. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de Chromium y todas sus dependencias. Los usuarios no necesitan una máquina potente para construir con Electron.
+Para evitar la complejidad de construir todo de Chromium, Electron utiliza [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) para acceder a la API de contenido de Chromium. `libchromiumcontent` es una única biblioteca compartida que incluye el módulo de contenido de Chromium y todas sus dependencias. Los usuarios no necesitan una máquina potente para construir con Electron.
 
 **3. Integración de Node**
 
-En NW.js, la integración de Node en las páginas web requiere parches de Chromium para trabajar, mientras que en Electron optamos por una forma diferente de integrar el circuito de libuv con bucle de mensajes de la plataforma para evitar hacking de Chromium. Ver el código de [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) por lo fue hecho.
+En NW. s, la integración de Node en las páginas web requiere parchear Chromium para trabajar, mientras que en Electron elegimos una manera diferente de integrar el bucle libuv con el bucle de mensajes de cada plataforma para evitar hackear Chromium. Mira el código [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) para ver cómo se hizo eso.
 
 **4. Multi-contexto**
 
