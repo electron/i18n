@@ -76,37 +76,37 @@ app.on('ready', () => {
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Возникает при изменении одной или нескольких метрик в `display`. `changedMetrics` является массивом строк, описывающих изменения. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Возникает при изменении одной или нескольких метрик в `display`. `changedMetrics` является массивом строк, описывающих изменения. Возможные изменения `bounds`, `workArea`, `scaleFactor` и `rotation`.
 
 ## Методы
 
-The `screen` module has the following methods:
+Модуль `screen` имеет следующие методы:
 
 ### `screen.getCursorScreenPoint()`
 
 Возвращает [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+Текущее абсолютное положение указателя мыши.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Возвращает [`Display`](structures/display.md) - Основной дисплей.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Возвращает [`Display[]`](structures/display.md) - Массив доступных в настоящее время дисплеев.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Возвращает [`Display`](structures/display.md) - Дисплей, ближайший к указанной точке.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Возвращает [`Display`](structures/display.md) - Дисплей, который наиболее близко пересекает заданные границы.
 
 ### `screen.screenToDipPoint(point)` _Windows_
 
@@ -114,7 +114,7 @@ Returns [`Display`](structures/display.md) - The display that most closely inter
 
 Возвращает [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+Преобразует физическую точку экрана в точку DIP экрана. Масштаб DPI выполняется относительно отображения, содержащего физическую точку.
 
 ### `screen.dipToScreenPoint(point)` _Windows_
 
@@ -122,7 +122,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 Возвращает [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+Преобразует точку DIP экрана в физическую точку экрана. Масштаб DPI выполняется относительно отображения, содержащего точку DIP.
 
 ### `screen.screenToDipRect(window, rect)` _Windows_
 
@@ -131,7 +131,7 @@ Converts a screen DIP point to a screen physical point. The DPI scale is perform
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Преобразует физический прямоугольник экрана в DIP-прямоугольник экрана. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
 
 ### `screen.dipToScreenRect(window, rect)` _Windows_
 
