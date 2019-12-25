@@ -4,9 +4,9 @@
 
 Process: [Main](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Модуль `session` может быть использован для создания новых объектов `Session`.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Вы также можете получить доступ к `session` существующих страниц, используя свойство `session` в [`WebContents`](web-contents.md), или из модуля `session`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -20,17 +20,17 @@ console.log(ses.getUserAgent())
 
 ## Методы
 
-The `session` module has the following methods:
+Модуль `session` имеет следующие методы:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object (опционально) 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - Включен ли кэш.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Возвращает `Session` - Экземпляр сеанса из строки `partition`. При наличии `Session` с таким же `partition`, он будет возвращен; иначе новый экземпляр `Session` будет создан с `options`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Если `partition` начинается с `persist:`, страница будет использовать постоянный сеанс, который доступен всем страницам в приложении с тем же `partition`. если нет префикса `persist:`, страница будет использовать сеанс в памяти. Если `partition` пуст, то будет возвращен сеанс приложения по умолчанию.
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
