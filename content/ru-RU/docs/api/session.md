@@ -122,9 +122,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 #### `ses.setProxy(config)`
 
 * `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String - URL- адрес, связанный с PAC-файлом.
+  * `proxyRules` String - Правила, указывающие какие прокси использовать.
+  * `proxyBypassRules` String - Правила, указывающие, какие URL должны обходить настройки прокси.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
