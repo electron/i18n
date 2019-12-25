@@ -32,19 +32,19 @@ console.log(ses.getUserAgent())
 
 Если `partition` начинается с `persist:`, страница будет использовать постоянный сеанс, который доступен всем страницам в приложении с тем же `partition`. если нет префикса `persist:`, страница будет использовать сеанс в памяти. Если `partition` пуст, то будет возвращен сеанс приложения по умолчанию.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Чтобы создать `Session` с `options`, вы должны убедиться, что `Session` с `partition` раньше никогда не использовался. Невозможно изменить `options` из существующего `Session` объекта.
 
 ## Свойства
 
-The `session` module has the following properties:
+Модуль `session` имеет следующие свойства:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Объект `Session`, объект сеанса по умолчанию для приложения.
 
 ## Класс: Session
 
-> Получает и устанавливает свойства сессии.
+> Получает и устанавливает свойства сеанса.
 
 Процесс: [Главный](../glossary.md#main-process)
 
