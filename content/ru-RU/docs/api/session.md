@@ -113,11 +113,11 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
   * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
 
-Returns `Promise<void>` - resolves when the storage data has been cleared.
+Возвращает `Promise<void>` - разрешает, когда данные хранилища были очищены.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Записывает непрочитанные DOMStorage данные на диск.
 
 #### `ses.setProxy(config)`
 
