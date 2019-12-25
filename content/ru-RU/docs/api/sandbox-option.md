@@ -1,8 +1,8 @@
 # `sandbox` Option
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Создает окно браузера с рендерером в песочнице. При включенной опции рендерер должен взаимодействовать с основным процессом через IPC, чтобы получить доступ к API узла.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Одна из основных особенностей безопасности Chromium заключается в том, что весь рендеринг/JavaScript-код выполняется внутри песочницы. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 
 In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
 
