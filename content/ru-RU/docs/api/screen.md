@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Другой пример создания окна на внешнем дисплее:
 
 ```javascript
 const { app, BrowserWindow, screen } = require('electron')
@@ -57,7 +57,7 @@ app.on('ready', () => {
 * Событие типа `event`
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Возникает при добавлении `newDisplay`.
 
 ### Событие: 'display-removed'
 
@@ -66,7 +66,7 @@ Emitted when `newDisplay` has been added.
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Возникает при удалении `oldDisplay`.
 
 ### Событие: 'display-metrics-changed'
 
@@ -76,7 +76,7 @@ Emitted when `oldDisplay` has been removed.
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Возникает при изменении одной или нескольких метрик в `display`. `changedMetrics` является массивом строк, описывающих изменения. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Методы
 
