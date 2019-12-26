@@ -16,7 +16,7 @@
 
 ## Пример
 
-To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
+Чтобы создать окно в песочнице, установите `sandbox: true` в `webPreferences`:
 
 ```js
 let win
@@ -30,23 +30,23 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+В приведенном выше коде у созданного [`BrowserWindow`](browser-window.md) отключен Node.js и он может общаться только через IPC. Использование этой опции не позволяет Electron создавать в рендерере среду выполнения Node.js. Также внутри этого нового окна `window.open` следует родному поведению (по умолчанию Electron создает [`BrowserWindow`](browser-window.md) и возвращает прокси к нему через `window.open`).
 
-[`app.enableSandbox`](app.md#appenablesandbox-experimental) can be used to force `sandbox: true` for all `BrowserWindow` instances.
+[`app.enableSandbox`](app.md#appenablesandbox-experimental) может использоваться для принудительной установки `sandbox: true` для всех экземпляров `BrowserWindow`.
 
 ```js
 let win
 app.enableSandbox()
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `app.enableSandbox()` was called.
+  // нет необходимости передавать `sandbox: true`, так как был вызван `app.enableSandbox ()`.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
 ```
 
-## Preload
+## Предварительная загрузка
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Приложение может вносить изменения в рендереры в песочницей, используя скрипт предварительной загрузки. Вот пример:
 
 ```js
 let win
@@ -61,16 +61,16 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+и preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of Electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// Этот файл загружается каждый раз в контексте javascript. Он запускается в 
+// приватной области, которая может получить доступ к подмножеству API рендерера Electron. Мы должны быть
+// осторожны, чтобы не допустить утечки каких-либо объектов в глобальную область!
 const { ipcRenderer, remote } = require('electron')
 const fs = remote.require('fs')
 
-// read a configuration file using the `fs` module
+// чтение конфигурационного файла с помощью модуля `fs`
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -87,13 +87,13 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Важные вещи, на которые следует обратить внимание в скрипте предварительной загрузки:
 
-- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate`, `clearImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like webpack or browserify. An example of using browserify is below.
+- Несмотря на то, что в песочнице не запущен Node.js, он все равно имеет доступ к ограниченной node-подобной среде: `Buffer`, `process`, `setImmediate`, `clearImmediate` и `require` доступны.
+- Скрипт предварительной загрузки может косвенно получить доступ ко всем API из основного процесса через модули `remote` и `ipcRenderer`.
+- Скрипт для предварительной загрузки должен содержаться в одном скрипте, но может иметь сложный код для предварительной загрузки, состоящий из нескольких модулей, используя такие инструменты, как webpack или browserify. Ниже приведен пример использования browserify.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Чтобы создать пакет browserify пакета и использовать его в качестве скрипта предварительной загрузки, можно сделать что-то вроде этого:
 
 ```sh
   browserify preload/index.js \
@@ -101,9 +101,9 @@ To create a browserify bundle and use it as a preload script, something like the
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+Флаг `-x` следует использовать с любым необходимым модулем, который уже задействован в области предварительной загрузки, и сообщает browserify использовать вложенную для него функцию `require`. `--insert-global-vars` будет гарантировать, что `process`, `Buffer` и `setImmediate` также взяты из прилагаемой области видимости (обычно browserify вводит код для них).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+В настоящее время функция `require`, представленная в области предварительной загрузки, раскрывает следующие модули:
 
 - `electron` 
   - `crashReporter`
@@ -112,17 +112,17 @@ Currently the `require` function provided in the preload scope exposes the follo
   - `nativeImage`
   - `remote`
   - `webFrame`
-- `события`
+- `events`
 - `timers`
 - `url`
 
-More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+При необходимости в песочницу можно добавить больше возможностей Electron API, но любой модуль в основном процессе уже может быть использован через `electron.remote.require`.
 
 ## Состояние
 
-Пожалуйста, пользуйтесь опцией `sandbox` с осторожностью, это все еще экспериментальная возможность. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Пожалуйста, пользуйтесь опцией `sandbox` с осторожностью, это все еще экспериментальная возможность. Мы до сих пор не знаем о последствиях безопасности для предоставления некоторых API рендерера Electron скрипту предварительной загрузки, но вот некоторые вещи, которые нужно рассмотреть перед рендерингом недоверенного содержимого:
 
-- A preload script can accidentally leak privileged APIs to untrusted code, unless [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content) is also enabled.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Therefore, it is highly recommended to [disable the `remote` module](../tutorial/security.md#15-disable-the-remote-module). If disabling is not feasible, you should selectively [filter the `remote` module](../tutorial/security.md#16-filter-the-remote-module).
+- Скрипт предварительной загрузки может случайно привести к утечке привилегированных API в ненадежный код, если только не включен [`contextIsolation`](../tutorial/security.md#3-enable-context-isolation-for-remote-content).
+- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module. Поэтому настоятельно рекомендуется [отключить `remote` модуль](../tutorial/security.md#15-disable-the-remote-module). Если отключение невозможно, следует выборочно [фильтровать `remote` модуль](../tutorial/security.md#16-filter-the-remote-module).
 
-Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
+Поскольку рендеринг недоверенного контента в Electron все еще остается неисследованной территорией, API, применяемые в сценарии предварительной загрузки песочницы, должны считаться более нестабильными, чем остальные Electron API, и могут потребовать серьезных изменений, чтобы исправить проблемы безопасности.

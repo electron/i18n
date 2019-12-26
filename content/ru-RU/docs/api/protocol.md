@@ -295,7 +295,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String
-* `completion` Function (необязательно) 
+* `completion` Function (опционально) 
   * `error` Error
 
 Перехватывает протокол `scheme` и использует `handler` в качестве нового обработчика протокола, который отправляет файл в качестве ответа.
@@ -375,7 +375,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (необязательно) 
+* `completion` Function (опционально) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Удаляет перехватчик, установленный для `scheme` и восстанавливает его оригинальный обработчик.

@@ -1,12 +1,12 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Session Управление сеансами браузера, куками, кешем, настройками прокси и т. д.
 
 Process: [Main](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Модуль `session` может быть использован для создания новых объектов `Session`.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Вы также можете получить доступ к `session` существующих страниц, используя свойство `session` в [`WebContents`](web-contents.md), или из модуля `session`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -20,35 +20,35 @@ console.log(ses.getUserAgent())
 
 ## Методы
 
-The `session` module has the following methods:
+Модуль `session` имеет следующие методы:
 
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
 * `options` Object (опционально) 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - Включен ли кэш.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Возвращает `Session` - Экземпляр сеанса из строки `partition`. При наличии `Session` с таким же `partition`, он будет возвращен; иначе новый экземпляр `Session` будет создан с `options`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Если `partition` начинается с `persist:`, страница будет использовать постоянный сеанс, который доступен всем страницам в приложении с тем же `partition`. если нет префикса `persist:`, страница будет использовать сеанс в памяти. Если `partition` пуст, то будет возвращен сеанс приложения по умолчанию.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Чтобы создать `Session` с `options`, вы должны убедиться, что `Session` с `partition` раньше никогда не использовался. Невозможно изменить `options` из существующего `Session` объекта.
 
 ## Свойства
 
-The `session` module has the following properties:
+Модуль `session` имеет следующие свойства:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Объект `Session`, объект сеанса по умолчанию для приложения.
 
 ## Класс: Session
 
-> Получает и устанавливает свойства сессии.
+> Получает и устанавливает свойства сеанса.
 
 Процесс: [Главный](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Вы можете создать объект `Session` в модуле `session`:
 
 ```javascript
 const { session } = require('electron')
@@ -68,9 +68,9 @@ console.log(ses.getUserAgent())
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Возникает, когда Electron собирается загрузить `item` в `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Вызов `event.preventDefault()` отменит загрузку, и `item` не будет доступен со следующего тика процесса.
 
 ```javascript
 const { session } = require('electron')
@@ -82,122 +82,122 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Событие: 'preconnect' *Экспериментально*
 
 Возвращает:
 
 * `event` Event
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - URL-адрес, запрашиваемый рендерером для предварительного подключения.
+* `allowCredentials` Boolean - True если рендерер запрашивает, чтобы соединение включало учетные данные (см. [spec](https://w3c.github.io/resource-hints/#preconnect) для получения более подробной информации.)
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Возникает, когда в процессе рендеринга запрашивается предварительное подключение к URL, как правило, из-за [подсказки ресурса](https://w3c.github.io/resource-hints/).
 
 ### Методы экземпляра
 
-The following methods are available on instances of `Session`:
+Для экземпляров `Session` доступны следующие методы:
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Возвращает `Promise<Integer>` - текущий размер кэша сеанса, в байтах.
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+Возвращает `Promise<void>` - Разрешение после завершения операции очистки кэша.
 
-Clears the session’s HTTP cache.
+Очищает HTTP-кэш сеанса.
 
 #### `ses.clearStorageData([options])`
 
 * `options` Object (опционально) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (опционально) - Должен следовать представлению `window.location.origin` `scheme://host:port`.
+  * `storages` String[] (опционально) - типы хранилищ для очистки, могут содержать: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `quotas` String[] (опционально) - типы квот для очистки, могут содержать: `temporary`, `persistent`, `syncable`.
 
-Returns `Promise<void>` - resolves when the storage data has been cleared.
+Возвращает `Promise<void>` - Разрешение после завершения очистки данных хранилища.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Записывает непрочитанные DOMStorage данные на диск.
 
 #### `ses.setProxy(config)`
 
 * `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String - URL- адрес, связанный с PAC-файлом.
+  * `proxyRules` String - Правила, указывающие какие прокси использовать.
+  * `proxyBypassRules` String - Правила, указывающие, какие URL должны обходить настройки прокси.
 
-Returns `Promise<void>` - Resolves when the proxy setting process is complete.
+Возвращает `Promise<void>` - Разрешение после завершения процесса настройки прокси.
 
-Sets the proxy settings.
+Установка настроек прокси.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+При совместном использовании `pacScript` и `proxyRules` опция `proxyRules` игнорируется, и применяется конфигурация `pacScript`.
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` должен следовать следующим правилам:
 
 ```sh
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
+proxyRules = schemeProxies[";"<;0>]
+schemeProxies = [<;1>"="]<;2>
 urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+proxyURIList = <;3>[","<;2>]
+proxyURL = [<;4>"://"]<;5>[":"<;6>]
 ```
 
 Например:
 
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy:80;ftp=foopy2` - Использовать HTTP прокси `foopy:80` для URL `http://`, и HTTP прокси `foopy2:80` для URL `ftp://`.
+* `foopy:80` - Использовать HTTP прокси `foopy:80` для всех URL.
+* `foopy:80,bar,direct://` - Использовать HTTP прокси `foopy:80` для всех URL-адресов, переключение на `bar`, если `foopy:80` недоступен, и после этого прокси не использовать.
+* `socks4://foopy` - Использовать SOCKS v4 прокси `foopy:1080` для всех URL.
+* `http=foopy,socks5://bar.com` - Использовать HTTP прокси `foopy` для http URL-адресов и и переключиться на прокси SOCKS5 `bar.com`, если `foopy` недоступен.
+* `http=foopy,direct://` - Использовать HTTP прокси `foopy` для http URL-адресов и не использовать прокси, если `foopy` недоступен.
+* `http=foopy;socks=foopy2` - Использовать HTTP прокси `foopy` для http URL-адресов и использовать `socks4://foopy2` для всех других URL.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+`proxyBypassRules` - это список правил, разделенных запятыми:
 
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <;0> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  Сопоставьте все имена хостов, которые соответствуют шаблону HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Например: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Соответствует суффиксу конкретного домена.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Например: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Сравнивать URL, которые являются знаками IP-адресов.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Например: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Сопоставьте любой URL-адрес с IP-литералом, который находится между заданным диапазоном. Диапазон IP задается с помощью нотации CIDR.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Например: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Совпадение локальных адресов. Значение `<local>` заключается в том,совпадает ли хост с: "127.0.0.1", ":1", "localhost".
 
 #### `ses.resolveProxy(url)`
 
 * `url` URL
 
-Returns `Promise<String>` - Resolves with the proxy information for `url`.
+Возвращает `Promise<String>` - Разрешение с информацией прокси для `url`.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location.
+* `path` String - Место загрузки.
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Устанавливает директорию для скачивания. По умолчанию директория загрузки будет каталогом `Downloads` в соответствующей папке приложения.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
+  * `offline` Boolean (опционально) - Эмулировать отключение сети. По умолчанию false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
