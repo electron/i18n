@@ -198,8 +198,8 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
 
 * `options` Object 
   * `offline` Boolean (опционально) - Эмулировать отключение сети. По умолчанию false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `latency` Double (опционально) - RTT (время приема передачи) в ms. По умолчанию 0, что приведет к отключению регулирования задержки.
+  * `downloadThroughput` Double (опционально) - Скорость загрузки в бит/с. Значение по умолчанию 0, что приведет к отключению регулирования загрузки.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Emulates network with the given configuration for the `session`.
