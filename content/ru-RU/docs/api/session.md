@@ -200,12 +200,12 @@ proxyURL = [<;4>"://"]<;5>[":"<;6>]
   * `offline` Boolean (опционально) - Эмулировать отключение сети. По умолчанию false.
   * `latency` Double (опционально) - RTT (время приема передачи) в ms. По умолчанию 0, что приведет к отключению регулирования задержки.
   * `downloadThroughput` Double (опционально) - Скорость загрузки в бит/с. Значение по умолчанию 0, что приведет к отключению регулирования загрузки.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `uploadThroughput` Double (опционально) - Скорость отдачи в бит/с. Значение по умолчанию 0, что приведет к отключению регулирования отдачи.
 
-Emulates network with the given configuration for the `session`.
+Эмулирует сеть с заданной конфигурацией для `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// Для эмулирования GPRS соединения с пропускной способностью 50кбит/с и задержкой 500 мс.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
