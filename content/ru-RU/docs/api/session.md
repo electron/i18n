@@ -212,7 +212,7 @@ window.webContents.session.enableNetworkEmulation({
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// Для эмулирования отключения или отказа сети.
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
