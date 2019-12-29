@@ -4,13 +4,13 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**另請參閱：[有關如何在應用程序中實施更新的詳細指南](../tutorial/updates.md)**
 
 `autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Platform Notices
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+目前僅支援macOS和Windows。 目前內建更新並沒有支援 linux，因此建議使用 發行版的軟體包管理器來更新您的應用。
 
 In addition, there are some subtle differences on each platform:
 
