@@ -12,13 +12,13 @@
 
 目前僅支援macOS和Windows。 目前內建更新並沒有支援 linux，因此建議使用 發行版的軟體包管理器來更新您的應用。
 
-In addition, there are some subtle differences on each platform:
+此外，每個平台還存在一些細微的差異：
 
 ### macOS
 
 在 macOS 上，`autoUpdater` 模組是架構在 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 上，這代表你不能特別設定就能直接用。 伺服器端的需求，你可以查看[伺服器支援](https://github.com/Squirrel/Squirrel.Mac#server-support)。 Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+**注意：**您的應用程序必須經過簽名才能在macOS上自動更新。 這是` Squirrel.Mac `的要求。
 
 ### Windows
 
