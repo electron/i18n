@@ -14,7 +14,7 @@
     "@types/cheerio": "^0.22.11",
     "@types/got": "^9.4.4",
     "@types/lodash": "^4.14.134",
-    "@types/node": "^12.12.17",
+    "@types/node": "^13.1.1",
     "@types/rimraf": "^2.0.2",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
