@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "11555",
-    "translated": "4512",
+    "translated": "4517",
     "approved": "1081",
     "words": "109142",
-    "words_translated": "21760",
+    "words_translated": "21857",
     "words_approved": "3015",
-    "translated_progress": 19,
+    "translated_progress": 20,
     "approved_progress": 2,
-    "qa_issues": 59
+    "qa_issues": 60
   },
   {
     "name": "Czech",
@@ -251,13 +251,13 @@
     "code": "ru",
     "phrases": "11555",
     "translated": "8634",
-    "approved": "3822",
+    "approved": "3821",
     "words": "109142",
     "words_translated": "72866",
-    "words_approved": "29392",
+    "words_approved": "29366",
     "translated_progress": 66,
     "approved_progress": 26,
-    "qa_issues": 2002
+    "qa_issues": 2003
   },
   {
     "name": "Spanish",
