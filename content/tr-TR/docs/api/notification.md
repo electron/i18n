@@ -29,9 +29,9 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 ### `new Notification([options])` *Experimental*
 
 * `options` Obje (opsiyonel) 
-  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.
+  * `title` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
-  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir.
+  * `body` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
@@ -42,7 +42,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 ### Örnek Olaylar
 
-`yeni Bildirim` ile yaratılan nesneler aşağıdaki olayları belirtir:
+`new Notification` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
 **Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
 

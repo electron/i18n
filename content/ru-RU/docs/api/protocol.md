@@ -366,7 +366,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (опционально)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (опционально) 
   * `error` Error
 

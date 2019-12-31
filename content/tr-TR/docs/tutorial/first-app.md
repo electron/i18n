@@ -4,9 +4,9 @@ Electron zengin yerel (işletim sistemi) API'ler ile bir çalışma zamanı sağ
 
 Bu, Electron'un (GUI) kütüphaneleri grafiksel kullanıcı arayüzüne JavaScript bağladığı anlamına gelmez. Bunun yerine, Electron GUI'sini web sayfaları olarak kullanır, böylece bunu JavaScript tarafından kontrol edilen minimal bir Chromium tarayıcı olarak görüyorsunuz.
 
-**Not**: Bu örnek aynı zamanda bir havuz (repository) olarak [indirip hemen çalıştırabilirsiniz](#trying-this-example).
+**Not**: Bu örneği aynı zamanda bir havuz (repository) olarak [indirip hemen çalıştırabilirsiniz](#trying-this-example).
 
-Geliştirme göz önünde bulundurulduğunda, bir Electron uygulaması aslında bir Node.js uygulamasıdır. Başlangıç noktası her Node.js uygulamasına özel olan `package.json` dır. En temel bir elektron uygulaması aşağıdaki klasör yapısındadır:
+Geliştirme göz önünde bulundurulduğunda, bir Electron uygulaması aslında bir Node.js uygulamasıdır. Başlangıç noktası her Node.js uygulamasına özel olan `package.json` dır. En temel Elektron uygulaması aşağıdaki klasör yapısına sahip olacaktır:
 
 ```plaintext
 uygulamanın-adı/
@@ -15,7 +15,7 @@ uygulamanın-adı/
 └── index.html
 ```
 
-Electron uygulamanız için yeni bir dosya oluşturun. Komut satırı istemcinizi açın ve o dosyanın içindem `npm init` komutunu çalıştırın.
+Electron uygulamanız için yeni bir dosya oluşturun. Komut satırı istemcinizi açın ve o klasörün içinde `npm init` komutunu çalıştırın.
 
 ```sh
 npm init
@@ -31,7 +31,7 @@ npm size basit bir `package.json` dosyası oluşturacaktır. `main` bölümünü
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Not**: Eğer `main` alanı `package.json` dosyası içinde mevcut değilse, Electron bir `index.js` yüklemeye çalışacaktır (Node.js'de olduğu gibi). Bu aslında basit bir Node uylamasıysa, `node`'a geçerli paketi yürütmesini bildiren bir `start` komut dosyası eklersiniz:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm size basit bir `package.json` dosyası oluşturacaktır. `main` bölümünü
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Bir Node uygulamasını Electron uygulamasına dönüştürmek oldukça basittir. Yalnızca `node` çalışma zamanını `electron` çalışma zamanı ile değiştiriyoruz.
 
 ```json
 {
@@ -57,31 +57,31 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Electron'u Yükleme
+## Electron'u Yükleyin
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+Bu noktada `electron`'un kendisini kurmanız gerekir. Bunu yapmanın önerilen yolu, uygulamanızda farklı Electron sürümlerine sahip birden fazla uygulama üzerinde çalışmanıza izin veren bir geliştirme bağımlılığı olarak yüklemektir. Bunu yapmak için uygulamanızın dizininden aşağıdaki komutu çalıştırın:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Electron kurmak için başka araçlar da mevcuttur. Proxy, ayna ve özel önbelleklerle kullanım hakkında bilgi edinmek için lütfen [kurulum kılavuzu](installation.md)na bakın.
 
-## Özetçe Elektron için Geliştirme
+## Kısaca Elektron Geliştirme
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Elektron uygulamaları JavaScript'te Node.js ile geliştirmede bulunan aynı ilke ve yöntemler kullanılarak geliştirilmiştir. Electron'da bulunan tüm API'lara ve özelliklere, gerekli olabilecek diğer Node.js modülleri gibi `electron` modülü üzerinden erişilebilir:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+`electron` modülü, ad alanlarındaki özellikleri ortaya çıkarır. Örnek olarak, uygulamanın yaşam döngüsü `electron.app` aracılığıyla yönetilir, pencereler `electron.BrowserWindow` sınıfı kullanılarak oluşturulabilir. Basit bir `main.js` dosyası uygulamanın hazır olmasını bekleyebilir ve bir pencere açabilir:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Tarayıcı penceresini oluştur.
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ve uygulamanın index.html dosyasını yükle.
   win.loadFile('index.html')
 }
 
@@ -102,8 +102,8 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Pencere nesnesinin genel bir referansını koruyun, 
+// yoksa JavaScript nesnesi çöpleri topladığında pencere otomatik olarak kapatılır.
 let win
 
 function createWindow () {
@@ -116,10 +116,10 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ve uygulamanın index.html dosyasını yükle.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // DevTools'u aç.
   win.webContents.openDevTools()
 
   // Pencere kapatıldığında ortaya çıkar.
@@ -175,11 +175,11 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 </html>
 ```
 
-## Uygulamanızı Çalıştırma
+## Uygulamanızı Çalıştırın
 
 `main.js`, `index.html`, ve `package.json` dosyalarını oluşturduktan sonra, Uygulamayı dizinindeyken `npm start` komutunu çalıştırarak deneyebilirsiniz.
 
-## Bu Örneği Deneme
+## Bu Örneği Deneyin
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) klonlayın ve bu eğitimdeki kodu kullanarak çalıştırın.
 
@@ -196,4 +196,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Geliştirme sürecinizi başlatmak için kullanıcı belgelerinin ve araçların bir listesi için [BoilerPlates ve CLI belgeleri](./boilerplates-and-clis.md)ne bakın.
