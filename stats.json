@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "11555",
-    "translated": "7507",
+    "translated": "7520",
     "approved": "2057",
     "words": "109142",
-    "words_translated": "59544",
+    "words_translated": "59791",
     "words_approved": "15617",
     "translated_progress": 54,
     "approved_progress": 14,
-    "qa_issues": 2450
+    "qa_issues": 2460
   },
   {
     "name": "Ukrainian",
