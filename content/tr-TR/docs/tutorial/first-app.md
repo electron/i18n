@@ -69,19 +69,19 @@ Electron kurmak için başka araçlar da mevcuttur. Proxy, ayna ve özel önbell
 
 ## Kısaca Elektron için Geliştirme
 
-Elektron uygulamaları JavaScript'te Node.js ile geliştirmede bulunan aynı ilke ve yöntemler kullanılarak geliştirilmiştir. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Elektron uygulamaları JavaScript'te Node.js ile geliştirmede bulunan aynı ilke ve yöntemler kullanılarak geliştirilmiştir. Electron'da bulunan tüm API'lara ve özelliklere, gerekli olabilecek diğer Node.js modülleri gibi `electron` modülü üzerinden erişilebilir:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+`electron` modülü, ad alanlarındaki özellikleri ortaya çıkarır. Örnek olarak, uygulamanın yaşam döngüsü `electron.app` aracılığıyla yönetilir, pencereler `electron.BrowserWindow` sınıfı kullanılarak oluşturulabilir. Basit bir `main.js` dosyası uygulamanın hazır olmasını bekleyebilir ve bir pencere açabilir:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Tarayıcı penceresini oluştur.
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ve uygulamanın index.html dosyasını yükle.
   win.loadFile('index.html')
 }
 
@@ -102,8 +102,8 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Pencere nesnesinin genel bir referansını koruyun, 
+// yoksa JavaScript nesnesi çöpleri topladığında pencere otomatik olarak kapatılır.
 let win
 
 function createWindow () {
@@ -116,10 +116,10 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // ve uygulamanın index.html dosyasını yükle.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // DevTools'u aç.
   win.webContents.openDevTools()
 
   // Pencere kapatıldığında ortaya çıkar.
