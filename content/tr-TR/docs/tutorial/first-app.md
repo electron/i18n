@@ -67,9 +67,9 @@ npm install --save-dev electron
 
 Electron kurmak için başka araçlar da mevcuttur. Proxy, ayna ve özel önbelleklerle kullanım hakkında bilgi edinmek için lütfen [kurulum kılavuzu](installation.md)na bakın.
 
-## Özetçe Elektron için Geliştirme
+## Kısaca Elektron için Geliştirme
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Elektron uygulamaları JavaScript'te Node.js ile geliştirmede bulunan aynı ilke ve yöntemler kullanılarak geliştirilmiştir. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
 ```javascript
 const electron = require('electron')
