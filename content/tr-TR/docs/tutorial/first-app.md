@@ -6,7 +6,7 @@ Bu, Electron'un (GUI) kütüphaneleri grafiksel kullanıcı arayüzüne JavaScri
 
 **Not**: Bu örneği aynı zamanda bir havuz (repository) olarak [indirip hemen çalıştırabilirsiniz](#trying-this-example).
 
-Geliştirme göz önünde bulundurulduğunda, bir Electron uygulaması aslında bir Node.js uygulamasıdır. Başlangıç noktası her Node.js uygulamasına özel olan `package.json` dır. En temel bir elektron uygulaması aşağıdaki klasör yapısındadır:
+Geliştirme göz önünde bulundurulduğunda, bir Electron uygulaması aslında bir Node.js uygulamasıdır. Başlangıç noktası her Node.js uygulamasına özel olan `package.json` dır. En temel Elektron uygulaması aşağıdaki klasör yapısına sahip olacaktır:
 
 ```plaintext
 uygulamanın-adı/
@@ -15,7 +15,7 @@ uygulamanın-adı/
 └── index.html
 ```
 
-Electron uygulamanız için yeni bir dosya oluşturun. Komut satırı istemcinizi açın ve o dosyanın içindem `npm init` komutunu çalıştırın.
+Electron uygulamanız için yeni bir dosya oluşturun. Komut satırı istemcinizi açın ve o klasörün içinde `npm init` komutunu çalıştırın.
 
 ```sh
 npm init
@@ -57,7 +57,7 @@ Bir Node uygulamasını Electron uygulamasına dönüştürmek oldukça basittir
 }
 ```
 
-## Electron'u Yükleme
+## Electron'u Yükleyin
 
 Bu noktada `electron`'un kendisini kurmanız gerekir. Bunu yapmanın önerilen yolu, uygulamanızda farklı Electron sürümlerine sahip birden fazla uygulama üzerinde çalışmanıza izin veren bir geliştirme bağımlılığı olarak yüklemektir. Bunu yapmak için uygulamanızın dizininden aşağıdaki komutu çalıştırın:
 
@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Electron kurmak için başka araçlar da mevcuttur. Proxy, ayna ve özel önbelleklerle kullanım hakkında bilgi edinmek için lütfen [kurulum kılavuzu](installation.md)na bakın.
 
-## Kısaca Elektron için Geliştirme
+## Kısaca Elektron Geliştirme
 
 Elektron uygulamaları JavaScript'te Node.js ile geliştirmede bulunan aynı ilke ve yöntemler kullanılarak geliştirilmiştir. Electron'da bulunan tüm API'lara ve özelliklere, gerekli olabilecek diğer Node.js modülleri gibi `electron` modülü üzerinden erişilebilir:
 
@@ -175,11 +175,11 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 </html>
 ```
 
-## Uygulamanızı Çalıştırma
+## Uygulamanızı Çalıştırın
 
 `main.js`, `index.html`, ve `package.json` dosyalarını oluşturduktan sonra, Uygulamayı dizinindeyken `npm start` komutunu çalıştırarak deneyebilirsiniz.
 
-## Bu Örneği Deneme
+## Bu Örneği Deneyin
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) klonlayın ve bu eğitimdeki kodu kullanarak çalıştırın.
 
@@ -196,4 +196,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Geliştirme sürecinizi başlatmak için kullanıcı belgelerinin ve araçların bir listesi için [BoilerPlates ve CLI belgeleri](./boilerplates-and-clis.md)ne bakın.
