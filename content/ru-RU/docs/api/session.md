@@ -226,7 +226,7 @@ Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Отключает любую эмуляцию сети, уже активную для `session`. Сбрасывает к исходной конфигурации сети.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -234,17 +234,17 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Результат проверки из хрома.
+    * `errorCode` Integer - Код ошибки.
   * `callback` Function 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `0` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `verificationResult` Integer - Значение может быть одним из кодов ошибки сертификата [отсюда. ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Помимо кодов ошибок сертификата, можно использовать следующие специальные коды. 
+      * `0` - Указывает на успех и отключает проверку прозрачности сертификата.
+      * `-2` - указывает на сбой.
+      * `-3` - Использует результат проверки из хрома.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Устанавливает значение проверки сертификата для `session`, `proc` будет вызываться с `proc(request, callback)` всякий раз, когда запрашивается сертификат сервера. Вызов `callback(0)` принимает сертификат, вызов `callback(-2)` отклоняет его.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Вызов `setCertificateVerifyProc (null)` приведет к возврату к процедуре проверки сертификата по умолчанию.
 
 ```javascript
 const { BrowserWindow } = require('electron')
