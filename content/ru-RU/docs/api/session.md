@@ -226,7 +226,7 @@ Preconnects the given number of sockets to an origin.
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Отключает любую эмуляцию сети, уже активную для `session`. Сбрасывает к исходной конфигурации сети.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -235,7 +235,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `errorCode` Integer - Код ошибки.
   * `callback` Function 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `0` - Indicates success and disables Certificate Transparency verification.
