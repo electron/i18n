@@ -242,9 +242,9 @@ Preconnects the given number of sockets to an origin.
       * `-2` - указывает на сбой.
       * `-3` - Использует результат проверки из хрома.
 
-Устанавливает значение проверки сертификата для `session`, `proc` будет вызываться с `proc(request, callback)` всякий раз, когда запрашивается сертификат сервера. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Устанавливает значение проверки сертификата для `session`, `proc` будет вызываться с `proc(request, callback)` всякий раз, когда запрашивается сертификат сервера. Вызов `callback(0)` принимает сертификат, вызов `callback(-2)` отклоняет его.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Вызов `setCertificateVerifyProc (null)` приведет к возврату к процедуре проверки сертификата по умолчанию.
 
 ```javascript
 const { BrowserWindow } = require('electron')
