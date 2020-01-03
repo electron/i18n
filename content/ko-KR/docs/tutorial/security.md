@@ -159,7 +159,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    컨텍스트 격리를 사용하면 렌더러에서 실행중인 각 스크립트가 Electron API 또는 preload script의 스크립트들과 충돌없이 JavaScript 환경을 변경할 수 있습니다.
+    Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
     
     While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
     
@@ -309,8 +309,6 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
     ```
     
-    #### `webRequest.onHeadersReceived([filter, ]listener)`
-    
     ## 7) `allowRunningInsecureContent`를 `true`로 설정하지 마세요.
     
     *추천 값은 Electron의 기본값입니다.*
@@ -423,11 +421,11 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
     
-    Electron는 개발자가 렌더러 프로세스를 제어하는 다양한 보안 기능을 비활성화 할 수 있도록 합니다. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+    Electron는 개발자가 렌더러 프로세스를 제어하는 다양한 보안 기능을 비활성화 할 수 있도록 합니다. 대부분의 경우, 개발자는 이러한 기능을 비활성화 할 필요가 없으므로 - 새롭게 만든 [`<webview>`](../api/webview-tag.md) 태그에 대해 별도의 구성을 허용해서는 안됩니다.
     
     ### 어떻게 하나요?
     
-    Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+    Electron은 [`<webview>`](../api/webview-tag.md) 태그가 붙기 전에 호스팅중인 `webContents`에서 `will-attach-webview`이벤트를 시작합니다. Use the event to prevent the creation of `webViews` with possibly insecure options.
     
     ```js
     app.on('web-contents-created', (event, contents) => {
