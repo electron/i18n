@@ -157,7 +157,7 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 ### 为什么？
 
-上下文隔离使得每个运行在渲染器上的脚本无需担心改变JavaScript环境变量而与ElectronAPI或预加载脚本发生冲突。
+Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
@@ -304,8 +304,6 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
-
-#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) 不要设置`allowRunningInsecureContent`为`true`
 
