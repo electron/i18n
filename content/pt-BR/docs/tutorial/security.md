@@ -158,7 +158,7 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 ### Por que?
 
-Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
+O isolamento do contexto permite que cada script executando no renderizador possa fazer mudanças em seu ambiente JavaScript sem se preocupar com conflitos entre outros scripts na API Electron, ou no script de pré-carga.
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
