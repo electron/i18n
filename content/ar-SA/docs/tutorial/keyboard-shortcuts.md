@@ -2,7 +2,7 @@
 
 > Configure local and global keyboard shortcuts
 
-## Local Shortcuts
+## اختصارات محلية
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
@@ -25,7 +25,7 @@ You can configure different key combinations based on the user's operating syste
 }
 ```
 
-## Global Shortcuts
+## الاختصارات العامة
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## الإختصارات صمن الـBrowserWindow
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 

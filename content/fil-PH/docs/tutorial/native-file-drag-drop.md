@@ -9,9 +9,9 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 ```html
 <a href="#" id="drag">item</a>
 <script type="text/javascript" charset="utf-8">
-  document.getElementById('drag').ondragstart = (event) => {
-    event.preventDefault()
-    ipcRenderer.send('ondragstart', '/path/to/item')
+  document. getElementById('drag'). ondragstart = (event) => {
+    event. preventDefault()
+    ipcRenderer. send('ondragstart', '/path/to/item')
   }
 </script>
 ```
@@ -19,12 +19,5 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
 
 ```javascript
-const { ipcMain } = require('electron')
-
-ipcMain.on('ondragstart', (event, filePath) => {
-  event.sender.startDrag({
-    file: filePath,
-    icon: '/path/to/icon.png'
-  })
-})
+const {ipcMain} = kailangan (' elektron ') ipcMain. on (' ondragstart ', (kaganapan, mga pelikula. = & gt; {event. nagpadala. startDrag ({file: mga pelikula, icon: '/Path/to/icon.png '})})
 ```

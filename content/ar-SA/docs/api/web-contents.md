@@ -313,7 +313,7 @@ Returns:
 
 * `event` Event
 * `الإسم`String
-* `version` String
+* `الإصدار` String
 
 Emitted when a plugin process has crashed.
 

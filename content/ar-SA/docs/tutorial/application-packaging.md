@@ -22,11 +22,11 @@ $ npm install -g asar
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## إستعمل ارشيفات `asar`
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
-### Node API
+### Node واجهة التطبيق البرمجية (API)
 
 With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
 
@@ -42,7 +42,7 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+قراءة الملف في أرشيف `asar`:
 
 ```javascript
 const fs = require('fs')
@@ -71,7 +71,7 @@ const win = new BrowserWindow()
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
-### Web API
+### واجهة تطبيقات الرمجية للويب (API)
 
 In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
 
@@ -103,11 +103,11 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## محدودية Node واجهة التطبيق البرمجية (API)
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
-### Archives Are Read-only
+### أرشيف للقراءة فقط
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 

@@ -14,7 +14,7 @@ To update an existing project to use the latest stable version:
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## إصدار 1.x
 
 Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
@@ -24,11 +24,11 @@ Here is an example of the 1.x strategy:
 
 An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
 
-## Version 2.0 and Beyond
+## الإصدار 2.0 ومابعده
 
 There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
-1. Strict use of semver
+1. Strict use لـsemver
 2. Introduction of semver-compliant `-beta` tags
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Well-defined stabilization branches
@@ -42,11 +42,11 @@ From 2.0 onward, Electron will follow semver.
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
-| Major Version Increments      | Minor Version Increments          | Patch Version Increments      |
-| ----------------------------- | --------------------------------- | ----------------------------- |
-| Electron breaking API changes | Electron non-breaking API changes | Electron bug fixes            |
-| Node.js major version updates | Node.js minor version updates     | Node.js patch version updates |
-| Chromium version updates      |                                   | fix-related chromium patches  |
+| زيادات الجذرية في الإصدار          | زيادات الفرعية في الإصدار          | زيادات الترقيع في الإصدار           |
+| ---------------------------------- | ---------------------------------- | ----------------------------------- |
+| Electron breaking API changes      | Electron non-breaking API changes  | إصلاح خلل في Electron               |
+| تحديثات الإصدار الجذرية في Node.js | تحديثات الإصدار الفرعية في Node.js | تحديثات الإصدار الترقيعي في Node.js |
+| تحديثات إصدار Chromium             |                                    | fix-related chromium patches        |
 
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
@@ -73,7 +73,7 @@ What’s important about the second point is that apps using `^` should still be
 
 Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
 
-The process is as follows:
+العملية كالتالي:
 
 1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
     1. The change is backwards API-compatible (deprecations are allowed)
@@ -110,7 +110,7 @@ A few examples of how various semver ranges will pick up new releases:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# الميزات المفقودة: آلفا
 
 Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
@@ -118,7 +118,7 @@ As a future consideration, we may introduce one or both of the following:
 
 - alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
-# Feature Flags
+# أعلام الميزة
 
 Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
@@ -138,7 +138,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# Versioned `master`
+# تعيين الإصدار`master`
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release branches are never merged back to master

@@ -131,7 +131,7 @@ headings:
   languages: اللغات
 taglines:
   languages: محتوى مترجم من مجتمعنا العالمي المذهل من المطورين.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  openjsf: Electron إنضم حديثا لمؤسسة OpenJS. إطلع على <a href="/blog/electron-joins-openjsf">الإعلان</a> للمزيد من المعلومات!
 help_translate: "المساعدة في الترجمة"
 footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
@@ -239,24 +239,24 @@ governance:
   wgs: مجموعات العمل
   ecosystem:
     title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    description: الإشراف على المشاريع التي تجعل تطوير تطبيقات Electron أسهل.
   outreach:
     title: Outreach
-    description: Grows the Electron community
+    description: نمو مجتمع Electron
   releases:
     title: اﻹصدارات
-    description: Oversees all release branches, and tooling to support releases.
+    description: الإشراف على اصدارات الفروع، و أدوات الدعم للإصدارات.
   upgrades:
-    title: Upgrades
+    title: الترقيات
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   cmsf:
-    title: Community & Safety
-    description: Oversees removal/bans from community.
+    title: المجتمع والسلامة
+    description: الإشراف على الحذف/الحظر في المجتمع.
   security:
     title: Security
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
+    title: الإدارة
     description: The Administrative Working Group oversees the entire governance and project.
   api:
     title: API
@@ -264,7 +264,7 @@ governance:
   global:
     overview: النظرة عامة
     associated_repos: Associated Repositories
-    notes: Meeting Notes
+    notes: ملاحظات الإجتماع
   definitions:
     title: Definitions
     list:
@@ -274,7 +274,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: المسؤوليات
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.

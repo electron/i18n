@@ -4,17 +4,17 @@ The source code of Electron is separated into a few parts, mostly following Chro
 
 You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Structure of Source Code
+## بنية مصدر الشفرة
 
 ```diff
 Electron
-├── atom/ - C++ source code.
-|   ├── app/ - System entry code.
+├── atom/ - C++ مصدر الشفرة.
+|   ├── app/ - شفرة مدخل النظام.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
+|   |   |   ├── cocoa/ - Cocoa مصدر الشفرة مخصص.
 |   |   |   ├── win/ - Windows GUI specific source code.
 |   |   |   └── x/ - X11 specific source code.
 |   |   ├── api/ - The implementation of the main process APIs.
@@ -28,7 +28,7 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Source code copied from Chromium. أنظر أدناه.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
 ├── docs/ - Documentations.
@@ -47,7 +47,7 @@ Electron
 
 The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
-## Structure of Other Directories
+## بنية لملفات اخرى
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.

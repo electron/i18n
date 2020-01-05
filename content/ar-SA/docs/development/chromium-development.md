@@ -5,9 +5,9 @@
 - [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
 - [@googlechrome](https://twitter.com/googlechrome) on Twitter
 - [المدونة](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
+- [رمز البحث](https://cs.chromium.org/)
+- [الشفرة المصدرية](https://cs.chromium.org/chromium/src/)
 - [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [مجموعات المناقشة](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+اطلع أيضا على [تطوير V8](v8-development.md)
