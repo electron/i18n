@@ -15,7 +15,7 @@
   * [اعداد نظام تشغيل الماك (macOS)](tutorial/development-environment.md#setting-up-macos)
   * [اعداد نظام الويندوز (Windows)](tutorial/development-environment.md#setting-up-windows)
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
-  * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
+  * [اختيار محرر](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/first-app.md) 
   * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
   * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
