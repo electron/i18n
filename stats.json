@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "11554",
-    "translated": "1463",
+    "translated": "1706",
     "approved": "167",
     "words": "109139",
-    "words_translated": "9274",
+    "words_translated": "10620",
     "words_approved": "389",
-    "translated_progress": 8,
+    "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 483
+    "qa_issues": 575
   },
   {
     "name": "Bulgarian",
@@ -88,7 +88,7 @@
     "words_approved": "21874",
     "translated_progress": 52,
     "approved_progress": 20,
-    "qa_issues": 144
+    "qa_issues": 145
   },
   {
     "name": "French",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "11554",
-    "translated": "10271",
+    "translated": "10272",
     "approved": "3098",
     "words": "109139",
-    "words_translated": "94300",
+    "words_translated": "94314",
     "words_approved": "26689",
     "translated_progress": 86,
     "approved_progress": 24,
-    "qa_issues": 2959
+    "qa_issues": 2960
   },
   {
     "name": "Tagalog",
@@ -328,10 +328,10 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "11554",
-    "translated": "2209",
+    "translated": "2210",
     "approved": "488",
     "words": "109139",
-    "words_translated": "10215",
+    "words_translated": "10220",
     "words_approved": "1084",
     "translated_progress": 9,
     "approved_progress": 0,
