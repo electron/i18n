@@ -30,7 +30,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        gperf bison python-dbusmock openjdk-8-jre
 ```
 
-On RHEL / CentOS, install the following libraries:
+في RHEL / CentOS تثبيت المكتبات التالية:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
@@ -72,9 +72,9 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cp
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
 ```
 
-## Building
+## البناء
 
-See [Build Instructions: GN](build-instructions-gn.md)
+إطلع [تعليمات البناء: GN](build-instructions-gn.md)
 
 ## اكتشاف الأخطاء وإصلاحها
 
@@ -86,7 +86,7 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Advanced topics
+## موضوعات متقدمة
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
