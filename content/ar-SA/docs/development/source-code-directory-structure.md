@@ -4,17 +4,17 @@ The source code of Electron is separated into a few parts, mostly following Chro
 
 You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Structure of Source Code
+## بنية مصدر الشفرة
 
 ```diff
 Electron
-├── atom/ - C++ source code.
-|   ├── app/ - System entry code.
+├── atom/ - C++ مصدر الشفرة.
+|   ├── app/ - شفرة مدخل النظام.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
+|   |   |   ├── cocoa/ - Cocoa مصدر الشفرة مخصص.
 |   |   |   ├── win/ - Windows GUI specific source code.
 |   |   |   └── x/ - X11 specific source code.
 |   |   ├── api/ - The implementation of the main process APIs.
@@ -28,7 +28,7 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Source code copied from Chromium. أنظر أدناه.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
 ├── docs/ - Documentations.
