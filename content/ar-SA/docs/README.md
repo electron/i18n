@@ -1,6 +1,6 @@
-# راهنمای رسمی
+# الدليل الرسمي
 
-لطفا مطمئن شوید که شما با استفاده از اسناد نسخه الکترون را مطابقت میدهید . ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
+رجاءا تأكد من أنك تستخدم الوثائق التي تطابق إصدارك من Electron. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
 
 ## الأسئلة الشائعة
 
@@ -116,7 +116,7 @@
 * [app (التطبيق)](api/app.md)
 * [autoUpdater (التحديث التلقائي)](api/auto-updater.md)
 * [BrowserView (عرض المتصفح)](api/browser-view.md)
-* [نافذة المتصفح](api/browser-window.md)
+* [BrowserWindow](api/browser-window.md)
 * [contentTracing (تتبع المحتوى)](api/content-tracing.md)
 * [dialog (الحوار)](api/dialog.md)
 * [globalShortcut (اختصار عالمي)](api/global-shortcut.md)
@@ -125,8 +125,8 @@
 * [Menu (القائمة)](api/menu.md)
 * [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
-* [سجل الشبكة](api/net-log.md)
-* [Notification](api/notification.md)
+* [netLog](api/net-log.md)
+* [Notification (الإشعارات)](api/notification.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -144,12 +144,12 @@
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### الوحدات النمطية لكل من العمليات:
+### الوحدات لكلا العمليتين:
 
 * [الحافظة](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [صدفة](api/shell.md)
+* [shell](api/shell.md)
 
 ## التطوير
 
