@@ -5,7 +5,7 @@
 ## المتطلبات الأساسية
 
 * نظام Windows 10 أو Windows Server 2012 أو أعلى
-* Visual Studio 2017 15.7.2 or higher - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/) 
+* Visual Studio 2017 15.7.2 أو أعلى - [download VS 2019 Community Edition for free](https://www.visualstudio.com/vs/) 
   * See [the Chromium build documentation](https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md#visual-studio) for more details on which Visual Studio components are required.
   * If your Visual Studio is installed in a directory other than the default, you'll need to set a few environment variables to point the toolchains to your installation path. 
     * `vs2019_install = DRIVE:\path\to\Microsoft Visual Studio\2019\Community`, replacing `2019` and `Community` with your installed versions and replacing `DRIVE:` with the drive that Visual Studio is on. Often, this will be `C:`.
@@ -27,7 +27,7 @@
 
 ## Building
 
-See [Build Instructions: GN](build-instructions-gn.md)
+إطلع [تعليمات البناء: GN](build-instructions-gn.md)
 
 ## 32bit Build
 
