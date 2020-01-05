@@ -1,8 +1,8 @@
-# Multithreading
+# معالجات متعددة
 
 With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
 
-## Multi-threaded Node.js
+## معالجات متعددة Node.js
 
 It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
 
