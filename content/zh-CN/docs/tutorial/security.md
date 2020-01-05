@@ -1,6 +1,6 @@
 # 安全性，原生能力和你的责任
 
-Web开发人员通常享有浏览器强大的网络安全特性，而自己的代码风险相对较小。 我们的网站从沙箱获得有限权限。我们坚信用户可以享受一个大的工程师团队构建的浏览器，因为他们能够快速响应新发现的安全威胁。
+Web开发人员通常享有浏览器强大的网络安全特性，而自己的代码风险相对较小。 Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
 当使用 Electron 时，很重要的一点是要理解 Electron 不是一个 Web 浏览器。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 这允许您构建更高质量的本机应用程序，但是内在的安全风险会随着授予您的代码的额外权力而增加。
 
