@@ -94,7 +94,7 @@
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [قاموس المصطلحات](glossary.md)
 
 ## مراجع API
 
