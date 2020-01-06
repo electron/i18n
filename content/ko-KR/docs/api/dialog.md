@@ -61,7 +61,7 @@ Returns `String[] | undefined`, the file paths chosen by the user; if the dialog
 
 `extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Note:** 윈도우, 리눅스에서는 dialog 창이 file, directory 중복 선택 불가능합니다. directory 선택을 원할경우 `properties` `['openFile', 'opendirectory']` 를 설정하면 directory 선택이 가능합니다.
 
 ```js
 dialog.showOpenDialogSync(mainWindow, {
@@ -112,7 +112,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 `extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Note:** 윈도우, 리눅스에서는 dialog 창이 file, directory 중복 선택 불가능합니다. directory 선택을 원할경우 `properties` `['openFile', 'opendirectory']` 를 설정하면 directory 선택이 가능합니다.
 
 ```js
 dialog.showOpenDialog(mainWindow, {
@@ -130,7 +130,7 @@ dialog.showOpenDialog(mainWindow, {
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
   * `title` String (optional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (optional) - directory 절대경로, file 절대경로 혹은 file name을 기본값으로 사용.
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
@@ -149,7 +149,7 @@ The `filters` specifies an array of file types that can be displayed, see `dialo
 * `browserWindow` [BrowserWindow](browser-window.md) (optional)
 * `options` Object 
   * `title` String (optional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (optional) - directory 절대경로, file 절대경로 혹은 file name을 기본값으로 사용.
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
@@ -168,7 +168,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
-**Note:** On macOS, using the asynchronous version is recommended to avoid issues when expanding and collapsing the dialog.
+**Note:** MacOS 에서는 dialog expanding and collapsing 시에 문제를 피하기위해 비동기 버전 사용이 권장됩니다.
 
 ### `dialog.showMessageBoxSync([browserWindow, ]options)`
 
