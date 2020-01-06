@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files:
+다중 파일 선택 dialog 창 보여주기 예제
 
 ```javascript
 const { dialog } = require('electron')
