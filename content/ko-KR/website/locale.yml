@@ -197,7 +197,7 @@ pages:
   '/community':
     title: 커뮤니티
   '/releases':
-    title: 출시
+    title: 릴리즈
   '/contact':
     title: 연락처
     description: Twitter, Slack, GitHub 혹은 이메일을 통해서 Electron팀과 연락하세요.
