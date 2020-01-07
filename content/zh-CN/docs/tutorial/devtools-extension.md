@@ -28,7 +28,7 @@ Electron支持[Chrome DevTools 扩展程序](https://developer.chrome.com/extens
     const os = require('os')
     
     BrowserWindow.addDevToolsExtension(
-      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0')
+      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.3.0_0')
     )
     ```
 
