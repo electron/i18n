@@ -2,7 +2,7 @@
 
 代码签名是一种用来证明应用是由你创建的一种安全技术。
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+macOS 系统能通过代码签名检测对app的任何修改，包括意外修改和来自恶意代码的修改。
 
 在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。 确立授信级别的过程比较费时，因此最好提早开始着手代码签名的工作。
 
