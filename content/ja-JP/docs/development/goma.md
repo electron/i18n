@@ -21,7 +21,7 @@ cd electron/external_binaries/goma
 goma_auth.py login
 ```
 
-Once authenticated you need to make sure the goma daemon is running on your machine.
+認証されたら Goma デーモンをマシンで必ず実行してください。
 
 ```bash
 cd electron/external_binaries/goma
