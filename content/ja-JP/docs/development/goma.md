@@ -12,7 +12,7 @@ Electron はカスタム Goma バックエンドのデプロイがあり、こ�
 gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
 ```
 
-You must ensure that you do not have `cc_wrapper` configured, this means you can't use `sccache` or similar technology.
+`cc_wrapper` が設定されているかどうかを確認してください。設定されていない場合は `sccache` や同様のテクノロジーを使用できないということです。
 
 Before you can use goma to build Electron you need to authenticate against the Goma service.  You only need to do this once per-machine.
 
