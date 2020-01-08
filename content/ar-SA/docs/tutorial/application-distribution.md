@@ -8,13 +8,13 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
-## Manual distribution
+## التوزيعة اليدوية
 
 You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
 
 To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
 
-On macOS:
+في macOS:
 
 ```plaintext
 electron/Electron.app/Contents/Resources/app/
@@ -23,7 +23,7 @@ electron/Electron.app/Contents/Resources/app/
 └── index.html
 ```
 
-On Windows and Linux:
+في Windows و Linux:
 
 ```plaintext
 electron/resources/app
@@ -34,20 +34,19 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## جعل تطبيقك في ملف على شكل حزم
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+في macOS:
 
 ```plaintext
-electron/Electron.app/Contents/Resources/
-└── app.asar
+https://crowdin.com/translate/electron/all/en-ar#
 ```
 
-On Windows and Linux:
+في Windows و Linux:
 
 ```plaintext
 electron/resources/
@@ -119,7 +118,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
+* `GITHUB_TOKEN` - إضبطه على نفس`ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
 * `TARGET_ARCH` - set to `ia32` or `x64`
 

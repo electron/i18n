@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
 * `الإسم`String
-* `version` String
+* `الإصدار` String

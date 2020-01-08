@@ -791,7 +791,7 @@ Fired when the renderer process is crashed.
 Returns:
 
 * `الإسم`String
-* `version` String
+* `الإصدار` String
 
 Fired when a plugin process is crashed.
 

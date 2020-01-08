@@ -2,7 +2,7 @@
 
 Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
 
-## GN Files
+## ملفات GN
 
 The following `gn` files contain the main rules for building Electron:
 
@@ -25,7 +25,7 @@ Test your changes conform to the project coding style using:
 $ npm run lint
 ```
 
-Test functionality using:
+لتجربة الوظيفة إستخدم:
 
 ```sh
 $ npm test
@@ -41,7 +41,7 @@ $ npm run build && npm test
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // ... سيتم تشغيل التجارب على هذا الشطر 
 })
 ```
 

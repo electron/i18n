@@ -147,7 +147,7 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 ### Mengapa?
 
-Konteks isolasi memungkinkan setiap script yang berjalan di penyaji untuk membuat perubahan lingkungan JavaScript tanpa khawatir tentang yang bertentangan dengan script API Electron atau script preload.
+Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
@@ -289,8 +289,6 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
-
-#### `webRequest.onHeadersReceived([filter, ]listener)`
 
 ## 7) Do Not Set `allowRunningInsecureContent` to `true`
 

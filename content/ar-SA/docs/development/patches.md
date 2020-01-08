@@ -38,7 +38,7 @@ To help manage these patch sets, we provide two tools: `git-import-patches` and 
 
 > Side note: the reason we use a `.patches` file to maintain the order of applied patches, rather than prepending a number like `001-` to each file, is because it reduces conflicts related to patch ordering. It prevents the situation where two PRs both add a patch at the end of the series with the same numbering and end up both getting merged resulting in a duplicate identifier, and it also reduces churn when a patch is added or deleted in the middle of the series.
 
-### Usage
+### الإستعمال
 
 #### Adding a new patch
 ```bash

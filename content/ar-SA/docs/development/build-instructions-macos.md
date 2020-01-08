@@ -6,8 +6,8 @@ Follow the guidelines below for building Electron on macOS.
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
-* [node.js](https://nodejs.org) (external)
-* Python 2.7 with support for TLS 1.2
+* [node.js](https://nodejs.org) (خارجي)
+* Python 2.7 مع الدعم على المدى البعيد (TLS) 1.2
 
 ## Python
 
@@ -27,18 +27,18 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+يمكنك استخدام `pip` لتنصيبه:
 
 ```sh
 $ pip install pyobjc
 ```
 
-## macOS SDK
+## macOS أداة تطوير البرمجيات (SDK)
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
 Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
-## Building Electron
+## بناء Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+إطلع [تعليمات البناء: GN](build-instructions-gn.md).

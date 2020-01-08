@@ -12,7 +12,7 @@ The following steps introduce a simple way to submit your app to Mac App Store. 
 
 To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
 
-### Get Team ID
+### احصل مُعرّف الفريق
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
@@ -86,9 +86,9 @@ And then sign your app with the following script:
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# إسم تطبيقك.
 APP="YourApp"
-# The path of your app to sign.
+# المسار لتسجيل تطبيقك.
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -120,7 +120,7 @@ If you are new to app sandboxing under macOS, you should also read through Apple
 
 Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
 
-#### Sign Native Modules
+#### تسجيل وحدات أصلية
 
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
@@ -130,7 +130,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
 
-### Upload Your App
+### رفع تطبيقك
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
@@ -138,7 +138,7 @@ After signing your app, you can use Application Loader to upload it to iTunes Co
 
 After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## المحدودية لبناء MAS
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
@@ -157,7 +157,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
-#### Network Access
+#### الوصول إلى الشبكة
 
 Enable outgoing network connections to allow your app to connect to a server:
 

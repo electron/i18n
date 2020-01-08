@@ -309,8 +309,6 @@ CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロ
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-#### `webRequest.onHeadersReceived([filter, ]listener)`
-
 ## 7) `allowRunningInsecureContent` を `true` にしない
 
 *Electron のデフォルトを推奨しています*

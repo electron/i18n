@@ -10,7 +10,7 @@ To automatically format a file according to Electron C++ code style, run `clang-
 
 The workflow to format your changed code:
 
-1. Make codes changes in Electron repository.
+1. إعمل تغيرات على الكود في مستودع Electron.
 2. Run `git add your_changed_file.cc`.
 3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
 4. Run `git add your_changed_file.cc`, and commit your change.

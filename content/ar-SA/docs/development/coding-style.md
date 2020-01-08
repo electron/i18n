@@ -17,10 +17,10 @@ You can run `npm run lint` to show any style issues detected by `cpplint` and `e
 * Avoid platform-dependent code: 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
+* Using a plain `إرجاع` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null` or `undefined`
 
-## C++ and Python
+## C++ و Python
 
 For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
@@ -44,7 +44,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## تسمية الأشياء
 
 Electron APIs uses the same capitalization scheme as Node.js:
 

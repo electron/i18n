@@ -4,26 +4,26 @@ Different operating systems provide different features for integrating desktop a
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## الإشعارات
 
-See the [Notifications documentation](notifications.md).
+إطلع على [إشعارات التوثيق](notifications.md).
 
 ## المستندات الأخيرة
 
-See [Recent Documents documentation](recent-documents.md).
+إطلع على [أحدث وثائق التوثيق](recent-documents.md).
 
-## Progress Bar
+## شريط التقدم
 
-See the [Progress Bar documentation](progress-bar.md).
+إطلع على [شريط التقدم التوثيق](progress-bar.md).
 
 ## Unity Launcher
 
 See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-## Represented File for macOS Window
+## ملف العرض لـmacOS Window
 
-See the [Represented File documentation](represented-file.md).
+إطلع على [ملف العرض لتوثيق](represented-file.md).
 
-## Dragging files out of the window
+## سحب الملفات خارج النافذة
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+إطلع على [سحب الملف الأصلي & والإسقاط التوثيق](native-file-drag-drop.md).

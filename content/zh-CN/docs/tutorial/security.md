@@ -1,6 +1,6 @@
 # 安全性，原生能力和你的责任
 
-Web开发人员通常享有浏览器强大的网络安全特性，而自己的代码风险相对较小。 我们的网站从沙箱获得有限权限。我们坚信用户可以享受一个大的工程师团队构建的浏览器，因为他们能够快速响应新发现的安全威胁。
+Web开发人员通常享有浏览器强大的网络安全特性，而自己的代码风险相对较小。 Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
 当使用 Electron 时，很重要的一点是要理解 Electron 不是一个 Web 浏览器。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 这允许您构建更高质量的本机应用程序，但是内在的安全风险会随着授予您的代码的额外权力而增加。
 
@@ -26,7 +26,7 @@ Electron 保持与 Chromium 同步更新迭代。更多信息参见 [Electron �
 
 ## 隔离不信任的内容
 
-每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者以某种方式设法改变所述内容 (通过直接攻击源或者通过在应用和实际目的地之间进行攻击) ，他们将能够在用户的机器上执行本地代码。
 
 > :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
@@ -157,7 +157,7 @@ Even when you use `nodeIntegration: false` to enforce strong isolation and preve
 
 ### 为什么？
 
-上下文隔离使得每个运行在渲染器上的脚本无需担心改变JavaScript环境变量而与ElectronAPI或预加载脚本发生冲突。
+Context isolation allows each of the scripts running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
 While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
@@ -166,11 +166,11 @@ While still an experimental Electron feature, context isolation adds an addition
 ### 怎么做？
 
 ```js
-// Main process
+// 主进程
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
+    preload: 'preload.js'
   }
 })
 ```
@@ -305,8 +305,6 @@ CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资�
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
 ```
 
-#### `webRequest.onHeadersReceived([filter, ]listener)`
-
 ## 7) 不要设置`allowRunningInsecureContent`为`true`
 
 *Electron的默认值即是建议值。*
@@ -419,11 +417,11 @@ It is a good idea to control the creation of new [`<webview>`](../api/webview-ta
 
 Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
-Electron 可以让开发者关闭各种控制渲染进程的安全特性。 In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Electron 可以让开发者关闭各种控制渲染进程的安全特性。 通常情况下，开发者并不需要关闭他们中的任何一种 - 因此你不应该允许创建不同配置的[`<webview>`](../api/webview-tag.md)标签
 
 ### 怎么做？
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. 利用这个事件来阻止可能含有不安全选项的 `webViews` 创建。
+在 [`<webview>`](../api/webview-tag.md)标签生效前，Electron将产生一个`will-attach-webview`事件到`webContents`中。 利用这个事件来阻止可能含有不安全选项的 `webViews` 创建。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
