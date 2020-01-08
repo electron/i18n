@@ -26,7 +26,7 @@ Electron 保持与 Chromium 同步更新迭代。更多信息参见 [Electron �
 
 ## 隔离不信任的内容
 
-每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+每当你从不被信任的来源(如一个远程服务器)获取代码并在本地执行，其中就存在安全性问题。 例如在默认的 [`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者以某种方式设法改变所述内容 (通过直接攻击源或者通过在应用和实际目的地之间进行攻击) ，他们将能够在用户的机器上执行本地代码。
 
 > :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
@@ -166,11 +166,11 @@ While still an experimental Electron feature, context isolation adds an addition
 ### 怎么做？
 
 ```js
-// Main process
+// 主进程
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: path.join(app.getAppPath(), 'preload.js')
+    preload: 'preload.js'
   }
 })
 ```
