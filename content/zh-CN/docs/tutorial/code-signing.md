@@ -6,13 +6,13 @@ macOS 系统能通过代码签名检测对app的任何修改，包括意外修�
 
 在Windows系统中，如果程序没有代码签名证书，或者代码签名授信级别较低时，系统同样会将其列为可信程序，只是当用户运行该应用时，系统会显示安全提示。 确立授信级别的过程比较费时，因此最好提早开始着手代码签名的工作。
 
-即使开发者可以发布一个未签名的应用程序，但是我们并不建议这样做。 Both Windows and macOS will, by default, prevent either the download or the execution of unsigned applications. Starting with macOS Catalina (version 10.15), users have to go through multiple manual steps to open unsigned applications.
+即使开发者可以发布一个未签名的应用程序，但是我们并不建议这样做。 默认情况下，Windows和macOS都会禁止未签名的应用下载或运行。 从macOS Catalina（10.15版本）开始，用户需要操作数个步骤来运行一个未签名的应用。
 
 ![macOS Catalina Gatekeeper warning: The app cannot be opened because the developer cannot be verified](../images/gatekeeper.png)
 
-As you can see, users get two options: Move the app straight to the trash or cancel running it. You don't want your users to see that dialog.
+如你所见，用户有两个选择：直接删除应用或者取消运行。 你不会想让用户看见该对话框。
 
-If you are building an Electron app that you intend to package and distribute, it should be code-signed. The Mac and Windows app stores do not allow unsigned apps.
+如果你正在开发一款Electron应用，并打算将其打包发布，那你就应该为其添加代码签名。 Mac 和 Windows的应用商店中不允许出现未签名的应用程序。
 
 # 签署 macOS 应用程序
 
