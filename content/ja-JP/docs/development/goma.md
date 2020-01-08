@@ -42,4 +42,4 @@ ninja -C out/Testing electron -j 200
 
 ## アクセス
 
-現在、セキュリティとコストの理由により Electron Goma へのアクセスは Electron メンテナーに制限されています。  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+現在、セキュリティとコストの理由により Electron Goma へのアクセスは Electron メンテナーに制限されています。  アクセスしたい場合は、Slack の `#access-requests` にアクセスし、`@goma-squad` に連絡してアクセスを要求してください。  メンテナーであることはアクセスを *自動的に* 許可するものではなく、アクセスはその場に応じて許可されることに留意してください。
