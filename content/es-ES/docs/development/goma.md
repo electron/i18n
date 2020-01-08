@@ -42,4 +42,4 @@ Si accedes a [http://localhost:8088](http://localhost:8088) en tu máquina local
 
 ## Acceso
 
-Por seguridad y razones de costo, el acceso a Electron Goma está actualmente restringido para los mantenedores de Electron.  Si quieres acceder, por favor dirigase a `#access-requests` en Slack y pregunte a `@goma-squad` por el acceso.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+Por seguridad y razones de costo, el acceso a Electron Goma está actualmente restringido para los mantenedores de Electron.  Si quieres acceder, por favor dirigase a `#access-requests` en Slack y pregunte a `@goma-squad` por el acceso.  Por favor ten en cuenta que siendo un mantenedor no se concede *automáticamente* el acceso, y éste es determinado en caso por caso.
