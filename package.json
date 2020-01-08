@@ -64,7 +64,6 @@
     "prettier": "prettier --check \"./**/*.{ts,js}\"",
     "test-only": "tsc && mocha && prettier --check \"./**/*.{ts,js}\" --write",
     "prepack": "check-for-leaks",
-    "prepush": "check-for-leaks",
     "pretest": "npm run build",
     "semantic-release": "semantic-release",
     "upload-crowdin-glossary": "node script/upload-crowdin-glossary.js",
@@ -74,5 +73,10 @@
   "electronMasterBranchCommit": "e18acb4380ef8a7e299a0a6eea548cb39062318a",
   "engines": {
     "node": ">=10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "check-for-leaks"
+    }
   }
 }
