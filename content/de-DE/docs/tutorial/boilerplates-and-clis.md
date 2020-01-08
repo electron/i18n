@@ -6,17 +6,17 @@ That level of modularity and extendability ensures that all developers working w
 
 ## Boilerplate vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+"Boilerplates" kann man sich wie eine unbemalte Leinwand vorstellen, die als Einstiegspunkt für die Entwicklung einer Anwendung dienen. Sie liegen in der Regel in Form eines Repositories vor, das man klonen und anschließend nach eigenen Wünschen individualisieren kann.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+Kommandozeilenwerkzeuge (CLI) hingegen unterstützen den Entwickler auch weiterhin während den verschiedenen Phasen der Entwicklung und Veröffentlichung. Sie sind hilfreicher und wirken unterstützend, erzwingen aber diverse Richtlinien bezogen auf den Aufbau und die Struktur des Programms. *Speziell für Anfänger ist die Verwendung eines Befehlszeilenwerkzeugs häufig hilfreich*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+Ein "vollständiges Werkzeug für die Erstellung moderner Electron-Anwendungen". Electron Forge vereint die vorhandenen (und gut gepflegten) Build-Werkzeuge für die Electron-Entwicklung in ein zusammenhängendes Paket, mit dessen Hilfe jeder direkt in die Electron-Entwicklung einsteigen kann.
 
-Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge wird mit [einer einsatzbereiten Schablone](https://electronforge.io/templates) geliefert und nutzt Webpack als Modul-Packer. Es enthält eine beispielhafte TypeScript-Konfiguration und bietet zwei Konfigurationsdateien, um so eine einfache Anpassung zu ermöglichen. Außerdem verwendet es die gleichen Kernmodule, wie sie vom Großteil der Electron-Gemeinschaft (wie [`electron-packager`](https://github.com/electron/electron-packager)) genutzt werden - Benutzer von Forge profitieren von den Änderung, die von den Electron-Maintainern (wie bspw. Slack) vorgenommen werden.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Weitere Informationen und die Dokumentation ist auf [electronforge.io](https://electronforge.io/) verfügbar.
 
 ## electron-builder
 
