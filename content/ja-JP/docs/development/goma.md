@@ -28,7 +28,7 @@ cd electron/external_binaries/goma
 goma_ctl.py ensure_start
 ```
 
-## Building with Goma
+## Goma でのビルド
 
 When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.  Please do not set a value higher than **300**, we monitor the goma system and users found to be abusing it with unreasonable concurrency will be de-activated.
 
