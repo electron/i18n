@@ -6,29 +6,29 @@ Electron tiene un despliegue de un Goma Backend personalizado que hacemos dispon
 
 ## Enabling Goma
 
-Currently Electron Goma supports both Windows and Linux, we may add macOS support at some point in the future.  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
+Actualmente, Electron Goma soporta tanto Windows como Linux, podemos añadir soporte para macOS en el mismo punto en el futuro.  Si estás en una plataforma soportada puedes activar Goma importando el archivo de configuración `goma.gn` cuando usas `gn`.
 
 ```bash
 gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
 ```
 
-You must ensure that you do not have `cc_wrapper` configured, this means you can't use `sccache` or similar technology.
+Deberías asegurarte que no tengas configurado `cc_wrapper`, esto significa que no puedes usar `sccache` o alguna tecnología similar.
 
-Before you can use goma to build Electron you need to authenticate against the Goma service.  You only need to do this once per-machine.
+Antes que puedas usar goma para construir en Electron, necesitas autenticarte en el servicio de Goma.  Solamente necesitas hacer esto una vez por máquina.
 
 ```bash
 cd electron/external_binaries/goma
 goma_auth.py login
 ```
 
-Once authenticated you need to make sure the goma daemon is running on your machine.
+Una vez autenticado, necesitas asegurar que el daemon goma esté corriendo en tu máquina.
 
 ```bash
 cd electron/external_binaries/goma
 goma_ctl.py ensure_start
 ```
 
-## Building with Goma
+## Construyendo con Goma
 
 When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.  Please do not set a value higher than **300**, we monitor the goma system and users found to be abusing it with unreasonable concurrency will be de-activated.
 
