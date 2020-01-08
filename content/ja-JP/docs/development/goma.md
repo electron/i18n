@@ -1,10 +1,10 @@
 # Goma
 
-> Goma is a distributed compiler service for open-source projects such as Chromium and Android.
+> Goma は Chromium や Android などのオープンソースプロジェクト向けに公開されたコンパイラサービスです。
 
-Electron has a deployment of a custom Goma Backend that we make available to all Electron Maintainers.  See the [Access](#access) section below for details on authentication.
+Electron はカスタム Goma バックエンドのデプロイがあり、これはすべての Electron メンテナーが利用できます。  認証詳細情報については以下にある [アクセス](#access) の章を参照してください。
 
-## Enabling Goma
+## Goma を有効にする
 
 Currently Electron Goma supports both Windows and Linux, we may add macOS support at some point in the future.  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
 
