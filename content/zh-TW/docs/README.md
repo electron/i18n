@@ -45,6 +45,7 @@
   * [原生檔案拖放](tutorial/native-file-drag-drop.md)
   * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
   * [支援 macOS 的 Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [協助工具](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
