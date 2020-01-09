@@ -21,25 +21,25 @@ cd electron/external_binaries/goma
 goma_auth.py login
 ```
 
-Once authenticated you need to make sure the goma daemon is running on your machine.
+認証されたら Goma デーモンをマシンで必ず実行してください。
 
 ```bash
 cd electron/external_binaries/goma
 goma_ctl.py ensure_start
 ```
 
-## Building with Goma
+## Goma でのビルド
 
-When you are using Goma you can run `ninja` with a substantially higher `j` value than would normally be supported by your machine.  Please do not set a value higher than **300**, we monitor the goma system and users found to be abusing it with unreasonable concurrency will be de-activated.
+Goma を使用している場合、マシンで通常サポートされている値よりも大幅に大きい値の `j` で `ninja` を実行できます。  **300** を超える値を設定しないでください。Goma システムは監視されており、粗暴な並列実行で悪用していると判明したユーザーは無効化されます。
 
 ```bash
 ninja -C out/Testing electron -j 200
 ```
 
-## Monitoring Goma
+## Goma の監視
 
-If you access [http://localhost:8088](http://localhost:8088) on your local machine you can monitor compile jobs as they flow through the goma system.
+ローカルマシンで [http://localhost:8088](http://localhost:8088) にアクセスすると、Goma システムを通過するコンパイルジョブを監視できます。
 
 ## アクセス
 
-For security and cost reasons access to Electron Goma is currently restricted to Electron Maintainers.  If you want access please head to `#access-requests` in Slack and ping `@goma-squad` to ask for access.  Please be aware that being a maintainer does not *automatically* grant access and access is determined on a case by case basis.
+現在、セキュリティとコストの理由により Electron Goma へのアクセスは Electron メンテナーに制限されています。  アクセスしたい場合は、Slack の `#access-requests` にアクセスし、`@goma-squad` に連絡してアクセスを要求してください。  メンテナーであることはアクセスを *自動的に* 許可するものではなく、アクセスはその場に応じて許可されることに留意してください。
