@@ -45,6 +45,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Yerel dosya sürükle & bırak](tutorial/native-file-drag-drop.md)
   * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
   * [MacOS'da karanlık mod destekletmek](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Erişilebilirlik](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
