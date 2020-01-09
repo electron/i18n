@@ -45,6 +45,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [MacOS Dunkler Modus unterstützen](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Zugänglichkeit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
