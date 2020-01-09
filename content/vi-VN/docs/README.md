@@ -45,6 +45,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Kéo thả tệp native](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Hỗ trợ chế độ màn hình tối macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
