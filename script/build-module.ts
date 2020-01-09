@@ -17,8 +17,8 @@ const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
 import { parseElectronGlossary, IParseElectronGlossaryReturn } from '../lib/parse-electron-glossary'
-const bashFix = require('../lib/remark-bash-fix')
-const itsReallyJS = require('../lib/remark-its-really-js')
+import { bashFix } from '../lib/remark-bash-fix'
+import { itsReallyJS } from '../lib/remark-its-really-js'
 import { fiddleUrls } from '../lib/remark-fiddle-urls'
 import { plaintextFix } from '../lib/remark-plaintext-fix'
 
@@ -125,6 +125,9 @@ async function parseFile(file: $TSFixMe) {
       // fix HREF for relative links
       $('a').each((i, el) => {
         const href = $(el).attr('href')
+        if (!href) {
+          return
+        }
         const type = hrefType(href)
         if (type !== 'relative' && type !== 'rooted') return
         const dirname = path.dirname(file.href)
@@ -139,6 +142,9 @@ async function parseFile(file: $TSFixMe) {
         const baseUrl = 'https://cdn.rawgit.com/electron/electron'
         const dirname = path.dirname(file.href)
         let src = $(el).attr('src')
+        if (!src) {
+          return
+        }
         const type = hrefType(src)
         if (type !== 'relative' && type !== 'rooted') return
 
@@ -163,6 +169,7 @@ async function parseFile(file: $TSFixMe) {
   )
 
   // remove leftover file props from walk-sync
+  delete file.fullPath
   delete file.fullyPath
   delete file.mode
   delete file.size
