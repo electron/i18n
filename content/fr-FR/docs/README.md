@@ -45,6 +45,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
   * [Support du mode sombre sur macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibilité](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
