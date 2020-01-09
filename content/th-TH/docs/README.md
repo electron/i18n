@@ -45,6 +45,7 @@ Please make sure that you use the documents that match your Electron version. �
   * [เนทิฟไฟล์ ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
   * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
   * [O](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [การเข้าถึง](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
