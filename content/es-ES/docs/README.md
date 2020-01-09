@@ -45,6 +45,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Función nativa de arrastrar & soltar de archivos](tutorial/native-file-drag-drop.md)
   * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
   * [Soporte para Modo Oscuro macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accesibilidad](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
