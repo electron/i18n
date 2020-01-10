@@ -8,7 +8,7 @@ Electron の iframe は一般的なブラウザの iframe のように動作し�
 
 ## WebView
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[WebView](../api/webview-tag.md) は Chromium の WebView が基ですが、Electron には明示的にサポートされていません。 将来の Electron のバージョンでも WebView API が利用できる保証はありません。 これは、`<webview>` タグを使用する場合、`BrowserWindow` の `webPreferences` に内で `webviewTag` を `true` に設定する必要があるからです。
 
 WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
 
