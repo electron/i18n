@@ -4,11 +4,11 @@ Se vuoi incorporare contenuti web (di terze parti) in un `BrowserWindows` di Ele
 
 ## Iframes
 
-Gli Iframe in Electron si comportano come gli iframe nei broswer regulari. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Gli Iframe in Electron si comportano come gli iframe nei broswer regulari. Un `<iframe>`elemento nella tua pagina può mostrare pagine web esterne, premesso che la loro [Politica sulla Sicurezza del Contenuto](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) lo consenta. Per limitare la quantità delle capacità un sito in un `<iframe>` tag, si consiglia di usare l'[attributo `sandbox`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) e consente solo le capacità che vuoi supportare.
 
 ## WebViews
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+[WebViews](../api/webview-tag.md) si basano sulle WebViews di Chromium e non sono esplicitamente supportate da Electron. Non garantiamo che le API di WebView rimarranno disponibile nelle versioni future di Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
 
 WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
 
