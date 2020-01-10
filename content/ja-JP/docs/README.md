@@ -45,6 +45,7 @@
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
   * [macOS のダークモードのサポート](tutorial/mojave-dark-mode-guide.md)
+  * [Electron でのウェブ埋め込み](tutorial/web-embeds.md)
 * [アクセシビリティ](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

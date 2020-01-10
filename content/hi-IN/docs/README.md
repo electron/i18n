@@ -45,6 +45,7 @@
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [ऑफस्क्रीन रेंडरिंग](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [स्पेकट्रॉन](tutorial/accessibility.md#spectron)
   * [डेवट्रॉन](tutorial/accessibility.md#devtron)

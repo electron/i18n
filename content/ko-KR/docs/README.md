@@ -45,6 +45,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [기본 파일 드래그 & 드랍](tutorial/native-file-drag-drop.md)
   * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
   * [macOS 다크 모드 지원](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [접근성](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

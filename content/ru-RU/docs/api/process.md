@@ -30,7 +30,7 @@
 * `тип`
 * `версия`
 * `versions - Список с версиями и их зависимостями`
-* `сборкой Mac App Storek_5e15294f6c1536.12562385mas - Является ли сборкой Mac App Store`
+* `сборкой Mac App Storek_5e177e12b9e9c4.71465280mas - Является ли сборкой Mac App Store`
 * `windowsStore - Является ли приложением Windows Store (appx)`
 
 ## События

@@ -45,6 +45,7 @@
   * [Нативний Drag & Drop Файлу](tutorial/native-file-drag-drop.md)
   * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
   * [Підтримка темної теми macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Доступність](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
