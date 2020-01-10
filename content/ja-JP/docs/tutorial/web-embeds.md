@@ -10,12 +10,12 @@ Electron の iframe は一般的なブラウザの iframe のように動作し�
 
 [WebView](../api/webview-tag.md) は Chromium の WebView が基ですが、Electron には明示的にサポートされていません。 将来の Electron のバージョンでも WebView API が利用できる保証はありません。 これは、`<webview>` タグを使用する場合、`BrowserWindow` の `webPreferences` に内で `webviewTag` を `true` に設定する必要があるからです。
 
-WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
+WebView は、Electron 内でのみ機能するカスタム要素 (`<webview>`) です。 これは "プロセス外 iframe" として実装されています。 つまり、`<webview>` とのすべての通信は IPC を用いて非同期的に行われます。 `<webview>` 要素には `webContents` と似通った多くのカスタムメソッドやイベントがあり、コンテンツをより細かく制御できます。
 
-Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third party content and handling various events.
+`<iframe>`と比較して `<webview>` はやや遅い傾向がありますが、サードパーティコンテンツのロード、通信、さまざまなイベントの処理をより広く制御できます。
 
-## BrowserViews
+## BrowserView
 
-[BrowserViews](../api/browser-view.md) are not part of the DOM - instead, they are created in and controlled by your main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
+[BrowserViews](../api/browser-view.md) は DOM の一部ではなく、メインプロセスで作成および制御されます。 これは、既存のウィンドウ上に別のレイヤーでウェブコンテンツがあるだけです。 This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
 
 BrowserViews offer the greatest control over their contents, since they implement the `webContents` similarly to how a `BrowserWindow` implements it. However, they are not part of your DOM but are overlaid on top of them, which means you will have to manage their position manually.
