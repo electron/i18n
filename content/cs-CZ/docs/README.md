@@ -45,6 +45,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
   * [Podpora macOS tmavého módu [Dark Mode]](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

@@ -45,6 +45,7 @@
   * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
   * [5256783105227699](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)

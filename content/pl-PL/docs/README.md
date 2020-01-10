@@ -45,6 +45,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Natywne przeciąganie i upuszczanie plików](tutorial/native-file-drag-drop.md)
   * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
   * [Wsparcie dla Ciemnego Motywu w macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Dostępność](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
