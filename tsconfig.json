@@ -9,7 +9,6 @@
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "noEmit": true
+    "noImplicitAny": true
   }
 }
