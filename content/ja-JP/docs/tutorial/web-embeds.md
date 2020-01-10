@@ -1,4 +1,4 @@
-# Web embeds in Electron
+# Electron でのウェブ埋め込み
 
 Electron の `BrowserWindow` に (サードパーティ) ウェブコンテンツを埋め込みたい場合は、`<iframe>` タグ、`<webview>` タグ、 `BrowserView` の3つの選択肢があります。 それぞれ多少の異なる機能を提供しており、さまざまな状況で役立ちます。 これらの選択を支援するため、このガイドではそれぞれの違いと機能についてを説明しています。
 
@@ -16,6 +16,6 @@ WebView は、Electron 内でのみ機能するカスタム要素 (`<webview>`) 
 
 ## BrowserView
 
-[BrowserViews](../api/browser-view.md) は DOM の一部ではなく、メインプロセスで作成および制御されます。 これは、既存のウィンドウ上に別のレイヤーでウェブコンテンツがあるだけです。 This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
+[BrowserViews](../api/browser-view.md) は DOM の一部ではなく、メインプロセスで作成および制御されます。 これは、既存のウィンドウ上に別のレイヤーでウェブコンテンツがあるだけです。 つまり、作成してある `BrowserWindow` のコンテンツから完全に分離され、その位置は DOM や CSS によっては制御されず、メインプロセスで領域を設定します。
 
-BrowserViews offer the greatest control over their contents, since they implement the `webContents` similarly to how a `BrowserWindow` implements it. However, they are not part of your DOM but are overlaid on top of them, which means you will have to manage their position manually.
+BrowserView は `webContents` を `BrowserWindow` と同じように実装しているため、コンテンツを最大限に制御できます。 ただし、これは DOM の一部ではなく、画面上に重なります。つまり、その位置を手動で管理する必要があります。
