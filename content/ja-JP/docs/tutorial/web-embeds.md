@@ -1,12 +1,12 @@
 # Web embeds in Electron
 
-If you want to embed (third party) web content in an Electron `BrowserWindow`, there are three options available to you: `<iframe>` tags, `<webview>` tags, and `BrowserViews`. Each one offers slightly different functionality and is useful in different situations. To help you choose between these, this guide will explain the differences and capabilities of each.
+Electron の `BrowserWindow` に (サードパーティ) ウェブコンテンツを埋め込みたい場合は、`<iframe>` タグ、`<webview>` タグ、 `BrowserView` の3つの選択肢があります。 それぞれ多少の異なる機能を提供しており、さまざまな状況で役立ちます。 これらの選択を支援するため、このガイドではそれぞれの違いと機能についてを説明しています。
 
-## Iframes
+## iframe
 
-Iframes in Electron behave like iframes in regular browsers. An `<iframe>` element in your page can show external web pages, provided that their [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows it. To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Electron の iframe は一般的なブラウザの iframe のように動作します。 [コンテンツセキュリティポリシー (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) で許可されている場合、ページの `<iframe>` 要素に外部ウェブページを表示できます。 `<iframe>` タグ内のサイト機能を制限するには、[`sandbox` 属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) を使用してサポートしたい機能のみを許可することを推奨します。
 
-## WebViews
+## WebView
 
 [WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
 
