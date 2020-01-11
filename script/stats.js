@@ -1,11 +1,12 @@
 #!/usr/bin/env ts-node
-
-import got from 'got'
-import * as fs from 'fs'
-import * as path from 'path'
+'use strict'
+Object.defineProperty(exports, '__esModule', { value: true })
+const got_1 = require('got')
+const fs = require('fs')
+const path = require('path')
 const url = 'https://electronjs.org/crowdin/status'
-
-got(url)
+got_1
+  .default(url)
   .json()
   .then(body => {
     fs.writeFileSync(
