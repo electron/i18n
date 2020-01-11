@@ -45,7 +45,7 @@ Alcune domande vengono poste molto spesso. Cercate con attenzione questa lista p
   * [Trascina & Rilascia File Nativo](tutorial/native-file-drag-drop.md)
   * [Rendering Offscreen](tutorial/offscreen-rendering.md)
   * [Supporto per la modalità "Dark" di macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Incorporamenti web in Electron](tutorial/web-embeds.md)
 * [Accessibilità](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
