@@ -25,23 +25,23 @@ Electron
 |   |   └── remote/ - メインプロセスで使用される
 |   |                 リモートモジュールに関連したコード。
 |   ├── common/ - メインとレンダラー両方のプロセスに必要なロジックに関連するものです。
-|   |   └── api/ - API implementation for modules that can be used in
-|   |              both the main and renderer processes
-|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
-|   |                        contextIsolation is enabled.
-|   ├── renderer/ - Renderer process initialization code.
-|   |   ├── api/ - API implementation for renderer process modules.
-|   |   ├── extension/ - Code related to use of Chrome Extensions
-|   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handes use of the remote module in
-|   |   |             the main process.
-|   |   └── web-view/ - Logic that handles the use of webviews in the
-|   |                   renderer process.
-|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
-|   |   |                     processes.
-|   |   └── api/ - API implementation for sandboxed renderer processes.
-|   └── worker/ - Logic that handles proper functionality of Node.js
-|                 environments in Web Workers.
+|   |   └── api/ - メインとレンダラー両方のプロセスに必要な
+|   |              モジュール API の実装
+|   ├── isolated_renderer/ - contextIsolation が有効なとき
+|   |                       イソレートレンダラープロセスの作成を処理します。
+|   ├── renderer/ - レンダラープロセス初期化コード。
+|   |   ├── api/ - レンダラープロセスモジュール API の実装。
+|   |   ├── extension/ - Electron レンダラープロセスでの
+|   |   |                Chrome 拡張機能の使用に関連したコード。
+|   |   ├── remote/ - メインプロセスでの remote モジュールの
+|   |   |             使用を処理するロジック。
+|   |   └── web-view/ - レンダラープロセスでの webview の
+|   |                   使用を処理するロジック。
+|   ├── sandboxed_renderer/ - サンドボックスレンダラープロセスの作成を処理する
+|   |   |                     ロジック。
+|   |   └── api/ - サンドボックスレンダラープロセス API の実装。
+|   └── worker/ - Web Worker で Node.js 環境の適切な機能を
+|                 処理するロジック。
 ├── patches/ - Patches applied on top of Electron's core dependencies
 |   |          in order to handle differences between our use cases and
 |   |          default functionality.
