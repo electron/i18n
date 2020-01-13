@@ -1,4 +1,4 @@
-# Electron Application Architecture
+# Electron 애플리케이션 아키텍처
 
 Electron의 API를 살펴보기에 앞서 Electron 에서 사용할 수 있는 두 가지 프로세스 타입에 대해서 논의해 보아야 합니다. 이 둘은 근본적으로 다르기 때문에 자세히 이해할 필요가 있습니다.
 
@@ -82,7 +82,7 @@ npm install --save aws-sdk
 그런 다음, Electron 응용 프로그램에서, Node.js 응용 프로그램을 빌드하는것 처럼 모듈을 require 하고 사용합니다.
 
 ```javascript
-// A ready-to-use S3 Client
+// 즉시 사용 가능한 S3 클라이언트
 const S3 = require('aws-sdk/clients/s3')
 ```
 
