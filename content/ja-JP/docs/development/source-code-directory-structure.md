@@ -42,14 +42,13 @@ Electron
 |   |   └── api/ - サンドボックスレンダラープロセス API の実装。
 |   └── worker/ - Web Worker で Node.js 環境の適切な機能を
 |                 処理するロジック。
-├── patches/ - Patches applied on top of Electron's core dependencies
-|   |          in order to handle differences between our use cases and
-|   |          default functionality.
-|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
-|   ├── chromium/ - Patches applied to Chromium.
-|   ├── node/ - Patches applied on top of Node.js.
-|   └── v8/ - Patches applied on top of Google's V8 engine.
-├── shell/ - C++ source code.
+├── patches/ - ユースケースと元の機能との差異を扱うために、
+|   |          Electron のコア依存関係上に適用されたパッチ。
+|   ├── boringssl/ - Google の OpenSSL フォークである BoringSSL に適用されているパッチ。
+|   ├── chromium/ - Chromium に適用されているパッチ。
+|   ├── node/ - Node.js 上に適用されているパッチ。
+|   └── v8/ - Google の V8 エンジンの上に適用されているパッチ。
+├── shell/ - C++ ソースコード。
 |   ├── app/ - システムのエントリコード。
 |   ├── browser/ - メインウィンドウ、UI と
 |   |   |          メインプロセスの全てを含むフロントエンド。 これはレンダラーと連絡して Web ページを
@@ -69,19 +68,19 @@ Electron
 |       |         メインプロセスとレンダラープロセスの両方で使用されるコード。
 |       └── api/ - 共通の API の実装と、
 |                  Electron の組み込みモジュールの基礎。
-├── spec/ - Components of Electron's test suite run in the renderer process.
-├── spec-main/ - Components of Electron's test suite run in the main process.
+├── spec/ - レンダラープロセスで実行される Electron の連続テストのコンポーネント。
+├── spec-main/ - メインプロセスで実行される Electron の連続テストのコンポーネント。
 └── BUILD.gn - Electronのビルドルール。
 ```
 
 ## その他のディレクトリの構造
 
-* **.circleci** - Config file for CI with CircleCI.
-* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
+* **.circleci** - CircleCI を使用した CI のコンフィグファイル。
+* **.github** - Issue のテンプレートとコード所有者を含む GitHub 指定のコンフィグファイル。
 * **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
 * **external_binaries** - `gn`によるビルドがサポートされていない第三者のフレームワークのバイナリでダウンロードしたもの。
 * **node_modules** - ビルドに使用する第三者のnodeモジュール。
-* **npm** - Logic for installation of Electron via npm.
+* **npm** - npm を介した Electron のインストールロジック。
 * **out** - `ninja`の一時的な出力用ディレクトリ。
 * **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
 
