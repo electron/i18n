@@ -8,16 +8,16 @@ Electron のソースコードは、いくつかの部分に分けられてい�
 
 ```diff
 Electron
-├── build/ - Build configuration files needed to build with GN.
-├── buildflags/ - Determines the set of features that can be conditionally built.
-├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
-├── default_app/ - A default app run when Electron is started without
-|                  providing a consumer app.
-├── docs/ - Electron's documentation.
-|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
-|   ├── development/ - Documentation to aid in developing for and with Electron.
-|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
-|   ├── images/ - Images used in documentation.
+├── build/ - GN でビルドするために必要なコンフィグファイルをビルドします。
+├── buildflags/ - 条件付きビルドに使用できる機能の集合を定義します。
+├── chromium_src/ - コンテンツレイヤーの一部でない Chromium からコピーされたソースコード。
+├── default_app/ - 消費者向けアプリ以外から Electron が起動されたときに
+|                  実行されるデフォルトアプリ。
+├── docs/ - Electron のドキュメント。
+|   ├── api/ - Electron の外部向けモジュールと API のドキュメント。
+|   ├── development/ - Electron の開発と Electron による開発の支援ドキュメント。
+|   ├── fiddles/ - Electron Fiddle で実行できるコードスニペットの集合。
+|   ├── images/ - ドキュメントで使用される画像。
 |   └── tutorial/ - Tutorial documents for various aspects of Electron.
 ├── lib/ - JavaScript/TypeScript source code.
 |   ├── browser/ - Main process initialization code.
