@@ -1,4 +1,4 @@
-# FilePathWithHeaders Object
+# FilePathWithHeaders 객체
 
 * `path` String - The path to the file to send.
 * `headers` Record<string, string> (optional) - Additional headers to be sent.
