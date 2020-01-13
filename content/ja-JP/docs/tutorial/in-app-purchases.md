@@ -39,7 +39,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
   // それぞれのトランザクションを確認します。
   transactions.forEach(function (transaction) {
-    var payment = transaction.payment
+    let payment = transaction.payment
 
     switch (transaction.transactionState) {
       case 'purchasing':
@@ -49,7 +49,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // 領収書の URL を取得します。
+        // Get the receipt url.
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
