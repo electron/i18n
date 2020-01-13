@@ -16,13 +16,13 @@ nav:
   governance: 운영 방식
 keyboard_modal:
   title: 키보드 단축기
-  key: Key
-  action: 사용내역
-  focus_search: 검색 창 선택
+  key: 키
+  action: 동작
+  focus_search: 검색 창 포커싱
   focus_and_clear: 검색 창을 포커싱하고 내용 비우기
-  scroll_down: 이전 검색 결과 선택
+  scroll_down: 다음 검색 결과 선택
   scroll_up: 이전 검색 결과 선택
-  open: 새 탭에서 선택된 검색 결과 열기
+  open: 선택된 검색 결과 열기
   open_new_tab: 새 탭에서 선택된 검색 결과 열기
 docs:
   title: Electron 문서
@@ -215,8 +215,8 @@ pages:
     title: Electron Fiddle
     description: Electron을 시작하기에 가장 쉬운 방법
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Electron 운영방식
+    description: Electron 운영 시스템은 Electron 생태계의 여러 측면을 감독하는 실무 그룹과 이들 간의 충돌을 해결하는 기능을하는 관리 실무 그룹으로 구성됩니다.
   '/donors':
     title: 후원자
 landing:
@@ -234,24 +234,24 @@ landing:
     easy_start: Fiddle로 시작하고, 어디서든 계속하기
     easy_start_desc: Fiddle은 IDE가 아닙니다. – 하지만 좋은 시작점인 건 확실합니다. fiddle이 커지면, <a href="https://electronforge.io/">electron-forge</a>를 쓰거나 쓰지 않고 추출할 수 있습니다. 그리고, 마음에 드시는 에디터를 사용하여 세계 정복을 노려볼 수 있지요.
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  title: Electron 운영방식
+  description: Electron 운영 시스템은 Electron 생태계의 여러 측면을 감독하는 실무 그룹과 이들 간의 충돌을 해결하는 기능을하는 관리 실무 그룹으로 구성됩니다.
+  wgs: 실무 그룹
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: 생태계
+    description: Electron 앱 개발을보다 쉽게 만드는 프로젝트를 감독합니다.
   outreach:
-    title: Outreach
-    description: Grows the Electron community
+    title: 지원 활동
+    description: Electron 커뮤니티를 성장시킵니다
   releases:
     title: 출시
-    description: Oversees all release branches, and tooling to support releases.
+    description: 모든 릴리스 분기 및 릴리스를 지원하는 툴을 감독합니다.
   upgrades:
     title: 업그레이드
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: Chromium, Node와 같은 업스트림 종속성의 업그레이드를 감독합니다.
   cmsf:
-    title: Community & Safety
-    description: Oversees removal/bans from community.
+    title: 커뮤니티 & 안전
+    description: 커뮤니티의 삭제 / 금지를 감독합니다.
   security:
     title: 보안
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
