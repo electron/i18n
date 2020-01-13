@@ -39,7 +39,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
   // 检查每一笔交易.
   transactions.forEach(function (transaction) {
-    var payment = transaction.payment
+    let payment = transaction.payment
 
     switch (transaction.transactionState) {
       case 'purchasing':
@@ -49,7 +49,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // 获取收据的url.
+        // Get the receipt url.
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
