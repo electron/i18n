@@ -39,7 +39,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
   // それぞれのトランザクションを確認します。
   transactions.forEach(function (transaction) {
-    var payment = transaction.payment
+    let payment = transaction.payment
 
     switch (transaction.transactionState) {
       case 'purchasing':

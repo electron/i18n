@@ -5,15 +5,15 @@
 我们将用 Node.js 的 [child_process](https://nodejs.org/api/child_process.html) API 来创建一个自定义驱动。 测试套件将生成 Electron 子进程，然后建立一个简单的消息传递协议。
 
 ```js
-var childProcess = require('child_process')
-var electronPath = require('electron')
+const childProcess = require('child_process')
+const electronPath = require('electron')
 
-// 生成进程
-var env = { /* ... */ }
-var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+// spawn the process
+let env = { /* ... */ }
+let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// 从应用侦听IPC消息
+// listen for IPC messages from the app
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -50,7 +50,7 @@ class TestDriver {
     // handle rpc responses
     this.process.on('message', (message) => {
       // pop the handler
-      var rpcCall = this.rpcCalls[message.msgId]
+      let rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -70,7 +70,7 @@ class TestDriver {
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
     // send rpc request
-    var msgId = this.rpcCalls.length
+    let msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -89,13 +89,13 @@ if (process.env.APP_TEST_DRIVER) {
 }
 
 async function onMessage ({ msgId, cmd, args }) {
-  var method = METHODS[cmd]
+  let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    var resolve = await method(...args)
+    let resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    var reject = {
+    let reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -116,10 +116,10 @@ const METHODS = {
 然后, 在测试套件中, 可以按如下方式使用测试驱动程序:
 
 ```js
-var test = require('ava')
-var electronPath = require('electron')
+const test = require('ava')
+const electronPath = require('electron')
 
-var app = new TestDriver({
+let app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

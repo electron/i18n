@@ -31,7 +31,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
   * [Node.js API 사용하기](tutorial/application-architecture.md#using-nodejs-apis)
   * [기본 Node.js 모듈 사용하기](tutorial/using-native-node-modules.md)
-  * [Performance Strategies](tutorial/performance.md)
+  * [성능 전략](tutorial/performance.md)
 * 여러분의 앱에 기능 추가하기 
   * [알림(Notifications)](tutorial/notifications.md)
   * [최근 문서](tutorial/recent-documents.md)
@@ -45,7 +45,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [기본 파일 드래그 & 드랍](tutorial/native-file-drag-drop.md)
   * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
   * [macOS 다크 모드 지원](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Electron에서의 웹 삽입](tutorial/web-embeds.md)
 * [접근성](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -72,7 +72,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [서버에 업데이트 배포](tutorial/updates.md#deploying-an-update-server)
   * [앱에 업데이트 구현하기](tutorial/updates.md#implementing-updates-in-your-app)
   * [업데이트 적용](tutorial/updates.md#applying-updates)
-* [Getting Support](tutorial/support.md)
+* [지원받기](tutorial/support.md)
 
 ## 자세한 튜토리얼
 
@@ -84,14 +84,14 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [문제 해결](tutorial/installation.md#troubleshooting)
 * Electron 릴리즈 & 개발자 피드백 
   * [버저닝 정책](tutorial/electron-versioning.md)
-  * [Release Timelines](tutorial/electron-timelines.md)
-  * [App Feedback Program](tutorial/app-feedback-program.md)
+  * [출시 일정](tutorial/electron-timelines.md)
+  * [앱 피드백 프로그램](tutorial/app-feedback-program.md)
 * [asar로 앱 소스 코드 패키징](tutorial/application-packaging.md) 
   * [asar 아카이브 생성하기](tutorial/application-packaging.md#generating-asar-archives)
   * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)
   * [제한 사항](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar 아카이브에 압축 해제된 파일 추가하기](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Widevine CDM 테스트](tutorial/testing-widevine-cdm.md)
 * [Pepper Flash 플러그인 사용하기](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -102,7 +102,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 
 * [개요](api/synopsis.md)
 * [프로세스 개체](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [지원되는 명령행 스위치](api/command-line-switches.md)
 * [환경 변수](api/environment-variables.md)
 * [중요한 API 변화](api/breaking-changes.md)
 

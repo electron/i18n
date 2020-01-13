@@ -8,7 +8,48 @@ Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그
 
 ```diff
 Electron
-├── atom/ - C++ 소스 코드.
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
+├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── default_app/ - A default app run when Electron is started without
+|                  providing a consumer app.
+├── docs/ - Electron's documentation.
+|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
+|   ├── development/ - Documentation to aid in developing for and with Electron.
+|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
+|   ├── images/ - Images used in documentation.
+|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── lib/ - JavaScript/TypeScript source code.
+|   ├── browser/ - Main process initialization code.
+|   |   ├── api/ - API implementation for main process modules.
+|   |   └── remote/ - Code related to the remote module as it is
+|   |                 used in the main process.
+|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── api/ - API implementation for modules that can be used in
+|   |              both the main and renderer processes
+|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
+|   |                        contextIsolation is enabled.
+|   ├── renderer/ - Renderer process initialization code.
+|   |   ├── api/ - API implementation for renderer process modules.
+|   |   ├── extension/ - Code related to use of Chrome Extensions
+|   |   |                in Electron's renderer process.
+|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   |             the main process.
+|   |   └── web-view/ - Logic that handles the use of webviews in the
+|   |                   renderer process.
+|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
+|   |   |                     processes.
+|   |   └── api/ - API implementation for sandboxed renderer processes.
+|   └── worker/ - Logic that handles proper functionality of Node.js
+|                 environments in Web Workers.
+├── patches/ - Patches applied on top of Electron's core dependencies
+|   |          in order to handle differences between our use cases and
+|   |          default functionality.
+|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
+|   ├── chromium/ - Patches applied to Chromium.
+|   ├── node/ - Patches applied on top of Node.js.
+|   └── v8/ - Patches applied on top of Google's V8 engine.
+├── shell/ - C++ source code.
 |   ├── app/ - 시스템 엔트리 코드.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
@@ -28,34 +69,35 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Chromium에서 복사하여 가져온 소스 코드. 아래를 참조하세요.
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
-├── docs/ - 참조 문서.
-├── lib/ - JavaScript 소스 코드.
-|   ├── browser/ - Javascript 메인 프로세스 초기화 코드.
-|   |   └── api/ - Javascript API 구현 코드.
-|   ├── common/ - 메인과 렌더러 프로세스에서 모두 사용하는 JavaScript
-|   |   └── api/ - Javascript API 구현 코드.
-|   └── renderer/ - Javascript 렌더러 프로세스 초기화 코드.
-|       └── api/ - Javascript API 구현 코드.
-├── spec/ - 자동화 테스트.
+├── spec/ - Components of Electron's test suite run in the renderer process.
+├── spec-main/ - Components of Electron's test suite run in the main process.
 └── BUILD.gn - Electron의 빌드 규칙.
 ```
 
-## `/chromium_src`
-
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
-
 ## 그외 디렉터리 구조
 
-* **script** - 개발목적으로 사용되는 빌드, 패키징, 테스트, 기타등을 실행하는 스크립트.
-* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - 소스 코드의 서드파티 의존성 코드 소스 코드 디렉터리가 겹쳐 혼란을 일으킬 수 있기 때문에 `third_party`와 같은 Chromium 소스 코드 디렉터리에서 사용된 폴더 이름은 사용하지 않았습니다.
-* **node_modules** - 빌드에 사용되는 node 서드파티 모듈.
-* **out** - ninja의 임시 출력 디렉터리.
+* **.circleci** - Config file for CI with CircleCI.
+* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - 배포용 바이너리를 빌드할 때 사용하는 script/create-dist.py 스크립트로부터 만들어지는 임시 디렉터리.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **node_modules** - 빌드에 사용되는 node 서드파티 모듈.
+* **npm** - Logic for installation of Electron via npm.
+* **out** - ninja의 임시 출력 디렉터리.
+* **script** - 개발목적으로 사용되는 빌드, 패키징, 테스트, 기타등을 실행하는 스크립트.
+
+```diff
+script/ - The set of all scripts Electron runs for a variety of purposes.
+├── codesign/ - Fakes codesigning for Electron apps; used for testing.
+├── lib/ - Miscellaneous python utility scripts.
+└── release/ - Scripts run during Electron's release process.
+    ├── notes/ - Generates release notes for new Electron versions.
+    └── uploaders/ - Uploads various release-related files during release.
+```
+
+* **도구** - Helper scripts used by GN files. 
+  * Scripts put here should never be invoked by users directly, unlike those in `script`.
+* **typings** - TypeScript typings for Electron's internal code.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
 ## Git 서브 모듈 최신 버전으로 유지
 
@@ -64,8 +106,8 @@ Electron 저장소는 몇 가지 외부 벤더 의존성을 가지고 있으며 
 ```sh
 $ git status
 
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (new commits)
+  modified:   vendor/boto (new commits)
 ```
 
 이 외부 의존성 모듈들을 업데이트 하려면, 다음 커맨드를 실행합니다:
@@ -78,5 +120,5 @@ git submodule update --init --recursive
 
 ```sh
 [alias]
-	su = submodule update --init --recursive
+  su = submodule update --init --recursive
 ```

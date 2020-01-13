@@ -8,7 +8,47 @@ Electron のソースコードは、いくつかの部分に分けられてい�
 
 ```diff
 Electron
-├── atom/ - C++ のソースコード。
+├── build/ - GN でビルドするために必要なコンフィグファイルをビルドします。
+├── buildflags/ - 条件付きビルドに使用できる機能の集合を定義します。
+├── chromium_src/ - コンテンツレイヤーの一部でない Chromium からコピーされたソースコード。
+├── default_app/ - 消費者向けアプリ以外から Electron が起動されたときに
+|                  実行されるデフォルトアプリ。
+├── docs/ - Electron のドキュメント。
+|   ├── api/ - Electron の外部向けモジュールと API のドキュメント。
+|   ├── development/ - Electron の開発と Electron による開発の支援ドキュメント。
+|   ├── fiddles/ - Electron Fiddle で実行できるコードスニペットの集合。
+|   ├── images/ - ドキュメントで使用される画像。
+|   └── tutorial/ - Electron のさまざまな観点におけるチュートリアルドキュメント。
+├── lib/ - JavaScript/TypeScript ソースコード。
+|   ├── browser/ - メインプロセス初期化コード。
+|   |   ├── api/ - メインプロセスモジュール API の実装。
+|   |   └── remote/ - メインプロセスで使用される
+|   |                 リモートモジュールに関連したコード。
+|   ├── common/ - メインとレンダラー両方のプロセスに必要なロジックに関連するものです。
+|   |   └── api/ - メインとレンダラー両方のプロセスに必要な
+|   |              モジュール API の実装
+|   ├── isolated_renderer/ - contextIsolation が有効なとき
+|   |                       イソレートレンダラープロセスの作成を処理します。
+|   ├── renderer/ - レンダラープロセス初期化コード。
+|   |   ├── api/ - レンダラープロセスモジュール API の実装。
+|   |   ├── extension/ - Electron レンダラープロセスでの
+|   |   |                Chrome 拡張機能の使用に関連したコード。
+|   |   ├── remote/ - メインプロセスでの remote モジュールの
+|   |   |             使用を処理するロジック。
+|   |   └── web-view/ - レンダラープロセスでの webview の
+|   |                   使用を処理するロジック。
+|   ├── sandboxed_renderer/ - サンドボックスレンダラープロセスの作成を処理する
+|   |   |                     ロジック。
+|   |   └── api/ - サンドボックスレンダラープロセス API の実装。
+|   └── worker/ - Web Worker で Node.js 環境の適切な機能を
+|                 処理するロジック。
+├── patches/ - ユースケースと元の機能との差異を扱うために、
+|   |          Electron のコア依存関係上に適用されたパッチ。
+|   ├── boringssl/ - Google の OpenSSL フォークである BoringSSL に適用されているパッチ。
+|   ├── chromium/ - Chromium に適用されているパッチ。
+|   ├── node/ - Node.js 上に適用されているパッチ。
+|   └── v8/ - Google の V8 エンジンの上に適用されているパッチ。
+├── shell/ - C++ ソースコード。
 |   ├── app/ - システムのエントリコード。
 |   ├── browser/ - メインウィンドウ、UI と
 |   |   |          メインプロセスの全てを含むフロントエンド。 これはレンダラーと連絡して Web ページを
@@ -28,34 +68,35 @@ Electron
 |       |         メインプロセスとレンダラープロセスの両方で使用されるコード。
 |       └── api/ - 共通の API の実装と、
 |                  Electron の組み込みモジュールの基礎。
-├── chromium_src/ - Chromium からコピーされたコード。 以下をご覧ください
-├── default_app/ - app を提供せずに Electron を起動したときに
-|                  表示されるデフォルトページ。
-├── docs/ - ドキュメント
-├── lib/ - JavaScript のソースコード。
-|   ├── browser/ - Javascript メインプロセス初期化コード。
-|   |   └── api/ - Javascript API 実装。
-|   ├── common/ - メインとレンダラープロセスの両方から使用される JavaScript
-|   |   └── api/ - Javascript API 実装。
-|   └── renderer/ - Javascript レンダラープロセス初期化コード。
-|       └── api/ - Javascript API 実装。
-├── spec/ - 自動テスト。
+├── spec/ - レンダラープロセスで実行される Electron の連続テストのコンポーネント。
+├── spec-main/ - メインプロセスで実行される Electron の連続テストのコンポーネント。
 └── BUILD.gn - Electronのビルドルール。
 ```
 
-## `/chromium_src`
-
-`/chromium_src` 内のファイルは、そのコンテンツレイヤーの一部ではなく Chromium の断片である傾向があります。 例えば Pepper APIを実装するには、公式の Chrome が行うものと同様の配置が必要です。 関連するソースを [libcc](../glossary.md#libchromiumcontent) の一部として作成することもできますが、ほとんどの場合、すべての機能を必要とするわけではありません (いくつかはプロプライエタリな、分析的なものになる傾向があります)。そのため私たちはコードの一部を取得しました。 これらは libcc のパッチにできるかもしれませんが、libcc の目的は非常に最小限のパッチを維持することであり、これらが書かれた時点で chromium_src の変更は大きなものになる傾向があります。 更に、これらのパッチは現在保守している他の libcc パッチとは異なり、決してアップストリームになることはありません。
-
 ## その他のディレクトリの構造
 
-* **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
-* **tools** - GN ファイルで使用されるヘルパースクリプト。`script` とは異なり、ここに配置されたスクリプトはユーザーが直接呼び出すことはできません。
-* **vendor** - 第三者の依存関係のソースコード。Chromiumのソースコードツリーと同じディレクトリがあると混乱しかねないため、`third_party`の名前を使用しません。
-* **node_modules** - ビルドに使用する第三者のnodeモジュール。
-* **out** - `ninja`の一時的な出力用ディレクトリ。
+* **.circleci** - CircleCI を使用した CI のコンフィグファイル。
+* **.github** - Issue のテンプレートとコード所有者を含む GitHub 指定のコンフィグファイル。
 * **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
 * **external_binaries** - `gn`によるビルドがサポートされていない第三者のフレームワークのバイナリでダウンロードしたもの。
+* **node_modules** - ビルドに使用する第三者のnodeモジュール。
+* **npm** - npm を介した Electron のインストールロジック。
+* **out** - `ninja`の一時的な出力用ディレクトリ。
+* **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
+
+```diff
+script/ - Electron がさまざまな目的で実行するすべてのスクリプトの集合。
+├── codesign/ - Electron アプリのコード署名を偽装します。テスト用です。
+├── lib/ - その他の Python のユーティリティスクリプト。
+└── release/ - Electron のリリースプロセス中に実行されるスクリプト。
+    ├── notes/ - 新しいバージョンの Electron のリリースノートを生成します。
+    └── uploaders/ - リリース中にさまざまなリリースに関するファイルをアップロードします。
+```
+
+* **ツール** - GN ファイルで使用されるヘルパースクリプト。 
+  * ここに配置されたスクリプトは、`script` のスクリプトと違ってユーザーが直接呼び出せません。
+* **typings** - Electron 内部コードの TypeScript 型定義。
+* **vendor** - `boto` や `requests` など、サードパーティの依存関係のソースコード。
 
 ## Git Submodules を最新に保つ
 
@@ -64,8 +105,8 @@ Electron
 ```sh
 $ git status
 
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (new commits)
+  modified:   vendor/boto (new commits)
 ```
 
 これらのベンダー依存関係を更新するには次のコマンドを実行します。
@@ -78,5 +119,5 @@ git submodule update --init --recursive
 
 ```sh
 [alias]
-    su = submodule update --init --recursive
+  su = submodule update --init --recursive
 ```

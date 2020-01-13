@@ -40,8 +40,8 @@ $ npm run build && npm test
 Vous pouvez rendre la suite de tests plus rapide en isolant le test spécifique ou bloc que vous travaillez actuellement à l’aide de la fonctionnalité [tests exclusifs](https://mochajs.org/#exclusive-tests) de Mocha. Ajoutez `.only` pour chaque appel aux fonctions `describe` ou `it`:
 
 ```js
-describe.only('some feature', function () {
-  // ... Seuls les tests dans ce bloc seront lancés
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 
