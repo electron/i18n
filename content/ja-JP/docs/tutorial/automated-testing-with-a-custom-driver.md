@@ -8,12 +8,12 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// spawn the process
+// プロセスを生成
 let env = { /* ... */ }
 let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// listen for IPC messages from the app
+// アプリからの IPC メッセージをリッスンする
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -43,13 +43,13 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
+    // 子プロセスを開始
+    env.APP_TEST_DRIVER = 1 // メッセージをリッスンする必要があることをアプリに知らせる
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
+    // rpc レスポンスをハンドル
     this.process.on('message', (message) => {
-      // pop the handler
+      // ハンドラを消去
       let rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
@@ -58,7 +58,7 @@ class TestDriver {
       else rpcCall.resolve(message.resolve)
     })
 
-    // wait for ready
+    // 準備できるまで待つ
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,10 +66,10 @@ class TestDriver {
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
+  // ↓を使うための簡単な RPC 呼び出し
+  // driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
-    // send rpc request
+    // rpc リクエストを送る
     let msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // 必要であれば何かセットアップする
     return true
   }
-  // define your RPC-able methods here
+  // RPC 可能なメソッドをここに定義する
 }
 ```
 
