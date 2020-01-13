@@ -8,7 +8,7 @@ Windows 및 macOS는 각각 JumpList 또는 Dock 메뉴를 통해 애플리케�
 
 **dock menu 애플리케이션:**
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS 독 메뉴](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 파일을 최근 문서에 추가하려면 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API를 사용할 수 있습니다:
 
