@@ -40,8 +40,8 @@ $ npm run build && npm test
 يمكنك جعل مجموعة اختبار تشغيل أسرع بعزل اختبار محدد أو كتلة كنت تعمل حاليا على استخدام ميزة [اختبارات الحصري](https://mochajs.org/#exclusive-tests) في موكا. Append `.only` to any `describe` or `it` function call:
 
 ```js
-describe.only('some feature', function () {
-  // ... سيتم تشغيل التجارب على هذا الشطر 
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 
