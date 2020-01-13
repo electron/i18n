@@ -40,8 +40,8 @@ $ npm run build && npm test
 모카의 [전용 테스트](https://mochajs.org/#exclusive-tests) 기능을 사용해서 특정 테스트 또는 블록을 분리하여 테스트 세트 실행을 빠르게 할 수 있습니다. Append `.only` to any `describe` or `it` function call:
 
 ```js
-describe.only('some feature', function () {
-  // ... 이 블록에서는 테스트만 실행될 것 입니다.
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 
