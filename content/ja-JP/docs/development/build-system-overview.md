@@ -40,8 +40,8 @@ $ npm run build && npm test
 Mochaの[限定テスト (exclusive tests)](https://mochajs.org/#exclusive-tests)機能を使用することで、特定のテストやブロックを切り離すことが出来、一連のテストを早く終わらせることが出来ます。 `.only`を`describe` や `it` に追加してください。
 
 ```js
-describe.only('some feature', function () {
-  // このブロックのテストのみが実行されます
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 
