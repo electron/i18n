@@ -50,13 +50,13 @@ Apple's Mac App Store의 약자입니다. MAS에 앱을 제출하는 방법에 �
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+프로세스 간 또는 프로세스 간 통신을위한 IPC 시스템이며, 이는 메모리 압박 등에 따라 작업을 별도의 프로세스로 분할 할 수 있는지 여부에 관심이 있기 때문에 중요합니다.
 
 https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md 을 확인하세요.
 
-### native modules
+### 네이티브 모듈
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 이들은 Node.js에서 실행되는 JavaScript와 C/C++ 라이브러리 사이의 인터페이스를 제공하기 위해 주로 사용됩니다.
+네이티브 모듈(Node.js에서 [애드온](https://nodejs.org/api/addons.html)이라고도 함)은 require() 함수를 사용하여 Node.js 또는 Electron에 로드 할 수 있는 C 또는 C ++로 작성된 모듈로 일반 Node.js 모듈처럼 사용됩니다. 이들은 Node.js에서 실행되는 JavaScript와 C/C++ 라이브러리 사이의 인터페이스를 제공하기 위해 주로 사용됩니다.
 
 일랙트론은 노드의 네이티브 모듈을 지원하지만, 당신의 시스템에 설치된 노드와 다른 v8 버전을 사용해서 빌드할 가능성이 매우 높다. 따라서 네이티브 모듈을 빌드할 때는 반드시 수동으로 일랙트론의 헤더위치를 지정해야한다.
 
@@ -64,15 +64,15 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System은 Microsoft Windows 용 스크립트 기반 설치 프로그램 작성 도구입니다. 이 소프트웨어는 무료 소프트웨어 라이센스의 조합으로 배포되며 InstallShield와 같은 상업용 독점 제품에 대한 널리 사용되는 대안입니다. [electron-builder](https://github.com/electron-userland/electron-builder)는 빌드 대상으로 NSIS를 지원합니다.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR(Off-screen rendering)을 사용하면 배경에 무거운 페이지를 로드한 후 표시 할 수 있습니다(훨씬 빠릅니다). 화면에 표시하지 않고 페이지를 렌더링 할 수 있습니다.
 
 ### 프로세스
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+프로세스는 실행중인 컴퓨터 프로그램의 인스턴스입니다. [메인](#main-process) 및 하나 이상의 [렌더러](#renderer-process) 프로세스를 사용하는 전자 앱은 실제로 여러 프로그램을 동시에 실행하고 있습니다.
 
 Node.js 와 Electron 에선, 각각의 실행 중인 프로세스들은 `process` 객체를 가지고 있습니다. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
