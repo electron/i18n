@@ -49,7 +49,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // Get the receipt url.
+        // 領収書の URL を取得します。
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
