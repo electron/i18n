@@ -17,43 +17,43 @@ ElectronはChromiumビルドオプションを継承します。 `Debug` ビル�
 
 ## テスト
 
-**NB** *この章の内容は古くなっており、GNでビルドしたElectronに当たらない情報です。*
+**注意** *この章は古い内容であり、この情報は GN でビルドされた Electron には該当しません。*
 
-プロジェクトのコードのスタイルを確認するためには：
+プロジェクトのコーディングスタイルは以下で確認できます。
 
 ```sh
 $ npm run lint
 ```
 
-機能テストを行うには：
+以下で機能テストをします。
 
 ```sh
 $ npm test
 ```
 
-Electronのソースコードを変更して、再ビルドとテストを行うには：
+Electron のソースコードを変更したため再ビルドとテストを行う場合は以下を実行します。
 
 ```sh
 $ npm run build && npm test
 ```
 
-Mochaの[限定テスト (exclusive tests)](https://mochajs.org/#exclusive-tests)機能を使用することで、特定のテストやブロックを切り離すことが出来、一連のテストを早く終わらせることが出来ます。 `.only`を`describe` や `it` に追加してください。
+Mocha の[排他テスト (exclusive tests)](https://mochajs.org/#exclusive-tests) 機能を使用することで、特定のテストやブロックが切り離され、連続したテストを早く実行できます。 以下のような `.only` を `describe` か `it` 関数呼び出しに加えます。
 
 ```js
 describe.only('some feature', () => {
-  // ... only tests in this block will be run
+  // ... このブロックのテストのみ実行されます
 })
 ```
 
-その他の方法としては、Mochaの`grep` オプションを使用して、特定のテストのみを実行することが出来ます。
+他に、Mocha の `grep` オプションで指定した正規表現に一致したテストのみを実行できます。
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-`runas` といったネイティブモジュールを含んだテストは、デバッグビルドでは実行できず(詳細に関しては[#2558](https://github.com/electron/electron/issues/2558)を参照のこと)、リリースビルドのみで動作します。
+ネイティブモジュール (`runas` など) を含むテストは、デバッグビルドでは実行できません (詳細は [#2558](https://github.com/electron/electron/issues/2558) を参照)。リリースビルドでは動作します。
 
-リリースビルドでテストを行うには、以下のようにしてください：
+リリースビルドでテストを行うには、以下のようにします。
 
 ```sh
 $ npm test -- -R
