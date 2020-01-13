@@ -5,15 +5,15 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 カスタムドライバを作成するには、Node.js の [child_process](https://nodejs.org/api/child_process.html) API を使用します。 テストスイートは、以下のように Electron プロセスを spawn してから、簡単なメッセージングプロトコルを確立します。
 
 ```js
-var childProcess = require('child_process')
-var electronPath = require('electron')
+const childProcess = require('child_process')
+const electronPath = require('electron')
 
-// プロセスを spawn
-var env = { /* ... */ }
-var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+// spawn the process
+let env = { /* ... */ }
+let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// アプリからの IPC メッセージをリッスンする
+// listen for IPC messages from the app
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -43,14 +43,14 @@ class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // 子プロセスを開始
-    env.APP_TEST_DRIVER = 1 // メッセージをリッスンする必要があることをアプリに知らせる
+    // start child process
+    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // rpc レスポンスをハンドル
+    // handle rpc responses
     this.process.on('message', (message) => {
-      // ハンドラを消去
-      var rpcCall = this.rpcCalls[message.msgId]
+      // pop the handler
+      let rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -58,7 +58,7 @@ class TestDriver {
       else rpcCall.resolve(message.resolve)
     })
 
-    // 準備できるまで待つ
+    // wait for ready
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,11 +66,11 @@ class TestDriver {
     })
   }
 
-  // ↓を使うための簡単な RPC 呼び出し
-  // driver.rpc('method', 1, 2, 3).then(...)
+  // simple RPC call
+  // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
-    // rpc リクエストを送る
-    var msgId = this.rpcCalls.length
+    // send rpc request
+    let msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -89,13 +89,13 @@ if (process.env.APP_TEST_DRIVER) {
 }
 
 async function onMessage ({ msgId, cmd, args }) {
-  var method = METHODS[cmd]
+  let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    var resolve = await method(...args)
+    let resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    var reject = {
+    let reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -106,20 +106,20 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // 必要であれば何かセットアップする
+    // do any setup needed
     return true
   }
-  // RPC 可能なメソッドをここに定義する
+  // define your RPC-able methods here
 }
 ```
 
 すると、テストスイート内では、以下のようにテストドライバを使用できます。
 
 ```js
-var test = require('ava')
-var electronPath = require('electron')
+const test = require('ava')
+const electronPath = require('electron')
 
-var app = new TestDriver({
+let app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {
