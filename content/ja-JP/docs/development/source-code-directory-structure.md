@@ -85,18 +85,18 @@ Electron
 * **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
 
 ```diff
-script/ - The set of all scripts Electron runs for a variety of purposes.
-├── codesign/ - Fakes codesigning for Electron apps; used for testing.
-├── lib/ - Miscellaneous python utility scripts.
-└── release/ - Scripts run during Electron's release process.
-    ├── notes/ - Generates release notes for new Electron versions.
-    └── uploaders/ - Uploads various release-related files during release.
+script/ - Electron がさまざまな目的で実行するすべてのスクリプトの集合。
+├── codesign/ - Electron アプリのコード署名を偽装します。テスト用です。
+├── lib/ - その他の Python のユーティリティスクリプト。
+└── release/ - Electron のリリースプロセス中に実行されるスクリプト。
+    ├── notes/ - 新しいバージョンの Electron のリリースノートを生成します。
+    └── uploaders/ - リリース中にさまざまなリリースに関するファイルをアップロードします。
 ```
 
-* **ツール** - Helper scripts used by GN files. 
-  * Scripts put here should never be invoked by users directly, unlike those in `script`.
-* **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
+* **ツール** - GN ファイルで使用されるヘルパースクリプト。 
+  * ここに配置されたスクリプトは、`script` のスクリプトと違ってユーザーが直接呼び出せません。
+* **typings** - Electron 内部コードの TypeScript 型定義。
+* **vendor** - `boto` や `requests` など、サードパーティの依存関係のソースコード。
 
 ## Git Submodules を最新に保つ
 
