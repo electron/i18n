@@ -18,13 +18,13 @@ Electron
 |   ├── development/ - Electron の開発と Electron による開発の支援ドキュメント。
 |   ├── fiddles/ - Electron Fiddle で実行できるコードスニペットの集合。
 |   ├── images/ - ドキュメントで使用される画像。
-|   └── tutorial/ - Tutorial documents for various aspects of Electron.
-├── lib/ - JavaScript/TypeScript source code.
-|   ├── browser/ - Main process initialization code.
-|   |   ├── api/ - API implementation for main process modules.
-|   |   └── remote/ - Code related to the remote module as it is
-|   |                 used in the main process.
-|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   └── tutorial/ - Electron のさまざまな観点におけるチュートリアルドキュメント。
+├── lib/ - JavaScript/TypeScript ソースコード。
+|   ├── browser/ - メインプロセス初期化コード。
+|   |   ├── api/ - メインプロセスモジュール API の実装。
+|   |   └── remote/ - メインプロセスで使用される
+|   |                 リモートモジュールに関連したコード。
+|   ├── common/ - メインとレンダラー両方のプロセスに必要なロジックに関連するものです。
 |   |   └── api/ - API implementation for modules that can be used in
 |   |              both the main and renderer processes
 |   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
