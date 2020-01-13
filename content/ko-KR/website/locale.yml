@@ -254,10 +254,10 @@ governance:
     description: 커뮤니티의 삭제 / 금지를 감독합니다.
   security:
     title: 보안
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: 프로젝트로서 Electron의 보안을 사전에 보장하고, 인시던트에 대응하며, 픽스 롤아웃을 감독합니다.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: 행정
+    description: 관리 실무 그룹은 전체 거버넌스 및 프로젝트를 감독합니다.
   api:
     title: API
     description: Oversees public API design based on project principles.
