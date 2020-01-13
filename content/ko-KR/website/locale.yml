@@ -278,12 +278,12 @@ governance:
     listdescription: "모든 실무 그룹에는 다음과 같은 핵심 책임이 있습니다."
     list:
       - 그들은 의사 결정 방법, 회의 개최시기 및 참석자 수과 같은 규칙을 스스로 결정하고 공개적으로 게시해야한다.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+      - '그들은 그룹을 <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>대표</a>할 의장을 <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">선출</a>해야한다.'
+      - 그들은 의제 항목, 토론 요점 및 모든 사람이 검토 할 수있는 결과를 포함하여 회의 메모를 유지해야합니다.
+      - '그들은 협력하고 다른 실무 그룹과 <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">성실하게</a> 일해야한다.'
+    see_charter: 더 자세한 내용은 <a href="https://github.com/electron/governance/tree/master/charter/README.md">관련내용</a>을 참고해주세요.
+  code_of_conduct: Electron 조직 및 모든 리포지토리는 다음 <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">행동 강령</a>을 준수합니다.
+  license: Electron은 <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT 라이센스</a>로 라이센스됩니다.
   repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: 페이지를 찾을 수 없습니다.
