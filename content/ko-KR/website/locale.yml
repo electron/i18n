@@ -275,9 +275,9 @@ governance:
       - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">의장</a>이 실무 그룹을 이끌고 있습니다.'
   responsibilities:
     title: 책임
-    listdescription: "All Working Groups have these core responsibilities:"
+    listdescription: "모든 실무 그룹에는 다음과 같은 핵심 책임이 있습니다."
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - 그들은 의사 결정 방법, 회의 개최시기 및 참석자 수과 같은 규칙을 스스로 결정하고 공개적으로 게시해야한다.
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
