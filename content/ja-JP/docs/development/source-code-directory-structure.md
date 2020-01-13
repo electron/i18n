@@ -8,7 +8,48 @@ Electron のソースコードは、いくつかの部分に分けられてい�
 
 ```diff
 Electron
-├── atom/ - C++ のソースコード。
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
+├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── default_app/ - A default app run when Electron is started without
+|                  providing a consumer app.
+├── docs/ - Electron's documentation.
+|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
+|   ├── development/ - Documentation to aid in developing for and with Electron.
+|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
+|   ├── images/ - Images used in documentation.
+|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── lib/ - JavaScript/TypeScript source code.
+|   ├── browser/ - Main process initialization code.
+|   |   ├── api/ - API implementation for main process modules.
+|   |   └── remote/ - Code related to the remote module as it is
+|   |                 used in the main process.
+|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── api/ - API implementation for modules that can be used in
+|   |              both the main and renderer processes
+|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
+|   |                        contextIsolation is enabled.
+|   ├── renderer/ - Renderer process initialization code.
+|   |   ├── api/ - API implementation for renderer process modules.
+|   |   ├── extension/ - Code related to use of Chrome Extensions
+|   |   |                in Electron's renderer process.
+|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   |             the main process.
+|   |   └── web-view/ - Logic that handles the use of webviews in the
+|   |                   renderer process.
+|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
+|   |   |                     processes.
+|   |   └── api/ - API implementation for sandboxed renderer processes.
+|   └── worker/ - Logic that handles proper functionality of Node.js
+|                 environments in Web Workers.
+├── patches/ - Patches applied on top of Electron's core dependencies
+|   |          in order to handle differences between our use cases and
+|   |          default functionality.
+|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
+|   ├── chromium/ - Patches applied to Chromium.
+|   ├── node/ - Patches applied on top of Node.js.
+|   └── v8/ - Patches applied on top of Google's V8 engine.
+├── shell/ - C++ source code.
 |   ├── app/ - システムのエントリコード。
 |   ├── browser/ - メインウィンドウ、UI と
 |   |   |          メインプロセスの全てを含むフロントエンド。 これはレンダラーと連絡して Web ページを
@@ -28,34 +69,35 @@ Electron
 |       |         メインプロセスとレンダラープロセスの両方で使用されるコード。
 |       └── api/ - 共通の API の実装と、
 |                  Electron の組み込みモジュールの基礎。
-├── chromium_src/ - Chromium からコピーされたコード。 以下をご覧ください
-├── default_app/ - app を提供せずに Electron を起動したときに
-|                  表示されるデフォルトページ。
-├── docs/ - ドキュメント
-├── lib/ - JavaScript のソースコード。
-|   ├── browser/ - Javascript メインプロセス初期化コード。
-|   |   └── api/ - Javascript API 実装。
-|   ├── common/ - メインとレンダラープロセスの両方から使用される JavaScript
-|   |   └── api/ - Javascript API 実装。
-|   └── renderer/ - Javascript レンダラープロセス初期化コード。
-|       └── api/ - Javascript API 実装。
-├── spec/ - 自動テスト。
+├── spec/ - Components of Electron's test suite run in the renderer process.
+├── spec-main/ - Components of Electron's test suite run in the main process.
 └── BUILD.gn - Electronのビルドルール。
 ```
 
-## `/chromium_src`
-
-`/chromium_src` 内のファイルは、そのコンテンツレイヤーの一部ではなく Chromium の断片である傾向があります。 例えば Pepper APIを実装するには、公式の Chrome が行うものと同様の配置が必要です。 関連するソースを [libcc](../glossary.md#libchromiumcontent) の一部として作成することもできますが、ほとんどの場合、すべての機能を必要とするわけではありません (いくつかはプロプライエタリな、分析的なものになる傾向があります)。そのため私たちはコードの一部を取得しました。 これらは libcc のパッチにできるかもしれませんが、libcc の目的は非常に最小限のパッチを維持することであり、これらが書かれた時点で chromium_src の変更は大きなものになる傾向があります。 更に、これらのパッチは現在保守している他の libcc パッチとは異なり、決してアップストリームになることはありません。
-
 ## その他のディレクトリの構造
 
-* **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
-* **tools** - GN ファイルで使用されるヘルパースクリプト。`script` とは異なり、ここに配置されたスクリプトはユーザーが直接呼び出すことはできません。
-* **vendor** - 第三者の依存関係のソースコード。Chromiumのソースコードツリーと同じディレクトリがあると混乱しかねないため、`third_party`の名前を使用しません。
-* **node_modules** - ビルドに使用する第三者のnodeモジュール。
-* **out** - `ninja`の一時的な出力用ディレクトリ。
+* **.circleci** - Config file for CI with CircleCI.
+* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
 * **external_binaries** - `gn`によるビルドがサポートされていない第三者のフレームワークのバイナリでダウンロードしたもの。
+* **node_modules** - ビルドに使用する第三者のnodeモジュール。
+* **npm** - Logic for installation of Electron via npm.
+* **out** - `ninja`の一時的な出力用ディレクトリ。
+* **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
+
+```diff
+script/ - The set of all scripts Electron runs for a variety of purposes.
+├── codesign/ - Fakes codesigning for Electron apps; used for testing.
+├── lib/ - Miscellaneous python utility scripts.
+└── release/ - Scripts run during Electron's release process.
+    ├── notes/ - Generates release notes for new Electron versions.
+    └── uploaders/ - Uploads various release-related files during release.
+```
+
+* **ツール** - Helper scripts used by GN files. 
+  * Scripts put here should never be invoked by users directly, unlike those in `script`.
+* **typings** - TypeScript typings for Electron's internal code.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
 ## Git Submodules を最新に保つ
 
@@ -64,8 +106,8 @@ Electron
 ```sh
 $ git status
 
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (new commits)
+  modified:   vendor/boto (new commits)
 ```
 
 これらのベンダー依存関係を更新するには次のコマンドを実行します。
@@ -78,5 +120,5 @@ git submodule update --init --recursive
 
 ```sh
 [alias]
-    su = submodule update --init --recursive
+  su = submodule update --init --recursive
 ```
