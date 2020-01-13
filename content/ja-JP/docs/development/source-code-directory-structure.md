@@ -19,7 +19,7 @@ Electron
 |   ├── fiddles/ - Electron Fiddle で実行できるコードスニペットの集合。
 |   ├── images/ - ドキュメントで使用される画像。
 |   └── tutorial/ - Electron のさまざまな観点におけるチュートリアルドキュメント。
-├── lib/ - JavaScript/TypeScript ソースコード。
+/ lib / - JavaScript / TypeScript شفرة المصدر.
 |   ├── browser/ - メインプロセス初期化コード。
 |   |   ├── api/ - メインプロセスモジュール API の実装。
 |   |   └── remote/ - メインプロセスで使用される
