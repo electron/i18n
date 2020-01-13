@@ -137,7 +137,7 @@ footer:
   see_the_faq: 자주 묻는 질문
 companies:
   title: Electron으로 설계된 애플리케이션
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  description: GitHub의 <a href='https://atom.io' target='_blank'>Atom 편집기</a>를 위해 처음 개발된 Electron은 전 세계 회사에서 채택되었습니다.
 apps:
   description: 'Electron과 함께라면 여러분의 회사에서 데스크톱 애플리케이션을 개발하는 것은 쉬운 일입니다. <a href=''/apps''>커뮤니티에서 개발한 앱 목록</a>또는 <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">여러분이 직접 개발한 앱을 추가하기</a>를 확인해보세요!'
   view_more: 더 많은 애플리케이션 보기
@@ -284,6 +284,6 @@ governance:
     see_charter: 더 자세한 내용은 <a href="https://github.com/electron/governance/tree/master/charter/README.md">관련내용</a>을 참고해주세요.
   code_of_conduct: Electron 조직 및 모든 리포지토리는 다음 <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">행동 강령</a>을 준수합니다.
   license: Electron은 <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT 라이센스</a>로 라이센스됩니다.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  repository: 거버넌스 구조에 대한 자세한 정보는 <a href="https://github.com/electron/governance">거버넌스 저장소</a>를 확인하십시오.
 _404:
   page_not_found: 페이지를 찾을 수 없습니다.
