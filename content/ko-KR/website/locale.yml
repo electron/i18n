@@ -260,19 +260,19 @@ governance:
     description: 관리 실무 그룹은 전체 거버넌스 및 프로젝트를 감독합니다.
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: 프로젝트 원칙을 기반으로 퍼블릭 API 디자인을 감독합니다.
   global:
     overview: 개요
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    associated_repos: 관련 리포지토리
+    notes: 회의 노트
   definitions:
     title: 정의
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - <i>유지 관리자</i>는 거버넌스에서 적극적인 역할을 하는 사람입니다.
+      - <i>공동 작업자</i>는 커뮤니티에서 활동하지만 지배 구조에서는 활동하지 않습니다.
+      - <i>참가자</i>는 관리자 또는 공동 작업자입니다.
+      - <i>작업 그룹</i>은 Electron 프로젝트의 특정 측면을 담당하도록 구성된 관리자 그룹입니다. 일반적으로 이러한 그룹은 정기적으로 만나지 만 경우에 따라 책임을 이행하기 위해 필요한 경우에만 모임을 갖습니다.
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">의장</a>이 실무 그룹을 이끌고 있습니다.'
   responsibilities:
     title: 책임
     listdescription: "All Working Groups have these core responsibilities:"
