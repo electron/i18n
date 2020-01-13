@@ -40,7 +40,7 @@ $ npm run build && npm test
 你可以通过分离特定的测试来让测试套件运行速度更快或阻止你目前正在使用摩卡的 [独占性测试](https://mochajs.org/#exclusive-tests)功能. 追加 `.only` 到任何 `describe` 或 `it` 函数调用：
 
 ```js
-describe.only('some feature', function () {
+describe.only('some feature', () => {
   // ... only tests in this block will be run
 })
 ```
