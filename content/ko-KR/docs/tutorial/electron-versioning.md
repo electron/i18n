@@ -138,7 +138,7 @@ Specifically, the above means:
 
 - 풀 리퀘스트의 몇몇 커밋이 시맨틱 선행자를 가지지 않는 것은 괜찮습니다. 풀 리퀘스트 타이틀이 시맨틱한 의미를 전달하기만 한다면요.
 
-# Versioned `master`
+# 버전이 지정된 `master`
 
 - `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
 - 출시 브랜치는 master 브랜치로 병합되지 않습니다.
