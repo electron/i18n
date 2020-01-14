@@ -78,9 +78,9 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 1. 모든 새 메이저와 마이너 릴리즈 라인은 베타 시리즈를 암시하는 프리릴리즈 태그 앞에둡니다. 바로 `beta.N`입니다. 예를 들면 다음 처럼요. `2.0.0-beta.1`. 처음 베타 이후엔, 이어지는 베타 릴리즈들은 다음과 같은 제약사항을 만족해야 합니다. 
     1. 변화는 기존 API 와의 호환성을 보장해야 한다. (비활성화는 괜찮습니다.)
     2. 우리의 안정성 타임라인(stability timeline) 을 만날 위험이 반드시 낮아야 한다.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+2. 베타 버전이 출시되면 허용 된 변경이 필요한 경우 변경 사항이 적용되고 시험판 태그가 증가합니다. (예: `2.0.0-beta.2`)
+3. 특정 베타 릴리스가 *일반적으로 안정적인 것으로 간주*되면 버전 정보만 변경하여 안정적인 빌드로 다시 릴리스됩니다. (예: `2.0.0`) 첫 번째 안정 후 모든 변경 사항은 이전 버전과 호환되는 버그 또는 보안 수정 사항이어야 합니다.
+4. 안정 버전이 출시된 이후에 버그 수정이나 보안 패치 등이 필요한 경우 *패치* 버전을 증가시킵니다. (예: `2.0.1`)
 
 Specifically, the above means:
 
