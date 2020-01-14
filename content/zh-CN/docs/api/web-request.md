@@ -129,7 +129,7 @@ The `callback` has to be called with a `response` object.
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function - 回调函数 
     * `headersReceivedResponse` Object 
       * `cancel` Boolean (可选)
@@ -153,7 +153,7 @@ The `callback` has to be called with a `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean - 表明响应是取自硬盘缓存。
     * `statusCode` Integer
     * `statusLine` String
@@ -178,7 +178,7 @@ The `callback` has to be called with a `response` object.
     * `statusLine` String
     * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
     * `fromCache` Boolean
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
 
 当服务器的初始重定向即将发生时，将以 `listener(details)`的方式调用`listener`。
 
@@ -195,7 +195,7 @@ The `callback` has to be called with a `response` object.
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
