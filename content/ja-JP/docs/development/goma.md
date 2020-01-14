@@ -6,7 +6,7 @@ Electron はカスタム Goma バックエンドのデプロイがあり、こ�
 
 ## Goma を有効にする
 
-Currently Electron Goma supports Windows, Linux, and macOS.  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
+現在 Electron Goma は Windows、Linux、macOS をサポートしています。  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
 
 ```bash
 gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
