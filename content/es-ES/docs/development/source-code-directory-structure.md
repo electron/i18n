@@ -9,11 +9,11 @@ Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https
 ```diff
 Electron
 ├── build/ - Archivos de configuración necesarios para compilar con GN.
-├── buildflags/ - Determines the set of features that can be conditionally built.
-├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
-├── default_app/ - A default app run when Electron is started without
-|                  providing a consumer app.
-├── docs/ - Electron's documentation.
+├── buildflags/ - Determina el conjunto de características que pueden ser compiladas condicionalmente.
+├── chromium_src/ - Código fuente copiado desde Chromium que no es parte de la capa de contenido.
+├── default_app/ - Una aplicación predeterminada se ejecuta cuando se inicia Electron sin proveer 
+| una aplicación de consumo.
+├── docs/ - Documentación de Electron.
 |   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
 |   ├── development/ - Documentation to aid in developing for and with Electron.
 |   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
