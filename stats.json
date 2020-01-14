@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "11628",
-    "translated": "1704",
+    "translated": "1706",
     "approved": "172",
     "words": "110017",
-    "words_translated": "10602",
+    "words_translated": "10625",
     "words_approved": "408",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 572
+    "qa_issues": 574
   },
   {
     "name": "Bulgarian",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "11628",
-    "translated": "5181",
+    "translated": "5182",
     "approved": "1328",
     "words": "110017",
-    "words_translated": "44005",
+    "words_translated": "44017",
     "words_approved": "9273",
-    "translated_progress": 39,
+    "translated_progress": 40,
     "approved_progress": 8,
-    "qa_issues": 1975
+    "qa_issues": 1976
   },
   {
     "name": "Persian",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "11628",
-    "translated": "7509",
+    "translated": "7510",
     "approved": "2078",
     "words": "110017",
-    "words_translated": "59677",
+    "words_translated": "59687",
     "words_approved": "15752",
     "translated_progress": 54,
     "approved_progress": 14,
-    "qa_issues": 2448
+    "qa_issues": 2449
   },
   {
     "name": "Ukrainian",
