@@ -146,7 +146,7 @@ npm uninstall -g electron
 
 서브 픽셀 앤티 앨리어싱에는 글꼴 글리프가 포함 된 레이어의 불투명 배경이 필요합니다. (더 많은 정보는 [이 이슈](https://github.com/electron/electron/issues/6344#issuecomment-420371918)에서 확인하세요).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+이 목표를 달성하려면 생성자에서 [BrowserWindow](api/browser-window.md)의 배경을 설정하십시오.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+이 효과는 (일부?) LCD 화면에서만 볼 수 있습니다. 차이가 보이지 않더라도 일부 사용자가 있을 수 있습니다. 다른 이유가 없는 한 항상 배경을 이런 식으로 설정하는 것이 가장 좋습니다.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+CSS에서 배경을 설정하는 것만으로는 효과가 없습니다.
