@@ -20,5 +20,5 @@
 * [Windows에서 Electron 디버깅하기](debug-instructions-windows.md)
 * [MacOS 에서 디버깅하기](debugging-instructions-macos.md)
 * [디버거에서 디버그 심볼 서버 설정](setting-up-symbol-server.md)
-* [Patches](patches.md)
+* [패치](patches.md)
 * [Node 업그레이드](upgrading-node.md)

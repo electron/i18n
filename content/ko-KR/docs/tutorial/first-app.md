@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // 그리고 앱의 index.html를 로드합니다.
   win.loadFile('index.html')
 }
 
@@ -116,7 +116,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // 그리고 앱의 index.html를 로드합니다.
   win.loadFile('index.html')
 
   // 개발자 도구를 엽니다.

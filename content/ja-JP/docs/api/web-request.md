@@ -129,7 +129,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
-    * `responseHeaders` Record<string, string> (任意)
+    * `responseHeaders` Record<string, string[]> (任意)
   * `callback` Function 
     * `headersReceivedResponse` Object 
       * `cancel` Boolean (任意)
@@ -153,7 +153,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (任意)
+    * `responseHeaders` Record<string, string[]> (任意)
     * `fromCache` Boolean - レスポンスがディスクキャッシュからフェッチされたかどうかを示します。
     * `statusCode` Integer
     * `statusLine` String
@@ -178,7 +178,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusLine` String
     * `ip` String (任意) - リクエストが実際に送信されたサーバーの IP アドレス。
     * `fromCache` Boolean
-    * `responseHeaders` Record<string, string> (任意)
+    * `responseHeaders` Record<string, string[]> (任意)
 
 `listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
 
@@ -195,7 +195,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (任意)
+    * `responseHeaders` Record<string, string[]> (任意)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String

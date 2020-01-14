@@ -129,7 +129,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Tamsayı
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
   * `geri aramak` Function 
     * `headersReceivedResponse` Nesne 
       * `cancel` Boolean (isteğe bağlı)
@@ -153,7 +153,7 @@ The `callback` has to be called with a `response` object.
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
     * `statusCode` Tamsayı
     * `statusLine` String
@@ -178,7 +178,7 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
     * `statusLine` String
     * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
     * `fromCache` Boolean
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
 
 Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `listener(details)` ile birlikte çağırılacaktır.
 
@@ -195,7 +195,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `resourceType` Dize
     * `referrer` Dize
     * `timestamp` Double
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
     * `fromCache` Boolean
     * `statusCode` Tamsayı
     * `statusLine` String
