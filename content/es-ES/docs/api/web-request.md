@@ -129,7 +129,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
     * `Estatus de código` entero
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function 
     * `headersReceivedResponse` Object 
       * `cancelar` Booleano (opcional)
@@ -153,7 +153,7 @@ The `callback` has to be called with a `response` object.
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
     * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
     * `Estatus de código` entero
     * `linea de estatus` Cadena
@@ -178,7 +178,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `linea de estatus` Cadena
     * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
     * `Desde cache` Booleano
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
 
 El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
 
@@ -195,7 +195,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
-    * `responseHeaders` Record<string, string> (optional)
+    * `responseHeaders` Record<string, string[]> (optional)
     * `Desde cache` Booleano
     * `Estatus de código` entero
     * `linea de estatus` Cadena
