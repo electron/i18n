@@ -17,7 +17,7 @@ app.commandLine.hasSwitch('disable-gpu')
 
 #### `commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
+* `switch` String - 命令行开关，不包含前边的-- `--`
 * `value` String (optional) - 给开关设置的值
 
 通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
@@ -32,7 +32,7 @@ app.commandLine.hasSwitch('disable-gpu')
 
 如果你正在追加一个参数，如`--switch=value`, 请考虑使用`appendSwitch('switch', 'value')`
 
-** 注意: **该方法不会影响 ` process. argv ` The intended usage of this function is to control Chromium's behavior.
+** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
 #### `commandLine.hasSwitch(switch)`
 
