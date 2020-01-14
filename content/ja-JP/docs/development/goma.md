@@ -6,7 +6,7 @@ Electron はカスタム Goma バックエンドのデプロイがあり、こ�
 
 ## Goma を有効にする
 
-現在 Electron Goma は Windows、Linux、macOS をサポートしています。  If you are on a supported platform you can enable goma by importing the `goma.gn` config file when using `gn`.
+現在 Electron Goma は Windows、Linux、macOS をサポートしています。  サポート済みプラットフォームを使用している場合、`gn` の使用時に `goma.gn` コンフィグをインポートして Goma を有効にできます。
 
 ```bash
 gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
@@ -32,7 +32,7 @@ goma_ctl.py ensure_start
 
 Goma を使用している場合、マシンで通常サポートされている値よりも大幅に大きい値の `j` で `ninja` を実行できます。
 
-Please do not set a value higher than **300** on Windows or Linux and **80** on macOS, we monitor the goma system and users found to be abusing it with unreasonable concurrency will be de-activated.
+Windows か Linux では **300**、macOS では **80** を超える値を設定しないでください。Goma システムは監視されており、粗暴な並列実行で悪用していると判明したユーザーは無効化されます。
 
 ```bash
 ninja -C out/Testing electron -j 200
