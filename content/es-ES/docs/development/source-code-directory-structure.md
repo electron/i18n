@@ -1,4 +1,4 @@
-# Estructura del directorio de código fuente
+# Estructura de directorios del código fuente
 
 El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
@@ -22,9 +22,8 @@ Electron
 ├── lib/ - Código fuente JavaScript/TypeScript.
 |   ├── browser/ - Código de inicialización del proceso principal.
 |   |   ├── api/ - API de implementación para los módulos del proceso principal.
-|   |   └── remote/ - Code related to the remote module as it is
-|   |                 used in the main process.
-|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── remote/ - Código relacionado con el modulo remote como es usado en el proceso principal.
+|   ├── common/ - Relacionado con la logica necesario por ambos procesos el main y el renderer.
 |   |   └── api/ - API implementation for modules that can be used in
 |   |              both the main and renderer processes
 |   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
