@@ -90,10 +90,10 @@ script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad
     └── uploaders/ - Sube varios archivos relacionados con la nueva versión durante el lanzamiento.
 ```
 
-* **herramientas** - Helper scripts used by GN files. 
-  * Scripts put here should never be invoked by users directly, unlike those in `script`.
-* **typings** - TypeScript typings for Electron's internal code.
-* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
+* **herramientas** - Scripts de ayuda usados por los archivos GN. 
+  * Los Scripts puestos aquí nunca deberían ser invocados directamente por los usuarios, a diferencia de los de `script`.
+* **typings** - Tipos de TypeScript para el código interno de Electron.
+* **vendor** - Código fuente para algunas dependencias de terceros incluyendo `boto` y `requests`.
 
 ## Mantener los submódulos de Git actualizados
 
