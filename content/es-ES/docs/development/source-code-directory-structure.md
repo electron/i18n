@@ -8,7 +8,7 @@ Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https
 
 ```diff
 Electron
-├── build/ - Build configuration files needed to build with GN.
+├── build/ - Archivos de configuración necesarios para compilar con GN.
 ├── buildflags/ - Determines the set of features that can be conditionally built.
 ├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
 ├── default_app/ - A default app run when Electron is started without
