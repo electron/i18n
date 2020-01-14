@@ -1,6 +1,6 @@
 # Boilerplates와 CLI
 
-Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application. 빌드 및 런타임 모두에 대한 Electron의 추가 기능은 일반적으로 개별 패키지의 [ npm ](https://www.npmjs.com/search?q=electron)에서 찾을 수 있고, 개발자가 앱을 빌드하고 필요한 파이프 라인을 빌드 할 수 있습니다.
+Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌드, 패키징 또는 배포하는 "유일한 방법"이 존재하지 않습니다. 빌드 및 런타임 모두에 대한 Electron의 추가 기능은 일반적으로 개별 패키지의 [ npm ](https://www.npmjs.com/search?q=electron)에서 찾을 수 있고, 개발자가 앱을 빌드하고 필요한 파이프 라인을 빌드 할 수 있습니다.
 
 이런 확장성과 모듈화 수준은 Electron으로 작업 하는 모든 개발자들이, 속한 팀이 크든 작든, 개발 라이프 사이클 중 언제든지 수행 할 수 있는 것과 수행 할 수 없는 것에 제한을 받지 않게 합니다. 그러나 대부분의 개발자들은 community-driven 한 상용구 또는 명령 줄 도구 중 하나를 사용함으로써 응용 프로그램을 컴파일, 패키지화 및 릴리스하는 일을 쉽게 할 수 있습니다.
 
