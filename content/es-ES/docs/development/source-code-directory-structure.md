@@ -73,21 +73,21 @@ Electron
 ## Estructura de otros directorios
 
 * **.circleci** - Archivo de configuración para CI con CircleCI.
-* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
+* **.github** - Archivos de configuración específicos de GitHub, incluyendo plantillas de problemas y CODEOWNERS.
 * **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
 * **external_binaries** - Binarios descargados de terceros los cuales no soportan la construcción con `gn`.
 * **Nodos de módulo** - Nodos de módulo de terceros usados para compilar.
-* **npm** - Logic for installation of Electron via npm.
+* **npm** - Lógica para la instalación de Electron via npm.
 * **afuera** - temporalmente afuera del directorio de `ninja`.
 * **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
 
 ```diff
-script/ - The set of all scripts Electron runs for a variety of purposes.
-├── codesign/ - Fakes codesigning for Electron apps; used for testing.
-├── lib/ - Miscellaneous python utility scripts.
-└── release/ - Scripts run during Electron's release process.
-    ├── notes/ - Generates release notes for new Electron versions.
-    └── uploaders/ - Uploads various release-related files during release.
+script/ - El conjunto de todo los scripts que Electron ejecuta para una variedad de propósitos.
+├── codesign/ - Falsifica la firma de código para aplicaciones Electron; usado para pruebas.
+├── lib/ - Varios scripts de utilidad de python.
+└── release/ - Scripts que se ejecutan durante el proceso de lanzamiento de Electron.
+    ├── notes/ - Genera notas de lanzamiento para las nuevas versiones de Electron.
+    └── uploaders/ - Sube varios archivos relacionados con la nueva versión durante el lanzamiento.
 ```
 
 * **herramientas** - Helper scripts used by GN files. 
