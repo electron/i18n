@@ -24,21 +24,21 @@ Electron
 |   |   ├── api/ - API de implementación para los módulos del proceso principal.
 |   |   └── remote/ - Código relacionado con el modulo remote como es usado en el proceso principal.
 |   ├── common/ - Relacionado con la logica necesario por ambos procesos el main y el renderer.
-|   |   └── api/ - API implementation for modules that can be used in
-|   |              both the main and renderer processes
-|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
-|   |                        contextIsolation is enabled.
-|   ├── renderer/ - Renderer process initialization code.
-|   |   ├── api/ - API implementation for renderer process modules.
-|   |   ├── extension/ - Code related to use of Chrome Extensions
-|   |   |                in Electron's renderer process.
-|   |   ├── remote/ - Logic that handes use of the remote module in
-|   |   |             the main process.
-|   |   └── web-view/ - Logic that handles the use of webviews in the
-|   |                   renderer process.
-|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
-|   |   |                     processes.
-|   |   └── api/ - API implementation for sandboxed renderer processes.
+|   |   └── api/ - Implementación de API para módulos que pueden  
+|   |             ser usadas en ambos procesos main y renderer
+|   ├── isolated_renderer/ - Maneja la creación de procesos renderer isolados cuando
+|   |                        contextIsolation esta habilitado.
+|   ├── renderer/ - Código de inicialización del proceso renderer.
+|   |   ├── api/ - Implementación de la API para los módulos del proceso renderer.
+|   |   ├── extension/ - Código relacionado con el uso de las Extenciones de Chrome
+|   |   |                en el proceso renderer de Electron.
+|   |   ├── remote/ - Lógica que maneja el uso del módulo remoto en el 
+|   |   |             proceso principal.
+|   |   └── web-view/ - Lógica que maneja el uso de los webviews en el 
+|   |                   proceso renderer.
+|   ├── sandboxed_renderer/ - Lógica que maneja la creación de procesos 
+|   |   |                     renderer sandboxed.
+|   |   └── api/ - Implementación para procesos renderer sandboxed.
 |   └── worker/ - Logic that handles proper functionality of Node.js
 |                 environments in Web Workers.
 ├── patches/ - Patches applied on top of Electron's core dependencies
@@ -102,8 +102,8 @@ El repositorio Electronico tiene unas dependencias vendored, encontradas en el d
 ```sh
 $ git status
 
-  modified:   vendor/depot_tools (new commits)
-  modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (nuevos commits)
+  modified:   vendor/boto (nuevos commits)
 ```
 
 Para actualizar estas dependencias independientes, ejecute el siguiente comando:
