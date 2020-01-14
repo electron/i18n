@@ -14,14 +14,14 @@ Electron
 ├── default_app/ - Una aplicación predeterminada se ejecuta cuando se inicia Electron sin proveer 
 | una aplicación de consumo.
 ├── docs/ - Documentación de Electron.
-|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
-|   ├── development/ - Documentation to aid in developing for and with Electron.
-|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
-|   ├── images/ - Images used in documentation.
-|   └── tutorial/ - Tutorial documents for various aspects of Electron.
-├── lib/ - JavaScript/TypeScript source code.
-|   ├── browser/ - Main process initialization code.
-|   |   ├── api/ - API implementation for main process modules.
+|   ├── api/ - Documentación para modulos y APIs externas.
+|   ├── development/ - Documentación para ayudar en el desarrollo para y con Electron.
+|   ├── fiddles/ - Un conjunto de fragmento de codigo que pueden ejecutarse en Electron Fiddle.
+|   ├── images/ - Imágenes usadas en la documentación.
+|   └── tutorial/ - Documentos tutoriales para diversos aspectos de Electron.
+├── lib/ - Código fuente JavaScript/TypeScript.
+|   ├── browser/ - Código de inicialización del proceso principal.
+|   |   ├── api/ - API de implementación para los módulos del proceso principal.
 |   |   └── remote/ - Code related to the remote module as it is
 |   |                 used in the main process.
 |   ├── common/ - Relating to logic needed by both main and renderer processes.
