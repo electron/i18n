@@ -39,16 +39,16 @@ Electron
 |   ├── sandboxed_renderer/ - Lógica que maneja la creación de procesos 
 |   |   |                     renderer sandboxed.
 |   |   └── api/ - Implementación para procesos renderer sandboxed.
-|   └── worker/ - Logic that handles proper functionality of Node.js
-|                 environments in Web Workers.
-├── patches/ - Patches applied on top of Electron's core dependencies
-|   |          in order to handle differences between our use cases and
-|   |          default functionality.
-|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
-|   ├── chromium/ - Patches applied to Chromium.
-|   ├── node/ - Patches applied on top of Node.js.
-|   └── v8/ - Patches applied on top of Google's V8 engine.
-├── shell/ - C++ source code.
+|   └── worker/ - Lógica que maneja la correcta funcionalidad de Node.js
+|                 en los entornos Web Workers.
+├── patches/ - Parches aplicados encima de las dependencias core 
+|   |          de Electron para manejar las diferencias ente nuestro casos de uso 
+|   |          y la configuración por defecto.
+|   ├── boringssl/ - Parches aplicados a los forks de Google OpenSSL, BoringSSL.
+|   ├── chromium/ - Parches aplicados a Chromium.
+|   ├── node/ - Parches aplicados encima de Node.js.
+|   └── v8/ - Parches aplicados encima del motor V8 de Google.
+├── shell/ - Código fuente C++.
 |   ├── app/ - Código de entrada al sistema.
 |   ├── browser/ - El frontend incluyendo la ventana principal, la interfaz de usuario y todo lo relacionado al
 |   |   |          proceso main. Esto habla con el renderizador para manejar páginas web.
@@ -65,14 +65,14 @@ Electron
 |   └── common/ - Código que se usa por ambos procesos, main y el renderer, incluye algunos funciones útiles
 |       |         y código para integrar el bucle de mensaje de node dentro de bucle de mensaje de Chromium.
 |       └── api/ - La implementación de las APIs comunes y las bases de los módulos integrados de Electron.
-├── spec/ - Components of Electron's test suite run in the renderer process.
-├── spec-main/ - Components of Electron's test suite run in the main process.
+├── spec/ - Componentes de la suite de pruebas de Electron se ejecutan en el proceso de renderizado.
+├── spec-main/ - Componentes de la suite de pruebas de Electron se ejecutan en el proceso main.
 └── BUILD.gn - Reglas de construcción de Electron.
 ```
 
 ## Estructura de otros directorios
 
-* **.circleci** - Config file for CI with CircleCI.
+* **.circleci** - Archivo de configuración para CI con CircleCI.
 * **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
 * **external_binaries** - Binarios descargados de terceros los cuales no soportan la construcción con `gn`.
