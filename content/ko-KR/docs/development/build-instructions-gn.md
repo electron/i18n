@@ -268,7 +268,7 @@ gclient sync -f --with_branch_heads --with_tags
     </h3>
     
     <p>
-      git cache 이용 과정 중에 <code>gclient sync</code>가 중단되면, 캐시는 잠긴 상태(locked) 로 남을 것입니다. lock을 제거하려면, <code>--break_repo_locks</code> 인자를 <code>gclient sync</code>에 전달하시길 바랍니다.
+      git cache 이용 과정 중에 <code>gclient sync</code>가 중단되면, 캐시는 잠긴 상태(locked) 로 남을 것입니다. To remove the lock, pass the <code>--ignore_locks</code> argument to <code>gclient sync</code>.
     </p>
     
     <h3>
