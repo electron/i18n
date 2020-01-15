@@ -18,14 +18,14 @@ Before you can use goma to build Electron you need to authenticate against the G
 
 ```bash
 cd electron/external_binaries/goma
-goma_auth.py login
+./goma_auth.py login
 ```
 
 Once authenticated you need to make sure the goma daemon is running on your machine.
 
 ```bash
 cd electron/external_binaries/goma
-goma_ctl.py ensure_start
+./goma_ctl.py ensure_start
 ```
 
 ## Building with Goma
