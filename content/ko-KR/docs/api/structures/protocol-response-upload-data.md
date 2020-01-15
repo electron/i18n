@@ -1,4 +1,4 @@
-# ProtocolResponseUploadData Object
+# ProtocolResponseUploadData 객체
 
-* `contentType` String - MIME type of the content.
-* `data` String | Buffer - Content to be sent.
+* `contentType` String - 컨텐츠의 MIME 타입
+* `data` String | Buffer - 보낼 내용.
