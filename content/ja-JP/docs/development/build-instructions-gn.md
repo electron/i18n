@@ -267,7 +267,7 @@ gclient sync -f --with_branch_heads --with_tags
     </h3>
     
     <p>
-      git キャッシュを使用している間に <code>gclient sync</code> が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、<code>gclient sync</code> に <code>--break_repo_locks</code> 引数を渡します。
+      git キャッシュを使用している間に <code>gclient sync</code> が割り込まれた場合、キャッシュがロックされたままになります。 To remove the lock, pass the <code>--ignore_locks</code> argument to <code>gclient sync</code>.
     </p>
     
     <h3>
