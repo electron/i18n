@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "11628",
-    "translated": "5198",
+    "translated": "5256",
     "approved": "1328",
     "words": "110014",
-    "words_translated": "44341",
+    "words_translated": "44732",
     "words_approved": "9273",
     "translated_progress": 40,
     "approved_progress": 8,
-    "qa_issues": 1988
+    "qa_issues": 2023
   },
   {
     "name": "Persian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "11628",
-    "translated": "10286",
+    "translated": "10318",
     "approved": "3132",
     "words": "110014",
-    "words_translated": "94212",
+    "words_translated": "94523",
     "words_approved": "27050",
     "translated_progress": 85,
     "approved_progress": 24,
-    "qa_issues": 2953
+    "qa_issues": 2970
   },
   {
     "name": "Tagalog",
