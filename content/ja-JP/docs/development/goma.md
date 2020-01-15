@@ -18,14 +18,14 @@ Goma を使用して Electron を構築する前に、Goma サービスに対し
 
 ```bash
 cd electron/external_binaries/goma
-goma_auth.py login
+./goma_auth.py login
 ```
 
 認証されたら Goma デーモンをマシンで必ず実行してください。
 
 ```bash
 cd electron/external_binaries/goma
-goma_ctl.py ensure_start
+./goma_ctl.py ensure_start
 ```
 
 ## Goma でのビルド
