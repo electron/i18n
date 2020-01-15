@@ -18,14 +18,14 @@ Antes que puedas usar goma para construir en Electron, necesitas autenticarte en
 
 ```bash
 cd electron/external_binaries/goma
-goma_auth.py login
+./goma_auth.py login
 ```
 
 Una vez autenticado, necesitas asegurar que el daemon goma esté corriendo en tu máquina.
 
 ```bash
 cd electron/external_binaries/goma
-goma_ctl.py ensure_start
+./goma_ctl.py ensure_start
 ```
 
 ## Construyendo con Goma
