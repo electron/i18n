@@ -269,7 +269,7 @@ gclient sync -f --with_branch_heads --with_tags
     </h3>
     
     <p>
-      If <code>gclient sync</code> is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the <code>--ignore_locks</code> argument to <code>gclient sync</code>.
+      If <code>gclient sync</code> is interrupted while using the git cache, it will leave the cache locked. 如需移除锁，请将<code>--ignore_locks</code>参数传递至 <code>gclient sync</code>。
     </p>
     
     <h3>
