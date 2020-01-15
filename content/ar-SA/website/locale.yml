@@ -263,10 +263,10 @@ governance:
     description: Oversees public API design based on project principles.
   global:
     overview: النظرة عامة
-    associated_repos: Associated Repositories
+    associated_repos: مستودعات مرتبطة
     notes: ملاحظات الإجتماع
   definitions:
-    title: Definitions
+    title: تعريفات
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
