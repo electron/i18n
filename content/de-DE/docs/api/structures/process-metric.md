@@ -15,7 +15,7 @@
 * `CreationTime` Number - Erstellungszeit für diesen Prozess. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memory` [MemoryInfo](memory-info.md) - Speicherinformationen für den Prozess.
 * `sandboxed` Boolean (optional) *macOS* *Windows* - Whether the process is sandboxed on OS level.
-* `integrityLevel` String (optional) *Windows* - One of the following values: 
+* `integrityLevel` String (optional) *Windows* - Einer der folgenden Werte: 
   * `untrusted`
   * `niedrig`
   * `medium`
