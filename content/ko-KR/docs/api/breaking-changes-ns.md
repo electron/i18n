@@ -14,9 +14,9 @@ The content of this document should be moved to `breaking-changes.md` once we ha
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Deprecated
+// 더이상 사용되지 않음
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// 다음으로 대체됨
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -31,12 +31,12 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
 
 ```javascript
-// Deprecated
+// 더이상 사용되지 않음
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// 다음으로 대체됨
 protocol.registerFileProtocol(scheme, handler)
 ```
 
