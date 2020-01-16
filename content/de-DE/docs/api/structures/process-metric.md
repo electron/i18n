@@ -6,11 +6,11 @@
   * `Tab`
   * `Utility`
   * `Zygote`
-  * `Sandbox-Helfer`
+  * `Sandbox helper`
   * `GPU`
   * `Pepper Plugin`
   * `Pepper Plugin Broker`
-  * `Unbekannt`
+  * `Unknown`
 * `cpu` [CPUUsage](cpu-usage.md) - CPU-Auslastung des Prozesses.
 * `CreationTime` Number - Erstellungszeit für diesen Prozess. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
 * `memory` [MemoryInfo](memory-info.md) - Speicherinformationen für den Prozess.
