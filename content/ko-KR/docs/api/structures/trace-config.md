@@ -1,7 +1,7 @@
 # TraceConfig 오브젝트
 
-* `recording_mode` String (optional) - Can be `record-until-full`, `record-continuously`, `record-as-much-as-possible` or `trace-to-console`. Defaults to `record-until-full`.
-* `trace_buffer_size_in_kb` number (optional) - maximum size of the trace recording buffer in kilobytes. Defaults to 100MB.
+* `recording_mode` String (optional) - `record-until-full`, `record-continuously`, `record-as-much-as-possible` 또는 `trace-to-console`. 기본값은 `record-until-full`.
+* `trace_buffer_size_in_kb` number (optional) - trace 레코딩 버퍼의 최대 크기 (kilobytes) 기본값 100MB.
 * `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
 * `enable_argument_filter` boolean (optional) - if true, filter event data according to a whitelist of events that have been manually vetted to not include any PII. See [the implementation in Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc) for specifics.
 * `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.
@@ -10,7 +10,7 @@
 * `histogram_names` String[] (optional) - a list of [histogram](https://chromium.googlesource.com/chromium/src.git/+/HEAD/tools/metrics/histograms/README.md) names to report with the trace.
 * `memory_dump_config` Record<String, any> (optional) - if the `disabled-by-default-memory-infra` category is enabled, this contains optional additional configuration for data collection. See the [Chromium memory-infra docs](https://chromium.googlesource.com/chromium/src/+/master/docs/memory-infra/memory_infra_startup_tracing.md#the-advanced-way) for more information.
 
-An example TraceConfig that roughly matches what Chrome DevTools records:
+Chrome DevTools 레코드와 대랴 일치하는 TraceConfig 예:
 
 ```js
 {
