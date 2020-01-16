@@ -74,7 +74,7 @@ Windows에서는 `releaseName`만 사용이 가능합니다.
 
 이 이벤트는 사용자가 `quitAndInstall()`을 호출한 뒤에 발생합니다.
 
-이 API가 호출되면, `before-quit` 이벤트는 모든 창이 닫기 전까지 발생되지 않습니다. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+이 API가 호출되면, `before-quit` 이벤트는 모든 창이 닫기 전까지 발생되지 않습니다. 결과적으로 프로세스가 종료되는 동안 창을 닫기 전에 `before-quit`의 수신을 대기하고 작업을 수행하려면 이 이벤트의 수신을 대기해야합니다.
 
 ## 메소드
 
