@@ -11,4 +11,4 @@
 * `referrer` String (optional) - `referrer` URL. 파일과 URL 응답에만 사용됩니다.
 * `method` String (optional) - HTTP `method`. 파일과 URL 응답에만 사용됩니다.
 * `session` Session (optional) - URL 요청에 사용된 세션, 기본적으로 HTTP 요청은 현재 세션을 재사용합니다. `session`을 `null`로 설정하면 임의의 독립 세션이 사용됩니다. URL응답에만 사용됩니다.
-* `uploadData` ProtocolResponseUploadData (optional) - 업로드 데이테로 사용된 데이터 This is only used for URL responses when `method` is `"POST"`.
+* `uploadData` ProtocolResponseUploadData (optional) - 업로드 데이터로 사용된 데이터. `method`가 `"POST"`인 경우 URL 응답에만 사용됩니다.
