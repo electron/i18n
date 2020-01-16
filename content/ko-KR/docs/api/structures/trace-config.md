@@ -2,8 +2,8 @@
 
 * `recording_mode` String (optional) - `record-until-full`, `record-continuously`, `record-as-much-as-possible` 또는 `trace-to-console`. 기본값은 `record-until-full`.
 * `trace_buffer_size_in_kb` number (optional) - trace 레코딩 버퍼의 최대 크기 (kilobytes) 기본값 100MB.
-* `trace_buffer_size_in_events` number (optional) - maximum size of the trace recording buffer in events.
-* `enable_argument_filter` boolean (optional) - if true, filter event data according to a whitelist of events that have been manually vetted to not include any PII. See [the implementation in Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc) for specifics.
+* `trace_buffer_size_in_events` number (optional) - 이벤트에서 trace 레코딩 버퍼의 최대 크기.
+* `enable_argument_filter` boolean (optional) - true 인 경우, PII를 포함하지 않도록 수동으로 조사된 이벤트의 화이트리스트에 따라 이벤트 데이터를 필터링합니다. 자세한 내용은 [the implementation in Chromium](https://chromium.googlesource.com/chromium/src/+/master/services/tracing/public/cpp/trace_event_args_whitelist.cc)을 보세요.
 * `included_categories` String[] (optional) - a list of tracing categories to include. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.
 * `excluded_categories` String[] (optional) - a list of tracing categories to exclude. Can include glob-like patterns using `*` at the end of the category name. See [tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h) for the list of categories.
 * `included_process_ids` number[] (optional) - a list of process IDs to include in the trace. If not specified, trace all processes.
