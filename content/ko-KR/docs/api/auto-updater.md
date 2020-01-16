@@ -6,13 +6,13 @@
 
 **참고 자료: [애플리케이션에 업데이트를 구현하는 방법에 대한 자세한 가이드](../tutorial/updates.md).**
 
-`autoUpdater` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`autoUpdater`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)입니다.
 
-## 플랫폼 참고 사랑
+## 플랫폼별 주의사항
 
 현재 macOS와 Windows만 지원됩니다. 리눅스에는 자동 업데이터를 위한 내장 지원이 없으므로, app을 업데이트하기 위해 배포판의 패키지 관리자를 이용하는 것이 좋습니다.
 
-In addition, there are some subtle differences on each platform:
+또한 각 플랫폼별 약간의 차이가 있습니다:
 
 ### macOS
 
@@ -68,7 +68,7 @@ Returns:
 
 Windows에서는 `releaseName`만 사용이 가능합니다.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**주의:** 이 이벤트를 처리할 필요는 없습니다. 다음에 응용 프로그램을 시작할 때 성공적으로 다운로드된 업데이트가 계속 적용됩니다.
 
 ### Event: 'before-quit-for-update'
 
