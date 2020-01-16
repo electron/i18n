@@ -64,4 +64,4 @@ If both commands printed a version number, you are all set! Before you get start
 
 Найкраще підійдуть два популярних редактори: [Atom](https://atom.io/) від GitHub та [VS Code](https://code.visualstudio.com/) від Microsoft. Обидва мають чудову підтримку JavaScript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Якщо ви вже звикли до якогось редактора чи IDE - знайте, що практично всі редактори коду та IDE в наші дні підтримують JavaScript.
