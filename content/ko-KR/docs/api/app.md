@@ -92,7 +92,7 @@ Returns:
 * `event` Event
 * `url` String
 
-사용자가 애플리케이션을 URL과 함께 열었을 때 발생합니다. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+사용자가 애플리케이션을 URL과 함께 열었을 때 발생합니다. `Info.plist` 파일의 `CFBundleURLTypes`키에 반드시 URL scheme을 정의해야 합니다. 그리고 `NSPrincipalClass`을 `AtomApplication`으로 설정해야 합니다.
 
 이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
