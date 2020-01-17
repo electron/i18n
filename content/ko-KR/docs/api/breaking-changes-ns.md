@@ -1,22 +1,22 @@
-# Breaking changes (NetworkService) (Draft)
+# 주요 변경 사항 (NetworkService) (초안)
 
-This document describes changes to Electron APIs after migrating network code to NetworkService API.
+이 문서는 네트워크 코드를 NetworkService API로 마이그레이션 한 후의 Electron API의 변경 사항에 대해 설명합니다.
 
-We don't currently have an estimate of when we will enable `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we might switch before Electron 10.
+현재 Electron에서 `NetworkService`를 활성화 할지 알 수 없지만 Chromium이 이미 ` NetworkService` 코드를 제거하고 있으므로 Electron 10 이전으로 전환할 수 있습니다.
 
-The content of this document should be moved to `breaking-changes.md` once we have determined when to enable `NetworkService` in Electron.
+Electron에서 `NetworkService`를 활성화 할 시기를 결정한 후에는이 문서의 내용을 `breaking-changes.md`로 이동해야 합니다.
 
 ## 중단될 예정 API
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
 
 ```javascript
-// Deprecated
+// 더이상 사용되지 않음
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// 다음으로 대체됨
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -31,25 +31,25 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+API는 이제 동기적이며 콜백은 더이상 필요하지 않습니다.
 
 ```javascript
-// Deprecated
+// 더이상 사용되지 않음
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// 다음으로 대체됨
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+등록되거나 인터셉트된 프로토콜은 탐색이 발생할 때까지 현재 페이지에 영향을 미치지 않습니다.
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+이 API는 더이상 사용되지 않고 사용자는 `protocol.isProtocolRegistered`와 `protocol.isProtocolIntercepted`를 대신 사용해야 합니다.
 
 ```javascript
-// Deprecated
+// 더이상 사용되지 않음
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// 다음으로 대체됨
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
