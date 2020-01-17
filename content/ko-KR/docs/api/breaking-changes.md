@@ -10,38 +10,38 @@
 
 ### Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules. Both will be supported for the foreseeable future but it is recommended that you switch.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다. 두가지 모두 가까운 미래에는 지원할 예정이지만 전환하는 것이 좋습니다.
 
-Deprecated: https://atom.io/download/electron
+더이상 사용하지 않음: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+다음으로 대체: https://electronjs.org/headers
 
 ### `session.clearAuthCache(options)`
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API는 더이상 지울 항목에 대한 옵션을 허용하지 않고 모든 캐시를 무조건 지웁니다.
 
 ```js
-// Deprecated
+// 더이상 사용하지 않음
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// 다음으로 대체됨
 session.clearAuthCache()
 ```
 
 ### `powerMonitor.querySystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// 동기 API 로 대체됨
 const idleState = getSystemIdleState(threshold)
 ```
 
 ### `powerMonitor.querySystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0에서 제거됨
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleTime = getSystemIdleTime()
 ```
 
@@ -473,7 +473,7 @@ webview.onkeyup = () => { /* handler */ }
 
 ### Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다.
 
 Deprecated: https://atom.io/download/atom-shell
 
