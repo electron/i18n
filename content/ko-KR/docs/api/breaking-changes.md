@@ -48,11 +48,11 @@ const idleTime = getSystemIdleTime()
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Elecron 7.0
+// Elecron 7.0 에서 제거됨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 다음으로 대체됨
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -62,13 +62,13 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removal of deprecated `marked` property on getBlinkMemoryInfo
+### getBlinkMemoryInfo에서 더이상 사용되지 않는 `marked` 프로퍼티 제거
 
-This property was removed in Chromium 77, and as such is no longer available.
+이 프로퍼티는 Chromium 77에서 제거되어 더이상 소용이 없습니다.
 
-### `webkitdirectory` attribute for `<input type="file"/>`
+### `<input type="file"/>`의 `webkitdirectory` 속성
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+HTML 파일입력의 `webkitdirectory` 속성을 사용하면 폴더를 선택할 수 있습니다. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
 
     console
     ￼folder
