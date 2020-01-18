@@ -10,49 +10,49 @@
 
 ### Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules. Both will be supported for the foreseeable future but it is recommended that you switch.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다. 두가지 모두 가까운 미래에는 지원할 예정이지만 전환하는 것이 좋습니다.
 
-Deprecated: https://atom.io/download/electron
+더이상 사용하지 않음: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+다음으로 대체: https://electronjs.org/headers
 
 ### `session.clearAuthCache(options)`
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API는 더이상 지울 항목에 대한 옵션을 허용하지 않고 모든 캐시를 무조건 지웁니다.
 
 ```js
-// Deprecated
+// 더이상 사용하지 않음
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// 다음으로 대체됨
 session.clearAuthCache()
 ```
 
 ### `powerMonitor.querySystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// 동기 API 로 대체됨
 const idleState = getSystemIdleState(threshold)
 ```
 
 ### `powerMonitor.querySystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0에서 제거됨
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleTime = getSystemIdleTime()
 ```
 
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Elecron 7.0
+// Elecron 7.0 에서 제거됨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 다음으로 대체됨
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -62,13 +62,13 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removal of deprecated `marked` property on getBlinkMemoryInfo
+### getBlinkMemoryInfo에서 더이상 사용되지 않는 `marked` 프로퍼티 제거
 
-This property was removed in Chromium 77, and as such is no longer available.
+이 프로퍼티는 Chromium 77에서 제거되어 더이상 소용이 없습니다.
 
-### `webkitdirectory` attribute for `<input type="file"/>`
+### `<input type="file"/>`의 `webkitdirectory` 속성
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+HTML 파일입력의 `webkitdirectory` 속성을 사용하면 폴더를 선택할 수 있습니다. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
 
     console
     ￼folder
@@ -473,7 +473,7 @@ webview.onkeyup = () => { /* handler */ }
 
 ### Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다.
 
 Deprecated: https://atom.io/download/atom-shell
 
