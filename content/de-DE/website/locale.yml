@@ -236,9 +236,9 @@ landing:
 governance:
   title: Elektro-Governance
   description: Das System der Electron Governance besteht aus Arbeitsgruppen, die verschiedene Aspekte des Electron Ökosystems überwachen, und einer Verwaltungsgruppe, die die Lösung von Konflikten zwischen ihnen unterstützt.
-  wgs: Working Groups
+  wgs: Arbeitsgruppe
   ecosystem:
-    title: Ecosystem
+    title: Ökosystem
     description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Outreach
