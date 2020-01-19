@@ -283,11 +283,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+사용자 이름이나 비밀번호 없이 `콜백`을 호출하면 인증 요청이 취소되고 인증 오류가 페이지로 반환됩니다.
 
 ### 이벤트: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+GPU 정보 업데이트가 있을 때마다 발생합니다.
 
 ### 이벤트: 'gpu-process-crashed'
 
@@ -296,9 +296,9 @@ Returns:
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
-### Event: 'renderer-process-crashed'
+### 이벤트: 'renderer-process-crashed'
 
 Returns:
 
@@ -306,7 +306,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+`webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 ### 이벤트: 'accessibility-support-changed' *macOS* *Windows*
 
