@@ -19,7 +19,7 @@ keyboard_modal:
   key: Schlüssel
   action: Aktion
   focus_search: Suchleiste fokussieren
-  focus_and_clear: Focus the search bar and cleans it
+  focus_and_clear: Fokussiert die Suchleiste und leert diese
   scroll_down: Nächstes Suchergebnis auswählen
   scroll_up: Vorheriges Suchergebnis auswählen
   open: Ausgewähltes Suchergebnis öffnen
@@ -34,7 +34,7 @@ docs:
   detailed: Im Detail
   custom_dom: Benutzerdefinierte DOM-Elemente
   main_proc_modules: Hauptprozessmodule
-  renderer_proc_modules: Renderer Process Modules
+  renderer_proc_modules: Renderer Prozessmodule
   both_proc_modules: Module für beide Prozesse
   footer:
     propose_change: Diese Dokumentation verbessern
@@ -54,7 +54,7 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Bleiben Sie auf dem neusten Stand</b></a>, indem Sie <a href='https://twitter.com/electronjs'>@electronjs</a> auf Twitter folgen und den <a href='/blog'>Blog-Feed</a> abonnieren."
     localized_docs: "<a href='/languages'><b>Lesen Sie die Dokumentation in Ihrer Sprache</b></a>, indem Sie die <a href='/languages'>Sprach-Seiten</a> besuchen."
     help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Bekomme hilfe und feedback</b></a> durch beitreten des <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, Posten auf <a href='https://discuss.atom.io/c/electron'>Discuss</a> oder auf <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Melde Sicherheitsprobleme</b></a> per Email an <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Bugs melden</b></a> durch öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Anfragen von Features</b></a> durch Öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Code of Conduct Verstöße melden</b></a> per Email an <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -131,7 +131,7 @@ headings:
   languages: Sprachen
 taglines:
   languages: Übersetzte Inhalte von unser atemberaubenden weltweiten Entwickler-Community.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  openjsf: Electron ist gerade der OpenJS Foundation beigetreten. Siehe <a href="/blog/electron-joins-openjsf">die Ankündigung</a> für weitere Informationen!
 help_translate: "Helfen Sie bei der Übersetzung"
 footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
@@ -139,14 +139,14 @@ companies:
   title: Mit Electron gebaut
   description: Anfangs entwickelt für GitHubs <a href='https://atom.io' target='_blank'>Atomeditor</a>, wurde Electron von Unternehmen weltweit übernommen.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'Mit Electron ist die Erstellung einer Desktop-Anwendung für Ihr Unternehmen oder Ihre Idee einfach. Schau dir <a href=''/apps''>einige der von der Community erstellten Apps</a> an oder <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">füge deine eigene</a> hinzu.'
   view_more: Mehr Apps anzeigen
   submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
   edit_this_app: Diese App bearbeiten.
   search_app: Apps nach Namen, Beschreibung usw. filtern…
   categories: Kategorien
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Erstelle einen Pull-Request</a> um Ihre Anwendung hinzuzufügen.'
   #App show page specific localization strings
   website: Webseite
   repository: Repository
@@ -159,8 +159,8 @@ blog:
   title: Electron-Blog
   description: Die neuesten Nachrichten vom Electron-Team und der Community.
   #Post show page specific localization strings
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Haben Sie Feedback zu diesem Beitrag? Lass es <a href="https://twitter.com/electronjs">@electronjs</a> auf Twitter wissen.
+  help: Brauchen Sie Hilfe oder haben Sie einen Fehler gefunden? <a href="/contact">Kontaktieren Sie uns</a>.
 clipboard:
   copy: Kopieren
   copy_to_clipboard: In Zwischenablage kopieren
