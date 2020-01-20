@@ -111,7 +111,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` unknown - 다른 장치의 활동에 의해 저장된 앱별 상태를 포함합니다.
 
 다른 기기에서의 작업을 가져와서 이어서 진행하려는 경우, [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 도중에 발생합니다. 이 이벤트를 핸들링하려면 `event.preventDefault()`를 반드시 호출해야합니다.
 
@@ -142,7 +142,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - 활동에 의해 저장된 앱별 상태를 포함합니다.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)중인 디바이스의 액티비티를, 다른 디바이스에서 계속하는 데 성공한 뒤 발생합니다.
 
@@ -152,7 +152,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - 활동에 의해 저장된 앱별 상태를 포함합니다.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
 
@@ -283,11 +283,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+사용자 이름이나 비밀번호 없이 `콜백`을 호출하면 인증 요청이 취소되고 인증 오류가 페이지로 반환됩니다.
 
-### Event: 'gpu-info-update'
+### 이벤트: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+GPU 정보 업데이트가 있을 때마다 발생합니다.
 
 ### 이벤트: 'gpu-process-crashed'
 
@@ -296,9 +296,9 @@ Returns:
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
-### Event: 'renderer-process-crashed'
+### 이벤트: 'renderer-process-crashed'
 
 Returns:
 
@@ -306,7 +306,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+`webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 ### 이벤트: 'accessibility-support-changed' *macOS* *Windows*
 
