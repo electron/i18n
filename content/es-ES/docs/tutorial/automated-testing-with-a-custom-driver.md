@@ -8,7 +8,7 @@ Para crear un controlador personalizado, usaremos la API de Node.js [child_proce
 const childProcess = require('child_process')
 const electronPath = require('electron')
 
-// spawn the process
+// desencadenar el proceso
 let env = { /* ... */ }
 let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
 let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
