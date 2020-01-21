@@ -12,10 +12,10 @@ Las [WebViews](../api/webview-tag.md) están basadas en las WebViews de Chromium
 
 Las WebViews son a elemento personalizado (`<webview>`) que sólo funcionará dentro de Electron. Están implementadas como un "iframe fuera de proceso". Esto quiere decir que toda la comunicación con el `<webview>` se hace de forma asincrónica usando IPC. El elemento `<webview>` tiene muchos métodos y eventos, similar a `webContents` que te permite mejor control sobre los contenidos.
 
-Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third party content and handling various events.
+Comparado con un `<iframe>`, `<webview>` tiende a ser un poco más lento pero ofrece un control mucho mayor en la carga y comunicación con el contenido de terceros y en la gestión de diversos eventos.
 
 ## BrowserViews
 
-[BrowserViews](../api/browser-view.md) are not part of the DOM - instead, they are created in and controlled by your main process. They are simply another layer of web content on top of your existing window. This means that they are completely separate from your own `BrowserWindow` content and that their position is not controlled by the DOM or CSS but by setting the bounds in the main process.
+[BrowserViews](../api/browser-view.md) no son parte del DOM - en cambio, ellos son creados y controlados por su proceso principal. Son simplemente otra capa de contenido web sobre su ventana existente. Esto quiere decir que están completamente separados de su propio contenido `BrowserWindow` y que su posición no es controlado por el DOM o CSS pero estableciendo los límites en el proceso principal.
 
-BrowserViews offer the greatest control over their contents, since they implement the `webContents` similarly to how a `BrowserWindow` implements it. However, they are not part of your DOM but are overlaid on top of them, which means you will have to manage their position manually.
+BrowserViews ofrecen el mayor control sobre su contenido, ya que implementan los `webContents` de forma similar a como un `BrowserWindow` lo implementa. Sin embargo, no son parte de su DOM sino que se superponen sobre ellos, lo que significa que usted tendrá que gestionar su posición manualmente.
