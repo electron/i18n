@@ -4,13 +4,13 @@ Si usted quiere embeber contenido web (de terceros) en una aplicación Electron 
 
 ## Iframes
 
-Iframes en Electron se comportan como iframes en los navegadores regulares. Un elemento `<iframe>` en tu página puede mostrar páginas web externas, siempre y cuando [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) lo permita. To limit the amount of capabilities a site in an `<iframe>` tag, it's recommended to use the [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) and only allow the capabilities you want to support.
+Iframes en Electron se comportan como iframes en los navegadores regulares. Un elemento `<iframe>` en tu página puede mostrar páginas web externas, siempre y cuando [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) lo permita. Para limitar la cantidad de capacidades de un sitio en una etiqueta `<iframe>`, es recomendado usar el [`sandbox` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) y solo permitir las capacidades que tu quieres soportar.
 
 ## WebViews
 
-[WebViews](../api/webview-tag.md) are based on Chromium's WebViews and are not explicitly supported by Electron. We do not guarantee that the WebView API will remain available in future versions of Electron. This is why, if you want to use `<webview>` tags, you will need to set `webviewTag` to `true` in the `webPreferences` of your `BrowserWindow`.
+Las [WebViews](../api/webview-tag.md) están basadas en las WebViews de Chromium y no son soportadas explícitamente por Electron. Nosotros no garantizamos que la API de WebView permanecerá disponible en futuras versiones de Electron. Esto es porque, si quieres usar las etiquetas `<webview>` necesitaras establecer `webviewTag` a `true` en el `webPreferences` de tu `BrowserWindow`.
 
-WebViews are a custom element (`<webview>`) that will only work inside Electron. They are implemented as an "out-of-process iframe". This means that all communication with the `<webview>` is done asynchronously using IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
+Las WebViews son a elemento personalizado (`<webview>`) que sólo funcionará dentro de Electron. Están implementadas como un "iframe fuera de proceso". Esto quiere decir que toda la comunicación con el `<webview>` se hace de forma asincrónica usando IPC. The `<webview>` element has many custom methods and events, similar to `webContents`, that allow you much greater control over the contents.
 
 Compared to an `<iframe>`, `<webview>` tends to be slightly slower but offers much greater control in loading and communicating with the third party content and handling various events.
 
