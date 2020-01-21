@@ -844,7 +844,7 @@ Devuelve [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMet
 
 Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**Note:** Esta información sólo es usable después de que le evento `gpu-info-update` es emitido.
 
 ### `app.getGPUInfo(infoType)`
 
