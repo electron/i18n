@@ -53,8 +53,8 @@ Devuelve:
   * `puerto` Íntegro
   * `realm` Cadena
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido cuando un proxy de autenticación requiere las credenciales del usuario.
 
