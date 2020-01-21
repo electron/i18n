@@ -1064,7 +1064,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Los usuarios pueden pasar un [Menú](menu.md) para establecer esta propiedad.
 
 ### `app.badgeCount` *Linux* *macOS*
 
