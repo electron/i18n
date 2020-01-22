@@ -347,16 +347,16 @@ Cet événement sera émis dans l'instance principale de votre application quand
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Remarque :** Des arguments supplémentaires en ligne de commande peuvent être ajoutés par Chromium, tels que `--original-process-start-time`.
 
-### Event: 'desktop-capturer-get-sources'
+### Événement : 'desktop-capturer-get-sources'
 
 Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Émis lorsque `desktopCapturer.getSources()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` le fera retourner des sources vides.
 
 ### Événement : 'remote-require'
 
@@ -434,7 +434,7 @@ Cette méthode garantit que tous les écouteurs d’événements de `beforeunloa
 
 Termine immédiatement avec `exitCode`. `exitCode` par défaut vaut 0.
 
-All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
+Toutes les fenêtres seront fermées immédiatement sans demander à l'utilisateur, et les événements `before-quit` et `will-quit` ne seront pas émis.
 
 ### `app.relaunch([options])`
 
@@ -444,7 +444,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 Relance l’application lorsque l’instance en cours se termine.
 
-By default, the new instance will use the same working directory and command line arguments with current instance. Si `args` est spécifié, `args` sera passé comme argument de ligne de commande à la place. Lorsque `execPath` est spécifié, `execPath` sera exécuté pour redémarrer à la de l’application actuelle.
+Par défaut, la nouvelle instance utilisera le même répertoire de travail et les mêmes arguments de la ligne de commande avec l'instance actuelle. Si `args` est spécifié, `args` sera passé comme argument de ligne de commande à la place. Lorsque `execPath` est spécifié, `execPath` sera exécuté pour redémarrer à la de l’application actuelle.
 
 Notez bien que cette méthode ne ferme pas l'application, vous devez appeler `app.quit` ou `app.exit` après avoir appelé `app.relaunch` pour faire redémarrer votre application.
 
@@ -476,13 +476,13 @@ Masque toutes les fenêtres de l'application sans les minimiser.
 
 Montre les fenêtres de l'application après qu'elles aient été cachées. Ne met pas automatiquement le focus sur ces dernières.
 
-### `app.setAppLogsPath([path])`
+### `chemin app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (facultatif) - Un chemin personnalisé pour vos logs. Doit être absolu.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+Définit ou crée un répertoire qui peut être manipulé par `app.getPath()` ou `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Appeler `app. etAppLogsPath()` sans paramètre `path` fera que ce répertoire sera réglé sur `~/Library/Logs/YourAppName` sur *macOS*, et dans le répertoire `userData` sur *Linux* et *Windows*.
 
 ### `app.getAppPath()`
 
@@ -490,7 +490,7 @@ Retourne `String` - Répertoire courant de l'application.
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name: 
+* `nom` String - Vous pouvez demander les chemins suivants par le nom: 
   * `home` Répertoire d'accueil de l'utilisateur.
   * `appData` Dossiers de donnée des applications pour chaque utilisateur, qui pointe par défaut vers: 
     * `%APPDATA%` sur Windows
@@ -510,9 +510,9 @@ Retourne `String` - Répertoire courant de l'application.
   * `logs` Répertoire du dossier de log de votre application.
   * `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+Retourne `String` - Un chemin vers un répertoire ou un fichier spécial associé à `name`. En cas d'échec de , une `Erreur` est levée.
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+Si `app.getPath('logs')` est appelé sans que `app.setAppLogsPath()` soit appelé en premier, un répertoire de logs par défaut sera créé équivalent à un appel `app.setAppLogsPath()` sans paramètre `path`.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -523,7 +523,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
     * `normal` - 32x32
     * `large` - 48x48 sur *Linux*, 32x32 sur *Windows*, non pris en charge sur *macOS*.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+Retourne `Promise<NativeImage>` - rempli avec l'icône de l'application, qui est une [NativeImage](native-image.md).
 
 Récupère une icône associée à un chemin.
 
@@ -532,14 +532,14 @@ Sous *Windows*, il y a 2 sortes d’icônes :
 * Icônes associées à certaines extensions de fichier, comme `.mp3`, `.png`, etc.
 * Icônes à l’intérieur du fichier lui-même, comme les `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+Sur *Linux* et *macOS*, les icônes dépendent de l'application associée au type Mime de fichier.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Remplace le chemin `path` par un répertoire spécial ou un fichier associé à `name`. If the path specifies a directory that does not exist, an `Error` is thrown. In that case, the directory should be created with `fs.mkdirSync` or similar.
+Remplace le chemin `path` par un répertoire spécial ou un fichier associé à `name`. Si le chemin spécifie un répertoire qui n'existe pas, une `Erreur` est levée. Dans ce cas, le répertoire doit être créé avec `fs.mkdirSync` ou similaire.
 
 Vous pouvez remplacer uniquement les chemins d’un `name` défini dans `app.getPath`.
 
@@ -553,7 +553,7 @@ Retourne `String` - La version de l'application chargée. Si aucune version n'es
 
 Retourne `String` - Le nom de l'application, qui est écrit dans le fichier `package.json` .
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Vous devriez dans la plupart des cas renseigner également un champ `productName`, qui contient le nom complet et capitalisé de votre application, et qui sera préféré à `name` par Electron.
+Habituellement, le champ `name` de `package.json` est un nom court en minuscule, selon la spécification des modules npm. Vous devriez dans la plupart des cas renseigner également un champ `productName`, qui contient le nom complet et capitalisé de votre application, et qui sera préféré à `name` par Electron.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -573,13 +573,13 @@ Pour définir la localisation, utilisez un paramètre de ligne de commande au d�
 
 **Remarque :** À la distribution de votre application empaquetée, vous devrez également inclure le dossier `locales`.
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**Remarque :** Sous Windows, vous devez l'appeler après que les événements `prêts` soient émis.
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Retourne `String` - Code pays [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) de la langue du système d'exploitation de l'utilisateur. La valeur est prise à partir des API natives d'OS.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**Note:** Quand il est impossible de détecter le code du pays de la localisation, il renvoie une chaîne vide.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -587,7 +587,7 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 Ajoute le `path` à la liste des documents récents.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Cette liste est gérée par l'OS. Sous Windows, vous pouvez visiter la liste à partir de la barre des tâches et sur macOS, vous pouvez la visiter à partir du menu du dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -603,11 +603,11 @@ Returns `Boolean` - Si l'appel a réussi.
 
 Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le modèle URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+Sous Windows, vous pouvez fournir un chemin optionnel de paramètres, le chemin vers votre exécutable, et args, une table d'arguments à passer à votre exécutable lors de son lancement.
 
 **Remarque:** Sur macOS, vous ne pouvez enregistrer que les protocoles qui ont été ajoutés à votre application `info.plist`, qui ne peut pas être modifié au moment de l'exécution. Vous pouvez cependant changer le fichier avec un simple éditeur de texte ou un script pendant la compilation. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) pour plus de détails.
 
-**Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
+**Remarque :** Dans un environnement Windows Store (lorsque empaqueté en tant qu'`appx`) cette API retournera `true` pour tous les appels, mais la clé de registre qu'elle définit ne sera pas accessible par d'autres applications. Afin d'enregistrer votre application Windows Store comme gestionnaire de protocole par défaut, vous devez [déclarer le protocole dans votre manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
 L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerForURLScheme.
 
@@ -639,7 +639,7 @@ L'API utilise en interne le registre de Windows ainsi que LSCopyDefaultHandlerFo
 
 * `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
+Ajoute `tâches` à la catégorie [Tâches](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la liste de sauts sur Windows.
 
 `tasks` est un tableau d’objets [`Task`](structures/task.md).
 
@@ -652,11 +652,11 @@ Returns `Boolean` - Si l'appel a réussi.
 Retourne `Object`:
 
 * `minItems` Integer - Le nombre minimum d'éléments qui seront affichés dans la JumpList (pour une description plus détaillée de cette valeur, voir les [documentations MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. Ces éléments ne doivent pas être ajoutés de nouveau à la JumpList dans l'appel **suivant** à `app.setJumpList()`, Windows n'affichera aucune catégorie personnalisée qui contient les éléments supprimés.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Tableau des objets `JumpListItem` qui correspondent aux éléments que l'utilisateur a explicitement retirés des catégories personnalisées dans la liste de saut de . Ces éléments ne doivent pas être ajoutés de nouveau à la JumpList dans l'appel **suivant** à `app.setJumpList()`, Windows n'affichera aucune catégorie personnalisée qui contient les éléments supprimés.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Array of `JumpListCategory` objects.
+* `catégories` [JumpListCategory[]](structures/jump-list-category.md) | `null` - Tableau d'objets `JumpListCategory`.
 
 Définit ou supprime une JumpList personnalisée pour l'application et renvoie l'une des chaînes de caractères suivantes :
 
@@ -736,11 +736,11 @@ app.setJumpList([
 
 Retourne `Boolean`
 
-La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non. S'il n'a pas réussi à obtenir le verrou vous pouvez supposer qu'une autre instance de votre application est déjà en cours d'exécution avec le verrou et quitter immédiatement.
 
 Par exemple : cette méthode renvoie `true` si votre process est l'instance principale de votre application, et votre application doit continuer de charger. Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
 
-On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
+Sur macOS, le système impose automatiquement une instance unique lorsque les utilisateurs essaient d'ouvrir une seconde instance de votre application dans Finder, et les événements `open-file` et `open-url` seront émis pour cela. Cependant, lorsque les utilisateurs démarrent votre application en ligne de commande , le mécanisme d'instance unique du système sera contourné, et vous devez utiliser cette méthode pour assurer une seule instance.
 
 Un exemple d'activation de la fenêtre de l'instance primaire lorsqu'une seconde instance démarre :
 
@@ -780,7 +780,7 @@ Libère tous les verrous qui ont été créés par `requestSingleInstanceLock`. 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` n'importe quel - état spécifique à l'application à stocker pour utilisation par un autre appareil.
 * `webpageURL` String (facultatif) - La page web à charger dans un navigateur si aucune application appropriée n'est installée sur l'autre périphérique de reprise. Le protocole doit être `http` ou `https`.
 
 Créée un `NSUserActivity` et le défini en tant qu'activité courante. Après cela, l'activité devient éligible à la fonction [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sur l'autre périphérique.
@@ -795,12 +795,12 @@ Invalide l'activité [Handoff](https://developer.apple.com/library/ios/documenta
 
 ### `app.resignCurrentActivity()` *macOS*
 
-Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
+Marque l'activité actuelle de l'utilisateur [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) comme inactive sans l'invalider.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` any - App-specific state to store for use by another device.
+* `userInfo` n'importe quel - état spécifique à l'application à stocker pour utilisation par un autre appareil.
 
 Modifie l'activité en cours si son type correspond à `type`, en fusionnant les entrées de `userInfo` dans son dictionnaire `userInfo` courant.
 
@@ -834,21 +834,21 @@ Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
+Retourne [`ProcessMetric[]`](structures/process-metric.md) : Tableau d'objets `ProcessMetric` correspondant aux statistiques d'utilisation de la mémoire et du processeur de tous les processus associés à l'application.
 
 ### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fonctions graphiques de `chrome://gpu/`.
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**Remarque :** Cette information n'est utilisable qu'après l'émission de l'événement `gpu-info-update`.
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - Peut être `basique` ou `complete`.
 
 Retourne `Promise<unknown>`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Cela inclut les informations de version et driver montrées sur la page `chrome://gpu`.
+Si `infoType` vaut `complete` : La Promise est remplie avec `Object` contenant toutes les informations sur le GPU, comme pour [l'objet GPUInfo de Chromium](https://chromium.googlesource.com/chromium/src/+/4178e190e9da409b055e5dff469911ec6f6b716f/gpu/config/gpu_info.cc). Cela inclut les informations de version et driver montrées sur la page `chrome://gpu`.
 
 Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moins d'attributs que si l'on utilise `complete`. Voilà un exemple de réponse basique :
 
@@ -885,7 +885,7 @@ Returns `Boolean` - Si l'appel a réussi.
 
 Définit le badge du compteur pour l'application courante. Régler le compte à `0>0` masquera le badge.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+Sur macOS, il apparaît sur l'icône du dock. Sous Linux, il ne fonctionne que pour le lanceur Unity.
 
 **Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -907,7 +907,7 @@ Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
   * `path` String (facultatif) *Windows* - Le chemin de l'exécutable à comparer. `process.execPath` par défaut.
   * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à comparer. Un tableau vide par défaut.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Si vous avez fourni des options `path` et `args` à `app.setLoginItemSettings`, vous devez passer les mêmes arguments ici pour que `openAtLogin` soit défini correctement.
 
 Retourne `Object`:
 
@@ -964,7 +964,7 @@ Cette API doit être appelée après l'émission de l'événement `ready` .
 
 ### `app.showAboutPanel()` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+Affiche les options du panneau à propos de l'application. Ces options peuvent être remplacées par `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
