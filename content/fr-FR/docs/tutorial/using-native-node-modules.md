@@ -89,10 +89,10 @@ Si vous avez installé un module natif et trouvé que cela ne fonctionnait pas, 
 
 ### Une remarque sur `win_delay_load_hook`
 
-Sur Windows, par défaut, `node-gyp` relie les modules natifs à `node.dll`. Cependant, dans Electron 4.x et supérieur, les symboles nécessaires aux modules natifs sont exportés par `electron.exe`, et `node.dll` n'existe pas. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+Sur Windows, par défaut, `node-gyp` relie les modules natifs à `node.dll`. Cependant, dans Electron 4.x et supérieur, les symboles nécessaires aux modules natifs sont exportés par `electron.exe`, et `node.dll` n'existe pas. Afin de charger les modules natifs sous Windows, `node-gyp` installe un [delay-load hoook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) qui déclenche lorsque le module natif est chargé, et redirige le `noeud. la référence ll` pour utiliser l'exécutable de chargement au lieu de rechercher `node.dll` dans le chemin de la recherche de bibliothèque (qui n'afficherait rien). Ainsi, sur Electron 4.x et supérieur, `'win_delay_load_hook' : 'true'` est requis pour charger les modules natifs.
 
-If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+Si vous obtenez une erreur comme `Module ne s'est pas auto-enregistré`, ou `La procédure
+spécifiée n'a pas pu être trouvée`, cela peut signifier que le module que vous essayez d'utiliser n'a pas inclus correctement le crochet de chargement de retard. Si le module est construit avec node-gyp, assurez-vous que la variable `win_delay_load_hook` est définie à `true` dans la liaison `. fichier yp` et ne se fait pas écrasé partout. Si le module est construit avec un autre système, vous devrez vous assurer que vous construisez avec un crochet de chargement tardif installé dans le ` principal. fichier ode`. Votre invocation `link.exe` devrait ressembler à ceci :
 
 ```plaintext
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
@@ -101,11 +101,11 @@ procedure could not be found`, it may mean that the module you're trying to use 
 
 En particulier, il est important que :
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+- vous liez à `node.lib` de *Electron* et non à Node. Si vous liez avec le mauvais nœud `. ib` vous obtiendrez des erreurs de chargement lorsque vous aurez besoin du module dans Electron.
+- vous incluez le drapeau `/DELAYLOAD:node.exe`. Si le `noeud. Le lien xe` n'est pas retardé, alors le crochet de chargement de temps n'aura pas de chance de tirer et les symboles du noeud ne seront pas correctement résolus.
+- `win_delay_load_hook.obj` est directement lié à la DLL finale. Si le crochet est configuré dans une DLL dépendante, il ne se déclenchera pas au bon moment.
 
-See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
+Voir [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) pour un exemple de Hook de chargement à retardement si vous implémentez le vôtre.
 
 ## Les modules s'appuyant sur `prebuild`
 
