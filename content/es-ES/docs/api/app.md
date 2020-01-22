@@ -267,8 +267,8 @@ Devuelve:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
@@ -283,11 +283,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+Si `callback` es llamado sin un nombre de usuario o contraseña, la solicitud de autenticación sera cancelada y el error de autenticación será retornado a la página.
 
 ### Event: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+Emitido cada vez que hay una actualización de información de la GPU.
 
 ### Evento: 'gpu-process-crashed'
 
@@ -296,7 +296,7 @@ Devuelve:
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+Emitido cuando el proceso de la GPU se crashea o es terminado.
 
 ### Evento: 'renderer-process-crashed'
 
@@ -485,7 +485,7 @@ Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca 
 
 Establece o crea un directorio de registros de tu aplicación el cual puede ser manipulado con `app.getPath()` o `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Llamando a `app.setAppLogsPath()` sin un parámetro `path` resultará en que este directorio sea configurado a `~/Library/Logs/YourAppName` en *macOS* y adentro del directorio `userData` en *Linux* y *Windows*.
 
 ### `app.getAppPath()`
 
@@ -515,7 +515,7 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 Retorna `String` - Una ruta a un directorio especial o a un archivo asociado con `name`. Cuando falla, un `Error` es lanzado.
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+Si se llama a `app.getPath('logs')` sin que se llame primero a `app.setAppLogsPath()`, se creará un directorio de registro por defecto equivalente a llamar a `app.setAppLogsPath()` sin un parámetro `path`.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -556,7 +556,7 @@ Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es
 
 Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
 **[Cambiar](modernization/property-updates.md)**
 
@@ -580,7 +580,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Devuelve `Cadena` - Código de país [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) del sistema operativo de usuario. El valor es tomado de API nativas de SO.
 
 **Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
@@ -642,7 +642,7 @@ El API usa el registro de Windows y LSCopyDefaultHandlerForURLScheme internament
 
 * `tarea` [Tarea[]](structures/task.md) - Arreglo de objetos `Tarea`
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
+Agrega `tasks` a la categoría [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la Jump List en Windows.
 
 `tareas` es un arreglo de objetos [`Task`](structures/task.md).
 
@@ -799,7 +799,7 @@ Invalida la actividad actual [Handoff](https://developer.apple.com/library/ios/d
 
 ### `app.resignCurrentActivity()` *macOS*
 
-Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
+Marca la actividad actual del usuario [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) como inactiva sin invalidarla.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
@@ -838,13 +838,13 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMetric` objetos que corresponden a la memoria y estadísticas de uso de la CPU de todos los procesos asociados con la aplicación.
 
 ### `app.getGPUFeatureStatus()`
 
 Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**Note:** Esta información sólo es usable después de que le evento `gpu-info-update` es emitido.
 
 ### `app.getGPUInfo(infoType)`
 
@@ -1064,7 +1064,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Los usuarios pueden pasar un [Menú](menu.md) para establecer esta propiedad.
 
 ### `app.badgeCount` *Linux* *macOS*
 
@@ -1090,7 +1090,7 @@ Una propiedad `Boolean` que retorna `true` si la aplicación está empaquetada, 
 
 A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
 ### `app.userAgentFallback`
 
