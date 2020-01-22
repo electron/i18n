@@ -18,11 +18,11 @@ Le code et l’expérience utilisateur sur les différents systèmes d’exploit
 
 ## Windows
 
-* On Windows 10, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start Menu. This can be overkill during development, so adding `node_modules\electron\dist\electron.exe` to your Start Menu also does the trick. Navigate to the file in Explorer, right-click and 'Pin to Start Menu'. You will then need to add the line `app.setAppUserModelId(process.execPath)` to your main process to see notifications.
-* On Windows 8.1 and Windows 8, a shortcut to your app with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) must be installed to the Start screen. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
+* Sous Windows 10, un raccourci vers votre application avec un [Utilisateur de l'application ID modèle](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) doit être installé sur le Menu Démarrer. Cela peut être overkill pendant le développement, donc ajouter `node_modules\electron\dist\electron.exe` à votre menu de démarrage fait aussi l'affaire. Naviguez vers le fichier dans l'explorateur, cliquez avec le bouton droit de la souris et 'Épingler pour démarrer le menu'. Vous devrez ensuite ajouter la ligne `app.setAppUserModelId(process.execPath)` à votre processus principal pour voir les notifications.
+* Sous Windows 8.1 et Windows 8, un raccourci vers votre application avec un [Utilisateur de l'application ID modèle](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) doit être installé sur l'écran de démarrage. Notez, cependant, qu’il n’a pas besoin d’être épinglée à l’écran de démarrage.
 * Sur Windows 7, les notifications fonctionnent via une implémentation personnalisée qui ressemble visuellement au natif sur les systèmes plus récents.
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) yourself.
+Electron tente d'automatiser le travail autour de l'ID du modèle utilisateur de l'application. Quand Electron est utilisé conjointement avec l'installation et la mise à jour du framework Squirrel, [raccourcis seront automatiquement configurés correctement](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). De plus, Electron détectera que Squirrel a été utilisé et appellera automatiquement `app.setAppUserModelId()` avec la valeur correcte. Pendant le développement, vous pouvez avoir pour appeler [`app.setAppUserModelId()`](../api/app.md#appsetappusermodelidid-windows) vous-même.
 
 En outre, dans Windows 8, la longueur maximale pour le corps de notification est de 250 caractères, l'équipe Windows recommande que les notifications fassent jusqu'à 200 caractères. Cela dit, la limitation a été retiré sur Windows 10. L'équipe Windows demandant aux développeurs de rester raisonnable. Essayer d'envoyer des quantités gigantesques de textes à l'API (milliers de caractères) peut entraîner une instabilité.
 
@@ -40,7 +40,7 @@ Cela permet de déterminer en avance ou non si Windows retire silencieusement la
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
+Les notifications sont simples sur macOS, mais vous devriez être au courant de [Directives de l'interface humaine d'Apple concernant les notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 
 Notez que les notifications sont limitées à 256 octets de taille et risque d’être tronquées si vous dépassez cette limite.
 
