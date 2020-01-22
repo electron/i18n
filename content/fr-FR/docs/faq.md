@@ -140,13 +140,13 @@ Cependant si vous utilisez le module intégré et que vous avez toujours cette e
 
 ## La police semble floue, qu'est-ce et à que puis-je faire?
 
-Si [anti-aliasing sous-pixel](http://alienryderflex.com/sub_pixel/) est désactivé, alors les polices sur les écrans LCD peuvent être floues. Exemple :
+Si [l'anticrénelage des sous-pixels](http://alienryderflex.com/sub_pixel/) est désactivé, alors les polices sur les écrans LCD peuvent être floues. Exemple :
 
 ![exemple de rendu de sous-pixel](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+L'anticrénelage des sous-pixels nécessite un fond non transparent pour la fenêtre contenant les glyphes d'une police d'écriture. (Voir [cette issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) pour plus d'infos).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Pour atteindre cet objectif, définissez la couleur de fond dans le constructeur du [BrowserWindow](api/browser-window.md) :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you don't see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+L'effet n'est visible que sur (certains ?) écrans LCD. Même si vous ne voyez pas de différence, certains de vos utilisateurs peuvent en voir. Il est préférable de toujours régler l'arrière-plan de cette façon, à moins que vous n'ayez des raisons de ne pas le faire.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Veuillez noter que simplement paramétrer la couleur de fond avec le CSS ne donnera pas l'effet souhaité.

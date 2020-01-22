@@ -154,4 +154,4 @@
 
 ## التطوير
 
-اطلع على <development/README.md>
+See <development/README.md>

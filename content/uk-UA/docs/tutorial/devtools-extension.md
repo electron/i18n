@@ -1,14 +1,14 @@
 # Розширення DevTools
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electron підтримує [розширення Chrome DevTools](https://developer.chrome.com/extensions/devtools), яке можна використовувати для розширення можливостей для налагодження популярних веб-фреймворків.
 
-## How to load a DevTools Extension
+## Як завантажити Chrome DevTools
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Цей документ окреслює процес завантаження розширення вручну. Ви також можете спробувати [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), сторонній інструмент, який завантажує розширення безпосередньо з веб-магазину Chrome.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Щоб завантажити розширення в Electron, потрібно завантажити його в браузері Chrome, знайти шлях до нього та завантажити його, викликавши API `BrowserWindow.addDevToolsExtension(розширення)`.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Використовуючи [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) як приклад:
 
 1. Install it in Chrome browser.
 2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.

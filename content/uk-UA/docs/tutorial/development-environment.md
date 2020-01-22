@@ -62,6 +62,6 @@ If both commands printed a version number, you are all set! Before you get start
 
 ## A Good Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Найкраще підійдуть два популярних редактори: [Atom](https://atom.io/) від GitHub та [VS Code](https://code.visualstudio.com/) від Microsoft. Обидва мають чудову підтримку JavaScript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Якщо ви вже звикли до якогось редактора чи IDE - знайте, що практично всі редактори коду та IDE в наші дні підтримують JavaScript.

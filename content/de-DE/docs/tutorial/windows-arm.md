@@ -1,17 +1,17 @@
-# Windows 10 on Arm
+# Windows 10 auf Arm
 
-If your app runs with Electron 6.0.8 or later, you can now build it for Windows 10 on Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
+Wenn Ihre App mit Electron 6.0.8 oder höher läuft, können Sie sie nun unter Arm für Windows 10 bauen. Dies verbessert die Leistung erheblich, erfordert aber eine Neukompilierung aller nativen Module, die in Ihrer App verwendet werden. Es kann auch kleine Korrekturen an Ihren Build- und Paketskripten erfordern.
 
-## Running a basic app
-If your app doesn't use any native modules, then it's really easy to create an Arm version of your app.
+## Eine einfache App ausführen
+Wenn Ihre App keine nativen Module verwendet, ist es wirklich einfach, eine Arm-Version Ihrer App zu erstellen.
 
-1. Make sure that your app's `node_modules` directory is empty.
+1. Stelle sicher, dass das `node_modules` Verzeichnis deiner App leer ist.
 2. Using a _Command Prompt_, run `set npm_config_arch=arm64` before running `npm install`/`yarn install` as usual.
-3. [If you have electron installed as a development dependency](first-app.md), npm will download and unpack the arm64 version. You can then package and distribute your app as normal.
+3. [Wenn Sie Elektron als Entwicklungsabhängigkeit installiert haben](first-app.md), wird npm die arm64-Version herunterladen und entpacken. You can then package and distribute your app as normal.
 
-## General considerations
+## Allgemeine Überlegungen
 
-### Architecture-specific code
+### Architektur-spezifischer Code
 
 Lots of Windows-specific code contains if... else logic that selects between either the x64 or x86 architectures.
 
@@ -25,7 +25,7 @@ if (process.arch === 'x64') {
 
 If you want to target arm64, logic like this will typically select the wrong architecture, so carefully check your application and build scripts for conditions like this. In custom build and packaging scripts, you should always check the value of `npm_config_arch` in the environment, rather than relying on the current process arch.
 
-### Native modules
+### Native Module
 If you use native modules, you must make sure that that they compile against v142 of the MSVC compiler (provided in Visual Studio 2017). You must also check that any pre-built `.dll` or or `.lib` files provided or referenced by the native module are available for Windows on Arm.
 
 ### Testing your app

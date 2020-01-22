@@ -6,7 +6,7 @@
 
 `npm install -g clang-format` 으로 `clang-format` 과 `git-clang-format` 을 설치할 수 있습니다.
 
-To automatically format a file according to Electron C++ code style, run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Electron C++ 코드 스타일에 따라 파일을 자동으로 포맷하려면 `clang-format -i path /to/electron/file.cc`를 실행하십시오. macOS/Linux/Windows에서 작동합니다.
 
 변경된 코드를 서식에 맞추는 작업 흐름:
 

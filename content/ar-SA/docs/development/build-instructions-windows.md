@@ -25,7 +25,7 @@
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Building
+## البناء
 
 إطلع [تعليمات البناء: GN](build-instructions-gn.md)
 

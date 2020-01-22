@@ -268,7 +268,7 @@ gclient sync -f --with_branch_heads --with_tags
     </h3>
     
     <p>
-      Si <code>gclient sync</code> se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para eliminar el bloqueo, pase el argumento <code>--break_repo_locks</code> a <code>gclient sync</code>.
+      Si <code>gclient sync</code> se interrumpe mientras se usa la caché git, dejará la caché bloqueada. Para quitar el bloqueo, pase el argumento <code>--ignore_locks</code> a <code>gclient sync</code>.
     </p>
     
     <h3>

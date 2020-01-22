@@ -1,6 +1,6 @@
 # Goma
 
-> Goma is a distributed compiler service for open-source projects such as Chromium and Android.
+> Goma是一款很多开源项目都在使用的分布式编译服务，例如Chromium和Android。
 
 Electron has a deployment of a custom Goma Backend that we make available to all Electron Maintainers.  See the [Access](#access) section below for details on authentication.
 
@@ -18,14 +18,14 @@ Before you can use goma to build Electron you need to authenticate against the G
 
 ```bash
 cd electron/external_binaries/goma
-goma_auth.py login
+./goma_auth.py login
 ```
 
 Once authenticated you need to make sure the goma daemon is running on your machine.
 
 ```bash
 cd electron/external_binaries/goma
-goma_ctl.py ensure_start
+./goma_ctl.py ensure_start
 ```
 
 ## Building with Goma

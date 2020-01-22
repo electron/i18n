@@ -1,6 +1,6 @@
-# MouseWheelInputEvent Object extends `MouseInputEvent`
+# `MouseInputEvent`를 확장한 MouseWheelInputEvent 객체
 
-* `type` String - The type of the event, can be `mouseWheel`.
+* `type` String - 이벤트 타입으로 `mouseWheel`가 될 수 있다.
 * `deltaX` Integer (optional)
 * `deltaY` Integer (optional)
 * `wheelTicksX` Integer (optional)
