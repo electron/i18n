@@ -112,35 +112,35 @@ Quelques exemples de la façon dont différentes gammes de semver vont ramasser 
 
 # Caractéristiques manquantes : Alphas
 
-Notre stratégie comporte quelques compromis qui, pour l'instant, nous semblent appropriés. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Notre stratégie comporte quelques compromis qui, pour l'instant, nous semblent appropriés. Le plus important est que les nouvelles fonctionnalités dans master peuvent prendre un certain temps avant d'atteindre une ligne de publication stable. Si vous voulez essayer une nouvelle fonctionnalité immédiatement, vous devrez construire Electron vous-même.
 
-As a future consideration, we may introduce one or both of the following:
+À l'avenir, nous pourrions introduire l'un ou l'autre des éléments suivants:
 
-- alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+- les versions alpha qui ont des contraintes de stabilité plus lâches aux bêta; par exemple, il serait permis d'admettre de nouvelles fonctionnalités alors qu'un canal de stabilité est en *alpha*
 
-# Feature Flags
+# Indicateurs de fonctionnalités
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Les drapeaux de fonctionnalités sont une pratique courante dans Chromium, et sont bien établis dans l'écosystème de développement Web. Dans le contexte d'Electron, une fonctionnalité ou une **branche soft** doit avoir les propriétés suivantes :
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-- it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-- feature flags are eventually removed after the feature is released
+- il est activé/désactivé soit au moment de l'exécution, soit au moment de la construction ; nous ne prenons pas en charge le concept d'une fonctionnalité à portée de requête
+- il segmente complètement les chemins de code nouveaux et anciens; refactoring l'ancien code pour supporter une nouvelle fonctionnalité *violation* le contrat de trait-flag
+- les drapeaux de fonctionnalités sont éventuellement supprimés après la publication de la fonctionnalité
 
-# Semantic Commits
+# Commits sémantiques
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Nous cherchons à accroître la clarté à tous les niveaux du processus de mise à jour et de publication. À partir de `2.0.0` nous aurons besoin que les demandes de fusion adhèrent à la spécification [Engagements conventionnels](https://conventionalcommits.org/), qui peut être résumée comme suit :
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-- Commits that would result in a semver **minor** bump must start with `feat:`.
-- Commits that would result in a semver **patch** bump must start with `fix:`.
+- Les commits qui entraîneraient un bump **majeur** doivent commencer leur corps avec `CHANGEMENT DE RÉCUPÉRATION :`.
+- Les commits qui entraîneraient un bump **mineur** doivent commencer par `feat:`.
+- Les commits qui entraîneraient un bump de type **patch** doivent commencer par `correctif :`.
 
-- We allow squashing of commits, provided that the squashed message adheres the the above message format.
+- Nous autorisons le écrasement des livres, à condition que le message écrasé adhère au format de message ci-dessus.
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- Il est acceptable pour certains commits dans une pull request de ne pas inclure un préfixe sémantique, aussi longtemps que le titre de la demande d'ajout contient un message sémantique significatif.
 
-# Versioned `master`
+# Version `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches *do* contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- La branche `master` contiendra toujours la prochaine version majeure `X.0.0-nightly.DATE` dans son `package.json`
+- Les branches de version ne sont jamais fusionnées vers master
+- Les branches de version *do* contiennent la version correcte dans leur `package.json`
+- Dès qu'une branche de publication est coupée pour un majeur, master doit être repoussé au majeur suivant. Par exemple, `master` est toujours versionné comme la prochaine branche de publication théorique
