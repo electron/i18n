@@ -1,23 +1,23 @@
 # Aperçu du Système de Build
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron utilise [GN](https://gn.googlesource.com/gn) pour la génération de projet et [ninja](https://ninja-build.org/) pour la construction. Les configurations du projet peuvent être trouvées dans les fichiers `.gn` et `.gni` .
 
-## GN Files
+## Fichiers GN
 
-The following `gn` files contain the main rules for building Electron:
+Les fichiers `gn` suivants contiennent les règles principales pour la construction d'Electron :
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` définit comment Electron lui-même est construit et inclut les configurations par défaut pour se connecter avec Chromium.
+* `build/args/{debug,release,all}.gn` contient les arguments de construction par défaut pour compilant Electron.
 
 ## Component Build
 
 Étant donné que Chrome est un sacré gros projet, la dernière étape de reliage (linking) peut prendre quelques minutes, ce qui rend le développement difficile. Afin de résoudre ce problème, Chrome a introduit le « component build », qui compile chaque composant comme une bibliothèque partagée distincte, faisant le lien très rapidement mais sacrifie la taille de fichier et la performance.
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron hérite de cette option de compilation de Chromium. Dans les versions `Debug`, le binaire sera lié à une version partagée de la bibliothèque des composants de Chromium pour obtenir un temps de liaison rapide ; pour les versions `Release`, le binaire sera lié à les versions statiques de la bibliothèque, pour que nous puissions avoir la meilleure taille binaire possible et les meilleures performances .
 
 ## Tests
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** *cette section est obsolète et contient des informations qui ne sont plus pertinentes pour l'électronique GN.*
 
 Pour tester que vos changements soient conforme avec le code style du projet :
 
@@ -41,7 +41,7 @@ Vous pouvez rendre la suite de tests plus rapide en isolant le test spécifique 
 
 ```js
 describe.only('some feature', () => {
-  // ... only tests in this block will be run
+  // ... Seuls les tests de ce bloc seront exécutés
 })
 ```
 
