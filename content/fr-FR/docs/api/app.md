@@ -296,9 +296,9 @@ Retourne :
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+Émis lorsque le processus GPU plante ou est tué.
 
-### Event: 'renderer-process-crashed'
+### Événement : 'renderer-process-crashed'
 
 Retourne :
 
@@ -306,7 +306,7 @@ Retourne :
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+Émis lorsque le processus de rendu de `webContents` plante ou est tué.
 
 ### Événement : 'accessibility-support-changed' *macOS* *Windows*
 
@@ -341,9 +341,9 @@ Retourne :
 * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
 * `workingDirectory` String - Le répertoire de travail de la deuxième instance
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+Cet événement sera émis dans l'instance principale de votre application quand une seconde instance a été exécutée et appelle `app.requestSingleInstanceLock()`.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
+`argv` est un tableau des arguments de la ligne de commande de la seconde instance, et `workingDirectory` est son répertoire de travail actuel. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
