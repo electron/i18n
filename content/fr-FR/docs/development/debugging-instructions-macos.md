@@ -10,7 +10,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 ## Attacher et débogage d'Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+Pour démarrer une session de débogage, ouvrez le Terminal et démarrez `lldb`, en passant une version non-version d'Electron en paramètre.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
@@ -41,17 +41,17 @@ L’app sera immédiatement suspendu, puisque l’électron définit le nom de l
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/Testing/Electron.app/Contents/MacOS/Electron' (x86_64)
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115  }
+Process 25244 launched: '/Users/fr/Code/electron/out/Testing/Electron. pp/Contents/MacOS/Electron' (x86_64)
+Le processus 25244 s'est arrêté
+* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 au navigateur. c:118, queue = 'com.apple.main-thread', stop reason = point d'arrêt 1.
+    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 dans le navigateur. c:118
+   115 }
    116
-   117  void Browser::SetName(const std::string& name) {
--> 118    name_override_ = name;
-   119  }
+   117 void Browser::SetName(const std::string& name) {
+-> 118 name_override_ = name;
+   119 }
    120
-   121  int Browser::GetBadgeCount() {
+   121 int Browser::GetBadgeCount() {
 (lldb)
 ```
 
