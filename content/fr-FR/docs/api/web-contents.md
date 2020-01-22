@@ -415,7 +415,7 @@ L'utilisation est pareil que [l'événement `select-client-certificate` de `app`
 Retourne :
 
 * `event` Événement
-* `authenticationResponseDetails` Objet 
+* `description de la réponse à l'authentification` Objet 
   * `url` URL
 * `authInfo` Objet 
   * `isProxy` Boolean
@@ -424,8 +424,8 @@ Retourne :
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `nom d'utilisateur` String (facultatif)
+  * `mot de passe` String (facultatif)
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
