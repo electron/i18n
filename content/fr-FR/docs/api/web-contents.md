@@ -654,7 +654,7 @@ Retourne :
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Event: 'desktop-capturer-get-sources'
+#### Événement : 'desktop-capturer-get-sources'
 
 Retourne :
 
