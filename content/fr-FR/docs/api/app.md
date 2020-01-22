@@ -27,7 +27,7 @@ Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `rea
 
 Retourne :
 
-* `launchInfo` unknown *macOS*
+* `launchInfo` inconnu *macOS*
 
 Émis lorsqu'Electron a terminé l’initialisation. Sur macOs, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez appeler `app.isReady()` pour vérifier si cet événement a déjà été déclenché.
 
@@ -43,9 +43,9 @@ Renvoie :
 
 * `event` Événement
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+Émis avant que l'application ne commence à fermer ses fenêtres. Appeler `event.preventDefault()` empêchera le comportement par défaut, qui est de terminer l'application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Remarque :** Si l'application a été quittée par `autoUpdater.quitAndInstall()`, puis `before-quit` est émise *après* émettant un événement `close` sur toutes les fenêtres et les fermant.
 
 **Note:** Sous Windows, cet événement ne sera pas émit si l'application est fermée à cause d'un extinction du système/re-démarrage ou une déconnexion de l'utilisateur.
 
@@ -92,7 +92,7 @@ Retourne :
 * `event` Événement
 * `url` String
 
-Émis lorsque l’utilisateur souhaite ouvrir une URL avec l’application. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Émis lorsque l’utilisateur souhaite ouvrir une URL avec l’application. Le fichier de votre application `Info.plist` doit définir le schéma d'URL dans la touche `CFBundleURLTypes` et définir `NSPrincipalClass` à `AtomApplication`.
 
 Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
 
@@ -111,7 +111,7 @@ Retourne :
 
 * `event` Événement
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` inconnu - Contient l'état spécifique de l'application stocké par l'activité sur un autre appareil.
 
 Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quand une activité depuis un périphérique différent veut reprendre. Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
 
@@ -142,7 +142,7 @@ Retourne :
 
 * `event` Événement
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` inconnu - Contient l'état spécifique de l'application stocké par l'activité.
 
 Émis au cours de la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)après qu'une activité depuis un périphérique différent a bien repris.
 
@@ -152,9 +152,9 @@ Retourne :
 
 * `event` Événement
 * `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` inconnu - Contient l'état spécifique de l'application stocké par l'activité.
 
-Émis lorsque la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va être repris par un autre appareil. Si vous avez besoin de mettre à jour l'état à transférer, vous devez appeler `event.preventDefault()` immédiatement, construire un nouveau dictionnaire `userInfo` et appeler `app.updateCurrentActiviy()` en suivant. Otherwise, the operation will fail and `continue-activity-error` will be called.
+Émis lorsque la [procédure de transfert](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va être repris par un autre appareil. Si vous avez besoin de mettre à jour l'état à transférer, vous devez appeler `event.preventDefault()` immédiatement, construire un nouveau dictionnaire `userInfo` et appeler `app.updateCurrentActiviy()` en suivant. Sinon, l'opération échouera et `continue-activity-error` sera appelée.
 
 ### Événement : 'new-window-for-tab' *macOS*
 
@@ -258,7 +258,7 @@ Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `authenticationResponseDetails` Objet 
+* `description de la réponse à l'authentification` Objet 
   * `url` URL
 * `authInfo` Objet 
   * `isProxy` Boolean
@@ -267,12 +267,12 @@ Retourne :
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `nom d'utilisateur` String (facultatif)
+  * `mot de passe` String (facultatif)
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Le comportement par défaut est d'annuler toutes les authentifications. Pour remplacer cela vous devez empêcher le comportement par défaut avec `event.preventDefault()` et appeler `callback(username, password)` avec les identifiants.
 
 ```javascript
 const { app } = require('electron')
@@ -283,11 +283,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+Si `callback` est appelé sans nom d'utilisateur ou mot de passe, la demande d'authentification sera annulée et l'erreur d'authentification sera renvoyée à la page .
 
-### Event: 'gpu-info-update'
+### Événement : 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+Émis chaque fois qu'il y a une mise à jour d'informations GPU.
 
 ### Événement : 'gpu-process-crashed'
 
@@ -972,21 +972,21 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (optional) - Nom de l'application.
   * `applicationVersion` String (optional) - Version de l'application.
   * `copyright` String (optional) - Information copyright.
-  * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
-  * `authors` String[] (optional) *Linux* - List of app authors.
-  * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `version` String (facultatif) *macOS* - Le numéro de version de l'application.
+  * `crédits` String (facultatif) *macOS* - Informations de crédit.
+  * `auteurs` String[] (facultatif) *Linux* - Liste des auteurs d'applications.
+  * `site web` String (facultatif) *Linux* - Le site web de l'application.
+  * `iconPath` String (facultatif) *Linux* - Chemin vers l'icône de l'application. Sera affiché en 64x64 pixels tout en conservant le rapport d'aspect.
 
-Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on MacOS. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations. On Linux, values must be set in order to be shown; there are no defaults.
+Configure les options de la fenêtre À propos de. Cela remplacera les valeurs définies dans le fichier `.plist` de l'application sur MacOS. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
 ### `app.isEmojiPanelSupported()`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+Retourne `Boolean` - que la version actuelle de l'OS autorise ou non les sélecteurs natifs d'émojis.
 
 ### `app.showEmojiPanel()` *macOS* *Windows*
 
-Show the platform's native emoji picker.
+Montrer le sélecteur d'émoji natif de la plateforme.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *mas*
 
@@ -1001,7 +1001,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Commencez à accéder à une ressource périmée de sécurité. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Commencez à accéder à une ressource périmée de sécurité. Avec cette méthode, les applications Electron qui sont empaquetées pour le Mac App Store peuvent atteindre en dehors de leur sandbox pour accéder aux fichiers choisis par l'utilisateur. Voir la documentation de [Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) pour une description du fonctionnement de ce système.
 
 ### `app.enableSandbox()` *Expérimental*
 
@@ -1017,42 +1017,42 @@ Renvoie un `Boolean` - Vérifie si l'application est actuellement exécutée dep
 
 * `options` Object (facultatif) 
   * `conflictHandler` Function<boolean> (optional) - A handler for potential conflict in move failure. 
-    * `conflictType` String - The type of move conflict encountered by the handler; can be `exists` or `existsAndRunning`, where `exists` means that an app of the same name is present in the Applications directory and `existsAndRunning` means both that it exists and that it's presently running.
+    * `conflictType` String - Le type de conflit de déplacement rencontré par le gestionnaire ; peut être `exists` ou `existsAndRunning`, où `existe` signifie qu'une application du même nom est présente dans le répertoire Applications et `existsAndRunning` signifie à la fois qu'elle existe et qu'elle est actuellement en cours d'exécution.
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+Retourne `Boolean` - Si le mouvement a réussi. Veuillez noter que si le mouvement est réussi, votre application se quittera et se relancera.
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+Aucune boîte de dialogue de confirmation ne sera présentée par défaut. Si vous souhaitez autoriser l'utilisateur à confirmer l'opération, vous pouvez le faire en utilisant l'API [`dialogue`](dialog.md).
 
-**NOTE:** Cette méthode renvoie des erreurs si quelque chose d'autre qu'une erreur utilisateur fait échouer le déplacement. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Le message contenu dans l'erreur devrait être suffisamment informatif pour que vous puissiez déterminer précisément quel est le problème.
+**NOTE:** Cette méthode renvoie des erreurs si quelque chose d'autre qu'une erreur utilisateur fait échouer le déplacement. Par exemple, si l'utilisateur annule la boîte de dialogue d'autorisation, cette méthode renvoie false. Si nous ne réussissons pas à effectuer la copie, alors cette méthode lancera une erreur. Le message contenu dans l'erreur devrait être suffisamment informatif pour que vous puissiez déterminer précisément quel est le problème.
 
-By default, if an app of the same name as the one being moved exists in the Applications directory and is *not* running, the existing app will be trashed and the active app moved into its place. If it *is* running, the pre-existing running app will assume focus and the the previously active app will quit itself. This behavior can be changed by providing the optional conflict handler, where the boolean returned by the handler determines whether or not the move conflict is resolved with default behavior. i.e. returning `false` will ensure no further action is taken, returning `true` will result in the default behavior and the method continuing.
+Par défaut, si une application du même nom que celle qui a été déplacée existe dans le répertoire Applications et est *pas* en cours d'exécution, l'application existante sera mise à la corbeille et l'application active sera déplacée à sa place. Si *est en cours d'exécution*, l'application en cours préexistante prendra le focus et l'application précédemment active se fermera. Ce comportement peut être modifié en fournissant le gestionnaire de conflits facultatif, où le booléen retourné par le gestionnaire détermine si le conflit de déplacement est résolu avec le comportement par défaut. c'est-à-dire que retourner `false` ne garantira aucune action supplémentaire, retourner `true` entraînera le comportement par défaut et la méthode continuera.
 
 Par exemple :
 
 ```js
 app.moveToApplicationsFolder({
-  conflictHandler: (conflictType) => {
-    if (conflictType === 'exists') {
-      return dialog.showMessageBoxSync({
+  ConftHandler: (conflictType) => {
+    if (conflictType === 'exiss') {
+      dialogue de retour. howMessageBoxSync({
         type: 'question',
-        buttons: ['Halt Move', 'Continue Move'],
+        boutons: ['Halter le déplacement', 'Continuer le déplacement'],
         defaultId: 0,
-        message: 'An app of this name already exists'
+        message : 'Une application de ce nom existe déjà'
       }) === 1
     }
   }
 })
 ```
 
-Would mean that if an app already exists in the user directory, if the user chooses to 'Continue Move' then the function would continue with its default behavior and the existing app will be trashed and the active app moved into its place.
+Cela signifierait que si une application existe déjà dans le répertoire de l'utilisateur, si l'utilisateur choisit de "Continuer le déplacement", alors la fonction continuera avec son comportement par défaut et l'application existante sera mise à la corbeille et l'application active sera déplacée à sa place.
 
 ## Propriétés
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+Une propriété `Booléen` qui est `vraie` si le support d'accessibilité de Chrome est activé, `faux` sinon. Cette propriété sera `true` si l'utilisation de technologies d'assistance, telles que les lecteurs d'écran, a été détectée. Définir cette propriété à `true` active manuellement la prise en charge de l'accessibilité de Chrome, permettant aux développeurs d'exposer le basculement d'accessibilité aux utilisateurs dans les paramètres de l'application.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+Voir [Documentation d'accessibilité de Chromium](https://www.chromium.org/developers/design-documents/accessibility) pour plus de détails. Désactivé par défaut.
 
 Cette API doit être appelée après l'émission de l'événement `ready` .
 
@@ -1060,39 +1060,39 @@ Cette API doit être appelée après l'émission de l'événement `ready` .
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+Une propriété `Menu | null` qui renvoie [`Menu`](menu.md) si on a été défini et `null` autrement. Les utilisateurs peuvent passer un [Menu](menu.md) pour définir cette propriété.
 
 ### `app.badgeCount` *Linux* *macOS*
 
-An `Integer` property that returns the badge count for current app. Setting the count to `0` will hide the badge.
+Une propriété `Integer` qui retourne le nombre de badges pour l'application courante. Si vous définissez le nombre de badges à `0` masquera le badge.
 
-On macOS, setting this with any nonzero integer shows on the dock icon. On Linux, this property only works for Unity launcher.
+Sur macOS, le paramétrage avec n'importe quel entier non zéro apparaît sur l'icône du dock. Sous Linux, cette propriété ne fonctionne que pour le lanceur Unity.
 
 **Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.commandLine` *Readonly*
 
-A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
+Un objet [`CommandLine`](./command-line.md) qui vous permet de lire et de manipuler les arguments de ligne de commande que Chromium utilise.
 
 ### `app.dock` *macOS* *Readonly*
 
-A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
+Un objet [`Dock`](./dock.md) qui vous permet d'effectuer des actions sur l'icône de votre application dans le dock de l'utilisateur sur macOS.
 
 ### `app.isPackaged` *Readonly*
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+Une propriété `Boolean` qui renvoie `true` si l'application est packagée, `false` sinon. Pour de nombreuses applications, cette propriété peut être utilisée pour distinguer les environnements de développement et de production.
 
-### `app.name`
+### `nom de l'application`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+Une propriété `String` qui indique le nom de l'application courante, qui est le nom dans le fichier `package.json` de l'application.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Vous devriez dans la plupart des cas renseigner également un champ `productName`, qui contient le nom complet et capitalisé de votre application, et qui sera préféré à `name` par Electron.
+Habituellement, le champ `name` de `package.json` est un nom court en minuscule, selon la spécification des modules npm. Vous devriez dans la plupart des cas renseigner également un champ `productName`, qui contient le nom complet et capitalisé de votre application, et qui sera préféré à `name` par Electron.
 
-### `app.userAgentFallback`
+### `format@@0 app.userAgentFallback`
 
-A `String` which is the user agent string Electron will use as a global fallback.
+Une `String` qui est la chaîne d'agent utilisateur que Electron utilisera comme solution de repli global.
 
-This is the user agent that will be used when no user agent is set at the `webContents` or `session` level. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+C'est l'agent utilisateur qui sera utilisé quand aucun agent utilisateur n'est défini au niveau `webContents` ou `session`. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
 
 ### `app.allowRendererProcessReuse`
 
