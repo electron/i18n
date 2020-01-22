@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. Bien que pratique pour les développeurs qui fusionnent des fonctionnalités, cela crée des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longs et la stabilité est un résultat très attendu. Il y a un grand risque d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
+Version d'Electron *< 2. * n'est pas conforme à la spécification [semver](http://semver.org) : les versions principales correspondent aux changements de l'API de l'utilisateur final, les versions mineures correspondaient aux versions majeures de Chromium, et les versions de correctifs correspondaient aux nouvelles fonctionnalités et aux corrections de bogues. Bien que pratique pour les développeurs qui fusionnent des fonctionnalités, cela crée des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longs et la stabilité est un résultat très attendu. Il y a un grand risque d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
 Voici un exemple de la stratégie 1.x :
 
@@ -31,8 +31,8 @@ Il y a plusieurs changements majeurs par rapport à notre stratégie 1.x décrit
 1. Utilisation stricte de semver
 2. Introduction de semver compatible avec les tags `-beta`
 3. Introduction des [messages de commit conventionnels](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+4. Branches de stabilisation bien définies
+5. La branche `master` est sans version; seules les branches de stabilisation contiennent des informations de version
 
 Nous expliquerons en détail comment les branches de git fonctionnent, comment le tagging npm fonctionne, ce que les développeurs devraient d'attendre à voir, et comment l'on peut rapporter les changements antérieurement.
 
@@ -42,53 +42,53 @@ Dès la version 2.0, Electron va appliquer semver.
 
 Ci-dessous, une table explicitant les types de changement avec leur catégorie correspondante semver (par exemple Majeur, Mineur, Correctif).
 
-| Incréments de version Majeure        | Incréments de version mineure                 | Incréments de version de Correctifs |
-| ------------------------------------ | --------------------------------------------- | ----------------------------------- |
-| changement Electron qui altère l'API | changement Electron n'altérant pas l'API      | Mises à jour de correctif Electron  |
-| Node.js major version updates        | Mises à jour mineure de la version de Node.js | Node.js patch version updates       |
-| mises à jour de version Chromium     |                                               | mises à jour de correctifs Chromium |
+| Incréments de version Majeure                 | Incréments de version mineure                 | Incréments de version de Correctifs    |
+| --------------------------------------------- | --------------------------------------------- | -------------------------------------- |
+| changement Electron qui altère l'API          | changement Electron n'altérant pas l'API      | Mises à jour de correctif Electron     |
+| Mises à jour de la version majeure de Node.js | Mises à jour mineure de la version de Node.js | Mises à jour des correctifs de Node.js |
+| mises à jour de version Chromium              |                                               | mises à jour de correctifs Chromium    |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Notez que la plupart des mises à jour Chromium seront considérées comme cassantes. Les corrections qui peuvent être rétroportées seront probablement sélectionnées comme correctifs.
 
 # Branches de stabilisation
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Les branches de stabilisation sont des branches qui sont parallèles au maître, ne prenant en compte que des commits triés sur le cerisier qui sont liés à la sécurité ou à la stabilité. Ces branches ne sont jamais fusionnées au maître.
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+Les branches de stabilisation sont toujours **major** ou **lignes de version mineures** et nommées par rapport au modèle `$MAJOR-$MINOR-x` par exemple `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Nous permettons à plusieurs branches de stabilisation d'exister simultanément, et ont l'intention de supporter au moins deux en parallèle en tout temps, en rétroportant les correctifs de sécurité si nécessaire. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Les anciennes lignes ne seront pas supportées par GitHub, mais d'autres groupes peuvent prendre possession et rétroporter des correctifs de stabilité et de sécurité par eux-mêmes. Nous décourageons cela, mais reconnaissons que cela facilite la vie de nombreux développeurs d'applications.
 
 # Versions bêta et corrections de bugs
 
-Les développeurs veulent savoir quelles versions sont fiables (*safe*). Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Les développeurs veulent savoir quelles versions sont fiables (*safe*). Même des fonctionnalités apparemment innocentes peuvent introduire des régressions dans des applications complexes. En même temps, verrouiller une version corrigée est dangereux parce que vous ignorez les correctifs de sécurité et les corrections de bogues qui sont peut-être apparues depuis votre version. Notre objectif est d'autoriser les plages de semver standards suivantes dans `package.json` :
 
-- Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-- Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+- Utilisez `~2.0.0` pour admettre que les corrections liées à la stabilité ou à la sécurité dans votre version `2.0.0`.
+- Utilisez `^2.0.0` pour admettre que la fonctionnalité *raisonnablement stable* ne soit pas cassée, ainsi que la sécurité et les corrections de bogues.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+Ce qui est important dans le deuxième point, c'est que les applications utilisant `^` devraient quand même pouvoir s'attendre à un niveau raisonnable de stabilité. Pour cela, semver autorise un identifiant *pré-version* pour indiquer qu'une version particulière n'est pas encore *safe* ou *stable*.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Quoi que vous choisissiez, vous devrez périodiquement remonter la version dans votre `package.json` car les changements cassés sont un fait de la vie de Chromium.
 
-The process is as follows:
+Le processus est le suivant:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+1. Toutes les nouvelles lignes de versions majeures et mineures commencent par une série bêta indiquée par les balises de prélocation semver de `bêta.N`, par ex. `2.0.0-bêta.1`. Après la première bêta, les versions bêta suivantes doivent remplir toutes les conditions suivantes : 
+    1. Le changement est compatible avec l'API ascendante (les dépréciations sont autorisées)
+    2. Le risque de respect de notre calendrier de stabilité doit être faible.
+2. Si les modifications autorisées doivent être apportées une fois qu'une version est bêta, elles sont appliquées et la balise de prélocation est incrémentée, par exemple `2.0.0-beta.2`.
+3. Si une version bêta particulière est *généralement considérée* comme stable, elle sera relancée comme une version stable, ne changeant que les informations de version. par exemple `2.0.0`. Après la première stable, tous les changements doivent être des bogues rétrocompatibles ou des corrections de sécurité.
+4. Si de futures corrections de bogues ou de correctifs de sécurité doivent être faites une fois qu'une version est stable, elles sont appliquées et la version *patch* est incrémentée e. . `2.0.1`.
 
-Specifically, the above means:
+Plus précisément, ce qui précède signifie :
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+1. Admettre les changements de non-breaking-API avant la semaine 3 dans le cycle bêta est correct, même si ces changements ont le potentiel de causer des effets secondaires modérés
+2. En admettant les changements signalés par une fonctionnalité, qui ne modifient pas les chemins de code existants, au plus des points du cycle bêta est d'accord. Les utilisateurs peuvent explicitement activer ces options dans leurs applications.
 3. Admitting features of any sort after Week 3 in the beta cycle is 
 
-For each major and minor bump, you should expect to see something like the following:
+Pour chaque bosse majeure et mineure, vous devriez vous attendre à voir quelque chose comme ceci:
 
 ```plaintext
 2.0.0-beta.1
@@ -99,20 +99,20 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+Un exemple de cycle de vie dans les images :
 
-- A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-- The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- Une nouvelle branche de version est créée qui inclut les dernières fonctionnalités. Elle est publiée sous la forme `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+- Une correction de bogue arrive dans master qui peut être rétroporté vers la branche de publication. Le patch est appliqué, et une nouvelle version bêta est publiée comme `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+- La bêta est considérée comme *généralement stable* et est à nouveau publiée comme non-bêta sous `2.0.0`. ![](../images/versioning-sketch-5.png)
+- Plus tard, un exploit de zéro jour est révélé et un correctif est appliqué au master. Nous rétroportons le correctif sur la ligne `2-0-x` et la version `2.0.1`. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Quelques exemples de la façon dont différentes gammes de semver vont ramasser les nouvelles versions:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# Caractéristiques manquantes : Alphas
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Notre stratégie comporte quelques compromis qui, pour l'instant, nous semblent appropriés. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
 
