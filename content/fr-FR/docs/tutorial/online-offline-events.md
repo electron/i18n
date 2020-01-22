@@ -43,11 +43,11 @@ Il peut y avoir des cas où vous souhaitez avoir accès à ces événements dans
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
-let onlineStatusWindow
+laisser onlineStatusWindow
 
-app.on('ready', () => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
-  onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+application. n('ready', () => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, hauteur: 0, montrer: false, webPreferences: { nodeIntegration: true } })
+  onlineStatusWindow. oadURL(`file://${__dirname}/online-status.html`)
 })
 
 ipcMain.on('online-status-changed', (event, status) => {
