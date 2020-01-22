@@ -53,8 +53,8 @@ Retourne :
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `nom d'utilisateur` String (facultatif)
+  * `mot de passe` String (facultatif)
 
 Emitted when an authenticating proxy is asking for user credentials.
 
