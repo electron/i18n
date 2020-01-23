@@ -129,29 +129,29 @@ Using chunked encoding is strongly recommended if you need to send a large reque
 * `name` String - An extra HTTP header name.
 * `value` String - An extra HTTP header value.
 
-Adds an extra HTTP header. The header name will be issued as-is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Adds an extra HTTP header. The header name will be issued as-is without lowercasing. It can be called only before first write. Appeler cette méthode après la première écriture lancera une erreur. Si la valeur passée n'est pas une `String`, sa méthode `toString()` sera appelée pour obtenir la valeur finale.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` Chaîne - Spécifie un nom d'en-tête supplémentaire.
 
-Returns `String` - The value of a previously set extra header name.
+Retourne `String` - La valeur d'un nom d'en-tête supplémentaire précédemment défini.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` Chaîne - Spécifie un nom d'en-tête supplémentaire.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Supprime un nom d'en-tête supplémentaire précédemment défini. Cette méthode peut être appelée seulement avant d'écrire la première fois. Tenter de l'appeler après la première écriture lancera une erreur.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - Un morceau des données du corps de la requête. S'il s'agit d'une chaîne , elle est convertie en tampon en utilisant l'encodage spécifié.
+* `encoding` String (facultatif) - Utilisé pour convertir des chunks de chaîne en objets Buffer. Par défaut, 'utf-8'.
+* `callback` Fonction (facultatif) - Appelée après la fin de l'opération d'écriture.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` est essentiellement une fonction factice introduite dans le but de conserver la similarité avec l'API Node.js. Il est appelé de manière asynchrone dans le prochain tick après que le contenu `chunk` ait été livré à la couche de réseau Chromium. Contrairement à l'implémentation de Node.js, il n'est pas garanti que le contenu `chunk` ait été vidé sur le fil avant que `callback` ne soit appelé.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Ajoute un morceau de données au corps de la requête. La première opération d'écriture peut causer la publication des en-têtes de la requête sur le fil. Après la première opération d'écriture, il n'est pas autorisé d'ajouter ou de supprimer un en-tête personnalisé.
 
 #### `request.end([chunk][, encoding][, callback])`
 
@@ -159,23 +159,23 @@ Adds a chunk of data to the request body. The first write operation may cause th
 * `encoding` String (facultatif)
 * `callback` Function (facultatif)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Envoie le dernier chunk des données de la requête. Les opérations d'écriture ou de fin ultérieures ne seront pas autorisées. L'événement `finish` est émis juste après l'opération finale.
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Annule une transaction HTTP en cours. Si la requête a déjà émis l'événement `close` , l'opération d'abandon n'aura aucun effet. Sinon, un événement en cours émettra des événements `abandon` et `close` . De plus, s'il y a un objet de réponse en cours, il émettra l'évènement `abandonné`.
 
 #### `request.followRedirect()`
 
-Continues any pending redirection. Can only be called during a `'redirect'` event.
+Suit toute redirection en attente. Ne peut être appelée que pendant un événement `'redirect'` .
 
 #### `request.getUploadProgress()`
 
 Retourne `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
+* `active` Booléen - Si la requête est actuellement active. Si c'est faux aucune autre propriété ne sera définie
+* `started` Boolean - Si le téléchargement a commencé. Si c'est faux `current` et `total` seront réglés à 0.
+* `current` Integer - Le nombre d'octets qui ont été téléchargés jusqu'à présent
+* `total` Integer - Le nombre d'octets qui seront chargés dans cette requête
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+Vous pouvez utiliser cette méthode en conjonction avec les requêtes `POST` pour obtenir la progression d'un téléchargement de fichier ou d'un autre transfert de données.
