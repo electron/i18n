@@ -1,6 +1,6 @@
 # Selenium 과 WebDriver 사용하기
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+[ChromeDriver - Chrome용 WebDriver](https://sites.google.com/a/chromium.org/chromedriver/)에서:
 
 > WebDriver는 많은 브라우저에서 웹 응용 프로그램을 자동으로 테스트 할 수있는 오픈 소스 도구입니다. 웹 페이지, 사용자 입력, JavaScript 실행 등을 탐색 할 수있는 기능을 제공합니다. ChromeDriver는 Chromium 용 WebDriver의 와이어 프로토콜을 구현하는 독립 실행 형 서버입니다. Chromium 및 WebDriver 팀 구성원이 개발 중입니다.
 
