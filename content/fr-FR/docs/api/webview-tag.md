@@ -487,9 +487,9 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
 * `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Retourne `Promise<NativeImage>` - résout avec une [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Capturer une capture instantanée de la page dans `rect`. L'omission de `rect` capturera toute la page visible.
 
 ### `<webview>.send(channel, ...args)`
 
