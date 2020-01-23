@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// 제목있는 윈도우가 보이는지 검증하는 간단한 테스트
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,19 +24,19 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Check if the window is visible
+    // 윈도우가 보이는지 확인
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
+    // 윈도우가 보이는지 검증
     assert.strictEqual(isVisible, true)
-    // Get the window's title
+    // 윈도우의 제목을 가져옴
     const title = await app.client.getTitle()
-    // Verify the window's title
+    // 윈도우의 제목을 검증
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Log any failures
+    // 실패 로깅
     console.error('Test failed', error.message)
   }
-  // Stop the application
+  // 어플리케이션 중단
   await app.stop()
 }
 
@@ -74,11 +74,11 @@ $ npm install selenium-webdriver
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // chrome driver에서 "9515" 포트를 사용
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // 사용할 Electron 바이너리의 경로
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -125,13 +125,13 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // chrome driver의 서버로 localhost 사용
+  port: 9515, // chrome driver에서 "9515" 포트를 사용
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // 사용할 Electron 바이너리의 경로.
+      args: [/* cli arguments */] // Optional, 'app=' + /path/to/your/app/
     }
   }
 }
