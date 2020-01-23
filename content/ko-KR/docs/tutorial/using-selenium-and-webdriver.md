@@ -153,4 +153,4 @@ client
 
 따로 Electron을 다시 빌드하지 않는 경우 간단히 애플리케이션을 Electron의 리소스 디렉터리에 [배치](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)하여 바로 테스트 할 수 있습니다.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+아니면, 앱의 폴더를 가리키는 Electron 바이너리로 실행할 인수를 전달하십시오. 앱을 Electron의 리소스 디렉토리에 복사하여 붙여 넣을 필요가 없습니다.
