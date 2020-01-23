@@ -1092,10 +1092,10 @@ Habituellement, le champ `name` de `package.json` est un nom court en minuscule,
 
 Une `String` qui est la chaîne d'agent utilisateur que Electron utilisera comme solution de repli global.
 
-C'est l'agent utilisateur qui sera utilisé quand aucun agent utilisateur n'est défini au niveau `webContents` ou `session`. It is useful for ensuring that your entire app has the same user agent. Set to a custom value as early as possible in your app's initialization to ensure that your overridden value is used.
+C'est l'agent utilisateur qui sera utilisé quand aucun agent utilisateur n'est défini au niveau `webContents` ou `session`. Il est utile pour s'assurer que l'ensemble de votre application a le même agent utilisateur. Définissez une valeur personnalisée dès que possible dans l'initialisation de votre application pour vous assurer que votre valeur remplacée est utilisée.
 
-### `app.allowRendererProcessReuse`
+### `allowRenderererProcessRuse`
 
-A `Boolean` which when `true` disables the overrides that Electron has in place to ensure renderer processes are restarted on every navigation. The current default value for this property is `false`.
+Un `Booléen` qui, lorsque `true` désactive les remplacements qu'Electron a en place pour s'assurer que les processus de rendu sont redémarrés à chaque navigation. La valeur par défaut actuelle pour cette propriété est `false`.
 
-The intention is for these overrides to become disabled by default and then at some point in the future this property will be removed. This property impacts which native modules you can use in the renderer process. For more information on the direction Electron is going with renderer process restarts and usage of native modules in the renderer process please check out this [Tracking Issue](https://github.com/electron/electron/issues/18397).
+L'intention est que ces dérogations soient désactivées par défaut, puis à un point dans le futur cette propriété sera supprimée. Cette propriété impacte les modules natifs que vous pouvez utiliser dans le processus de rendu. Pour plus d'informations sur la direction vers laquelle Electron va avec le redémarrage du processus de rendu et l'utilisation de modules natifs dans le processus de rendu veuillez consulter ce [Problème de suivi](https://github.com/electron/electron/issues/18397).
