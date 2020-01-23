@@ -164,47 +164,47 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. La valeur par défaut est `true`.
-  * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Par défaut la valeur est `false`.
-  * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (optional) - Settings of web page's features. 
-    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. La valeur par défaut est `true`.
-    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Par défaut la valeur est `false`. Plus d'informations peuvent être trouvée dans [Multithreading](../tutorial/multithreading.md).
-    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
-    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
-    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
-    * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
-    * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
-    * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
-    * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. La valeur par défaut est `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
-    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
+  * `fullscreenWindowTitle` Boolean (facultatif) - Affiche le titre dans la barre de titre en mode plein écran sur macOS pour toutes les options `titleBarStyle`. La valeur par défaut est `faux`.
+  * `thickFrame` Boolean (facultatif) - Utilisez le style `WS_THICKFRAME` pour les fenêtres sans cadre sur Windows, qui ajoute une image standard de fenêtre. Le définir à `false` supprimera les animations de fenêtre et de fenêtre. La valeur par défaut est `true`.
+  * `vibrancy` String (facultatif) - Ajoute un type d'effet de vibrance à la fenêtre, uniquement sur macOS. Peut être `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `, <code>sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `outil>, <code>content<code>, <0>sous-window`. Veuillez noter que l'utilisation de `frame: false` en combinaison avec une valeur de vibrance nécessite que vous utilisiez également un `titleBarStyle` non par défaut. Notez également que `appearance-based`, `light`, `dark`, `medium-light`, et `ultra-dark` ont été dépréciés et seront supprimés dans une prochaine version de macOS.
+  * `zoomToPageWidth` Boolean (facultatif) - Contrôle le comportement sur macOS lorsque option-click sur le bouton vert d'arrêt de la barre d'outils ou en cliquant sur le lien Fenêtre > Menu Zoom . Si `true`, la fenêtre grandira à la largeur préférée de la page web lors du zoom, `false` le fera zoomer sur la largeur de l'écran. Cela affectera également le comportement lorsque vous appelez `maximize()` directement. Par défaut la valeur est `false`.
+  * `tabbingIdentifier` String (facultatif) - Nom du groupe d'onglets, permet d'ouvrir la fenêtre sous la forme d'un onglet natif sur macOS 10.12+. Les fenêtres avec le même identifiant de tabulation seront regroupées. Cela ajoute également un nouveau bouton d'onglet natif à la barre d'onglets de votre fenêtre et permet à votre `app` et fenêtre de recevoir l'événement `new-window-for-tab`.
+  * `préférences web` Object (facultatif) - Paramètres des fonctionnalités de la page web. 
+    * `devTools` Boolean (facultatif) - Activer ou non DevTools. Si elle est définie à `false`, ne peut pas utiliser `BrowserWindow.webContents.openDevTools()` pour ouvrir DevTools. La valeur par défaut est `true`.
+    * `nodeIntegration` Boolean (facultatif) - Si l'intégration des nœuds est activée. La valeur par défaut est `false`.
+    * `nodeIntegrationInWorker` Boolean (facultatif) - Si l'intégration de nœuds est activée dans les workflows web. Par défaut la valeur est `false`. Plus d'informations peuvent être trouvée dans [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInSubFrames` Boolean (facultatif) - Option expérimentale pour activer le support de Node.js dans les sous-cadres tels que les iframes et les fenêtres enfants. Tous vos préchargements seront chargés pour chaque iframe, vous pouvez utiliser `process.isMainFrame` pour déterminer si vous êtes dans le cadre principal ou non.
+    * `preload` String (facultatif) - Spécifie un script qui sera chargé avant les autres scripts exécutés dans la page. Ce script aura toujours accès aux API de noeuds peu importe que l'intégration de noeuds soit activée ou désactivée. La valeur doit être le chemin absolu vers le script. Lorsque l'intégration des nœuds est désactivée, le script de préchargement peut réintroduire les symboles globaux de nœud dans la portée globale. Voir l'exemple [ici](process.md#event-loaded).
+    * `sandbox` Booléen (facultatif) - Si défini, le moteur de rendu associé à la fenêtre, la rendre compatible avec le bac à sable Chromium au niveau du système d'exploitation et la désactivation du nœud. s moteur. Ce n'est pas la même chose que l'option `nodeIntegration` et les API disponibles pour le script de préchargement sont plus limitées. En savoir plus sur l'option [ici](sandbox-option.md). **Note :** Cette option est actuellement expérimentale et peut être supprimée dans les prochaines versions d'Electron.
+    * `enableRemoteModule` Boolean (facultatif) - Activer le module [`remote`](remote.md) . La valeur par défaut est `true`.
+    * `session` [Session](session.md#class-session) (facultatif) - Définit la session utilisée par la page . Au lieu de passer l'objet Session directement, vous pouvez également choisir d'utiliser l'option `partition` à la place, qui accepte une chaîne de partition. Lorsque `session` et `partition` sont fournies, `session` sera préférée. La session par défaut est celle par défaut.
+    * `partition` String (facultatif) - Définit la session utilisée par la page en fonction de la chaîne de partition de la session . Si `partition` commence par `persist:`, la page utilisera une session persistante disponible pour toutes les pages de l'application avec le même `partition`. S'il n'y a pas de préfixe `persistant:`, la page utilisera une session en mémoire . En assignant la même `partition`, plusieurs pages peuvent partager la même session. La session par défaut est celle par défaut.
+    * `affinity` String (facultatif) - Lorsque spécifié, les pages web avec le même `affinity` s'exécuteront dans le même processus de rendu . Notez que en raison de la réutilisation du processus du moteur de rendu certaines options `webPreferences` seront également partagées entre les pages web, même lorsque vous avez spécifié des valeurs différentes pour elles, incluant mais non limité à `preload`, `sandbox` et `nodeIntegration`. Il est donc suggéré d'utiliser exactement la même `webPreferences` pour les pages web avec la même `affinité`. *Cette propriété est expérimentale*
+    * `zoomFactor` Number (facultatif) - Le facteur de zoom par défaut de la page, `3.0` représente `300%`. La valeur par défaut est `1.0`.
+    * `javascript` Boolean (facultatif) - Active la prise en charge de JavaScript. La valeur par défaut est `true`.
+    * `webSecurity` Boolean (facultatif) - Lorsque `false`, il désactivera la politique de même origine (généralement en utilisant des sites de test par des personnes), et définissez `allowRunningInsecureContent` à `true` si cette option n'a pas été définie par l'utilisateur. La valeur par défaut est `true`.
+    * `allowRunningInsecureContent` Boolean (facultatif) - Permet à une page https d'exécuter JavaScript, CSS ou plugins à partir d'URL http. La valeur par défaut est `false`.
+    * `images` Boolean (facultatif) - Active le support des images. La valeur par défaut est `true`.
+    * `textAreasAreResizable` Boolean (facultatif) - Rendre les éléments TextArea redimensionnables. par défaut est `true`.
+    * `webgl` Boolean (facultatif) - Active le support WebGL. La valeur par défaut est `true`.
+    * `plugins` Boolean (facultatif) - Si les plugins doivent être activés. La valeur par défaut est `false`.
+    * `experimentalFeatures` Boolean (facultatif) - Active les fonctionnalités expérimentales de Chromium. La valeur par défaut est `false`.
+    * `scrollBounce` Boolean (facultatif) - Active l'effet scroll bounce (rubber banding) sur macOS. La valeur par défaut est `false`.
+    * `enableBlinkFeatures` String (facultatif) - Une liste de chaînes de caractères séparées par `,`, comme `CSSVariables,KeyEventKey` pour activer. La liste complète des chaînes de caractères supportées peut être trouvée dans le fichier [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) .
+    * `disableBlinkFeatures` String (facultatif) - Une liste de chaînes de caractères séparées par `,`, comme `CSSVariables,KeyEventKey` pour désactiver. La liste complète des chaînes de fonctionnalités supportées peut être trouvée dans le fichier [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) .
+    * `format@@0 defaultFontFamily` Object (facultatif) - Définit la police par défaut pour la famille de polices. 
+      * `standard` String (facultatif) - Par défaut `Times New Roman`.
+      * `serif` String (facultatif) - Par défaut `Times New Roman`.
+      * `sansSerif` String (facultatif) - `Arial`.
+      * `monospace` String (facultatif) - `Courrier New`.
+      * `cursive` String (facultatif) - `Script`.
+      * `fantasy` String (facultatif) - `Impact`.
+    * `defaultFontSize` Integer (facultatif) - `16`.
+    * `defaultMonospaceFontSize` Integer (facultatif) - `13`.
+    * `minimumFontSize` Integer (facultatif) - `0`.
+    * `defaultEncoding` String (facultatif) - `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (facultatif) - Si vous voulez maîtriser les animations et les minuteurs lorsque la page devient en arrière-plan. Cela affecte également l'API [Visibilité de la page](#page-visibility). Par défaut, `true`.
+    * `Offscreen` Boolean (facultatif) - Activer le rendu hors écran pour la fenêtre du navigateur. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled unless `nodeIntegrationInSubFrames` is true. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
@@ -434,7 +434,7 @@ Retourne :
 * `event` Événement
 * `rotation` Float
 
-Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. The `rotation` value on each emission is the angle in degrees rotated since the last emission. The last emitted event upon a rotation gesture will always be of value `0`. Counter-clockwise rotation values are positive, while clockwise ones are negative.
+Emitted on trackpad rotation gesture. Continually emitted until rotation gesture is ended. La valeur `rotation` sur chaque émission est l'angle en degrés tourné depuis la dernière émission. Le dernier événement émis lors d'un geste de rotation sera toujours de la valeur `0`. Les valeurs de rotation dans le sens inverse des aiguilles d'une montre sont positives, tandis que les valeurs dans le sens horaire sont négatives.
 
 #### Événement : 'sheet-begin' *macOS*
 
@@ -446,31 +446,31 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 #### Événement : 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Émis lorsque le bouton natif du nouvel onglet est cliqué.
 
 ### Méthodes statiques
 
-The `BrowserWindow` class has the following static methods:
+La classe `BrowserWindow` a les méthodes statiques suivantes :
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Retourne `BrowserWindow[]` - Un tableau de toutes les fenêtres ouvertes.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+Retourne `BrowserWindow | null` - La fenêtre qui est concentrée dans cette application, sinon retourne `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Retourne `BrowserWindow` - La fenêtre qui possède le `webContents`.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Retourne `BrowserWindow | null` - La fenêtre qui possède la `browserView`donnée. Si la vue donnée n'est attachée à aucune fenêtre, retourne `null`.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -482,11 +482,11 @@ Retourne `BrowserWindow` - La fenêtre avec l'`id` donné.
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Ajoute l'extension Chrome située à `path`, et retourne le nom de l'extension.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+La méthode ne retourne pas non plus si le manifeste de l'extension est manquant ou incomplet.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -494,39 +494,39 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Supprime une extension Chrome avec le nom donné.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Record<String, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Retourne `Enregistrement<String, ExtensionInfo>` - Les clés sont les noms des extensions et chaque valeur est un Objet contenant les propriétés `name` et `version` .
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Ajoute l'extension DevTools située à `path`, et retourne le nom de l'extension.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+L'extension sera mémorisée donc vous n'avez besoin d'appeler cette API qu'une seule fois, cette API n'est pas destinée à la programmation. Si vous essayez d'ajouter une extension qui a déjà été chargée, cette méthode ne retournera pas et enregistrera à la place une alerte sur la console .
 
-The method will also not return if the extension's manifest is missing or incomplete.
+La méthode ne retourne pas non plus si le manifeste de l'extension est manquant ou incomplet.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Remove a DevTools extension by name.
+Supprimer une extension DevTools par nom.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Record<string, ExtensionInfo>` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Retourne `Enregistrement<string, ExtensionInfo>` - Les clés sont les noms des extensions et chaque valeur est un Objet contenant les propriétés `name` et `version` .
 
-To check if a DevTools extension is installed you can run the following:
+Pour vérifier si une extension DevTools est installée, vous pouvez exécuter ce qui suit :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -535,66 +535,66 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Remarque :** Cette API ne peut pas être appelée avant que l'événement `prêt` du module `app` ne soit émis.
 
 ### Propriétés d'instance
 
-Objects created with `new BrowserWindow` have the following properties:
+Les objets créés avec `nouveau BrowserWindow` ont les propriétés suivantes :
 
 ```javascript
 const { BrowserWindow } = require('electron')
-// In this example `win` is our instance
+// Dans cet exemple `win` est notre instance
 let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents` *Readonly*
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Un objet `WebContents` que cette fenêtre possède. Tous les événements liés à la page web et les opérations seront effectués via elle.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Voir la [`webContents` documentation](web-contents.md) pour ses méthodes et ses événements.
 
 #### `win.id` *Readonly*
 
-A `Integer` property representing the unique ID of the window.
+Une propriété `Integer` représentant l'ID unique de la fenêtre.
 
-#### `win.autoHideMenuBar`
+#### `format@@0 win.autoHideMenuBar`
 
-A `Boolean` property that determines whether the window menu bar should hide itself automatically. Once set, the menu bar will only show when users press the single `Alt` key.
+Une propriété `Boolean` qui détermine si la barre de menu de la fenêtre doit se cacher automatiquement. Une fois définie, la barre de menu ne s'affichera que lorsque les utilisateurs appuient sur la seule touche `Alt`.
 
-If the menu bar is already visible, setting this property to `true` won't hide it immediately.
+Si la barre de menu est déjà visible, le réglage de cette propriété sur `true` ne le fera pas le cacher immédiatement.
 
 #### `win.minimizable`
 
-A `Boolean` property that determines whether the window can be manually minimized by user.
+Une propriété `Boolean` qui détermine si la fenêtre peut être minimisée manuellement par l'utilisateur.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.maximizable`
 
-A `Boolean` property that determines whether the window can be manually maximized by user.
+Une propriété `Boolean` qui détermine si la fenêtre peut être agrandie manuellement par l'utilisateur.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.fullScreenable`
 
-A `Boolean` property that determines whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Une propriété `Boolean` qui détermine si le bouton maximiser/zoom de la fenêtre active le mode plein écran ou maximise la fenêtre.
 
 #### `win.resizable`
 
-A `Boolean` property that determines whether the window can be manually resized by user.
+Une propriété `Boolean` qui détermine si la fenêtre peut être redimensionnée manuellement par l'utilisateur.
 
 #### `win.closable`
 
-A `Boolean` property that determines whether the window can be manually closed by user.
+Une propriété `Boolean` qui détermine si la fenêtre peut être fermée manuellement par l'utilisateur.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.movable`
 
-A `Boolean` property that determines Whether the window can be moved by user.
+Une propriété `Boolean` qui détermine si la fenêtre peut être déplacée par l'utilisateur.
 
-On Linux the setter is a no-op, although the getter returns `true`.
+Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
@@ -867,7 +867,7 @@ Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, c
 
 Returns `Boolean` - Whether the window can be moved by user.
 
-On Linux always returns `true`.
+Sous Linux, retourne toujours `true`.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -875,15 +875,15 @@ On Linux always returns `true`.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Définit si la fenêtre peut être minimisée manuellement par l'utilisateur. Sous Linux, ne fait rien.
 
 **[Déprécié ](modernization/property-updates.md)**
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Retourne `Boolean` - Si la fenêtre peut être minimisée manuellement par l'utilisateur
 
-On Linux always returns `true`.
+Sous Linux, retourne toujours `true`.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -891,15 +891,15 @@ On Linux always returns `true`.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Définit si la fenêtre peut être agrandie manuellement par l'utilisateur. Sous Linux, ne fait rien.
 
 **[Déprécié ](modernization/property-updates.md)**
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Retourne `Boolean` - Si la fenêtre peut être agrandie manuellement par l'utilisateur.
 
-On Linux always returns `true`.
+Sous Linux, retourne toujours `true`.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -913,7 +913,7 @@ Définit si le bouton agrandir/zoom de la fenêtre active/désactive le mode ple
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Retourne `Boolean` - Si le bouton agrandir/zoom de la fenêtre active le mode plein écran ou maximise la fenêtre.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -927,19 +927,19 @@ Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sou
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Retourne `Boolean` - Si la fenêtre peut être fermée manuellement par l'utilisateur.
 
-On Linux always returns `true`.
+Sous Linux, retourne toujours `true`.
 
 **[Déprécié ](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* *Windows* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating` when `flag` is true. The `level` is reset to `normal` when the flag is false. Note that from `floating` to `status` included, the window is placed below the Dock on macOS and below the taskbar on Windows. From `pop-up-menu` to a higher it is shown above the Dock on macOS and above the taskbar on Windows. See the [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (facultatif) *macOS* *Windows* - Les valeurs incluent `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `statuus`, `pop-up-menu`, `screen-saver`, et ~`dock`~~ (obsolète). La valeur par défaut est `floating` lorsque `flag` est vrai. Le `niveau` est réinitialisé à `normal` lorsque le drapeau est faux. Notez que de `flottant` à `statut` inclus, la fenêtre est placée sous le Dock sur macOS et sous la barre des tâches sous Windows. De `pop-up-menu` à une valeur supérieure, il est affiché au-dessus du Dock sur macOS et au-dessus de la barre des tâches sur Windows. Voir la documentation [macOS](https://developer.apple.com/documentation/appkit/nswindow/level) pour plus de détails.
+* `relativeLevel` Integer (facultatif) *macOS* - Le nombre de calques supérieur à définir cette fenêtre par rapport au `level`. Par défaut, `0`. Notez que Apple décourage le réglage de niveaux supérieurs à 1 au-dessus de `économiseur d'écran`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Détermine si la fenêtre doit toujours être placée au-dessus d'autres fenêtres. Après Dans ce cas, la fenêtre reste une fenêtre normale, et non une fenêtre de boîte à outils qui ne peut pas faire l'objet d'une attention particulière.
 
 #### `win.isAlwaysOnTop()`
 
@@ -975,14 +975,14 @@ Remplace le titre de la fenêtre native par `title`.
 
 Retourne `String` - le titre de la fenêtre native.
 
-**Note:** The title of the web page can be different from the title of the native window.
+**Remarque :** Le titre de la page web peut être différent du titre de la fenêtre native .
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
 * `offsetX` Float (facultatif)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Modifie le point d'attachement des feuilles sur macOS. Par défaut, les feuilles sont attachées juste sous le cadre de la fenêtre, mais vous pouvez les afficher sous une barre d'outils affichée. Par exemple :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -995,13 +995,13 @@ let toolbarRect = document.getElementById('toolbar').getBoundingClientRect() win
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Démarre ou arrête de flasher la fenêtre pour attirer l'attention de l'utilisateur.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+Fait que la fenêtre ne soit pas affichée dans la barre des tâches.
 
 #### `win.setKiosk(flag)`
 
@@ -1011,20 +1011,20 @@ Entre ou quitte le mode kiosk.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Retourne `Boolean` - Si la fenêtre est en mode kiosque.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Retourne `Buffer` - Le gestionnaire spécifique à la plate-forme de la fenêtre.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Le type natif du handle est `HWND` sous Windows, `NSView*` sur macOS, et `Window` (`long`non signé</0>) sous Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Un message s'accroche à une fenêtre. Le `callback` est appelé lorsque le message est reçu dans le WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 

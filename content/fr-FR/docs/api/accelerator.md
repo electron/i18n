@@ -52,7 +52,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `Tab`
 * `Capslock`
 * `Numlock`
-* `Scrolllock`
+* `Défilement`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -66,7 +66,7 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `PrintScreen`
 * NumPad Keys 
   * `num0` - `num9`
-  * `numdec` - decimal key
+  * `numdec` - clé décimale
   * `numadd` - numpad `+` key
   * `numsub` - numpad `-` key
   * `nummult` - numpad `*` key

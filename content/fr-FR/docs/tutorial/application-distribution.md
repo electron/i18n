@@ -8,9 +8,9 @@ Pour distribuer votre application avec Electron, vous aurez besoin de compiler e
 
 Ces outils prendront soins de toutes les étapes qu'il y aura besoin pour avec une application Electron distribuable, de compiler, renommer, mettre l'icône et optionnellement de créer un installateur.
 
-## Manual distribution
+## Répartition manuelle
 
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+Vous pouvez également choisir de préparer manuellement votre application pour la distribution. Les étapes nécessaires pour ce faire sont décrites ci-dessous.
 
 Pour distribuer votre application avec Electron, vous devez télécharger les [binaires précompilés](https://github.com/electron/electron/releases) d'Electron. Ensuite, le dossier qui contient votre application devrait être nommé `app` et placé dans le répertoire de ressources d'Electron, comme illustré dans les exemples suivants. Notez que l’emplacement des binaires précompilés d'Electron est indiquée par `electron/` dans les exemples ci-dessous.
 

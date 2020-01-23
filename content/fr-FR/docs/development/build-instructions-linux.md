@@ -66,7 +66,7 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+Et pour effectuer une compilation croisée pour les cibles `arm` ou `ia32`, vous devez passer le `target_cpu` paramètre à `gn gen` :
 
 ```sh
 $ gn gen out/Testing --args='import(...) target_cpu="arm"'
@@ -92,9 +92,9 @@ La configuration par défaut de compilation cible la majorité des distributions
 
 ### Utiliser le système `clang` au lieu des fichiers binaires téléchargés `clang`
 
-Par défaut, Electron est compilé avec les binaires précompilés de [`clang`](https://clang.llvm.org/get_started.html) fournis par le projet Chromium. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+Par défaut, Electron est compilé avec les binaires précompilés de [`clang`](https://clang.llvm.org/get_started.html) fournis par le projet Chromium. Si pour une raison quelconque, vous souhaitez construire avec le `clang` installé dans votre système, vous pouvez spécifier l'argument `clang_base_path` dans le GN args.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+Par exemple, si vous avez installé `clang` sous `/usr/local/bin/clang` :
 
 ```sh
 $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_base_path = "/usr/local/bin"'
@@ -102,4 +102,4 @@ $ gn gen out/Testing --args='import("//electron/build/args/testing.gn") clang_ba
 
 ### Utiliser un compilateur autre que `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+La construction d'électrons avec des compilateurs autres que `clang` n'est pas prise en charge.
