@@ -24,7 +24,7 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 #### Extra steps to run the unit test:
 
-1. Visual Studio 2019 must be installed.
+1. Visual Studio 2019 をインストールする必要があります。
 2. Node headers have to be compiled for your configuration. 
         powershell
         ninja -C out\Testing third_party\electron_node:headers
@@ -35,7 +35,7 @@ C++ が Electron コーディングスタイルに準拠していることを確
         mkdir gen\node_headers\Release
         copy electron.lib gen\node_headers\Release\node.lib
 
-#### Missing fonts
+#### フォントの欠落
 
 [一部の Windows 10 デバイス](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) はメイリオフォントがインストールされていない状態で出荷されるため、フォントフォールバックテストが失敗する可能性があります。 メイリオをインストールするには以下のようにします。
 
@@ -43,7 +43,7 @@ C++ が Electron コーディングスタイルに準拠していることを確
 2. *機能の追加* をクリックします。
 3. *日本語追加フォント* を選択して *インストール* をクリックします。
 
-#### Pixel measurements
+#### ピクセル測定
 
 正確なピクセル測定値に依存するようなテストは、浮動小数点精度の誤差のために Hi-DPI 画面設定のデバイスでは正しく動作しない場合があります。 これらのテストを正常に実行するには、そのデバイスが倍率 100% に設定されていることを確認してください。
 
