@@ -89,11 +89,11 @@ dialog.showOpenDialogSync(mainWindow, {
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez [signets à portée de sécurité](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) lorsqu'ils sont empaquetés pour le Mac App Store.
 
-Returns `Promise<Object>` - Resolve with an object containing the following:
+Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
 
-* `canceled` Boolean - whether or not the dialog was canceled.
-* `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+* `annulé` Booléen - que la boîte de dialogue ait été annulée ou non.
+* `filePaths` String[] - Un tableau de chemins de fichiers choisis par l'utilisateur. Si la boîte de dialogue est annulée, ce sera un tableau vide.
+* `signets` String[] (facultatif) *macOS* *mas* - Un tableau correspondant au tableau `filePaths` de chaînes encodées en base64 qui contient des données de marque-pages à portée de sécurité. `securityScopedBookmarks` doit être activé pour que ceci soit rempli.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
