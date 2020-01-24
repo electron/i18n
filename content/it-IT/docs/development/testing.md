@@ -46,9 +46,9 @@ Alcune macchine Windows 10<0> vengono distribuite prive del font Meiryo; questa 
 
 #### Dimensioni dei pixel
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+Alcuni test che si basano su dimensioni precise dei pixel potrebbero non funzionare correttamente su dispositivi con impostazioni schermo Hi-DPI a causa di errori di precisione nei punti mobili. Per eseguire correttamente questi test, assicurati che il ridimensionamento del dispositivo sia impostato su 100%.
 
 To configure display scaling:
 
-1. Push the Windows key and search for *Display settings*.
+1. Premi il tasto Windows e cerca *Impostazioni di visualizzazione*.
 2. Under *Scale and layout*, make sure that the device is set to 100%.
