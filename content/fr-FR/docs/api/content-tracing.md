@@ -56,13 +56,13 @@ Arrêter l'enregistrement sur tous les processus.
 
 Les processus fils mettent généralement en cache les données de trace et ne suppriment que rarement et envoient données de trace au processus principal. Cela aide à minimiser les frais d'exécution de traçage puisque l'envoi de données de traces via IPC peut être une opération coûteuse. Ainsi, pour terminer le traçage, Chromium demande asynchrone à tous les processus enfants de vider les données de traces en attente.
 
-Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
+Les données de trace seront écrites dans `resultFilePath`. Si `resultFilePath` est vide ou non fourni, les données de trace seront écrites dans un fichier temporaire, et le chemin sera retourné dans la promesse.
 
 ### `contentTracing.getTraceBufferUsage()`
 
-Returns `Promise<Object>` - Resolves with an object containing the `value` and `percentage` of trace buffer maximum usage
+Retourne `Promise<Object>` - Résolution avec un objet contenant la `valeur` et `pourcentage` d'utilisation maximale du tampon de trace
 
 * `value` Number
 * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state.
+Récupère l'utilisation maximale sur les processus de mémoire tampon trace en pourcentage de l'état complet de .
