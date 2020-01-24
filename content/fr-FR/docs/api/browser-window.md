@@ -598,7 +598,7 @@ Sur Linux, le setter est un no-op, bien que le getter retourne `true`.
 
 #### `win.excludedFromShownWindowsMenu` *macOS*
 
-A `Boolean` property that determines whether the window is excluded from the application’s Windows menu. `false` by default.
+Une propriété `Boolean` qui détermine si la fenêtre est exclue du menu Windows de l’application. `false` par défaut.
 
 ```js
 const win = new BrowserWindow({ height: 600, width: 600 })
@@ -609,7 +609,7 @@ const template = [
   }
 ]
 
-win.excludedFromShownWindowsMenu = true
+gagne. xcludedFromShownWindowsMenu = true
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
