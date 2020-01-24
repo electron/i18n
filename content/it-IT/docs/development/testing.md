@@ -1,6 +1,6 @@
 # Prova
 
-We aim to keep the code coverage of Electron high. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
+We aim to keep the code coverage of Electron high. Chiediamo che tutte le richieste pull passino non solo tutti i test esistenti, ma idealmente aggiungano anche nuovi test per coprire il codice modificato e i nuovi scenari. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
 
 This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
@@ -25,7 +25,7 @@ To run only specific tests matching a pattern, run `npm run test --
 
 #### Extra steps to run the unit test:
 
-1. Visual Studio 2019 must be installed.
+1. Visual Studio 2019 deve essere installato.
 2. Node headers have to be compiled for your configuration. 
         powershell
         ninja -C out\Testing third_party\electron_node:headers
@@ -36,7 +36,7 @@ To run only specific tests matching a pattern, run `npm run test --
         mkdir gen\node_headers\Release
         copy electron.lib gen\node_headers\Release\node.lib
 
-#### Missing fonts
+#### Caratteri mancanti
 
 Alcune macchine Windows 10<0> vengono distribuite prive del font Meiryo; questa circostanza potrebbe causare il fallimento di uno o più test sulla sostituzione dei font. Per installare Meiryo:</p> 
 
@@ -44,7 +44,7 @@ Alcune macchine Windows 10<0> vengono distribuite prive del font Meiryo; questa 
 2. Clicca *Aggiungi una funzione*.
 3. Seleziona *Caratteri aggiuntivi giapponesi* e clicca *Installa*.
 
-#### Pixel measurements
+#### Dimensioni dei pixel
 
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 
