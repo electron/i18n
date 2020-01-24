@@ -1,4 +1,4 @@
-# Cookie Object
+# Cookie Objekt
 
 * `name` String - Der Name des Cookies.
 * `value` String - Der Wert des Cookies.
