@@ -617,17 +617,17 @@ Menu.setApplicationMenu(menu)
 
 ### Méthodes d’instance
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Les objets créés avec `nouveau BrowserWindow` ont les méthodes d'instance suivantes :
 
 **Remarque :** Certaines méthodes sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Forcer la fermeture de la fenêtre, les `unload` et `beforeunload` événement ne seront pas émises pour la page web, et l'évènement `close` ne sera pas non plus émise pour cette fenêtre, mais il garantit que l'événement `closed` sera émis.
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Essayez de fermer la fenêtre. Cela a le même effet qu'un utilisateur en cliquant manuellement sur le bouton de fermeture de la fenêtre. La page web peut cependant annuler la fermeture. Voir l'événement [fermer](#event-close).
 
 #### `win.focus()`
 
@@ -639,11 +639,11 @@ Supprime le focus de la fenêtre.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Retourne `Boolean` - Si la fenêtre est mise au point.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Retourne `Boolean` - Si la fenêtre est détruite.
 
 #### `win.show()`
 
@@ -717,12 +717,12 @@ Retourne `Boolean` - Si la fenêtre est dans son état normal (ni maximisée, ni
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) (optional) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Float - L'aspect ratio à maintenir pour une partie de la vue de contenu .
+* `extraSize` [Size](structures/size.md) (facultatif) - La taille supplémentaire à ne pas inclure tout en maintenant le rapport d'aspect.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Cela fera que la fenêtre maintient un ratio d'aspect. La taille supplémentaire permet à un développeur d'avoir de l'espace, spécifié en pixels, non inclus dans les calculs de ratio de l'aspect. Cette API prend déjà en compte la différence entre la taille d'une fenêtre et sa taille de contenu.
 
-Consider a normal window with an HD video player and associated controls. Il y a peut-être 15 pixels de contrôles sur le bord gauche, 25 pixels de contrôles sur le bord droit et 50 pixels de contrôles sous le joueur. Afin de maintenir un ratio d'aspect 16:9 (ratio d'aspect standard pour HD @1920x1080) dans le joueur lui-même, nous appellerions cette fonction avec des arguments de 16/9 et [ 40, 50 ]. Le deuxième argument ne se soucie pas du fait que la largeur et la hauteur supplémentaires sont dans la vue de contenu --seulement qu'elles existent. Sommez toute la largeur supplémentaire et les zones de hauteur que vous avez dans la vue de contenu globale.
+Considérez une fenêtre normale avec un lecteur vidéo HD et des commandes associées. Il y a peut-être 15 pixels de contrôles sur le bord gauche, 25 pixels de contrôles sur le bord droit et 50 pixels de contrôles sous le joueur. Afin de maintenir un ratio d'aspect 16:9 (ratio d'aspect standard pour HD @1920x1080) dans le joueur lui-même, nous appellerions cette fonction avec des arguments de 16/9 et [ 40, 50 ]. Le deuxième argument ne se soucie pas du fait que la largeur et la hauteur supplémentaires sont dans la vue de contenu --seulement qu'elles existent. Sommez toute la largeur supplémentaire et les zones de hauteur que vous avez dans la vue de contenu globale.
 
 Appeler cette fonction avec une valeur de `0` supprimera tous les ratios d'aspect précédemment définis.
 
@@ -1082,15 +1082,15 @@ Capturer une capture instantanée de la page dans `rect`. L'omission de `rect` c
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
   * `données postales` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (facultatif)
-  * `baseURLForDataURL` String (facultatif) - URL de base (avec séparateur de chemin de pointe) pour que les fichiers soient chargés par l'URL de données. This is needed only if the specified `url` is a data URL and needs to load other files.
+  * `baseURLForDataURL` String (facultatif) - URL de base (avec séparateur de chemin de pointe) pour que les fichiers soient chargés par l'URL de données. Ceci n'est nécessaire que si l'`url` spécifiée est une URL de données et a besoin de charger d'autres fichiers.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retourne `Promise<void>` - la promesse se résoudra lorsque la page aura terminé le chargement (voir [`did-finish-load`](web-contents.md#event-did-finish-load)), et rejette si la page ne parvient pas à se charger (voir [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+Même que [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+L'`url` peut être une adresse distante (par exemple `http://`) ou un chemin vers un fichier HTML local en utilisant le `file://` protocole.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Pour s'assurer que les URL de fichier sont correctement formatées, il est recommandé d'utiliser la méthode Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) :
 
 ```javascript
 let url = require('url').format({
@@ -1102,7 +1102,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Vous pouvez charger une URL en utilisant une requête `POST` avec des données encodées par URL en faisant ce qui suit :
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -1118,68 +1118,68 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (facultatif) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Enregistrement<String, String> (facultatif) - Passé à `url.format()`.
+  * `search` String (facultatif) - Passé à `url.format()`.
+  * `hash` String (facultatif) - Passé à `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retourne `Promise<void>` - la promesse se résoudra lorsque la page aura terminé le chargement (voir [`did-finish-load`](web-contents.md#event-did-finish-load)), et rejette si la page ne parvient pas à se charger (voir [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Identique à `webContents.loadFile`, `filePath` devrait être un chemin vers un fichier HTML relatif à la racine de votre application. Voir la documentation `webContents` pour plus d'informations.
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Identique à `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+Définit le `menu` comme barre de menu de la fenêtre.
 
 #### `win.removeMenu()` *Linux* *Windows*
 
-Remove the window's menu bar.
+Retirez la barre de menu de la fenêtre.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
 * `options` Object (facultatif) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` Chaîne *Windows* - Mode pour la barre de progression. Peut être `aucun`, `normal`, `indéterminé`, `erreur` ou `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Définit la valeur de progression dans la barre de progression. La plage valide est [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Supprimer la barre de progression lorsque la progression < 0 ; Passer en mode indéterminé lorsque la progression > 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `{app.name}.desktop`.
+Sur la plate-forme Linux, ne prend en charge que l'environnement de bureau Unity, vous devez spécifier le nom du fichier `*.desktop` au champ `desktopName` dans `package.json`. Par défaut, il assumera `{app.name}.desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Sous Windows, un mode peut être passé. Les valeurs acceptées sont `none`, `normal`, `indeterminate`, `erreur`, et `paused`. Si vous appelez `setProgressBar` sans mode défini (mais avec une valeur dans la plage valide), `normal` sera utilisé.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [NativeImage](native-image.md) | null - l'icône à afficher en bas à droite de l'icône de la barre des tâches. Si ce paramètre est `null`, l'overlay est effacé
+* `description` Chaîne - une description qui sera fournie aux lecteurs d'écran d'accessibilité
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Définit une superposition de 16 x 16 pixels sur l'icône actuelle de la barre des tâches, généralement utilisé pour transmettre une sorte de statut d'application ou pour notifier passivement l'utilisateur.
 
 #### `win.setHasShadow(hasShadow)`
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow.
+Définit si la fenêtre doit avoir une ombre.
 
 #### `win.hasShadow()`
 
-Returns `Boolean` - Whether the window has a shadow.
+Retourne `Boolean` - Si la fenêtre a une ombre.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacité` Nombre - entre 0.0 (entièrement transparent) et 1.0 (entièrement opaque)
 
-Sets the opacity of the window. On Linux, does nothing. Out of bound number values are clamped to the [0, 1] range.
+Définit l'opacité de la fenêtre. Sous Linux, ne fait rien. Les valeurs du nombre lié sont enserrées dans l'intervalle [0, 1] .
 
 #### `win.getOpacity()`
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Linux, always returns 1.
+Retourne `Number` - entre 0.0 (entièrement transparent) et 1.0 (entièrement opaque). Sur Linux, retourne toujours 1.
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
