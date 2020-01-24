@@ -23,14 +23,14 @@ To run only specific tests matching a pattern, run `npm run test --
 
 ### Testing on Windows 10 devices
 
-#### Extra steps to run the unit test:
+#### Додаткові кроки для запуску юніттестів:
 
-1. Visual Studio 2019 must be installed.
-2. Node headers have to be compiled for your configuration. 
+1. Visual Studio 2019 повинна бути встановлена.
+2. Заголовки вузла необхідно скомпонувати під вашу конфігурацію. 
         powershell
         ninja -C out\Testing third_party\electron_node:headers
 
-3. The electron.lib has to be copied as node.lib. 
+3. Electron.lib повинен бути скопійований як node.lib. 
         powershell
         cd out\Testing
         mkdir gen\node_headers\Release
