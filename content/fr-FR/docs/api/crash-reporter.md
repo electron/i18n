@@ -17,18 +17,18 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Pour configurer un serveur pour accepter et traiter les rapports de plantage, vous pouvez utiliser projets suivants :
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
+Ou utilisez une solution hébergée par un tiers :
 
-* [Backtrace](https://backtrace.io/electron/)
-* [Sentry](https://docs.sentry.io/clients/electron)
+* [Trace d'appels](https://backtrace.io/electron/)
+* [Sentinelle](https://docs.sentry.io/clients/electron)
 * [BugSplat](https://www.bugsplat.com/docs/platforms/electron)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Les rapports de plantage sont enregistrés localement dans un dossier de répertoire temporaire spécifique à l'application. Pour un `productName` de `VotreNom`, les rapports de plantage seront stockés dans un dossier nommé `Écrasement` dans le répertoire temp. Vous pouvez personnaliser cet emplacement de répertoire temporaire pour votre application en appelant l'API `app.setPath('temp', '/my/custom/temp')` avant de démarrer le rapport de plantage.
 
 ## Méthodes
 
@@ -38,20 +38,20 @@ Le module `crashReporter` dispose des méthodes suivantes :
 
 * `options` Objet 
   * `companyName` String
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.name`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server. Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Record<String, String> (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported. When using Windows, the property names and values must be fewer than 64 characters.
-  * `crashesDirectory` String (optional) - Directory to store the crash reports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `submitURL` String - URL à laquelle les rapports de plantage seront envoyés en tant que POST.
+  * `productName` String (facultatif) - `app.name`.
+  * `uploadToServer` Boolean (facultatif) - Si les rapports de plantage doivent être envoyés au serveur. La valeur par défaut est `true`.
+  * `ignoreSystemCrashHandler` Boolean (facultatif) - La valeur par défaut est `false`.
+  * `extra` Enregistrement<String, String> (facultatif) - Un objet que vous pouvez définir qui sera envoyé avec le rapport . Seules les propriétés de la chaîne sont envoyées correctement. Les objets imbriqués ne sont pas supportés . Lorsque vous utilisez Windows, les noms et valeurs des propriétés doivent être inférieurs à 64 caractères.
+  * `crashesDirectory` String (facultatif) - Répertoire pour stocker temporairement les rapports de plantage (uniquement utilisé lorsque le reporter de plantage est démarré via `process.crashReporter.start`).
 
-You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
+Vous devez appeler cette méthode avant d'utiliser toute autre API `crashReporter` et dans chaque processus (principal/renderer) dont vous souhaitez recueillir les rapports d'accident. Vous pouvez passer différentes options à `crashReporter.start` lors d'un appel de différents processus.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
+**Note** Les processus enfants créés via le module `child_process` n'auront pas accès aux modules Electron. Par conséquent, pour collecter les rapports de plantage, utilisez `process.crashReporter.start` à la place. Passez les mêmes options que celles ci-dessus avec une autre appelée `crashesDirectory` qui devrait pointer vers un répertoire pour stocker temporairement le crash . Vous pouvez tester cela en appelant `process.crash()` pour faire planter le processus fils.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Remarque :** Si vous avez besoin d'envoyer des paramètres supplémentaires ou mis à jour `extra` après votre premier appel `démarrer` vous pouvez appeler `addExtraParameter` sur macOS ou appeler à nouveau `start` avec les paramètres `extra` mis à jour sur Linux et Windows.
 
-**Note:** On macOS and windows, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**Remarque :** Sur macOS et Windows, Electron utilise un nouveau client `crashpad` pour la collecte et le reporting des plantages. Si vous voulez activer le rapport de plantage, initialisant `crashpad` depuis le processus principal en utilisant `crashReporter. tart` est requis quel que soit le processus à partir duquel vous voulez collecter des plantages. Une fois initialisé de cette façon, le gestionnaire de crashpad collecte plantages de tous les processus. Vous devez toujours appeler `crashReporter. tart` depuis le rendu ou le processus fils, sinon les plantages de d'eux seront signalés sans `companyName`, `productName` ou n'importe quelle information `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
