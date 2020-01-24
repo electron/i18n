@@ -63,38 +63,38 @@ Renvoi la date et l'identifiant du dernier crash. Seuls les rapports de plantage
 
 Retourne [`CrashReport[]`](structures/crash-report.md) :
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+Renvoie tous les rapports de plantage téléchargés. Chaque rapport contient la date et l'ID téléchargé.
 
 ### `crashReporter.getUploadToServer()`
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Retourne `Boolean` - Si les rapports doivent être soumis au serveur. Définissez à travers la méthode `start` ou `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**Note:** Cette API ne peut être appelée que depuis le processus principal.
 
 ### `crashReporter.setUploadToServer(uploadToServer)`
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean *macOS* - Si les rapports doivent être soumis au serveur.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+Cela serait normalement contrôlé par les préférences de l'utilisateur. Cela n'a aucun effet si appelé avant que `start` ne soit appelé.
 
-**Note:** This API can only be called from the main process.
+**Note:** Cette API ne peut être appelée que depuis le processus principal.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS* *Windows*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `clé` Chaîne - Le paramètre de clé, doit contenir moins de 64 caractères.
+* `valeur` Chaîne - La valeur du paramètre, doit contenir moins de 64 caractères.
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS and windows, if you need to add/update extra parameters on Linux after your first call to `start` you can call `start` again with the updated `extra` options.
+Définit un paramètre supplémentaire à envoyer avec le rapport de plantage. Les valeurs spécifiées ici seront envoyées en plus de toutes les valeurs définies via l'option `extra` lorsque `start` a été appelé. Cette API n'est disponible que sur macOS et windows, si vous devez ajouter/mettre à jour des paramètres supplémentaires sur Linux après votre premier appel à `start` vous pouvez appeler à nouveau `start` avec les options `extra` mises à jour.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS* *Windows*
 
-* `key` String - Parameter key, must be less than 64 characters long.
+* `clé` Chaîne - Le paramètre de clé, doit contenir moins de 64 caractères.
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+Supprime un paramètre supplémentaire de l'ensemble de paramètres courant afin qu'il ne soit pas envoyé avec le rapport de plantage.
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+Voir tous les paramètres actuels passés au rapport de plantage.
 
 ## Payload du Crash Report
 

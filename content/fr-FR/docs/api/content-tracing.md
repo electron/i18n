@@ -1,24 +1,24 @@
 # contentTracing
 
-> Collect tracing data from Chromium to find performance bottlenecks and slow operations.
+> Collecter des données de traçage de Chromium pour trouver des goulets d'étranglement de performance et des opérations lentes.
 
 Processus : [Main](../glossary.md#main-process)
 
-This module does not include a web interface. To view recorded traces, use [trace viewer](https://github.com/catapult-project/catapult/blob/master/tracing), available at `chrome://tracing` in Chrome.
+Ce module n'inclut pas d'interface web. Pour afficher les traces enregistrées, utilisez [visionneuse de traces](https://github.com/catapult-project/catapult/blob/master/tracing), disponible sur `chrome://tracing` dans Chrome.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Remarque :** Vous ne devriez pas utiliser ce module tant que l'événement `prêt` du module de l'application n'est pas émis.
 
 ```javascript
-const { app, contentTracing } = require('electron')
+application const { app, contentTracing } = require('electron')
 
-app.on('ready', () => {
+. n('ready', () => {
   (async () => {
-    await contentTracing.startRecording({
+    attendent contentTracing. tartRecording({
       include_categories: ['*']
     })
-    console.log('Tracing started')
-    await new Promise(resolve => setTimeout(resolve, 5000))
-    const path = await contentTracing.stopRecording()
+    console. og('Tracing started')
+    attendent une nouvelle Promise(resolve => setTimeout(resolve, 5000))
+    const path = wait contentTracing. topRecording()
     console.log('Tracing data recorded to ' + path)
   })()
 })
@@ -26,35 +26,35 @@ app.on('ready', () => {
 
 ## Méthodes
 
-The `contentTracing` module has the following methods:
+Le module `contentTracing` a les méthodes suivantes :
 
 ### `contentTracing.getCategories()`
 
-Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+Retourne `Promise<String[]>` - résout avec un tableau de groupes de catégories une fois que tous les processus enfants ont reconnu la requête `getCategories`
 
-Get a set of category groups. The category groups can change as new code paths are reached. See also the [list of built-in tracing categories](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
+Obtenir un ensemble de groupes de catégories. Les groupes de catégories peuvent changer lorsque de nouveaux chemins de code sont atteints. Voir aussi la [liste des catégories de traçage intégrées](https://chromium.googlesource.com/chromium/src/+/master/base/trace_event/builtin_categories.h).
 
 ### `contentTracing.startRecording(options)`
 
 * `options` ([TraceConfig](structures/trace-config.md) | [TraceCategoriesAndOptions](structures/trace-categories-and-options.md))
 
-Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+Retourne `Promise<void>` - résolu une fois que tous les processus enfants ont reconnu la requête `startRecording`.
 
-Start recording on all processes.
+Commencez à enregistrer sur tous les processus.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+L'enregistrement commence immédiatement localement et de manière asynchrone sur les processus enfants dès qu'il reçoit la demande EnableRecording.
 
-If a recording is already running, the promise will be immediately resolved, as only one trace operation can be in progress at a time.
+Si un enregistrement est déjà en cours, la promesse sera immédiatement résolue, car seule une opération de trace peut être en cours à la fois.
 
 ### `contentTracing.stopRecording([resultFilePath])`
 
-* `resultFilePath` String (optional)
+* `resultFilePath` String (facultatif)
 
-Returns `Promise<String>` - resolves with a path to a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+Retourne `Promise<String>` - résout avec un chemin vers un fichier qui contient les données tracées une fois que tous les processus enfants ont reconnu la requête `stopRecording`
 
-Stop recording on all processes.
+Arrêter l'enregistrement sur tous les processus.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, Chromium asynchronously asks all child processes to flush any pending trace data.
+Les processus fils mettent généralement en cache les données de trace et ne suppriment que rarement et envoient données de trace au processus principal. Cela aide à minimiser les frais d'exécution de traçage puisque l'envoi de données de traces via IPC peut être une opération coûteuse. Ainsi, pour terminer le traçage, Chromium demande asynchrone à tous les processus enfants de vider les données de traces en attente.
 
 Trace data will be written into `resultFilePath`. If `resultFilePath` is empty or not provided, trace data will be written to a temporary file, and the path will be returned in the promise.
 

@@ -254,7 +254,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### 이벤트: 'login'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -341,15 +341,15 @@ Returns:
 * `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
 * `workingDirectory` String - 두 번재 instance의 작업 디렉토리입니다.
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+이 이벤트는 어플리케이션의 두번째 인스턴스가 실행되고 `app.requestSingleInstanceLock()`를 호출하면 첫번째 인스턴스에서 발생한다.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`argv`는 두번째 인스턴스의 명령행 인수의 배열입니다. `workingDirectory`는 이 인스턴스의 작업 디렉토리입니다. 일반적으로 어플리케이션은 기본 창에 초점을 맞추고 최소화하지 않도록하여 이에 응답합니다.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+이 이벤트는 `앱`의 `준비`이벤트가 생성된 후에 생성됩니다.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**참고:** 추가 명령 줄 인수는 `-original-process-start-time`과 같은 Chromium에 의해 추가 될 수 있습니다.
 
-### Event: 'desktop-capturer-get-sources'
+### 이벤트: 'desktop-capturer-get-sources'
 
 Returns:
 

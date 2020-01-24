@@ -23,11 +23,28 @@ To run only specific tests matching a pattern, run `npm run test --
 
 ### Проверка на устройствах Windows 10
 
+#### Extra steps to run the unit test:
+
+1. Visual Studio 2019 must be installed.
+2. Node headers have to be compiled for your configuration. 
+        powershell
+        ninja -C out\Testing third_party\electron_node:headers
+
+3. The electron.lib has to be copied as node.lib. 
+        powershell
+        cd out\Testing
+        mkdir gen\node_headers\Release
+        copy electron.lib gen\node_headers\Release\node.lib
+
+#### Missing fonts
+
 [На некоторых устройства на Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) может быть не установлен шрифт Meriyo, что может привести к провалу fallback теста. Для того чтобы установить шрифт Meiryo:
 
 1. Нажмите кнопку Windows и найдите *Управление дополнительными функциями*.
 2. Нажмите *Добавить функцию*.
 3. Выберите *Японские дополнительные шрифты* и нажмите *Установить*.
+
+#### Pixel measurements
 
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 

@@ -22,11 +22,28 @@ Para correr solo pruebas especificas que coincidan con un patrón, corra `npm ru
 
 ### Probando en dispositivos Windows 10
 
+#### Extra steps to run the unit test:
+
+1. Visual Studio 2019 must be installed.
+2. Node headers have to be compiled for your configuration. 
+        powershell
+        ninja -C out\Testing third_party\electron_node:headers
+
+3. The electron.lib has to be copied as node.lib. 
+        powershell
+        cd out\Testing
+        mkdir gen\node_headers\Release
+        copy electron.lib gen\node_headers\Release\node.lib
+
+#### Missing fonts
+
 [Algunos dispositivos Windows 10](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) no se incluye la fuente Meiryo instalada, lo que puede causar que falle una prueba. Para instalar Meiryo:
 
 1. Presione la tecla Windows y busca *Administrar herramientas opcionales*.
 2. Haga clic en *Añadir una herramienta*.
 3. Seleccione *Fuentes suplementarias japonesas* y haga clic en *Instalar*.
+
+#### Pixel measurements
 
 Algunas pruebas que dependen de medidas precisas a nivel de píxel pueden no funcionar correctamente en dispositivos con ajustes de pantalla Hi-DPI debido a errores de precisión de puntos flotantes. Para ejecutar correctamente estas pruebas, asegúrese de que el dispositivo está fijado para escalar el 100%.
 

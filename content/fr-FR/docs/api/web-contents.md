@@ -740,11 +740,11 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (facultatif) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Enregistrement<String, String> (facultatif) - Passé à `url.format()`.
+  * `search` String (facultatif) - Passé à `url.format()`.
+  * `hash` String (facultatif) - Passé à `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retourne `Promise<void>` - la promesse se résoudra lorsque la page aura terminé le chargement (voir [`did-finish-load`](web-contents.md#event-did-finish-load)), et rejette si la page ne parvient pas à se charger (voir [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -1104,9 +1104,9 @@ console.log(requestId)
 
 * `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Retourne `Promise<NativeImage>` - résout avec une [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Capturer une capture instantanée de la page dans `rect`. L'omission de `rect` capturera toute la page visible.
 
 #### `contents.getPrinters()`
 

@@ -484,73 +484,73 @@ empêcher la création de <code>webViews` avec des options potentiellement non s
     > 
     > ### Pourquoi ?
     > 
-    > Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+    > Tout comme la navigation, la création de nouveaux `webContents` est un vecteur d'attaque commun . Les attaquants tentent de convaincre votre application de créer de nouvelles fenêtres, cadres, ou d'autres processus de rendu avec plus de privilèges qu'avant; ou avec des pages ouvertes qu'ils ne pouvaient pas ouvrir avant.
     > 
-    > If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+    > Si vous n'avez pas besoin de créer des fenêtres en plus de celles que vous savez que vous aurez besoin de créer, la désactivation de la création vous permet d'acheter gratuitement un peu de sécurité supplémentaire. C'est généralement le cas pour les applications qui ouvrent une `BrowserWindow` et n'ont pas besoin d'ouvrir un nombre arbitraire de fenêtres supplémentaires à l'exécution.
     > 
     > ### Comment ?
     > 
-    > [`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+    > [`webContents`](../api/web-contents.md) émettra l'événement [`nouvelle-fenêtre`](../api/web-contents.md#event-new-window) avant de créer de nouvelles fenêtres. Cet événement sera passé, entre autres paramètres, l'`url` de la fenêtre a été demandée à s'ouvrir et les options utilisées pour le créer. Nous vous recommandons d'utiliser l'événement pour scruter la création de fenêtres , en le limitant à ce dont vous avez besoin.
     > 
     > ```js
     > const { shell } = require('electron')
     > 
     > app.on('web-contents-created', (event, contents) => {
-    >   contents.on('new-window', async (event, navigationUrl) => {
-    >     // In this example, we'll ask the operating system
-    >     // to open this event's url in the default browser.
+    >   contenu. n('new-window', async (event, navigationUrl) => {
+    >     // Dans cet exemple, Nous demanderons au système d'exploitation
+    >     // d'ouvrir l'url de cet événement dans le navigateur par défaut.
     >     event.preventDefault()
     > 
-    >     await shell.openExternal(navigationUrl)
+    >     attend shell.openExternal(navigationUrl)
     >   })
     > })
     > ```
     > 
-    > ## 14) Do not use `openExternal` with untrusted content
+    > ## 14) N'utilisez pas `openExternal` avec du contenu non fiable
     > 
-    > Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+    > Le [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) de Shell permet d'ouvrir un URI de protocole donné avec les utilitaires natifs du bureau. Sur macOS, par exemple, cette fonction est similaire à l'utilitaire de commande terminal `open` et ouvrira l'application spécifique basée sur l'URI et l'association de type fichier.
     > 
     > ### Pourquoi ?
     > 
-    > Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+    > L'utilisation incorrecte de [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) peut être utilisée pour compromettre l'hôte de l'utilisateur. Lorsque openExternal est utilisé avec du contenu non fiable, il peut être exploité pour exécuter des commandes arbitraires.
     > 
     > ### Comment ?
     > 
     > ```js
-    > //  Bad
+    > // Mauvais
     > const { shell } = require('electron')
     > shell.openExternal(USER_CONTROLLED_DATA_HERE)
     > ```
     > 
     > ```js
-    > //  Good
+    > // Bon
     > const { shell } = require('electron')
     > shell.openExternal('https://example.com/index.html')
     > ```
     > 
-    > ## 15) Disable the `remote` module
+    > ## 15) Désactiver le module `distant`
     > 
-    > The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+    > Le module `distant` fournit un moyen pour les processus de rendu d'accéder aux APIs normalement disponibles uniquement dans le processus principal. En l'utilisant, un moteur de rendu peut appeler des méthodes d'un objet de processus principal sans envoyer explicitement messages inter-processus. Si votre application de bureau n'exécute pas le contenu non approuvé, ceci peut être un moyen utile d'avoir l'accès à vos processus de rendu et de travailler avec des modules qui ne sont disponibles que pour le processus principal, tels que les modules liés à l'interface graphique (dialogues, menus, etc.).
     > 
-    > However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+    > Cependant, si votre application peut exécuter du contenu non approuvé et même si vous [sandbox](../api/sandbox-option.md) vos processus de rendu en conséquence, le module `distance` permet aux codes malveillants d'échapper facilement au bac à sable et d'avoir accès aux ressources système via les privilèges supérieurs du processus principal. Par conséquent, il devrait être désactivé dans de telles circonstances.
     > 
     > ### Pourquoi ?
     > 
-    > `remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+    > `distance` utilise un canal IPC interne pour communiquer avec le processus principal. Les attaques "pollutions par prototype" peuvent donner un accès de code malveillant au canal IPC interne , qui peut alors être utilisé pour échapper au sandbox en imitant `distant` messages IPC et en obtenant l'accès aux modules de processus principaux fonctionnant avec des privilèges plus élevés.
     > 
-    > Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+    > De plus, il est possible pour les scripts de préchargement de fuir accidentellement des modules vers un moteur de rendu en bac à sable. La fuite de `distance` armee du code malveillant avec une multitude de modules de processus principaux avec lesquels effectuer une attaque.
     > 
-    > Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+    > La désactivation du module `distance` élimine ces vecteurs d'attaque. L'activation de l'isolation du contexte empêche également les attaques "prototype pollution" de réussies.
     > 
     > ### Comment ?
     > 
     > ```js
-    > // Bad if the renderer can run untrusted content
+    > // Mauvais si le moteur de rendu peut exécuter du contenu non fiable
     > const mainWindow = new BrowserWindow({})
     > ```
     > 
     > ```js
-    > // Good
+    > // Bon
     > const mainWindow = new BrowserWindow({
     >   webPreferences: {
     >     enableRemoteModule: false
@@ -559,56 +559,56 @@ empêcher la création de <code>webViews` avec des options potentiellement non s
     > ```
     > 
     > ```html
-    > <!-- Bad if the renderer can run untrusted content  -->
+    > <!-- Mauvais si le moteur de rendu peut exécuter du contenu non fiable -->
     > <webview src="page.html"></webview>
     > 
-    > <!-- Good -->
+    > <!-- Bon -->
     > <webview enableremotemodule="false" src="page.html"></webview>
     > ```
     > 
-    > ## 16) Filter the `remote` module
+    > ## 16) Filtrer le module `distant`
     > 
-    > If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+    > Si vous ne pouvez pas désactiver le module `distant`, vous devez filtrer les globales, Node, et les modules Electron (dits intégrés) accessibles via `distance` que votre application ne requiert pas. Cela peut être fait en bloquant certains modules entièrement et en remplaçant d'autres par des proxies qui exposent uniquement les fonctionnalités dont votre application a besoin.
     > 
     > ### Pourquoi ?
     > 
-    > Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+    > En raison des privilèges d'accès au système du processus principal, la fonctionnalité fournie par les modules du processus principal peut être dangereuse entre les mains de code malveillant exécuté dans un processus de rendu compromis. En limitant l'ensemble de modules accessibles au minimum dont votre application a besoin et en filtrant les autres, vous réduisez le jeu d'outils que le code malveillant peut utiliser pour attaquer le système.
     > 
-    > Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+    > Notez que l'option la plus sûre est de [désactiver complètement le module distant](#15-disable-the-remote-module). Si vous choisissez de filtrer l'accès plutôt que de désactiver complètement le module, vous devez être très prudent pour vous assurer qu'aucune escalade de privilèges n'est possible à travers les modules que vous autorisez à dépasser le filtre.
     > 
     > ### Comment ?
     > 
     > ```js
-    > const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+    > const readOnlyFsProxy = require(/* ... */) // n'expose que la fonctionnalité de lecture de fichier
     > 
     > const allowedModules = new Set(['crypto'])
     > const proxiedModules = new Map(['fs', readOnlyFsProxy])
     > const allowedElectronModules = new Set(['shell'])
     > const allowedGlobals = new Set()
     > 
-    > app.on('remote-require', (event, webContents, moduleName) => {
+    > app. n('remote-require', (event, webContents, moduleName) => {
     >   if (proxiedModules.has(moduleName)) {
-    >     event.returnValue = proxiedModules.get(moduleName)
+    >     event.returnValue = proxiedModules. et(moduleName)
     >   }
     >   if (!allowedModules.has(moduleName)) {
     >     event.preventDefault()
     >   }
     > })
     > 
-    > app.on('remote-get-builtin', (event, webContents, moduleName) => {
+    > app. n('remote-get-builtin', (event, webContents, moduleName) => {
     >   if (!allowedElectronModules.has(moduleName)) {
-    >     event.preventDefault()
+    >     event. reventDefault()
     >   }
     > })
     > 
     > app.on('remote-get-global', (event, webContents, globalName) => {
-    >   if (!allowedGlobals.has(globalName)) {
+    >   if (!allowedGlobals. as(globalName)) {
     >     event.preventDefault()
     >   }
     > })
     > 
-    > app.on('remote-get-current-window', (event, webContents) => {
-    >   event.preventDefault()
+    > app. n('remote-get-current-window', (event, webContents) => {
+    >   événement. reventDefault()
     > })
     > 
     > app.on('remote-get-current-web-contents', (event, webContents) => {
@@ -616,12 +616,12 @@ empêcher la création de <code>webViews` avec des options potentiellement non s
     > })
     > ```
     > 
-    > ## 17) Use a current version of Electron
+    > ## 17) Utiliser une version actuelle d'Electron
     > 
-    > You should strive for always using the latest available version of Electron. Whenever a new major version is released, you should attempt to update your app as quickly as possible.
+    > Vous devriez toujours vous efforcer d'utiliser la dernière version disponible d'Electron. À chaque fois qu'une nouvelle version majeure est publiée, vous devriez essayer de mettre à jour votre application le plus rapidement possible.
     > 
     > ### Pourquoi ?
     > 
-    > An application built with an older version of Electron, Chromium, and Node.js is an easier target than an application that is using more recent versions of those components. Generally speaking, security issues and exploits for older versions of Chromium and Node.js are more widely available.
+    > Une application construite avec une ancienne version d'Electron, Chromium et Node. s est une cible plus facile qu'une application qui utilise des versions plus récentes de ces composantes. De manière générale, les problèmes de sécurité et les exploits pour les anciennes versions de Chromium et de Node.js sont plus largement disponibles.
     > 
-    > Both Chromium and Node.js are impressive feats of engineering built by thousands of talented developers. Given their popularity, their security is carefully tested and analyzed by equally skilled security researchers. Many of those researchers [disclose vulnerabilities responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure), which generally means that researchers will give Chromium and Node.js some time to fix issues before publishing them. Your application will be more secure if it is running a recent version of Electron (and thus, Chromium and Node.js) for which potential security issues are not as widely known.
+    > Chromium et Node.js sont des prouesses impressionnantes d'ingénierie construites par milliers de développeurs talentueux. Compte tenu de leur popularité, leur sécurité est soigneusement testée et analysée par des chercheurs en sécurité tout aussi compétents. Beaucoup de ces chercheurs [révèlent des vulnérabilités de manière responsable](https://en.wikipedia.org/wiki/Responsible_disclosure), ce qui signifie généralement que les chercheurs donneront Chromium et Node. s un peu de temps pour résoudre les problèmes avant de les publier. Votre application sera plus sécurisée si elle exécute une version récente d'Electron (et donc Chromium et Node. s) pour quels problèmes de sécurité potentiels ne sont pas aussi connus.

@@ -40,7 +40,7 @@ Retourne :
 * `event` Événement
 * `reason` String - Motif du retrait du débogueur.
 
-Emitted when the debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Émis lorsque la session de débogage est terminée. Cela se produit lorsque `webContents` est fermé ou que devtools est appelé pour la `webContents`.
 
 #### Événement : 'message'
 
@@ -48,9 +48,9 @@ Retourne :
 
 * `event` Événement
 * `method` String - Nom de la méthode.
-* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` inconnu - Paramètres d'événement définis par l'attribut 'parameters' dans le protocole de débogage distant.
 
-Emitted whenever the debugging target issues an instrumentation event.
+Émis chaque fois que la cible de débogage émet un événement d'instrumentation.
 
 ### Méthodes d’instance
 
@@ -70,9 +70,9 @@ Détache le débogueur depuis le `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams])`
 
-* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
-* `commandParams` any (optional) - JSON object with request parameters.
+* `méthode` String - Nom de la méthode, devrait être l'une des méthodes définies par le [protocole de débogage distant](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` n'importe quel objet (facultatif) - JSON avec les paramètres de la requête.
 
-Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+Retourne `Promise<any>` - Une promesse qui résout avec la réponse définie par l'attribut 'returns' de la description de la commande dans le protocole de débogage distant ou qui est rejetée indiquant l'échec de la commande.
 
 Envoi une commande au débogueur.
