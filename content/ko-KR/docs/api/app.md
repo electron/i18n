@@ -341,9 +341,9 @@ Returns:
 * `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
 * `workingDirectory` String - 두 번재 instance의 작업 디렉토리입니다.
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+이 이벤트는 어플리케이션의 두번째 인스턴스가 실행되고 `app.requestSingleInstanceLock()`를 호출하면 첫번째 인스턴스에서 발생한다.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`argv`는 두번째 인스턴스의 명령행 인수의 배열입니다. `workingDirectory`는 이 인스턴스의 작업 디렉토리입니다. Usually applications respond to this by making their primary window focused and non-minimized.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
