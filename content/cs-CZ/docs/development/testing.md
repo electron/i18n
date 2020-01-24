@@ -40,9 +40,9 @@ To run only specific tests matching a pattern, run `npm run test --
 
 [Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+1. Stiskněte klávesu Windows a vyhledejte *Správa volitelných funkcí*.
+2. Klikněte na *Přidat funkci*.
+3. Vyberte *Japonská doplňkové písma* a klikněte na *Instalovat*.
 
 #### Pixel measurements
 
@@ -50,5 +50,5 @@ Some tests which rely on precise pixel measurements may not work correctly on de
 
 To configure display scaling:
 
-1. Push the Windows key and search for *Display settings*.
+1. Stiskněte klávesu Windows a vyhledejte *Nastavení zobrazení*.
 2. Under *Scale and layout*, make sure that the device is set to 100%.
