@@ -13,29 +13,29 @@ nav:
   releases: Vydání
   search: Hledat
   userland: Userland
-  governance: Governance
+  governance: Správa
 keyboard_modal:
   title: Klávesové zkratky
   key: Klíč
   action: Akce
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  focus_search: Zaměřit vyhledávací lištu
+  focus_and_clear: Zaměřit vyhledávací lištu a vyčistit ji
+  scroll_down: Vyberte další výsledek hledání
+  scroll_up: Vyberte předchozí výsledek hledání
+  open: Otevřít vybraný výsledek hledání
+  open_new_tab: Otevřít vybraný výsledek hledání v nové kartě
 docs:
   title: Dokumentace Electronu
   description: Koukněte na všechny <a href="/docs/all"> dokumenty na jedné stránce</a> nebo se podívejte na <a href="/docs/faq" title="často kladené dotazy"> FAQ</a>.
-  guides: "Guides: Getting Started with Electron"
+  guides: "Průvodce: Začínáme s Electronem"
   api_reference: API Reference
-  api_structures: API Structures
+  api_structures: Části API
   advanced: Pokročilé
-  detailed: In Detail
+  detailed: Podrobně
   custom_dom: Vlastní prvky DOM
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  main_proc_modules: Moduly hlavního procesu
+  renderer_proc_modules: Moduly vykreslovacího procesu
+  both_proc_modules: Moduly pro oba typy procesů
   footer:
     propose_change: Pomozte vylepšit tuto dokumentaci
     version_history: Historie verzí
@@ -53,8 +53,8 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Začněte</b></a> stavět aplikaci přečtením si <a href='/docs/tutorial/first-app'>rychlého průvodce začátečníka</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Zůstaň v obraze</b></a> a sleduj <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitteru a odebírej náš <a href='/blog'>blog</a>."
     localized_docs: "<a href='/languages'><b>Přečti si dokumentaci ve svém jazyce</b></a> navštívením <a href='/languages'>stránky pro volbu jazyka</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Získejte pomoc a zpětnou vazbu</b></a> tím, že se připojíte k <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slacku</a>, přispíváním v <a href='https://discuss.atom.io/c/electron'>diskusích</a> nebo návštěvami <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Nahlásit bezpečnostní problémy</b></a> e-mailem na <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -86,7 +86,7 @@ releases:
   previous_page: Předchozí stránka
   page: Stránka
   all_releases: Všechny verze
-  back_to_index: Back to index
+  back_to_index: Zpět na index
 electron_is_easy:
   title: Je to snazší, než si myslíte
   description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Electron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
@@ -114,7 +114,7 @@ explore:
   title: Prozkoumat Electron API
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Demo</a> interaktivně demonstruje nejdůležitější funkce Electron API. Podívejte se, co je možné s Electronem udělat za pomoci příkladů kódu a užitečných tipů pro vývoj vaší aplikace."
   fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  see_more_info: Zobrazit další informace
 download_from_github: Stáhnout z GitHubu
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Zobrazit všechny releasy</a> na GitHubu
 quick_start:
@@ -136,7 +136,7 @@ help_translate: "Pomozte s překladem"
 footer:
   see_the_faq: Prozkoumejte nejčastěji kladené otázky
 companies:
-  title: Built on Electron
+  title: Postaveno na Electronu
   description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
@@ -166,8 +166,8 @@ clipboard:
   copy_to_clipboard: Kopírovat do schránky
   copied: Zkopírováno
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Spustit
+  launch_in_fiddle: Spustit ve Fiddle
 or: or
 pages:
   '/':
@@ -238,7 +238,7 @@ governance:
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
   ecosystem:
-    title: Ecosystem
+    title: Ekosystém
     description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Outreach
