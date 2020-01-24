@@ -57,7 +57,7 @@ community:
     security: "<a href='mailto:security@electronjs.org'><b>Nahlašte bezpečnostní problémy</b></a> e-mailem na <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Nahlašte chyby</b></a> založením nových issues v repozitáři <a href='https://github.com/electron/electron/issues'>elektron/elektronron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Požádejte o nové funkce</b></a> založením nových issues v repozitáři <a href='https://github.com/electron/electron/issues'>elektron/elektronron</a>."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Nahlašte porušování pravidel</b></a> zasíláním e-mailu na <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Nahlašte porušování kodexu chování</b></a> zasíláním e-mailu na <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     donations: "<a href='donors'><b>Přispějte</b></a> na naší <a href='/donors'>OpenCollective stránce</a>."
     other: "Pro jakékoliv ostatní dotazy napište e-mail na <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
@@ -93,7 +93,7 @@ electron_is_easy:
   video_link: Podívejte se na video
 web_technologies:
   title: Webové technologie
-  description: Electronové používá Chromium a Node.js, takže můžete vytvářet aplikace s HTML, CSS a JavaScript.
+  description: Electron využívá Chromium a Node.js, díky čemu můžete vytvářet aplikace pomocí HTML, CSS a JavaScript.
 open_source:
   title: Open Source
   description: Electron je open source projekt udržovaný GitHubem a aktivní komunitou přispěvatelů.
@@ -282,7 +282,7 @@ governance:
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+  code_of_conduct: Organizace Electron a všechny repozitáře jsou v souladu s tímto <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">kodexem chování.</a>
   license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
   repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
