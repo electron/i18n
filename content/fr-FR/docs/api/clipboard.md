@@ -99,11 +99,11 @@ Retourne `String` - Le contenu presse-papiers en RTF.
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nCeci est du texte {\\b bold}. \par\n}')
 
 const rtf = clipboard.readRTF()
 console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nIl s'agit de quelques {\\b bold} text.\\par\n
 ```
 
 ### `clipboard.writeRTF(text[, type])`
@@ -116,7 +116,7 @@ console.log(rtf)
 ```js
 const { clipboard } = require('electron')
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
+const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\f0\\fswiss Helvetica;}\\f0\\pard\nCeci est un peu {\\b bold} text.\\par\n}'
 clipboard.writeRTF(rtf)
 ```
 
@@ -144,21 +144,21 @@ const { clipboard } = require('electron')
 
 clipboard.writeBookmark({
   text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  signet: 'Page d'accueil Electron'
 })
 ```
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+Retourne `Chaîne de caractères` - Le texte sur le tableau de bord, qui est le presse-papier qui contient des informations sur l'état actuel du panneau de recherche de l'application active.
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Cette méthode utilise un IPC synchronisé lorsqu'il est appelé depuis le processus de rendu. La valeur mise en cache est relayée à partir du presse-papier de recherche chaque fois que l'application est activée.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+Écrit le `texte` dans le presse-papier find (le presse-papier qui contient des informations sur l'état actuel du panneau de recherche de l'application active) en texte brut. Cette méthode utilise un IPC synchronisé lorsqu'il est appelé depuis le processus de rendu.
 
 ### `clipboard.clear([type])`
 
@@ -175,7 +175,7 @@ Retourne `String[]` - Un tableau de format pris en charge pour le `type` du pres
 ```js
 const { clipboard } = require('electron')
 
-const formats = clipboard.availableFormats()
+formats const = clipboard.availableFormats()
 console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
@@ -192,7 +192,7 @@ const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' ou 'false
 ```
 
 ### `clipboard.read(format)` *Experimental*
@@ -210,7 +210,7 @@ Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
 ```js
 const { clipboard } = require('electron')
 
-const buffer = Buffer.from('this is binary', 'utf8')
+const buffer = Buffer.from('c'est binary', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 const ret = clipboard.readBuffer('public.utf8-plain-text')
@@ -241,7 +241,7 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `html` String (facultatif)
   * `image` [NativeImage](native-image.md) (facultatif)
   * `rtf` String (facultatif)
-  * `bookmark` String (optional) - The title of the URL at `text`.
+  * `marque-page` String (facultatif) - Le titre de l'URL à `text`.
 * `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit `data` dans le presse-papiers.
@@ -249,14 +249,14 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
 ```js
 const { clipboard } = require('electron')
 
-clipboard.write({
+presse-papiers. rite({
   text: 'test',
   html: '<b>Hi</b>',
   rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
+  marque-page : 'un titre'
 })
 
-console.log(clipboard.readText())
+console. og(presse-papiers. eadText())
 // 'test'
 
 console.log(clipboard.readHTML())
