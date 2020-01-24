@@ -25,18 +25,18 @@ To run only specific tests matching a pattern, run `npm run test --
 
 #### Extra steps to run the unit test:
 
-1. Visual Studio 2019 must be installed.
+1. Musí být nainstalováno Visual Studio 2019.
 2. Node headers have to be compiled for your configuration. 
         powershell
         ninja -C out\Testing third_party\electron_node:headers
 
-3. The electron.lib has to be copied as node.lib. 
+3. electron.lib musí být zkopírován jako node.lib. 
         powershell
         cd out\Testing
         mkdir gen\node_headers\Release
         copy electron.lib gen\node_headers\Release\node.lib
 
-#### Missing fonts
+#### Chybějící písma
 
 [Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
 
