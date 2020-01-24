@@ -22,14 +22,14 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 ### Windows 10 デバイス上でテスト
 
-#### Extra steps to run the unit test:
+#### 単体テストを実行するための追加手順:
 
 1. Visual Studio 2019 をインストールする必要があります。
-2. Node headers have to be compiled for your configuration. 
+2. Node ヘッダーは構成に合わせてコンパイルする必要があります。 
         powershell
         ninja -C out\Testing third_party\electron_node:headers
 
-3. The electron.lib has to be copied as node.lib. 
+3. electron.lib を node.lib としてコピーする必要があります。 
         powershell
         cd out\Testing
         mkdir gen\node_headers\Release
