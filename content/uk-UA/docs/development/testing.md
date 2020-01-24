@@ -36,13 +36,13 @@ To run only specific tests matching a pattern, run `npm run test --
         mkdir gen\node_headers\Release
         copy electron.lib gen\node_headers\Release\node.lib
 
-#### Missing fonts
+#### Відсутні шрифти
 
 [Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+1. Натисніть кнопку Windows і знайдіть *Керування додатковими функціями*.
+2. Натисніть *Додати функцію*.
+3. Оберіть *Японські додаткові шрифти* та натисніть *Встановити*.
 
 #### Pixel measurements
 
@@ -50,5 +50,5 @@ Some tests which rely on precise pixel measurements may not work correctly on de
 
 To configure display scaling:
 
-1. Push the Windows key and search for *Display settings*.
+1. Натисніть кнопку Windows і знайдіть *Налаштування монітору*.
 2. Under *Scale and layout*, make sure that the device is set to 100%.
