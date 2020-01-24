@@ -1,8 +1,8 @@
 # Fenêtre sans bords
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Ouvre une fenêtre sans barre d'outils, sans bordures ou autre "chrome" graphique.
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Une fenêtre sans cadre est une fenêtre qui n'a pas de [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), les parties de la fenêtre, comme des barres d'outils, qui ne font pas partie de la page Web. These are options on the [`BrowserWindow`](browser-window.md) class.
 
 ## Créer une fenêtre sans bords
 
