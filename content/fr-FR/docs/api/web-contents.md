@@ -1528,7 +1528,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Prend un instantané de tas V8 et l'enregistre dans `filePath`.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
