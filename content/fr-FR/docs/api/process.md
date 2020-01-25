@@ -6,9 +6,9 @@ Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#rende
 
 L'objet `process` d'Electron une extension de l'[objet `process` de Node.js](https://nodejs.org/api/process.html). Cela ajoute les événements, propriétés et méthodes suivantes :
 
-## Sandbox
+## Mode bac à sable
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+Dans les moteurs de rendu en bac à sable, l'objet `process` ne contient qu'un sous-ensemble des APIs :
 
 * `crash()`
 * `hang()`
