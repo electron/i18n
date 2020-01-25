@@ -50,5 +50,5 @@ Some tests which rely on precise pixel measurements may not work correctly on de
 
 To configure display scaling:
 
-1. Push the Windows key and search for *Display settings*.
-2. Under *Scale and layout*, make sure that the device is set to 100%.
+1. Windows 키를 누르고 *디스플레이 설정*을 검색하십시오.
+2. *스케일 및 레이아웃*에서 장치가 100%로 설정되어 있는지 확인하십시오.
