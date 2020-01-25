@@ -19,7 +19,7 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `sublabel` String (optional)
   * `toolTip` String (optional) *macOS* - Hover text for this menu item.
   * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `icon` ([NativeImage](native-image.md) | String) (facultatif)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `acceleratorWorksWhenHidden` Boolean (optional) *macOS* - default is `true`, and when `false` will prevent the accelerator from triggering the item if the item is not visible`.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
@@ -117,58 +117,58 @@ Une `Fonction` qui est lancée lorsque l'élément de menu reçoit un événemen
 
 #### `menuItem.submenu`
 
-A `Menu` (optional) containing the menu item's submenu, if present.
+Un `Menu` (facultatif) contenant le sous-menu de l'élément de menu s'il est présent.
 
 #### `menuItem.type`
 
-A `String` indicating the type of the item. Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
+Une `String` indiquant le type de l'élément. Peut être `normal`, `séparateur`, `sous-menu`, `checkbox` ou `radio`.
 
 #### `menuItem.role`
 
-A `String` (optional) indicating the item's role, if set. Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideOthers`, `unhide`, `quit`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPreviousTab`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow` or `windowMenu`
+Un `String` (facultatif) indiquant le rôle de l'élément, si défini. Peut être `undo`, `redo`, `cut`, `copy`, `paste`, `pasteAndMatchStyle`, `delete`, `selectAll`, `reload`, `forceReload`, `toggleDevTools`, `resetZoom`, `zoomIn`, `zoomIn`, `zoomOut`, `togglefullscreen`, `window<code>window`, `minimize<code>, <code>close`, `help< <code>unhide`, `quitter`, `startSpeaking`, `stopSpeaking`, `close`, `minimize`, `zoom`, `front`, `appMenu`, `fileMenu`, `editMenu`, `viewMenu`, `recentDocuments`, `toggleTabBar`, `selectNextTab`, `selectPrevitPrevi`, `mergeAllWindows`, `clearRecentDocuments`, `moveTabToNewWindow`
 
 #### `menuItem.accelerator`
 
-A `Accelerator` (optional) indicating the item's accelerator, if set.
+Un `Accélérateur` (facultatif) indiquant l'accélérateur de l'élément, si défini.
 
 #### `menuItem.icon`
 
-A `NativeImage | String` (optional) indicating the item's icon, if set.
+A `NativeImage | String` (facultatif) indiquant l'icône de l'élément , si défini.
 
 #### `menuItem.sublabel`
 
-A `String` indicating the item's sublabel, this property can be dynamically changed.
+Une `String` indiquant la sous-étiquette de l'objet, cette propriété peut être modifiée dynamiquement.
 
 #### `menuItem.toolTip` *macOS*
 
-A `String` indicating the item's hover text.
+Une `Chaîne` indiquant le texte du survol de l'élément.
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Un `Booléen` indiquant si l'élément est activé, cette propriété peut être modifiée dynamiquement.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Un `Booléen` indiquant si l'élément est visible, cette propriété peut être modifiée dynamiquement.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Un `Booléen` indiquant si l'élément est vérifié, cette propriété peut être modifiée dynamiquement.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Une `case à cocher` lien de menu activera et éteindra la propriété `cochée` lorsque sera sélectionné.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Un lien de menu `radio` activera sa propriété `cochée` une fois cliqué, et désactivera cette propriété pour tous les éléments adjacents du même menu.
 
-You can add a `click` function for additional behavior.
+Vous pouvez ajouter une fonction `clic` pour un comportement supplémentaire.
 
 #### `menuItem.registerAccelerator`
 
-A `Boolean` indicating if the accelerator should be registered with the system or just displayed, this property can be dynamically changed.
+Un `Booléen` indiquant si l'accélérateur doit être enregistré avec le système ou juste affiché, cette propriété peut être modifiée dynamiquement.
 
 #### `menuItem.commandId`
 
-A `Number` indicating an item's sequential unique id.
+Un `Nombre` indiquant l'identifiant unique d'un élément.
 
 #### `menuItem.menu`
 
-A `Menu` that the item is a part of.
+Un `Menu` dont l'item fait partie.
