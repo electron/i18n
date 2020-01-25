@@ -1,6 +1,6 @@
 # Option `sandbox`
 
-> Create a browser window with a sandboxed renderer. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs.
+> Créez une fenêtre de navigateur avec un moteur de rendu en bac à sable. Avec cette option activée, le moteur de rendu doit communiquer via IPC au processus principal afin d'accéder aux API de noeuds.
 
 One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 
