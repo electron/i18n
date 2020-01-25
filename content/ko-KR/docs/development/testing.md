@@ -42,9 +42,9 @@ To run only specific tests matching a pattern, run `npm run test --
 
 1. Windows 키를 누르고 *옵션 기능 관리*를 검색하십시오.
 2. *기능 추가*를 클릭하십시오.
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+3. *일본어 보조 글꼴*을 선택하고 *설치*를 클릭하십시오.
 
-#### Pixel measurements
+#### 픽셀 측정
 
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 
