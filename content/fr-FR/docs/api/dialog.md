@@ -179,17 +179,17 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `message` Chaîne - Contenu de la boîte de message.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `0` will be used as the return value.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Par défaut la valeur est `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `detail` String (facultatif) - Informations supplémentaires du message.
+  * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
+  * `checkboxChecked` Boolean (facultatif) - L'état initial vérifié de la case à cocher . `false` par défaut.
+  * `icon` ([NativeImage](native-image.md) | String) (facultatif)
+  * `cancelId` Integer (facultatif) - L'index du bouton à utiliser pour annuler la boîte de dialogue, via la touche `Esc`. Par défaut, ceci est assigné au premier bouton avec l'étiquette "annuler" ou "non". Si aucun bouton de ce type n'existe et que cette option n'est pas définie, `0` sera utilisé comme valeur de retour .
+  * `noLink` Booléen (optionnel) - Sous Windows, Electron essaiera de déterminer lequel des les boutons `` sont des boutons courants (comme "Annuler" ou "Oui"), et affichent le d'autres comme liens de commande dans le dialogue. Cela peut faire apparaître la boîte de dialogue dans le style des applications Windows modernes. Si vous n'aimez pas ce comportement, vous pouvez définir `noLink` à `true`.
+  * `normalizeAccessKeys` Boolean (facultatif) - Normalise les clés d'accès au clavier sur toutes les plateformes. Par défaut la valeur est `false`. Activer ceci suppose que `&` est utilisé dans les étiquettes des boutons pour le placement de la touche d'accès du raccourci clavier et les étiquettes seront converties pour qu'elles fonctionnent correctement sur chaque plateforme, `&` les caractères sont supprimés sur macOS, convertis en `_` sous Linux, et intactés sur Windows. Par exemple, une étiquette de bouton de `Vie&w` sera converti en `Vie_w` sous Linux et `Vie` sous macOS et peut être sélectionné via `Alt-W` sur Windows et Linux.
 
-Returns `Integer` - the index of the clicked button.
+Retourne `Integer` - l'index du bouton cliqué.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Affiche une boîte de message, elle bloquera le processus jusqu'à ce que la boîte de message soit fermée. Elle renvoie l'index du bouton cliqué.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -202,8 +202,8 @@ L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-m�
   * `defaultId` Integer (facultatif) - Index du bouton dans le tableau des boutons qui seront sélectionnés par défaut lorsque la boîte de message s'ouvrira.
   * `title` String (facultatif) - Titre de la boîte de message, certaines plateformes ne l'afficheront pas.
   * `message` Chaîne - Contenu de la boîte de message.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label.
+  * `detail` String (facultatif) - Informations supplémentaires du message.
+  * `checkboxLabel` String (facultatif) - Si fourni, la case de message inclura une case à cocher avec l'étiquette donnée.
   * `checkboxChecked` Boolean (facultatif) - L'état initial vérifié de la case à cocher . `false` par défaut.
   * `icon` [NativeImage](native-image.md) (facultatif)
   * `cancelId` Integer (facultatif) - L'index du bouton à utiliser pour annuler la boîte de dialogue, via la touche `Esc`. Par défaut, ceci est assigné au premier bouton avec l'étiquette "annuler" ou "non". Si aucun bouton de ce type n'existe et que cette option n'est pas définie, `0` sera utilisé comme valeur de retour .
