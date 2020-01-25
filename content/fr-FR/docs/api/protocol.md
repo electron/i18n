@@ -315,7 +315,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (facultatif) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une `String` comme réponse.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -332,7 +332,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (facultatif) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un `Buffer` comme réponse.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -353,7 +353,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (facultatif) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie une nouvelle requête HTTP comme réponse.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
@@ -370,7 +370,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Function (facultatif) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Identique à `protocol.registerStreamProtocol`, excepté qu'il remplace un gestionnaire de protocole existant.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -378,4 +378,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Function (facultatif) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Retirez l'intercepteur installé pour `schéma` et restaurez son gestionnaire d'origine.
