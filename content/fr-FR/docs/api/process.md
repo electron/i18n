@@ -140,58 +140,58 @@ Retourne [`IOCounters`](structures/io-counters.md)
 Retourne `Object`:
 
 * `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
+* `totalHeapSizeExecutable` Entier
+* `Taillephysique` Entier
+* `Taille totale` Entier
 * `usedHeapSize` Integer
 * `heapSizeLimit` Integer
-* `mallocedMemory` Integer
+* `Mémoire de malloced` Entier
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+Retourne un objet avec des statistiques de pile V8. Notez que toutes les statistiques sont rapportées en kilobytes.
 
 ### `process.getBlinkMemoryInfo()`
 
 Retourne `Object`:
 
-* `allocated` Integer - Size of all allocated objects in Kilobytes.
-* `marked` Integer - Size of all marked objects in Kilobytes.
-* `total` Integer - Total allocated space in Kilobytes.
+* `alloué` Integer - Taille de tous les objets alloués dans Kilobytes.
+* `marked` Integer - Taille de tous les objets marqués dans Kilobytes.
+* `total` Integer - Espace total alloué en kilobytes.
 
-Returns an object with Blink memory information. It can be useful for debugging rendering / DOM related memory issues. Note that all values are reported in Kilobytes.
+Retourne un objet avec des informations de mémoire de Blink. Cela peut être utile pour déboguer les problèmes de mémoire liés au rendu / DOM. Notez que toutes les valeurs sont signalées en Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Promise<ProcessMemoryInfo>` - Resolves with a [ProcessMemoryInfo](structures/process-memory-info.md)
+Retourne `Promise<ProcessMemoryInfo>` - résout avec un [ProcessMemoryInfo](structures/process-memory-info.md)
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+Retourne un objet qui donne des statistiques d'utilisation de la mémoire à propos du processus courant. Notez que toutes les statistiques sont signalées dans des Kilobytes. Cet api doit être appelé après que l'application soit prête.
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium ne fournit pas de valeur `residentSet` pour macOS. Ceci est dû au fait que macOS effectue une compression en mémoire des pages qui n'ont pas été récemment utilisées. En tant que résultat la valeur de la taille de la définition résident n'est pas celle qu'on pourrait attendre. `la mémoire privé` est plus représentative de l'utilisation réelle de la mémoire de pré-compression du processus sur macOS.
 
 ### `process.getSystemMemoryInfo()`
 
 Retourne `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `total` Integer - La quantité totale de mémoire physique dans Kilobytes disponibles pour le système .
+* `libre` Integer - La quantité totale de mémoire non utilisée par les applications ou le cache du disque.
+* `swapTotal` Integer *Windows* *Linux* - La quantité totale de mémoire swap dans Kilobytes disponible pour le système .
+* `swapFree` Integer *Windows* *Linux* - La quantité gratuite de mémoire swap dans Kilobytes disponible pour le système .
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Renvoie un objet donnant des statistiques d'utilisation de la mémoire sur l'ensemble du système. Note : que toutes les statistiques sont exprimées en kilo-octets.
 
 ### `process.getSystemVersion()`
 
-Returns `String` - The version of the host operating system.
+Retourne `String` - La version du système d'exploitation hôte.
 
 Exemple :
 
 ```js
 const version = process.getSystemVersion()
 console.log(version)
-// On macOS -> '10.13.6'
-// On Windows -> '10.0.17763'
-// On Linux -> '4.15.0-45-generic'
+// Sur macOS -> '10. 3.6'
+// Sous Windows -> '10.0.17763'
+// Sous Linux -> '4.15.0-45-générique'
 ```
 
 **Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
