@@ -619,7 +619,7 @@ Retourne :
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Déclenché lorsque le titre de la page est défini pendant la navigation. `explicitSet` est faux lorsque le titre est synthétisé à partir de l'Url du fichier.
 
 ### Événement : 'page-favicon-updated'
 
