@@ -194,22 +194,22 @@ console.log(version)
 // Sous Linux -> '4.15.0-45-générique'
 ```
 
-**Note:** It returns the actual operating system version instead of kernel version on macOS unlike `os.release()`.
+**Remarque :** Il retourne la version réelle du système d'exploitation au lieu de la version du noyau sur macOS contrairement à `os.release()`.
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Chemin vers le fichier de sortie.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+Retourne `Boolean` - Indique si l'instantané a été créé avec succès.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Prend un instantané de tas V8 et l'enregistre dans `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Cause le fil de discussion principal du processus actuel.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Définit la limite de programmation du descripteur de fichier à `maxDescriptors` ou la limite de dur de l'OS, quelle que soit la plus faible pour le processus en cours.
