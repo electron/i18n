@@ -29,20 +29,20 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+  * `beforeGroupContaining` String[] (facultatif) - Fournit un moyen pour un seul menu contextuel de déclarer le placement de leur groupe contenant avant le groupe contenant l'élément avec l'étiquette spécifiée.
+  * `afterGroupContaining` String[] (facultatif) - Fournit un moyen pour un seul menu contextuel de déclarer le placement de leur groupe contenant après le groupe contenant de l'élément avec l'étiquette spécifiée.
 
-**Note:** `acceleratorWorksWhenHidden` is specified as being macOS-only because accelerators always work when items are hidden on Windows and Linux. The option is exposed to users to give them the option to turn it off, as this is possible in native macOS development. This property is only usable on macOS High Sierra 10.13 or newer.
+**Remarque :** `acceleratorWorksWhenHidden` est spécifié comme étant macOS uniquement parce que les accélérateurs fonctionnent toujours lorsque des éléments sont cachés sous Windows et Linux. L'option est exposée aux utilisateurs pour leur donner la possibilité de la désactiver, car cela est possible dans le développement natif de macOS. Cette propriété n'est utilisable que sur macOS Haute Sierra 10.13 ou plus récente.
 
 ### Rôles
 
 Les rôles permettent à des éléments du menu d'avoir des comportements prédéfinis.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+Il est préférable de spécifier `rôle` pour tout élément de menu qui correspond à un rôle standard, plutôt que d'essayer d'implémenter manuellement le comportement dans une fonction `clic`. Le comportement `rôle` intégré donnera la meilleure expérience native.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+Les valeurs `label` et `accélérateur` sont optionnelles lorsque vous utilisez un `rôle` et par défaut des valeurs appropriées pour chaque plateforme.
 
-Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+Chaque lien de menu doit avoir soit un `rôle`, `label`, soit dans le cas d'un séparateur un `type`.
 
 La propriété `role` peut avoir les valeurs suivantes :
 
@@ -56,44 +56,44 @@ La propriété `role` peut avoir les valeurs suivantes :
 * `delete`
 * `minimize` - Minimise la fenêtre courante.
 * `close` - Ferme la fenêtre courante.
-* `quit` - Quit the application.
+* `quitter` - Quitter l'application.
 * `reload` - Recharge la fenêtre courante.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `togglefullscreen` - Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
-* `fileMenu` - Whole default "File" menu (Close / Quit)
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
+* `forceReload` - Recharge la fenêtre courante ignorant le cache.
+* `toggleDevTools` - Bascule les outils de développement dans la fenêtre actuelle.
+* `togglefullscreen` - Basculer en mode plein écran dans la fenêtre actuelle.
+* `resetZoom` - Réinitialise le niveau de zoom de la page ciblée à la taille d'origine.
+* `zoomIn` - Zoom sur la page ciblée par 10%.
+* `zoomOut` - Zoom arrière de la page ciblée de 10%.
+* `fileMenu` - Menu par défaut entier "Fichier" (Close / Quitter)
+* `editMenu` - Tout le menu "Edit" par défaut (Annuler, Copier, etc.).
+* `viewMenu` - Menu "Affichage" par défaut (Recharger, Activer/désactiver les outils de développement, etc.)
+* `windowMenu` - Menu par défaut entier "Windows" (Minimize, Zoom, etc.).
 
-The following additional roles are available on *macOS*:
+Les rôles supplémentaires suivants sont disponibles sur *macOS*:
 
-* `appMenu` - Whole default "App" menu (About, Services, etc.)
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) menu. This is only intended for use in the Application Menu and is *not* the same as the "Services" submenu used in context menus in macOS apps, which is not implemented in Electron.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `appMenu` - Tout le menu "App" par défaut (About, Services, etc.)
+* `about` - Mapper à l'action `orderFrontStandardAboutPanel`.
+* `hide` - Mappez à l'action `caché`.
+* `hideOthers` - Mappez à l'action `hideOtherApplications`.
+* `unhide` - Mappez à l'action `unhideAllApplications`.
+* `startSpeaking` - Carte à l'action `startSpeaking`.
+* `stopSpeaking` - Carte à l'action `stopSpeaking`.
+* `front` - Mappez à l'action `arrangeInFront`.
+* `zoom` - Mappez à l'action `performZoom`.
+* `toggleTabBar` - Mappez à l'action `toggleTabBar`.
+* `selectNextTab` - Mappez à l'action `selectNextTab`.
+* `selectPreviousTab` - Mappez à l'action `selectPreviousTab`.
+* `mergeAllWindows` - Mappez à l'action `mergeAllWindows`.
+* `moveTabToNewWindow` - Mappez à l'action `moveTabToNewWindow`.
+* `window` - Le sous-menu est un menu "Windows".
+* `help` - Le sous-menu est un menu "Aide".
+* `services` - Le sous-menu est un menu ["Services"](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc). Ceci est uniquement destiné à être utilisé dans le menu de l'application et n'est *pas* le même que le sous-menu "Services" utilisé dans les menus contextuels des applications macOS, qui n'est pas implémentée dans Electron.
+* `recentDocuments` - Le sous-menu est un menu "Ouvrir Récents".
+* `clearRecentDocuments` - Carte à l'action `clearRecentDocuments`.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+Lorsque vous spécifiez un `rôle` sur macOS, `label` et `accélérateur` sont les seules options qui affecteront l'élément de menu. Toutes les autres options seront ignorées. La minuscule `rôle`, par exemple `toggledevtools`, est toujours supportée.
 
-**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+**Nota Bene:** Les propriétés `activées` et `visibilité` ne sont pas disponibles pour les éléments de menu de premier niveau sur MacOS.
 
 ### Instance Properties
 
@@ -101,15 +101,15 @@ Les propriétés suivantes sont disponibles pour les instances de `MenuItem` :
 
 #### `menuItem.id`
 
-A `String` indicating the item's unique id, this property can be dynamically changed.
+Une `String` indiquant l'identifiant unique de l'élément, cette propriété peut être modifiée dynamiquement.
 
 #### `menuItem.label`
 
-A `String` indicating the item's visible label, this property can be dynamically changed.
+Une `String` indiquant l'étiquette visible de l'élément, cette propriété peut être modifiée dynamiquement.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event. It can be called with `menuItem.click(event, focusedWindow, focusedWebContents)`.
+Une `Fonction` qui est lancée lorsque l'élément de menu reçoit un événement de clic. Elle peut être appelée avec `menuItem.click(event, focusedWindow, focusedWebContents)`.
 
 * `event` [KeyboardEvent](structures/keyboard-event.md)
 * `focusedWindow` [BrowserWindow](browser-window.md)

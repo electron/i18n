@@ -45,7 +45,7 @@ Rückgabewert:
 
 Wird ausgelöst bevor die App ihre Fenster schließt. Durch das Aufrufen von `event.preventDefault()` wird das Standardverhalten, welches die App beendet, verhindert.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
 
 **Hinweis:** Wenn die Anwendung unter Windows beendet wird, weil das System heruntergefahren oder neu gestartet wird oder der Benutzer sich abmeldet, wird dieses Event nicht ausgelöst.
 
@@ -270,9 +270,9 @@ Rückgabewert:
   * `username` String (optional)
   * `password` String (optional)
 
-Emitted when `webContents` wants to do basic auth.
+Wird ausgelöst wenn `webContents` grundlegende Authentifizierung durchführen will.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Standardmäßig werden alle Authentifizierungen abgebrochen. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -528,7 +528,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
-Fetches a path's associated icon.
+Ruft das zugeordnete Symbol eines Pfades ab.
 
 In *Windows* gibt es zwei arten von Icons:
 

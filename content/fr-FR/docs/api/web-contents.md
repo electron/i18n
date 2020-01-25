@@ -666,7 +666,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `module` String
 
 Emitted when `remote.require()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -675,7 +675,7 @@ Emitted when `remote.require()` is called in the renderer process. Appeler `even
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -684,7 +684,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `ev
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `module` String
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -693,7 +693,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `e
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
@@ -701,7 +701,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appe
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
@@ -709,7 +709,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -1145,7 +1145,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Example usage:
+Exemple d'utilisation :
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }

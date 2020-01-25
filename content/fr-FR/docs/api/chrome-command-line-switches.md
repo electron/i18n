@@ -43,13 +43,13 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node.js engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Spécifie les drapeaux passés au moteur Node.js. Il doit être passé en démarrant Electron si vous voulez activer les `flags` dans le processus principal.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
 ```
 
-See the [Node.js documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node.js's V8 JavaScript engine.
+Consultez la documentation [Node.js](https://nodejs.org/api/cli.html) ou exécutez `node --help` dans votre terminal pour une liste des drapeaux disponibles. De plus, exécutez `node --v8-options` pour voir une liste de drapeaux qui se réfèrent spécifiquement au moteur JavaScript V8 de Node.js.
 
 ## --proxy-server=`address:port`
 
@@ -103,11 +103,11 @@ Par exemple :
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
 ```
 
-puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appliquer une authentification intégrée. Without `*` prefix the URL has to match exactly.
+puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appliquer une authentification intégrée. Sans le préfixe `*` l'URL doit correspondre exactement.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the URL has to match exactly.
+Une liste de serveurs séparés par des virgules pour lesquels une délégation d'identifiants utilisateur est requise. Sans préfixe `*`, l'URL doit correspondre exactement.
 
 ## --ignore-certificate-errors
 
@@ -153,4 +153,4 @@ Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
 ## --no-sandbox
 
-Disables Chromium sandbox, which is now enabled by default. Should only be used for testing.
+Désactive le bac à sable Chromium, qui est maintenant activé par défaut. Ne devrait être utilisé que pour les tests.

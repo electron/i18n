@@ -9,18 +9,18 @@ Processus : [Main](../glossary.md#main-process)
 ### `new ClientRequest(options)`
 
 * `options` (Object | String) - Si `options` est un String, il est interprété comme une URL demandée. Si c'est un objet, il est nécessaire de spécifier une requête HTTP complètement en utilisant les propriétés suivantes: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Session (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be cancelled unless [`request.followRedirect`](#requestfollowredirect) is invoked synchronously during the [`redirect`](#event-redirect) event.
+  * `méthode` String (optionnel) - La méthode de requête HTTP. La méthode GET par défaut.
+  * `url` String (facultatif) - L'URL de requête. Doit être fournie sous la forme absolue avec le schéma de protocole spécifié en http ou https.
+  * `session` Session (facultatif) - l'instance [`Session`](session.md) avec à laquelle la requête est associée.
+  * `partition` String (facultatif) - Le nom de la [`partition`](session.md) avec laquelle la requête est associée. Par défaut, la chaîne vide est utilisée. L'option `session` prévaut sur `partition`. Ainsi, si une `session` est explicitement spécifiée , `partition` est ignorée.
+  * `protocole` String (facultatif) - Le schéma de protocole sous la forme 'scheme:'. Les valeurs actuellement supportées sont 'http:' ou 'https:'. Par défaut, 'http:'.
+  * `host` String (facultatif) - L'hôte du serveur fourni en concaténation de le nom d'hôte et le numéro de port 'hostname:port'.
+  * `hostname` String (facultatif) - Le nom d'hôte du serveur.
+  * `port` Integer (facultatif) - Le numéro de port d'écoute du serveur.
+  * `path` String (facultatif) - La partie chemin de l'URL de la requête.
+  * `redirect` String (optionnel) - Le mode de redirection pour cette requête. Doit être l'un des `follow`, `erreur` ou `manuel`. Par défaut, `follow`. Lorsque le mode est `erreur`, toute redirection sera abandonnée. Lorsque le mode est `manuel,` la redirection sera annulée à moins que [`request.followRedirect`](#requestfollowredirect) ne soit invoquée de façon synchronisée pendant l'événement [`redirect`](#event-redirect).
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`options` propriétés telles que `protocole`, `host`, `hostname`, `port` et `path` suivent strictement le modèle Node.js comme décrit dans le module [URL](https://nodejs.org/api/url.html).
 
 Par exemple, nous aurions pu créer la même requête à 'github.com' comme suit:
 
@@ -40,7 +40,7 @@ const request = net.request({
 
 Retourne :
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `réponse` IncomingMessage - Un objet représentant le message de réponse HTTP.
 
 #### Événement : 'login'
 
@@ -56,9 +56,9 @@ Retourne :
   * `nom d'utilisateur` String (facultatif)
   * `mot de passe` String (facultatif)
 
-Emitted when an authenticating proxy is asking for user credentials.
+Émis lorsqu'un proxy d'authentification demande les identifiants de l'utilisateur.
 
-The `callback` function is expected to be called back with user credentials:
+La fonction `callback` est censée être rappelée avec les identifiants de l'utilisateur :
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Fournir des identifiants vides annulera la demande et signalera une erreur d'authentification sur l'objet de réponse :
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,23 +85,23 @@ request.on('login', (authInfo, callback) => {
 
 #### Événement : 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Émis juste après le dernier chunk de l'objet `request` a été écrit dans l'objet `request`.
 
 #### Événement : 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Émis lorsque la `requête` est abandonnée. L'événement `avorter` ne sera pas déclenché si la `requête` est déjà fermée.
 
 #### Événement : 'error'
 
 Renvoie :
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Erreur - un objet d'erreur fournissant des informations sur l'échec.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Émis lorsque le module `net` ne parvient pas à émettre une requête réseau. Généralement lorsque l'objet `request` émet un événement `error`, un événement `close` sera ensuite suivi et aucun objet de réponse ne sera fourni.
 
 #### Événement : 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Émis en tant que dernier événement dans la transaction de réponse de requête HTTP. L'événement `close` indique qu'aucun événement ne sera émis sur les objets `request` ou `response`.
 
 #### Événement : 'redirect'
 
@@ -110,7 +110,7 @@ Retourne :
 * `statusCode` Integer
 * `method` String
 * `redirectUrl` String
-* `responseHeaders` Record<String, String[]>
+* `En-têtes` de réponse<String, String[]>
 
 Émis lorsque le serveur renvoie une réponse de redirection (par exemple 301 Déplacé de manière permanente). Appeler [`request.followRedirect`](#requestfollowredirect) va continuer avec la redirection. Si cet événement est géré, [`request.followRedirect`](#requestfollowredirect) doit être appelé **synchrones**, sinon la requête sera annulée.
 

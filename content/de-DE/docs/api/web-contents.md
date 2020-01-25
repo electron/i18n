@@ -429,7 +429,7 @@ Rückgabewert:
   * `username` String (optional)
   * `password` String (optional)
 
-Emitted when `webContents` wants to do basic auth.
+Wird ausgelöst wenn `webContents` grundlegende Authentifizierung durchführen will.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 

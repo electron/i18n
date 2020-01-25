@@ -24,9 +24,9 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `execPath`
 * `env`
 * `pid`
-* `arch`
-* `platform`
-* `sandboxed`
+* `arc`
+* `plateforme`
+* `bac à sable`
 * `type`
 * `version`
 * `versions`
@@ -37,9 +37,9 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 ### Événement : 'loaded'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Émis lorsque Electron a chargé son script d'initialisation interne et que commence à charger la page web ou le script principal.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Il peut être utilisé par le script de préchargement pour ajouter des symboles globaux de Node supprimés à la portée globale lorsque l'intégration des noeuds est désactivée :
 
 ```javascript
 // preload.js
@@ -55,51 +55,51 @@ process.once('loaded', () => {
 
 ### `process.defaultApp` *Readonly*
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+A `Booléen`. Lorsque l'application démarre en passant comme paramètre à l'application par défaut, cette propriété est `true` dans le processus principal, sinon elle est `undefined`.
 
 ### `process.isMainFrame` *Readonly*
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+A `Booléen`, `true` lorsque le contexte du moteur de rendu actuel est le cadre du moteur de rendu "main". Si vous voulez l'ID de la frame courante, vous devez utiliser `webFrame.routingId`.
 
 ### `process.mas` *Readonly*
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Une `Boolean`. Pour la construction de l'App Store Mac, cette propriété est `true`, pour les autres builds, elle est `undefined`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Un `Booléen` qui contrôle le support ASAR dans votre application. Définir ceci à `true` désactivera le support des archives `asar` dans les modules intégrés de Node.
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation sont imprimés sur `stderr`. Mettre ceci à `true` fera taire les avertissements de dépréciation. Cette propriété est utilisée à la place du drapeau `--no-deprecation`.
 
-### `process.enablePromiseAPIs`
+### `activer les PromiseAPIs`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
+Un `Boolean` qui contrôle si oui ou non les avertissements de dépréciation sont imprimés à `stderr` lorsque les APIs anciennement basées sur les callbacks sont convertis en Promises sont appelées en utilisant des callbacks. Définir ceci à `true` activera les avertissements de dépréciation.
 
 ### `process.resourcesPath` *Readonly*
 
-A `String` representing the path to the resources directory.
+Une `String` représentant le chemin vers le répertoire des ressources.
 
 ### `process.sandboxed` *Readonly*
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+A `Boolean`. Lorsque le processus de rendu est en bac à sable, cette propriété est `true`, sinon elle est `undefined`.
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+Un `Booléen` qui contrôle si oui ou non les avertissements de dépréciation seront lancés sous forme d'exceptions . En définissant cette valeur à `true` lancera des erreurs pour les dépréciations. Cette propriété est utilisée à la place du drapeau de ligne de commande `--throw-deprecation`.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+Un `Booléen` qui contrôle si les dépréciations affichées sur `stderr` incluent leur trace de pile. En définissant cette valeur à `true` affichera les traces de piles pour les dépréciations. Cette propriété est à la place du drapeau `--trace-deprecation`.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Un `Booléen` qui contrôle si oui ou non les avertissements affichés sur `stderr` incluent leur trace de pile. En définissant cette valeur à `true` affichera les traces de piles pour les avertissements de processus (y compris les dépréciations). Cette propriété est à la place du drapeau de ligne `--trace-warnings` de la commande .
 
 ### `process.type` *Readonly*
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+Une `String` représentant le type du processus courant, peut être `"browser"` (c'est-à-dire le processus principal), `"renderer"`, ou `"worker"` (c'est-à-dire le web worker).
 
 ### `process.versions.chrome` *Readonly*
 
@@ -111,7 +111,7 @@ Un `String` représentant la version d'Electron.
 
 ### `process.windowsStore` *Readonly*
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+A `Booléen`. Si l'application fonctionne sous la forme d'une application Windows Store (appx), cette propriété est `true`, sinon elle est `indéfinie`.
 
 ## Méthodes
 
@@ -119,13 +119,13 @@ L'objet `process` dispose des méthodes suivantes :
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Cause le thread principal du processus en cours de plantage.
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+Retourne `Nombre | null` - Le nombre de millisecondes depuis Epoch, ou `null` si l'information est indisponible
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+Indique le temps de création de l'application. L'heure est représentée par le nombre de millisecondes depuis l'époque. Il retourne Null s'il est impossible d'obtenir le temps de création du processus.
 
 ### `process.getCPUUsage()`
 

@@ -14,7 +14,7 @@ SI vous voulez afficher des notifications depuis un processus de rendu, vous dev
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
@@ -30,13 +30,13 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 * `options` Object (facultatif) 
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * `sous-titre` String (facultatif) *macOS* - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
+  * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
+  * `hasReply` Boolean (facultatif) *macOS* - Ajout ou non d'une option de réponse en ligne à la notification.
+  * `replyPlaceholder` String (facultatif) *macOS* - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
+  * `sound` String (facultatif) *macOS* - Le nom du fichier audio à jouer lorsque la notification est affichée.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
