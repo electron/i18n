@@ -90,11 +90,11 @@ Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui 
 
 Retourne `Nombre` - L'ID de cet abonnement
 
-S'abonne aux notifications natives de macOS, `callback` sera appelé avec `callback(event, userInfo)` lorsque le `event` correspondant se produit. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
+S'abonne aux notifications natives de macOS, `callback` sera appelé avec `callback(event, userInfo)` lorsque le `event` correspondant se produit. `userInfo` est un objet qui contient le dictionnaire d'information utilisateur envoyé avec la notification. L'objet `object` est l'expéditeur de la notification, et ne supporte que les valeurs `NSString` pour le moment.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+Le `id` de l'abonné est retourné, qui peut être utilisé pour désabonner le `événement`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Sous le capot, cette API s'abonne à `NSDistributedNotificationCenter`, Les valeurs d'exemple de `event` sont :
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -111,7 +111,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 Retourne `Nombre` - L'ID de cet abonnement
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
+Identique à `subscribeNotification`, mais utilise `NSNotificationCenter` pour les valeurs locales par défaut. Ceci est nécessaire pour les événements tels que `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
@@ -121,7 +121,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
   * Enregistrement `userInfo`<String, unknown>
   * Chaîne `objet`
 
-Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+Identique à `subscribeNotification`, mais utilise `NSWorkspace.sharedWorkspace.notificationCenter`. Ceci est nécessaire pour des événements tels que `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
@@ -133,68 +133,68 @@ Supprime l'abonnement avec `l'id`.
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+Identique à `unsubscribeNotification`, mais supprime l'abonné de `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
+Identique à `unsubscribeNotification`, mais supprime l'abonné de `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Record<String, String | Boolean | Number> - a dictionary of (`key: value`) user defaults
+* `Par défaut` Enregistrement<String, String | Boolean | Number> - un dictionnaire de (`clé: valeur`) par défaut de l'utilisateur
 
-Add the specified defaults to your application's `NSUserDefaults`.
+Ajoute les valeurs par défaut à `NSUserDefaults`de votre application.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `type` String - Peut être `chaîne`, `booléen`, `integer`, `float`, `double`, `url`, `array` ou `dictionnaire`.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Retourne `any` - La valeur de `clé` dans `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Certaines `clé` populaires et `type`s sont:
 
-* `AppleInterfaceStyle`: `string`
+* `AppleInterfaceStyle`: `chaîne`
 * `AppleAquaColorVariant`: `integer`
-* `AppleHighlightColor`: `string`
+* `AppleHighlightColor`: `chaîne`
 * `AppleShowScrollBars`: `string`
-* `NSNavRecentPlaces`: `array`
-* `NSPreferredWebServices`: `dictionary`
-* `NSUserDictionaryReplacementItems`: `array`
+* `NSNavRecentPlaces`: `tableau`
+* `NSPreferredWebServices`: `dictionnaire`
+* `NSUserDictionaryReplacementItems`: `tableau`
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Voir [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+Définit la valeur de `clé` dans `NSUserDefaults`.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+Notez que `type` doit correspondre au type réel de `valeur`. Une exception est levée si elle ne le fait pas.
 
-Some popular `key` and `type`s are:
+Certaines `clé` populaires et `type`s sont:
 
-* `ApplePressAndHoldEnabled`: `boolean`
+* `ApplePressAndHoldEnabled` : `booléen`
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Supprime la `clé` dans `NSUserDefaults`. Cela peut être utilisé pour restaurer la valeur par défaut ou la valeur globale d'une `clé` précédemment définie avec `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Retourne `Boolean` - `true` si la [composition DWM ](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) est activée, et `false` sinon.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Un exemple d'utilisation pour déterminer si vous devez créer une fenêtre transparente ou non (les fenêtres transparentes ne fonctionneront pas correctement lorsque la composition DWM est désactivée) :
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
 let browserOptions = { width: 1000, height: 800 }
 
-// Make the window transparent only if the platform supports it.
+// Rendre la fenêtre transparente seulement si la plate-forme le supporte.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
@@ -207,14 +207,14 @@ let win = new BrowserWindow(browserOptions)
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+  // Pas de transparence, donc nous chargeons un repli qui utilise des styles de base.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
 
 ### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+Retourne `String` - Les utilisateurs du système actuel de préférence de couleur d'accentuation large en RGBA forme hexadécimale.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -224,12 +224,12 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
 
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` String - Une des valeurs suivantes : 
-  * On **Windows**: 
+  * Marche **Windows**: 
     * `3d-dark-shadow` - Ombre noir pour les éléments affichés en trois dimensions.
     * `3d-face` - Couleur de la face pour les éléments affichés en trois dimensions et le fond des boîtes de dialogue.
     * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
@@ -244,11 +244,11 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `desktop` - Couleur de fond du bureau.
     * `disabled-text` - Texte grisé (désactivé).
     * `highlight` - Élément(s) sélectionné(s) dans un groupe.
-    * `highlight-text` - Text of item(s) selected in a control.
-    * `hotlight` - Color for a hyperlink or hot-tracked item.
-    * `inactive-border` - Inactive window border.
-    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-    * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+    * `highlight-text` - Texte des éléments sélectionnés dans un contrôle.
+    * `hotlight` - Couleur pour un lien hypertexte ou un élément à suivre.
+    * `inactive-border` - Bordure de fenêtre inactive.
+    * `inactive-caption` - Légende de la fenêtre inactive. Spécifie la couleur du côté gauche dans le dégradé de couleur de la barre de titre d'une fenêtre inactive si l'effet est activé.
+    * `inactive-caption-gradient` - Couleur du côté droit dans le gradient de couleur d'une barre de titre de la fenêtre inactive.
     * `inactive-caption-text` - Color of text in an inactive caption.
     * `info-background` - Background color for tooltip controls.
     * `info-text` - Text color for tooltip controls.
