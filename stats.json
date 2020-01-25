@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "11636",
-    "translated": "8999",
+    "translated": "9499",
     "approved": "1875",
     "words": "110070",
-    "words_translated": "77926",
+    "words_translated": "83689",
     "words_approved": "11628",
-    "translated_progress": 70,
+    "translated_progress": 76,
     "approved_progress": 10,
-    "qa_issues": 2144
+    "qa_issues": 2333
   },
   {
     "name": "German",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "11636",
-    "translated": "5469",
+    "translated": "5480",
     "approved": "1328",
     "words": "110070",
-    "words_translated": "46931",
+    "words_translated": "47008",
     "words_approved": "9273",
     "translated_progress": 42,
     "approved_progress": 8,
-    "qa_issues": 2127
+    "qa_issues": 2129
   },
   {
     "name": "Persian",
