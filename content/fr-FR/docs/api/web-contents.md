@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
+`webContents` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,9 +63,9 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Cet événement est comme `did-finish-load` mais émis lorsque le chargement a échoué. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-fail-provisional-load'
+#### Événement : 'did-fail-provisional-load'
 
 Retourne :
 
@@ -77,7 +77,7 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+Cet événement est comme `did-fail-load` mais émis lorsque la charge a été annulée (par exemple `window.stop()` a été appelé).
 
 #### Événement : 'did-frame-finish-load'
 
@@ -114,7 +114,7 @@ Retourne :
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Déclenché lorsque le titre de la page est défini pendant la navigation. `explicitSet` est faux lorsque le titre est synthétisé à partir de l'Url du fichier.
 
 #### Événement : 'page-favicon-updated'
 
@@ -133,26 +133,26 @@ Retourne :
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - Les options qui seront utilisées pour créer le nouveau [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Les fonctionnalités non standards (fonctionnalités non gérés par Chromium ou Electron) donné à `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `referrer` [Referrer](structures/referrer.md) - Le parrain qui sera passé à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
 
 Émis lorsque la page demande d'ouvrir une nouvelle fenêtre pour une `url`. Cela peut être demandé par `window.open` ou un lien externe avec `<a target='_blank'>`.
 
 Un nouveau `BrowserWindow` sera créé par défaut pour l'`url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Par exemple :
+Appeler `event.preventDefault()` empêchera Electron de créer automatiquement une nouvelle [`BrowserWindow`](browser-window.md). Si vous appelez `event.preventDefault()` et créez manuellement un nouveau [`BrowserWindow`](browser-window.md) alors vous devez définir `événement. ewGuest` pour référencer la nouvelle instance [`BrowserWindow`](browser-window.md) . Si vous ne le faites pas, cela peut entraîner un comportement inattendu. Par exemple :
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
-  event.preventDefault()
+  événement. reventDefault()
   const win = new BrowserWindow({
-    webContents: options.webContents, // use existing webContents if provided
-    show: false
+    webContents: options. ebContents, // utilise des contenus Web existants si fourni
+    montrer: false
   })
-  win.once('ready-to-show', () => win.show())
+  gagne. nce('ready-to-show', () => win.show())
   if (!options.webContents) {
-    win.loadURL(url) // existing webContents will be navigated automatically
+    gagne. oadURL(url) // webContents existants seront navigués automatiquement
   }
   event.newGuest = win
 })
@@ -173,7 +173,7 @@ Il n'est également pas émis pour les navigations à l'intérieur de la page, c
 
 Appeler `event.preventDefault()` permet d'éviter la navigation.
 
-#### Event: 'did-start-navigation'
+#### Événement : 'did-start-navigation'
 
 Retourne :
 
@@ -184,9 +184,9 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Émis lorsque n'importe quelle image (y compris main) commence à naviguer. `isInplace` sera `true` pour les navigations dans la page.
 
-#### Event: 'will-redirect'
+#### Événement : 'will-redirect'
 
 Retourne :
 
