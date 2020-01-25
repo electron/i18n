@@ -26,33 +26,33 @@ Retourne :
 
 * `event` Événement
 
-### Event: 'inverted-color-scheme-changed' *Windows* *Deprecated*
+### Événement : 'inverted-color-scheme-changed' *Windows* *Deprecated*
 
 Retourne :
 
 * `event` Événement
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - `true` si un schéma de couleur inversé (un schéma de couleur à contraste élevé avec le texte clair et les fonds sombres) est utilisé, `faux` sinon.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
 
-### Event: 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
+### Événement : 'high-contrast-color-scheme-changed' *Windows* *Deprecated*
 
 Retourne :
 
 * `event` Event
-* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
+* `highContrastColorScheme` Boolean - `true` si un thème à contraste élevé est utilisé, `false` sinon.
 
-**Deprecated:** Should use the new [`updated`](native-theme.md#event-updated) event on the `nativeTheme` module.
+**Déprécié :** Doit utiliser le nouvel événement [`mis à jour`](native-theme.md#event-updated) sur le module `nativeTheme`.
 
 ## Méthodes
 
-### `systemPreferences.isDarkMode()` *macOS* *Windows* *Deprecated*
+### `systemPreferences.isDarkMode()` *macOS* *Windows* *obsolète*
 
 Retourne `Boolean` - Si le système est en mode sombre.
 
-**Note:** On macOS 10.15 Catalina in order for this API to return the correct value when in the "automatic" dark mode setting you must either have `NSRequiresAquaSystemAppearance=false` in your `Info.plist` or be on Electron `>=7.0.0`. See the [dark mode guide](../tutorial/mojave-dark-mode-guide.md) for more information.
+**Note:** Sur macOS 10. 5 Catalina pour que cette API renvoie la valeur correcte lorsque dans le paramètre de mode sombre "automatique" vous devez avoir `NSRequiresAquaSystemAppearance=false` dans votre `Info. liste` ou être sur Electron `>=7.0.0`. Voir le [guide du mode sombre](../tutorial/mojave-dark-mode-guide.md) pour plus d'informations.
 
-**Deprecated:** Should use the new [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
+**Déprécié :** Doit utiliser le nouveau [`nativeTheme.shouldUseDarkColors`](native-theme.md#nativethemeshouldusedarkcolors-readonly) API.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -61,22 +61,22 @@ Retourne `Boolean` - Si l'option Swipe entre les pages est activé.
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
-* `userInfo` Record<String, any>
-* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
+* Enregistrement `userInfo`<String, any>
+* `deliverImmédiately` Booléen (facultatif) - `true` pour publier des notifications immédiatement même lorsque l'application d'abonnement est inactive.
 
 Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Record<String, any>
+* Enregistrement `userInfo`<String, any>
 
 Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
 * `event` String
-* `userInfo` Record<String, any>
+* Enregistrement `userInfo`<String, any>
 
 Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
@@ -85,12 +85,12 @@ Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui 
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Enregistrement `userInfo`<String, unknown>
+  * Chaîne `objet`
 
-Returns `Number` - The ID of this subscription
+Retourne `Nombre` - L'ID de cet abonnement
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
+S'abonne aux notifications natives de macOS, `callback` sera appelé avec `callback(event, userInfo)` lorsque le `event` correspondant se produit. The `userInfo` is an Object that contains the user information dictionary sent along with the notification. The `object` is the sender of the notification, and only supports `NSString` values for now.
 
 The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
@@ -106,10 +106,10 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Enregistrement `userInfo`<String, unknown>
+  * Chaîne `objet`
 
-Returns `Number` - The ID of this subscription
+Retourne `Nombre` - L'ID de cet abonnement
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
@@ -118,8 +118,8 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 * `event` String
 * `callback` Function 
   * `event` String
-  * `userInfo` Record<String, unknown>
-  * `object` String
+  * Enregistrement `userInfo`<String, unknown>
+  * Chaîne `objet`
 
 Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
@@ -254,59 +254,59 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `info-text` - Text color for tooltip controls.
     * `menu` - Menu background.
     * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-    * `menubar` - The background color for the menu bar when menus appear as flat menus.
-    * `menu-text` - Text in menus.
-    * `scrollbar` - Scroll bar gray area.
-    * `window` - Window background.
-    * `window-frame` - Window frame.
-    * `window-text` - Text in windows.
-  * On **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
-    * `control-background` - The background of a large interface element, such as a browser or table.
-    * `control` - The surface of a control.
-    * `control-text` -The text of a control that isn’t disabled.
-    * `disabled-control-text` - The text of a control that’s disabled.
-    * `find-highlight` - The color of a find indicator.
-    * `grid` - The gridlines of an interface element such as a table.
-    * `header-text` - The text of a header cell in a table.
-    * `highlight` - The virtual light source onscreen.
-    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
-    * `label` - The text of a label containing primary content.
-    * `link` - A link to other content.
-    * `placeholder-text` - A placeholder string in a control or text view.
-    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
-    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
-    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
-    * `selected-content-background` - The background for selected content in a key window or view.
-    * `selected-control` - The surface of a selected control.
-    * `selected-control-text` - The text of a selected control.
-    * `selected-menu-item` - The text of a selected menu.
-    * `selected-text-background` - The background of selected text.
-    * `selected-text` - Selected text.
-    * `separator` - A separator between different sections of content.
-    * `shadow` - The virtual shadow cast by a raised object onscreen.
-    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
-    * `text-background` - Text background.
-    * `text` - The text in a document.
-    * `under-page-background` - The background behind a document's content.
-    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
-    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
-    * `unemphasized-selected-text` - Selected text in a non-key window or view.
-    * `window-background` - The background of a window.
-    * `window-frame-text` - The text in the window's titlebar area.
+    * `menubar` - La couleur de fond de la barre de menu lorsque les menus apparaissent sous la forme de menus plats.
+    * `menu-text` - Texte dans les menus.
+    * `scrollbar` - Zone grise de la barre de défilement.
+    * `window` - Fond de la fenêtre.
+    * `window-frame` - Cadre de fenêtres.
+    * `window-text` - Texte dans windows.
+  * Marche **macOS** 
+    * `alternate-selected-control-text` - Le texte sur une surface sélectionnée dans une liste ou un tableau.
+    * `control-background` - L'arrière-plan d'un élément de grande interface, tel qu'un navigateur ou un tableau.
+    * `control` - La surface d'un contrôle.
+    * `control-text` -Le texte d'un contrôle qui n'est pas désactivé.
+    * `disabled-control-text` - Le texte d'un contrôle qui est désactivé.
+    * `find-highlight` - La couleur d'un indicateur de recherche.
+    * `grille` - Les lignes de grilles d'un élément d'interface comme une table.
+    * `header-text` - Le texte d'une cellule d'en-tête dans un tableau.
+    * `surlignement` - La source de lumière virtuelle à l'écran.
+    * `keyboard-focus-indicator` - L'anneau qui apparaît autour du contrôle actuellement focalisé lors de l'utilisation du clavier pour la navigation de l'interface.
+    * `label` - Le texte d'une étiquette contenant le contenu principal.
+    * `lien` - Un lien vers un autre contenu.
+    * `placeholder-text` - Une chaîne de caractères dans une vue de contrôle ou de texte.
+    * `quaternary-label` - Le texte d'une étiquette de moindre importance qu'une étiquette tertiaire telle que le texte du filigrane.
+    * `scrubber-textured-background` - L'arrière-plan d'un scrubber dans la barre tactile.
+    * `étiquette secondaire` - Le texte d'une étiquette de moindre importance qu'une étiquette normale telle qu'une étiquette utilisée pour représenter une sous-rubrique ou des informations complémentaires.
+    * `selected-content-background` - L'arrière-plan du contenu sélectionné dans une fenêtre ou une vue clé.
+    * `selected-control` - La surface d'une commande sélectionnée.
+    * `selected-control-text` - Le texte d'une commande sélectionnée.
+    * `selected-menu-item` - Le texte d'un menu sélectionné.
+    * `selected-text-background` - L'arrière-plan du texte sélectionné.
+    * `texte sélectionné` - Texte sélectionné.
+    * `Séparateur` - Un séparateur entre différentes sections de contenu.
+    * `shadow` - L'ombre virtuelle projetée par un objet levé à l'écran.
+    * `étiquette-tertiaire` - Le texte d'une étiquette de moindre importance qu'une étiquette secondaire telle qu'une étiquette utilisée pour représenter le texte désactivé.
+    * `text-background` - Fond d'écran du texte.
+    * `text` - Le texte dans un document.
+    * `sous-page-background` - L'arrière-plan derrière le contenu d'un document.
+    * `unemphaszed-selected-content-background` - Le contenu sélectionné dans une fenêtre ou une vue non-clé.
+    * `unemphaszed-selected-text-background` - Un fond pour le texte sélectionné dans une fenêtre ou une vue non-clé.
+    * `unemphaszed-selected-text` - Texte sélectionné dans une fenêtre ou une vue non-clé.
+    * `window-background` - L'arrière-plan d'une fenêtre.
+    * `window-frame-text` - Le texte dans la barre de titre de la fenêtre.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+Retourne `String` - Le paramètre de couleur système sous forme hexadécimale RVB (`#ABCDEF`). Voir la [documentation Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) et la [documentation MacOS](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) pour plus de détails.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
 * `color` String - Une des valeurs suivantes : 
-  * `blue`
-  * `brown`
-  * `gray`
-  * `green`
+  * `bleu`
+  * `marron`
+  * `gris`
+  * `vert`
   * `orange`
-  * `pink`
-  * `purple`
+  * `rose`
+  * `violet`
   * `red`
   * `yellow`
 
@@ -400,34 +400,34 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. Les valeurs de ces clés seront utilisées pour remplir les boîtes de dialogue des permissions afin que l'utilisateur soit correctement informé du but de la demande de permission. Voir [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) pour plus d'informations sur la façon de les définir dans le contexte d'Electron.
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
+Ce consentement de l'utilisateur n'était pas requis avant macOS 10. 4 Mojave, donc cette méthode retournera toujours `true` si votre système fonctionne 10.13 Haute Sierra ou moins.
 
 ### `systemPreferences.getAnimationSettings()`
 
 Retourne `Object`:
 
-* `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
-* `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
-* `prefersReducedMotion` Boolean - Determines whether the user desires reduced motion based on platform APIs.
+* `shouldRenderRichAnimation` Boolean - Renvoie vrai si les animations riches doivent être rendues. Regarde le type de session (par exemple, bureau distant) et les paramètres d'accessibilité pour donner des conseils pour les animations lourdes.
+* `scrollAnimationsEnabledBySystem` Boolean - Détermine par plate-forme si les animations de défilement (par exemple produites par la touche maison/fin) doivent être activées.
+* `prefersReducedMotion` Booléen - Détermine si l'utilisateur souhaite des mouvements réduits basés sur des API de plate-forme.
 
-Returns an object with system animation settings.
+Retourne un objet avec les paramètres d'animation du système.
 
 ## Propriétés
 
-### `systemPreferences.appLevelAppearance` *macOS*
+### `systemPreferences.appLevelApparence` *macOS*
 
-A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
+Une propriété `String` qui peut être `dark`, `light` ou `unknown`. Il détermine le paramètre d'apparence macOS pour votre application. Cette correspondance aux valeurs dans: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Définir ceci remplacera la valeur par défaut du système ainsi que la valeur de `getEffectiveAppearance`.
 
-Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
+Les valeurs possibles qui peuvent être définies sont `dark` et `light`, et les valeurs de retour possibles sont `dark`, `light`, et `unknown`.
 
-This property is only available on macOS 10.14 Mojave or newer.
+Cette propriété n'est disponible que sur macOS 10.14 Mojave ou plus récent.
 
 ### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
 
-A `String` property that can be `dark`, `light` or `unknown`.
+Une propriété `String` qui peut être `dark`, `light` ou `unknown`.
 
-Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+Retourne le paramètre d'apparence macOS qui est actuellement appliqué à votre application, correspond à [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+Veuillez noter que jusqu'à ce qu'Electron soit compilé en ciblant le SDK 10.14, votre application `effectiveAppearance` sera par défaut à 'light' et n'héritera pas de la préférence de l'OS. Dans l'intervalle pour que votre application hérite de la préférence de l'OS, vous devez définir la touche `NSRequiresAquaSystemAppearance` dans vos applications `Info. liste` à `faux`. Si vous utilisez `electron-packager` ou `electron-forge` il vous suffit de définir l'option `enableDarwinDarkMode` à `true`. Voir l'API [Electron Packager](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) pour plus de détails.
