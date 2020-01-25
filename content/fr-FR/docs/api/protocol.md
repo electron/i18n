@@ -1,52 +1,52 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Enregistrez un protocole personnalisé et interceptez les requêtes de protocole existantes.
 
 Processus : [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Un exemple d'implémentation d'un protocole qui a le même effet que le protocole `file://` :
 
 ```javascript
 const { app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+application. n('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
+    const url = request. rl.substr(7)
+    callback({ path: path. ormalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console.error('Failed to register protocol')
+    if (error) console. rror('Échec de l'enregistrement du protocole)
   })
 })
 ```
 
 **Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 
-## Using `protocol` with a custom `partition` or `session`
+## Utiliser `protocole` avec une `partition` personnalisée ou `session`
 
-A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
+Un protocole est enregistré dans un objet Electron spécifique [`session`](./session.md). Si vous ne spécifiez pas de session, alors votre `protocole` sera appliqué à la session par défaut qu'Electron utilise. Cependant, si vous définissez une `partition` ou `session` sur les `browserWindow` de votre `webPreferences`, alors cette fenêtre utilisera une session différente et votre protocole personnalisé ne fonctionnera pas si vous utilisez juste `electron. rotocol.XXX`.
 
-To have your custom protocol work in combination with a custom session, you need to register it to that session explicitly.
+Pour que votre protocole personnalisé fonctionne en combinaison avec une session personnalisée, vous devez l'enregistrer explicitement à cette session.
 
 ```javascript
 const { session, app, protocol } = require('electron')
 const path = require('path')
 
-app.on('ready', () => {
+application. n('ready', () => {
   const partition = 'persist:example'
-  const ses = session.fromPartition(partition)
+  const ses = session. romPartition(partition)
 
   ses.protocol.registerFileProtocol('atom', (request, callback) => {
-    const url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
+    const url = request.url. ubstr(7)
+    callback({ path: path. ormalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console.error('Failed to register protocol')
+    if (error) console. rror('Échec de l'enregistrement du protocole)
   })
 
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
-    webPreferences: {
+    hauteur: 600,
+    webpréférences : {
       partition: partition
     }
   })
@@ -57,20 +57,20 @@ app.on('ready', () => {
 
 Le module `protocol` dispose des méthodes suivantes :
 
-### `protocol.registerSchemesAsPrivileged(customSchemes)`
+### `protocol.registerSchemesAsPriviled(customSchemes)`
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+**Note:** Cette méthode ne peut être utilisée qu'avant l'événement `ready` du `app` est émis et ne peut être appelé qu'une seule fois.
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Enregistre le `schéma` en standard, sécurisé, contourne la politique de sécurité du contenu pour les ressources, permet d'enregistrer ServiceWorker et supporte la récupération de l'API.
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+Spécifiez un privilège avec la valeur de `true` pour activer la capacité. Un exemple d'enregistrement d'un schéma privilégié, avec contournement de la politique de sécurité de contenu :
 
 ```javascript
 const { protocol } = require('electron')
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'foo', privileges: { bypassCSP: true } }
+  { scheme: 'foo', privilèges: { bypassCSP: true } }
 ])
 ```
 
@@ -298,7 +298,7 @@ Retourne `Promise<Boolean>` - rempli avec un booléen qui indique s'il y a déj�
 * `completion` Function (facultatif) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Intercepte le protocole `schéma` et utilise `handler` comme nouveau gestionnaire du protocole, qui envoie un fichier comme réponse.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
