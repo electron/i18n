@@ -6,11 +6,11 @@ We don't currently have an estimate of when we will enable the `NetworkService` 
 
 The content of this document should be moved to `protocol.md` after we have enabled the `NetworkService` by default in Electron.
 
-> Register a custom protocol and intercept existing protocol requests.
+> Enregistrez un protocole personnalisé et interceptez les requêtes de protocole existantes.
 
 Processus : [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Un exemple d'implémentation d'un protocole qui a le même effet que le protocole `file://` :
 
 ```javascript
 const { app, protocol } = require('electron')
@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 **Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 
-## Using `protocol` with a custom `partition` or `session`
+## Utiliser `protocole` avec une `partition` personnalisée ou `session`
 
 A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
 
@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 Le module `protocol` dispose des méthodes suivantes :
 
-### `protocol.registerSchemesAsPrivileged(customSchemes)`
+### `protocol.registerSchemesAsPriviled(customSchemes)`
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
@@ -66,7 +66,7 @@ An example of registering a privileged scheme, that bypasses Content Security Po
 ```javascript
 const { protocol } = require('electron')
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'foo', privileges: { bypassCSP: true } }
+  { scheme: 'foo', privilèges: { bypassCSP: true } }
 ])
 ```
 
