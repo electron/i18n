@@ -139,7 +139,7 @@ companies:
   title: Postaveno na Electronu
   description: Electron byl původně vyvinut pro <a href='https://atom.io' target='_blank'>Atom editor</a> od GitHubu, který byl od té doby přijat společnostmi po celém světě.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'S Elektronem je vytváření desktopových aplikací pro vaši společnost nebo jen pro radost velmi jednoduché. Podívejte se na <a href=''/apps''>některé z aplikací, které vytvořila komunita</a> anebo <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">přidejte svou vlastní</a>.'
   view_more: Zobrazit další aplikace
   submit_your_own: pošlete vaši
   something_missing: Něco chybí?
