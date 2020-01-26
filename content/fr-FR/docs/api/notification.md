@@ -38,7 +38,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `replyPlaceholder` String (facultatif) *macOS* - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
   * `sound` String (facultatif) *macOS* - Le nom du fichier audio à jouer lorsque la notification est affichée.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `closeButtonText` String (facultatif) *macOS* - Un titre personnalisé pour le bouton de fermeture d'une alerte. Une chaîne vide fera que le texte localisé par défaut sera utilisé.
 
 ### Événements d’instance
 
@@ -94,7 +94,7 @@ Les objets créés avec `new Notification` ont les méthodes d'instance suivante
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Montre immédiatement la notification à l'utilisateur, veuillez noter que cela signifie que contrairement à la Mise en œuvre de la notification HTML5, instanciation d'une `nouvelle notification` fait ne pas le montrer immédiatement à l'utilisateur, vous devez appeler cette méthode avant le système d'exploitation l'affichera.
 
 Si la notification a déjà été affichée auparavant, cette méthode rejettera la notification précédemment affichée et en créera une nouvelle avec des propriétés identiques.
 
@@ -106,39 +106,39 @@ Rejette la notification.
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+Une propriété `String` représentant le titre de la notification.
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+Une propriété `String` représentant le sous-titre de la notification.
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+Une propriété `String` représentant le corps de la notification.
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+Une propriété `String` représentant le placeholder de la réponse de la notification.
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+Une propriété `String` représentant le son de la notification.
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+Une propriété `String` représentant le texte du bouton de fermeture de la notification.
 
 #### `notification.silent`
 
-A `Boolean` property representing whether the notification is silent.
+Une propriété `Boolean` qui indique si la notification est silencieuse.
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+Une propriété `Booléenne` qui indique si la notification a une action de réponse.
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+Une propriété [`NotificationAction[]`](structures/notification-action.md) représentant les actions de la notification.
 
 ### Lire un son
 

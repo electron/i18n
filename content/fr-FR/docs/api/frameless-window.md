@@ -2,11 +2,11 @@
 
 > Ouvre une fenêtre sans barre d'outils, sans bordures ou autre "chrome" graphique.
 
-Une fenêtre sans cadre est une fenêtre qui n'a pas de [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), les parties de la fenêtre, comme des barres d'outils, qui ne font pas partie de la page Web. These are options on the [`BrowserWindow`](browser-window.md) class.
+Une fenêtre sans cadre est une fenêtre qui n'a pas de [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), les parties de la fenêtre, comme des barres d'outils, qui ne font pas partie de la page Web. Ce sont des options dans la classe [`BrowserWindow`](browser-window.md).
 
 ## Créer une fenêtre sans bords
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Pour créer une fenêtre sans cadre, vous devez définir `frame` à `false` dans [BrowserWindow](browser-window.md)'s `options`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -16,11 +16,11 @@ win.show()
 
 ### Alternatives sur macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Il existe une autre façon de spécifier une fenêtre sans chrominance. Au lieu de définir `frame` à `false` qui désactive à la fois la barre de titre et le contrôle de fenêtre, vous pouvez vouloir masquer la barre de titre et étendre votre contenu à la taille de la fenêtre complète, tout en préservant les contrôles de fenêtres ("feux de circulation") pour les actions de fenêtres standard. Vous pouvez le faire en spécifiant l'option `titleBarStyle` :
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Résultats dans une barre de titre cachée et une fenêtre de contenu en taille réelle, Pourtant, la barre de titre possède toujours les contrôles standard des fenêtres (« feux de circulation ») en haut à gauche.
 
 ```javascript
 const { BrowserWindow } = require('electron')

@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-This module cannot be used until the `ready` event of the `app` module is emitted.
+Ce module ne peut pas être utilisé tant que l'événement `prêt` du module `app` n'est pas émis.
 
 Par exemple :
 
@@ -12,8 +12,8 @@ Par exemple :
 const { app, powerMonitor } = require('electron')
 
 app.on('ready', () => {
-  powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
+  powerMonitor. n('suspend', () => {
+    console.log('Le système va dormir')
   })
 })
 ```
@@ -38,32 +38,32 @@ Le module `powerMonitor` émet les événements suivants :
 
 Émis lorsque le système passe sur batterie.
 
-### Event: 'shutdown' *Linux* *macOS*
+### Événement : 'shutdown' *Linux* *macOS*
 
-Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
+Émis lorsque le système est sur le point de redémarrer ou d'arrêter. Si le gestionnaire d'événements appelle `e.preventDefault()`, Electron tentera de retarder l'arrêt du système dans afin que l'application se ferme proprement. Si `e.preventDefault()` est appelé, l'application devrait quitter dès que possible en appelant quelque chose comme `app.quit()`.
 
-### Event: 'lock-screen' *macOS* *Windows*
+### Événement : 'lock-screen' *macOS* *Windows*
 
-Emitted when the system is about to lock the screen.
+Émis lorsque le système est sur le point de verrouiller l'écran.
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### Événement : 'unlock-screen' *macOS* *Windows*
 
-Emitted as soon as the systems screen is unlocked.
+Émis dès que l'écran du système est déverrouillé.
 
 ## Méthodes
 
-The `powerMonitor` module has the following methods:
+Le module `powerMonitor` a les méthodes suivantes :
 
-### `powerMonitor.getSystemIdleState(idleThreshold)`
+### `format@@0 powerMonitor.getSystemIdleState(idleThreshold)`
 
-* `idleThreshold` Integer
+* `idleThreshold` Entier
 
-Returns `String` - The system's current state. Can be `active`, `idle`, `locked` or `unknown`.
+Retourne `String` - L'état actuel du système. Peut être `active`, `idle`, `verrouillé` ou `inconnu`.
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `locked` is available on supported systems only.
+Calcule l'état d'inactivité du système. `idleThreshold` est la durée (en secondes) avant d'être considéré comme inactif. `verrouillé` n'est disponible que sur les systèmes pris en charge.
 
-### `powerMonitor.getSystemIdleTime()`
+### `getSystemIdleTime()`
 
-Returns `Integer` - Idle time in seconds
+Retourne `Integer` - Temps d'inactivité en secondes
 
-Calculate system idle time in seconds.
+Calculer le temps d'inactivité du système en secondes.

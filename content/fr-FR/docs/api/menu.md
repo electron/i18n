@@ -10,7 +10,7 @@ Créer un nouveau menu.
 
 ### Méthodes statiques
 
-The `Menu` class has the following static methods:
+La classe `Menu` a les méthodes statiques suivantes :
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -18,11 +18,11 @@ The `Menu` class has the following static methods:
 
 Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera définie comme le menu principal de chaque fenêtre.
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+Passer `null` supprimera le menu par défaut. Sous Windows et Linux, cela a l'effet supplémentaire de supprimer la barre de menu de la fenêtre.
 
-**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**Note:** Le menu par défaut sera créé automatiquement si l'application ne le définit pas. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -34,7 +34,7 @@ Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si n
 
 * `action` String
 
-Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Habituellement, vous utiliseriez la propriété [`rôle`](menu-item.md#roles) d'un [`MenuItem`](menu-item.md).
 
 Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) pour plus d'informations sur les actions natives de macOS.
 
@@ -44,9 +44,9 @@ Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.app
 
 Retourne `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Généralement, le `template` est un tableau de `options` pour construire un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
 ### Méthodes d’instance
 
@@ -55,19 +55,19 @@ L'objet `menu` a les méthodes d'instance suivantes:
 #### `menu.popup([options])`
 
 * `options` Object (facultatif) 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `window` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
+  * `x` Number (facultatif) - La valeur par défaut est la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
+  * `y` Number (facultatif) - La valeur par défaut est la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
+  * `positioningItem` Number (facultatif) *macOS* - L'index de l'élément de menu à être positionné sous le curseur de la souris aux coordonnées spécifiées. La valeur par défaut est -1.
+  * `callback` Fonction (facultatif) - Appelée lorsque le menu est fermé.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Dépile ce menu sous la forme d'un menu contextuel dans la [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
 
-Closes the context menu in the `browserWindow`.
+Ferme le menu contextuel dans la `browserWindow`.
 
 #### `menu.append(menuItem)`
 

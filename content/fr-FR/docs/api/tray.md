@@ -195,11 +195,11 @@ Définit le texte au survol pour l'icône.
 
 * `title` String
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
 
 #### `tray.getTitle()` *macOS*
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Retourne `String` - le titre affiché à côté de l'icône de la barre d'état
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 

@@ -136,7 +136,7 @@ help_translate: "Helfen Sie bei der Übersetzung"
 footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
 companies:
-  title: Mit Electron gebaut
+  title: Mit Electron erstellt
   description: Anfangs entwickelt für GitHubs <a href='https://atom.io' target='_blank'>Atomeditor</a>, wurde Electron von Unternehmen weltweit übernommen.
 apps:
   description: 'Mit Electron ist die Erstellung einer Desktop-Anwendung für Ihr Unternehmen oder Ihre Idee einfach. Schau dir <a href=''/apps''>einige der von der Community erstellten Apps</a> an oder <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">füge deine eigene</a> hinzu.'

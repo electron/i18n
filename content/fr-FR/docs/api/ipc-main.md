@@ -113,18 +113,18 @@ Le `event` qui est passé comme premier argument au gestionnaire est le même qu
   * `événement` IpcMainInvokeEvent
   * `...args` any[]
 
-Handles a single `invoke`able IPC message, then removes the listener. See `ipcMain.handle(channel, listener)`.
+Gère un seul `appelé`message IPC visible, puis supprime l'écoute. Voir `ipcMain.handle(channel, listener)`.
 
 ### `ipcMain.removeHandler(channel)`
 
 * `channel` String
 
-Removes any handler for `channel`, if present.
+Supprime tout gestionnaire pour `canal`, si présent.
 
-## IpcMainEvent object
+## Objet IpcMainEvent
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-main-event`](structures/ipc-main-event.md) structure docs.
+La documentation de l'objet `événement` passé à la `callback` peut être trouvée dans la documentation de la structure [`ipc-main-event`](structures/ipc-main-event.md).
 
-## IpcMainInvokeEvent object
+## Objet IpcMainInvokeEvent
 
-The documentation for the `event` object passed to `handle` callbacks can be found in the [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) structure docs.
+La documentation de l'objet `événement` passé à `handle` callbacks peut être trouvée dans la documentation de la structure [`ipc-main-invoke-event`](structures/ipc-main-invoke-event.md) .

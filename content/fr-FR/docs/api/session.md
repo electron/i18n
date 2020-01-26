@@ -110,7 +110,7 @@ Efface le cache HTTP de la session.
 
 * `options` Object (facultatif) 
   * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
@@ -319,17 +319,17 @@ Vide le cache de résolution de l'hôte.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domaines` String - Une liste de serveurs séparés par des virgules pour lesquels l'authentification intégrée est activée.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Définit dynamiquement s'il faut toujours envoyer des identifiants pour l'authentification HTTP NTLM ou Négocier .
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// considère n'importe quelle url se terminant par `example.com`, `foobar.com`, `baz`
+// pour une authentification intégrée.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// considère toutes les urls pour une authentification intégrée.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
@@ -338,11 +338,11 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `userAgent` String
 * `acceptLanguages` String (facultatif)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Remplace les `userAgent` et `acceptLanguages` pour cette session.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Le `acceptLanguages` doit être une liste ordonnée de codes de langue séparés par des virgules, pour exemple `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Cela n'affecte pas les `WebContents`, et chaque `WebContents` peut utiliser `webContents.setUserAgent` pour remplacer l'agent utilisateur à l'échelle de la session.
 
 #### `ses.getUserAgent()`
 
@@ -352,7 +352,7 @@ Renvoie `String` - L'utilisateur de cette session.
 
 * `identifier` String - UUID valide.
 
-Returns `Promise<Buffer>` - resolves with blob data.
+Retourne `Promise<Buffer>` - résout avec des données Blob.
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -366,23 +366,23 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `eTag` String - Valeur du ETag dans le header.
   * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la `Session`précédente. L'API va générer un [DownloadItem](download-item.md) accessible avec l'événement [will-download](#event-will-download) . Le [DownloadItem](download-item.md) n'aura aucun `WebContents` associé et l'état initial sera `interrompu`. Le téléchargement ne démarre que lorsque l'API `resume` est appelée sur [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Retourne `Promise<void>` - résout lorsque le cache d'authentification HTTP de la session a été effacé.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - Un tableau de chemin absolu pour précharger les scripts
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+Ajoute des scripts qui seront exécutés sur TOUS les contenus web qui sont associés à cette session juste avant l'exécution normale des scripts `preload`.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Retourne `String[]` un tableau de chemins pour précharger les scripts qui ont été enregistrés.
 
 ### Instance Properties
 
@@ -390,43 +390,43 @@ Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.cookies` *Readonly*
 
-A [`Cookies`](cookies.md) object for this session.
+Un objet [`Cookies`](cookies.md) pour cette session.
 
 #### `ses.webRequest` *Readonly*
 
-A [`WebRequest`](web-request.md) object for this session.
+Un objet [`WebRequest`](web-request.md) pour cette session.
 
 #### `ses.protocol` *Readonly*
 
-A [`Protocol`](protocol.md) object for this session.
+Un objet [`Protocole`](protocol.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
-  const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
+application. n('ready', function () {
+  protocole const = session.fromPartition('some-partition').protocole
+  . egisterFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
+    callback({ path: path. ormalize(`${__dirname}/${url}`) })
   }, function (error) {
-    if (error) console.error('Failed to register protocol')
+    if (error) console. rror('Échec de l'enregistrement du protocole)
   })
 })
 ```
 
 #### `ses.netLog` *Readonly*
 
-A [`NetLog`](net-log.md) object for this session.
+Un objet [`NetLog`](net-log.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
 
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
-  netLog.startLogging('/path/to/net-log')
-  // After some network events
-  const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
+  netLog. tartLogging('/path/to/net-log')
+  // Après quelques événements de réseau
+  const path = wait netLog. topLogging()
+  console.log('Net-logs écrit vers', chemin)
 })
 ```
