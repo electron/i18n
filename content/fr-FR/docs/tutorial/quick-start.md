@@ -7,4 +7,4 @@ L'ancien document "Démarrage rapide" qui existait ici a été scindé en deux d
 * Pour voir comment une application Electron simple est construite, voir [Écrire votre première application Electron](./first-app.md)
 * Pour consulter l'architecture des processus, voir [Processus principal et de rendu](./application-architecture.md#main-and-renderer-processes).
 
-Pour en savoir plus sur l’électron, Découvrez les [guides officiels](../).
+Pour en savoir plus sur Electron, Découvrez les [guides officiels](../).
