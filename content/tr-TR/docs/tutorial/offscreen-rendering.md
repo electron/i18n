@@ -10,7 +10,7 @@ Ekran dışı görüntülenme, bir tarayıcı penceresinin içeriğini bir bitma
 
 ### GPU hızlandırma
 
-GPU hızlandırılmış oluşturma, GPU'nun kompozisyon için kullanıldığı anlamına gelir. Çünkü daha çok performans gerektiren pencerenin GPU'dan kopyalanması gerekir, bu nedenle bu mod diğerinden oldukça yavaştır. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+GPU hızlandırılmış oluşturma, GPU'nun kompozisyon için kullanıldığı anlamına gelir. Çünkü daha çok performans gerektiren pencerenin GPU'dan kopyalanması gerekir, bu nedenle bu mod diğerinden oldukça yavaştır. Bu modun faydası WEBGL ve 3D CSS animasyonlarının desteklenmesidir.
 
 ### Çıkış aygıtı yazılımı
 
