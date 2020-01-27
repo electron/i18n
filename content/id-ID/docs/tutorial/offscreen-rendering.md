@@ -12,7 +12,8 @@ performance loss.</p>
 
 <h3>GPU dipercepat</h3>
 
-<p>GPU accelerated rendering berarti GPU digunakan untuk komposisi. Karena itu frame harus disalin dari GPU yang membutuhkan kinerja lebih banyak, sehingga mode ini agak sedikit lebih lambat dari yang lain. Manfaat mode inilah animasi WebGL dan 3D CSS didukung.</p>
+<p>GPU accelerated rendering berarti GPU digunakan untuk komposisi. Karena itu frame harus disalin dari GPU yang membutuhkan kinerja lebih banyak, sehingga mode ini agak sedikit lebih lambat dari yang lain. The benefit of this
+mode is that WebGL and 3D CSS animations are supported.</p>
 
 <h3>Perangkat output perangkat lunak</h3>
 
