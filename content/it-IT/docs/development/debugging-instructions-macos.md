@@ -8,6 +8,12 @@ Se si verificano arresti anomali o problemi in Electron che si ritiene non siano
 
 * **Xcode**: Oltre ad Xcode, installa anche gli strumenti di linea di comando. Includono LLDB, il debugger predefinito in Xcode su Mac OS X. Supporta il debug di C, Objective-C e C++ su dispositivi desktop ed iOS e simulatori.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Allegare a e Debug Electron
 
 Per iniziare una sessione di debug, apri il Terminale ed avvia `lldb` passando una build non rilasciata di Electron come parametro.
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Per finire il debug a questo punto, esegui `process continue`. Puoi anche continuare finché una certa riga è toccata in questo thread (`thread until 100`). Questo comando eseguirà il thread nel frame corrente finché raggiungerà la riga 100 in questo frame o si fermerà se lascia il frame corrente.
 
