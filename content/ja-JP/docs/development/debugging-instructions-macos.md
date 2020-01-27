@@ -8,6 +8,12 @@ JavaScript アプリケーションに起因しないと思われるクラッシ
 
 * **Xcode**: Xcode では、加えて Xcode コマンドラインツールもインストールします。 Mac OS X の Xcode にはデフォルトのデバッガである LLDB が含まれています。C、Objective-C、C++ のデバッグを、デスクトップ、iOS デバイス、シミュレータ上でサポートしています。
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Electronへの接続とデバッグ
 
 デバッグセッションを始めるには、ターミナルを開いて Electron のリリースでないビルドを引数として渡して `lldb` を実行します。
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 このポイントでのデバッグが完了したら、`process continue` を実行します。 このスレッドで特定の行がヒットするまで (`thread until 100`) 続行することもできます。 このコマンドは、このフレームの100行目に達するまで、現在のフレーム内のスレッドを実行し、現在のフレームを終了すると停止します。
 
