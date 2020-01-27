@@ -10,7 +10,7 @@ Due metodi di rendering possono essere usati e solo l'area sporca è passata nel
 
 ### GPU accelerata
 
-Il rendering della GPU accelerata indica che la GPU è usata per composizione. Dovendo il frame essere copiato dalla GPU che richiede più performance, quindi questa modalità è un poco più lenta dell'altra. Il beneficio di questa modalità è che WebGL e 3D CSS sono supportate.
+Il rendering della GPU accelerata indica che la GPU è usata per composizione. Dovendo il frame essere copiato dalla GPU che richiede più performance, quindi questa modalità è un poco più lenta dell'altra. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
 ### Dispositivo di output software
 
