@@ -139,7 +139,7 @@ companies:
   title: Postaveno na Electronu
   description: Electron byl původně vyvinut pro <a href='https://atom.io' target='_blank'>Atom editor</a> od GitHubu, který byl od té doby přijat společnostmi po celém světě.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'S Electronem je vytváření desktopových aplikací pro vaši společnost nebo jen pro radost velmi jednoduché. Podívejte se na <a href=''/apps''>některé z aplikací, které vytvořila komunita</a> anebo <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">přidejte svou vlastní</a>.'
   view_more: Zobrazit další aplikace
   submit_your_own: pošlete vaši
   something_missing: Něco chybí?
@@ -216,7 +216,7 @@ pages:
     description: Nejjednodušší způsob jak začít s Electronem
   '/governance':
     title: Správa Electronu
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    description: Systém správy Electronu je složen pracovními skupinami, které dohlíží na různé aspekty Electron ekosystému a správní pracovní skupinou, která slouží k řešení konfliktů mezi nimi.
   '/donors':
     title: Dárci
 landing:
@@ -224,19 +224,19 @@ landing:
   fiddle:
     lead_desc: Nejjednodušší způsob jak začít s Electronem
     create_app: Vytvořte svou aplikaci
-    description: Electron Fiddle vytvářejte svoje vlastní malé experimenty v Electronu. Seznamte se z našimi úvodními příklady pro rychlý start Vaši práce - změňte si pár věci, vyberte tu správnou verzi Electronu se kterou to chcete všechno rozjet, prostě si hrajte. Potom si uložte svůj výsledek do Vašich GitHub Gist nebo to lokální složky. Jakmile jednou pushnete na GitHub muže si z Vašim Fiddlem pohrát každý jen zadaním adresy v prohlížeči.
+    description: Electron Fiddle vám umožní vytvářet a hrát si s malými Electron experimenty. Ihned po otevření vás přivítá svými šablonami pro rychlý start – změňte pár věcí, vyberte si verzi Electronu, se kterou chcete spustit kód a prostě si hrajte. Poté si můžete uložit svůj Fiddle jako GitHub Gist nebo do místní složky. Jakmile pushnete na GitHub, bude si moct váš Fiddle kdokoliv rychle vyzkoušet zadáním jeho odkazu do adresy v prohlížeči.
     explore: Procházet Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
+    explore_desc: "Vyzkoušetjte Electron bez instalace jakýchkoliv dependencí. Fiddle již obsahuje všechno, co budete potřebovat na prozkoumání této platformy. Obsahuje také ukázky všech API dostupných v Electronu. Pokud budete potřebovat rychle zjistit, co je to BrowserView anebo jak funguje desktopCapturer, Fiddle vám s tímto pomůže."
+    code_with_types: Programujte s typovostí
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
+    compile_and_package: Kompilovat a zabalit
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 governance:
   title: Správa Electronu
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  description: Systém správy Electronu je složen pracovními skupinami, které dohlíží na různé aspekty Electron ekosystému a správní pracovní skupinou, která slouží k řešení konfliktů mezi nimi.
+  wgs: Pracovní skupiny
   ecosystem:
     title: Ekosystém
     description: Oversees the projects that make Electron app development easier.
