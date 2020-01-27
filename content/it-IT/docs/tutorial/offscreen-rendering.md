@@ -10,13 +10,13 @@ Due metodi di rendering possono essere usati e solo l'area sporca è passata nel
 
 ### GPU accelerata
 
-Il rendering della GPU accelerata indica che la GPU è usata per composizione. Dovendo il frame essere copiato dalla GPU che richiede più performance, quindi questa modalità è un poco più lenta dell'altra. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+Il rendering della GPU accelerata indica che la GPU è usata per composizione. Dovendo il frame essere copiato dalla GPU che richiede più performance, quindi questa modalità è un poco più lenta dell'altra. Il vantaggio sta nel fatto che le animazioni WebGL e 3D CSS sono pienamente supportate.
 
 ### Dispositivo di output software
 
-Questa modalità usa un dispositivo di output software per renderizzare nella CPU, quindi la generazione dei frame è più veloce, quindi questa modalità è preferita a quella della GPU accelerata.
+La modalità usa un dispositivo di output software per renderizzare nella CPU, ne segue che la generazione dei frame risulta più veloce, dunque questa modalità è preferita a quella della GPU accelerata.
 
-Per abilitate questa modalità, l'accelerazione GPU deve essere disabilitata chiamando l'API [`app.disabilitaAccelerazioneHardware()`](../api/app.md#appdisablehardwareacceleration).
+Per abilitare questa modalità è necessario disabilitare l'accelerazione GPU chiamando [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
 
 ## Uso
 
