@@ -10,7 +10,7 @@ Zwei Render Modi können verwendet werden. Dabei wird nur die, sogenannte, dirty
 
 ### GPU Beschleunigung
 
-GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Da das Bild aber zuerst auf den Grafikprozessor kopiert werden muss (was Zeit in Anspruch nimmt), ist dieser Modus langsamer als der CPU beschleunigte Modus. Die Vorteile sind die WebGL- und die 3D CSS Animationen Untersützung.
+GPU beschleunigtes Rendering bedeutet, dass der Grafikprozessor für die Bildgenerierung verwendet wird. Da das Bild aber zuerst auf den Grafikprozessor kopiert werden muss (was Zeit in Anspruch nimmt), ist dieser Modus langsamer als der CPU beschleunigte Modus. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
 ### Software Ausgabegerät
 
