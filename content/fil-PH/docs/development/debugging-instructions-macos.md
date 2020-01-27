@@ -8,6 +8,12 @@ Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron
 
 * **Xcode**: Bilang karagdagan sa Xcode, i-install rin ang mga kagamitan sa Xcode na pang-utoss na linya. Isinasali nila ang LLDB, ang default na taga-debug sa Xcode sa Mac OS X. Sinusuportahan nito ang debugging C, Objective-C at C++ sa desktop at ios na mga kasangkapan at taga-simulate.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Pagkakabit at Pagde-debug sa Electron
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
@@ -81,12 +87,14 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-Sa puntong ito, para matapos ang pagde-debug, paganahin ang `process continue`. Maaari ka ring magpatuloy hanggang ang isang tiyak na linya ay matamaan sa thread na ito (`thread until 100`). Ang utos na ito ay magpapatakbo sa thread sa kasalukuyan nitong frame hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang frame.
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
-Ngayon, kung iyong bubuksan ang mga kagamitan ng tagabuo ng Electron at tatawagin ang `setName`, matatamaan mong muli ang breakpoint.
+To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+
+Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
 ### Karagdagang Pagbabasa
 
-Ang LLDB ay ang isang makapangyarihang kagamitan na may magandang dokumentasyon. Upang mas makaalam pa tungkol dito, isaalang-alang ang dokumentasyon sa pagde-debug ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Paggamit ng LLDB bilang isang Standalone na Taga-debug](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-Maaari mo ring tingnan ang kamangha-manghang [manwal and tyutoryal](http://lldb.llvm.org/tutorial.html) ng LLDB, na mas magpapaliwanag sa mga mas komplikadong sitwasyon ng pagde-debug.
+You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
