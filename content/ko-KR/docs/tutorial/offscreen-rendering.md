@@ -10,7 +10,7 @@
 
 ### GPU 가속
 
-GPU 가속 렌더링은 GPU가 합성에 사용됨을 의미합니다. GPU에서 프레임을 복사해야하므로 더 많은 성능이 필요합니다. 따라서이 모드는 다른것 보다 약간 느립니다. The benefit of this mode is that WebGL and 3D CSS animations are supported.
+GPU 가속 렌더링은 GPU가 합성에 사용됨을 의미합니다. GPU에서 프레임을 복사해야하므로 더 많은 성능이 필요합니다. 따라서이 모드는 다른것 보다 약간 느립니다. 이 모드의 이점은 WebGL 및 3D CSS 애니메이션이 지원된다는 것입니다.
 
 ### 소프트웨어 출력 장치
 
