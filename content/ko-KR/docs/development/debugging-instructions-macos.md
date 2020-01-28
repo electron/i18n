@@ -8,6 +8,12 @@
 
 * **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. 이것은 LLDB, macOS Xcode 의 기본 디버거를 포함합니다. 그것은 데스크톱과 iOS 기기와 시뮬레이터에서 C, Objective-C, C++ 디버깅을 지원합니다.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Electron에 디버거 연결하고 디버깅하기
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
@@ -80,6 +86,8 @@ Process 25244 stopped
    121 	int Browser::GetBadgeCount() {
    122 	  return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 디버깅을 끝내려면, `process continue` 를 실행하세요. 또한 쓰레드에서 실행 줄 수를 지정할 수 있습니다 (`thread until 100`). 이 명령은 현재 프레임에서 100 줄에 도달하거나 현재 프레임을 나가려고 할 때 까지 쓰레드를 실행합니다.
 

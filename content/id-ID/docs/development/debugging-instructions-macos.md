@@ -8,6 +8,12 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 
 * **Xcode**: Selain Xcode, juga menginstal alat baris perintah Xcode. Mereka termasuk LLDB, debugger default dalam Xcode di Mac OS X. Ini mendukung debugging C , Objective- C dan C ++ pada desktop dan perangkat iOS dan simulator.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Menempelkan dan Debugging Electron
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Untuk menyelesaikan debugging pada titik ini, jalankan `process continue`. Anda juga dapat berlanjut sampai garis tertentu terkena di thread ini (`thread until 100`). Perintah ini akan menjalankan thread di frame sampai mencapai garis 100 dalam bingkai ini atau berhenti jika ia meninggalkan frame.
 

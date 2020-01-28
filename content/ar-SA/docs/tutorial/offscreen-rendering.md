@@ -10,7 +10,7 @@ Two modes of rendering can be used and only the dirty area is passed in the `'pa
 
 ### مسرع GPU
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. من مزاياه يمكن دعم تأثيرات لـWebGL و 3D CSS.
 
 ### برامج أجهزة الإخراج
 

@@ -8,6 +8,12 @@ Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electr
 
 * **Xcode**: Xcode'a ek olarak, ayrıca Xcode'un komut satırı araçlarını da yükler. Mac OS X'de Xcode'ın varsayılan hata ayıklayıcısı olan LLDB'yi içerirler. C, Objective-C ve C++ masaüstünde ve iOS aygıtlarında ve simülatöründe hata ayıklamayı destekler.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Electron'da ekleme yapma ve hata ayıklama
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Bu noktada hata ayıklamayı bitirmek için `process continue` komutunu çalıştırın. Bu iş parçacığına belirli bir satıra gelene kadar da devam edebilirsiniz (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
 

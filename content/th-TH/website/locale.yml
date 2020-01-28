@@ -31,11 +31,11 @@ docs:
   api_reference: API อ้างอิง
   api_structures: โครงสร้าง API
   advanced: ขั้นสูง
-  detailed: In Detail
-  custom_dom: Custom DOM Elements
-  main_proc_modules: Main Process Modules
-  renderer_proc_modules: Renderer Process Modules
-  both_proc_modules: Modules for Both Process Types
+  detailed: ในรายละเอียด
+  custom_dom: องค์ประกอบ DOM ที่กำหนดเอง
+  main_proc_modules: โมดูลกระบวนการหลัก
+  renderer_proc_modules: โมดูลกระบวนการแสดงผล
+  both_proc_modules: โมดูลสำหรับกระบวนการทั้งสองประเภท
   footer:
     propose_change: ปรับปรุงเอกสารนี้
     version_history: ประวัติรุ่น
@@ -131,15 +131,15 @@ headings:
   languages: ภาษา
 taglines:
   languages: เนื้อหาที่แปลเป็นภาษาท้องถิ่นจากชุมชนนักพัฒนาระดับโลกของเรา
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  openjsf: Electron เพิ่งเข้าร่วมกับมูลนิธิ OpenJS ดู <a href="/blog/electron-joins-openjsf"> ประกาศ </a> สำหรับข้อมูลเพิ่มเติม!
 help_translate: "ช่วยแปลภาษา"
 footer:
   see_the_faq: คำถามที่พบบ่อยๆ
 companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  title: สร้างขึ้นบน Electron
+  description: เริ่มต้นพัฒนาขึ้นเพื่อ <a href='https://atom.io' target='_blank'> เครื่องมือแก้ไข Atom </a> ของ GitHub ตั้งแต่นั้นเป็นต้นมาอิเล็กตรอนได้ถูกนำมาใช้โดย บริษัท ทั่วโลก
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'ด้วยอิเลคตรอนการสร้างแอปพลิเคชันเดสก์ท็อปสำหรับ บริษัท หรือความคิดของคุณเป็นเรื่องง่าย ลองดู <a href=''/apps''> แอปที่สร้างขึ้นโดยชุมชน </a> หรือ <a href = "https://github.com/electron/electron-electron-apps/blob/master/contributing.md # add-your-app "> เพิ่มของคุณเอง </a>'
   view_more: ดูแอปเพิ่ม
   submit_your_own: ส่งของคุณเอง
   something_missing: มีอะไรหายเหรอ?
@@ -166,8 +166,8 @@ clipboard:
   copy_to_clipboard: คัดลอกไปยังคลิปบอร์ด
   copied: คัดลอกแล้ว
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: เปิด
+  launch_in_fiddle: เปิดใน Fiddle
 or: หรือ
 pages:
   '/':
@@ -239,7 +239,7 @@ governance:
   wgs: คณะทำงาน
   ecosystem:
     title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    description: ดูแลโครงการที่ทำให้การพัฒนาแอพ Electron ง่ายขึ้น
   outreach:
     title: "ยื่นออกไป\n"
     description: เติบโตชุมชน Electron 
@@ -260,7 +260,7 @@ governance:
     description: คณะทำงานด้านธุรการดูแลการกำกับดูแลและโครงการทั้งหมด
   api:
     title: เอพีไอ
-    description: Oversees public API design based on project principles.
+    description: ดูแลการออกแบบ API สาธารณะตามหลักการของโครงการ
   global:
     overview: ภาพรวม
     associated_repos: แหล่งเก็บข้อมูลที่เกี่ยวข้อง

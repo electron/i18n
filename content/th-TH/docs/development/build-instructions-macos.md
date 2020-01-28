@@ -1,8 +1,8 @@
 # คำแนะนำการสร้าง (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+ทำตามคำแนะนำด้านล่างเพื่อสร้างอิเล็กตรอนบน macOS
 
-## Требования
+## ข้อกำหนดเบื้องต้น
 
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
@@ -11,23 +11,23 @@ Follow the guidelines below for building Electron on macOS.
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+โปรดตรวจสอบให้แน่ใจว่าระบบและรุ่น Python ของคุณรองรับอย่างน้อย TLS 1.2 ขึ้นอยู่กับทั้ง macOS และ Python เวอร์ชันของคุณ สำหรับการทดสอบอย่างรวดเร็วให้เรียกใช้:
 
 ```sh
-แปลภาษา
+$ npx @electron/check-python-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+หากสคริปต์ส่งคืนว่าการกำหนดค่าของคุณกำลังใช้การรักษาความปลอดภัยที่ล้าสมัย โปรโตคอลคุณสามารถอัปเดต macOS เป็น High Sierra หรือติดตั้งเวอร์ชันใหม่ ของ Python 2.7.x ในการอัพเกรด Python ให้ใช้ [ Homebrew ](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+หากคุณใช้ Python ตามที่ Homebrew จัดหาให้คุณต้องติดตั้งด้วย โมดูล Python ต่อไปนี้:
 
 * [pyobjc](https://pypi.org/project/pyobjc/#description)
 
-You can use `pip` to install it:
+คุณสามารถใช้ ` pip ` เพื่อติดตั้ง:
 
 ```sh
 $ pip install pyobjc
@@ -35,10 +35,10 @@ $ pip install pyobjc
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+หากคุณกำลังพัฒนาอิเล็กตรอนและไม่วางแผนที่จะแจกจ่ายต่อ การสร้างอิเล็กตรอนแบบกำหนดเองคุณสามารถข้ามส่วนนี้ได้
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+งานสร้างอิเล็กตรอนอย่างเป็นทางการนั้นสร้างด้วย [ Xcode 9.4.1 ](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) และ MacOS 10.13 SDK การสร้างด้วย SDK ที่ใหม่กว่าก็ใช้งานได้เช่นกัน แต่รุ่นปัจจุบันใช้ 10.13 SDK
 
-## Building Electron
+## สร้าง Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+ดู [ คำแนะนำในการสร้าง: GN ](build-instructions-gn.md)
