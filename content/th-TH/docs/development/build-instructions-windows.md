@@ -25,7 +25,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Building
+## สิ่งก่อสร้าง
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
