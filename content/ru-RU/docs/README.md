@@ -104,7 +104,7 @@
 * [Объект процесса](api/process.md)
 * [Поддерживаемые параметры командной строки](api/command-line-switches.md)
 * [Переменные окружения](api/environment-variables.md)
-* [Критические изменения в API](api/breaking-changes.md)
+* [Критические изменения в API](breaking-changes.md)
 
 ### Пользовательские DOM-элементы:
 
