@@ -2,7 +2,7 @@
 
 ## Trouver de l'aide
 
-Si vous avez un problème de sécurité, veuillez consulter le [document sur la sécurité](../../SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si vous avez besoin d’aide pour la programmation, de réponses à vos questions, ou pour rejoindre une discussion avec d’autres développeurs qui utilisent Electron, vous pouvez interagir avec la Communauté à ces adresses :
 
@@ -17,7 +17,7 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
 * [`electron-id`](https://electron-id.slack.com) *(Indonésien)*
 * [`electron-pl`](https://electronpl.github.io) *(Polonais)*
 
-Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](../../CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Si vous découvrez une erreur dans une [version supportée](#supported-versions) d'Electron, veuillez s’il vous plaît la signaler dans notre [suivi d'erreurs](../development/issues.md).
 
@@ -63,7 +63,7 @@ Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. [
 
 Les binaires pré-compilés `ia32` (`i686`) et `x64` (`amd64`) d’Electron sont compilés sur Ubuntu 12.04, le binaire `armv7l` est compilé sur ARM v7 avec l'ABI hard-float et NEON pour Debian Wheezy.
 
-[Jusqu'à la version 2.0 d'Electron](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron continuera également de sortir un binaire `armv7l` avec un simple suffix `arm`. Les deux binaires sont identiques.
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Les deux binaires sont identiques.
 
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 12.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 
