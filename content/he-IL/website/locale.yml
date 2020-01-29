@@ -1,4 +1,4 @@
-tagline: בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: יישומים
   blog: בלוג
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: אוֹ
 pages:
   '/':
-    title: Electron | בנה יישום מחשב חוצה פלטפורמות עם JavaScript, HTML, ו-CSS.
-    description: 'פתח יישום חוצה-פלטפורמות עם JavaScript, HTML ו-CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: יישומי Electron
     description: יישומים שנבנו ב-Electron
