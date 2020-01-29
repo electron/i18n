@@ -103,7 +103,7 @@ Other things to keep in mind when writing a commit message:
 2. Keep the second line blank.
 3. Wrap all other lines at 72 columns.
 
-#### Breaking Changes
+#### كسر تغييرات API
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
