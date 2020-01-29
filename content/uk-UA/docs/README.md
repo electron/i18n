@@ -104,7 +104,7 @@
 * [Обробка Об'єктів](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
-* [Зміни API](api/breaking-changes.md)
+* [Зміни API](breaking-changes.md)
 
 ### Користувацькі DOM Елементи:
 
