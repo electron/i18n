@@ -104,7 +104,7 @@ Esses tutoriais individuais explicam os tópicos discutidos no guia acima.
 * [Processamento de Objeto](api/process.md)
 * [Switches de Linha de Comando Suportadas](api/command-line-switches.md)
 * [Variáveis de Ambiente](api/environment-variables.md)
-* [Alterações na API](api/breaking-changes.md)
+* [Alterações na API](breaking-changes.md)
 
 ### Elementos de DOM Personalizado:
 
