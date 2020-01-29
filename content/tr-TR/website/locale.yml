@@ -1,4 +1,4 @@
-tagline: JavaScript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştirin
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Uygulamalar
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: ya da
 pages:
   '/':
-    title: Electron | Javascript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştir.
-    description: 'JavaScript, HTML ve CSS ile platformlar arası masaüstü uygulamaları geliştirin.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron Uygulamaları
     description: Electron ile Yapılmış Uygulamalar
