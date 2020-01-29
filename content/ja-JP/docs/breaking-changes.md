@@ -52,30 +52,30 @@ ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
 - `BigInt` の値は、`null` に変換するのではなく、正しくシリアライズします。
 - 疎配列は、`null` の密配列に変換するのではなく、そのままシリアライズします。
 - `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
-- Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
-- Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+- 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
+- Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
 ```js
 Buffer.from(value.buffer, value.byteOffset, value.byteLength)
 ```
 
-Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
+ネイティブな JS 型ではないオブジェクト、すなわち DOM オブジェクト (`Element`、`Location`、`DOMMatrix` など)、Node.js オブジェクト (`process.env`、`Stream` のいくつかのメンバーなど)、Electron オブジェクト (`WebContents`、`BrowserWindow`、`WebFrame` など) のようなものは非推奨です。 Electron 8 では、これらのオブジェクトは DeprecationWarning メッセージで以前と同様にシリアライズされます。しかし、Electron 9 以降でこういった類のオブジェクトを送信すると "could not be cloned" エラーが送出されます。
 
 ### `<webview>.getWebContents()`
 
-This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+この API は、パフォーマンスとセキュリティの両方に影響する `remote` モジュールを使用して実装されます。 したがって、その用途がはっきりとしている必要があります。
 
 ```js
-// Deprecated
+// 非推奨
 webview.getWebContents()
-// Replace with
+// こちらに置換
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
 
-However, it is recommended to avoid using the `remote` module altogether.
+ただし、`remote` モジュールをできる限り使用しないことを推奨します。
 
 ```js
-// main
+// メイン
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = (webContentsId, contents) => {
@@ -94,7 +94,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// renderer
+// レンダラー
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
@@ -102,7 +102,7 @@ ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
 
 ### `webFrame.setLayoutZoomLevelLimits()`
 
-Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は、Electron 8.x では警告を発し、Electron 9.x では存在しなくなります。レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように、最小 0.25 から最大 5.0 に固定されました。
 
 ## 予定されている破壊的なAPIの変更 (7.0)
 
@@ -166,7 +166,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### `<input type="file"/>` の `webkitdirectory` 属性
 
-The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder.
+`webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
