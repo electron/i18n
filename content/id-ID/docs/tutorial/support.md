@@ -2,7 +2,7 @@
 
 ## Finding Support
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
@@ -17,7 +17,7 @@ If you're looking for programming help, for answers to questions, or to join in 
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
 
@@ -61,15 +61,13 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 ### Linux
 
-Berkas-berkas Elektron dibangun pada kode prebuilt  ia32 </ code> (<code> i686 </ code>) dan <code> x64 </ code> Ubuntu 12.04, biner <code> armv7l </ code> dibangun melawan ARM v7 dengan ABI hard-float dan NEON untuk Debian Wheezy.</p>
+Berkas-berkas Elektron dibangun pada kode prebuilt ` ia32 </ code> (<code> i686 </ code>) dan <code> x64 </ code> Ubuntu 12.04, biner <code> armv7l </ code> dibangun melawan ARM v7 dengan ABI hard-float dan NEON untuk Debian Wheezy.</p>
 
-<p><a href="https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets"> Sampai rilis Electron 2.0 </a> , Elektron juga akan lanjutkan untuk melepaskan <code> armv7l </ code> biner dengan akhiran <code> lengan </ code> yang baru. Both binaries
-are identical.</p>
+<p><a href="../breaking-changes.md#duplicate-arm-assets">Until the release of Electron 2.0</a>, Electron will also
+continue to release the <code>armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
-<p>Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :</p>
+Apakah biner prebuilt dapat berjalan pada distribusi bergantung pada apakah distribusi mencakup perpustakaan yang terhubung dengan Elektron pada platform bangunan, jadi hanya Ubuntu 12.04 yang dijamin berhasil, namun mengikuti platform juga diverifikasi untuk dapat menjalankan binari prebuilt dari Elektron :
 
-<ul>
-<li>Ubuntu 12.04 and newer</li>
-<li>Fedora 21</li>
-<li>Debian 8</li>
-</ul>
+* Ubuntu 12.04 and newer
+* Fedora 21
+* Debian 8
