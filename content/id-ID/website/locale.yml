@@ -1,4 +1,4 @@
-tagline: Membangun aplikasi desktop lintas platform dengan JavaScript, HTML dan CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplikasi
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: atau
 pages:
   '/':
-    title: Elektron | Buat aplikasi desktop lintas platform dengan JavaScript, HTML, dan CSS.
-    description: 'Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Aplikasi Elektronika
     description: Aplikasi Dibangun di Elektron
