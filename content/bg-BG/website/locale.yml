@@ -1,4 +1,4 @@
-tagline: Изграждайте приложения за множество платформи с JavaScript, HTML и CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Приложения
   blog: Блог
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: или
 pages:
   '/':
-    title: Електрон | Изграждане на приложения за множество платформи с JavaScript, HTML и CSS.
-    description: 'Изграждайте приложения за множество платформи с JavaScript, HTML и CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Електрон приложения
     description: Приложения, изградени с Електрон
