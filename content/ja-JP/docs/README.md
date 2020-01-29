@@ -104,7 +104,7 @@
 * [プロセスオブジェクト](api/process.md)
 * [サポートしているコマンドラインスイッチ](api/command-line-switches.md)
 * [環境変数](api/environment-variables.md)
-* [破壊的な API の変更](api/breaking-changes.md)
+* [破壊的な API の変更](breaking-changes.md)
 
 ### カスタム DOM 要素:
 
