@@ -104,7 +104,7 @@
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [משתני סביבה](api/environment-variables.md)
-* [שינויים השוברים את ה־API](api/breaking-changes.md)
+* [שינויים השוברים את ה־API](breaking-changes.md)
 
 ### אלמנטי DOM מותאמים אישית:
 
