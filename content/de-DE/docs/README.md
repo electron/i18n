@@ -104,7 +104,7 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [Prozess-Objekt](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
-* [Breaking API Veränderungen](api/breaking-changes.md)
+* [Breaking API Veränderungen](breaking-changes.md)
 
 ### Benutzerdefinierte DOM-Elemente:
 

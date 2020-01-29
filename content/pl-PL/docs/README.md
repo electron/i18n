@@ -104,7 +104,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
-* [Istotne zmiany w API](api/breaking-changes.md)
+* [Istotne zmiany w API](breaking-changes.md)
 
 ### Własne Elementy DOM:
 

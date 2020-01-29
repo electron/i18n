@@ -104,7 +104,7 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [Objeto de proceso](api/process.md)
 * [Cambios de línea de comandos soportados](api/command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
-* [Rupturas de cambios de la API](api/breaking-changes.md)
+* [Rupturas de cambios de la API](breaking-changes.md)
 
 ### Elementos de DOM personalizados:
 

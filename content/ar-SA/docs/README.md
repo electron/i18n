@@ -103,7 +103,7 @@
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [كسر تغييرات API](api/breaking-changes.md)
+* [كسر تغييرات API](breaking-changes.md)
 
 ### عناصر DOM مخصصة:
 

@@ -104,7 +104,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [شیء فرآیند](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### عناصر سفارشی:
 

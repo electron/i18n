@@ -2,7 +2,7 @@
 
 ## サポートを探す
 
-セキュリティに関心がある場合は、[セキュリティドキュメント](../../SECURITY.md)をご参照ください。
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 プログラミングの質問に対する回答を探している、またはElectronを使っている他の開発者との議論に参加したいのであれば、各ローケーションのコミュニティで対話できます。
 
@@ -17,7 +17,7 @@
 * [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
 * [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
-Electronにコントリビュートしたい場合は、[コントリビューティングドキュメント](../../CONTRIBUTING.md)をご参照ください。
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 [サポートされているバージョン](#supported-versions)のElectronでバグを見つけた場合は、[issue tracker](../development/issues.md)にレポートをおお願いします。
 
@@ -63,7 +63,7 @@ Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提
 
 `ia32` (`i686`) と `x64` (`amd64`) のビルド済みバイナリは、Ubuntu 12.04上でビルドされ、 `armv7l` バイナリは、Debian Wheezy用のhard-float ABIとNEONのARM v7を対象にビルドしています。
 
-[Electron 2.0 がリリースされるまで](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)、Electron は `armv7l` バイナリを単純に `arm` という接尾辞を付けてリリースし続けます。 双方のバイナリは同一です。
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. 双方のバイナリは同一です。
 
 Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 12.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 

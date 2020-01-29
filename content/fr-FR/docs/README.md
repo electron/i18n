@@ -104,7 +104,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Process Object](api/process.md)
 * [Commandes Supportées](api/command-line-switches.md)
 * [Variables d'environnement](api/environment-variables.md)
-* [Changements majeurs prévus de l'API](api/breaking-changes.md)
+* [Changements majeurs prévus de l'API](breaking-changes.md)
 
 ### Éléments DOM Personnalisé :
 

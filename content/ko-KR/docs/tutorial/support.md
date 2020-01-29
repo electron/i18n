@@ -2,7 +2,7 @@
 
 ## Finding Support
 
-보안 문제가 있다면, [security document](../../SECURITY.md)를 참조하세요.
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
 
@@ -17,7 +17,7 @@
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
-Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.md)를 보십시오.
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 [supported version](#supported-versions) Electron에서 버그를 발견 한다면, [issue tracker](../development/issues.md)에 보고해 주세요.
 
@@ -63,7 +63,7 @@ Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니�
 
 Prebuilt `ia32` (`i686`) 과 `x64` (`amd64`) Electron 바이너리는 Ubuntu 12.04에서 빌드 되었으며, `armv7l`바이너리는 hard-float ABI가 있는 ARM v7 및 Debian Wheezy의 NEON 용으로 제작되었습니다.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 사전 빌드 된 바이너리가 배포판에서 실행될 수 있는지 여부는 배포판에 Electron이 빌드중인 플랫폼에서 링크된 라이브러리가 포함되어 있는지 여부에 따라 달라지므로, Ubuntu 12.04에서 작동하도록 보장될 뿐만 아니라, 다음 플랫폼 또한 Electron의 사전 작성된 바이너리를 실행할 수 있음을 검증했습니다:
 

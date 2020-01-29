@@ -181,7 +181,7 @@ Huwag mag-post ng komento sa kahilingan ng pull upang i-ping ang mga reviewer ku
 
 #### Pag-apruba at Kahilingan sa Pagbabago ng Workflow
 
-Kinakailangan ang lahat ng mga kahilingan sa pag-apruba mula sa [Code Owner](https://github.com/orgs/electron/teams/code-owners) ng lugar mo binago upang makarating. Satuwing isang reviewer sinusuri ang pull request nila maaaring humiling ng mga pagbabago. Ang mga ito ay maaaring maliit, tulad ng pag-aayos ng isang typo, o maaaring kasangkot sa substantibong mga pagbabago. Ang ganitong mga kahilingan ay inilaan upang maging kapaki-pakinabang, ngunit kung minsan ay maaaring dumating sa kabuuan bilang bigla o walang tulong, lalo na kung hindi nila isama mga kongkretong mungkahi sa *how* upang baguhin ang mga ito.
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Subukan na huwag mawalan ng pag-asa. Kung sa palagay mo ay hindi makatarungan ang pagrepaso, sabihin ito o humingi ang input ng isa pang kontribyutor ng proyekto. Kadalasan ang mga ganitong mga komento ay resulta ng ang isang tagasuri ay nagsasagawa ng hindi sapat na oras upang repasuhin at hindi masasadya. Ang ganitong mga problema ay maaaring madalas na malutas na may kaunting pasensya. Na sinabi, Ang mga tagasuri ay dapat na inaasahan na magbigay ng kapaki-pakinabang na pag-uumpisa.
 
@@ -197,4 +197,4 @@ Ang bawat pull request ay nasubok sa patuloy na Integrasyon (CI) na sistema kump
 
 Sa isip, ang kahilingan ng pull ay lilipas ("maging berde") sa lahat ng mga platform ng CI. Nangangahulugan ito na ang lahat ng mga pagsusulit ay pumasa at walang mga pagkakamali. Gayunpaman, ito ay hindi bihira para sa imprastraktura ng CI mismo upang mabigo sa tiyak na platform o para sa mga tinatawag na "flaky" na pagsusulit upang mabigo ("maging pula"). Ang bawat CI Ang kabiguan ay dapat manu-manong sinuri upang matukoy ang dahilan.
 
-Ang CI ay awtomatikong nagsisimula kapag binuksan mo ang kahilingan ng pull, ngunit lamang [Releasers ](https://github.com/orgs/electron/teams/releasers/members) maaaring muling simulan ang isang pagpapatakbo ng CI. Kung naniniwala ka na ang CI ay nagbibigay ng maling negatibong, hilingin sa isang Releaser na muling simulan ang mga pagsubok.
+CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
