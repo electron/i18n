@@ -26,7 +26,7 @@ Chromium は、レイアウトのズームレベル制限を変更するサポ�
 
 ### IPC で非 JS オブジェクトを送信すると、例外が送出されるように
 
-In Electron 8.0, IPC was changed to use the Structured Clone Algorithm, bringing significant performance improvements. To help ease the transition, the old IPC serialization algorithm was kept and used for some objects that aren't serializable with Structured Clone. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
+Electron 8.0 では、構造化複製アルゴリズムを使用するように IPC が変更され、パフォーマンスが大幅に改善されました。 移行を容易にするため、旧 IPC シリアライズアルゴリズムは、構造化複製でシリアライズできない一部のオブジェクトにそのまま使用されます。 In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. Whenever the old algorithm was invoked, a deprecation warning was printed.
 
 In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
 
