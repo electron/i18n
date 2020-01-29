@@ -1,4 +1,4 @@
-tagline: Tvořte multiplatformní desktopové aplikace pomocí JavaScriptu, HTML a CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplikace
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: or
 pages:
   '/':
-    title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.
-    description: 'Tvořte multiplatformní desktopové aplikace pomocí JavaScriptu, HTML a CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron aplikace
     description: Aplikace běžicí na Electronu
