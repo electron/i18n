@@ -10,12 +10,12 @@
 
 ### `<webview>.getWebContents()`
 
-This API, which was deprecated in Electron 8.0, is now removed.
+Electron 8.0 で非推奨となっていた、この API は削除されました。
 
 ```js
-// Removed in Electron 9.0
+// Electron 9.0 で削除
 webview.getWebContents()
-// Replace with
+// こちらに置換
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
