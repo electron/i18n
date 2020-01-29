@@ -168,9 +168,9 @@ webFrame.setIsolatedWorldInfo(
 
 `webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。
 
-As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
+Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。
 
-As an illustration, take a folder with this structure:
+例として、以下の構造のフォルダーを使用します。
 ```console
 folder
 ├── file1
@@ -178,19 +178,19 @@ folder
 └── file3
 ```
 
-In Electron <=6, this would return a `FileList` with a `File` object for:
+Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
 ```console
 path/to/folder
 ```
 
-In Electron 7, this now returns a `FileList` with a `File` object for:
+Electron 7 では、以下のような `File` オブジェクトが入った `FileList` を返します。
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
 
-Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+`webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 ## 予定されている破壊的なAPIの変更 (6.0)
 
 ### `win.setMenu(null)`
