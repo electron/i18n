@@ -180,9 +180,9 @@ $ git push origin my-branch
 
 #### 承認とリクエストの変更ワークフロー
 
-すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 このような要求は役に立ちますが、時には、特に変更する *やり方* についての具体的な提案が含まれていないために、唐突だったり親切でないものに出くわすことがあります。
 
-がっかりさせないようにしてください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 しばしば、そのようなコメントは、レビュアーがレビューするのに十分な時間を取らない結果で、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 これは、査読者は役に立つフィードバックを提供することが期待されるべきだということです。
+がっかりしないでください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 大抵の場合、そのようなコメントはレビュアーがレビューするのに十分な時間が無いためで、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 要するに、レビュアーは親切なやりとりを提供することが期待されているということです。
 
 ### ステップ11: 取り込み
 
@@ -196,4 +196,4 @@ $ git push origin my-branch
 
 理想的には、プルリクエストは CI のすべてのプラットフォーム上で合格します ("青になる") 。 これは、すべてのテストが合格し、lint のエラーがないことを意味します。 しかし、CI インフラストラクチャ自体が特定のプラットフォームで失敗したり、いわゆる "flaky" テストに失敗する ("赤になる") ことは珍しいことではありません。 各 CI の失敗を手動で検査して原因を特定する必要があります。
 
-CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.
+プルリクエストを開くと、CI が自動的に開始されますが、メンテナーだけが CI の実行をリスタートできます。 CI が誤検知をしていると思われる場合は、メンテナーにテストをリスタートするよう依頼してください。
