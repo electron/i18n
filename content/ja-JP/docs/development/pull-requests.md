@@ -180,7 +180,7 @@ $ git push origin my-branch
 
 #### 承認とリクエストの変更ワークフロー
 
-All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
+すべてのプルリクエストは、取り込むために、変更した部分の [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) の承認が必要です。 管理者はプルリクエストをレビューするたびに、変更を要求することができます。 これらは、タイプミスを修正するなどの小さなもから、実質的な変更を伴うものまでにもなります。 Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 がっかりさせないようにしてください。 レビューが不公平であると感じる場合は、そう言い、別のプロジェクトのコントリビューターの意見を求めてください。 しばしば、そのようなコメントは、レビュアーがレビューするのに十分な時間を取らない結果で、意図しないものです。 そのような困難はしばしば少しの忍耐で解決することができます。 これは、査読者は役に立つフィードバックを提供することが期待されるべきだということです。
 
