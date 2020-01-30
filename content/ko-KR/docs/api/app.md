@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-밑의 예시는 마지막 윈도우가 종료되었을 때, 애플리케이션을 종료시키는 예시입니다:
+다음은 마지막 윈도우를 닫을 때 애플리케이션도 종료하는 예시입니다.
 
 ```javascript
 const { app } = require('electron')
@@ -356,9 +356,9 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+`webContents`의 렌더러 프로세스에서 `desktopCapturer.getSources()`가 호출될때 발생합니다. `event.preventDefault()`를 호출하면 빈 소스를 반환합니다.
 
-### Event: 'remote-require'
+### 이벤트: 'remote-require'
 
 Returns:
 
@@ -366,9 +366,9 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents`의 렌더러 프로세스에서 `remote.require()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### Event: 'remote-get-global'
+### 이벤트: 'remote-get-global'
 
 Returns:
 
@@ -378,7 +378,7 @@ Returns:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### 이벤트 'remote-get-builtin'
 
 Returns:
 
@@ -388,7 +388,7 @@ Returns:
 
 Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-window'
+### 이벤트: 'remote-get-current-window'
 
 Returns:
 
@@ -397,7 +397,7 @@ Returns:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents'
+### 이벤트: 'remote-get-current-web-contents'
 
 Returns:
 
@@ -406,7 +406,7 @@ Returns:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### 이벤트: 'remote-get-guest-web-contents'
 
 Returns:
 
@@ -416,7 +416,7 @@ Returns:
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-## 메소드
+## 메서드
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
 
@@ -465,7 +465,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+일렉트론이 초기화될 때 이행(fulfilled)되는 `Promise<void>`를 반환합니다. `app.isReady()`를 확인하고 앱이 준비되지 않았을 때 `ready` 이벤트를 구독하는 작업 대신 편리하게 사용할 수 있습니다.
 
 ### `app.focus()`
 
@@ -757,14 +757,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 두 번째 인스턴스를 만들려고 하면 원래 있던 윈도우에 포커스를 준다.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // myWindow를 만들고 나머지 과정을 처리한다.
   app.on('ready', () => {
   })
 }
@@ -847,7 +847,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - `basic` 또는 `complete`.
 
 Returns `Promise<unknown>`
 
@@ -888,7 +888,7 @@ machineModelVersion: '11.5' }
 
 현재 앱의 배지의 수를 설정합니다. `0`으로 설정하여 배지를 숨길 수 있습니다.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+MacOS에서는 Dock 아이콘 위에 표시되고, Linux에서는 Unity 런처를 사용할 때만 표시됩니다.
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
@@ -1006,7 +1006,7 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` *Experimental*
+### `app.enableSandbox()` *실험적*
 
 Enables full sandbox mode on the app.
 
@@ -1053,13 +1053,13 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean` 속성이며 Chrome의 접근성 지원이 활성화되어 있으면 `true`, 그 외에는 `false`다. 만약 스크린 리더와 같은 보조기술을 사용이 탐지되면 이 속성은 `true`가 된다. 이 속성을 `true`로 설정하여 Chrome의 접근성 지원을 수동으로 활성화하며 개발자가 앱 설정에서 접근성 스위치를 사용자에게 제공할 수 있도록 합니다.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+더 자세한 내용은 [Chromium의 접근성 문서](https://www.chromium.org/developers/design-documents/accessibility) 참고하세요. 기본값으로 비활성화 됩니다.
 
-This API must be called after the `ready` event is emitted.
+이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
 ### `app.applicationMenu`
 
@@ -1073,23 +1073,23 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
-### `app.commandLine` *Readonly*
+### `app.commandLine` *읽기전용*
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 
-### `app.dock` *macOS* *Readonly*
+### `app.dock` *macOS* *읽기전용*
 
 A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
-### `app.isPackaged` *Readonly*
+### `app.isPackaged` *읽기전용*
 
 앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+현재 애플리케이션의 이름을 가리키는 `String` 프로퍼티입니다. 애플리케이션의 `package.json` 파일에 있는 이름을 사용합니다.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+`package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
 ### `app.userAgentFallback`
 

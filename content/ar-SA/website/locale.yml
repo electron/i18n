@@ -1,4 +1,4 @@
-tagline: ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: التطبيقات
   blog: المدونة
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: أو
 pages:
   '/':
-    title: إلكترون | اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.
-    description: 'ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: تطبيقات إلكترون
     description: تطبيقات مبنية على إلكترون

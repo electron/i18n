@@ -1,4 +1,4 @@
-tagline: Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplicații
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: sau
 pages:
   '/':
-    title: Electron | Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.
-    description: 'Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Aplicații Electron
     description: Aplicații create cu Electron

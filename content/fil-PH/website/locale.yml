@@ -1,4 +1,4 @@
-tagline: Bumuo ng platform desktop na mga app na may JavaScript, HTML, at CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Mga App
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: ang or
 pages:
   '/':
-    title: Electron | Bumuo ng cross platform descktop na mga app na may JavaScript, HTML, at CSS.
-    description: 'Bumuo ng cross na platform desktop na mga app na may JavaScript, HTML, at CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron na mga App
     description: Mga App na nabuo sa Electron

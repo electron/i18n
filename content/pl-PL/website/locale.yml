@@ -1,4 +1,4 @@
-tagline: Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplikacje
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: lub
 pages:
   '/':
-    title: Electron | Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz CSS.
-    description: 'Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Aplikacje korzystające z Electrona
     description: Aplikacje stworzone przy użyciu Electrona

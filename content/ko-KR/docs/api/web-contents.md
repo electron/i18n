@@ -662,7 +662,7 @@ Returns:
 
 Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
 
-#### Event: 'remote-require'
+#### 이벤트: 'remote-require'
 
 Returns:
 
@@ -671,7 +671,7 @@ Returns:
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-global'
+#### 이벤트: 'remote-get-global'
 
 Returns:
 
@@ -680,7 +680,7 @@ Returns:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-builtin'
+#### 이벤트 'remote-get-builtin'
 
 Returns:
 
@@ -689,7 +689,7 @@ Returns:
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-current-window'
+#### 이벤트: 'remote-get-current-window'
 
 Returns:
 
@@ -697,7 +697,7 @@ Returns:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents'
+#### 이벤트: 'remote-get-current-web-contents'
 
 Returns:
 
@@ -705,7 +705,7 @@ Returns:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
+#### 이벤트: 'remote-get-guest-web-contents'
 
 Returns:
 

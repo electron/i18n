@@ -1,4 +1,4 @@
-tagline: ساخت برنامه‌های چندسکویی دسکتاپ با JavaScript، HTML، و CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: برنامه ها
   blog: وبلاگ
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: یا
 pages:
   '/':
-    title: الکترون | طراحی برنامه های چند سکویی دسکتاپ با HTML، CSS، JavaScript.
-    description: 'ساخت برنامه‌های چندسکویی دسکتاپ با JavaScript، HTML، و CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: برنامه های طراحی شده با الکترون
     description: برنامه های ساخته شده به وسیله الکترون

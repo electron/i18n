@@ -1,4 +1,4 @@
-tagline: Xây dựng ứng dụng máy tính đa nền tảng với HTML, CSS và JavaScript
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Ứng dụng
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: hoặc
 pages:
   '/':
-    title: Electron | Xây dựng ứng dụng máy tính đa nền tảng với HTML, CSS và JavaScript.
-    description: 'Xây dựng ứng dụng máy tính đa nền tảng với HTML, CSS và JavaScript.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Các App Electron
     description: Các ứng dụng được xây dựng từ Electron

@@ -1,4 +1,4 @@
-tagline: Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Застосунки
   blog: Блог
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: чи
 pages:
   '/':
-    title: Electron | Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.
-    description: 'Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Застосунки Electron
     description: Застосунки, побудовані на Electron
