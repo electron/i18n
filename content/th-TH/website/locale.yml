@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS
 nav:
   apps: แอป
   blog: บล็อก
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: หรือ
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | สร้างแอป ครอสแพลตฟอร์มเดสก์ท๊อป ด้วยภาษาอย่าง JavaScript, HTML และ CSS
+    description: 'สร้างแอปที่ใช้งานข้ามแพลตฟอร์มได้ด้วย JavaScript, HTML และ CSS.'
   '/apps':
     title: แอป อิเล็กตรอน
     description: แอปที่สร้างโดยใช้ อิเล็กตรอน
