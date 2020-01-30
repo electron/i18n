@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요
 nav:
   apps: 앱
   blog: 블로그
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: 또는
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | 자바스크립트, HTML, CSS를 이용해 크로스 플랫폼 데스크톱 앱을 만들어보세요.
+    description: 'JavaScript, HTML, CSS를 이용하여 크로스 플랫폼 데스크탑 앱을 만들어보세요.'
   '/apps':
     title: Electron 앱
     description: Electron으로 설계된 애플리케이션
