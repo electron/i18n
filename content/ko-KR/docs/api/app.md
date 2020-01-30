@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-밑의 예시는 마지막 윈도우가 종료되었을 때, 애플리케이션을 종료시키는 예시입니다:
+다음은 마지막 윈도우를 닫을 때 애플리케이션도 종료하는 예시입니다.
 
 ```javascript
 const { app } = require('electron')
@@ -356,9 +356,9 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+`webContents`의 렌더러 프로세스에서 `desktopCapturer.getSources()`가 호출될때 발생합니다. `event.preventDefault()`를 호출하면 빈 소스를 반환합니다.
 
-### Event: 'remote-require'
+### 이벤트: 'remote-require'
 
 Returns:
 
@@ -366,9 +366,9 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents`의 렌더러 프로세스에서 `remote.require()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### Event: 'remote-get-global'
+### 이벤트: 'remote-get-global'
 
 Returns:
 
@@ -378,7 +378,7 @@ Returns:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### 이벤트 'remote-get-builtin'
 
 Returns:
 
@@ -388,7 +388,7 @@ Returns:
 
 Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-window'
+### 이벤트: 'remote-get-current-window'
 
 Returns:
 
@@ -397,7 +397,7 @@ Returns:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents'
+### 이벤트: 'remote-get-current-web-contents'
 
 Returns:
 
@@ -406,7 +406,7 @@ Returns:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### 이벤트: 'remote-get-guest-web-contents'
 
 Returns:
 
@@ -416,7 +416,7 @@ Returns:
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-## 메소드
+## 메서드
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
 
@@ -465,7 +465,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+일렉트론이 초기화될 때 이행(fulfilled)되는 `Promise<void>`를 반환합니다. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -1053,7 +1053,7 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean` 속성이며 Chrome의 접근성 지원이 활성화되어 있으면 `true`, 그 외에는 `false`다. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
 
 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
 
