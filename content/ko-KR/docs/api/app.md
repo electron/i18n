@@ -465,7 +465,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-일렉트론이 초기화될 때 이행(fulfilled)되는 `Promise<void>`를 반환합니다. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+일렉트론이 초기화될 때 이행(fulfilled)되는 `Promise<void>`를 반환합니다. `app.isReady()`를 확인하고 앱이 준비되지 않았을 때 `ready` 이벤트를 구독하는 작업 대신 편리하게 사용할 수 있습니다.
 
 ### `app.focus()`
 
@@ -757,14 +757,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 두 번째 인스턴스를 만들려고 하면 원래 있던 윈도우에 포커스를 준다.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // myWindow를 만들고 나머지 과정을 처리한다.
   app.on('ready', () => {
   })
 }
@@ -847,7 +847,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - `basic` 또는 `complete`.
 
 Returns `Promise<unknown>`
 
@@ -888,7 +888,7 @@ machineModelVersion: '11.5' }
 
 현재 앱의 배지의 수를 설정합니다. `0`으로 설정하여 배지를 숨길 수 있습니다.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+MacOS에서는 Dock 아이콘 위에 표시되고, Linux에서는 Unity 런처를 사용할 때만 표시됩니다.
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
@@ -1006,7 +1006,7 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` *Experimental*
+### `app.enableSandbox()` *실험적*
 
 Enables full sandbox mode on the app.
 
@@ -1053,11 +1053,11 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-`Boolean` 속성이며 Chrome의 접근성 지원이 활성화되어 있으면 `true`, 그 외에는 `false`다. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean` 속성이며 Chrome의 접근성 지원이 활성화되어 있으면 `true`, 그 외에는 `false`다. 만약 스크린 리더와 같은 보조기술을 사용이 탐지되면 이 속성은 `true`가 된다. 이 속성을 `true`로 설정하여 Chrome의 접근성 지원을 수동으로 활성화하며 개발자가 앱 설정에서 접근성 스위치를 사용자에게 제공할 수 있도록 합니다.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+더 자세한 내용은 [Chromium의 접근성 문서](https://www.chromium.org/developers/design-documents/accessibility) 참고하세요. 기본값으로 비활성화 됩니다.
 
-This API must be called after the `ready` event is emitted.
+이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
