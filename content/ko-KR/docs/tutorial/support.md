@@ -25,11 +25,11 @@
 
 ## 지원되는 버전
 
-마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. 예를 들어 마지막 릴리스가 6.x.y 라면 5.x.y와 4.x.y 시리즈까기 지원됩니다.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+마지막 안정화 릴리스는 `master`에서 모든 수정사항을 일방적으로 받고 있으며, 그 이전 버전은 대부분의 수정 사항을 시간 및 대역폭 보증으로 받습니다. 가장 오래된 지원 릴리스 라인은 보안 수정사항만 직접 받습니다.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+지원되는 모든 릴리스 라인은 이전에 `master`에 병합된 수정 사항을 백포트하기 위한 외부 pull request를 수락하지만, 이는 일부 이전 지원되는 라인의 경우 사례에 따라 다를 수 있습니다. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
 
 ### Currently supported versions
 
