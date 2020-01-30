@@ -1,4 +1,4 @@
-# Electron Support
+# Electron 지원
 
 ## Finding Support
 
