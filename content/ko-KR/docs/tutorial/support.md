@@ -1,23 +1,23 @@
 # Electron 지원
 
-## Finding Support
+## 지원 찾기
 
-If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
+만약 보안이 걱정되신다면 [보안 문서](https://github.com/electron/electron/tree/master/SECURITY.md)를 참고해주세요.
 
 프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* Atom 포럼의 [`electron`](https://discuss.atom.io/c/electron) 카테고리
+* Freenode의 `#atom-shell` 채널
+* [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
+* [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
+* [`electron-br`](https://electron-br.slack.com) *(브라질 포르투갈어)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(한국어)*
+* [`electron-jp`](https://electron-jp.slack.com) *(일본어)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(터키어)*
+* [`electron-id`](https://electron-id.slack.com) *(인도네시아어)*
+* [`electron-pl`](https://electronpl.github.io) *(폴란드어)*
 
-If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+만약 Electron에 기여하고 싶으시다면 [기여하기 문서](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)를 참고해주세요.
 
 [supported version](#supported-versions) Electron에서 버그를 발견 한다면, [issue tracker](../development/issues.md)에 보고해 주세요.
 
@@ -25,7 +25,7 @@ If you'd like to contribute to Electron, see the [contributing document](https:/
 
 ## 지원되는 버전
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
 
 The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
 
