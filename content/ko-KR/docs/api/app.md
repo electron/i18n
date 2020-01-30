@@ -1059,7 +1059,7 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
 ### `app.applicationMenu`
 
@@ -1073,23 +1073,23 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
-### `app.commandLine` *Readonly*
+### `app.commandLine` *읽기전용*
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 
-### `app.dock` *macOS* *Readonly*
+### `app.dock` *macOS* *읽기전용*
 
 A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
-### `app.isPackaged` *Readonly*
+### `app.isPackaged` *읽기전용*
 
 앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+현재 애플리케이션의 이름을 가리키는 `String` 프로퍼티입니다. 애플리케이션의 `package.json` 파일에 있는 이름을 사용합니다.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+`package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
 ### `app.userAgentFallback`
 
