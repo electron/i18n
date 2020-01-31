@@ -7,5 +7,5 @@
 * `wheelTicksY` Integer (可选)
 * `accelerationRatioX` Integer (可选)
 * `accelerationRatioY` Integer (可选)
-* `hasPreciseScrollingDeltas` Boolean (optional)
-* `canScroll` Boolean (optional)
+* `hasPreciseScrollingDeltas` Boolean (可选)
+* `canScroll` Boolean (可选)
