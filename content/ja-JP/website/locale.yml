@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: JavaScript, HTML, CSS でクロスプラットフォームなデスクトップアプリ開発
 nav:
   apps: アプリ
   blog: ブログ
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: または
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | JavaScript, HTML, CSSによるクロスプラットフォームなデスクトップアプリ開発
+    description: 'JavaScript, HTML, CSS でクロスプラットフォームなデスクトップアプリ開発。'
   '/apps':
     title: Electron アプリ
     description: Electronで開発されたアプリ
