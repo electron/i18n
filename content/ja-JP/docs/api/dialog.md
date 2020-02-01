@@ -93,7 +93,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
 * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列。この dialog がキャンセルされた場合、これは空の配列になります。
-* `bookmarks` String[] (任意)*macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
+* `bookmarks` String[] (任意)*macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (For return values, see [table here](#bookmarks-array).)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -161,7 +161,7 @@ dialog.showOpenDialog(mainWindow, {
 
     * `canceled` - Boolean - dialog がキャンセルされたかそうでないか。
     * `filePath` String (任意) - このダイアログがキャンセルされた場合、これは `undefined` になります。
-    * `bookmark` String (任意) _macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するためには `securityScopedBookmarks` を有効にする必要があります。
+    * `bookmark` String (任意) _macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するためには `securityScopedBookmarks` を有効にする必要があります。 (For return values, see [table here](#bookmarks-array).)
     
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
@@ -245,8 +245,19 @@ Windowsでは、使用されているWin32 APIのため、オプションはよ�
 * OSが独自の確認ダイアログを提供しているため、`message` の引数は使用されません。
 * この確認ダイアログをモーダル表示にすることができないため、`browserWindow` の引数は無視されます。
 
-## シート
+## Bookmarks array
 
-macOS では、`browserWindow` パラメータに [`BrowserWindow`](browser-window.md) の参照を指定した場合、ダイアログは、ウインドウにアタッチされたシートとして表示されます。ウインドウを指定しない場合、モーダルで表示されます。
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
 
-`BrowserWindow.getCurrentWindow().setSheetOffset(offset)` を呼び出すことで、シートがアタッチされるウインドウフレームからのオフセットを変更することができます。
+| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
+| ---------- | ------------------------------- |:-----------:| ------------------------------ |
+| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
+| macOS mas  | False                           |     NA      | `[]` (empty array)             |
+| non mas    | any                             |     NA      | `[]` (empty array)             |
+
+## Sheets
+
+On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+
+You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
