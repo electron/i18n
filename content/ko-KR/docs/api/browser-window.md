@@ -549,13 +549,13 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` *Readonly*
+#### `win.webContents` *읽기전용*
 
 A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
-#### `win.id` *Readonly*
+#### `win.id` *읽기전용*
 
 A `Integer` property representing the unique ID of the window.
 
@@ -848,13 +848,13 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 Sets whether the window can be manually resized by user.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isResizable()`
 
 Returns `Boolean` - Whether the window can be manually resized by user.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -862,7 +862,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -870,7 +870,7 @@ Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -878,7 +878,7 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
@@ -886,7 +886,7 @@ Returns `Boolean` - Whether the window can be manually minimized by user
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -894,7 +894,7 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
@@ -902,7 +902,7 @@ Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -910,13 +910,13 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -924,7 +924,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -932,7 +932,7 @@ Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -1267,13 +1267,13 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1393,7 +1393,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *실험적*
 
 Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
 
@@ -1407,7 +1407,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` *실험적*
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
