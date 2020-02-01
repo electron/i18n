@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
-## Electron Development in a Nutshell
+## 使用 Nutshell 開發 Electron
 
 Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
 
@@ -121,28 +121,30 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// 有些 API 只能在這個事件發生後才能用。
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 在所有視窗都關閉時結束程式。
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // 在 macOS 中，一般會讓應用程式及選單列繼續留著，
+  // 除非使用者按了 Cmd + Q 確定終止它們
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // 在 macOS 中，一般會在使用者按了 Dock 圖示
+  // 且沒有其他視窗開啟的情況下，
+  // 重新在應用程式裡建立視窗。
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. 
+// 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
 ```
 
 最後，`index.html` 裡放你想顯示的網頁內容:
