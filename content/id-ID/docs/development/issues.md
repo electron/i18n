@@ -10,7 +10,7 @@
 
 Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkontribusi:
 
-1. Dengan membuka diskusi untuk permasalahan: Jika anda yakin anda telah menemukan bug baru di elektron, anda harus melaporkannya dengan cara membuat isu baru di `electron/electron` pelacak masalah/isu.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Dengan membantu menyelesaikan masalah: Anda dapat melakukan dengan salah satu cara ini yaitu menyediakan rincian bantu ( Sebuah tes yang menguji guna membuktikan adanya Bug) atau dengan cara menyediakan saran ke ajukan permasalahan.
 3. Dengan membantu menyelesaikan masalah: Hal tersebut bisa dilakukan dengan cara mendemontrasikan masalah tersebut bukan sebuah Bug atau sudah diperbaiki; namun lebih sering lagi, dengan membuka pull request yang mengganti sumber di `electron/electron` dengan cara yang konkret dan mudah ditinjau.
 
@@ -20,7 +20,9 @@ Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkont
 
 ## Mengirimkan Laporan Bug
 
-Ketika membuka isu di `electron/electron` pelacak isu, pengguna akan di tampilkan dengan templete yang harus di isi.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!-- 
@@ -58,20 +60,20 @@ $ npm start || electron .
 -->
 ```
 
-Jika anda yakin bahwa anda telah menemukan Bug di electron, mohon isi formulir ini sesuai kemampuan terbaik anda.
+If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
 
-Dua hal yang paling penting dari informasi yang dibutuhkan untuk mengevaluasi laporan adalah Sebuah penjelasan tentang Bug dan sebuah tes kasus yang simpel untuk membuatnya kembali. It is easier to fix a bug if it can be reproduced.
+The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
-Lihat [ Bagaimana cara membuat contoh yang minimal, komplit dan yang bisa di verifikasi ](https://stackoverflow.com/help/mcve).
+See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
 ## Mendahulukan Laporan Bug
 
-Ini hal yang wajar untuk membuka isu dan memulai diskusi. Beberapa kontributor mungkin memiliki pendapat yang berbeda, termasuk apakah itu kebiasaan Bug atau fitur. Diskusi ini adalah bagian dari proses dan harus tetap fokus, bermanfaat dan profesional.
+It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
-Respon singkat yang menyediakan baik itu penambahan konteks maupun mendukung detail, dianggap tidak bermanfaat ataupun profesional. Terlalu banyak, respon juga mengganggu dan kurang menyenangkan.
+Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
-Kontributor sangat disarankan untuk memecahkan isu secara bersama dan membantu satu sama lain dalam membuat perkembangan. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Dengan melakukan hal tersebut, kita sering mencapai solusi permasalahan yang benar dan cepat.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## Memecahkan Laporan Bug
 
-Kebanyakan isu diselesaikan dengan membuka Pull request. Proses untuk membuka dan mereview Pull request sama dengan proses untuk membuka dan triaging isu, namun disertai dengan tinjauan dan alur kerja persetujuan yang diperlukan untuk mengusulkan perubahan untuk memenuhi kualitas minimal dan pedoman proyek electron.
+Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
