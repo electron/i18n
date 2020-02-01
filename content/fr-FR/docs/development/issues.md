@@ -10,7 +10,7 @@
 
 For any issue, there are fundamentally three ways an individual can contribute:
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
@@ -20,7 +20,9 @@ For any issue, there are fundamentally three ways an individual can contribute:
 
 ## Envoi d'un rapport de bug
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--
