@@ -63,20 +63,20 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
     -->
     ```
     
-    If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+    Elektron'da bir hata bulduğunuzu düşünüyorsanız, lütfen bu formu en iyi şekilde doldurun.
     
-    The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
+    Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. It is easier to fix a bug if it can be reproduced.
     
-    See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+    Bkz. [ Minimum, Tam ve Doğrulanabilir örnek nasıl oluşturulur?](https://stackoverflow.com/help/mcve).
     
     ## Bir hata raporu düzenle
     
-    It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+    Açık kaynak kodlarında tartışmalar sıklıkla görülür. Bazı katılımcılar farklı görüşlere sahip olabilir, bu tartışma sürecin bir parçasıdır. Asıl konuya odaklanmak daha faydalı profesyonel bir tutum olur.
     
-    Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+    Ne çok kısa açıklamalar ne de çok fazla ayrıntı pek işe yaramaz ve profesyonelce olmaz. Çoğu kimseye bu tür tutumu sinir bozucu ve düşmanca bulur.
     
-    Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+    Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Bunu yaparak, çoğunlukla doğru sonuca daha hızlı ulaşabiliriz.
     
     ## Bir hata raporu çözümlendir
     
-    Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+    Çoğu sorun bir çekme isteği açarak çözülür. Bir çekme isteğini açma ve inceleme süreci, açılış ve triyaj konularına benzer ancak, önerilen değişikliklerin Electron projesinin asgari kalitesini ve işlevsel yönergelerini karşılamasını sağlayan gerekli inceleme ve onay iş akışını da beraberinde getirir.
