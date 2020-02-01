@@ -115,7 +115,7 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Otwórz Narzędzia Deweloperskie.
   win.webContents.openDevTools()
 }
 
@@ -124,7 +124,7 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Zamknij, gdy wszystkie okna są zamknięte.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
