@@ -10,7 +10,7 @@
 
 Для любого вопроса есть три основных способа, которыми человек может сделать вклад:
 
-1. Открывая вопрос для обсуждения: Если вы считаете, что вы нашли новую ошибку в Electron, вы должны сообщить об этом, создав новую проблему в `electron/electron` трекере.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Помогите воспроизвести проблему: Вы можете сделать это либо предоставив вспомогательную информацию (воспроизводимый тестовый случай, который демонстрирует ошибку), либо предложив решить проблему.
 3. Помогая решить проблему: это можно сделать, продемонстрировав что проблема не является ошибкой или исправлена; но чаще, открыв запрос на слияние, который изменяет исходник в `electron/electron` в конкретный и рецензируемый способ.
 
@@ -20,7 +20,9 @@
 
 ## Отправить отчет об ошибке
 
-При открытии новой проблемы в `electron/electron` трекере пользователям будет представлен шаблон, который должен быть заполнен.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--
@@ -60,20 +62,20 @@
 -->
 ```
 
-Если вы считаете, что обнаружили ошибку в Electron, пожалуйста, заполните эту форму в меру ваших возможностей.
+If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
 
-Двумя наиболее важными частями информации, необходимой для оценки отчета, являются описание ошибки и простой тестовый случай для его создания. Легче исправить ошибку, если она может быть воспроизведена.
+The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
-Смотрите [Как создать минимальный, завершенный и проверяемый пример](https://stackoverflow.com/help/mcve).
+See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
 ## Прохождение сообщения об ошибке
 
-Чаще всего открытые вопросы могут включать в себя обсуждение. Некоторые участники могут иметь различные мнения, в том числе, является ли поведение ошибкой или функцией. Эта дискуссия является частью процесса и должна быть целенаправленной, полезной, и профессиональной.
+It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
-Краткие ответы, которые не предоставляют ни дополнительного контекста, ни вспомогательных деталей не полезны или не профессиональны. Многих такие ответы раздражают и не дружественны.
+Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. При этом мы часто можем достичь правильного результата быстрее.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## Разрешение отчета об ошибке
 
-Большинство проблем решается путем открытия pull-запроса. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
