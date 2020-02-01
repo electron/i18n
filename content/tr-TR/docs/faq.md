@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Uygulamamın penceresi/simge konumundaki kısmı birkaç dakika sonra kayboluyor.
+## My app's tray disappeared after a few minutes.
 
-Pencere/tepsi depolamak için kullanılan değişken anlamsız verileri toplamaya başladığında bu gerçekleşir.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Eğer bu problemle karşılaşılırsa, aşağıdaki makaleler yardımcı olabilir:
 
