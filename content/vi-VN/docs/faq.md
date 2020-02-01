@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Cửa sổ của ứng dụng hoặc icon dưới taskbar (tray) của tôi đột nhiên biến mất chỉ sau một vài phút xuất hiện.
+## My app's tray disappeared after a few minutes.
 
-Điều này xảy ra khi các biến được sử dụng để lưu trữ các cửa sổ/tray được bộ dọn rác dọn đi.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Nếu bạn gặp vấn đề này, bài viết sau đây có thể hữu ích:
 
