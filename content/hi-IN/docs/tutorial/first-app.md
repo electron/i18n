@@ -121,28 +121,28 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// कुछ ऐपीआई इस इवेंट के शुरू होने पर ही इस्तेमाल की जा सकती है |
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// सभी विंडोज के बंद होने के बाद छोड़ दें |
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // मैकओएस पर एप्लीकेशनस और उनकी मेन्यु बार के लिए यह सामान्य है कि 
+  // जब तक उपयोगकर्ता cmd+q एंटर करके के बंद न कर दें, तब तक सक्रीय रहें |
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // मैकओएस पर एप्प में एक विंडो का पुनर्निर्माण करना आम है, जब डॉक आइकॉन
+  // क्लिक किया हो और कोई दूसरी विंडोज न खुली हों |
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. आप उन्हें अलग-अलग फाइल्स में भी डाल सकते हैं और उन्हें यहाँ आवश्यक कर सकते हैं |
 ```
 
 अन्त में `index.html` वह वेब पेज है जिसे आप दिखाना चाहते हैं:
