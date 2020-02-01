@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: 使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序
 nav:
   apps: 应用
   blog: 博客
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: 或
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | 使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序。
+    description: '使用 JavaScript，HTML 和 CSS 构建跨平台的桌面应用程序。'
   '/apps':
     title: Electron 应用
     description: 使用 Electron 构建的应用
