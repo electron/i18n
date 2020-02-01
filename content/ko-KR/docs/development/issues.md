@@ -10,7 +10,7 @@
 
 어떤 이슈든, 개인이 근본적으로 기여할수 있는 3가지 방법이 있습니다.:
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
@@ -20,7 +20,9 @@
 
 ## 버그 신고하기
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--
@@ -60,7 +62,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-만약 여러분이 Electron의 버그를 찾았다고 확신하시면, 이 양식을 당신의 최고의 기술을 이용해 채워주세요.
+If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
 
 The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
 
@@ -76,4 +78,4 @@ Contributors are encouraged to solve issues collaboratively and help one another
 
 ## 버그 리포트 해결
 
-주요 이슈들은 Pull Request를 열어 해결합니다. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
