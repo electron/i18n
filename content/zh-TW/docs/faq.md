@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## 我應用程式的視窗或工作列圖示幾分鐘後消失了。
+## My app's tray disappeared after a few minutes.
 
-當儲存視窗或工作列圖示的變數就垃圾回收後就會這樣。
+This happens when the variable which is used to store the tray gets garbage collected.
 
 如果你遇到這個問題，以下文章應該能幫上忙:
 
