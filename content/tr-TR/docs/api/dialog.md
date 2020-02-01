@@ -257,11 +257,11 @@ Windows işletim sisteminde Win32'de kullnaılan API nedeniyle seçenekler daha 
 | ---------- | ------------------------------- |:-----------:| ------------------------------ |
 | macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
 | macOS mas  | True                            |    Error    | `['']` (array of empty string) |
-| macOS mas  | False                           |     NA      | `[]` (empty array)             |
+| macOS mas  | Yanlış                          |     NA      | `[]` (empty array)             |
 | non mas    | any                             |     NA      | `[]` (empty array)             |
 
-## Sheets
+## Sayfalar
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Sayfalara eklenen Windows çerçevesinden ofset değerini değiştirmek için `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` komutunu çağırabilirsiniz.
