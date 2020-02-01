@@ -102,13 +102,9 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// ウインドウオブジェクトのグローバル参照を保持してください。さもないと、そのウインドウは
-// JavaScript オブジェクトがガベージコレクションを行った時に自動的に閉じられます。
-let win
-
 function createWindow () {
-  // browser window を生成する
-  win = new BrowserWindow({
+  // ブラウザウインドウを作成
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,47 +112,37 @@ function createWindow () {
     }
   })
 
-  // そしてこのアプリの index.html をロード
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // 開発者ツールを開く
+  // Open the DevTools.
   win.webContents.openDevTools()
-
-  // ウィンドウが閉じられた時に発火
-  win.on('closed', () => {
-    // ウインドウオブジェクトの参照を外す。
-    // 通常、マルチウインドウをサポートするときは、
-    // 配列にウインドウを格納する。
-    // ここは該当する要素を削除するタイミング。
-    win = null
-  })
 }
 
-// このイベントは、Electronが初期化処理と
-// browser windowの作成を完了した時に呼び出されます。
-// 一部のAPIはこのイベントが発生した後にのみ利用できます。
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// 全てのウィンドウが閉じられた時に終了する
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // macOSでは、ユーザが Cmd + Q で明示的に終了するまで、
-  // アプリケーションとそのメニューバーは有効なままにするのが一般的です。
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // macOSでは、ユーザがドックアイコンをクリックしたとき、
-  // そのアプリのウインドウが無かったら再作成するのが一般的です。
-  if (win === null) {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// このファイル内には、
-// 残りのアプリ固有のメインプロセスコードを含めることができます。 
-// 別々のファイルに分割してここで require することもできます。
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
 ```
 
 最後に、`index.html` が表示させたいウェブページです。
