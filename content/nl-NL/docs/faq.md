@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 require('electron').console.log(require('electron').remote.getGlobal('sharedObject').someProperty = 'new value)
 ```
 
-## Het venster/tray van mijn app verdween na een paar minuten.
+## My app's tray disappeared after a few minutes.
 
-Dit gebeurt wanneer de variabele die wordt gebruikt om het venster/tray op te slaan "garbage collected" wordt.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Wanneer je dit probleem tegenkomt, zullen de volgende artikelen misschien van pas komen:
 
