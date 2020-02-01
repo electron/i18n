@@ -115,34 +115,34 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Ouvre les DevTools.
   win.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Quitte l'application quand toutes les fenêtres sont fermées.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // Sur macOS, il est commun pour une application et leur barre de menu
+  // de rester active tant que l'utilisateur ne quitte pas explicitement avec Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // Sur macOS, il est commun de re-créer une fenêtre de l'application quand
+  // l'icône du dock est cliquée et qu'il n'y a pas d'autres fenêtres d'ouvertes.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. Vous pouvez également le mettre dans des fichiers séparés et les inclure ici.
 ```
 
 Enfin l'`index.html` est la page web à afficher :
