@@ -257,8 +257,8 @@ Returns `Promise<void>` - resolves when the certificate trust dialog is shown.
 | macOS mas  | False                           |     NA      | `[]` (empty array)             |
 | non mas    | any                             |     NA      | `[]` (empty array)             |
 
-## Sheets
+## 工作表
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
+在[`MaCOS`](browser-window.md)中，如果在<0>browserWindow</0>的参数中提供<0>BrowerWindow</0>这一参数，或者在非<0>browserWindow</0>中未提供<0>modals</0>参数，则将对附加到<0>window</0>中的<0>sheet</0>的形式呈现。
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+您可以调用 `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` 来更改附加工作表的窗口框架的偏移量。
