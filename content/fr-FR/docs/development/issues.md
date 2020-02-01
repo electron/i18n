@@ -70,9 +70,9 @@ See [How to create a Minimal, Complete, and Verifiable example](https://stackove
 
 ## Triaging a Bug Report
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Il est fréquent que les questions ouvertes impliquent des discussions. Certains contributeurs peuvent avoir des opinions différentes, y compris si le comportement est un bogue ou une fonctionnalité. This discussion is part of the process and should be kept focused, helpful, and professional.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Terse responses that provide neither additional context nor supporting detail are not helpful or professional. Pour beaucoup, de telles réponses sont ennuyeuses et peu amicales.
 
 Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
