@@ -102,13 +102,9 @@ El fichero `main.js` debería crear las ventanas y manejar todos los eventos del
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Mantén una referencia global del objeto window, si no lo haces, la ventana 
-// se cerrará automáticamente cuando el objeto JavaScript sea eliminado por el recolector de basura.
-let win
-
 function createWindow () {
   // Crea la ventana del navegador.
-  win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,45 +112,37 @@ function createWindow () {
     }
   })
 
-  // y carga el index.html de la aplicación.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Abre las herramientas de desarrollo (DevTools).
+  // Open the DevTools.
   win.webContents.openDevTools()
-
-  // Emitido cuando la ventana es cerrada.
-  win.on('closed', () => {
-    // Elimina la referencia al objeto window, normalmente  guardarías las ventanas
-    // en un vector si tu aplicación soporta múltiples ventanas, este es el momento
-    // en el que deberías borrar el elemento correspondiente.
-    win = null
-  })
 }
 
-// Este método será llamado cuando Electron haya terminado
-// la inicialización y esté listo para crear ventanas del navegador.
-// Algunas APIs pueden usarse sólo después de que este evento ocurra.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Sal cuando todas las ventanas hayan sido cerradas.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // En macOS es común para las aplicaciones y sus barras de menú
-  // que estén activas hasta que el usuario salga explicitamente con Cmd + Q
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // En macOS es común volver a crear una ventana en la aplicación cuando el
-  // icono del dock es clicado y no hay otras ventanas abiertas.
-  if (win === null) {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// En este archivo puedes incluir el resto del código del proceso principal de
-// tu aplicación. También puedes ponerlos en archivos separados y requerirlos aquí.
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
 ```
 
 Finalmente el archivo `index.html` es la página web que quieres mostrar:
