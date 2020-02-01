@@ -119,34 +119,34 @@ app.on('ready', createWindow)
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+   // افتح DevTools.
   win.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// قم بإنهاء عند إغلاق كافة الإطارات.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+// على macOS من الشائع للتطبيقات وشريط القوائم
+   // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  //على macOS من الشائع إعادة إنشاء نافذة في التطبيق عندما
+  //يتم النقر فوق رمز قفص الاتهام وليس هناك نوافذ أخرى مفتوحة.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
 `</pre> 
 
 وأخيرًا ، فإن ` index.html </ 0> هي صفحة الويب التي تريد إظهارها:</p>
