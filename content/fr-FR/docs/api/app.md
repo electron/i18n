@@ -978,9 +978,9 @@ Affiche les options du panneau à propos de l'application. Ces options peuvent �
   * `site web` String (facultatif) *Linux* - Le site web de l'application.
   * `iconPath` String (facultatif) *Linux* - Chemin vers l'icône de l'application. Sera affiché en 64x64 pixels tout en conservant le rapport d'aspect.
 
-Configure les options de la fenêtre À propos de. This will override the values defined in the app's `.plist` file on MacOS. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
+Configure les options de la fenêtre À propos de. Cela remplacera les valeurs définies dans le fichier `.plist` de l'application sur MacOS. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations. Sous Linux, les valeurs doivent être définies pour être affichées ; il n'y a pas de valeurs par défaut.
 
-If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. Le premier fichier trouvé est utilisé, et si aucun n'est trouvé, la zone info est laissée vide. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 
