@@ -51,7 +51,7 @@ The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainwor
 
 Значения `Function` передаются в другой контекст, а все остальные значения **копируются** и **заморожены**. Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
 
-An example of a complex API object is shown below:
+Пример сложного объекта API показан ниже:
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -85,7 +85,7 @@ contextBridge.exposeInMainWorld(
 
 #### Параметр / Ошибка / Поддержка возвращаемого типа
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A table of type support has been included below for completeness:
+Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  Ниже для полноты изложения приводится таблица поддержки типов:
 
 | Тип                                                                                                            | Сложность | Поддержка параметров | Возврат значения поддержки | Ограничения                                                                                                                                                                                                                         |
 | -------------------------------------------------------------------------------------------------------------- | --------- | -------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
