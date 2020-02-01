@@ -121,13 +121,13 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Finaliza quando todas as janelas estiverem fechadas.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // No macOS é comum para aplicativos e sua barra de menu 
+  // permaneçam ativo até que o usuário explicitamente encerre com Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -142,7 +142,7 @@ app.on('activate', () => {
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. Você também pode colocar eles em arquivos separados e requeridos-as aqui.
 ```
 
 Finalmente, o `index.html` é a pagina da web que você quer mostrar:
