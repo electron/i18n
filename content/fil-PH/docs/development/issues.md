@@ -60,20 +60,20 @@ $ npm start || electron.
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Kung naniniwala ka na nakshanap ka ng isang bug sa Elektron, pakiusap punan mo ang form na ito sa abot ng iyong makakaya.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
+Ang dalawang pinakamahahalagang piraso ng impormasyon na kailangan upang masuri ang ulat ay isang paglalarawan ng bug at isang simpleng kaso ng pagsusuri upang muling likhain ito. It is easier to fix a bug if it can be reproduced.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Tingnan ang [Paano makagawa ng isang Minimal, Kumpleto, at Mapapatunayang halimbawa](https://stackoverflow.com/help/mcve).
 
 ## Pagta-triage ng isang Ulat ukol sa Bug
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Karaniwan ito para sa mga bukas na isyu upang makasali sa diskusyon. Ilan sa mga mag-aambag ay maaaring mayroong ibat-ibang mga opinyon, kabilang ang kung ang paggalaw ay isang bug o katangian. Ang talakayang ito ay bahagi ng proseso at dapat na napanatiling napagtuonan, nakakatulong, at propesyonal.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Ang mga Terse na kasagutan na nagbibigay ng wala sa karagdagang konteksto o ang pagsuporta sa mga detalye ay hindi kapaki-pakinabang o propesyonal. Sa nakararami, ang mga tugong ito ay nakakainis at hindi makaibigan.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. Sa paggawa nito, madalas naming maaabot ang tamang kinalalabasan sa mas mabilis na paraan.
 
 ## Paglulutas ng isang Ulat ukol sa Bug
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Karamihan sa mga isyu ay nalulutas sa pamamagitan ng pagbukas ng isang pull request. Ang proseso sa pagbukas at pagsusuri sa isang pull request ay kapareho ng pagbukas at pag-triage ng mga isyu, pero nagdadala ito ng mga kainakailangang pagsusuri at pag-apruba na workflow na nagtitiyak na ang ipinanukalang mga pagbabago ay tumutugon sa minimal na kalidad at umiiral na alintuntunin ng proyekto ng Electron.
