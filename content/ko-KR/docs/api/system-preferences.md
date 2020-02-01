@@ -334,7 +334,7 @@ Gets the macOS appearance setting that is currently applied to your application,
 
 Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
 
@@ -342,7 +342,7 @@ Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS* *Deprecated*
 
@@ -350,7 +350,7 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
@@ -358,7 +358,7 @@ Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 **NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
