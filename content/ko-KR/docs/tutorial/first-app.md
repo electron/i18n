@@ -115,34 +115,34 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 개발자 도구를 엽니다.
   win.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// 어떤 API는 이 이벤트가 나타난 이후에만 사용할 수 있습니다.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// 모든 창이 닫혔을 때 종료.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // macOS에서는 사용자가 명확하게 Cmd + Q를 누르기 전까지는
+  // 애플리케이션이나 메뉴 바가 활성화된 상태로 머물러 있는 것이 일반적입니다.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // macOS에서는 dock 아이콘이 클릭되고 다른 윈도우가 열려있지 않았다면
+  // 앱에서 새로운 창을 다시 여는 것이 일반적입니다.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. 별도의 파일에 추가할 수도 있으며 이 경우 require 구문이 필요합니다.
 ```
 
 마지막으로 `index.html`는 보여주고 싶은 웹 페이지에 해당합니다:
