@@ -93,7 +93,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
@@ -161,7 +161,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
     * `canceled` Boolean - whether or not the dialog was canceled.
     * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
     
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
@@ -246,8 +246,19 @@ No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 * Como o macOS fornece o seu próprio diálogo de confirmação o argumento `message` não é usado.
 * O argumento `browserWindow` é ignorado já que não é possível fazer essa confirmação um diálogo modal.
 
+## Bookmarks array
+
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
+
+| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
+| ---------- | ------------------------------- |:-----------:| ------------------------------ |
+| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
+| macOS mas  | False                           |     NA      | `[]` (empty array)             |
+| non mas    | any                             |     NA      | `[]` (empty array)             |
+
 ## Sheets
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a [`BrowserWindow`](browser-window.md) reference in the `browserWindow` parameter, or modals if no window is provided.
 
-Você pode chamar `BrowserWindow.getCurrentWindow().setSheetOffset (offset)`para mudar o offset da janela aonde os diálogos (sheets) estão acoplados.
+You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
