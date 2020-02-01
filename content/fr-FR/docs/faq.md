@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Ma fenêtre/icône de mon application a disparu au bout de quelques minutes.
+## My app's tray disappeared after a few minutes.
 
-Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est détruite par le ramasse-miettes.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Si vous rencontrez ce problème, les articles suivants peuvent s'avérer utiles :
 
