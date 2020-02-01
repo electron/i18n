@@ -62,20 +62,20 @@ When opening a new issue in the [`electron/electron` issue tracker](https://gith
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Если вы считаете, что обнаружили ошибку в Electron, пожалуйста, заполните эту форму в меру ваших возможностей.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It is easier to fix a bug if it can be reproduced.
+Двумя наиболее важными частями информации, необходимой для оценки отчета, являются описание ошибки и простой тестовый случай для его создания. Легче исправить ошибку, если она может быть воспроизведена.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Смотрите [Как создать минимальный, завершенный и проверяемый пример](https://stackoverflow.com/help/mcve).
 
 ## Прохождение сообщения об ошибке
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Чаще всего открытые вопросы могут включать в себя обсуждение. Некоторые участники могут иметь различные мнения, в том числе, является ли поведение ошибкой или функцией. Эта дискуссия является частью процесса и должна быть целенаправленной, полезной, и профессиональной.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Краткие ответы, которые не предоставляют ни дополнительного контекста, ни вспомогательных деталей не полезны или не профессиональны. Многих такие ответы раздражают и не дружественны.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Contributors are encouraged to solve issues collaboratively and help one another make progress. If you encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. При этом мы часто можем достичь правильного результата быстрее.
 
 ## Разрешение отчета об ошибке
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Большинство проблем решается путем открытия pull-запроса. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
