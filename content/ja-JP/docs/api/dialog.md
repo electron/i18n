@@ -93,7 +93,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
 * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列。この dialog がキャンセルされた場合、これは空の配列になります。
-* `bookmarks` String[] (任意)*macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
+* `bookmarks` String[] (任意) *macOS* *mas* - `filePaths` に対応している配列です。base64 エンコードされたセキュリティスコープ付きブックマーク文字列が格納されています。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -161,7 +161,7 @@ dialog.showOpenDialog(mainWindow, {
 
     * `canceled` - Boolean - dialog がキャンセルされたかそうでないか。
     * `filePath` String (任意) - このダイアログがキャンセルされた場合、これは `undefined` になります。
-    * `bookmark` String (任意) _macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するためには `securityScopedBookmarks` を有効にする必要があります。 (For return values, see [table here](#bookmarks-array).)
+    * `bookmark` String (任意) _macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するためには `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
     
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
@@ -245,16 +245,16 @@ Windowsでは、使用されているWin32 APIのため、オプションはよ�
 * OSが独自の確認ダイアログを提供しているため、`message` の引数は使用されません。
 * この確認ダイアログをモーダル表示にすることができないため、`browserWindow` の引数は無視されます。
 
-## Bookmarks array
+## ブックマーク配列
 
-`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
+`showOpenDialog`、`showOpenDialogSync`、`showSaveDialog`、 `showSaveDialogSync` は `bookmarks` と言う配列を返します。
 
-| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
-| ---------- | ------------------------------- |:-----------:| ------------------------------ |
-| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
-| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
-| macOS mas  | False                           |     NA      | `[]` (empty array)             |
-| non mas    | any                             |     NA      | `[]` (empty array)             |
+| ビルド種別     | securityScopedBookmarks 真偽値 |  戻り値の型  | 返り値                      |
+| --------- | --------------------------- |:-------:| ------------------------ |
+| macOS mas | True                        | Success | `['LONGBOOKMARKSTRING']` |
+| macOS mas | True                        |  Error  | `['']` (空文字列の配列)         |
+| macOS mas | False                       |   なし    | `[]` (空の配列)              |
+| non mas   | any                         |   なし    | `[]` (空の配列)              |
 
 ## シート
 
