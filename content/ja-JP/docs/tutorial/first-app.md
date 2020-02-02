@@ -112,7 +112,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // そしてこのアプリの index.html をロード
   win.loadFile('index.html')
 
   // 開発者ツールを開く
