@@ -28,11 +28,11 @@ window.electron.doThing()
 
 ### メインワールド
 
-The "Main World" is the JavaScript context that your main renderer code runs in. By default, the page you load in your renderer executes code in this world.
+"メインワールド" は、メインレンダラーコードが実行される JavaScript コンテキストです。 デフォルトでは、レンダラーでロードしたページはこのワールドでコードを実行します。
 
 ### 隔離ワールド
 
-When `contextIsolation` is enabled in your `webPreferences`, your `preload` scripts run in an "Isolated World".  You can read more about context isolation and what it affects in the [security](../tutorial/security.md#3-enable-context-isolation-for-remote-content) docs.
+`webPreferences` で `contextIsolation` が有効になっている場合、`preload` スクリプトは "隔離ワールド" で実行されます。  コンテキスト分離とその影響の詳細については、[BrowserWindow](../tutorial/security.md#3-enable-context-isolation-for-remote-content) のドキュメントを参照してください。
 
 ## メソッド
 
@@ -47,11 +47,11 @@ When `contextIsolation` is enabled in your `webPreferences`, your `preload` scri
 
 ### API オブジェクト
 
-The `api` object provided to [`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) must be an object whose keys are strings and values are a `Function`, `String`, `Number`, `Array`, `Boolean`, or another nested object that meets the same conditions.
+[`exposeInMainWorld`](#contextbridgeexposeinmainworldapikey-api-experimental) に指定する `api` オブジェクトは、キーが文字列で値が `Function`、`String`、`Number`、`Array`、`Boolean`、または同じ条件を満たすオブジェクトがネストされたものです。
 
-`Function` 値は他のコンテキストへプロキシされ、他のすべての値は **コピー** か **凍結** されます。 Any data / primitives sent in the API object become immutable and updates on either side of the bridge do not result in an update on the other side.
+`Function` 値は他のコンテキストへプロキシされ、他のすべての値は **コピー** か **凍結** されます。 API オブジェクトで送信されるデータ/プリミティブはイミュータブルであり、ブリッジの一方で更新しても、他方のものは更新されません。
 
-An example of a complex API object is shown below:
+複合的な API オブジェクトの例を以下に示します。
 
 ```javascript
 const { contextBridge } = require('electron')
@@ -85,20 +85,20 @@ contextBridge.exposeInMainWorld(
 
 #### 引数 / エラー / 戻り値型のサポート
 
-Because parameters, errors and return values are **copied** when they are sent over the bridge, there are only certain types that can be used. At a high level, if the type you want to use can be serialized and deserialized into the same object it will work.  A table of type support has been included below for completeness:
+引数、エラー、戻り値は、ブリッジを介して送信されるときに **コピー** されるため、使用できるのは特定の型のみです。 高水準なものは、使用したい型をシリアライズおよびデシリアライズして、同じように動作するオブジェクトにできます。  以下の型サポートの表に全てが載っています。
 
-| 種類                                                                                                   | 複雑さ | 引数サポート | 戻り値サポート | 制限事項                                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------- | --- | ------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `String`                                                                                             | 単純  | ✅      | ✅       | なし                                                                                                                                                  |
-| `Number`                                                                                             | 単純  | ✅      | ✅       | なし                                                                                                                                                  |
-| `Boolean`                                                                                            | 単純  | ✅      | ✅       | なし                                                                                                                                                  |
-| `Object`                                                                                             | 複雑  | ✅      | ✅       | Keys must be supported using only "Simple" types in this table.  値にはこの表のものをサポートしています。  プロトタイプの変更は削除されます。  カスタムクラスを送信すると、値はコピーされますが、プロトタイプはコピーされません。 |
-| `Array`                                                                                              | 複雑  | ✅      | ✅       | 制限は `Object` 型と同じです                                                                                                                                 |
-| `Error`                                                                                              | 複雑  | ✅      | ✅       | スローされるエラーもコピーされます。これにより、異なるコンテキストでスローされるためにエラーのメッセージとスタックトレースがわずかに変化する可能性があります。                                                                     |
-| `Promise`                                                                                            | 複雑  | ✅      | ✅       | Promises are only proxied if they are the return value or exact parameter.  Promises nested in arrays or objects will be dropped.                   |
-| `Function`                                                                                           | 複雑  | ✅      | ✅       | プロトタイプの変更は削除されます。  クラスまたはコンストラクターを送信しても動作しません。                                                                                                      |
-| [複製可能型](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 単純  | ✅      | ✅       | 複製可能型に関してはリンクのドキュメントを参照してください                                                                                                                       |
-| `Symbol`                                                                                             | なし  | ❌      | ❌       | Symbol はコンテキスト間でコピーできないため、削除されます                                                                                                                    |
+| 種類                                                                                                   | 複雑さ | 引数サポート | 戻り値サポート | 制限事項                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------- | --- | ------ | ------- | -------------------------------------------------------------------------------------------------------------------- |
+| `String`                                                                                             | 単純  | ✅      | ✅       | なし                                                                                                                   |
+| `Number`                                                                                             | 単純  | ✅      | ✅       | なし                                                                                                                   |
+| `Boolean`                                                                                            | 単純  | ✅      | ✅       | なし                                                                                                                   |
+| `Object`                                                                                             | 複雑  | ✅      | ✅       | キーにはこの表の "単純" な型のみの使用をサポートしています。  値にはこの表のものをサポートしています。  プロトタイプの変更は削除されます。  カスタムクラスを送信すると、値はコピーされますが、プロトタイプはコピーされません。 |
+| `Array`                                                                                              | 複雑  | ✅      | ✅       | 制限は `Object` 型と同じです                                                                                                  |
+| `Error`                                                                                              | 複雑  | ✅      | ✅       | スローされるエラーもコピーされます。これにより、異なるコンテキストでスローされるためにエラーのメッセージとスタックトレースがわずかに変化する可能性があります。                                      |
+| `Promise`                                                                                            | 複雑  | ✅      | ✅       | Promise は、戻り値や実引数である場合にのみプロキシされます。  配列やオブジェクトにネストされた Promise は削除されます。                                                |
+| `Function`                                                                                           | 複雑  | ✅      | ✅       | プロトタイプの変更は削除されます。  クラスまたはコンストラクターを送信しても動作しません。                                                                       |
+| [複製可能型](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) | 単純  | ✅      | ✅       | 複製可能型に関してはリンクのドキュメントを参照してください                                                                                        |
+| `Symbol`                                                                                             | なし  | ❌      | ❌       | Symbol はコンテキスト間でコピーできないため、削除されます                                                                                     |
 
 
-If the type you care about is not in the above table, it is probably not supported.
+関心のある型が上記の表にない場合、それはおそらくサポートされていません。
