@@ -4,9 +4,9 @@
 
 `npm install electron` を実行するとき、インストール時エラーが発生する場合があります。
 
-ほとんどの場合、これらのエラーはネットワークに起因し、`electron` のnpmパッケージに問題はないと考えられます。 `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` といったエラーが表示されている場合、それはネットワークに問題があることを示しています。 最善の解決策は、ネットワークの切り替えを試みるか、少し待ってからもう一度インストールを試みることです。
+ほとんどの場合、このエラーはネットワークによるもので、`electron` の npm パッケージに問題はありません。 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET`、`ETIMEDOUT` といったエラーは、ネットワーク上の問題を示しています。 最善の解決策は、ネットワークを切り替えるか、少し待ってからもう一度インストールしてることです。
 
-`npm` 経由でのインストールに失敗する場合、Electronを [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードするという方法もあります。
+`npm` でのインストールに失敗する場合、Electron を [electron/electron/releases](https://github.com/electron/electron/releases) から直接ダウンロードすることもできます。
 
 ## Electronはいつ最新版のChromeにアップグレードされるのですか？
 
@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## 数分経つとアプリの tray が消失します。
 
-This happens when the variable which is used to store the tray gets garbage collected.
+これは、tray を格納している変数がガベージコレクトされると発生します。
 
 この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
 
