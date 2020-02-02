@@ -119,8 +119,8 @@ function createWindow () {
   win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// このメソッドは、Electron が初期化処理と
+// browser window の作成準備が完了した時に呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.on('ready', createWindow)
 
@@ -141,12 +141,12 @@ app.on('activate', () => {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. 
+// このファイル内には、
+// 残りのアプリ固有のメインプロセスコードを含めることができます。 
 // 別々のファイルに分割してここで require することもできます。
 ```
 
-最後に、`index.html` が表示させたいウェブページです。
+最後に、以下の `index.html` が表示させたいウェブページです。
 
 ```html
 <!DOCTYPE html>
