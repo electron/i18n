@@ -10,7 +10,7 @@
 
 問題に対してコントリビュートする方法が3つあります：
 
-1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
+1. 議論のための issue を開く: 新たな Electron の不具合を見つけたと思ったら、[`electron/electron`の issue トラッカー](https://github.com/electron/electron/issues) に新しい issue を作って報告することを推奨します。
 2. 問題の選別を手伝う: あなたは補助的な詳細 (不具合を再現することのできるテストケース) を提供したり、この問題に対処するための提案を行うことによって、問題の選別を手伝うことができます。
 3. 問題の解決を手伝う: 問題はそれが不具合ではなかったり修正されていると示すことでも解決されますが、より多くは具体的かつレビュー可能な方法で`electron/electron`のソースコードに変更を加えるプルリクエストを送ることによって解決されます。
 
@@ -20,9 +20,9 @@
 
 ## バグレポートの送信
 
-To submit a bug report:
+バグレポートを送信するには:
 
-When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
+[`electron/electron` Issue トラッカー](https://github.com/electron/electron/issues/new/choose) 内で新しい Issue を開くとき、ユーザには記入するべきテンプレートが表示されます。
 
 ```markdown
 <!--
