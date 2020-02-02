@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Aplikasi saya jendela/nampan menghilang setelah beberapa menit.
+## My app's tray disappeared after a few minutes.
 
-Ini terjadi ketika variabel yang digunakan untuk menyimpan jendela/nampan mendapat sampah dikumpulkan.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Jika Anda mengalami masalah ini, artikel berikut mungkin bisa membantu:
 

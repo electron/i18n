@@ -45,7 +45,7 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Ma fenêtre/icône de mon application a disparu au bout de quelques minutes.
+## La fenêtre/icône de mon application a disparu au bout de quelques minutes.
 
 Cela se produit lorsque la variable qui sert à stocker la fenêtre/icône est détruite par le ramasse-miettes.
 

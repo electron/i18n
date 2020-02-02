@@ -102,13 +102,9 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// ウインドウオブジェクトのグローバル参照を保持してください。さもないと、そのウインドウは
-// JavaScript オブジェクトがガベージコレクションを行った時に自動的に閉じられます。
-let win
-
 function createWindow () {
-  // browser window を生成する
-  win = new BrowserWindow({
+  // ブラウザウインドウを作成
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -121,19 +117,10 @@ function createWindow () {
 
   // 開発者ツールを開く
   win.webContents.openDevTools()
-
-  // ウィンドウが閉じられた時に発火
-  win.on('closed', () => {
-    // ウインドウオブジェクトの参照を外す。
-    // 通常、マルチウインドウをサポートするときは、
-    // 配列にウインドウを格納する。
-    // ここは該当する要素を削除するタイミング。
-    win = null
-  })
 }
 
-// このイベントは、Electronが初期化処理と
-// browser windowの作成を完了した時に呼び出されます。
+// このメソッドは、Electron が初期化処理と
+// browser window の作成準備が完了した時に呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.on('ready', createWindow)
 
@@ -149,7 +136,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // macOSでは、ユーザがドックアイコンをクリックしたとき、
   // そのアプリのウインドウが無かったら再作成するのが一般的です。
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
@@ -159,7 +146,7 @@ app.on('activate', () => {
 // 別々のファイルに分割してここで require することもできます。
 ```
 
-最後に、`index.html` が表示させたいウェブページです。
+最後に、以下の `index.html` が表示させたいウェブページです。
 
 ```html
 <!DOCTYPE html>

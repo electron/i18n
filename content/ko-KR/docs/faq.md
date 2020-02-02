@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## 내 앱의 윈도우/트레이가 몇 분 후에 사라집니다.
+## My app's tray disappeared after a few minutes.
 
-이 현상은 윈도우/트레이를 저장하기 위해 사용 된 변수가 쓰레기로 수집되었을 때 발생합니다.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 이 문제가 발생했다면, 다음 글이 도움이 될 것 입니다:
 

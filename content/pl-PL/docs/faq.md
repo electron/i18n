@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Okno/pole mojej aplikacji zniknęło po kilku minutach.
+## My app's tray disappeared after a few minutes.
 
-Ma to miejsce w przypadku, gdy zmienna używana do przechowywania okna/pola jest poddawana automatycznej dealokacji.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 

@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Janela/bandeja do meu app desapareceu depois de alguns minutos.
+## My app's tray disappeared after a few minutes.
 
-Isto acontece quando a variável que é usada para armazenar a janela/bandeja é apagada pelo coletor de lixo.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Se você encontrar esse problema, esses artigos podem ser úteis:
 

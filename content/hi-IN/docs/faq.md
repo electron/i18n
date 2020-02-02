@@ -47,9 +47,9 @@ console.log(require('electron').remote.getGlobal('sharedObject').
 someProperty)
 ```
 
-## मेरी एप्प की विंडो/ट्रे कुछ मिनटों बाद गायब हो गयी |
+## My app's tray disappeared after a few minutes.
 
-ऐसा तब होता है जब विंडोज/ट्रे को स्टोर करने में इस्तेमाल होने वाला वेरिएबल, गार्बेज द्वारा एकत्र कर लिया जाता है |
+This happens when the variable which is used to store the tray gets garbage collected.
 
 अगर आपको इस समस्या का सामना करना पड़ें, तो नीचे दिए गये लेख आपके लिए मददगार साबित होंगे:
 

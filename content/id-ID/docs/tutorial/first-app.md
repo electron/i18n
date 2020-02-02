@@ -102,13 +102,9 @@ The `main.js` should create windows and handle all the system events your applic
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win
-
 function createWindow () {
-  // Membuat jendela browser.
-  win = new BrowserWindow({
+  // Create the browser window.
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -121,18 +117,10 @@ function createWindow () {
 
   // Open the DevTools.
   win.webContents.openDevTools()
-
-  // Emitted saat jendela tertutup.
-  win.on('closed', () => {
-    // Dereference objek jendela, biasanya anda akan menyimpan jendela
-    // dalam array jika aplikasi Anda mendukung multi jendela, inilah waktunya
-    // kapan kamu harus menghapus elemen yang sesuai.
-    win = null
-  })
 }
 
-// Metode ini akan dipanggil saat Elektron selesai
-/ / mengisialisasi dan siap untuk membuat jendela browser.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 // Beberapa API hanya dapat digunakan setelah event ini terjadi.
 app.on('ready', createWindow)
 
@@ -148,13 +136,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // Di macOS biasanya digunakan untuk membuat ulang jendela pada aplikasi ketika 
   // dock icon di klik dan tidak ada jendela lain disana.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// Di file ini anda dapat menambahkan semua kode spesifik main process pada
-// aplikasi. Anda juga dapat menempatkan dalam berkas terpisah dan menambahkannya di sini.
+// In this file you can include the rest of your app's specific main process
+// code. Anda juga dapat menempatkan dalam berkas terpisah dan menambahkannya di sini.
 ```
 
 Akhirnya `index.html` adalah halaman web yang ingin Anda Tampilkan:

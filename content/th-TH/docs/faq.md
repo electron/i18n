@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## หน้าต่าง / ถาดแอปของฉันหายไปหลังจากไม่กี่นาที
+## My app's tray disappeared after a few minutes.
 
-สิ่งนี้เกิดขึ้นเมื่อตัวแปรที่ใช้จัดเก็บหน้าต่าง / ถาดได้รับ เก็บขยะ
+This happens when the variable which is used to store the tray gets garbage collected.
 
 หากคุณพบปัญหานี้บทความต่อไปนี้อาจพิสูจน์ได้ว่ามีประโยชน์:
 

@@ -10,7 +10,7 @@
 
 Для любого вопроса есть три основных способа, которыми человек может сделать вклад:
 
-1. Открывая вопрос для обсуждения: Если вы считаете, что вы нашли новую ошибку в Electron, вы должны сообщить об этом, создав новую проблему в `electron/electron` трекере.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Помогите воспроизвести проблему: Вы можете сделать это либо предоставив вспомогательную информацию (воспроизводимый тестовый случай, который демонстрирует ошибку), либо предложив решить проблему.
 3. Помогая решить проблему: это можно сделать, продемонстрировав что проблема не является ошибкой или исправлена; но чаще, открыв запрос на слияние, который изменяет исходник в `electron/electron` в конкретный и рецензируемый способ.
 
@@ -20,7 +20,9 @@
 
 ## Отправить отчет об ошибке
 
-При открытии новой проблемы в `electron/electron` трекере пользователям будет представлен шаблон, который должен быть заполнен.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--

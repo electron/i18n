@@ -45,9 +45,9 @@ richiede('elettronica').remote.getGlobal('sharedObject').someProperty = 'nuovo v
 console.log(richiede('Electrn').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## La finestra e icon tray della mia app scompare dopo pochi minuti.
+## My app's tray disappeared after a few minutes.
 
-Questo accade quando la variabile utilizzata per memorizzare la finestra/tray icon è deallocata dal garbage collector.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Se riscontri questo problema, i seguenti articoli potrebbero rivelarsi utili:
 

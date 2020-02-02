@@ -102,13 +102,9 @@ El fichero `main.js` debería crear las ventanas y manejar todos los eventos del
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Mantén una referencia global del objeto window, si no lo haces, la ventana 
-// se cerrará automáticamente cuando el objeto JavaScript sea eliminado por el recolector de basura.
-let win
-
 function createWindow () {
   // Crea la ventana del navegador.
-  win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,23 +112,15 @@ function createWindow () {
     }
   })
 
-  // y carga el index.html de la aplicación.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Abre las herramientas de desarrollo (DevTools).
   win.webContents.openDevTools()
-
-  // Emitido cuando la ventana es cerrada.
-  win.on('closed', () => {
-    // Elimina la referencia al objeto window, normalmente  guardarías las ventanas
-    // en un vector si tu aplicación soporta múltiples ventanas, este es el momento
-    // en el que deberías borrar el elemento correspondiente.
-    win = null
-  })
 }
 
-// Este método será llamado cuando Electron haya terminado
-// la inicialización y esté listo para crear ventanas del navegador.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 // Algunas APIs pueden usarse sólo después de que este evento ocurra.
 app.on('ready', createWindow)
 
@@ -148,13 +136,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // En macOS es común volver a crear una ventana en la aplicación cuando el
   // icono del dock es clicado y no hay otras ventanas abiertas.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// En este archivo puedes incluir el resto del código del proceso principal de
-// tu aplicación. También puedes ponerlos en archivos separados y requerirlos aquí.
+// In this file you can include the rest of your app's specific main process
+// code. También puedes ponerlos en archivos separados y requerirlos aquí.
 ```
 
 Finalmente el archivo `index.html` es la página web que quieres mostrar:

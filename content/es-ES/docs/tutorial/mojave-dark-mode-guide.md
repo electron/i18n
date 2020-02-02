@@ -1,8 +1,8 @@
 # Modo oscuro Mojave
 
-En macOS 10.14 Mojave, Apple introdujo un nuevo modo oscuro [para todo el sistema](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) en sus ordenadores macOS. Si tu aplicación tiene un modo oscuro, puedes hacer que tu aplicación Electron siga la configuración de modo oscuro del sistema.
+En macOS 10.14 Mojave, Apple introdujo un nuevo modo oscuro [para todo el sistema](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) en sus ordenadores macOS. If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting using [the nativeTheme api](../api/native-theme.md).
 
-En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "automático" para todas las computadoras macOS. Para que las APIs `siDarkMode` y `Tray` trabajen correctamente en este modo, en Catalina necesitas tener `NSRequiresAquaSystemAppearance` en `false` en tu archivo `Info.plist` o en Electron `>=7.0.0`.
+En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "automático" para todas las computadoras macOS. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina you need to either have `NSRequiresAquaSystemAppearance` set to `false` in your `Info.plist` file or be on Electron `>=7.0.0`.
 
 ## Actualizando automáticamente las interfaces nativas
 
@@ -10,15 +10,12 @@ En macOS 10.15 Catalina, Apple introdujo una nueva opción de modo oscuro "autom
 
 ## Actualizando automáticamente tus propias interfaces
 
-Si tu aplicación tiene su propio modo oscuro deberías activarlo y deshabilitar la sincronización con la configuración de modo oscuro del sistema. Puede hacer esto escuchando por el evento theme changed en el `systemPreferences` del modulo de Electron. Por ejemplo.
+Si tu aplicación tiene su propio modo oscuro deberías activarlo y deshabilitar la sincronización con la configuración de modo oscuro del sistema. You can do this by listening for the theme updated event on Electron's `nativeTheme` module. Por ejemplo.
 
 ```js
 const { nativeTheme } = require('electron')
 
-systemPreferences.subscribeNotification(
-  'AppleInterfaceThemeChangedNotification',
-  function theThemeHasChanged () {
-    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
-  }
-)
+nativeTheme.on('updated', function theThemeHasChanged () {
+  updateMyAppTheme(nativeTheme.shouldUseDarkColors)
+})
 ```
