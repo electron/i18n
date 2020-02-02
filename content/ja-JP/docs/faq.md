@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Electron の Node.js 組み込みの影響で、`module`、`exports`、`require` のような余分なシンボルが DOM に追加されています。 このため、いくつかのライブラリでは同名のシンボルを追加しようとして問題が発生することがあります。
 
-これを解決するために、Electronなnode integrationを無効にすることができます。
+これを解決するために、Electron の node integration を無効にできます。
 
 ```javascript
 // メインプロセス内
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-しかし、Node.jsとElectron APIを使用した機能を維持したい場合は、ほかのライブラリを読み込む前に、ページのシンボルをリネームする必要があります。
+それでも Node.js と Electron API を使用した機能を維持したい場合は、他ライブラリを読み込む前に、ページ内のそのシンボル名を変更する必要があります。
 
 ```html
 <head>
@@ -106,37 +106,37 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx`が定義されていません。
+## `require('electron').xxx` が未定義です。
 
-Electronの組み込みモジュールを使うとに、次のようなエラーに遭遇するかもしれません。
+Electron の組み込みモジュールを使うと、以下のエラーに遭遇するかもしれません。
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-これは、ローカルまたはグローバルのどちらかで[npm `electron` module](https://www.npmjs.com/package/electron)をインストールしたことが原因で、Electronの組み込みモジュールを上書きしてしまいます。
+これはローカルかグローバルのどちらかで [npm `electron` module](https://www.npmjs.com/package/electron) をインストールしたからです。Electron の組み込みモジュールが上書きされます。
 
-正しい組み込みモジュールを使用しているかを確認するために、`electron`モジュールのパスを出力します。
+正しい組み込みモジュールを使用しているか確認するために、`electron` モジュールのパスを出力しましょう。
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-そして、次のような形式になっているかどうかを確認します。
+そして、これが以下のような形式になっているか確認してください。
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-もし `node_modules/electron/index.js`という形式になっていれば、npmの `electron`モジュールを取り除くか、これをリネームする必要があります。
+もし `node_modules/electron/index.js` という形式になっていれば、npm の `electron`モジュールを取り除くか、名前を変更する必要があります。
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-しかし、組み込みモジュールを使用しているのに、まだこのエラーが出る場合、不適切なプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。
+組み込みモジュールを使用していてもまだこのエラーが出る場合、異なるプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、`electron.app` はメインプロセスのみ、`electron.webFrame` はレンダラープロセスのみで利用できます。
 
 ## フォントがぼやけます。これはどういうものでどうすればいいのですか?
 
