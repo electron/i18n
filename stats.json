@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "11879",
-    "translated": "5706",
+    "translated": "5713",
     "approved": "1494",
     "words": "112306",
-    "words_translated": "48155",
+    "words_translated": "48267",
     "words_approved": "10158",
     "translated_progress": 42,
     "approved_progress": 9,
-    "qa_issues": 2156
+    "qa_issues": 2162
   },
   {
     "name": "Persian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "11879",
-    "translated": "10483",
+    "translated": "10488",
     "approved": "3290",
     "words": "112306",
-    "words_translated": "96077",
+    "words_translated": "96119",
     "words_approved": "28482",
     "translated_progress": 85,
     "approved_progress": 25,
-    "qa_issues": 2990
+    "qa_issues": 2994
   },
   {
     "name": "Tagalog",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "11879",
-    "translated": "2225",
+    "translated": "2228",
     "approved": "526",
     "words": "112306",
-    "words_translated": "10083",
+    "words_translated": "10112",
     "words_approved": "1184",
-    "translated_progress": 8,
+    "translated_progress": 9,
     "approved_progress": 1,
-    "qa_issues": 525
+    "qa_issues": 526
   }
 ]
