@@ -1,6 +1,6 @@
 # Cập nhật ứng dụng
 
-Có vài cách khác nhau để cập nhật một ứng dụng chạy bằng Electron. Cách đơn giản và được hỗ trợ chính thức nhất là sử dụng framework [Squirrel](https://github.com/Squirrel) và module [autoUpdater](../api/auto-updater.md) trong Electron.
+Có vài cách khác nhau để cập nhật một ứng dụng chạy bằng Electron. Cách đơn giản nhất và được hỗ trợ chính thức là sử dụng framework [Squirrel](https://github.com/Squirrel) và module [autoUpdater](../api/auto-updater.md) trong Electron.
 
 ## Sử dụng `update.electronjs.org`
 
