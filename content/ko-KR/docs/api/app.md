@@ -983,11 +983,11 @@ Show the app's about panel options. These options can be overridden with `app.se
 
 Set the about panel options. 이는 맥OS에서 앱의 `.plist`에 정의된 값을 덮어쓸 것입니다. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
-만약 `credits`을 설정하지 않았지만 계속해서 앱에 표시하려면 AppKit은 "Credits.html", "Credits.rtf", "Credits.rtfd"의 순서로 NSBundle클래스의 main 메소드에서 리턴된 번들에서 이를 찾는다. 첫번째 파일을 사용하고 만약 없다면 정보 영역을 비어있게 된다. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
+만약 `credits`을 설정하지 않았지만 계속해서 앱에 표시하려면 AppKit은 "Credits.html", "Credits.rtf", "Credits.rtfd"의 순서로 NSBundle클래스의 main 메소드에서 리턴된 번들에서 이를 찾는다. 첫번째 파일을 사용하고 만약 없다면 정보 영역을 비어있게 된다. 더 많은 정보는 애플의 [문서](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc)를 확인하세요.
 
 ### `app.isEmojiPanelSupported()`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+반환 `Boolean` - 현재 OS 버전에서 기본 이모티콘 선택기를 사용할 수 있는지 여부
 
 ### `app.showEmojiPanel()` *macOS* *Windows*
 
