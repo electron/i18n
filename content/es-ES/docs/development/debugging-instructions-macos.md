@@ -8,20 +8,20 @@ Si tiene accidentes o problemas en Electron que usted crea que no son causados p
 
 * **Código X**: adicional al código X, también instala las herramientas del comando de linea de este. Estos incluye LLDB, el depurador por defecto en el código X para Mac OS X. Este soporta depuración en C, C objetivo y C++ en el escritorio y en dispositivos iOS y sus simuladores.
 
-* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+* **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
     
     ```text
-    command script import ~/electron/src/tools/lldb/lldbinit.py
+    importar script ~/electron/src/tools/lldb/lldbinit.py
     ```
 
 ## A y depuración Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasando al constructo de depuración de Electron como un parámetro.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
 (lldb) target create "./out/Testing/Electron.app"
-Current executable set to './out/Testing/Electron.app' (x86_64).
+Ejecutable actual establecido en './out/Testing/Electron.app' (x86_64).
 ```
 
 ### Establecer puntos de interrupción
