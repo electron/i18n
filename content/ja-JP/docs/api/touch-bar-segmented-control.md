@@ -8,9 +8,9 @@
 
 * `options` Object 
   * `segmentStyle` String (任意) - セグメントのスタイル。 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
-    * `rounded` - The control is displayed using the rounded style. Maps to `NSSegmentStyleRounded`.
-    * `textured-rounded` - The control is displayed using the textured rounded style. Maps to `NSSegmentStyleTexturedRounded`.
+    * `automatic` - デフォルト。 セグメントコントロールの見た目は、コントロールを表示しているウインドウタイプとウインドウ内の位置に基づいて自動決定されます。 `NSSegmentStyleAutomatic` に対応します。
+    * `rounded` - コントロールを丸角スタイルで表示します。`NSSegmentStyleRounded` に対応します。
+    * `textured-rounded` - コントロールをテクスチャ付きの丸角スタイルで表示します。`NSSegmentStyleTexturedRounded` に対応します。
     * `round-rect` - The control is displayed using the round rect style. Maps to `NSSegmentStyleRoundRect`.
     * `textured-square` - The control is displayed using the textured square style. Maps to `NSSegmentStyleTexturedSquare`.
     * `capsule` - The control is displayed using the capsule style. Maps to `NSSegmentStyleCapsule`.
