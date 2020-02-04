@@ -547,7 +547,7 @@ const alpha = color.substr(6, 2) // "dd"
                   <li>
                     On <strong>macOS</strong> <ul>
                       <li>
-                        <code>alternate-selected-control-text</code> - The text on a selected surface in a list or table.
+                        <code>alternate-selected-control-text</code> - The text on a selected surface in a list or table. <em>deprecated</em>
                       </li>
                       <li>
                         <code>control-background</code> - The background of a large interface element, such as a browser or table.
@@ -604,7 +604,7 @@ const alpha = color.substr(6, 2) // "dd"
                         <code>selected-control-text</code> - The text of a selected control.
                       </li>
                       <li>
-                        <code>selected-menu-item</code> - The text of a selected menu.
+                        <code>selected-menu-item-text</code> - The text of a selected menu.
                       </li>
                       <li>
                         <code>selected-text-background</code> - The background of selected text.
@@ -653,6 +653,10 @@ const alpha = color.substr(6, 2) // "dd"
             
             <p>
               Mengembalikan <code>Senar</code> - Pengaturan warna sistem dalam bentuk heksadesimal RGB (<code>#ABCDEF</code>). See the <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx">Windows docs</a> and the <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors">MacOS docs</a> for more details.
+            </p>
+            
+            <p>
+              The following colors are only available on macOS 10.14: <code>find-highlight</code>, <code>selected-content-background</code>, <code>separator</code>, <code>unemphasized-selected-content-background</code>, <code>unemphasized-selected-text-background</code>, and <code>unemphasized-selected-text</code>.
             </p>
             
             <h3>
@@ -846,7 +850,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
             
             <ul>
               <li>
-                <code>mediaType</code> String - <code>microphone</code> or <code>camera</code>.
+                <code>mediaType</code> String - Can be <code>microphone</code>, <code>camera</code> or <code>screen</code>.
               </li>
             </ul>
             
@@ -855,7 +859,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
             </p>
             
             <p>
-              This user consent was not required until macOS 10.14 Mojave, so this method will always return <code>granted</code> if your system is running 10.13 High Sierra or lower.
+              This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return <code>granted</code>. macOS 10.14 Mojave or higher requires consent for <code>microphone</code> and <code>camera</code> access. macOS 10.15 Catalina or higher requires consent for <code>screen</code> access.
             </p>
             
             <h3>
