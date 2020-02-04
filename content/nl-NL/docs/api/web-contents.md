@@ -939,7 +939,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimenteel*
 
 * `ignore` Boolean
 
