@@ -12,10 +12,10 @@
     * `selectedIndex` Integer - Kullanıcının seçtiği öğenin dizini.
   * `vurgulamak` Function (optional) - Called when the user taps any item. 
     * `highlightedIndex` Integer - Kullanıcının dokunduğu maddenin endeksi.
-  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Defaults to `free`.
+  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Örnek Özellikler
@@ -32,7 +32,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 * `background` - Haritaları `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Haritaları `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Aslında boş bir dize değil, tüm stilleri kaldırır.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Sepet içindeki seçili öğelerin stilini temsil eden bir `String` olmalıdır.
 
 * `background` - Haritaları `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Haritaları `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Aslında boş bir dize değil, tüm stilleri kaldırır.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
 
