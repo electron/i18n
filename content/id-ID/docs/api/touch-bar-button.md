@@ -8,23 +8,30 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `pilihan` Benda 
   * `label` String (opsional) - Teks tombol.
-  * `backgroundColor` String (opsional) - Tombol warna latar dalam format hex, i.e `#ABCDEF`.
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
+  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition`String (opsional) - Bisa jadi `left`,` right`atau`overlay`.
-  * `klik`Fungsi (opsional) - Fungsi untuk memanggil saat tombol diklik.
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
+  * `click` Function (optional) - Function to call when the button is clicked.
+
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh `TouchBarButton`:
+The following properties are available on instances of `TouchBarButton`:
+
+#### `touchBarButton.accessibilityLabel`
+
+A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
 
 #### `touchBarButton.label`
 
-A `String` mewakili teks tombol saat ini. Mengubah nilai ini segera memperbarui tombolnya di bilah sentuh.
+A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.backgroundColor`
 
-Kode `String` hex mewakili warna latar belakang tombol saat ini. Mengubah nilai ini segera diperbarui tombol di panel sentuh.
+A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` mewakili ikon tombol saat ini. Mengubah nilai ini segera memperbarui tombolnya di bilah sentuh.
+A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
