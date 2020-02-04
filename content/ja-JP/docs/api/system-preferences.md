@@ -261,7 +261,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * On **macOS** 
-    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. *deprecated*
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。
@@ -280,7 +280,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `selected-content-background` - キーウィンドウまたはビューで選択したコンテンツの背景。
     * `selected-control` - 選択したコントロールの表面
     * `selected-control-text` - 選択したコントロールのテキスト。
-    * `selected-menu-item` - 選択されたメニューのテキスト
+    * `selected-menu-item-text` - The text of a selected menu.
     * `selected-text-background` - 選択したテキストの背景
     * `selected-text` - 選択したテキスト
     * `separator` - コンテンツのさまざまなセクション間の区切り文字。
@@ -297,6 +297,8 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
+The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
+
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
 * `color` String - 以下の値の一つ。 
@@ -310,37 +312,37 @@ const alpha = color.substr(6, 2) // "dd"
   * `red`
   * `yellow`
 
-戻り値 `String` - `#RRGGBBAA` の形式の標準システムカラー。
+Returns `String` - The standard system color formatted as `#RRGGBBAA`.
 
-「コントラストを上げる」や「透明度を下げる」など、鮮やかさやアクセシビリティ設定の変更に自動的に適応する標準のシステムカラーの1つを返します。 詳しくは、[Apple のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)をご覧ください。
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows* *非推奨*
 
-戻り値 `Boolean` - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) がアクティブの場合は `true`、それ以外の場合は `false` です。
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
 
-**非推奨:** 新しく [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API を使用する必要があります。
+**Deprecated:** Should use the new [`nativeTheme.shouldUseInvertedColorScheme`](native-theme.md#nativethemeshoulduseinvertedcolorscheme-macos-windows-readonly) API.
 
 ### `systemPreferences.isHighContrastColorScheme()` *macOS* *Windows* *非推奨*
 
-戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
-**非推奨:** 新しく [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API を使用する必要があります。
+**Depreacted:** Should use the new [`nativeTheme.shouldUseHighContrastColors`](native-theme.md#nativethemeshouldusehighcontrastcolors-macos-windows-readonly) API.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-戻り値 `String` - `dark`、`light` か `unknown` になります。
+Returns `String` - Can be `dark`, `light` or `unknown`.
 
-[NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を取得します。
+Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
+Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
 
 **[非推奨](modernization/property-updates.md)**
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS* *非推奨*
 
-戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
+Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
-[NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) に割り当てられている、アプリケーションに必要であることを宣言した macOS の外観設定を取得します。 この値を設定するには `setAppLevelAppearance` API が使用できます。
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -348,15 +350,15 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 * `appearance` String | null - `dark` か `light` にできます
 
-アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
+Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
 **[非推奨](modernization/property-updates.md)**
 
 ### `systemPreferences.canPromptTouchID()` *macOS*
 
-戻り値 `Boolean` - このデバイスが Touch ID を使用できるかどうか。
+Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
-**注意:** この API は Sierra 10.12.2 より古い macOS システムでは `false` を返します。
+**NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -364,7 +366,7 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 * `reason` String - あなたが Touch ID 認証を求める理由
 
-戻り値 `Promise<void>` - ユーザが Touch ID で正常に認証された場合に実行されます。
+Returns `Promise<void>` - resolves if the user has successfully authenticated with Touch ID.
 
 ```javascript
 const { systemPreferences } = require('electron')
@@ -376,33 +378,33 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 })
 ```
 
-この API 自体はあなたのユーザーデータを保護しません。むしろ、あなたがそうしてもよいようにするメカニズムです。 ネイティブアプリでは、キーチェーンエントリに [アクセスコントロール定数](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) を、[`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) のように設定する必要があります。これを読み取ると、Touch ID の生体認証に自動的に同意するようになります。 これは `node-keytar` で暗号化キーを保存し、`promptTouchID()` の場合にのみそれを取得するように、[`node-keytar`](https://github.com/atom/node-keytar) を使用して実行されます。
+This API itself will not protect your user data; rather, it is a mechanism to allow you to do so. Native apps will need to set [Access Control Constants](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags?language=objc) like [`kSecAccessControlUserPresence`](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/ksecaccesscontroluserpresence?language=objc) on the their keychain entry so that reading it would auto-prompt for Touch ID biometric consent. This could be done with [`node-keytar`](https://github.com/atom/node-keytar), such that one would store an encryption key with `node-keytar` and only fetch it if `promptTouchID()` resolves.
 
-**注意:** この API は Sierra 10.12.2 より古い macOS システムでは拒否された Promise になります。
+**NOTE:** This API will return a rejected Promise on macOS systems older than Sierra 10.12.2.
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
 * `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
 
-戻り値 `Boolean` -現在のプロセスが信頼されたアクセシビリティクライアントである場合 `true` で、そうでない場合は `false` です。
+Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` か `camera`。
+* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
-戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
+Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
-このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `granted` を返します。
+This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
 * `mediaType` String - 要求されるメディアのタイプで、`microphone`、`camera` にできます。
 
-戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更*しなければなりません*。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
+Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
 
-このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
 
 ### `systemPreferences.getAnimationSettings()`
 
@@ -412,22 +414,22 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 * `scrollAnimationsEnabledBySystem` Boolean - スクロールアニメーション (例えばホームキーやエンドキーで生成されるもの) を有効にするかどうかがプラットフォームごとに決定されます。
 * `prefersReducedMotion` Boolean - ユーザーがプラットフォーム API に基づいてモーションの削減を望むかどうかが決定されます。
 
-システムアニメーション設定を持つオブジェクトを返します。
+Returns an object with system animation settings.
 
 ## プロパティ
 
 ### `systemPreferences.appLevelAppearance` *macOS*
 
-`String` 型のプロパティです。`dark`、`light` か `unknown` にできます。 アプリケーションの macOS 外観設定を決定します。 これは [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) の値に対応します。 これを設定すると、システムのデフォルトと `getEffectiveAppearance` の値が上書きされます。
+A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
-設定可能な値は `dark` か `light` です。戻り値に取りうる値は `dark`、`light`、および `unknown`。
+Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
 
-このプロパティは macOS 10.14 Mojave 以降でのみ利用可能です。
+This property is only available on macOS 10.14 Mojave or newer.
 
 ### `systemPreferences.effectiveAppearance` *macOS* *読み出し専用*
 
-`String` 型のプロパティです。`dark`、`light` か `unknown` にできます。
+A `String` property that can be `dark`, `light` or `unknown`.
 
-[NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を返します。
+Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
+Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
