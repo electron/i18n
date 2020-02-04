@@ -49,7 +49,9 @@
 * `channel` String
 * `...args` any[]
 
-`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
@@ -60,7 +62,9 @@
 
 戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-`channel` を介して非同期でメインプロセスにメッセージを送信し、非同期の結果を待ちます。 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 メインプロセスは、[`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener) で `channel` をリッスンする必要があります。
 
@@ -86,11 +90,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-`channel` を介して同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 メインプロセスは [`ipcMain`](ipc-main.md) オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
 
-**注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
@@ -98,15 +104,15 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 * `channel` String
 * `...args` any[]
 
-`channel` を介して `webContentsId` のウインドウにメッセージを送ります。
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-`ipcRenderer.send` に似ていますが、イベントはメインプロセスの代わりにホストページの `<webview>` に送信されます。
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
 
 ## イベントオブジェクト
 
-`callback` に渡された `event` オブジェクトに関するドキュメントは、[`ipc-renderer-event`](structures/ipc-renderer-event.md) 構造体ドキュメントにあります。
+The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
