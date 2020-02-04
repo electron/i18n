@@ -1,6 +1,6 @@
 # 애플리케이션 배포
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Electron으로 만든 앱을 배포하려면 패키지와 리브랜딩이 필요합니다. 가장 쉬운 방법은 다음의 써드파티 패키징 툴을 사용하는 것입니다.
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -8,9 +8,9 @@ To distribute your app with Electron, you need to package and rebrand it. The ea
 
 These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
 
-## Manual distribution
+## 수동 배포
 
-You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+앱 배포를 수동으로 준비하도록 선택할 수도 있습니다. 이를 수행하는 데 필요한 단계는 다음과 같습니다.
 
 Electron으로 만든 우리의 앱을 배포하기 위해서는, Electron의 [prebuilt binaries](https://github.com/electron/electron/releases)를 다운로드 해야 합니다. 먼저, 예제에서 보이는것처럼 폴더 이름을 `app`로 지정한 후 Electron의 리소스 디렉터리에 폴더를 통째로 집어넣기만 하면 됩니다. 아래의 예제에서는 `electron/` 에서 가리키는 Electron's prebuilt binaries 위치를 언급해줍니다.
 
