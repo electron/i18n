@@ -363,17 +363,17 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `参数` Object - 过滤器对象，包含过滤参数 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
+* `options` Object 
+  * `path` String - 下载的绝对路径.
+  * `urlChain` String[] - 完整的 url 下载地址.
+  * `mimeType` String (可选)
+  * `offset` Integer - 下载的开始范围.
+  * `length` Integer - 下载的总长度。
   * `lastModified` String (optional) - Last-Modified header value.
   * `eTag` String (optional) - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
 
 #### `ses.clearAuthCache(options)`
 
@@ -383,13 +383,13 @@ Returns `Promise<void>` - resolves when the session’s HTTP authentication cach
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - 数组，该数组由所有需要进行预加载的脚本的绝对路径组成。
 
 Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+返回 `String[]` 返回一个数组，这个数组由已经注册过的预加载脚本的路径组成。
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
@@ -423,9 +423,9 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 ### 实例属性
 
-The following properties are available on instances of `Session`:
+以下属性在` Session </ 0>实例上可用：</p>
 
-#### `ses.availableSpellCheckerLanguages` *Readonly*
+<h4><code>ses.availableSpellCheckerLanguages` *Readonly*</h4> 
 
 A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
