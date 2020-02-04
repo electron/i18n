@@ -36,11 +36,11 @@ Returns ` Boolean `-当前系统是否支持桌面通知
   * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
   * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 * macOS *
   * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * ` replyPlaceholder `String (可选) 答复输入框中的占位符。* macOS *
+  * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
   * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (可选) *macOS* - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
+  * `closeButtonText` String (可选) *macOS* - 自定义的警告框关闭按钮文字。如果该字符串为空，那么将使用本地化的默认文本。
 
 ### 实例事件
 
@@ -156,11 +156,11 @@ A [`NotificationAction[]`](structures/notification-action.md) property represent
 
 ### 播放声音
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+有关详细信息, 请参见 [` NSSound `](https://developer.apple.com/documentation/appkit/nssound) 文档。
