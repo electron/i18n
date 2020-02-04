@@ -550,7 +550,7 @@ webview.addEventListener('dom-ready', () => {
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**Deprecated:** This API is no longer supported by Chromium.
+**非推奨:** この API は Chromium がサポートしなくなりました。
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
