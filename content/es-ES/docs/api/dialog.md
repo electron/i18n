@@ -39,6 +39,7 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `promptToCreate` *Windows* - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
     * `noResolveAliases`*macOS*-Desactiva la resolución rutas de alias automático (symlink). Los alias seleccionados devolverán las rutas de los alias en vez de su ruta objetivo.
     * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - Aviso para la creación si la ruta de fichero insertado en el diálogo no existe. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación.
     * `noResolveAliases`*macOS*-Desactiva la resolución rutas de alias automático (symlink). Los alias seleccionados devolverán las rutas de los alias en vez de su ruta objetivo.
     * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -136,6 +138,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) *macOS* - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
+  * `propiedades` String[] (optional) 
+    * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
+    * `createDirectory` *macOS*- Permite crear nuevos directorios a partir del diálogo.
+    * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
 Devuelve `String | undefined`, la ruta del archivo elegido por el usuario; si el cuadro de dialogo es cancelado retorna `undefined`.
@@ -154,7 +162,13 @@ Los `filtros` especifican un arreglo de los tipos de archivos can pueden ser mos
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) *macOS* - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
-  * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `propiedades` String[] (optional) 
+    * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
+    * `createDirectory` *macOS*- Permite crear nuevos directorios a partir del diálogo.
+    * `treatPackageAsDirectory` *macOS* - Trata paquetes como carpetas `.app`, como un directorio en vez de como un fichero.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crear un [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) es empaquetado para el Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 
 Devuelve `Promise<Object>` - Resuelve con un objeto conteniendo lo siguiente:
