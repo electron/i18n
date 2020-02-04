@@ -81,6 +81,6 @@ Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`Desktop
 
 ## 注意事项
 
-`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+由于存在基本限制，因此`navigator.mediaDevices.getUserMedia` 无法在macOS上进行音频捕获，因此要访问系统音频的应用程序需要一个[签名内核拓展](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
 
-It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.
+通过使用另一个MacOS应用程序（如Soundflower）捕获系统音频并将其通过虚拟音频输入设备来规避此限制是可能的。 然后可以用 `navigator.mediaDevices.getUserMedia`查询该虚拟设备。
