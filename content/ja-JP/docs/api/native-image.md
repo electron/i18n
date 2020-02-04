@@ -258,7 +258,7 @@ The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does
 * `options` Object 
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 戻り値 `NativeImage` - リサイズされた画像。
 
