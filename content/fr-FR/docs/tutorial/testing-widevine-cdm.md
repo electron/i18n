@@ -1,4 +1,4 @@
-# Testing Widevine CDM
+# Tester le CDM Widevine
 
 Dans Electron, vous pouvez utiliser le plugin Widevine CDM livré avec le navigateur Chrome.
 
