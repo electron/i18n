@@ -111,7 +111,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send`와 같지만 main 프로세스 대신 호스트 페이지의 `<webview>` 엘리먼트로 이벤트를 전달합니다.
 
 ## Event 객체
 
