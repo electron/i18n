@@ -365,32 +365,32 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Objet 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
+  * `path` String - Chemin d'accès absolu pour le téléchargement.
+  * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
+  * `type` String (facultatif)
+  * `offset` Integer - Portée de départ pour le téléchargement.
+  * `length` Integer - Longueur totale du le téléchargement.
   * `lastModified` String (optional) - Last-Modified header value.
   * `eTag` String (optional) - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la `Session`précédente. L'API va générer un [DownloadItem](download-item.md) accessible avec l'événement [will-download](#event-will-download) . Le [DownloadItem](download-item.md) n'aura aucun `WebContents` associé et l'état initial sera `interrompu`. Le téléchargement ne démarre que lorsque l'API `resume` est appelée sur [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Retourne `Promise<void>` - résout lorsque le cache d'authentification HTTP de la session a été effacé.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - Un tableau de chemin absolu pour précharger les scripts
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+Ajoute des scripts qui seront exécutés sur TOUS les contenus web qui sont associés à cette session juste avant l'exécution normale des scripts `preload`.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Retourne `String[]` un tableau de chemins pour précharger les scripts qui ont été enregistrés.
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
@@ -424,7 +424,7 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 ### Instance Properties
 
-The following properties are available on instances of `Session`:
+Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.availableSpellCheckerLanguages` *Readonly*
 
@@ -432,15 +432,15 @@ A `String[]` array which consists of all the known available spell checker langu
 
 #### `ses.cookies` *Readonly*
 
-A [`Cookies`](cookies.md) object for this session.
+Un objet [`Cookies`](cookies.md) pour cette session.
 
 #### `ses.webRequest` *Readonly*
 
-A [`WebRequest`](web-request.md) object for this session.
+Un objet [`WebRequest`](web-request.md) pour cette session.
 
 #### `ses.protocol` *Readonly*
 
-A [`Protocol`](protocol.md) object for this session.
+Un objet [`Protocole`](protocol.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -459,7 +459,7 @@ application. n('ready', function () {
 
 #### `ses.netLog` *Readonly*
 
-A [`NetLog`](net-log.md) object for this session.
+Un objet [`NetLog`](net-log.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
