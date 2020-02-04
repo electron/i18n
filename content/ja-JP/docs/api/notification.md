@@ -36,11 +36,11 @@
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
   * `hasReply` Boolean (任意) *macOS* - 通知に埋め込み返信オプションを追加するかどうか。
   * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `replyPlaceholder` String (任意) *macOS* - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
+  * `sound` String (任意) *macOS* - 通知が表示されるときに再生される音声ファイルの名前。
   * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (任意) *macOS* - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
+  * `closeButtonText` String (任意) *macOS* - アラートの閉じるボタンのカスタムタイトル。 空の文字列を使用すると、デフォルトのローカライズされたテキストが使用されます。
 
 ### インスタンスイベント
 
@@ -152,15 +152,15 @@ If `timeoutType` is set to 'never', the notification never expires. It stays ope
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+通知のアクションを表す [`NotificationAction[]`](structures/notification-action.md) プロパティ。
 
 ### サウンドの再生
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+macOS では、通知が表示されたときに再生したいサウンドの名前を指定することができます。 カスタムサウンドファイルに加えて、(システム環境設定 > サウンド にある) デフォルトサウンドのいずれかを使用することができます。 サウンドファイルがアプリバンドル (`YourApp.app/Contents/Resources` など) または以下のいずれかの場所にコピーされることに留意してください。
 
 * `~/ライブラリ/Sounds`
 * `/ライブラリ/Sounds`
 * `/ネットワーク/ライブラリ/Sounds`
 * `/システム/ライブラリ/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+より詳しくは、[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) ドキュメントを参照して下さい。
