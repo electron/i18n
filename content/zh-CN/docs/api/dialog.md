@@ -39,6 +39,7 @@ console.log(dialog)
     * ` promptToCreate ` *Windows*-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
     * ` noResolveAliases `* macOS *-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。
     * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * ` promptToCreate ` *Windows*-如果输入的文件路径在对话框中不存在, 则提示创建。 这并不是真的在路径上创建一个文件，而是允许返回一些不存在的地址交由应用程序去创建。
     * ` noResolveAliases `* macOS *-禁用自动别名 (symlink) 路径解析。 选定的别名现在将返回别名路径而不是其目标路径。
     * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -136,7 +138,13 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (可选) * macOS *-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
   * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
+  * `properties` String[] (optional) 
+    * ` showHiddenFiles `-显示对话框中的隐藏文件。
+    * `createDirectory` *macOS* -允许你通过对话框的形式创建新的目录。
+    * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
 
@@ -154,8 +162,14 @@ Returns `String | undefined`, the path of the file chosen by the user; if the di
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `message` String (可选) * macOS *-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
-  * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `properties` String[] (optional) 
+    * ` showHiddenFiles `-显示对话框中的隐藏文件。
+    * `createDirectory` *macOS* -允许你通过对话框的形式创建新的目录。
+    * ` treatPackageAsDirectory `* macOS *-将包 (如 `.app ` 文件夹) 视为目录而不是文件。
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
