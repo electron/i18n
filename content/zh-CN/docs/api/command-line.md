@@ -22,7 +22,7 @@ For more information on what kinds of flags and switches you can use, check out 
 
 通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
 
-** 注意: **该方法不会影响 ` process. argv ` The intended usage of this function is to control Chromium's behavior.
+** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
 #### `commandLine.appendArgument(value)`
 
