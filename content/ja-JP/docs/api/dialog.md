@@ -142,8 +142,8 @@ dialog.showOpenDialog(mainWindow, {
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
     * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
-    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
-    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
+    * `showOverwriteConfirmation` *Linux* - ユーザが既に存在するファイル名を入力した場合に、ユーザに確認ダイアログを表示するかどうかを設定します。
+    * `dontAddToRecent` *Windows* - 保存したアイテムを最近開いた書類リストに追加しないようにします。
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `String | undefined` - ユーザが選択したファイルパス。dialog がキャンセルされた場合は `undefined` を返します。
@@ -162,13 +162,13 @@ dialog.showOpenDialog(mainWindow, {
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
   * `properties` String[] (任意) 
     * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
     * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
     * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
-    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
-    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
+    * `showOverwriteConfirmation` *Linux* - ユーザが既に存在するファイル名を入力した場合に、ユーザに確認ダイアログを表示するかどうかを設定します。
+    * `dontAddToRecent` *Windows* - 保存したアイテムを最近開いた書類リストに追加しないようにします。
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
