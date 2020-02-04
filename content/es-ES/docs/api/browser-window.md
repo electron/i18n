@@ -154,7 +154,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `autoHideMenuBar` Boolean (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Por defecto es `false`.
   * `backgroundColor` String (opcional) - El color de fondo de la Ventana como un valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alfa en formato #AARRGGBB es soportado si `transparent` es establecido a `true`). Por defecto es `#FFF` (blanco).
-  * `hasShadow` Boolean (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Number (opcional) - Establece la opacidad inicial de la ventana, entre 0.0 (completamente transparente) y 1.0 (completamente opaca). Solo está implementado en Windows y macOS.
   * `darkTheme` Boolean (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Por defecto es `false`. On Windows, does not work unless the window is frameless.
@@ -164,6 +164,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
     * `customButtonsOnHover` Boolean (opcional) - Dibuja un botón cierre y minimizar personalizado en macOS en ventanas sin marcos. Estos botones no se mostrarán a menos que se encuentren en la esquina superior izquierda de la ventana. Estos botones personalizados evitaran problemas con los eventos de ratón que ocurren con los botones de la barra de herramientas estándar. **Nota:** Actualmente esta opción es experimental.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (opcional) - Muestra el título en la barra de titulos en modo pantalla completa en macOS para todas las opciones `titleBarStyle`. Por defecto es `false`.
   * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
   * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
@@ -214,6 +215,8 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `navigateOnDragDrop` Boolean (opcional) - Ya sea arrastrando y soltando un archivo o un link sobre la pagina causa una navegación. Por defecto es `false`.
     * `autoplayPolicy` String (opcional) - Política de autoplay para aplicar al contenido en la ventana, puede ser `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Por defecto a `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (opcional) - Si se debe evitar que la ventana cambie de tamaño cuando se esta entrando en HTML Fullscreen. Por defecto es is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
@@ -334,14 +337,14 @@ Tenga en cuenta que esto solo es emitido cuando la ventana es redimencionada man
 
 Emitido después que la ventana se haya redimensionada.
 
-#### Event: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 Devuelve:
 
 * `evento` Evento
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
-Emitido antes de que se mueva la ventana. Llamar `event.preventDefault()` impedirá que la ventana se mueva.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 Tenga en cuenta que esto solo es emitido cuando la ventana es redimencionada manualmente. Redimencionando la ventana con `setBounds`/`setSize` no se emitirá este evento.
 
@@ -465,7 +468,7 @@ Devuelve `BrowserWindow | null` - La ventana que es enfocada en esta aplicación
 
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -615,6 +618,10 @@ win.excludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### Métodos de Instancia
 
@@ -946,6 +953,12 @@ Establece si la ventana debe mostrarse siempre encima de otras ventanas. Despué
 
 Devuelve `Boolean` - Si la ventana está siempre sobre las otras ventanas.
 
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+
 #### `win.moveTop()`
 
 Mover ventana a la parte superior(z-order) independientemente del enfoque
@@ -1014,6 +1027,12 @@ Entra o sale del modo kiosko.
 #### `win.isKiosk()`
 
 Devuelve `Boolean` - Si la ventana está o no en modo kiosco.
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1289,7 +1308,7 @@ Devuelve `Boolean` - Si la barra de menú es visible o no.
 
 * `visible` Boolean
 * `opciones` Objecto (opcional) 
-  * `visibleOnFullScreen` Boolean (opcional) *macOS* - Establece si la ventana debe ser visible encima de la ventanas de pantalla completas
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 Establece si la ventana debe ser visible o no en todos los espacios de trabajo.
 
@@ -1391,11 +1410,11 @@ Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` *Experimental*
 
-Retorna `BrowserView | null` - Un BrowserView que se adjunto. Retorna `null` si nada esta adjuntado. Lanza error si varias BrowserViews son adjuntada.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 
