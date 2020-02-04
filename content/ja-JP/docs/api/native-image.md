@@ -16,7 +16,7 @@ const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard, which returns a `NativeImage`:
+clipboard から画像を読む場合は、`NativeImage` が返されます。
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -29,7 +29,7 @@ console.log(appIcon)
 
 現在、`PNG` と `JPEG` 画像フォーマットがサポートされています。`PNG` は透過や可逆圧縮をサポートするため推奨します。
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
+Windows では、ファイルパスから `ICO` アイコンを読み込むこともできます。最高の画質を得るには、少なくとも以下のサイズを含むことを推奨します。
 
 * 小さいアイコン 
   * 16x16 (DPI スケール 100%)
@@ -49,7 +49,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 Apple Retina ディスプレイのような高解像度をサポートしているプラットフォームにおいて、画像のファイルネームの後ろに `@2x` を加えることで、高解像度の画像としてマークすることができます。
 
-For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+例えば、`icon.png` が通常の標準解像度の画像であれば、`icon@2x.png` が2倍のピクセル密度を持つ高解像度の画像として扱われます。
 
 同時に異なるピクセル密度のディスプレイをサポートしたい場合、同じフォルダ内に異なるサイズの画像を置き、DPI 接尾子無しでファイル名を使用して下さい。
 
@@ -66,7 +66,7 @@ const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-The following suffixes for DPI are also supported:
+以下の DPI 接尾子がサポートされています。
 
 * `@1x`
 * `@1.25x`
@@ -84,7 +84,7 @@ The following suffixes for DPI are also supported:
 
 テンプレート画像は、黒とアルファチャンネルで構成されています。テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
-The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
+最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
 
 **注釈:** テンプレート画像は macOS でのみサポートされています。
 
