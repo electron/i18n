@@ -939,9 +939,9 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Ignore application menu shortcuts while this web contents is focused.
 
@@ -1171,7 +1171,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
     * `vertical` Number (optional) - The vertical dpi.
   * `header` String (optional) - String to be printed as page header.
   * `footer` String (optional) - String to be printed as page footer.
-* `callback` Function (опционально) 
+* `callback` Function (необязательно) 
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
 
@@ -1460,7 +1460,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1576,7 +1576,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Делает снимок кучи V8 и сохраняет его в `filePath`.
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 #### `contents.setBackgroundThrottling(allowed)`
 
