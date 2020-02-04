@@ -1138,7 +1138,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.loadFile(filePath[, options])`
 
 * `filePath` String
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `query` Record<String, String> (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -1164,7 +1164,7 @@ Remove the window's menu bar.
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1221,7 +1221,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - Иконата, показваща се в миниатюрата на toolbar лентата.
   * `click` Function - Функцията, която се изпълнява при натискане на бутона
   * `tooltip` String (по избор) - Пояснителният текст на бутона.
   * `flags` String[] (по избор) - Контролира специални състояния и държание на бутона. Стойността му по подразбиране е `['enabled']`.
@@ -1249,7 +1249,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `опции` Object 
+* `options` Object 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
@@ -1323,7 +1323,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `опции` Object (по избор) 
+* `options` Object (по избор) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
@@ -1430,4 +1430,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
