@@ -58,9 +58,9 @@ Eğer hızlı çözüm istiyorsanız, değişkenlerinizi evrensel olarak değiş
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('Merhaba dünya')
+  tray.setTitle('hello world')
 })
 ```
 
@@ -69,9 +69,9 @@ buna:
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('merhaba dünya')
+  tray.setTitle('hello world')
 })
 ```
 
