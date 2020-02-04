@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Event: 'preconnect'
 
 Ibinabalik ang:
 
@@ -122,9 +122,9 @@ Nagsusulat ng anumang di-nakusulat na DOMStorage na datos sa disk.
 #### `ses.setProxy(config)`
 
 * `config` Bagay 
-  * `pacScript` na String - Ang URL na may kaugnayan sa PAC na file.
-  * `proxyRules` na String - Mga panuntunan na nagsasad kung aling mga proxy ang gagamitin.
-  * `proxyBypassRules` na String - Mga panuntunan na nagpapahiwatig kung aling mga URL ay dapat mag-bypass ang mga setting ng proxy.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)`
 
 * `options` Bagay 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -230,7 +230,7 @@ Hindi pinapagana ang anumang network na pag-emulate na aktibo na para sa `sesyon
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Function | null 
   * `kahilingan` Bagay 
     * `hostname` na String
     * `certificate` na [Sertipiko](structures/certificate.md)
@@ -354,23 +354,31 @@ Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 
 Returns `Promise<Buffer>` - resolves with blob data.
 
+#### `ses.downloadURL(url)`
+
+* `url` Tali
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Bagay 
-  * `path` na String - Ganap na path ng download.
-  * `urlChain` na String[] - kompletong URL na chain para sa download.
-  * `mimeType` na String (opsyonal)
-  * `offset` na Integer - Pagsimulang saklaw para sa download.
-  * `length` na Integer - Kabuuang haba ng download.
-  * `lastModified` na String - Last-Modified na halaga ng header.
-  * `eTag` na String - ETag na halaga ng header.
-  * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
+* `pagpipilian` Bagay 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
-* `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
 Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
@@ -384,9 +392,43 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 Returns `String[]` an array of paths to preload scripts that have been registered.
 
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
 ### Mga Katangian ng Instance
 
-Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
+The following properties are available on instances of `Session`:
+
+#### `ses.availableSpellCheckerLanguages` *Readonly*
+
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
 #### `ses.cookies` *Readonly*
 
