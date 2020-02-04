@@ -216,11 +216,23 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` Dizge
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Varsayılan `true`'dur. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `noSound` Boolean (optional) - Do not play the associated sound. Varsayılan `false`'dur. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Varsayılan `false`'dur. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Bir tepsi balonunu görüntüler.
+
+#### `tray.removeBalloon()` *Windows*
+
+Removes a tray balloon.
+
+#### `tray.focus()` *Windows*
+
+Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
