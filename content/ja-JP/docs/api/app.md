@@ -566,7 +566,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 現在のアプリケーションの名前を上書きします。
 
-**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+**注釈:** この関数は、Electron 内で使用する名前を上書きします。OS が使用する名前には影響しません。
 
 **[非推奨](modernization/property-updates.md)**
 
@@ -642,7 +642,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 ### `app.getApplicationNameForProtocol(url)`
 
-* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+* `url` String - 確認するプロトコル名が付いた URL。 類似の他メソッドとは異なり、少なくとも `://` までを含む URL 全体を受け付けます (例: `https://`)。
 
 Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
 
