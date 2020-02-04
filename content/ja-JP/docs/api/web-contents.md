@@ -509,7 +509,7 @@ win.webContents.on('before-input-event', (event, input) => {
   * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
   * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
-  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
+  * `dictionarySuggestions` String[] - ユーザに `misspelledWord` の置き換えを示す推測した単語の配列。 単語のスペルミスがあり、スペルチェッカーが有効な場合にのみ利用できます。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
   * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース。`none`、`mouse`、`keyboard`、`touch` または `touchMenu` にできます。
@@ -623,7 +623,7 @@ win.loadURL('http://github.com')
 * `line` Integer
 * `sourceId` String
 
-Emitted when the associated window logs a console message.
+関連付けられたウインドウがコンソールメッセージを出力すると発生します。
 
 #### イベント: 'preload-error'
 
@@ -931,7 +931,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. 任意の整数を指定できます。
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 
@@ -1006,7 +1006,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *非推奨*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1015,7 +1015,7 @@ contents.setVisualZoomLevelLimits(1, 3)
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-**Deprecated:** This API is no longer supported by Chromium.
+**非推奨:** この API は Chromium がサポートしなくなりました。
 
 #### `contents.undo()`
 
