@@ -509,26 +509,27 @@ Retourne :
   * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
   * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
   * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
-  * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
-  * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
+  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-  * `mediaFlags` Object - Les attributs de l'élément multimédia que le menu contextuel a invoqué. 
-    * `inError` Boolean - Si l'élément multimédia a crash.
-    * `isPaused` Boolean - Si l'élément multimédia est en pause.
-    * `isMuted` Boolean - Si l'élément multimédia est mis en sourdine.
-    * `hasAudio` Boolean - Si l'élément multimédia émet un son audio.
-    * `isLooping` Boolean - Si l'élément multimédia est en boucle.
-    * `isControlsVisible` Boolean - Si les contrôles de l'élément multimédia sont visibles.
-    * `canToggleControls` Boolean - Si les contrôles de l'élément multimédia sont toggleable.
-    * `canRotate` Boolean - Si l'élément multimédia peut être pivoté.
-  * `editFlags` Object - Ces attributs indiquent si le moteur de rendu pense être en mesure d'effectuer l'action correspondante. 
-    * `canUndo` Boolean - Si le moteur de rendu pense pouvoir aller en arrière.
-    * `canRedo` Boolean - Si le moteur de rendu pense pouvoir aller en avant.
-    * `canCut` Boolean - Si le moteur de rendu pense pouvoir couper.
-    * `canCopy` Boolean - Si le moteur de rendu pense pouvoir copier
-    * `canPaste` Boolean - Si le moteur de rendu pense pouvoir coller.
-    * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
-    * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
+  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+    * `inError` Boolean - Whether the media element has crashed.
+    * `isPaused` Boolean - Whether the media element is paused.
+    * `isMuted` Boolean - Whether the media element is muted.
+    * `hasAudio` Boolean - Whether the media element has audio.
+    * `isLooping` Boolean - Whether the media element is looping.
+    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
+    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+    * `canRotate` Boolean - Whether the media element can be rotated.
+  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+    * `canUndo` Boolean - Whether the renderer believes it can undo.
+    * `canRedo` Boolean - Whether the renderer believes it can redo.
+    * `canCut` Boolean - Whether the renderer believes it can cut.
+    * `canCopy` Boolean - Whether the renderer believes it can copy
+    * `canPaste` Boolean - Whether the renderer believes it can paste.
+    * `canDelete` Boolean - Whether the renderer believes it can delete.
+    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
 
 Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
 
@@ -622,7 +623,7 @@ Retourne :
 * `line` Integer
 * `sourceId` String
 
-Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
+Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (facultatif) - `false` par défaut.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
 #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 Retourne `Promise<void>`
 
 Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1108,9 +1121,28 @@ Retourne `Promise<NativeImage>` - résout avec une [NativeImage](native-image.md
 
 Capturer une capture instantanée de la page dans `rect`. L'omission de `rect` capturera toute la page visible.
 
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
 #### `contents.getPrinters()`
 
-Récupère la liste des imprimantes système.
+Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
@@ -1119,7 +1151,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 * `options` Object (facultatif) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Object (facultatif) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1137,6 +1169,8 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `dpi` Object (facultatif) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `callback` Function (facultatif) 
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1287,25 +1321,25 @@ app.once('ready', () => {
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-Ouvre les devtools.
+Opens the devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Ferme les devtools.
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Retourne `Boolean` - Si les devtools sont ouvert.
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-Retourne `Boolean` - Si les devtools ont le focus.
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-Active/désactive les outils développeur.
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
@@ -1318,6 +1352,16 @@ Starts inspecting element at position (`x`, `y`).
 
 Opens the developer tools for the shared worker context.
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `contents.inspectServiceWorker()`
 
 Opens the developer tools for the service worker context.
@@ -1327,7 +1371,9 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1431,7 +1479,7 @@ End subscribing for frame presentation events.
 
 * `item` Objet 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
@@ -1524,7 +1572,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Chemin vers le fichier de sortie.
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
