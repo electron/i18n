@@ -558,7 +558,7 @@ Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
 ### `<webview>.getWebContents()` *Deprecated*
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
@@ -568,7 +568,7 @@ Returns `Number` - The WebContents ID of this `webview`.
 
 ## DOM Events
 
-The following DOM events are available to the `webview` tag:
+Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
 ### Etkinlik: 'load-commit'
 
@@ -577,11 +577,11 @@ Dönüşler:
 * `url` Dize
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+Bir yükleme işlendiğinde tetiklenir. Bu, subframe belge düzeyi yüklemeleri içinde olduğu kadar, mevcut belge içinde de gezinmeyi içerir, ancak eş zamanlı olmayan kaynak yüklemelerini içermez.
 
 ### Olay: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+Gezinme bittiğinde tetiklenir, diğer bir ifadeyle sekmedeki topaç dönmeyi durduracaktır ve `onload` etkinliği gönderilecektir.
 
 ### Olay: 'did-fail-load'
 
@@ -592,7 +592,7 @@ Dönüşler:
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Bu etkinlik `did-finish-load` gibidir, fakat yükleme başarısız olduğunda veya iptal edildiğinde, örneğin: `window.stop()` çağrılır.
 
 ### Olay: 'did-frame-finish-load'
 
@@ -600,19 +600,19 @@ Dönüşler:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Bir kare, navigasyonunu tamamladığında tetiklenir.
 
 ### Olay: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılık gelir.
 
 ### Olay: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
 
 ### Olay: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Verilen karedeki belge yüklendiğinde tetiklenir.
 
 ### Etkinlik: 'sayfa-başlığı-güncellendi'
 
@@ -629,15 +629,15 @@ Dönüşler:
 
 * `favicons` String[] - URL'lerin dizilişleri.
 
-Fired when page receives favicon urls.
+Sayfa favicon url'lerini aldığında tetiklenir.
 
 ### Etkinlik: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
 
 ### Etkinlik: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından çıkıldığında ateşlenir.
 
 ### Etkinlik: 'console-message'
 
@@ -648,9 +648,9 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+Misafir pencere konsol mesajı girdiğinde ateşlenir.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -670,7 +670,7 @@ Dönüşler:
   * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -691,9 +691,9 @@ Dönüşler:
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Fired when the guest page attempts to open a new browser window.
+Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetiklenir.
 
-The following example code opens the new url in system's default browser.
+Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar.
 
 ```javascript
 const { shell } = require('electron')
@@ -715,11 +715,11 @@ Dönüşler:
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
 
 ### Olay: 'did-navigate'
 
@@ -727,7 +727,7 @@ Dönüşler:
 
 * `url` Dize
 
-Emitted when a navigation is done.
+Bir gezinme yapıldığında ortaya çıkar.
 
 Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
@@ -738,15 +738,15 @@ Dönüşler:
 * `isMainFrame` Boolean
 * `url` Dize
 
-Emitted when an in-page navigation happened.
+Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
 ### Etkinlik: 'kapalı'
 
-Fired when the guest page attempts to close itself.
+Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+Misafir kapatmaya çalıştığında örnek kod `webview`, `about:blank` arasında dolaşmaya başlar.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -762,7 +762,7 @@ Dönüşler:
 * `channel` Dizesi
 * `args` any[]
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
 
 With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
 
@@ -786,7 +786,7 @@ ipcRenderer.on('ping', () => {
 
 ### Etkinlik: 'çöktü'
 
-Fired when the renderer process is crashed.
+Renderer işlemi çöktüğünde tetiklenir.
 
 ### Event: 'plugin-crashed'
 
@@ -795,11 +795,11 @@ Dönüşler:
 * `name` Dizi
 * `versiyon` String
 
-Fired when a plugin process is crashed.
+Plugin işlemi çöktüğünde tetiklenir.
 
 ### Etkinlik: 'yıkıldı'
 
-Fired when the WebContents is destroyed.
+WebContents işlemi çöktüğünde tetiklenir.
 
 ### Olay: Medya oynamaya başladı
 
@@ -815,7 +815,7 @@ Dönüşler:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
