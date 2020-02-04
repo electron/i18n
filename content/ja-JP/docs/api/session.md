@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### イベント: 'preconnect' *実験的*
+#### Event: 'preconnect'
 
 戻り値:
 
@@ -122,9 +122,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 #### `ses.setProxy(config)`
 
 * `config` Object 
-  * `pacScript` String - PAC ファイルに関連付けられたURL。
-  * `proxyRules` String - 使用するプロキシを示すルール。
-  * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 戻り値 `Promise<void>` - プロキシ設定処理が完了すると実行されます。
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *実験的*
+#### `ses.preconnect(options)`
 
 * `options` Object 
   * `url` String - 事前接続の URL。ソケットを開くのに関連するのはオリジンのみです。
@@ -230,7 +230,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Function | null 
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
@@ -354,51 +354,93 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `Promise<Buffer>` - blob データで実行されます。
 
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
-  * `path` String - ダウンロードの絶対パス。
-  * `urlChain` String[] - ダウンロードの完全な URL チェーン。
-  * `mimeType` String (任意)
-  * `offset` Integer - ダウンロードの範囲の始端。
-  * `length` Integer - ダウンロードの長さ。
-  * `lastModified` String - ヘッダの最終更新日の値。
-  * `eTag` String - ヘッダの ETag の値。
-  * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-戻り値 `Promise<void>` - session の HTTP 認証キャッシュがクリアされると実行されます。
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
+* `preloads` String[] - An array of absolute path to preload scripts
 
-通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
+Returns `String[]` an array of paths to preload scripts that have been registered.
+
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
 ### インスタンスプロパティ
 
-`Session` のインスタンスには以下のプロパティがあります。
+The following properties are available on instances of `Session`:
 
-#### `ses.cookies` *読み出し専用*
+#### `ses.availableSpellCheckerLanguages` *Readonly*
 
-このセッションの [`Cookies`](cookies.md) オブジェクト。
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.webRequest` *読み出し専用*
+#### `ses.cookies` *Readonly*
 
-このセッションの [`WebRequest`](web-request.md) オブジェクト。
+A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.protocol` *読み出し専用*
+#### `ses.webRequest` *Readonly*
 
-このセッションの [`Protocol`](protocol.md) オブジェクト。
+A [`WebRequest`](web-request.md) object for this session.
+
+#### `ses.protocol` *Readonly*
+
+A [`Protocol`](protocol.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
@@ -415,9 +457,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *読み出し専用*
+#### `ses.netLog` *Readonly*
 
-このセッションの [`NetLog`](net-log.md) オブジェクト。
+A [`NetLog`](net-log.md) object for this session.
 
 ```javascript
 const { app, session } = require('electron')
