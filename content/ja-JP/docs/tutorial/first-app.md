@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 `main.js` は、ウインドウを作成し、アプリケーションが遭遇する全てのシステムイベントを処理する必要があります。 上記の例より完全なバージョンでは、ユーザがドック内のアプリアイコンをクリックすると、開発者向けツールが開いたり、ウインドウが閉じられたのを処理したり、macOSにおいてウインドウを再作成したりします。
@@ -122,9 +122,9 @@ function createWindow () {
 // このメソッドは、Electron が初期化処理と
 // browser window の作成準備が完了した時に呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// 全てのウィンドウが閉じられた時に終了する
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // macOSでは、ユーザが Cmd + Q で明示的に終了するまで、
   // アプリケーションとそのメニューバーは有効なままにするのが一般的です。
