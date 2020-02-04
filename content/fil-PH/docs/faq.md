@@ -54,8 +54,8 @@ Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na ar
 Kung gusto mo ng isang mabilis na ayusin, maaari mong gawin ang mga variable global sa pamamagitan ng pagpapalit ng iyong code mula dito:
 
 ```javascript
-const { app, Tray } =kailangan ('electron')
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -64,9 +64,9 @@ app.on('ready', () => {
 sa ganito:
 
 ```javascript
-const { app, Tray } = kailangan('electron')
-hayaan ang tray = wala
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+let tray = null
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
