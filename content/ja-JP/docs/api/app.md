@@ -644,9 +644,9 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 * `url` String - 確認するプロトコル名が付いた URL。 類似の他メソッドとは異なり、少なくとも `://` までを含む URL 全体を受け付けます (例: `https://`)。
 
-戻り値 `String` - そのプロトコルを処理するアプリケーションの名前。ハンドラーがない場合は空の文字列です。 たとえば、Electron がその URL のデフォルトハンドラーである場合、Windows と Mac では `Electron` になります。 However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+戻り値 `String` - そのプロトコルを処理するアプリケーションの名前。ハンドラーがない場合は空の文字列です。 たとえば、Electron がその URL のデフォルトハンドラーである場合、Windows と Mac では `Electron` になります。 ただし、厳密な形式に依存しないでください。変更されている可能性があります。 Linux では、`.desktop` 接尾子を付けた別の形式が必要でしょう。
 
-This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名を返します。
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -986,10 +986,10 @@ app.setLoginItemSettings({
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
   * `version` String (任意) *macOS* - アプリのビルドバージョン番号。
-  * `credits` String (optional) *macOS* *Windows* - Credit information.
+  * `credits` String (任意) *macOS* *Windows* - クレジット情報。
   * `authors` String[] (任意) *Linux* - アプリの作者のリスト。
   * `website` String (任意) *Linux* - アプリのウェブサイト。
-  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (任意) *Linux* *Windows* - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。
 
 Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
