@@ -35,8 +35,10 @@ It creates a new `Notification` with native properties as set by the `options`.
   * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
   * `icon` (String | [NativeImage](native-image.md)) (옵션) - 알림에 사용할 아이콘.
   * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
+  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - 알림이 표시될 때 재생될 음악파일의 이름.
+  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
@@ -136,17 +138,29 @@ A `Boolean` property representing whether the notification is silent.
 
 A `Boolean` property representing whether the notification has a reply action.
 
+#### `notification.urgency` *Linux*
+
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
+
 #### `notification.actions`
 
 A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
 
 ### 사운드 재생
 
-macOS에서는, 알림이 표시될 때 재생하고싶은 특정한 알림음을 지정할 수 있습니다. 모든 기본 알림음(System Preferences > Sound)을 사용할 수 있으며, 사용자 정의 사운드 파일을 사용할 수 있습니다. 사운드 파일이 app 경로 아래(예: `YourApp.app/Contents/Resources`), 혹은 다음 경로들 중 하나에 복사되어있는지 확인하세요:
+On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-[`NSSound`](https://developer.apple.com/documentation/appkit/nssound) 문서에서 더 자세한 정보를 확인할 수 있습니다.
+See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
