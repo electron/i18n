@@ -111,7 +111,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `channel` String
 * `...args` anuman[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahagi sa pahina ng host sa halip na sa pangunahing proseso.
 
 ## Ang bagay ng event
 
