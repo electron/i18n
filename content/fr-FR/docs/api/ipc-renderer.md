@@ -104,15 +104,15 @@ Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+Envoie un message à une fenêtre avec `webContentsId` via `canal`.
 
 ### `ipcRenderer.sendToHost(canal, ...args)`
 
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Comme `ipcRenderer.send`, mais l'événement sera envoyé à l'élément `<webview>` dans la page hôte au lieu du processus main.
 
 ## Objet event
 
-The documentation for the `event` object passed to the `callback` can be found in the [`ipc-renderer-event`](structures/ipc-renderer-event.md) structure docs.
+La documentation de l'objet `événement` passé à la `callback` peut être trouvée dans la documentation de la structure [`ipc-renderer-event`](structures/ipc-renderer-event.md).
