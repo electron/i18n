@@ -154,7 +154,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `autoHideMenuBar` Boolean (facultatif) - Masquer automatiquement la barre de menu ) moins que la touche `Alt` soit enfoncée. La valeur par défaut est `false`.
   * `enableLargerThanScreen` Booléen (facultatif) - Permet à la fenêtre d'être redimensionnée plus grande que l'écran. Seulement pertinent pour macOS, car les autres systèmes d'exploitation autorisent par défaut des fenêtres plus grandes qu'écran par défaut. Par défaut la valeur est `false`.
   * `BackgroundColor` String (facultatif) - Couleur d'arrière-plan de la fenêtre en valeur hexadécimale, comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (alpha au format #AARRGGBB est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
-  * `hasShadow` Boolean (facultatif) - Si la fenêtre doit avoir une ombre. Ceci est seulement implémenté sur macOS. La valeur par défaut est `true`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacité` Number (optionnel) - Définit l'opacité initiale de la fenêtre, entre 0. (entièrement transparente) et 1.0 (entièrement opaque). Ceci n'est implémenté que sur Windows et macOS.
   * `darkTheme` Boolean (facultatif) - Force l'utilisation du thème sombre pour la fenêtre, ne fonctionne que sur certains environnements de bureau GTK+3. La valeur par défaut est `false`.
   * `transparent` Boolean (facultatif) - Rend la fenêtre [transparente](frameless-window.md#transparent-window). Par défaut la valeur est `false`. Sous Windows, ne fonctionne pas à moins que la fenêtre ne soit sans cadres.
@@ -164,6 +164,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `Caché` - Résultats dans une barre de titre cachée et une fenêtre de contenu en pleine taille, encore la barre de titre a toujours les contrôles standards de la fenêtre ("feux de circulation") dans en haut à gauche.
     * `hiddenInset` - Résultats dans une barre de titre cachée avec un look alternatif où les boutons du feu de circulation sont légèrement plus insérables à partir du bord de la fenêtre.
     * `customButtonsOnHover` Boolean (facultatif) - Dessine une fermeture personnalisée, et minimise les boutons sur les fenêtres sans cadre macOS. Ces boutons n'afficheront pas à moins d'être survolés en haut à gauche de la fenêtre. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. **Note:** Cette option est actuellement expérimentale.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (facultatif) - Affiche le titre dans la barre de titre en mode plein écran sur macOS pour toutes les options `titleBarStyle`. La valeur par défaut est `faux`.
   * `thickFrame` Boolean (facultatif) - Utilisez le style `WS_THICKFRAME` pour les fenêtres sans cadre sur Windows, qui ajoute une image standard de fenêtre. Le définir à `false` supprimera les animations de fenêtre et de fenêtre. La valeur par défaut est `true`.
   * `vibrancy` String (facultatif) - Ajoute un type d'effet de vibrance à la fenêtre, uniquement sur macOS. Peut être `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `, <code>sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `outil>, <code>content<code>, <0>sous-window`. Veuillez noter que l'utilisation de `frame: false` en combinaison avec une valeur de vibrance nécessite que vous utilisiez également un `titleBarStyle` non par défaut. Notez également que `appearance-based`, `light`, `dark`, `medium-light`, et `ultra-dark` ont été dépréciés et seront supprimés dans une prochaine version de macOS.
@@ -214,6 +215,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `navigateOnDragDrop` Booléen (facultatif) - Si glisser-déposer un fichier ou un lien sur la page provoque une navigation. La valeur par défaut est `false`.
     * `autoplayPolicy` String (facultatif) - La politique de lecture automatique à appliquer au contenu dans la fenêtre, peut être `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Par défaut, `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (facultatif) - S'il faut empêcher la fenêtre de redimensionner lorsque vous entrez dans le Fullscreen HTML. Par défaut est `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 Lorsque l'on définie une taille minimum ou maximum pour la fenêtre avec `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, cela contraint les utilisateurs uniquement. Cela ne vous empêche pas de passer une taille qui ne suit pas les contraintes de tailles à `setBounds`/`setSize` ou au constructeur de `BrowserWindow`.
 
@@ -333,14 +336,14 @@ Notez que ceci n'est émis que lorsque la fenêtre est redimensionnée manuellem
 
 Émis après que la fenêtre soit redimensionnée.
 
-#### Événement : 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 Retourne :
 
 * `event` Événement
 * `newBounds` [Rectangle](structures/rectangle.md) - Emplacement où la fenêtre est en cours de déplacement.
 
-Émis avant que la fenêtre ne soit déplacée. Appeler `event.preventDefault()` empêchera la fenêtre d'être déplacée.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 Notez que ceci n'est émis que lorsque la fenêtre est redimensionnée manuellement. Redimensionner la fenêtre avec `setBounds`/`setSize` n'émettra pas cet événement.
 
@@ -464,7 +467,7 @@ Retourne `BrowserWindow | null` - La fenêtre qui est concentrée dans cette app
 
 * `webContents` [WebContents](web-contents.md)
 
-Retourne `BrowserWindow` - La fenêtre qui possède le `webContents`.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -614,6 +617,10 @@ gagne. xcludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### Méthodes d’instance
 
@@ -945,6 +952,12 @@ Détermine si la fenêtre doit toujours être placée au-dessus d'autres fenêtr
 
 Retourne `Boolean` - Si la fenêtre est toujours au-dessus des autres fenêtres ou non.
 
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+
 #### `win.moveTop()`
 
 Déplace la fenêtre sur le dessus (dans l'ordre z) peu importe qu'elle ait le focus ou non
@@ -1012,6 +1025,12 @@ Entre ou quitte le mode kiosk.
 #### `win.isKiosk()`
 
 Retourne `Boolean` - Si la fenêtre est en mode kiosque.
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1287,7 +1306,7 @@ Retourne `Boolean` - Si la barre de menu est visible.
 
 * `visible` Boolean
 * `options` Object (facultatif) 
-  * `visibleOnFullScreen` Booléen (facultatif) *macOS* - Définit si la fenêtre doit être visible au-dessus des fenêtres plein écran
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 Définit si la fenêtre doit être visible sur tous les espaces de travail.
 
@@ -1389,11 +1408,11 @@ Définit la disposition de la barre tactile pour la fenêtre actuelle. La spéci
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attachez browserView pour gagner. S'il y a d'autres visualisations de navigateur, elles seront retirées de cette fenêtre.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` *Expérimental*
 
-Retourne `BrowserView | null` - un BrowserView ce qui est attaché. Retourne `null` si aucun n'est attaché. Lancer une erreur si plusieurs BrowserViews sont attachés.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 
