@@ -510,26 +510,26 @@ Retourne :
   * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
   * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
   * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
+  * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+  * `mediaFlags` Object - Les attributs de l'élément multimédia que le menu contextuel a invoqué. 
+    * `inError` Boolean - Si l'élément multimédia a crash.
+    * `isPaused` Boolean - Si l'élément multimédia est en pause.
+    * `isMuted` Boolean - Si l'élément multimédia est mis en sourdine.
+    * `hasAudio` Boolean - Si l'élément multimédia émet un son audio.
+    * `isLooping` Boolean - Si l'élément multimédia est en boucle.
+    * `isControlsVisible` Boolean - Si les contrôles de l'élément multimédia sont visibles.
+    * `canToggleControls` Boolean - Si les contrôles de l'élément multimédia sont toggleable.
+    * `canRotate` Boolean - Si l'élément multimédia peut être pivoté.
+  * `editFlags` Object - Ces attributs indiquent si le moteur de rendu pense être en mesure d'effectuer l'action correspondante. 
+    * `canUndo` Boolean - Si le moteur de rendu pense pouvoir aller en arrière.
+    * `canRedo` Boolean - Si le moteur de rendu pense pouvoir aller en avant.
+    * `canCut` Boolean - Si le moteur de rendu pense pouvoir couper.
+    * `canCopy` Boolean - Si le moteur de rendu pense pouvoir copier
+    * `canPaste` Boolean - Si le moteur de rendu pense pouvoir coller.
+    * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
+    * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
 
 Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
 
@@ -724,7 +724,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. App
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `données postales` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (facultatif)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
@@ -1142,7 +1142,7 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
@@ -1321,25 +1321,25 @@ app.once('ready', () => {
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-Opens the devtools.
+Ouvre les devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Ferme les devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retourne `Boolean` - Si les devtools sont ouvert.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retourne `Boolean` - Si les devtools ont le focus.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Active/désactive les outils développeur.
 
 #### `contents.inspectElement(x, y)`
 
