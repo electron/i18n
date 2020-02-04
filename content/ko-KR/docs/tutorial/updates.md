@@ -27,7 +27,7 @@ require('update-electron-app')()
 
 기본적으로 이 모듈은 앱 시작시 그리고 10분마다 업데이트를 확인합니다. 업데이트가 발견되면 자동으로 백그라운드에서 다운로드됩니다. 다운로드가 완료되면 앱 재시작 허용을 물어보는 다이어로그를 사용자에게 표시합니다.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+구성을 사용자 정의해야 하는 경우 [옵션을 `update-electron-app`](https://github.com/electron/update-electron-app)으로 전달하거나 [업데이트 서비스를 직접 사용](https://github.com/electron/update.electronjs.org)할 수 있습니다.
 
 ## `electron-builder` 사용
 
@@ -35,7 +35,7 @@ If you need to customize your configuration, you can [pass options to `update-el
 
 ## 서버에 업데이트 배포
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+비공개 Electron 응용 프로그램을 개발 중이거나 GitHub 릴리스에 릴리스를 게시하지 않는 경우 자체 업데이트 서버를 실행해야 할 수도 있습니다.
 
 필요에 따라 다음 중 하나를 선택할 수 있습니다:
 
@@ -84,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: '새로운 버전이 다운로드 되었습니다. Restart the application to apply the updates.'
+    detail: '새로운 버전이 다운로드 되었습니다. 업데이트를 적용하기 위해 앱을 재시작하세요.'
   }
 
   dialog.showMessageBox(dialogOpts).then((returnValue) => {
