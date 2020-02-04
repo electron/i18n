@@ -12,10 +12,10 @@
     * `selectedIndex` Integer - ユーザが選択したアイテムのインデックス.
   * `highlight` Function (任意) - ユーザが任意のアイテムをタップしたときに呼ばれる. 
     * `highlightedIndex` Integer - ユーザがタッチしたアイテムのインデックス.
-  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `selectedStyle` String (任意) - 選択時のアイテムスタイル。`background`、`outline`、`none` のいずれかにできます。省略値は `none` です。
+  * `overlayStyle` String (optional) - 選択時の重なるアイテムスタイル。`background`、`outline`、`none` のいずれかにできます。省略値は `none` です。
   * `showArrowButtons` Boolean (任意) - 省略値は、`false` になります。
-  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
+  * `mode` String (任意) - `fixed` か `free` にできます。省略値は `free` です。
   * `continuous` Boolean (任意) - 省略値は、`true` になります。
 
 ### インスタンスプロパティ
@@ -32,7 +32,7 @@
 
 * `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て.
 * `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て.
-* `none` - Removes all styles.
+* `none` - スタイルを全て除去します。
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@
 
 * `background` - `[NSScrubberSelectionStyle roundedBackgroundStyle]` に割り当て.
 * `outline` - `[NSScrubberSelectionStyle outlineOverlayStyle]` に割り当て.
-* `none` - Removes all styles.
+* `none` - スタイルを全て除去します。
 
 #### `touchBarScrubber.showArrowButtons`
 
