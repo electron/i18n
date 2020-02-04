@@ -366,7 +366,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 * `options` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
+  * `mimeType` String (選用)
   * `offset` Integer - Start range for the download.
   * `length` Integer - Total length of the download.
   * `lastModified` String (optional) - Last-Modified header value.
