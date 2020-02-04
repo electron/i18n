@@ -339,7 +339,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     ```javascript
     const { app } = require('electron')
     
-    app.on('session-created', (event, session) => {
+    app.on('session-created', (session) => {
       console.log(session)
     })
     ```
@@ -578,12 +578,14 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
 
 <p>Mengabaikan nama aplikasi saat ini.</p>
 
+<p><strong>Note:</strong> This function overrides the name used internally by Electron; it does not affect the name that the OS uses.</p>
+
 <p><strong><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
 <h3><code>app.getLocale()`</h3> 
         Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
         
-        To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+        To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
         
         **Catatan:** Saat mendistribusikan aplikasi yang dikemas, Anda juga harus mengirimkan map `locales`.
         
@@ -648,6 +650,14 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
           **Catatan:** Pada macOS, Anda dapat menggunakan metode ini untuk memeriksa apakah aplikasi telah terdaftar sebagai pengendali protokol default untuk sebuah protokol. Anda juga dapat memverifikasi ini dengan memeriksa `~/Library/Preferences/com.apple.LaunchServices.plist` pada mesin macOS. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) untuk rincian.
           
           The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme internal.
+          
+          ### `app.getApplicationNameForProtocol(url)`
+          
+          * `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+          
+          Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+          
+          This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
           
           ### `app.setUserTasks(tugas)` *Windows*
           
@@ -971,21 +981,21 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
           
           **[Tidak berlaku lagi](modernization/property-updates.md)**
           
-          ### `app.showAboutPanel()` *macOS* *Linux*
+          ### `app.showAboutPanel()`
           
           Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
           
-          ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+          ### `app.setAboutPanelOptions(options)`
           
           * `pilihan` Obyek 
             * `applicationName` String (opsional) - Nama aplikasi.
             * `applicationVersion` String (opsional) - Versi aplikasi.
             * `hak cipta` String (opsional) - Informasi hak cipta.
             * `version` String (optional) *macOS* - The app's build version number.
-            * `credits` String (optional) *macOS* - Credit information.
+            * `credits` String (optional) *macOS* *Windows* - Credit information.
             * `authors` String[] (optional) *Linux* - List of app authors.
             * `website` String (optional) *Linux* - The app's website.
-            * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+            * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
           
           Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on MacOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
           
