@@ -151,7 +151,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `autoHideMenuBar` Boolean (isteğe bağlı) - `Alt` tuşuna basmadığınız sürece menü çubuğunu otomatik olarak gizler. Varsayılan değer `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Varsayılan `false`'dur.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` mantıksal (isteğe bağlı) - Pencerenin gölge olması gerekip gerekmediğini belirtir. Bu sadece macOS'ta uygulanır. Varsayılan `true`'dir.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Sayı (isteğe bağlı) - Pencerenin başlangıçtaki opaklığını 0.0 (tamamen saydam) ile 1.0 (tamamen opak) arasında ayarlayın. Bu yalnızca Windows ve macOS'ta uygulanır.
   * `darkTheme` Boole (isteğe bağlı) - Pencere için koyu temayı kullanmaya zorlar, yalnızca bazı GTK+3 masaüstü ortamlarında çalışır. Varsayılan değer `yanlış`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Varsayılan `false`'dur. On Windows, does not work unless the window is frameless.
@@ -161,6 +161,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `hidden` - Gizli başlık çubuğunda ve tam boyutlu bir içerik penceresinde sonuç verir, ancak başlık çubuğunun sol üst tarafında hala standart pencere kontrolleri ("trafik ışıkları") vardır.
     * `hiddenInset` - Trafik ışığı düğmelerinin pencere kenarında biraz daha yerleştirildiği alternatif bir görünüme sahip gizli bir başlık çubuğunda sonuç verir.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** Bu seçenek şu anda deneme niteliğinde.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * ` kalınÇerçeve </ 0>  Boole (opsiyonel) - Kullanım <code> WS_KALIN ÇERÇEVE</ 0> çerçevesiz için stil pencereler üzerinde
  Windows'un standart pencere çerçevesi ekler. <code>false` olarak ayarlamak pencere gölgesini ve pencere animasyonlarını kaldıracaktır. Varsayılan `true`'dur.
@@ -212,6 +213,8 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks Genişlik` / ` min Yükseklik` / ` maxHeight`, yalnızca kullanıcıları sınırlandırır. Sizi engellemeyecektir boyut sınırlamalarını takip etmeyen bir boyutu ` setBounds`/ ` Boyut ayarla` veya `Tarayıcı penceresi yapıcısına`.
 
@@ -332,14 +335,14 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 Dönüşler:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
@@ -463,7 +466,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 
 * `webContents` [webİçerikleri](web-contents.md)
 
-`BrowserWindow` 'u geri getirir - Verilen `webContents` 'e sahip olan pencere.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -613,6 +616,10 @@ win.excludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### Örnek Metodlar
 
@@ -868,7 +875,7 @@ Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Li
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından taşınıp taşınmayacağı.
 
-Linux üzerinde her zaman `true` döndürür.
+Linux'ta daima geri dönüyor `true`.
 
 **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
@@ -884,7 +891,7 @@ Pencerenin kullanıcı tarafından el ile simge durumuna küçültülebilir olup
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak küçültülüp küçültülmediği
 
-Linux üzerinde her zaman `true` döndürür.
+Linux'ta daima geri dönüyor `true`.
 
 **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
@@ -900,7 +907,7 @@ Pencerenin kullanıcı tarafından manuel olarak maksimize edilip edilemeyeceği
 
 Returns `Boolean` - Pencerenin kullanıcı tarafından manuel olarak maksimize edilip edilemeyeceği.
 
-Linux üzerinde her zaman `true` döndürür.
+Linux'ta daima geri dönüyor `true`.
 
 **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
@@ -930,7 +937,7 @@ Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tan
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak kapatılıp kapatılmayacağı.
 
-Linux üzerinde her zaman `true` döndürür.
+Linux'ta daima geri dönüyor `true`.
 
 **[Kullanımdan kaldırıldı](modernization/property-updates.md)**
 
@@ -945,6 +952,12 @@ Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğ
 #### `win.isAlwaysOnTop()`
 
 Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
+
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
 
 #### `win.moveTop()`
 
@@ -1014,6 +1027,12 @@ Kiosk moduna girer veya ayrılır.
 #### `win.isKiosk()`
 
 `Boolean` geri getirir - Pencere kiosk modundaysa.
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1289,7 +1308,7 @@ Menü çubuğu görünür olarak ayarlanırsa, menü çubuğu otomatik olarak gi
 
 * `visible` Boolean
 * `seçenekler` Obje (opsiyonel) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamaktadır.
 
@@ -1391,11 +1410,11 @@ Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefin
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` *Experimental*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 
