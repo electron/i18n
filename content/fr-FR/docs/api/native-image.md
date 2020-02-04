@@ -124,7 +124,7 @@ console.log(image)
 * `options` Objet 
   * `width` Integer
   * `height` Integer
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `NativeImage`
 
@@ -136,7 +136,7 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 * `options` Object (facultatif) 
   * `width` Integer (optional) - Required for bitmap buffers.
   * `height` Integer (optional) - Required for bitmap buffers.
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `NativeImage`
 
@@ -186,7 +186,7 @@ The following methods are available on instances of the `NativeImage` class:
 #### `image.toPNG([options])`
 
 * `options` Object (facultatif) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données encodées `PNG` de l'image.
 
@@ -199,21 +199,21 @@ Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_
 #### `image.toBitmap([options])`
 
 * `options` Object (facultatif) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient une copie des données du pixel brut bitmap de l'image.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (facultatif) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `String` - L'URL des données de l'image.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (facultatif) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` Double (facultatif) - 1.0 par défaut.
 
 Retourne `Buffer` - Un [tampon](https://nodejs.org/api/buffer.html#buffer_class_buffer) qui contient les données brutes des pixels bitmap de l'image.
 
@@ -257,8 +257,8 @@ Retourne `NativeImage` - L'image recadrée.
 
 * `options` Objet 
   * `width` Integer (optional) - Defaults to the image's width.
-  * `height` Integer (optional) - Defaults to the image's height.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `height` Integer (facultatif) - La hauteur de l'image par défaut.
+  * `Qualité` String (facultatif) - La qualité souhaitée de l'image de retaille. Possible values are `good`, `better`, or `best`. La valeur par défaut est `meilleur`. Ces valeurs expriment un compromis qualité/vitesse souhaité. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Retourne `NativeImage` - L'image redimensionnée.
 
@@ -274,7 +274,7 @@ Retourne `Float` - Le ratio d'aspect de l'image.
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `tampon` Buffer (facultatif) - Le tampon contenant les données de l'image brute.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Ajouter une représentation d'image pour un facteur d'échelle spécifique. Ceci peut être utilisé pour ajouter explicitement différentes représentations de facteur d'échelle à une image. Cette peut être appelée sur des images vides.
