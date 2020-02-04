@@ -49,7 +49,9 @@ Rimuove tutti i listeners, oppure quelli del `channel` specificato.
 * `channel` String
 * `...args` any[]
 
-Invia un messaggio al processo principale in modo assincrono attraverso il canale, `channel`, è possibile inviare un numero qualsiasi di argomenti. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
@@ -60,7 +62,9 @@ The main process handles it by listening for `channel` with the [`ipcMain`](ipc-
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -86,11 +90,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 Restituisce `any` - il valore inviato indietro dal gestore [`ipcMain`](ipc-main.md).
 
-Invia un messaggio al processo principale in modo sincrono attraverso il canale `channel`, si possono inviare un numero qualsiasi di argomenti. Gli argomenti verranno serializzati internamente in JSON e dunque funzioni e catene di prototype non verrano incluse.
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 Il processo principale lo gestisce ascoltando il `channel` con il modulo [`ipcMain`](ipc-main.md), e risponde impostando un valore `event.returnValue`.
 
-**Nota:** L'invio di un messaggio sincrono bloccherà il processo di rendering nel punto in cui invia il messaggio fino a quando il processo main non imposta il returnValue sull'oggetto event che ha ricevuto, a meno che non si sa cosa si stia facendo è meglio evitare di usarlo.
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
@@ -105,7 +111,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `channel` String
 * `...args` any[]
 
-Come `ipcRenderer.send` ma l'evento verrà inviato al `<webview>`elemento nella pagina host anziché il processo principale.
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
 
 ## L'oggetto Event
 
