@@ -54,7 +54,7 @@ remote.webContents.fromId(webview.getWebContentsId())
 ただし、`remote` モジュールをできる限り使用しないことを推奨します。
 
 ```js
-// main
+// メイン
 const { ipcMain, webContents } = require('electron')
 
 const getGuestForWebContents = function (webContentsId, contents) {
@@ -73,7 +73,7 @@ ipcMain.handle('openDevTools', (event, webContentsId) => {
   guest.openDevTools()
 })
 
-// renderer
+// レンダラー
 const { ipcRenderer } = require('electron')
 
 ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
@@ -145,7 +145,7 @@ webFrame.setIsolatedWorldInfo(
 
 ### `<input type="file"/>` の `webkitdirectory` 属性
 
-￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
+`webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。 例として、以下の構造のフォルダーを使用します。
 
 ```console
 folder
@@ -154,13 +154,13 @@ folder
 └── file3
 ```
 
-￼ In Electron <=6, this would return a `FileList` with a `File` object for:
+Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
 
 ```console
 path/to/folder
 ```
 
-￼ In Electron 7, this now returns a `FileList` with a `File` object for:
+Electron 7 では、以下のような `File` オブジェクトが入った `FileList` を返します。
 
 ```console
 /path/to/folder/file3
@@ -168,7 +168,7 @@ path/to/folder
 /path/to/folder/file1
 ```
 
-￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
+`webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 
 ## 予定されている破壊的なAPIの変更 (6.0)
 
