@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 `main.js` pencereleri oluşturmalı ve uygulamanızın karşılaşabileceği bütün sistem olaylarını işlemelidir. Üstteki örneğin daha tamamlanmış hali geliştirici araçlarını açabilmeli, pencerenin kapanmasını işleyebilmeli veya macOS'de eğer kullanıcı araç çubuğunda uygulamanın ikonuna basarsa pencereyi tekrardan oluşturabilmelidir.
@@ -122,9 +122,9 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Bazı API'ler sadece bu olayın gerçekleşmesinin ardından kullanılabilir.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// Bütün pencereler kapatıldığında çıkış yap.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // MacOS'de kullanıcı CMD + Q ile çıkana dek uygulamaların ve menü barlarının
   // aktif kalmaya devam etmesi normaldir.

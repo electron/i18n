@@ -32,7 +32,7 @@ Puede usar el módulo [Acceso directo global](../api/global-shortcut.md) para de
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

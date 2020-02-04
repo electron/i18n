@@ -96,6 +96,10 @@ Supprime un paramètre supplémentaire de l'ensemble de paramètres courant afin
 
 Voir tous les paramètres actuels passés au rapport de plantage.
 
+### `crashReporter.getCrashesDirectory()`
+
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
 ## Payload du Crash Report
 
 Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un `POST` en `multipart/form-data` :

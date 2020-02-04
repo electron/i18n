@@ -31,10 +31,10 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: flash 버전 지정 (예, v17.0.0.169)
+// 선택: flash버전 지정 (예: v17.0.0.169)
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -43,7 +43,7 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // 추가 작업
+  // 그 외
 })
 ```
 

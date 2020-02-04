@@ -479,7 +479,7 @@ webview.addEventListener('dom-ready', () => {
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。
 
-戻り値 `Promise<Buffer>` - 生成された PDF データで実行されます。
+戻り値 `Promise<Uint8Array>` - 生成された PDF データで実行されます。
 
 `webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options)` と同じです。
 
@@ -541,7 +541,7 @@ webview.addEventListener('dom-ready', () => {
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -550,11 +550,13 @@ webview.addEventListener('dom-ready', () => {
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 

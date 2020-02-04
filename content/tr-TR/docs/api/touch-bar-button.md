@@ -8,14 +8,21 @@
 
 * `seçenekler` Nesnesi 
   * `label` String (İsteğe bağlı) - Görüntülenecek metin.
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (isteğe bağlı) - Düğme arkaplan rengi hex formatında, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `iconPosition` String (isteğe bağlı) - `left`, `right` yada `overlay` olabilir.
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
   * `click` Fonksiyon (isteğe bağlı) - Tuşa tıklandığında aranan fonksiyon.
+
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Örnek Özellikler
 
 Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
+
+#### `touchBarButton.accessibilityLabel`
+
+A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
 
 #### `touchBarButton.label`
 

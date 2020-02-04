@@ -12,10 +12,10 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
     * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna.
   * `sorot` Function (optional) - Called when the user taps any item. 
     * `highlightedIndex` Bulat - indeks dari item pengguna menyentuh.
-  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Defaults to `free`.
+  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Instance Properties
@@ -32,7 +32,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 * `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `null` - sebenarnya null, bukan string, menghilangkan semua gaya.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -42,7 +42,7 @@ A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya
 <li><code>latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.</li> 
 
 * `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `null` - sebenarnya null, bukan string, menghilangkan semua gaya.</ul> 
+* `none` - Removes all styles.</ul> 
 
 #### `sentuhBarScrubber.showArrowButtons`
 

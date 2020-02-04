@@ -8,6 +8,6 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 
 * `options` Objet 
   * `size` String (facultatif) - Taille d'espacement, les valeurs possibles sont : 
-    * `small` - petit espacement entre les éléments.
-    * `large` - grand espacement entre les éléments.
-    * `flexible` - Prend tout l'espace disponible.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.

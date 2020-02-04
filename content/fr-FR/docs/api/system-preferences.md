@@ -261,7 +261,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-frame` - Cadre de fenêtres.
     * `window-text` - Texte dans windows.
   * Marche **macOS** 
-    * `alternate-selected-control-text` - Le texte sur une surface sélectionnée dans une liste ou un tableau.
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. *deprecated*
     * `control-background` - L'arrière-plan d'un élément de grande interface, tel qu'un navigateur ou un tableau.
     * `control` - La surface d'un contrôle.
     * `control-text` -Le texte d'un contrôle qui n'est pas désactivé.
@@ -280,7 +280,7 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `selected-content-background` - L'arrière-plan du contenu sélectionné dans une fenêtre ou une vue clé.
     * `selected-control` - La surface d'une commande sélectionnée.
     * `selected-control-text` - Le texte d'une commande sélectionnée.
-    * `selected-menu-item` - Le texte d'un menu sélectionné.
+    * `selected-menu-item-text` - The text of a selected menu.
     * `selected-text-background` - L'arrière-plan du texte sélectionné.
     * `texte sélectionné` - Texte sélectionné.
     * `Séparateur` - Un séparateur entre différentes sections de contenu.
@@ -296,6 +296,8 @@ Cette API n'est disponible que sur macOS 10.14 Mojave ou plus récent.
     * `window-frame-text` - Le texte dans la barre de titre de la fenêtre.
 
 Retourne `String` - Le paramètre de couleur système sous forme hexadécimale RVB (`#ABCDEF`). Voir la [documentation Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) et la [documentation MacOS](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) pour plus de détails.
+
+The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -332,7 +334,7 @@ Returns `String` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+Veuillez noter que jusqu'à ce qu'Electron soit compilé en ciblant le SDK 10.14, votre application `effectiveAppearance` sera par défaut à 'light' et n'héritera pas de la préférence de l'OS. Dans l'intervalle pour que votre application hérite de la préférence de l'OS, vous devez définir la touche `NSRequiresAquaSystemAppearance` dans vos applications `Info. liste` à `faux`. Si vous utilisez `electron-packager` ou `electron-forge` il vous suffit de définir l'option `enableDarwinDarkMode` à `true`. Voir l'API [Electron Packager](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) pour plus de détails.
 
 **[Déprécié ](modernization/property-updates.md)**
 
@@ -388,11 +390,11 @@ Returns `Boolean` - `true` if the current process is a trusted accessibility cli
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` or `camera`.
+* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
 Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 

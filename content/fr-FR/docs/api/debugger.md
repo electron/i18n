@@ -48,7 +48,7 @@ Retourne :
 
 * `event` Événement
 * `method` String - Nom de la méthode.
-* `params` inconnu - Paramètres d'événement définis par l'attribut 'parameters' dans le protocole de débogage distant.
+* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Émis chaque fois que la cible de débogage émet un événement d'instrumentation.
 

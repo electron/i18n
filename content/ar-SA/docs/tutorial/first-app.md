@@ -96,7 +96,7 @@ const electron = require('electron')
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 `</pre> 
 
 يجب أن تقوم ` main.js </ 0> بإنشاء النوافذ والتعامل مع جميع أحداث النظام الخاصة بك
@@ -126,9 +126,9 @@ app.on('ready', createWindow)
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// قم بإنهاء عند إغلاق كافة الإطارات.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
 // على macOS من الشائع للتطبيقات وشريط القوائم
    // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q

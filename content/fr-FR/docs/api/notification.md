@@ -35,8 +35,10 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
   * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
   * `hasReply` Boolean (facultatif) *macOS* - Ajout ou non d'une option de réponse en ligne à la notification.
+  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (facultatif) *macOS* - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
   * `sound` String (facultatif) *macOS* - Le nom du fichier audio à jouer lorsque la notification est affichée.
+  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (facultatif) *macOS* - Un titre personnalisé pour le bouton de fermeture d'une alerte. Une chaîne vide fera que le texte localisé par défaut sera utilisé.
 
@@ -135,6 +137,18 @@ Une propriété `Boolean` qui indique si la notification est silencieuse.
 #### `notification.hasReply`
 
 Une propriété `Booléenne` qui indique si la notification a une action de réponse.
+
+#### `notification.urgency` *Linux*
+
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 

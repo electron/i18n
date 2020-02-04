@@ -462,7 +462,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
     * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
   
-  Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+  Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
   
   Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
   
@@ -524,7 +524,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
     
-    ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+    ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
     
     * `minimalLevel` Nomor
     * `maksimalLevel` Nomor
@@ -533,11 +533,13 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
     
+    **Deprecated:** This API is no longer supported by Chromium.
+    
     ### `<webview>.showDefinitionForSelection()` *macOS*
     
     Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
     
-    ### `<webview>.getWebContents()`
+    ### `<webview>.getWebContents()` *Deprecated*
     
     Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
     

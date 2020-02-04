@@ -261,7 +261,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-frame` - Cuadro de ventana.
     * `window-text` - Texto en ventanas.
   * Activado **macOS** 
-    * `alternate-selected-control-text` - Texto en una superficie selecciona, en una lista o en una tabla.
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. *deprecated*
     * `control-background` - El fondo de un elemento de interfaz grande, tal como un navegador o tablet.
     * `control` - La superficie de un control.
     * `control-text` - El texto de un control que no está deshabilitado.
@@ -280,7 +280,7 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `selected-content-background` - El fondo para el contenido seleccionado en una ventana clave o en una vista.
     * `selected-control` - La superficie de un control seleccionado.
     * `selected-control-text` - El texto un control seleccionado.
-    * `selected-menu-item` - El texto de un menu seleccionado.
+    * `selected-menu-item-text` - The text of a selected menu.
     * `selected-text-background` - El fondo de un texto seleccionado.
     * `selected-text` - Texto seleccionado.
     * `separator` - Un separado entre las diferentes secciones del contenido.
@@ -296,6 +296,8 @@ Esta API solo esta disponible desde macOS 10.15 Mojave or posteriores.
     * `window-frame-text` - El texto en la area de la barra de título de la ventana.
 
 Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Mira el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) y el [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) para mas detalles.
+
+The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -388,11 +390,11 @@ Devuelve `Boolean` - `true` si el proceso actual es un cliente de accesibilidad 
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` o `camera`.
+* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
 Devuelve `String` - Puede ser `not-determined`, `granted`, `denied`, `restricted` o `unknown`.
 
-Este consentimiento de usuario no fue requerido hasta macOS 10.14 Mojave, por lo que este método siempre devolverá `granted` si su sistema está ejecutando 10.13 High Sierra o inferior.
+This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 

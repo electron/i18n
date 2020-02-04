@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
@@ -122,9 +122,9 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // 有些 API 只能在這個事件發生後才能用。
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// 在所有視窗都關閉時結束程式。
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // 在 macOS 中，一般會讓應用程式及選單列繼續留著，
   // 除非使用者按了 Cmd + Q 確定終止它們

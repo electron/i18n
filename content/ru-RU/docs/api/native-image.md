@@ -12,11 +12,11 @@
 const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Или прочтите изображение из буфера обмена, который возвращает `NativeImage`:
+Or read the image from the clipboard, which returns a `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -29,19 +29,19 @@ console.log(appIcon)
 
 В настоящее время поддерживаются форматы изображений `PNG` и `JPEG`. Рекомендуется `PNG`, поскольку он поддерживает прозрачность и сжатие без потерь.
 
-В Windows вы также можете загрузить значки `ICO` из путей к файлам. Для лучшего визуального качества рекомендуется включить по крайней мере следующие размеры:
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Мелкие значки 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
+  * 16x16 (100% DPI scale)
+  * 20x20 (125% DPI scale)
+  * 24x24 (150% DPI scale)
+  * 32x32 (200% DPI scale)
 * Большие значки 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
-* 256x256
+  * 32x32 (100% DPI scale)
+  * 40x40 (125% DPI scale)
+  * 48x48 (150% DPI scale)
+  * 64x64 (200% DPI scale)
+  * 256x256
 
 Проверьте раздел *Size requirements* в [этой статье](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
@@ -49,7 +49,7 @@ console.log(appIcon)
 
 На платформах, имеющих поддержку высокого DPI, таких как дисплеи Apple Retina, вы можете добавить `@2x` после имени файла изображения, чтобы пометить его как изображение с высоким разрешением.
 
-Например, если `icon.png` является нормальным изображением, которое имеет стандартное разрешение, то `icon@2x.png` будет рассматриваться как изображение с высоким разрешением, с двойной плотностью DPI.
+For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
 Если вы хотите поддерживать дисплей с разными частотами DPI одновременно, вы можете поместить изображения с разными размерами в одну и ту же папку и использовать имя файла без суффиксов DPI. Например:
 
@@ -62,11 +62,11 @@ images/
 
 ```javascript
 const { Tray } = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
+const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Также поддерживаются следующие суффиксы DPI:
+The following suffixes for DPI are also supported:
 
 * `@1x`
 * `@1.25x`
@@ -84,7 +84,7 @@ console.log(appIcon)
 
 Шаблонные изображения состоят из черного и Альфа-канала. Шаблонные изображения не предназначены для использования в качестве автономных изображений и обычно смешиваются с другим содержимым для создания желаемого конечного вида.
 
-Наиболее распространенный вариант - использование шаблонных изображений для значка панели меню, с тем чтобы он мог адаптироваться как к светлым, так и темным панелям меню.
+The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **Внимание:** Шаблонные изображения поддерживаются только на macOS.
 
@@ -114,14 +114,17 @@ console.log(appIcon)
 ```javascript
 const nativeImage = require('electron').nativeImage
 
-let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
+const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (опционально) - По умолчанию 1.0.
+* `options` Object 
+  * `width` Integer
+  * `height` Integer
+  * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `NativeImage`
 
@@ -130,7 +133,10 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (опционально) * `width` Integer (опционально) - требуется для буферов растровых изображений. * `height` Integer (опционально) - требуется для буферов растровых изображений. * `scaleFactor` Double (опционально) - По умолчанию 1.0.
+* `options` Object (опционально) 
+  * `width` Integer (optional) - Required for bitmap buffers.
+  * `height` Integer (опционально) - требуется для буферов растровых изображений.
+  * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `NativeImage`
 
@@ -153,11 +159,11 @@ console.log(image)
 
 Создает новый экземпляр `NativeImage` из NSImage, который сопоставляется с заданным именем изображения. Смотрите [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) для получения списка возможных значений.
 
-`hslShift` применяется к изображению со следующими правилами
+`hslShift` применяется к изображению со следующими правилами:
 
-* `hsl_shift[0]` (оттенок): Абсолютное значение оттенка для изображения - 0 и 1 соотносится с 0 и 360 на цветовом круге оттенков (красный).
-* `hsl_shift[1]` (насыщенность): Изменение насыщенности изображения с помощью следующих значений ключа: 0 = удалить весь цвет. 0.5 = оставить без изменений. 1 = полностью насыщенное изображение.
-* `hsl_shift[2]` (яркость): Изменение яркости изображения с помощью следующих значений ключа: 0 = удалить всю яркость (сделать все пикселы чёрными). 0,5 = оставить без изменений. 1 = полная яркость (сделать все точки белыми).
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0,5 = оставить без изменений. 1 = полная яркость (сделать все точки белыми).
 
 Это означает, что `[-1, 0, 1]` сделает изображение полностью белым, а `[-1, 1, 0]` сделает изображение полностью чёрным.
 
@@ -179,7 +185,8 @@ console.log(image)
 
 #### `image.toPNG([options])`
 
-* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
+* `options` Object (опционально) 
+  * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит закодированные данные изображения `PNG`.
 
@@ -191,23 +198,26 @@ console.log(image)
 
 #### `image.toBitmap([options])`
 
-* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
+* `options` Object (опционально) 
+  * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит копию сырых данных растровых пикселей изображения.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
+* `options` Object (опционально) 
+  * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `String` - данные URL изображения.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (опционально) * `scaleFactor` Double (опционально) - По умолчанию 1.0.
+* `options` Object (опционально) 
+  * `scaleFactor` Double (опционально) - По умолчанию 1.0.
 
 Возвращает `Buffer` - [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer), который содержит сырые данные растровых пикселей изображения.
 
-Разница между `getBitmap()` и `toBitmap()` заключается в том, что `getBitmap()` не копирует растровые данные, поэтому необходимо немедленно использовать возвращаемый буфер в тикере цикла текущего события, иначе данные могут быть изменены или уничтожены.
+The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
@@ -245,7 +255,10 @@ console.log(image)
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (опционально) - По умолчанию ширина изображения. * `height` Integer (опционально) - По умолчанию высота изображения. * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Возможные значения `good` - хорошее, `better` - лучшее или `best` - самое лучшее. По-умолчанию - `best`. Эти значения выражают желаемый компромисс между качеством и скоростью. Они переводятся в алгоритм конкретного метода, который зависит от возможностей (CPU, GPU) базовой платформы. Все три метода можно сопоставить с одним и тем же алгоритмом на данной платформе.
+* `options` Object 
+  * `width` Integer (optional) - Defaults to the image's width.
+  * `height` Integer (опционально) - По умолчанию высота изображения.
+  * `quality` String (опционально) - Желаемое качество изображения при изменения размера. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Возвращает `NativeImage` - измененый размер изображения.
 
@@ -257,7 +270,12 @@ console.log(image)
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - Коэффициент масштаба для добавления представления изображения. * `width` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `height` Integer (опционально) - По умолчанию 0. Требуется, если растровый буфер указан как `buffer`. * `buffer` Buffer (опционально) - Буфер, содержащий сырые данные изображения. * `dataURL` String (опционально) - URL-адрес данных, содержащий закодированное в base64 изображение в формате PNG или JPEG.
+* `options` Object 
+  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Добавьте представление изображения для определенного коэффициента масштабирования. Это можно использовать для явного добавления к изображению различных представлений коэффициента масштабирования. Можно использовать на пустых изображениях.
 

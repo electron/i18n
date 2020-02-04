@@ -99,6 +99,10 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 <h3><code>crashReporter.getParameters()`</h3> 
     See all of the current parameters being passed to the crash reporter.
     
+    ### `crashReporter.getCrashesDirectory()`
+    
+    Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+    
     ## Laporan Kecelakaan Payload
     
     Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>

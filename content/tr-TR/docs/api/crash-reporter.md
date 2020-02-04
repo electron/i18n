@@ -97,6 +97,10 @@ Kilitlenme raporuyla birlikte gönderilemeyeceği için mevcut parametreler grub
 
 Çökme raportörüne gönderilen şu anki parametrelerin tümünü görün.
 
+### `crashReporter.getCrashesDirectory()`
+
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
 ## Çökme Raporu Verisi
 
 Çökme raporlarlayıcısı aşağıdaki verileri `submitURL` adresine `multipart/form-data` `POST` olarak yollayacaktır:

@@ -6,6 +6,83 @@
 
 Строка `FIXME` используется в комментариях к коду для обозначения вещей, которые должны быть исправлены в будущих релизах. Смотрите https://github.com/electron/electron/search?q=fixme
 
+## Запланированные критические изменения API (8.0)
+
+### Values sent over IPC are now serialized with Structured Clone Algorithm
+
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+
+```js
+// Previously:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => results in { value: 3 } arriving in the main process
+
+// From Electron 8:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => throws Error("() => {} could not be cloned.")
+```
+
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
+```js
+Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+```
+
+Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
+
+### `<webview>.getWebContents()`
+
+This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+
+```js
+// Deprecated
+webview.getWebContents()
+// Replace with
+const { remote } = require('electron')
+remote.webContents.fromId(webview.getWebContentsId())
+```
+
+However, it is recommended to avoid using the `remote` module altogether.
+
+```js
+// main
+const { ipcMain, webContents } = require('electron')
+
+const getGuestForWebContents = function (webContentsId, contents) {
+  const guest = webContents.fromId(webContentsId)
+  if (!guest) {
+    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+  }
+  if (guest.hostWebContents !== contents) {
+    throw new Error(`Access denied to webContents`)
+  }
+  return guest
+}
+
+ipcMain.handle('openDevTools', (event, webContentsId) => {
+  const guest = getGuestForWebContents(webContentsId, event.sender)
+  guest.openDevTools()
+})
+
+// renderer
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
+```
+
+### `webFrame.setLayoutZoomLevelLimits()`
+
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
 ## Запланированные критические изменения API (7.0)
 
 ### Node Headers URL
@@ -48,7 +125,7 @@ const idleTime = getSystemIdleTime()
 ### API webFrame изолированных миров
 
 ```js
-// Удалено в Elecron 7.0
+// Удалено в Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -68,30 +145,30 @@ webFrame.setIsolatedWorldInfo(
 
 ### `webkitdirectory` атрибут для `<input type="file"/>`
 
-￼ ￼ `webkitdirectory` свойство на входах HTML-файлов позволяет им выбирать папки. ￼Предыдущие версии Electron имели неправильную реализацию, где `event.target.files` ￼ввода возвращала `FileList`, который возвращал один `File`, соответствующий выбранной папке. ￼ ￼Начиная с Electron 7 этот `FileList`теперь является списком всех ￼файлов, содержащихся в папке, аналогично Chrome, Firefox и Edge ￼([ссылка на MDN документ](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼В качестве иллюстрации возьмем папку с такой структурой: ￼
+￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
 
-    console
-    ￼folder
-    ￼├── file1
-    ￼├── file2
-    ￼└── file3
-    ￼ ￼ ￼В Electron <=6, это вернет 
+```console
+folder
+├── file1
+├── file2
+└── file3
+```
 
-`FileList` с объектом `File` для: ￼
+￼ In Electron <=6, this would return a `FileList` with a `File` object for:
 
-    console
-    ￼path/to/folder
-    ￼ ￼ ￼В Electron 7, теперь он вернет 
+```console
+path/to/folder
+```
 
-`FileList` с объектом `File` для: ￼
+￼ In Electron 7, this now returns a `FileList` with a `File` object for:
 
-    console
-    ￼/path/to/folder/file3
-    ￼/path/to/folder/file2
-    ￼/path/to/folder/file1
-    ￼ ￼ ￼Обратите внимание, что 
+```console
+/path/to/folder/file3
+/path/to/folder/file2
+/path/to/folder/file1
+```
 
-`webkitdirectory` больше не возвращает путь к выбранной папке. ￼Если вам нужен путь к выбранной папке, а не к содержимому папки, ￼смотрите `dialog.showOpenDialog` API ([Ссылка](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## Запланированные критические изменения API (6.0)
 
@@ -220,11 +297,11 @@ API графического процесса `webFrame.setRegisterURLSchemeAsPr
 ### API webFrame изолированных миров
 
 ```js
-// Удалено в Electron 7.0
+// Устарело
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Заменить на
+// Заменено на
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -284,13 +361,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же с `basic` в macOS
+// Теперь ведет себя так же, как `basic` на macOS
 app.getGPUInfo('basic')
 ```
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
@@ -446,12 +523,12 @@ webContents.setSize(options)
 ```js
 // Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменить на
+// Заменено на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
@@ -471,7 +548,7 @@ webview.onkeydown&nbsp;= () => { /* обработчик */ }
 webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
-### URL заголовков Node
+### Node Headers URL
 
 Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 
@@ -535,7 +612,7 @@ webContents.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -550,7 +627,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ### Двойные ARM ресурсы
 
-Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM они поддерживают, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
+Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурс с префиксом `v7l` был добавлен, чтобы уточнить для пользователей, какую версию ARM он поддерживает, и чтобы исключить их в будущих ресурсах armv6l и arm64, которые могут быть произведены.
 
 Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса более не будет публиковаться.
 

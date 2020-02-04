@@ -509,6 +509,7 @@ win.webContents.on('before-input-event', (event, input) => {
   * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
   * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
   * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース。`none`、`mouse`、`keyboard`、`touch` または `touchMenu` にできます。
@@ -622,7 +623,7 @@ win.loadURL('http://github.com')
 * `line` Integer
 * `sourceId` String
 
-関連付けられたウィンドウがコンソールメッセージをロギングしたときに発行されます。 *オフスクリーンレンダリング* が有効になっているウィンドウでは発行されません。
+Emitted when the associated window logs a console message.
 
 #### イベント: 'preload-error'
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. 任意の整数を指定できます。
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+
 #### `contents.setIgnoreMenuShortcuts(ignore)` *実験的*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 戻り値 `Promise<void>`
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1108,6 +1121,25 @@ console.log(requestId)
 
 `rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
 #### `contents.getPrinters()`
 
 システムプリンタのリストを取得します。
@@ -1119,7 +1151,7 @@ console.log(requestId)
 * `options` Object (任意) 
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像を印刷するかどうか。省略値は `false`。
-  * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (任意) - 印刷するウェブページをカラーにするかグレースケールにするかを設定します。デフォルトは `true` です。
   * `margins` Object (任意) 
     * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
@@ -1137,6 +1169,8 @@ console.log(requestId)
   * `dpi` Object (任意) 
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `callback` Function (任意) 
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷が失敗した場合にコールバックされます。`cancelled` か `failed` になります。
@@ -1318,6 +1352,16 @@ app.once('ready', () => {
 
 共有ワーカーコンテキストの開発者向けツールを開きます。
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `contents.inspectServiceWorker()`
 
 サービスワーカコンテキストの開発者向けツールを開きます。
@@ -1327,7 +1371,9 @@ app.once('ready', () => {
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は内部で JSON としてシリアライズされ、関数やプロトタイプチェーンのようなものは含まれません。
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1389,7 +1437,7 @@ ipcMain.on('ping', (event) => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`): 
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop、`): 
     * `desktop` - デスクトップ画面タイプ.
     * `mobile` - モバイル画面タイプ.
   * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
@@ -1431,7 +1479,7 @@ ipcMain.on('ping', (event) => {
 
 * `item` Object 
   * `file` String[] | String - ドラッグが開始されたファイルへのパス。
-  * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
 

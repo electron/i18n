@@ -8,6 +8,6 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
 
 * `pagpipilian` Bagay 
   * `sukat` Pisi (opsyonal) - laki ng spacer, posibleng values ay: 
-    * `maliit` - Maliit na pagitan sa gitna ng mga aytem.
-    * `malaki` - Malaking pagitan sa gitna ng mga aytem.
-    * `flexible` - kunin ang lahat ng espasyo na magagamit.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.

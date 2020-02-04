@@ -43,11 +43,12 @@ Returns `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.moveItemToTrash(fullPath)`
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. *macOS*
 
-Retorna `Boolean` - Se o item foi movido para lixeira com êxito.
+Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
 Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 

@@ -9,7 +9,7 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 * `pilihan` Benda 
   * `label` String (tidak wajib diisi) - tombol teks Popover.
   * `ikon` [GambarAsli](native-image.md) (tidak wajib diisi) - tombol ikon Popover.
-  * `jenis-jenis` [TouchBar](touch-bar.md) (tidak wajib diisi) - butir-butir untuk ditampilkan didalam popover.
+  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Boolean (tidak wajib diisi) - `benar` untuk menampilkan tombol penutup pada bagian kiri Popover, `salah` untuk tidak memperlihatkannya. Bawaanya adalah `benar`.
 
 ### Contoh properti

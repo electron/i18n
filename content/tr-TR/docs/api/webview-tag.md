@@ -479,7 +479,7 @@ Returns `Promise<void>`
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
@@ -541,7 +541,7 @@ Returns `Promise<void>`
 
 Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -550,11 +550,13 @@ Returns `Promise<void>`
 
 Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
 Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
 

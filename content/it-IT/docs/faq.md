@@ -58,9 +58,9 @@ Se vuoi una soluzione veloce, puoi rendere le variabili globali cambiando il tuo
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('ciao mondo')
+  tray.setTitle('hello world')
 })
 ```
 
@@ -69,9 +69,9 @@ in questo:
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('ciao mondo')
+  tray.setTitle('hello world')
 })
 ```
 

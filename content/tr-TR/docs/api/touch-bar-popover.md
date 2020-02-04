@@ -9,7 +9,7 @@
 * `seçenekler` Nesnesi 
   * `label` Dizge (isteğe bağlı) - açılır düğme metni.
   * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Açılır düğme simgesi.
-  * `items` [TouchBar](touch-bar.md) (isteğe bağlı) - Açılır pencerede görüntülenecek öğeler.
+  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Mantıksal (isteğe bağlı) - açılır pencerenin solundaki kapat düğmesini görüntülemek için `true`, göstermek için `false`. Varsayılan `true`'tür.
 
 ### Örnek Özellikler

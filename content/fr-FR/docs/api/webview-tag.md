@@ -153,7 +153,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. s'il n'y a pas de préfixe `persistant:`, la page utilisera une session en mémoire . En assignant la même `partition`, plusieurs pages peuvent partager la même session. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -213,7 +213,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `données postales` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (facultatif)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
@@ -479,7 +479,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
@@ -541,7 +541,7 @@ Retourne `Promise<void>`
 
 Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -550,11 +550,13 @@ Retourne `Promise<void>`
 
 Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 

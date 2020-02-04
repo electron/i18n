@@ -49,7 +49,9 @@ Supprime tous les écouteurs, ou ceux du `channel` spécifié.
 * `channel` String
 * `...args` any[]
 
-Envoi un message au processus main de façon asynchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Les arguments seront sérialisés en tant que JSON en interne et donc aucune fonction ou chaîne de prototype ne sera incluse.
+Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain`](ipc-main.md).
 
@@ -60,7 +62,9 @@ Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain
 
 Retourne `Promise<any>` - résout avec la réponse du processus principal.
 
-Envoie un message au processus principal de manière asynchrone via `canal` et attend un résultat asynchrone. Les arguments seront sérialisés en tant que JSON en interne et donc aucune fonction ou chaîne de prototype ne sera incluse.
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 Le processus principal devrait écouter le `canal` avec [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -86,11 +90,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 Retourne `any` - La valeur renvoyé par l'écouteur du [`ipcMain`](ipc-main.md).
 
-Envoi un message au processus main de façon synchrone via le `channel`, vous pouvez également envoyer des arguments arbitraire. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 Le processus principal le gère en écoutant le `canal` avec le module [`ipcMain`](ipc-main.md) , et répond en définissant `event.returnValue`.
 
-**Remarque :** Envoyer un message synchrone permet de bloquer le processus renderer entièrement, sauf si vous savez ce que vous faites, vous ne devez jamais l'utiliser.
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 

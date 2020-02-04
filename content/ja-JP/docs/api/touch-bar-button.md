@@ -8,14 +8,21 @@
 
 * `options` オブジェクト 
   * `label` String (任意) - ボタンのテキスト。
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `backgroundColor` String (任意) - 16進数形式、即ち `#ABCDEF` のボタンの背景色。
   * `icon` [NativeImage](native-image.md) | String (任意) - ボタンのアイコン。
-  * `iconPosition` String (任意) - `left`、`right`、`overlay` にできます。
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
   * `click` Function (任意) - ボタンがクリックされたときに呼ぶ関数。
+
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### インスタンスプロパティ
 
 `TouchBarButton` のインスタンスには以下のプロパティがあります。
+
+#### `touchBarButton.accessibilityLabel`
+
+A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
 
 #### `touchBarButton.label`
 

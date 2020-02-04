@@ -49,7 +49,7 @@ Pengembalian:
     
     * `event` Sinyal
     * ` metode </ 0> String - nama metode.</li>
-<li><code>params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+<li><code>params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
     
     Emitted whenever the debugging target issues an instrumentation event.
     

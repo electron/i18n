@@ -35,8 +35,10 @@ Returns ` Boolean `-当前系统是否支持桌面通知
   * ` silent `Boolean (可选) 在显示通知时是否发出系统提示音。
   * ` icon`(String | [ NativeImage ](native-image.md)) (可选) 用于在该通知上显示的图标。
   * ` hasReply `Boolean (可选) 是否在通知中添加一个答复选项。 * macOS *
+  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
   * ` replyPlaceholder `String (可选) 答复输入框中的占位符。* macOS *
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
+  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (可选) *macOS* - 要添加到通知中的操作 请阅读 `NotificationAction`文档来了解可用的操作和限制。
   * `closeButtonText` String (可选) *macOS* - 自定义的警告框关闭按钮文字。如果该字符串为空，那么将使用本地化的默认文本。
 
@@ -135,6 +137,18 @@ A `Boolean` property representing whether the notification is silent.
 #### `notification.hasReply`
 
 A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.urgency` *Linux*
+
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 

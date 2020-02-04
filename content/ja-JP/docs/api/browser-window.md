@@ -154,7 +154,7 @@ child.once('ready-to-show', () => {
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は、`false` です。
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
-  * `hasShadow` Boolean (任意) - ウインドウが影をもっているかどうか。これはmacOSでのみ実装されています。省略値は、`true` です。
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
@@ -164,6 +164,7 @@ child.once('ready-to-show', () => {
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
     * `hiddenInset` - ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
     * `customButtonsOnHover` Boolean (任意) - macOS フレームレスウインドウで、カスタムの閉じる、最小化ボタンを描画します。 これらのボタンはウインドウの左上にマウスカーソルを置かないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** このオプションは、現在、実験的なものです。
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (任意) - macOSのフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
   * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
@@ -204,16 +205,18 @@ child.once('ready-to-show', () => {
     * `minimumFontSize` Integer (任意) - 省略値は、`0` です。
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
-    * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は、`false` です。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
+    * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は `false` 。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
     * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
-    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は、`false` です。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
-    * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は、`false` です。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
+    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は `false` 。 子ウインドウは、`nodeIntegrationInSubFrames` が true でなければ node integration は無効化されます。 **注:** 現在、これは実験的な機能です。
+    * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は `false` 。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザ方式の連続したダイアログからの保護を有効にするかどうか。省略値は `false`。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
     * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ&ドロップした際にナビゲーションするかどうか。省略値は `false`。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーン入力時にウィンドウのサイズ変更を禁止するかどうか。既定値は `false` です。
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -334,14 +337,14 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされた後に発生します。
 
-#### イベント: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 戻り値:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-ウィンドウの位置が変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウの移動を阻害します。
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
 
@@ -465,7 +468,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 * `webContents` [WebContents](web-contents.md)
 
-戻り値 `BrowserWindow` - 指定された `webContents` を所有するウインドウ。
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -615,6 +618,10 @@ win.excludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### インスタンスメソッド
 
@@ -946,6 +953,12 @@ Linuxでは常に `true` を返します。
 
 戻り値 `Boolean` - ウインドウが常に他のウインドウの上に表示されるかどうか。
 
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+
 #### `win.moveTop()`
 
 フォーカスに関係なく上 (Z順序) にウィンドウを移動します。
@@ -1014,6 +1027,12 @@ win.setSheetOffset(toolbarRect.height)
 #### `win.isKiosk()`
 
 戻り値 `Boolean` - ウインドウがキオスクモードであるかどうか。
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1289,7 +1308,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `visible` Boolean
 * `options` Object (任意) 
-  * `visibleOnFullScreen` Boolean (任意) *macOS* - ウインドウをフルスクリーンウィンドウの上で表示するかどうかを設定します。
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
@@ -1391,11 +1410,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - browserView を win へアタッチします。他の browserView がアタッチされている場合、このウインドウから削除されます。
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` *実験的*
 
-戻り値 `BrowserView | null` - アタッチされた BrowserView。何もアタッチされていない場合は `null` を返します。複数の BrowserView がアタッチされている場合はエラーを投げます。
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *実験的*
 

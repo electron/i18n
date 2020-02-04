@@ -9,7 +9,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 * `参数` 对象 
   * ` label `String (可选) 弹出按钮文本。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 弹出按钮图标。
-  * `items` [TouchBar](touch-bar.md) (可选) -弹出中展示的元素。
+  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Boolean (可选) - `true` 是指在弹出左侧展示关闭按钮, `false` 则相反. 默认为 `true`.
 
 ### 实例属性

@@ -32,9 +32,9 @@ You can configure different key combinations based on the user's operating syste
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('按了 CommandOrControl+X')
+    console.log('CommandOrControl+X is pressed')
   })
 })
 ```

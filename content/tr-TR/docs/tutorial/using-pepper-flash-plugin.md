@@ -34,7 +34,7 @@ app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName
 // Optional: Specify flash version, for example, v17.0.0.169
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -43,7 +43,7 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Başka birşey
+  // Something else
 })
 ```
 

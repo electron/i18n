@@ -43,11 +43,12 @@ Retourne `Promise<void>`
 
 Ouvre l'URL externe donnée en utilisant la méthode par défaut du système, en fonction de son protocole. (Par exemple, les URLs mailto: s'ouvrent avec l'agent de messagerie par défaut).
 
-### `shell.moveItemToTrash(fullPath)`
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
+* `deleteOnFail` Boolean (optional) - Whether or not to unilaterally remove the item if the Trash is disabled or unsupported on the volume. *macOS*
 
-Retourne `Boolean` - Si l'élément s'est bien déplacé dans la poubelle.
+Returns `Boolean` - Whether the item was successfully moved to the trash or otherwise deleted.
 
 Déplace le fichier donné dans la poubelle et retourne un booléen.
 

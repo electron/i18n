@@ -479,7 +479,7 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
@@ -541,7 +541,7 @@ Returns `Promise<void>`
 
 Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
@@ -550,11 +550,13 @@ Returns `Promise<void>`
 
 Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `.showDefinitionForSelection()` *macOS*
 
 Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa page.
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 Bumalik sa [`WebContents`](web-contents.md) - Ang laman ng web ay naka-ugnay sa `webview`.
 

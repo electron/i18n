@@ -69,7 +69,7 @@ Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` t
 const { session } = require('electron') session.defaultSession.on (' akan-download', (acara, item, webContents) = > {event.preventDefault() require('request')(item.getURL(), (data) = > {require('fs').writeFileSync ('/ di suatu tempat', data)})})
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Event: 'preconnect'
 
 Pengembalian:
 
@@ -109,9 +109,9 @@ Menulis data DOMStorage yang tidak tertulis ke disk.
 #### `ses.setProxy(config)`
 
 * `konfigurasi` Obyek 
-  * `pacScript` Senar - URL yang terkait dengan file PAC.
-  * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
-  * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
@@ -201,7 +201,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)`
 
 * `pilihan` Obyek 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -215,7 +215,7 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Fungsi 
+* `proc` Function | null 
   * `permintaan` Obyek 
     * `nama host` String
     * `sertifikat` [Sertifikat](structures/certificate.md)
@@ -319,6 +319,14 @@ Mengembalikan `String` - user agent untuk sesi ini.
 
 Returns `Promise<Buffer>` - resolves with blob data.
 
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+
 #### `ses.createInterruptedDownload(options)`
 
 * `pilihan` Obyek 
@@ -327,8 +335,8 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `mimeType` String (opsional)
   * `offset` Bulat - rentang mulai untuk men-download.
   * `panjang` Bulat - panjang Total download.
-  * `lastModified` String - header Last-Modified nilai.
-  * `eTag` String - ETag header nilai.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
   * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
 
 Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
@@ -349,9 +357,43 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 Returns `String[]` an array of paths to preload scripts that have been registered.
 
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
 ### Contoh properti
 
 Properti berikut tersedia pada contoh-contoh dari `sesi`:
+
+#### `ses.availableSpellCheckerLanguages` *Readonly*
+
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
 #### `ses.cookies` *Readonly*
 

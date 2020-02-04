@@ -48,7 +48,7 @@ Emitted when the debugging session is terminated. This happens either when `webC
 
 * `event` Event
 * `method` String - 方法名.
-* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
 

@@ -328,7 +328,7 @@ Emitido cuando Electron ha creado una nueva `session`.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -566,13 +566,15 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Reescribe el nombre de la aplicación actual.
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[Cambiar](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Devuelve `String` - Código de la localización actual de la aplicación. Los valores posibles están documentados [aquí](locales.md).
 
-Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -637,6 +639,14 @@ Este método verifica si el ejecutable acutal es el manejador por defecto para u
 **Nota:** En macOS puede usar este método para verificar si la aplicación ha sido registrada como controladora por defecto para un protocolo. También puedes verificar esto al marcar `~/Library/Preferences/com.apple.LaunchServices.plist` en el dispositivo macOS. Por favor vea la [documentación de Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) para detalles.
 
 El API usa el registro de Windows y LSCopyDefaultHandlerForURLScheme internamente.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -816,7 +826,7 @@ Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en
 
 ### `app.importCertificate(options, callback)` *Linux*
 
-* `opciones` Object 
+* `opciones` Objecto 
   * `cetificado` Cadena - camino para el archivo pkcs12.
   * `contraseña` Cadena - Frase clave para el certificado.
 * `callback` Function 
@@ -966,21 +976,21 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 **[Cambiar](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 Muestra las opciones del panel acerca de la aplicación. Estas opciones estas opciones pueden ser sobrescritas con `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `opciones` Object 
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Establece el panel de opciones. This will override the values defined in the app's `.plist` file on MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
 

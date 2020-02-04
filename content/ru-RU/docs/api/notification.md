@@ -35,8 +35,10 @@ Process: [Main](../glossary.md#main-process)
   * `silent` Boolean (опционально) - Использовать ли звук уведомления ОС при отображении уведомления.
   * `icon` (String | [NativeImage](native-image.md)) (опционально) - Значок для отображения в уведомлении.
   * `hasReply` Boolean (опционально) *macOS* - Нужно ли добавлять встроенный ответ к уведомлению.
+  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (опционально) *macOS* - Заполнитель для записи в поле ввода встроенного ответа.
   * `sound` String (опционально) *macOS* - Имя звукового файла, воспроизводимого при отображении уведомления.
+  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (опционально) *macOS* - Действия для добавления к уведомлению. Пожалуйста, прочитайте доступные действия и ограничения в документации `NotificationAction`.
   * `closeButtonText` String (опционально) *macOS* - Пользовательское название для кнопки закрытия оповещения. Пустая строка приведет к использованию локализованного текста по умолчанию.
 
@@ -135,6 +137,18 @@ Process: [Main](../glossary.md#main-process)
 #### `notification.hasReply`
 
 Свойство `Boolean`, представляющее, есть ли в уведомлении действие для ответа.
+
+#### `notification.urgency` *Linux*
+
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 

@@ -8,6 +8,6 @@
 
 * `options` Object 
   * `size` String (опционально) - Размер разделителя, возможные значения: 
-    * `small` - Небольшое пространство между элементами.
-    * `large` - Большое пространство между элементами.
-    * `flexible` - Занимает всё доступное пространство.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.

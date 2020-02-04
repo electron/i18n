@@ -509,6 +509,7 @@ Dönüşler:
   * `selectionText` Dize - Bağlam menüsünün üzerinde çağırılan seçimin metni.
   * `titleText` Dize - Bağlam menüsü üzerinde çağırılan seçimin alt metni veya başlığı.
   * `misspelledWord` Metin - İmlecin altındaki yanlış yazılan sözcük.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` Dize - Menüden çağırılan çerçevenin karakter şifrelemesi.
   * `inputFieldType` Dizgi - Bağlam menüsü bir girdi alanından çağrıldığında, o alanın türü. Olası değerler: `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -622,7 +623,7 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
 #### `contents.setIgnoreMenuShortcuts(ignore)` *Deneysel*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 Returns `Promise<void>`
 
 Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1108,6 +1121,25 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
 #### `contents.getPrinters()`
 
 Sistemdeki yazıcıların listesini alır.
@@ -1119,7 +1151,7 @@ Sistemdeki yazıcıların listesini alır.
 * `seçenekler` Obje (opsiyonel) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Obje (opsiyonel) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1137,6 +1169,8 @@ Sistemdeki yazıcıların listesini alır.
   * `dpi` Obje (opsiyonel) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1318,6 +1352,16 @@ Geliştirme araçlarına geçiş yapar.
 
 Opens the developer tools for the shared worker context.
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `contents.inspectServiceWorker()`
 
 Servis işçisisi bağlamı için geliştirici araçları açar.
@@ -1327,7 +1371,9 @@ Servis işçisisi bağlamı için geliştirici araçları açar.
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1431,7 +1479,7 @@ End subscribing for frame presentation events.
 
 * `öğe` Nesne 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olarak ayarlar; `file` dosyanın sürükleneceği değişmez dosya yoludur ve `icon` sürükleme sırasında imlecin altında gösterilecek olan görüntüdür.
 

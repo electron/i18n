@@ -8,6 +8,6 @@
 
 * `options` Об'єкт 
   * `size` String (опціонально) - розмір відступу, можливі варіанти: 
-    * `small` - Малий відступ між елементами.
-    * `large` - Великий відступ між елементами.
-    * `flexible` - Зайняти весь доступний простір.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.

@@ -39,6 +39,7 @@ console.log(dialog)
     * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - 自動的にエイリアス (シンボリックリンク) のパスを解決しないようにします。選択したエイリアスはリンク先のパスの代わりにエイリアスのパスを返します。
     * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
   * `securityScopedBookmarks` Boolean (任意) *macOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - 自動的にエイリアス (シンボリックリンク) のパスを解決しないようにします。選択したエイリアスはリンク先のパスの代わりにエイリアスのパスを返します。
     * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
   * `securityScopedBookmarks` Boolean (任意) *macOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 
@@ -136,6 +138,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
+    * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
+    * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `String | undefined` - ユーザが選択したファイルパス。dialog がキャンセルされた場合は `undefined` を返します。
@@ -154,7 +162,13 @@ dialog.showOpenDialog(mainWindow, {
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
-  * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
+    * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
+    * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。

@@ -261,7 +261,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-frame` - 窗口框.
     * `window-text` - 窗口的文字。
   * On **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table. *deprecated*
     * `control-background` - The background of a large interface element, such as a browser or table.
     * `control` - The surface of a control.
     * `control-text` -The text of a control that isn’t disabled.
@@ -280,7 +280,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `selected-content-background` - The background for selected content in a key window or view.
     * `selected-control` - The surface of a selected control.
     * `selected-control-text` - The text of a selected control.
-    * `selected-menu-item` - The text of a selected menu.
+    * `selected-menu-item-text` - The text of a selected menu.
     * `selected-text-background` - The background of selected text.
     * `selected-text` - Selected text.
     * `separator` - A separator between different sections of content.
@@ -296,6 +296,8 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-frame-text` - The text in the window's titlebar area.
 
 返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -388,11 +390,11 @@ Returns `Boolean` - `true` if the current process is a trusted accessibility cli
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` or `camera`.
+* `mediaType` String - Can be `microphone`, `camera` or `screen`.
 
 Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 

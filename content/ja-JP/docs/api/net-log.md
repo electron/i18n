@@ -15,7 +15,7 @@ app.on('ready', async () => {
 })
 ```
 
-アプリのライフサイクル全体にわたってネットワークイベントをロギングするには [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) を参照してください。
+アプリのライフサイクル全体にわたってネットワークイベントをロギングするには [`--log-net-log`](command-line-switches.md#--log-net-logpath) を参照してください。
 
 **注釈:** 指定されていないすべてのメソッドは、`app` モジュールの `ready` イベントが発生した後にのみ使用できます。
 

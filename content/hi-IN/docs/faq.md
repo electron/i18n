@@ -60,20 +60,20 @@ This happens when the variable which is used to store the tray gets garbage coll
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world') 
+  tray.setTitle('hello world')
 })
 ```
 
 इसमें:
 
 ```javascript
-const { app, Tray } = require('electron') 
-let tray = null 
-app.on('ready', () => {   
-tray = new Tray('/path/to/icon.png')  
-tray.setTitle('hello world') 
+const { app, Tray } = require('electron')
+let tray = null
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/icon.png')
+  tray.setTitle('hello world')
 })
 ```
 

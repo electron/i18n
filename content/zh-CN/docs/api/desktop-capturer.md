@@ -77,6 +77,8 @@ const constraints = {
 
 Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+
 ## 注意事项
 
 由于存在基本限制，因此`navigator.mediaDevices.getUserMedia` 无法在macOS上进行音频捕获，因此要访问系统音频的应用程序需要一个[签名内核拓展](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.

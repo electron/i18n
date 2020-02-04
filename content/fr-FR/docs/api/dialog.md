@@ -39,6 +39,7 @@ Le module `dialog` dispose des méthodes suivantes :
     * `promptToCreate` *Windows* - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
     * `noResolveAliases` *macOS* - Désactive la resolution automatique des alias (symlink). Les alias sélectionnés retourneront dorénavant leur chemin au lieu de celui de leur cible.
     * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez [signets à portée de sécurité](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) lorsqu'ils sont empaquetés pour le Mac App Store.
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - Demande la création du dossier si le chemin d'accès du fichier entré dans la boîte de dialogue n'existe pas. Cela ne créer par réellement le fichier dans le chemin d'accès mais permet de donner des chemins d'accès inexistant qui devraient être créés par l'application.
     * `noResolveAliases` *macOS* - Désactive la resolution automatique des alias (symlink). Les alias sélectionnés retourneront dorénavant leur chemin au lieu de celui de leur cible.
     * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez [signets à portée de sécurité](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) lorsqu'ils sont empaquetés pour le Mac App Store.
 
@@ -136,6 +138,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) *macOS* - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) *macOS* - Affiche le champ de texte. `true` par défaut.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
+    * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
+    * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `String | undefined`, le chemin du fichier choisi par l'utilisateur ; si la boîte de dialogue est annulée, elle retourne `undefined`.
@@ -154,7 +162,13 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) *macOS* - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
-  * `showsTagField` Boolean (facultatif) *macOS* - Affiche le champ de texte. `true` par défaut.
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - Affiche les fichiers cachés dans la boîte de dialogue.
+    * `createDirectory` *macOS* - Permet la création de nouveaux dossiers depuis la boîte de dialogue.
+    * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
