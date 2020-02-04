@@ -222,17 +222,17 @@ macOS において、この tray アイコンが押されたときの関連付�
   * `content` String
   * `largeIcon` Boolean (任意) - 大きなバージョンのアイコン。できればこちらを使用します。 省略値は `true` です。 [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020) に対応します。
   * `noSound` Boolean (任意) - 関連付けられたサウンドを再生しないようにします。 省略値は、`false` です。 [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010) に対応します。
-  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". 省略値は、`false` です。 Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
+  * `respectQuietTime` Boolean (任意) - ユーザが現在 "おやすみモード" の場合、バルーン通知を表示しないようにします。 省略値は、`false` です。 [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080) に対応します。
 
 tray のバルーンを表示します。
 
 #### `tray.removeBalloon()` *Windows*
 
-Removes a tray balloon.
+tray のバルーンを除去します。
 
 #### `tray.focus()` *Windows*
 
-Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
+タスクバーの通知領域にフォーカスを戻します。 通知領域アイコンは、UI 操作が完了したときにこのメッセージを使う必要があります。 たとえば、アイコンがショートカットメニューを表示しているけれど、ユーザーが ESC を押してキャンセルする場合、`tray.focus()` を使用して通知領域にフォーカスを戻します。
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
