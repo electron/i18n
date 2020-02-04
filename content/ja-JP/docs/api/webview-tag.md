@@ -541,7 +541,7 @@ webview.addEventListener('dom-ready', () => {
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *非推奨*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -556,7 +556,7 @@ webview.addEventListener('dom-ready', () => {
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
 
-### `<webview>.getWebContents()` *Deprecated*
+### `<webview>.getWebContents()` *非推奨*
 
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
