@@ -51,12 +51,14 @@ Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webBingkai.tetapkanBatasLevelZoomTataletak(minimalLevel, maksimaLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimalLevel` Nomor
 * `maksimalLevel` Nomor
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -67,11 +69,21 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
     * `callback` Fungsi 
       * `misspeltWords` String[]
 
-Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
+Sets a provider for spell checking in input fields and text areas.
+
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Contoh menggunakan [node-cekEjaan](https://github.com/atom/node-spellchecker) sebagai penyedia:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -149,14 +161,14 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
   * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
   * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
   
-  Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+  Returns an object describing usage information of Blink's internal memory caches.
   
   ```javascript
   const { webFrame } = require('electron')
   console.log(webFrame.getResourceUsage())
   ```
   
-  Ini akan menghasilkan:
+  This will generate:
   
   ```javascript
   {
@@ -174,9 +186,9 @@ Removes the inserted CSS from the current web page. The stylesheet is identified
   
   ### `webFrame.clearCache()`
   
-  Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
+  Attempts to free memory that is no longer being used (like images from a previous navigation).
   
-  Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
+  Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
   
   ### `webFrame.getFrameForSelector(selector)`
   
