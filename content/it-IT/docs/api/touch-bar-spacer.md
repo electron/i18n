@@ -8,6 +8,6 @@ Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-proce
 
 * `options` Oggetto 
   * `size` Stringa (opzionale) - Dimensione dello spaziatore, i possibili valori sono: 
-    * `small` - Piccolo spazio tra elementi.
-    * `large` - Grande spazio tra elementi.
-    * `flexible` - Occupa tutto lo spazio disponibile.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.
