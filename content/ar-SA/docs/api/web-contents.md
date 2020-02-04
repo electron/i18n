@@ -1461,7 +1461,7 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function 
+* `callback` دالة 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
