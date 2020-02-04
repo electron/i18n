@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 `main.js`는 창을 생성하고 애플리케이션에서 발생한 모든 시스템 이벤트를 처리합니다. 최종 완성된 예제 코드에서는 개발자 도구를 열거나, 창 닫기 처리, macOS에서 사용자가 dock의 app 아이콘을 클릭했을때 창 재생성하기 등의 기능을 제공하고 있습니다.
@@ -122,9 +122,9 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // 어떤 API는 이 이벤트가 나타난 이후에만 사용할 수 있습니다.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// 모든 창이 닫혔을 때 종료.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // macOS에서는 사용자가 명확하게 Cmd + Q를 누르기 전까지는
   // 애플리케이션이나 메뉴 바가 활성화된 상태로 머물러 있는 것이 일반적입니다.
