@@ -215,8 +215,8 @@ child.once('ready-to-show', () => {
     * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ&ドロップした際にナビゲーションするかどうか。省略値は `false`。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーン入力時にウィンドウのサイズ変更を禁止するかどうか。既定値は `false` です。
-    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
+    * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。この文字列はユーザーには直接表示されません。
+    * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。省略値は `false` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -337,14 +337,14 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされた後に発生します。
 
-#### Event: 'will-move' *macOS* *Windows*
+#### イベント: 'will-move' *macOS* *Windows*
 
 戻り値:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
+ウインドウの位置が変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウの移動を阻害します。
 
 これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
 
@@ -468,7 +468,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+戻り値 `BrowserWindow | null` - 指定された `webContents` を保持しているウインドウ。ウインドウが保持していないコンテンツの場合は `null` です。
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -621,7 +621,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトルを定義する `String` です。この文字列はユーザーには直接表示されません。
 
 ### インスタンスメソッド
 
@@ -955,9 +955,9 @@ Linuxでは常に `true` を返します。
 
 #### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+* `mediaSourceId` String - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1869:0" のようにします。
 
-Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+z オーダーにおいて元のウィンドウの上にウィンドウを移動します。`mediaSourceId` が window タイプでない、またはウィンドウが存在しない場合、このメソッドはエラーを送出します。
 
 #### `win.moveTop()`
 
@@ -1030,7 +1030,7 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1234:0" のようにします。
 
 More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
