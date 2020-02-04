@@ -58,20 +58,20 @@ Wenn Sie eine schnelle Lösung bevorzugen, machen Sie die Variablen global, inde
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
- const tray = new Tray('/path/to/icon.png')
- tray.setTitle('hello world') 
+app.whenReady().then(() => {
+  const tray = new Tray('/path/to/icon.png')
+  tray.setTitle('hello world')
 })
 ```
 
 wie folgt anpassen:
 
 ```javascript
-const { app, Tray } = require('electron') 
+const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
- tray = new Tray('/path/to/icon.png')
- tray.setTitle('hello world')
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/icon.png')
+  tray.setTitle('hello world')
 })
 ```
 
