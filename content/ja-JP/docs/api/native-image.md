@@ -12,11 +12,11 @@ Electron では、画像を取る API において、ファイルパスか `Nati
 const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-clipboard から画像を読む場合は `NativeImage` が返されます。
+Or read the image from the clipboard, which returns a `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -29,19 +29,19 @@ console.log(appIcon)
 
 現在、`PNG` と `JPEG` 画像フォーマットがサポートされています。`PNG` は透過や可逆圧縮をサポートするため推奨します。
 
-Windows では、ファイルパスから `ICO` アイコンを読み込むこともできます。最高の画質を得るには、少なくとも以下のサイズを含むことを推奨します。
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * 小さいアイコン 
- * 16x16 (DPI スケール 100%)
- * 20x20 (DPI スケール 125%)
- * 24x24 (DPI スケール 150%)
- * 32x32 (DPI スケール 200%)
+  * 16x16 (DPI スケール 100%)
+  * 20x20 (DPI スケール 125%)
+  * 24x24 (DPI スケール 150%)
+  * 32x32 (DPI スケール 200%)
 * 大きいアイコン 
- * 32x32 (DPI スケール 100%)
- * 40x40 (DPI スケール 125%)
- * 48x48 (DPI スケール 150%)
- * 64x64 (DPI スケール 200%)
-* 256x256
+  * 32x32 (DPI スケール 100%)
+  * 40x40 (DPI スケール 125%)
+  * 48x48 (DPI スケール 150%)
+  * 64x64 (DPI スケール 200%)
+  * 256x256
 
 [この記事](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) 内の *サイズ要件* の章を確認して下さい。
 
@@ -49,7 +49,7 @@ Windows では、ファイルパスから `ICO` アイコンを読み込むこ�
 
 Apple Retina ディスプレイのような高解像度をサポートしているプラットフォームにおいて、画像のファイルネームの後ろに `@2x` を加えることで、高解像度の画像としてマークすることができます。
 
-例えば `icon.png` が通常の標準解像度の画像であれば、`icon@2x.png` が2倍のピクセル密度を持つ高解像度の画像として扱われます。
+For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
 同時に異なるピクセル密度のディスプレイをサポートしたい場合、同じフォルダ内に異なるサイズの画像を置き、DPI 接尾子無しでファイル名を使用して下さい。
 
@@ -62,11 +62,11 @@ images/
 
 ```javascript
 const { Tray } = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
+const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-以下の DPI 接尾子がサポートされています。
+The following suffixes for DPI are also supported:
 
 * `@1x`
 * `@1.25x`
@@ -84,7 +84,7 @@ console.log(appIcon)
 
 テンプレート画像は、黒とアルファチャンネルで構成されています。テンプレート画像は単体の画像として使用するものではなく、通常、最終的にさせたい見た目を作成するため、他のコンテンツと混合されます。
 
-最も一般的なケースは、メニューバーのアイコンに使用することです。これは明るいメニューバーと暗いメニューバーの両方に適応できます。
+The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **注釈:** テンプレート画像は macOS でのみサポートされています。
 
@@ -114,14 +114,17 @@ console.log(appIcon)
 ```javascript
 const nativeImage = require('electron').nativeImage
 
-let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
+const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (任意) - 省略値は 1.0。
+* `options` Object 
+  * `width` Integer
+  * `height` Integer
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 戻り値 `NativeImage`
 
@@ -130,7 +133,10 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (任意) * `width` Integer (任意) - ビットマップバッファに必要。 * `height` Integer (任意) - ビットマップバッファに必要。 * `scaleFactor` Double (任意) - 省略値は1.0。
+* `options` Object (任意) 
+  * `width` Integer (optional) - Required for bitmap buffers.
+  * `height` Integer (optional) - Required for bitmap buffers.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 戻り値 `NativeImage`
 
@@ -153,11 +159,11 @@ console.log(image)
 
 指定した画像名にマップされる NSImage から `NativeImage` の新しいインスタンスを作成します。 使用可能な値のリストは、[`システムアイコン`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) を参照してください。
 
-`hslShift` は以下のルールで画像に適用されます。
+The `hslShift` is applied to the image with the following rules:
 
-* `hsl_shift[0]` (色相): 画像における色相の絶対値 - 0 から 1 が 色相カラーホイール (赤) の 0 から 360 に割り当てられる。
-* `hsl_shift[1]` (彩度): 画像における彩度の変化量。以下のキー値を使用する。 0 = すべての色が抜かれる。 0.5 = 変わらないまま。 1 = 画像の彩度を最大にする。
-* `hsl_shift[2]` (明るさ): 画像における明るさの変化量。以下のキー値を使用する。 0 = 明るさをすべて取り除く (すべてのピクセルを黒にする)。 0.5 = そのまま変わらない。 1 = 完全に明るい (すべてのピクセルを白にする)。
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = そのまま変わらない。 1 = 完全に明るい (すべてのピクセルを白にする)。
 
 つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
 
@@ -179,7 +185,8 @@ console.log(image)
 
 #### `image.toPNG([options])`
 
-* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
+* `options` Object (任意) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -191,23 +198,26 @@ console.log(image)
 
 #### `image.toBitmap([options])`
 
-* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
+* `options` Object (任意) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
+* `options` Object (任意) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 戻り値 `String` - 画像のデータURL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
+* `options` Object (任意) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-`getBitmap()` と `toBitmap()` の違いは、`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
+The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
@@ -245,7 +255,10 @@ console.log(image)
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズした画像の希望する画質。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
+* `options` Object 
+  * `width` Integer (optional) - Defaults to the image's width.
+  * `height` Integer (optional) - Defaults to the image's height.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 戻り値 `NativeImage` - リサイズされた画像。
 
@@ -257,7 +270,12 @@ console.log(image)
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - 画像を表現する際の拡大倍率。 * `width` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `height` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `buffer` Buffer (任意) - 生の画像データを含むバッファ。 * `dataURL` String (任意) - Base64 でエンコードされた PNG または JPEG 画像を含むデータURL。
+* `options` Object 
+  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。
 
