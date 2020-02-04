@@ -32,7 +32,7 @@ Você pode usar o módulo [globalShortcut](../api/global-shortcut.md) para detec
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
