@@ -39,6 +39,7 @@ console.log(dialog)
     * `promptToCreate` *Windows* - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (опционально) *macOS* - Сообщение, которое будет отображено над полями ввода.
   * `securityScopedBookmarks` Boolean (опционально) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - Запрашивает подтверждение на создание недостающих папок по выбранному пути, если они не существуют. На самом деле, эта функция не создаёт их. Она всего лишь позволяет возвращать несуществующие пути из диалогового окна, которые должны после этого быть созданы приложением.
     * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и будут возвращать свой, а не целевой путь.
     * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (опционально) *macOS* - Сообщение, которое будет отображено над полями ввода.
   * `securityScopedBookmarks` Boolean (опционально) *macOS* *mas* - Создает [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), при сборке пакета для Mac App Store.
 
@@ -136,6 +138,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (опционально) *macOS* - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (опционально) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
   * `showsTagField` Boolean (необязательно) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
+    * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
+    * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
 Возвращает `String | undefined`, путь к файлу, выбранному пользователем; если диалог отменен, то возвращает `undefined`.
@@ -154,8 +162,14 @@ dialog.showOpenDialog(mainWindow, {
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
   * `message` String (опционально) *macOS* - Сообщение, которое будет показано над полями ввода.
   * `nameFieldLabel` String (опционально) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
-  * `showsTagField` Boolean (опционально) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
-  * `securityScopedBookmarks` Boolean (опционально) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - Отображает в диалоге скрытые файлы.
+    * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
+    * `treatPackageAsDirectory` *macOS* - Считает пакеты, такие как папки `.app`, за папки, а не файлы.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
+  * `securityScopedBookmarks` Boolean (необязательно) *maxOS* *mas* - Создавать [закладки с областью безопасности](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) при сборке для Mac App Store. Если эта опция включена и выбранного файла не существует, то пустой файл будет создан по выбранному пути.
 
 Возвращает `Promise<Object>` - Разрешить с объектом, содержащим следующее:
 
