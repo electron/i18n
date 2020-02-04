@@ -8,7 +8,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## Mengirim Pesan
 
-Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat  isi web.kirim</ 0> untuk informasi lebih lanjut.</p> 
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
 
 * Saat mengirim pesan, nama acara adalah ` saluran </ 0> .</li>
 <li>Untuk membalas pesan sinkron, Anda perlu mengatur <code> acara.kembali di nilai </ 0> .</li>
