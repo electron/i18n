@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Scurtături tastatură
 
 > Configure local and global keyboard shortcuts
 
