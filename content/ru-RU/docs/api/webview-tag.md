@@ -432,7 +432,7 @@ Executes editing command `replaceMisspelling` in page.
 
 * `text` String
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Вставляет `text` в элемент с фокусом.
 
@@ -466,7 +466,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
 
@@ -479,7 +479,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
@@ -496,7 +496,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 * `channel` String (Строка)
 * `...args` any[]
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -506,7 +506,7 @@ See [webContents.send](web-contents.md#contentssendchannel-args) for examples.
 
 * `event` [MouseInputEvent](structures/mouse-input-event.md) | [MouseWheelInputEvent](structures/mouse-wheel-input-event.md) | [KeyboardInputEvent](structures/keyboard-input-event.md)
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Sends an input `event` to the page.
 
@@ -537,24 +537,26 @@ Returns `Number` - the current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Устанавливает максимальный и минимальный уровень пинч-маштабирования.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Returns `Promise<void>`
+Возвращает `Promise<void>`
 
 Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
