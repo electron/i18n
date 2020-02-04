@@ -365,32 +365,32 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
+  * `path` String - ダウンロードの絶対パス。
+  * `urlChain` String[] - ダウンロードの完全な URL チェーン。
+  * `mimeType` String (任意)
+  * `offset` Integer - ダウンロードの範囲の始端。
+  * `length` Integer - ダウンロードの長さ。
   * `lastModified` String (optional) - Last-Modified header value.
   * `eTag` String (optional) - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
 
 #### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+戻り値 `Promise<void>` - session の HTTP 認証キャッシュがクリアされると実行されます。
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
@@ -424,23 +424,23 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `Session`:
+`Session` のインスタンスには以下のプロパティがあります。
 
-#### `ses.availableSpellCheckerLanguages` *Readonly*
+#### `ses.availableSpellCheckerLanguages` *読み出し専用*
 
 A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` *読み出し専用*
 
-A [`Cookies`](cookies.md) object for this session.
+このセッションの [`Cookies`](cookies.md) オブジェクト。
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` *読み出し専用*
 
-A [`WebRequest`](web-request.md) object for this session.
+このセッションの [`WebRequest`](web-request.md) オブジェクト。
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` *読み出し専用*
 
-A [`Protocol`](protocol.md) object for this session.
+このセッションの [`Protocol`](protocol.md) オブジェクト。
 
 ```javascript
 const { app, session } = require('electron')
@@ -457,9 +457,9 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` *読み出し専用*
 
-A [`NetLog`](net-log.md) object for this session.
+このセッションの [`NetLog`](net-log.md) オブジェクト。
 
 ```javascript
 const { app, session } = require('electron')
