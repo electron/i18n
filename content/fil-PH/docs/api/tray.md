@@ -215,7 +215,7 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Ng default ay `tama`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Ang Default ay `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
   * `noSound` Boolean (optional) - Do not play the associated sound. Ang default ay `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Ang default ay `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
@@ -234,22 +234,22 @@ Returns focus to the taskbar notification area. Notification area icons should u
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - Ang posisyon ng pop up.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+May lilitaw na context menu sa tray icon. Kapag ang `menu`ay nakapasa, ang`menu`ay maipapakita sa halip na tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan ng default,.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Nagseset ng context menu para sa icon na ito.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Nagbabalik[`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Ang `bounds`ng tray icon na ito bilang isang`Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Nagbabalik`Boolean` -Kahit pa ang tray icon ay nawasak.
