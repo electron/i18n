@@ -96,7 +96,7 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 メインプロセスは [`ipcMain`](ipc-main.md) オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
 
-> :warning: **警告**: 同期メッセージを送信すると、応答を受信するまでレンダラープロセス全体がブロックされます。そのため、このメソッドは最終手段として使用してください。 It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
+> :warning: **警告**: 同期メッセージを送信すると、応答を受信するまでレンダラープロセス全体がブロックされます。そのため、このメソッドは最終手段として使用してください。 非同期バージョンの、[`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args) を使用することを推奨します。
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 
