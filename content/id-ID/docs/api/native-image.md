@@ -116,10 +116,10 @@ Mengembalikan ` gambar asli </ 0></p>
   ### `nativeImage.createFromBitmap(buffer, options)`
   
   * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-  * `pilihan` Sasaran 
+  * `pilihan` Obyek 
     * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
-<li><code>scaleFactor` Double (optional) - Defaults to 1.0.
+<li><code>faktor skala`dua kali lipat (opsional) - Default ke 1.0.
   
   Mengembalikan ` gambar asli </ 0></p>
 
@@ -128,10 +128,10 @@ Mengembalikan ` gambar asli </ 0></p>
   ### `nativeImage.createFromBuffer(buffer[, pilihan])`
   
   * `penyangga` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-  * `pilihan` Objek (pilihan) 
+  * `pilihan` Objek (opsional) 
     * `width` Integer (optional) - Required for bitmap buffers.
     * `height` Integer (optional) - Required for bitmap buffers.
-    * `scaleFactor` Double (optional) - Defaults to 1.0.
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
   
   Mengembalikan ` gambar asli </ 0></p>
 
@@ -180,8 +180,8 @@ Mengembalikan ` gambar asli </ 0></p>
   
   #### `image.toPNG([options])`
   
-  * `pilihan` Objek (pilihan) 
-    * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `pilihan` Objek (opsional) 
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
   
   Mengembalikan `Penyangga` - A [ Penyangga](https://nodejs.org/api/buffer.html#buffer_class_buffer)berisi data yang dikodekan` PNG </ 0>.</p>
 
@@ -193,22 +193,22 @@ Mengembalikan ` gambar asli </ 0></p>
   
   #### `image.toBitmap([options])`
   
-  * `pilihan` Objek (pilihan) 
-    * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `pilihan` Objek (opsional) 
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
   
   Mengembalikan `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi salinan piksel bitmap mentah gambar data.
   
   #### `image.toDataURL([options])`
   
-  * `pilihan` Objek (pilihan) 
-    * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `pilihan` Objek (opsional) 
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
   
   Mengembalikan ` String ` - URL data gambar.
   
   #### `image.getBitmap([options])`
   
-  * `pilihan` Objek (pilihan) 
-    * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `pilihan` Objek (opsional) 
+    * `faktor skala`dua kali lipat (opsional) - Default ke 1.0.
   
   Mengembalikan `Buffer` - A [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang berisi data piksel bitmap mentah gambar.
   
@@ -250,34 +250,39 @@ Mengembalikan ` gambar asli </ 0></p>
   
   #### `image.resize(options)`
   
-  * `pilihan` Sasaran 
+  * `pilihan` Obyek 
     * `width` Integer (optional) - Defaults to the image's width.
     * `height` Integer (optional) - Defaults to the image's height.
-    * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
-  
-  Mengembalikan ` gambar asli </ 0> - gambar ukurannya.</p>
+    * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. Defaultnya adalah ` terbaik </ 0> .
+Nilai ini mengekspresikan kualitas / kecepatan tradeoff yang diinginkan. They are translated
+into an algorithm-specific method that depends on the capabilities
+(CPU, GPU) of the underlying platform. It is possible for all three methods
+to be mapped to the same algorithm on a given platform.</li>
+</ul></li>
+</ul>
+
+<p>Mengembalikan <code> gambar asli </ 0> - gambar ukurannya.</p>
 
 <p>Jika hanya <code> tinggi </ 0> atau <code> lebar</ 0> </ 0> yang ditentukan maka rasio aspek saat ini akan dipertahankan dalam gambar ukurannya.</p>
 
 <h4><code>image.getAspectRatio()`</h4> 
-  
-  Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
+      Mengembalikan ` mengapung </ 0> - Rasio aspek gambar.</p>
 
 <h4><code>image.addRepresentation(options)`</h4> 
-  
-  * `pilihan` Sasaran 
-    * `scaleFactor` Double - The scale factor to add the image representation for.
-    * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-    * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-    * `buffer` Buffer (optional) - The buffer containing the raw image data.
-    * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
-  
-  Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
-  
-  ### Contoh properti
-  
-  #### `nativeImage.isMacTemplateImage` *macOS*
-  
-  A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
-  
-  Please note that this property only has an effect on macOS.
+      
+      * `pilihan` Obyek 
+        * `scaleFactor` Double - The scale factor to add the image representation for.
+        * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+        * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+        * `buffer` Buffer (opsional) - Buffer yang berisi data gambar mentah.
+        * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+      
+      Tambahkan representasi gambar untuk faktor skala tertentu. Ini bisa digunakan untuk secara eksplisit menambahkan representasi faktor skala yang berbeda ke gambar. Ini Bisa disebut pada gambar kosong.
+      
+      ### Contoh properti
+      
+      #### `nativeImage.isMacTemplateImage` *macOS*
+      
+      A `Boolean` property that determines whether the image is considered a [template image](https://developer.apple.com/documentation/appkit/nsimage/1520017-template).
+      
+      Please note that this property only has an effect on macOS.
