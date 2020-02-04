@@ -190,7 +190,7 @@ Menyetel teks hover untuk ikon baki ini.
   * `pilihan` Obyek 
     * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
     * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
-    * ` judul</ 0>  String</li>
+    * ` judul </ 0> String</li>
 <li><code>content` String
     * `largeIcon` Boolean (optional) - The large version of the icon should be used. Defaultnya adalah `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
     * `noSound` Boolean (optional) - Do not play the associated sound. Defaultnya adalah ` false </ 0> . Maps to <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010"><code>NIIF_NOSOUND`</a>.
@@ -211,22 +211,22 @@ Menyetel teks hover untuk ikon baki ini.
   * ` teks ` String (opsional)
   * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
   
-  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+  Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
   
-  The `position` is only available on Windows, and it is (0, 0) by default.
+  Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
   
-  #### `tray.setContextMenu(menu)`
+  #### `tray.setContextMenu (menu)`
   
   * `menu` Menu | batal
   
-  Sets the context menu for this icon.
+  Menetapkan menu konteks untuk ikon ini.
   
-  #### `tray.getBounds()` *macOS* *Windows*
+  #### `tray.getBounds()` *macOS * * Windows*
   
   Kembali [`Rectangle`](structures/rectangle.md)
   
-  The `bounds` of this tray icon as `Object`.
+  `Batas` dari ikon baki ini sebagai `Objek`.
   
   #### `tray.isDestroyed()`
   
-  Returns `Boolean` - Whether the tray icon is destroyed.
+  Mengembalikan `Boolean` - Apakah ikon baki rusak.
