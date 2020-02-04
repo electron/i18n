@@ -370,8 +370,8 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `mimeType` String (任意)
   * `offset` Integer - ダウンロードの範囲の始端。
   * `length` Integer - ダウンロードの長さ。
-  * `lastModified` String (optional) - Last-Modified header value.
-  * `eTag` String (optional) - ETag header value.
+  * `lastModified` String (任意) - ヘッダの最終更新日の値。
+  * `eTag` String (任意) - ヘッダの ETag の値。
   * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
 以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
@@ -394,23 +394,23 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
-* `languages` String[] - An array of language codes to enable the spellchecker for.
+* `languages` String[] - スペルチェッカーを有効にする言語コードの配列。
 
-The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。 スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。 `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。 この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
-Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。 このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。 この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。 この設定は再起動後も持続します。
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。 この API は、macOS では何もしません。
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
-* `url` String - A base URL for Electron to download hunspell dictionaries from.
+* `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
 
 **Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
 
