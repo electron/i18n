@@ -15,11 +15,11 @@ When defining `accessibilityLabel`, ensure you have considered macOS [best pract
 
 ### Свойства экземпляра
 
-The following properties are available on instances of `TouchBarLabel`:
+Для экземпляров `TouchBarLabel` доступны следующие свойства:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Строка (`String`), представляющая текущий текст метки. Изменение этого значения немедленно обновляет метку на тач-панели.
 
 #### `touchBarLabel.accessibilityLabel`
 
