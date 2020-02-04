@@ -541,7 +541,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     ### `<webview>.getWebContents()` *Deprecated*
     
-    Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+    Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
     
     It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
     
@@ -551,55 +551,55 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     ## DOM Events
     
-    The following DOM events are available to the `webview` tag:
+    Peristiwa DOM berikut tersedia untuk tag `webview`:
     
     ### Event: 'load-commit'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `url` String
     * `adalah Bingkai Utama` Boolean
     
-    Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+    Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
     
     ### Event: 'Apakah-selesai-load'
     
-    Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+    Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
     
     ### Peristiwa: 'Apakah-gagal-beban'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `kode kesalahan` Bilangan bulat
     * `Deskripsi kesalahan` Tali
     * `memvalidasi URL` Tali
     * `adalah Bingkai Utama` Boolean
     
-    This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+    Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
     
     ### Peristiwa: 'Apakah-frame-selesai-beban'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `adalah Bingkai Utama` Boolean
     
-    Fired when a frame has done navigation.
+    Dibunyikan apabila bingkai telah melakukan navigasi.
     
     ### Peristiwa: 'Apakah-mulai-pemuatan'
     
-    Corresponds to the points in time when the spinner of the tab starts spinning.
+    Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
     
     ### Peristiwa: 'Apakah-stop-pemuatan'
     
-    Corresponds to the points in time when the spinner of the tab stops spinning.
+    Sesuai dengan poin pada saat pemintal tab berhenti berputar.
     
     ### Peristiwa: 'lokal-siap'
     
-    Fired when document in the given frame is loaded.
+    Emitted saat dokumen dalam bingkai yang diberikan dimuat.
     
     ### Acara : 'halaman-judul-diperbarui'
     
-    Mengembalikan:
+    Pengembalian:
     
     * ` judul </ 0> String</li>
 <li><code>explicitSet` Boolean
@@ -608,32 +608,32 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     ### Peristiwa: 'halaman-favicon-diperbarui '
     
-    Mengembalikan:
+    Pengembalian:
     
     * `FAVICONS` String [] - serangkaian URL.
     
-    Fired when page receives favicon urls.
+    Dibunyikan saat halaman menerima url favicon.
     
     ### Acara : 'enter-html-full-screen'
     
-    Fired when page enters fullscreen triggered by HTML API.
+    Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
     
     ### Acara : 'leave-html-full-screen'
     
-    Fired when page leaves fullscreen triggered by HTML API.
+    Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
     
     ### Event: 'console-message'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `level` Integer
     * `pesan` String
     * `line` Integer
     * `sourceId` String
     
-    Fired when the guest window logs a console message.
+    Dipecat saat jendela tamu membuka pesan konsol.
     
-    The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+    Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
     
     ```javascript
     const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
@@ -641,7 +641,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     ### Event: 'ditemukan-di-halaman'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `hasil` Obyek 
       * `requestId` Bilangan bulat
@@ -650,15 +650,14 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
       * `selectionArea` Rectangle - Coordinates of first match region.
       * `finalUpdate` Boolean
     
-    Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
-    
-    ```javascript
-    const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
-    ```
+    Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
+
+<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
+`</pre> 
     
     ### Peristiwa: 'baru-jendela'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `url` String
     * `nama bingkai` tali
@@ -667,7 +666,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     Fired when the guest page attempts to open a new browser window.
     
-    The following example code opens the new url in system's default browser.
+    Contoh kode berikut membuka url baru di browser default sistem.
     
     ```javascript
     const { shell } = require('electron')
@@ -683,46 +682,46 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
     
     ### Peristiwa: 'akan navigasi'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `url` String
     
     dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
 </p>
 
-<p>This event will not emit when the navigation is started programmatically with
-APIs like <code><webview>.loadURL` and `<webview>.back`.
+<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>webContents.loadURL` dan `webContents.back`.
     
-    It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+    Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
     
-    Calling `event.preventDefault()` does **NOT** have any effect.
+    Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
     
     ### Peristiwa: 'akan navigasi'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `url` String
     
-    Emitted when a navigation is done.
+    Dibunyikan apabila navigasi dilakukan.
     
     Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
     
     ### peristiwa: 'Apakah-menavigasi-di halaman'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `adalah Bingkai Utama` Boolean
     * `url` String
     
-    Emitted when an in-page navigation happened.
+    Dibunyikan saat navigasi dalam halaman terjadi.
     
     Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
     
     ### Acara : 'dekat'
     
-    Fired when the guest page attempts to close itself.
+    Dipecat saat halaman tamu mencoba menutup diri.
     
-    The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+    The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
     
     ```javascript
     const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
@@ -730,12 +729,12 @@ APIs like <code><webview>.loadURL` and `<webview>.back`.
     
     ### Event: 'ipc-message'
     
-    Mengembalikan:
+    Pengembalian:
     
     * ` saluran </ 0>  String</li>
 <li><code>args` any[]
     
-    Fired when the guest page has sent an asynchronous message to embedder page.
+    Fired when the guest page has sent an asynchronous message to the embedder page.
     
     With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
     
@@ -749,20 +748,20 @@ APIs like <code><webview>.loadURL` and `<webview>.back`.
     
     ### Peristiwa: 'jatuh'
     
-    Fired when the renderer process is crashed.
+    Dipecat saat proses renderer jatuh.
     
     ### Peristiwa: 'plugin-jatuh'
     
-    Mengembalikan:
+    Pengembalian:
     
     * ` nama </ 0>  String</li>
 <li><code>Versi` String
     
-    Fired when a plugin process is crashed.
+    Dibunyikan ketika proses plugin telah jatuh.
     
     ### Event: 'menghancurkan'
     
-    Fired when the WebContents is destroyed.
+    Dipecat saat WebContents hancur.
     
     ### Event: 'media-mulai-bermain''
     
@@ -774,11 +773,11 @@ APIs like <code><webview>.loadURL` and `<webview>.back`.
     
     ### Event: 'apakah-ganti-tema-warna'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `themeColor` String
     
-    Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+    Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
     
     ```html
     <meta name='theme-color' content='#ff0000'>
@@ -786,7 +785,7 @@ APIs like <code><webview>.loadURL` and `<webview>.back`.
     
     ### Event: 'update-target-url'
     
-    Mengembalikan:
+    Pengembalian:
     
     * `url` String
     
