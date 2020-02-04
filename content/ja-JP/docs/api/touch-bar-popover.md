@@ -9,7 +9,7 @@
 * `options` Object 
   * `label` String (任意) - ポップオーバーするボタンのテキスト。
   * `icon` [NativeImage](native-image.md) (任意) - ポップオーバーするボタンのアイコン。
-  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
+  * `items` [TouchBar](touch-bar.md) - ポップオーバー内に表示するアイテム。
   * `showCloseButton` Boolean (任意) - `true` にするとポップオーバーの左に閉じるボタンを表示し、`false` にすると表示しません。省略値は `true` です。
 
 ### インスタンスプロパティ
