@@ -51,7 +51,7 @@ webFrame.setZoomFactor(2)
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *非推奨*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -71,7 +71,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
 
-If you want to use this method you must disable the builtin spellchecker when you construct the window.
+このメソッドを使用する場合は、ウインドウを構築するときに組み込みスペルチェックを無効にする必要があります。
 
 ```js
 const mainWindow = new BrowserWindow({
