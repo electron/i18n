@@ -12,11 +12,11 @@
 const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-或者从剪贴板中读取返回 ` NativeImage ` 的图像:
+Or read the image from the clipboard, which returns a `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -29,19 +29,19 @@ console.log(appIcon)
 
 当前支持 ` PNG ` 和 ` JPEG ` 图像格式。建议使用 ` PNG `, 因为它支持透明和无损压缩。
 
-在 Windows 上, 还可以从文件路径加载 ` ICO ` 图标。为了最佳的视觉质量, 建议在中至少包括以下大小:
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * 小图标 
- * 16x16 (100% DPI scale)
- * 20x20 (125% DPI scale)
- * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
+  * 16x16 (100% DPI scale)
+  * 20x20 (125% DPI scale)
+  * 24x24 (150% DPI scale)
+  * 32x32 (200% DPI scale)
 * 大图标 
- * 32x32 (100% DPI scale)
- * 40x40 (125% DPI scale)
- * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
-* 256x256
+  * 32x32 (100% DPI scale)
+  * 40x40 (125% DPI scale)
+  * 48x48 (150% DPI scale)
+  * 64x64 (200% DPI scale)
+  * 256x256
 
 在[这篇文章](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx)中查看 *尺寸说明* 的章节
 
@@ -49,7 +49,7 @@ console.log(appIcon)
 
 在具有高 DPI 支持的平台 (如 Apple 视网膜显示器) 上, 可以在图像的基本文件名之后追加 ` @ 2x ` 以将其标记为高分辨率图像。
 
-例如, 如果 ` icon. png ` 是具有标准分辨率的普通图像, 而 ` icon@2x. png ` 将被视为具有两倍 DPI 密度的高分辨率图像。
+For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
 如果希望同时支持不同 DPI 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 DPI 后缀的文件名。例如:
 
@@ -62,11 +62,11 @@ images/
 
 ```javascript
 const { Tray } = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
+const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-还支持下面这些 DPI 后缀:
+The following suffixes for DPI are also supported:
 
 * `@1x`
 * `@1.25x`
@@ -84,7 +84,7 @@ console.log(appIcon)
 
 模板图像由黑色和清晰的颜色（和一个alpha通道）组成。模板图像不能用作独立图像，通常与其他内容混合以创建所需的最终外观。
 
-最常见的情况是使用模板图片的菜单栏图标, 使它可以适应浅色和深色菜单栏。
+The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 ** 注意: **仅在 macOS 上支持Template image。
 
@@ -114,14 +114,17 @@ console.log(appIcon)
 ```javascript
 const nativeImage = require('electron').nativeImage
 
-let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
+const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `width` Integer
+  * `height` Integer
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 `NativeImage`
 
@@ -130,10 +133,10 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (可选) 
- * `width` Integer (可选) - 对于位图bitmap, 缓冲区(buffers) 是必需的
- * `height` Integer (可选) - 对于位图bitmap, 缓冲区(buffers) 是必需的
- * `scaleFactor` Double (可选) - 默认为 1.0.
+* `参数` Object (可选) 
+  * `width` Integer (optional) - Required for bitmap buffers.
+  * `height` Integer (optional) - Required for bitmap buffers.
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 `NativeImage`
 
@@ -156,11 +159,11 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 从映射到给定图像名称的 NSImage 创建一个 `NativeImage` 实例。 See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
-使用以下规则将`hslShift`应用于图像
+The `hslShift` is applied to the image with the following rules:
 
-* `hsl_shift[0]` (色调): 图像的绝对色调值，-0 和1 映射到 0和360，在色环上 (红色)。
-* `hsl_shift[1]` (饱和度): 图像的饱和度变化, 可以为下列值: 0 = 移除所有颜色. 0.5 = 保持不变. 1 = 图像完全饱和.
-* `hsl_shift[2]` (亮度): 图像的亮度变化, 可以为下列值: 0 = 移除所有亮度 (所有像素点设置为黑色). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = 保持不变。 1 = 全亮 (所有像素点设置为白色)。
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
@@ -182,8 +185,8 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toPNG([options])`
 
-* `options` Object (可选) 
- * `scaleFactor` Double (可选) - 默认值为 1.0.
+* `参数` Object (可选) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
@@ -195,26 +198,26 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 #### `image.toBitmap([options])`
 
-* `options` Object (可选) 
- * `scaleFactor` Double (可选) - 默认值为 1.0.
+* `参数` Object (可选) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
-* `options` Object (可选) 
- * `scaleFactor` Double (可选) - 默认值为 1.0.
+* `参数` Object (可选) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` String `-图像的数据 URL。
 
 #### `image.getBitmap([options])`
 
-* `options` Object (可选) 
- * `scaleFactor` Double (可选) - 默认值为 1.0.
+* `参数` Object (可选) 
+  * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-`getBitmap()` 和 `toBitmap() 的不同之处在于，<code>getBitmap()` 不会拷贝位图数据，所以你必须在返回 Buffer 后立刻使用它，否则数据可能会被更改或销毁
+The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
@@ -252,7 +255,10 @@ Returns [`Size`](structures/size.md)
 
 #### `image.resize(options)`
 
-* ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认值为图片高度. * `quality` String (optional) 所要设置的图片质量。 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `width` Integer (optional) - Defaults to the image's width.
+  * `height` Integer (optional) - Defaults to the image's height.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 返回 ` NativeImage `-裁剪的图像。
 
@@ -264,7 +270,12 @@ Returns [`Size`](structures/size.md)
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
+* `参数` Object - 过滤器对象，包含过滤参数 
+  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
 
