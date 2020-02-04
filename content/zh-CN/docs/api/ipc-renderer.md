@@ -111,7 +111,7 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `channel` String
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+就像 `ipcRenderer.send`，不同的是消息会被发送到 host 页面上的 `<webview>` 元素，而不是主进程。
 
 ## 事件对象
 
