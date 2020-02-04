@@ -394,7 +394,7 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
 
-This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
+macOS 10.13 High Sierra 以前では、このユーザーの同意は必要なかったので、このメソッドは常に `granted` を返します。 macOS 10.14 Mojave 以降では、`microphone` と `camera` へのアクセスに同意が必要です。 macOS 10.15 Catalina 以降では、`screen` へのアクセスに同意が必要です。
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
