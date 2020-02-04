@@ -1,4 +1,4 @@
-# Testing Widevine CDM
+# Widevine CDM 테스트
 
 In Electron you can use the Widevine CDM library shipped with Chrome browser.
 
