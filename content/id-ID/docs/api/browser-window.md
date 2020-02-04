@@ -151,7 +151,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
   * `autoHideMenuBar` Boolean (opsional) - Auto menyembunyikan bilah menu kecuali `Alt` kunci ditekan Defaultnya adalah `palsu`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Defaultnya adalah ` false </ 0> .</li>
 <li><code>backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (opsional) - Apakah jendela seharusnya memiliki bayangan. Hanya ini diimplementasikan di macos Defaultnya adalah `benar`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `Tema gelap` Boolean (opsional) - Pasukan menggunakan tema gelap untuk jendela, hanya bekerja beberapa lingkungan desktop GTK3. Defaultnya adalah `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Defaultnya adalah ` false </ 0> . On Windows, does not work unless the window is frameless.</li>
@@ -161,6 +161,7 @@ Ini menciptakan `BrowserWindow` baru dengan sifat asli yang ditetapkan oleh `opt
     * `tersembunyi` - Hasil di bar judul tersembunyi dan jendela konten ukuran penuh judul bar masih memiliki kontrol jendela standar ("lampu lalu lintas") di kiri atas.
     * `hiddenInset` - Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Catatan:** Pilihan ini saat ini sedang eksperimental.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (opsional) - Gunakan `WS_THICKFRAME` untuk jendela buram tanpa bingkai Windows, yang menambahkan bingkai jendela standar. Menyetelnya ke ` false </ 0> akan menghapus window shadow dan animasi jendela. Defaultnya adalah <code>true`.
   * ` getar </ 0> String (opsional) - Tambahkan jenis efek getar ke jendela, hanya di macos. Can be <code>appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
@@ -221,6 +222,8 @@ integration disabled unless <code>nodeIntegrationInSubFrames` is true. **Note:**
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
 
@@ -347,14 +350,14 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 Pengembalian:
 
 * `event` Acara
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
@@ -476,7 +479,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
     
     * `webContents` [WebContents](web-contents.md)
     
-    Mengembalikan`BrowserWindow` - Jendela yang memiliki`contentContents `.
+    Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
     
     #### `BrowserWindow.fromBrowserView(browserView)`
     
@@ -624,6 +627,10 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
             const menu = Menu.buildFromTemplate(template)
             Menu.setApplicationMenu(menu)
             ```
+            
+            #### `win.accessibleTitle`
+            
+            A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
             
             ### Metode Instance
             
@@ -962,6 +969,12 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
                     
                     Kembali `Boolean` - Apakah jendela selalu di atas jendela lainnya.
                     
+                    #### `win.moveAbove(mediaSourceId)`
+                    
+                    * `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+                    
+                    Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+                    
                     #### `win.moveTop()`
                     
                     Moves window to top(z-order) regardless of focus
@@ -1030,6 +1043,12 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
                       #### `win.isKiosk()`
                       
                       Kembali `Boolean` - Apakah jendela dalam kiosk mode.
+                      
+                      #### `win.getMediaSourceId()`
+                      
+                      Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+                      
+                      More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
                       
                       #### `win.getNativeWindowHandle()`
                       
@@ -1311,7 +1330,7 @@ win.loadURL(url)
                               
                               * `terlihat` Boolean
                               * `pilihan` Objek (opsional) 
-                                * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+                                * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
                               
                               Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
                               
@@ -1418,10 +1437,10 @@ there is only one tab in the current window.</p>
                               
                               #### `win.setBrowserView (browserView)` *Eksperimental*
                               
-                              * `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+                              * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
                               #### `win.getBrowserView()` *Experimental*
                               
-                              Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+                              Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
                               
                               #### `win.addBrowserView(browserView)` *Experimental*
                               
