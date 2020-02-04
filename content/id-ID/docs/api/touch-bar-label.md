@@ -8,16 +8,23 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `pilihan` Benda 
   * `label` String (opsional) - Teks untuk ditampilkan.
-  * `textColor` String (opsional) - Hex warna teks, i.e `#ABCDEF`.
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
+  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh `TouchBarLabel`:
+The following properties are available on instances of `TouchBarLabel`:
 
 #### `sentuhBarLabel.label`
 
-A `String` yang mewakili teks label saat ini. Mengubah nilai ini segera memperbarui label panel sentuh.
+A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
 
-#### `sentuhBarLabel.textColor`
+#### `touchBarLabel.accessibilityLabel`
 
-Kode `String` hex yang mewakili warna teks label saat ini. Mengubah nilai ini segera update label di bilah sentuh.
+A `String` representing the description of the label to be read by a screen reader.
+
+#### `touchBarLabel.textColor`
+
+A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
