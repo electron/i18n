@@ -11,8 +11,8 @@
     * `automatic` - デフォルト。 セグメントコントロールの見た目は、コントロールを表示しているウインドウタイプとウインドウ内の位置に基づいて自動決定されます。 `NSSegmentStyleAutomatic` に対応します。
     * `rounded` - コントロールを丸角スタイルで表示します。`NSSegmentStyleRounded` に対応します。
     * `textured-rounded` - コントロールをテクスチャ付きの丸角スタイルで表示します。`NSSegmentStyleTexturedRounded` に対応します。
-    * `round-rect` - The control is displayed using the round rect style. Maps to `NSSegmentStyleRoundRect`.
-    * `textured-square` - The control is displayed using the textured square style. Maps to `NSSegmentStyleTexturedSquare`.
+    * `round-rect` - コントロールを丸矩形スタイルで表示します。`NSSegmentStyleRoundRect` に対応します。
+    * `textured-square` - コントロールをテクスチャ付きの正方形スタイルで表示します。`NSSegmentStyleTexturedSquare` に対応します。
     * `capsule` - The control is displayed using the capsule style. Maps to `NSSegmentStyleCapsule`.
     * `small-square` - The control is displayed using the small square style. Maps to `NSSegmentStyleSmallSquare`.
     * `separated` - The segments in the control are displayed very close to each other but not touching. Maps to `NSSegmentStyleSeparated`.
