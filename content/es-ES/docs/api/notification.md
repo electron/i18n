@@ -35,8 +35,10 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
   * `silent` Boolean (opcional) - Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación.
   * `icon` (String | [NativeImage](native-image.md)) (opcional) - Icono para usar en la notificación.
   * `hasReply` Boolean (opcional) *macOS* - Si se agrega o no una opción de respuesta insertada en la notificación.
+  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
   * `replyPlaceholder` String (opcional) *macOS* - El marcador de posición para escribir en el campo insertado de entrada de respuesta.
   * `sound` String (opcional) *macOS* - El nombre del archivo de sonido que se reproduce cuando se muestra la notificación.
+  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) *macOS* - Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction`.
   * `closeButtonText` String (opcional) *macOS* - Un título personalizado para el botón de cerrar de una alerta. Una cadena vacía causará que se use el texto localizado predeterminado.
 
@@ -135,6 +137,18 @@ A `Boolean` property representing whether the notification is silent.
 #### `notification.hasReply`
 
 A `Boolean` property representing whether the notification has a reply action.
+
+#### `notification.urgency` *Linux*
+
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 
