@@ -410,17 +410,17 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
 
-デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 ホストに必要なファイルが入っている、各リリースの `hunspell_dictionaries.zip` ファイルをこちらで公開しています。
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。 この API は、macOS では何もしません。
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
-* `word` String - The word you want to add to the dictionary
+* `word` String - 辞書に追加したい単語
 
-Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。
 
-**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+**注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書にも書き込まれます
 
 ### インスタンスプロパティ
 
@@ -428,7 +428,7 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 #### `ses.availableSpellCheckerLanguages` *読み出し専用*
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。 この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
 
 #### `ses.cookies` *読み出し専用*
 
