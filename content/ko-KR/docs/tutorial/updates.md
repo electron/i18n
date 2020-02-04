@@ -4,7 +4,7 @@ Electron 애플리케이션을 업데이트 하는 방법은 여러 가지가 �
 
 ## `update.electronjs.org` 사용
 
-GitHub의 Electron 팀은 Electron apps가 자체 업데이트에 사용할 수있는 무료 오픈 소스 웹 서비스 인 [update.electronjs.org](https://github.com/electron/update.electronjs.org)를 관리합니다. The service is designed for Electron apps that meet the following criteria:
+GitHub의 Electron 팀은 Electron apps가 자체 업데이트에 사용할 수있는 무료 오픈 소스 웹 서비스 인 [update.electronjs.org](https://github.com/electron/update.electronjs.org)를 관리합니다. 이 서비스는 다음 기준을 충족하는 Electron 앱을 위해 설계되었습니다:
 
 - MacOS 또는 Windows에서 실행되는 앱
 - App 이 public GitHub 저장소를 가지고 있음
@@ -25,7 +25,7 @@ npm install update-electron-app
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. 업데이트가 발견되면 자동으로 백그라운드에서 다운로드됩니다. When the download completes, a dialog is displayed allowing the user to restart the app.
+기본적으로 이 모듈은 앱 시작시 그리고 10분마다 업데이트를 확인합니다. 업데이트가 발견되면 자동으로 백그라운드에서 다운로드됩니다. 다운로드가 완료되면 앱 재시작 허용을 물어보는 다이어로그를 사용자에게 표시합니다.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
