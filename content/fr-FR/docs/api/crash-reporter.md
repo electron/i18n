@@ -102,7 +102,7 @@ Returns `String` - The directory where crashes are temporarily stored before bei
 
 ## Payload du Crash Report
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un `POST` en `multipart/form-data` :
 
 * `ver` String - La version d'Electron.
 * `platform` String - Par exemple 'win32'.
