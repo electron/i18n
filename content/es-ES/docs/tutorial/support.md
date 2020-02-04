@@ -33,9 +33,9 @@ Todas las versiones soportadas aceptarán peticiones de pull requests externas a
 
 ### Versiones soportadas actualmente
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### Fin de vida
 
