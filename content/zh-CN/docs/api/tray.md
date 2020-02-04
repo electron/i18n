@@ -239,22 +239,22 @@ Returns focus to the taskbar notification area. Notification area icons should u
 * `menu` Menu (可选)
 * `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+设置这个图标的内容菜单
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+以`Object`类型返回托盘图标的`bounds`
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+返回 `Boolean` -判断托盘图标是否被销毁
