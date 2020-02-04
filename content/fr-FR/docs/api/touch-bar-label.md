@@ -9,17 +9,17 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 * `options` Objet 
   * `label` String (facultatif) - Texte à afficher.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `textColor` String (facultatif) - Couleur hexadécimal du texte, c.-à-d. `#ABCDEF`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Propriétés d'instance
 
-The following properties are available on instances of `TouchBarLabel`:
+Les propriétés suivantes sont disponibles pour les instances de `TouchBarLabel` :
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Un `String` représentant le texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
 
 #### `touchBarLabel.accessibilityLabel`
 
@@ -27,4 +27,4 @@ A `String` representing the description of the label to be read by a screen read
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Un `String` représentant la couleur du texte du label actuel. Changer cette valeur met à jour immédiatement le label dans la touch bar.
