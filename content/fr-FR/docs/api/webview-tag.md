@@ -153,7 +153,7 @@ A `Boolean`. When this attribute is present the guest page will have web securit
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
+A `String` that sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. s'il n'y a pas de préfixe `persistant:`, la page utilisera une session en mémoire . En assignant la même `partition`, plusieurs pages peuvent partager la même session. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -213,7 +213,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `données postales` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (facultatif)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - The promise will resolve when the page has finished loading (see [`did-finish-load`](webview-tag.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](webview-tag.md#event-did-fail-load)).
@@ -727,7 +727,7 @@ Retourne :
 
 * `url` String
 
-Emitted when a navigation is done.
+Émis lorsqu'une navigation est faite.
 
 Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
@@ -738,7 +738,7 @@ Retourne :
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Émis lorsqu'une navigation dans la page s'est produite.
 
 En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
@@ -795,11 +795,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Déclenché lorsqu’un processus de plugin crash.
 
 ### Événement : 'destroyed'
 
-Fired when the WebContents is destroyed.
+Déclenché lorsque le WebContents est détruit.
 
 ### Événement : 'media-started-playing'
 
@@ -815,7 +815,7 @@ Retourne :
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
