@@ -144,7 +144,7 @@ dialog.showOpenDialog(mainWindow, {
     * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `String | undefined`, le chemin du fichier choisi par l'utilisateur ; si la boîte de dialogue est annulée, elle retourne `undefined`.
 
@@ -169,7 +169,7 @@ Les `filters` spécifie un tableau de types de fichiers qui peuvent être affich
     * `treatPackageAsDirectory` *macOS* - Considérer les paquets, tels que les dossiers `.app`, comme des dossiers plutôt que des fichiers.
     * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
     * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
-  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `securityScopedBookmarks` Boolean (facultatif) *macOS* *mas* - Créez un marque-page à portée de sécurité</a> lorsque empaqueté pour le Mac App Store. Si cette option est activée et que le fichier n'existe pas encore, un fichier vide sera créé dans le chemin choisi.
 
 Retourne `Promise<Object>` - Résoudre avec un objet contenant les éléments suivants :
 
