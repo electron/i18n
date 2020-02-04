@@ -216,12 +216,12 @@ macOS において、この tray アイコンが押されたときの関連付�
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
-  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
+  * `icon` ([NativeImage](native-image.md) | String) (任意) - `iconType` が `custom` のときに使うアイコン。
+  * `iconType` String (任意) - `none`、`info`、`warning`、`error`、`custom` のいずれかにできます。省略値は `custom` です。
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. 省略値は `true` です。 Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
-  * `noSound` Boolean (optional) - Do not play the associated sound. 省略値は、`false` です。 Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `largeIcon` Boolean (任意) - 大きなバージョンのアイコン。できればこちらを使用します。 省略値は `true` です。 [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020) に対応します。
+  * `noSound` Boolean (任意) - 関連付けられたサウンドを再生しないようにします。 省略値は、`false` です。 [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010) に対応します。
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". 省略値は、`false` です。 Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 tray のバルーンを表示します。
