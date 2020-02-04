@@ -79,6 +79,8 @@ const constraints = {
 
 戻り値 `Promise<DesktopCapturerSource[]>` - [`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列を使用して解決します。各 `DesktopCapturerSource` は、キャプチャできる画面または個々のウィンドウを表します。
 
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+
 ## Caveats
 
 `navigator.mediaDevices.getUserMedia` はシステムのオーディオにアクセスしたいアプリが[署名付きカーネル拡張](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html)を必要とするという基本的な制限のため、macOS ではオーディオキャプチャが動作しません。 Chrome、ひいては Electron はこれを提供していません。
