@@ -1123,22 +1123,22 @@ console.log(requestId)
 
 #### `contents.isBeingCaptured()`
 
-Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+戻り値 `Boolean` - このページがキャプチャされているかどうか。 キャプチャ回数が 0 より大きい場合に true を返します。
 
 #### `contents.incrementCapturerCount([size, stayHidden])`
 
-* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
-* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+* `size` [Size](structures/size.md) (任意) - キャプチャの推奨サイズ。
+* `stayHidden` Boolean (任意) - ページを表示せずに非表示のままにします。
 
-Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
 
-This also affects the Page Visibility API.
+これは Page Visibility API にも影響を与えます。
 
 #### `contents.decrementCapturerCount([stayHidden])`
 
-* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+* `stayHidden` Boolean (任意) - ページを表示状態にせず非表示のままにします。
 
-Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+キャプチャ回数は 1 ずつ減少します。 The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
 #### `contents.getPrinters()`
 
