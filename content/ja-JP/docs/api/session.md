@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect'
+#### イベント: 'preconnect'
 
 戻り値:
 
@@ -122,9 +122,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 #### `ses.setProxy(config)`
 
 * `config` Object 
-  * `pacScript` String (optional) - The URL associated with the PAC file.
-  * `proxyRules` String (optional) - Rules indicating which proxies to use.
-  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String (任意) - PAC ファイルに関連付けられた URL。
+  * `proxyRules` String (任意) - 使用するプロキシを示すルール。
+  * `proxyBypassRules` String (任意) - プロキシ設定をバイパスする URL を示すルール。
 
 戻り値 `Promise<void>` - プロキシ設定処理が完了すると実行されます。
 
@@ -358,9 +358,9 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `url` String
 
-Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+`url` にあるリソースのダウンロードを初期化します。 この API は、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。
 
-**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**注釈:** これは [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl) と異なり、ページのオリジンに関連するセキュリティチェックを実行しません。
 
 #### `ses.createInterruptedDownload(options)`
 
