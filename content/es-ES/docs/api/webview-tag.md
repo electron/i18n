@@ -480,7 +480,7 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
+Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
 Imprime la página web de `webview` como PDF, Igual como `webContents.printToPDF(options)`.
 
@@ -559,17 +559,17 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()` *Deprecated*
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+Depende del módulo [`remote`](remote.md), por lo tanto no esta disponible cuando este módulo esta deshabilitado.
 
 ### `<webview>.getWebContentsId()`
 
-Returns `Number` - The WebContents ID of this `webview`.
+Devuelve `Number` - El ID de WebContents de este `webview`.
 
 ## DOM Events
 
-The following DOM events are available to the `webview` tag:
+Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 
 ### Evento: 'load-commit'
 
@@ -578,11 +578,11 @@ Devuelve:
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
 
 ### Evento: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+Disparado cuando la navegación es terminada, i.e. el girador del tabulador dejará de girar, y el evento `onload` es discapacitado.
 
 ### Evento: 'did-fail-load'
 
@@ -593,7 +593,7 @@ Devuelve:
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
 ### Evento: 'did-frame-finish-load'
 
@@ -601,19 +601,19 @@ Devuelve:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Disparado cuando un frame ha terminado la navegación.
 
 ### Evento: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador empieza a girar.
 
 ### Evento: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador termina de girar.
 
 ### Evento: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Disparado cuando el documento en el frame dado es cargado.
 
 ### Evento: "page-title-updated"
 
@@ -630,15 +630,15 @@ Devuelve:
 
 * `favicons` Cadena[] - Arreglo para URLs.
 
-Fired when page receives favicon urls.
+Disparado cuando la página recibe urls de favicon.
 
 ### Evento: "enter-html-full-screen"
 
-Fired when page enters fullscreen triggered by HTML API.
+Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
 
 ### Evento: "leave-html-full-screen"
 
-Fired when page leaves fullscreen triggered by HTML API.
+Disparado cuando la página deja la pantalla completa activada por HTML API.
 
 ### Evento: 'console-message'
 
@@ -649,9 +649,9 @@ Devuelve:
 * `line` Íntegro
 * `sourceId` Cadena
 
-Fired when the guest window logs a console message.
+Disparado cuando la ventana invitada entra un mensaje de consola.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+El siguiente código ejemplo sigue con todos los mensajes guardados a la consola embebedora sin preocupación por el nivel de guardado u otras propiedades.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -671,7 +671,7 @@ Devuelve:
   * `selectionArea` Rectangle - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](#webviewfindinpagetext-options).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -692,9 +692,9 @@ Devuelve:
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` BrowserWindowConstructorOptions - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Fired when the guest page attempts to open a new browser window.
+Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
-The following example code opens the new url in system's default browser.
+El siguiente código ejemplo abre el nuevo url en el buscador por defecto del sistema.
 
 ```javascript
 const { shell } = require('electron')
@@ -716,11 +716,11 @@ Devuelve:
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Tampoco es emitido durante la navegación en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
 
 ### Evento: 'did-navigate'
 
@@ -728,7 +728,7 @@ Devuelve:
 
 * `url` String
 
-Emitted when a navigation is done.
+Emitido cuando la navegación es finalizada.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -739,15 +739,15 @@ Devuelve:
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 ### Evento: 'close'
 
-Fired when the guest page attempts to close itself.
+Disparado cuando la página de invitado intenta cerrarse.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+El siguiente código ejemplo navega el `webview` a `about:blank` cuando el invitado intenta cerrase.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -763,9 +763,9 @@ Devuelve:
 * `channel` Cadena
 * `args` any[]
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte entre la página de invitado y la página del integrador:
 
 ```javascript
 // In embedder page.
@@ -787,7 +787,7 @@ ipcRenderer.on('ping', () => {
 
 ### Evento: 'crashed'
 
-Fired when the renderer process is crashed.
+Disparado cuando el proceso de renderizado se cierra.
 
 ### Evento: 'plugin-crashed'
 
@@ -796,11 +796,11 @@ Devuelve:
 * `name` String
 * `version` Cadena
 
-Fired when a plugin process is crashed.
+Disparado cuando el proceso de plugin se cae.
 
 ### Evento: 'destroyed'
 
-Fired when the WebContents is destroyed.
+Disparado cuando el WebContents es destrozado.
 
 ### Evento: 'media-started-playing'
 
@@ -816,7 +816,7 @@ Devuelve:
 
 * `themeColor` Cadena
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a encontrar una etiqueta meta:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
