@@ -154,7 +154,7 @@ child.once('ready-to-show', () => {
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は、`false` です。
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
+  * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。省略値は `true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
@@ -164,7 +164,7 @@ child.once('ready-to-show', () => {
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
     * `hiddenInset` - ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
     * `customButtonsOnHover` Boolean (任意) - macOS フレームレスウインドウで、カスタムの閉じる、最小化ボタンを描画します。 これらのボタンはウインドウの左上にマウスカーソルを置かないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** このオプションは、現在、実験的なものです。
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
+  * `trafficLightPosition` [Point](structures/point.md) (任意) - 信号機ボタンのカスタム位置を設定します。 `titleBarStyle` を `hidden` にした場合のみ可能です
   * `fullscreenWindowTitle` Boolean (任意) - macOSのフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
   * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
