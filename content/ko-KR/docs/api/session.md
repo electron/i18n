@@ -426,19 +426,19 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 The following properties are available on instances of `Session`:
 
-#### `ses.availableSpellCheckerLanguages` *Readonly*
+#### `ses.availableSpellCheckerLanguages` *읽기전용*
 
 A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
-#### `ses.cookies` *Readonly*
+#### `ses.cookies` *읽기전용*
 
 A [`Cookies`](cookies.md) object for this session.
 
-#### `ses.webRequest` *Readonly*
+#### `ses.webRequest` *읽기전용*
 
 A [`WebRequest`](web-request.md) object for this session.
 
-#### `ses.protocol` *Readonly*
+#### `ses.protocol` *읽기전용*
 
 A [`Protocol`](protocol.md) object for this session.
 
@@ -457,7 +457,7 @@ app.on('ready', function () {
 })
 ```
 
-#### `ses.netLog` *Readonly*
+#### `ses.netLog` *읽기전용*
 
 A [`NetLog`](net-log.md) object for this session.
 
