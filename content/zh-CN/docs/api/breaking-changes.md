@@ -6,6 +6,83 @@
 
 代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
+## 计划重写的 API (8.0)
+
+### Values sent over IPC are now serialized with Structured Clone Algorithm
+
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+
+```js
+// Previously:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => results in { value: 3 } arriving in the main process
+
+// From Electron 8:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => throws Error("() => {} could not be cloned.")
+```
+
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
+```js
+Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+```
+
+Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
+
+### `<webview>.getWebContents()`
+
+This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+
+```js
+// Deprecated
+webview.getWebContents()
+// Replace with
+const { remote } = require('electron')
+remote.webContents.fromId(webview.getWebContentsId())
+```
+
+However, it is recommended to avoid using the `remote` module altogether.
+
+```js
+// main
+const { ipcMain, webContents } = require('electron')
+
+const getGuestForWebContents = function (webContentsId, contents) {
+  const guest = webContents.fromId(webContentsId)
+  if (!guest) {
+    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+  }
+  if (guest.hostWebContents !== contents) {
+    throw new Error(`Access denied to webContents`)
+  }
+  return guest
+}
+
+ipcMain.handle('openDevTools', (event, webContentsId) => {
+  const guest = getGuestForWebContents(webContentsId, event.sender)
+  guest.openDevTools()
+})
+
+// renderer
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
+```
+
+### `webFrame.setLayoutZoomLevelLimits()`
+
+Chromium has removed support for changing the layout zoom level limits, and it is beyond Electron's capacity to maintain it. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
 ## 计划重写的 API (7.0)
 
 ### Node Headers URL
@@ -48,7 +125,7 @@ const idleTime = getSystemIdleTime()
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Elecron 7.0
+// Removed in Electron 7.0
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -68,30 +145,30 @@ This property was removed in Chromium 77, and as such is no longer available.
 
 ### `webkitdirectory` attribute for `<input type="file"/>`
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
 
-    console
-    ￼folder
-    ￼├── file1
-    ￼├── file2
-    ￼└── file3
-    ￼ ￼ ￼In Electron <=6, this would return a 
+```console
+folder
+├── file1
+├── file2
+└── file3
+```
 
-`FileList` with a `File` object for: ￼
+￼ In Electron <=6, this would return a `FileList` with a `File` object for:
 
-    console
-    ￼path/to/folder
-    ￼ ￼ ￼In Electron 7, this now returns a 
+```console
+path/to/folder
+```
 
-`FileList` with a `File` object for: ￼
+￼ In Electron 7, this now returns a `FileList` with a `File` object for:
 
-    console
-    ￼/path/to/folder/file3
-    ￼/path/to/folder/file2
-    ￼/path/to/folder/file1
-    ￼ ￼ ￼Note that 
+```console
+/path/to/folder/file3
+/path/to/folder/file2
+/path/to/folder/file1
+```
 
-`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## 计划重写的 API (6.0)
 
@@ -220,11 +297,11 @@ Child windows opened with the `nativeWindowOpen` option will always have Node.js
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Electron 7.0
+// 弃用
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 替换为
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -333,27 +410,27 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-### `clipboard`
+### `剪贴板`
 
 ```js
-// 过时的
+// 弃用
 clipboard.readRtf()
 // 替换为
 clipboard.readRTF()
 
-// 过时的
+// 弃用
 clipboard.writeRtf()
 // 替换为
 clipboard.writeRTF()
 
-// 过时的
+// 弃用
 clipboard.readHtml()
 // 替换为
 clipboard.readHTML()
 
-// 过时的
+// 弃用
 clipboard.writeHtml()
-//替换为
+// 替换为
 clipboard.writeHTML()
 ```
 
@@ -385,7 +462,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-### `process`
+### `进程`
 
 ```js
 // 弃用
@@ -417,12 +494,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `Tray`
 
 ```js
-// 过时的
+// 弃用
 tray.setHighlightMode(true)
 // 替换为
 tray.setHighlightMode('on')
 
-// 过时的
+// 弃用
 tray.setHighlightMode(false)
 // 替换为
 tray.setHighlightMode('off')
@@ -517,7 +594,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-### `process`
+### `进程`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
@@ -552,6 +629,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 Starting at 2.0, the unprefixed file will no longer be published.
+The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the unprefixed file will no longer be published.
 
 更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
