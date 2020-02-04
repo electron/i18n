@@ -1032,7 +1032,7 @@ win.setSheetOffset(toolbarRect.height)
 
 戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1234:0" のようにします。
 
-More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
+より正確には、フォーマットは ` window:id:other_id` です。ここでの `id` は、Windows では `HWND`、macOS では `CGWindowID` (`uint64_t`)、Linux では `Window` (`unsigned long`) です。 `other_id` は、同じトップレベルウィンドウ内のウェブコンテンツ (タブ) を識別するために使用されます。
 
 #### `win.getNativeWindowHandle()`
 
@@ -1308,7 +1308,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `visible` Boolean
 * `options` Object (任意) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
+  * `visibleOnFullScreen` Boolean (任意) *macOS* - ウインドウをフルスクリーンウィンドウの上でも表示するかどうかを設定します *非推奨*
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
@@ -1410,11 +1410,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - `browserView` を `win` へアタッチします。 他の `BrowserView` がアタッチされている場合、それはこのウィンドウから削除されます。
 
 #### `win.getBrowserView()` *実験的*
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+戻り値 `BrowserView | null` - `win` にアタッチされた `BrowserView`。 アタッチされていない場合は `null` を返します。 複数の `BrowserView` がアタッチされている場合、エラーを送出します。
 
 #### `win.addBrowserView(browserView)` *実験的*
 
