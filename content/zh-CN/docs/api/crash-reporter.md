@@ -102,7 +102,7 @@ Returns `String` - The directory where crashes are temporarily stored before bei
 
 ## 崩溃报告内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
 
 * `ver` String - Electron 的版本.
 * `platform` String - 例如 'win32'.
