@@ -165,11 +165,13 @@ is closed.</p>
   
   ### Memutar Suara
   
-  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, `App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
+
+<ul>
+<li><code>~ / Perpustakaan / Suara`</li> 
   
-  * `~ / Perpustakaan / Suara`
   * `/ Perpustakaan / Suara`
   * `/ Jaringan / Perpustakaan / Suara`
-  * `/ Sistem / Perpustakaan / Suara`
+  * `/ Sistem / Perpustakaan / Suara`</ul> 
   
-  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
