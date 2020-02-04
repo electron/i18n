@@ -939,7 +939,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *实验功能*
 
 * `ignore` Boolean
 
@@ -949,13 +949,13 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+使当前页面音频静音
 
 **[过时的](modernization/property-updates.md)**
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+返回 `Boolean` -判断页面是否被静音
 
 **[过时的](modernization/property-updates.md)**
 
@@ -1019,19 +1019,19 @@ Returns `Promise<void>`
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+在页面中执行`undo`编辑命令。
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+在页面中执行` redo `编辑命令。
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+在页面中执行` cut `编辑命令。
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+在页面中执行` copy `编辑命令。
 
 #### `contents.copyImageAt(x, y)`
 
@@ -1042,35 +1042,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+在页面中执行` paste `编辑命令。
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+在页面中执行` pasteAndMatchStyle `编辑命令。
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+在页面中执行` delete `编辑命令。
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+在页面中执行` selectAll `编辑命令。
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+在页面中执行` unselect `编辑命令。
 
 #### `contents.replace(text)`
 
 * `text` String
 
-Executes the editing command `replace` in web page.
+在页面中执行` replace `编辑命令。
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+在页面中执行` replaceMisspelling `编辑命令。
 
 #### `contents.insertText(text)`
 
@@ -1083,7 +1083,7 @@ Returns `Promise<void>`
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1142,13 +1142,13 @@ Decrease the capturer count by one. The page will be set to hidden or occluded s
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+获取系统打印机列表
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+返回 [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
@@ -1190,7 +1190,7 @@ win.webContents.print(options, (success, errorType) => {
 
 #### `contents.printToPDF(options)`
 
-* `参数` Object - 过滤器对象，包含过滤参数 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -1317,7 +1317,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
@@ -1327,26 +1327,26 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+关闭开发者工具。
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+返回`Boolean` - 开发者工具是否处于开启状态。
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+返回`Boolean` - 开发者工具是否处于当前执行状态。
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+切换开发工具
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+开始检查位于(`x`, `y`) 的元素。
 
 #### `contents.inspectSharedWorker()`
 
@@ -1436,7 +1436,7 @@ ipcMain.on('ping', (event) => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object - 过滤器对象，包含过滤参数 
+* `parameters` Object 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1446,11 +1446,11 @@ ipcMain.on('ping', (event) => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-Enable device emulation with the given parameters.
+允许设备模拟给定参数。
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+禁止`webContents.enableDeviceEmulation`允许的模拟设备
 
 #### `contents.sendInputEvent(inputEvent)`
 
@@ -1460,8 +1460,8 @@ Sends an input `event` to the page. **Note:** The [`BrowserWindow`](browser-wind
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function - 回调函数 
+* ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1477,7 +1477,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object - 过滤器对象，包含过滤参数 
+* `item` Object 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
@@ -1618,7 +1618,7 @@ Only applicable if *offscreen rendering* is enabled.
 
 #### `contents.id` *Readonly*
 
-A `Integer` representing the unique ID of this WebContents.
+`Integer`类型，代表WebContents的唯一标识（unique ID）。
 
 #### `contents.session` *Readonly*
 
