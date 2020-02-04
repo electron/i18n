@@ -9,17 +9,17 @@
 * `options` オブジェクト 
   * `label` String (任意) - 表示するテキスト。
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `textColor` String (任意) - 16進数形式、即ち `#ABCDEF` のテキスト色。
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `TouchBarLabel`:
+`TouchBarLabel` のインスタンスには以下のプロパティがあります。
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+ラベルの現在のテキストを表す `String`。この値を変更すると、タッチバーのラベルがすぐに更新されます。
 
 #### `touchBarLabel.accessibilityLabel`
 
@@ -27,4 +27,4 @@ A `String` representing the description of the label to be read by a screen read
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+ラベルの現在のテキスト色の16進数コードの `String`。この値を変更すると、タッチバーのラベルがすぐに更新されます。
