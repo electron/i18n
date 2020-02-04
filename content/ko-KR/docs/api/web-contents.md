@@ -670,7 +670,7 @@ Returns:
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트: 'remote-get-global'
 
@@ -679,7 +679,7 @@ Returns:
 * `event` IpcMainEvent
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트 'remote-get-builtin'
 
@@ -688,7 +688,7 @@ Returns:
 * `event` IpcMainEvent
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트: 'remote-get-current-window'
 
@@ -696,7 +696,7 @@ Returns:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트: 'remote-get-current-web-contents'
 
@@ -704,7 +704,7 @@ Returns:
 
 * `event` IpcMainEvent
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 #### 이벤트: 'remote-get-guest-web-contents'
 
@@ -713,7 +713,7 @@ Returns:
 * `event` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 인스턴스 메서드
 
@@ -1083,7 +1083,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -1096,7 +1096,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `사용내역` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `동작` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1148,12 +1148,12 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
-  * `margins` 객체 (선택) 
+  * `margins` Object (선택) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
     * `top` Number (optional) - The top margin of the printed web page, in pixels.
     * `bottom` Number (optional) - The bottom margin of the printed web page, in pixels.
@@ -1166,7 +1166,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `copies` Number (optional) - The number of copies of the web page to print.
   * `pageRanges` Record<string, number> (optional) - The page range to print. Should have two keys: `from` and `to`.
   * `duplexMode` String (optional) - Set the duplex mode of the printed web page. Can be `simplex`, `shortEdge`, or `longEdge`.
-  * `dpi` 객체 (선택) 
+  * `dpi` Object (선택) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
   * `header` String (optional) - String to be printed as page header.
@@ -1317,7 +1317,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` 객체 (선택) 
+* `options` Object (선택) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
@@ -1616,24 +1616,24 @@ An `Integer` property that sets the frame rate of the web contents to the specif
 
 Only applicable if *offscreen rendering* is enabled.
 
-#### `contents.id` *Readonly*
+#### `contents.id` *읽기전용*
 
 A `Integer` representing the unique ID of this WebContents.
 
-#### `contents.session` *Readonly*
+#### `contents.session` *읽기전용*
 
 A [`Session`](session.md) used by this webContents.
 
-#### `contents.hostWebContents` *Readonly*
+#### `contents.hostWebContents` *읽기전용*
 
 A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
-#### `contents.devToolsWebContents` *Readonly*
+#### `contents.devToolsWebContents` *읽기전용*
 
 A `WebContents` of DevTools for this `WebContents`.
 
 **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
 
-#### `contents.debugger` *Readonly*
+#### `contents.debugger` *읽기전용*
 
 A [`Debugger`](debugger.md) instance for this webContents.
