@@ -96,9 +96,13 @@ crashReporter.start({
 
 查看传递给崩溃报告的所有当前参数。
 
+### `crashReporter.getCrashesDirectory()`
+
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
 ## 崩溃报告内容
 
-崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
 * `ver` String - Electron 的版本.
 * `platform` String - 例如 'win32'.
