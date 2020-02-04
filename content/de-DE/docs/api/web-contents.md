@@ -943,7 +943,7 @@ Rückgabewert:
     
     Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
     
-    #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+    #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
     
     * `ignore` Boolean
     
@@ -969,7 +969,7 @@ Rückgabewert:
     
     #### `contents.setZoomFactor(factor)`
     
-    * `factor` Number - Zoom Faktor.
+    * `factor` Number - Zoom faktor.
     
     Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
     
@@ -983,7 +983,7 @@ Rückgabewert:
     
     #### `contents.setZoomLevel(level)`
     
-    * `level` Number - Zoom level.
+    * `level` Number - Zoom Level.
     
     Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
     
@@ -1220,7 +1220,7 @@ Rückgabewert:
     
     Use `page-break-before: always;` CSS style to force to print to a new page.
     
-    An example of `webContents.printToPDF`:
+    Ein Beispiel für `webContents.printToPDF`:
     
     ```javascript
     const { BrowserWindow } = require('electron')
@@ -1302,7 +1302,7 @@ Rückgabewert:
     </html>
     ```
     
-    An example of showing devtools in a `BrowserWindow`:
+    Ein Beispiel zum zeigen der DevTools in einem `BrowserWindow`:
     
     ```js
     const { app, BrowserWindow } = require('electron')
@@ -1331,7 +1331,7 @@ Rückgabewert:
     
     #### `contents.closeDevTools()`
     
-    Closes the devtools.
+    Schließt die DevTools.
     
     #### `contents.isDevToolsOpened()`
     
@@ -1489,7 +1489,7 @@ Rückgabewert:
     
     #### `contents.savePage(fullPath, saveType)`
     
-    * `fullPath` String - The full file path.
+    * `fullPath` String - Der volle Dateipfad.
     * `saveType` String - Specify the save type. 
       * `HTMLOnly` - Save only the HTML of the page.
       * `HTMLComplete` - Save complete-html page.
