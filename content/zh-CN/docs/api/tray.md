@@ -216,33 +216,45 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (可选) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. 默认值为 `true`。 Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `noSound` Boolean (optional) - Do not play the associated sound. 默认值为 `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". 默认值为 `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 显示一个托盘气球通知.
+
+#### `tray.removeBalloon()` *Windows*
+
+Removes a tray balloon.
+
+#### `tray.focus()` *Windows*
+
+Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (可选)
 * `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
 
-弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-设置这个图标的内容菜单
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-以`Object`类型返回托盘图标的`bounds`
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-返回 `Boolean` -判断托盘图标是否被销毁
+Returns `Boolean` - Whether the tray icon is destroyed.
