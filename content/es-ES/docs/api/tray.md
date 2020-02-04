@@ -218,7 +218,7 @@ Devuelve `Boolean` - Si los eventos de doble click serán ignorados.
 * `opciones` Object 
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
-  * `title` String
+  * `title` Cadena
   * `content` String
   * `largeIcon` Boolean (optional) - The large version of the icon should be used. Por defecto es `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
   * `noSound` Boolean (optional) - Do not play the associated sound. Por defecto es `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
@@ -239,22 +239,22 @@ Returns focus to the taskbar notification area. Notification area icons should u
 * `menu` Menu (opcional)
 * `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` solo está disponible en Windows, y por defecto es (0, 0).
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Configura el menú de contexto para este icono.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Los `bounds` de este icono de la bandeja como `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
