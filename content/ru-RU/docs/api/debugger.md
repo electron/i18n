@@ -48,7 +48,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `event` Event
 * `method` String - имя метода.
-* `params` unknown - параметры события, определенные 'параметрами' атрибута в протоколе удаленной отладки.
+* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Возникает при отладке инструментальных событий.
 
