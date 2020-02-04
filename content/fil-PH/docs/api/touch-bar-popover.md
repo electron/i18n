@@ -9,7 +9,7 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
 * `options` Bagay 
   * `label` Pisi (opsyonal) - Popover na pindutan ng teksto.
   * `icon` [NativeImage](native-image.md) (opsyonal) - Popover button icon.
-  * `mga aytem` [TouchBar](touch-bar.md) (opsyonal) - Mga item na ipapakita sa popover.
+  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `showCloseButton` Boolean (opsyonal) - `tunay` magdispley ng isang pindutan para pindutan na pangsara malapit sa kaliwa ng popover, `mali` upang hindi ito ipakita. Default ay `Totoo`.
 
 ### Katangian ng pagkakataon
