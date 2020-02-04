@@ -9,22 +9,22 @@ Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-proce
 * `options` Oggetto 
   * `etichetta` Stringa(opzionale) - Testo da mostrare.
   * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `ColoreTesto` Stringa (opzionale) - Colore del testo Hex, come `#ABCDEF`.
 
 When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Proprietà Istanza
 
-The following properties are available on instances of `TouchBarLabel`:
+Le proprietà seguenti sono disponibili su istanza di `BarraEtichettaTouch`:
 
 #### `etichettaBarratouch.etichetta`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Una `Stringa` rappresentante il testo corrente dell'etichetta. Modificando questo valore l'etichetta sarà automaticamente aggiornata nella barra touch.
 
 #### `touchBarLabel.accessibilityLabel`
 
 A `String` representing the description of the label to be read by a screen reader.
 
-#### `touchBarLabel.textColor`
+#### `EtichettaBarratouch.testoColore`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Un codice hex della `Stringa` rappresentante il colore corrente del testo dell'etichetta. Cambiando questo valore aggiornerà automatocamente l'etichetta nella barra touch.
