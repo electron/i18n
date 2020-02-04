@@ -154,7 +154,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `autoHideMenuBar` Boolean (optional) - Versteckt die Menüleiste wenn `Alt` Taste nicht gedrückt ist. Standard ist `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Standard ist `false`.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Gibt an ob das Fenster einene Schatten hat. Nur unter macOS unterstützt. Standard ist `true`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Number (optional) - Setzt die anfängliche Opazität des Fensters. Zwischen 0,0 (vollständig transparent) und 1,0 (vollständig opak). Nur unter Windows und macOS unterstützt.
   * `darkTheme` Boolean (optional) - Erzwingt ein dunkles Farbschema. Funktioniert nur mit manchen GTK+3 Desktopumgebungen. Standard ist `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Standard ist `false`. On Windows, does not work unless the window is frameless.
@@ -164,6 +164,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
     * `hidden` - Resultiert in einer versteckten Titelleiste und einem Fenster mit voller Inhaltsgröße. Das Fenster hat noch immer die standardmäßigen Steuerelemente ("Ampelleuchten") in der oberen linken Ecke.
     * `hiddenInset` - Resultiert in einer versteckten Titelleiste mit einem alternativem Aussehen, bei dem die Ampelleuchten Buttons vom Fensterrand etwas weiter nach innen gerückt wurden.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Beachte:** Diese Option ist experimentell.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Zeigt unter macOS für alle `titleBarStyle` Optionen den Fenstertitel in der Titelleiste des Fensters, wenn es sich im Vollbildmodus befindet. Standard ist `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Fensterschatten und Fensteranimationen werden entfernt wenn dieser Wert `false` ist. Standard ist `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
@@ -214,6 +215,8 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -335,14 +338,14 @@ Rückgabewert:
   
   Emitted after the window has been resized.
   
-  #### Event: 'will-move' *Windows*
+  #### Event: 'will-move' *macOS* *Windows*
   
   Rückgabewert:
   
   * `event` Event
   * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
   
-  Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+  Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
   
   Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
   
@@ -465,7 +468,7 @@ Rückgabewert:
   
   * `webContents` [WebContents](web-contents.md)
   
-  Returns `BrowserWindow` - The window that owns the given `webContents`.
+  Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
   
   #### `BrowserWindow.fromBrowserView(browserView)`
   
@@ -615,6 +618,10 @@ Rückgabewert:
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
   ```
+  
+  #### `win.accessibleTitle`
+  
+  A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
   
   ### Instanz Methoden
   
@@ -946,6 +953,12 @@ Rückgabewert:
   
   Returns `Boolean` - Whether the window is always on top of other windows.
   
+  #### `win.moveAbove(mediaSourceId)`
+  
+  * `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+  
+  Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+  
   #### `win.moveTop()`
   
   Moves window to top(z-order) regardless of focus
@@ -1014,6 +1027,12 @@ Rückgabewert:
   #### `win.isKiosk()`
   
   Returns `Boolean` - Whether the window is in kiosk mode.
+  
+  #### `win.getMediaSourceId()`
+  
+  Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+  
+  More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
   
   #### `win.getNativeWindowHandle()`
   
@@ -1288,7 +1307,7 @@ Rückgabewert:
   
   * `visible` Boolean
   * `options` Objekt (optional) 
-    * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+    * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
   
   Sets whether the window should be visible on all workspaces.
   
@@ -1390,10 +1409,10 @@ Rückgabewert:
   
   #### `win.setBrowserView(browserView)` *Experimentell*
   
-  * `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+  * `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
   #### `win.getBrowserView()` *Experimental*
   
-  Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+  Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
   
   #### `win.addBrowserView(browserView)` *Experimentell*
   
