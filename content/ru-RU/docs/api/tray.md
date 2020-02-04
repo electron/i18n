@@ -216,33 +216,45 @@ app.on('ready', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. По умолчанию - `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `noSound` Boolean (optional) - Do not play the associated sound. По умолчанию - `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". По умолчанию - `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Отображает всплывающее сообщение в трее.
+
+#### `tray.removeBalloon()` *Windows*
+
+Removes a tray balloon.
+
+#### `tray.focus()` *Windows*
+
+Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - позиция всплывающего сообщения.
 
-Контекстное меню всплывает вверх со значка в трее. Когда `menu` передается, `menu` будет отображаться вместо контекстного меню иконки в трее.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-`position` доступна только для Windows, и это (0, 0) по умолчанию.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Устанавливает контекстное меню для этого значка.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Возвращает [`Rectangle`](structures/rectangle.md)
 
-`bounds` значка в трее как `Object`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Возвращает `Boolean` - уничтожен ли значок в трее.
+Returns `Boolean` - Whether the tray icon is destroyed.
