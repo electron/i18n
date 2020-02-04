@@ -51,12 +51,14 @@ The `WebFrame` class has the following instance methods:
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 Устанавливает максимальный и минимальный на основе слоя (т.е. невизуальный) уровень масштаба.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -67,11 +69,21 @@ webFrame.setVisualZoomLevelLimits(1, 3)
     * `callback` Function 
       * `misspeltWords` String[]
 
-Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
+Sets a provider for spell checking in input fields and text areas.
+
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -149,14 +161,14 @@ Set the security origin, content security policy and name of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Возвращает объект, описывающий сведения об использовании Blink внутренней памяти кэшей.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Это будет генерировать:
+This will generate:
 
 ```javascript
 {
@@ -165,18 +177,18 @@ console.log(webFrame.getResourceUsage())
     size: 2549,
     liveSize: 2542
   },
-  cssStyleSheets: { /* то же самое с "images" */ },
-  xslStyleSheets: { /* то же самое с "images" */ },
-  fonts: { /* то же самое с "images" */ },
-  other: { /* то же самое с "images" */ }
+  cssStyleSheets: { /* same with "images" */ },
+  xslStyleSheets: { /* same with "images" */ },
+  fonts: { /* same with "images" */ },
+  other: { /* same with "images" */ }
 }
 ```
 
 ### `webFrame.clearCache()`
 
-Пытается освободить память, которая больше не используется (например, изображения из предыдущей навигации).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Обратите внимание, что безрассудный вызов этого метода вероятно замедлит Electron, поскольку ему придется чистить кэши даже если они уже пустые, так что этот метод следует вызывать только в случае, когда вы уверены, что страница стала использовать меньше памяти (например, произошел переход с супер-тяжёлой страницы на лёгкую без ожидаемого возврата обратно на тяжёлую).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
