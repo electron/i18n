@@ -939,7 +939,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Đang thử nghiệm*
 
 * `ignore` Boolean
 
@@ -1321,13 +1321,13 @@ app.once('ready', () => {
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
-Opens the devtools.
+Mở devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Đóng devtools.
 
 #### `contents.isDevToolsOpened()`
 
