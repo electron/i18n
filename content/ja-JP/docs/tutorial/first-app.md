@@ -124,7 +124,7 @@ function createWindow () {
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.whenReady().then(createWindow)
 
-// Quit when all windows are closed.
+// 全てのウィンドウが閉じられた時に終了します。
 app.on('window-all-closed', () => {
   // macOSでは、ユーザが Cmd + Q で明示的に終了するまで、
   // アプリケーションとそのメニューバーは有効なままにするのが一般的です。
