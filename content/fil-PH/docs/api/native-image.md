@@ -121,10 +121,10 @@ console.log(image)
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `pagpipilian` Bagay 
+* `options` Bagay 
   * `lapad` Integer
   * `taas` Integer
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik ng `NativeImage`
 
@@ -133,10 +133,10 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `ativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `pagpipilian` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `width` Integer (optional) - Required for bitmap buffers.
-  * `height` Integer (optional) - Required for bitmap buffers.
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+  * `height` na Integer (opsyonal) - Kinakailangan para sa mga bitmap na buffer.
+  * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik ng `NativeImage`
 
@@ -159,7 +159,7 @@ Nagbabalik ng `NativeImage`
 
 Gumagawa ng isang bagong `NativeImage` na instance mula sa NSImage na nagmamapa sa binigay na pangalan ng imahe. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
-The `hslShift` is applied to the image with the following rules:
+Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran:
 
 * `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
@@ -185,8 +185,8 @@ Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase
 
 #### `image.toPNG([options])`
 
-* `pagpipilian` Bagay (opsyonal) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Na Bagay (opsyonal) 
+  * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng `PNG` encoded data.
 
@@ -198,22 +198,22 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 #### `image.toBitmap([options])`
 
-* `pagpipilian` Bagay (opsyonal) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Na Bagay (opsyonal) 
+  * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng kopya ng mga imaheng hilaw na bitmap pixel data. 
 
 #### `image.toDataURL([options])`
 
-* `pagpipilian` Bagay (opsyonal) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Na Bagay (opsyonal) 
+  * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `String` - Ang data URL ng imahe.
 
 #### `image.getBitmap([options])`
 
-* `pagpipilian` Bagay (opsyonal) 
-  * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Na Bagay (opsyonal) 
+  * `scaleFactor` na Doble (opsyonal) - Naka-default sa 1.0.
 
 Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng hilaw na bitmap pixel data.
 
@@ -255,10 +255,10 @@ Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 #### `image.resize(options)`
 
-* `pagpipilian` Bagay 
+* `options` Bagay 
   * `width` Integer (optional) - Defaults to the image's width.
   * `height` Integer (optional) - Defaults to the image's height.
-  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
@@ -270,11 +270,11 @@ Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
 #### `image.addRepresentation(options)`
 
-* `pagpipilian` Bagay 
+* `options` Bagay 
   * `scaleFactor` Double - The scale factor to add the image representation for.
   * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
   * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
-  * `buffer` Buffer (optional) - The buffer containing the raw image data.
+  * `buffer` Buffer (optional) - Ang buffer ay naglalaman ng mga hilaw na datos ng larawan.
   * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Magdagdag ng naka presentang larawan para sa tinutukoy na scale factor. Pwede rin itong gamitin para magdagdag ng ibang representasyong scale factor sa isang imahe. Pwede itong tawaging imaheng walang laman.
