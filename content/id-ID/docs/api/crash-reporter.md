@@ -105,15 +105,17 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
     
     ## Laporan Kecelakaan Payload
     
-    The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
-    
-    * ` ver </ 0>  String - Versi Elektron .</li>
+    Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>
+
+<ul>
+<li><code> ver </ 0>  String - Versi Elektron .</li>
 <li><code> platform </ 0>  String - misal 'win32'.</li>
 <li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
 <li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
 <li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
-<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok
+<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
+    
     * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
     * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
     * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
-    * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.
+    * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.</ul>
