@@ -49,12 +49,14 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Número
 * `maximumLevel` Número
 
 Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -66,11 +68,21 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
     * `callback` Function 
       * `misspeltWords` String[]
 
-Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
+Sets a provider for spell checking in input fields and text areas.
 
-El `provider` debe ser un objeto que tiene un método `spellCheck` que acepte un array de palabras individuales para revisión ortográfica. La función `spellCheck` corre cronológicamente y llama a la función `callback` con un array de palabras mal escritas cuando se completa.
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
 
-Un ejemplo de uso de [node-spellchecker](https://github.com/atom/node-spellchecker) como proveedor:
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
+
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
+
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -135,11 +147,11 @@ Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
   * `csp` String (opcional) - Política de Seguridad de Contenido para el mundo aislado.
   * `name` String (opcional) - Nombre para el mundo aislado. Útil en devtools.
 
-Establecer el origen de seguridad, la política de seguridad de contenido y el nombre del mundo aislado. Nota: Si se especifica el `csp` entonces el `securityOrigin` también debe ser especificado.
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -148,14 +160,14 @@ Devuelve `Objeto`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Esto generará:
+This will generate:
 
 ```javascript
 {
@@ -173,27 +185,27 @@ Esto generará:
 
 ### `webFrame.clearCache()`
 
-Intenta liberar memoria que ya no se usa (como las imágenes de una navegación anterior).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Tenga en cuenta que llamar ciegamente este método probablemente haga que Electron sea más lento, ya que tendrá que volver a llenar estos cachés vacíos, solo debe llamarlo si ha ocurrido un evento en su aplicación que le haga pensar que su página está usando menos memoria (es decir, ha navegado desde una página muy pesada a una casi vacía, y tiene la intención de permanecer allí).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
 
 ### `webFrame.getFrameForSelector(selector)`
 
 * `selector` String - selector CSS para un elemento frame.
 
-Devuelve `WebFrame` - El elemento de frame en `webFrame's` documento seleccionado por `selector`, `null` sería devuelto si `selector` no selecciona un frame o si el frame no está en el proceso actual de renderizado.
+Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-Deveulve `WebFrame` - Un hijo de `webFrame` con el `name` suministrado, `null` sería retornado is no hay tal frame o si el frame no está en el proceso renderer actual.
+Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
 * `routingId` Integer - Un `Integer` representando el id único del frame en el proceso renderer actual. Las IDs de rutas se pueden recuperar de `WebFrame` instancias (`webFrame.routingId`) y también son pasados por el frame `WebContents` específicos eventos de navegación (por ejemplo, `did-frame-navigate`)
 
-Devuelve `WebFrame` - que tiene el `routingId` proporcionado, `null` si no se encuentra.
+Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
 ## Propiedades
 
@@ -219,4 +231,4 @@ A `WebFrame | null` representing next sibling frame, the property would be `null
 
 ### `webFrame.routingId` *Readonly*
 
-Un `Integer` que representa el id único del frame en el proceso renderizador actual. Distintas instancias WebFrame que refieren al mismo frame subyacente tendrán el mismo `routingId`.
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
