@@ -15,7 +15,7 @@ app.on('ready', async () => {
 })
 ```
 
-See [`--log-net-log`](command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+アプリのライフサイクル全体にわたってネットワークイベントをロギングするには [`--log-net-log`](command-line-switches.md#--log-net-logpath) を参照してください。
 
 **注釈:** 指定されていないすべてのメソッドは、`app` モジュールの `ready` イベントが発生した後にのみ使用できます。
 
