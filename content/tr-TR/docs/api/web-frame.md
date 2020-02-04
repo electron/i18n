@@ -69,7 +69,7 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
     * `geri aramak` Function 
       * `misspeltWords` String[]
 
-Sets a provider for spell checking in input fields and text areas.
+Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
 
 If you want to use this method you must disable the builtin spellchecker when you construct the window.
 
@@ -83,7 +83,7 @@ const mainWindow = new BrowserWindow({
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
 
 ```javascript
 const { webFrame } = require('electron')
@@ -161,14 +161,14 @@ Set the security origin, content security policy and name of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Blink'in dahili belleğinin önbelleklerinin kullanım bilgilerini açıklayan bir nesne döndürür.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Bu oluşturur:
 
 ```javascript
 {
@@ -186,9 +186,9 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Artık kullanılmayan belleği boşa çıkarmaya çalışır (ör. önceki gezinmeden fotoğraflar).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Boşu boşuna bu metodu çağırmanın muhtemelen Electron'u yavaşlatacağını unutmayın çünkü boşalan önbellekleri tekrar doldurmak zorunda kalacaktır, sadece uygulamanızda sayfanın aslında daha az bellek kullandığını düşündüğünüz bir olay varsa bunu çağırmalısınız (örneğin, çok yoğun bir sayfadan çoğunlukla boş olan bir sayfaya gidiyorsanız ve orada kalmak niyetindeyseniz).
 
 ### `webFrame.getFrameForSelector(selector)`
 
