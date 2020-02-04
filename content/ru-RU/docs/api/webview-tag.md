@@ -110,7 +110,7 @@ A `Boolean`. When this attribute is `false` the guest page in `webview` will not
 
 A `Boolean`. When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `preload`
+### `предварительная загрузка`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
