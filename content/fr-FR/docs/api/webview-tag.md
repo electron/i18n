@@ -479,7 +479,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Resolves with the generated PDF data.
+Returns `Promise<Uint8Array>` - Resolves with the generated PDF data.
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options)`.
 
@@ -541,7 +541,7 @@ Retourne `Promise<void>`
 
 Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -550,11 +550,13 @@ Retourne `Promise<void>`
 
 Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
@@ -725,7 +727,7 @@ Retourne :
 
 * `url` String
 
-Émis lorsqu'une navigation est faite.
+Emitted when a navigation is done.
 
 Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
@@ -736,7 +738,7 @@ Retourne :
 * `isMainFrame` Boolean
 * `url` String
 
-Émis lorsqu'une navigation dans la page s'est produite.
+Emitted when an in-page navigation happened.
 
 En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
@@ -793,11 +795,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Déclenché lorsqu’un processus de plugin crash.
+Fired when a plugin process is crashed.
 
 ### Événement : 'destroyed'
 
-Déclenché lorsque le WebContents est détruit.
+Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
@@ -813,7 +815,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
