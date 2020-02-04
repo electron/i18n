@@ -1221,7 +1221,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` الكائنات 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `أيقونة`[الصورة الأصلية](native-image.md) - الأيقونة تظهر في الصورة المصغرة لشريط الأدوات.
   * `أنقر` Function
   * `أداة` String (اختياري) - نص أداة الزر.
   * `أعلام` String[] (اختياري) ء السيطرة على حالات وسلوكيات محددة للزر. افتراضيا ، هو `['enabled']`.
