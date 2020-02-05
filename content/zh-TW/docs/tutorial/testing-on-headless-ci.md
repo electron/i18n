@@ -1,4 +1,4 @@
-# 在無周邊 CI 系統上測試 (Travis CI, Jenkins)
+# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
 
 因為 Electron 是架構在 Chromium 上的，需要顯示驅動程式才能運作。 If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. 要在 Travis, Circle, Jenkins 或類似的系統上測試 Electron 應用程式，需要一些額外設定。 實際上，我們需要使用虛擬顯示驅動程式。
 
@@ -29,6 +29,10 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
+
+### Github Actions
+
+For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### Jenkins
 
