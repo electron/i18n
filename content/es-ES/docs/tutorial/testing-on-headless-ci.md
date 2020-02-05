@@ -1,4 +1,4 @@
-# Pruebas de sistemas de CI sin cabeceras (Travis CI, Jenkins)
+# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
 
 Al estar basado en Chromium, Electron requiere un controlador para funcionar. Si chromium no puede encontrar un controlador de pantalla, Electron no se lanzará y por lo tanto no ejecuta ningunas de sus pruebas, independientemente de como usted las está corriendo. Probar aplicaciones basadas en Electron en Travis, Circle, Jenkins o sistemas similares requiere un poco de configuración. En esencia, necesitamos un controlador de pantalla virtual.
 
@@ -29,6 +29,10 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
+
+### Github Actions
+
+For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### Jenkins
 
