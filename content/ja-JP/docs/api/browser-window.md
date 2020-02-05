@@ -154,7 +154,7 @@ child.once('ready-to-show', () => {
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。 他の OS はデフォルトで画面よりも大きなウィンドウを許可するため、macOS にのみ関係します。 省略値は、`false` です。
   * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
+  * `hasShadow` Boolean (任意) - ウインドウに影を付けるかどうか。省略値は `true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
   * `transparent` Boolean (任意) - ウインドウを [透明](frameless-window.md#transparent-window) にします。 省略値は、`false` です。 Windows では、ウィンドウがフレームレスでない限り機能しません。
@@ -164,7 +164,7 @@ child.once('ready-to-show', () => {
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
     * `hiddenInset` - ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
     * `customButtonsOnHover` Boolean (任意) - macOS フレームレスウインドウで、カスタムの閉じる、最小化ボタンを描画します。 これらのボタンはウインドウの左上にマウスカーソルを置かないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** このオプションは、現在、実験的なものです。
-  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
+  * `trafficLightPosition` [Point](structures/point.md) (任意) - 信号機ボタンのカスタム位置を設定します。 `titleBarStyle` を `hidden` にした場合のみ可能です
   * `fullscreenWindowTitle` Boolean (任意) - macOSのフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
   * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light`、`ultra-dark`、`header`、`sheet`、`window`、`hud`、`fullscreen-ui`、`tooltip`、`content`、`under-window` または `under-page` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。 また、`appearance-based`、`light`、`dark`、`medium-light` と `ultra-dark` は非推奨であり、macOS の今後のバージョンで削除されます。
@@ -215,8 +215,8 @@ child.once('ready-to-show', () => {
     * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ&ドロップした際にナビゲーションするかどうか。省略値は `false`。
     * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
     * `disableHtmlFullscreenWindowResize` Boolean (任意) - HTML フルスクリーン入力時にウィンドウのサイズ変更を禁止するかどうか。既定値は `false` です。
-    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
-    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
+    * `accessibleTitle` String (任意) - スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトル文字列。この文字列はユーザーには直接表示されません。
+    * `spellcheck` Boolean (任意) - 組み込みスペルチェックを有効にするかどうか。省略値は `false` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -337,14 +337,14 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがリサイズされた後に発生します。
 
-#### Event: 'will-move' *macOS* *Windows*
+#### イベント: 'will-move' *macOS* *Windows*
 
 戻り値:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
+ウインドウの位置が変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウの移動を阻害します。
 
 これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
 
@@ -468,7 +468,7 @@ Linux 上では以下のアプリコマンドが明示的にサポートされ�
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
+戻り値 `BrowserWindow | null` - 指定された `webContents` を保持しているウインドウ。ウインドウが保持していないコンテンツの場合は `null` です。
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -621,7 +621,7 @@ Menu.setApplicationMenu(menu)
 
 #### `win.accessibleTitle`
 
-A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+スクリーンリーダーなどのアクセシビリティツールにのみ提供される代替タイトルを定義する `String` です。この文字列はユーザーには直接表示されません。
 
 ### インスタンスメソッド
 
@@ -955,9 +955,9 @@ Linuxでは常に `true` を返します。
 
 #### `win.moveAbove(mediaSourceId)`
 
-* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+* `mediaSourceId` String - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1869:0" のようにします。
 
-Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+z オーダーにおいて元のウィンドウの上にウィンドウを移動します。`mediaSourceId` が window タイプでない、またはウィンドウが存在しない場合、このメソッドはエラーを送出します。
 
 #### `win.moveTop()`
 
@@ -1030,9 +1030,9 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.getMediaSourceId()`
 
-Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+戻り値 `String` - DesktopCapturerSource の ID の形式のウィンドウ ID。"window:1234:0" のようにします。
 
-More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
+より正確には、フォーマットは ` window:id:other_id` です。ここでの `id` は、Windows では `HWND`、macOS では `CGWindowID` (`uint64_t`)、Linux では `Window` (`unsigned long`) です。 `other_id` は、同じトップレベルウィンドウ内のウェブコンテンツ (タブ) を識別するために使用されます。
 
 #### `win.getNativeWindowHandle()`
 
@@ -1308,7 +1308,7 @@ Windowsでは、モードを渡すことができます。 有効な値は、`no
 
 * `visible` Boolean
 * `options` Object (任意) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
+  * `visibleOnFullScreen` Boolean (任意) *macOS* - ウインドウをフルスクリーンウィンドウの上でも表示するかどうかを設定します *非推奨*
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
@@ -1410,11 +1410,11 @@ macOS ではウィンドウからフォーカスは除去されません。
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - `browserView` を `win` へアタッチします。 他の `BrowserView` がアタッチされている場合、それはこのウィンドウから削除されます。
 
 #### `win.getBrowserView()` *実験的*
 
-Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
+戻り値 `BrowserView | null` - `win` にアタッチされた `BrowserView`。 アタッチされていない場合は `null` を返します。 複数の `BrowserView` がアタッチされている場合、エラーを送出します。
 
 #### `win.addBrowserView(browserView)` *実験的*
 

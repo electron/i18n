@@ -261,7 +261,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * On **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table. *deprecated*
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。*非推奨*
     * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
     * `control` - コントロールの表面。
     * `control-text` - 無効にされていないコントロールのテキスト。
@@ -280,7 +280,7 @@ const alpha = color.substr(6, 2) // "dd"
     * `selected-content-background` - キーウィンドウまたはビューで選択したコンテンツの背景。
     * `selected-control` - 選択したコントロールの表面
     * `selected-control-text` - 選択したコントロールのテキスト。
-    * `selected-menu-item-text` - The text of a selected menu.
+    * `selected-menu-item-text` - 選択されたメニューのテキスト
     * `selected-text-background` - 選択したテキストの背景
     * `selected-text` - 選択したテキスト
     * `separator` - コンテンツのさまざまなセクション間の区切り文字。
@@ -297,7 +297,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
-The following colors are only available on macOS 10.14: `find-highlight`, `selected-content-background`, `separator`, `unemphasized-selected-content-background`, `unemphasized-selected-text-background`, and `unemphasized-selected-text`.
+次の色は macOS 10.14 でのみ使用可能です。`find-highlight`、`selected-content-background`、`separator`、`unemphasized-selected-content-background`、`unemphasized-selected-text-background`、`unemphasized-selected-text`。
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -390,11 +390,11 @@ systemPreferences.promptTouchID('To get consent for a Security-Gated Thing').the
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - Can be `microphone`, `camera` or `screen`.
+* `mediaType` String - `microphone`、`camera`、`screen` のいずれかにできます。
 
 戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
 
-This user consent was not required on macOS 10.13 High Sierra or lower so this method will always return `granted`. macOS 10.14 Mojave or higher requires consent for `microphone` and `camera` access. macOS 10.15 Catalina or higher requires consent for `screen` access.
+macOS 10.13 High Sierra 以前では、このユーザーの同意は必要なかったので、このメソッドは常に `granted` を返します。 macOS 10.14 Mojave 以降では、`microphone` と `camera` へのアクセスに同意が必要です。 macOS 10.15 Catalina 以降では、`screen` へのアクセスに同意が必要です。
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 

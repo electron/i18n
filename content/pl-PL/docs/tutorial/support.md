@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### Aktualnie wspierane wersje
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### EOL
 

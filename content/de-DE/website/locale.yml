@@ -131,7 +131,7 @@ headings:
   languages: Sprachen
 taglines:
   languages: Übersetzte Inhalte von unser atemberaubenden weltweiten Entwickler-Community.
-  openjsf: Electron ist gerade der OpenJS Foundation beigetreten. Siehe <a href="/blog/electron-joins-openjsf">die Ankündigung</a> für weitere Informationen!
+  announcement: Electron ist gerade der OpenJS Foundation beigetreten. Siehe <a href="/blog/electron-joins-openjsf">die Ankündigung</a> für weitere Informationen!
 help_translate: "Helfen Sie bei der Übersetzung"
 footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen

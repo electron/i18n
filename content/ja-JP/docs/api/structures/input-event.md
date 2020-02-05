@@ -1,3 +1,3 @@
 # InputEvent オブジェクト
 
-* `modifiers` String[] (optional) - An array of modifiers of the event, can be `shift`, `control`, `ctrl`, `alt`, `meta`, `command`, `cmd`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+* `modifiers` String[] (任意) - イベントの修飾子の配列。`shift`、`control`、`ctrl`、`alt`、`meta`、`command`、`cmd`、`isKeypad`、`isAutoRepeat`、`leftButtonDown`、`middleButtonDown`、`rightButtonDown`、`capsLock`、`numLock`、`left`、`right` にできます。

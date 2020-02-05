@@ -154,7 +154,7 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 ## --enable-api-filtering-logging
 
-Enables caller stack logging for the following APIs (filtering events):
+以下の API の呼び出し元スタックログを有効にします (イベントのフィルタリング)。
 
 - `desktopCapturer.getSources()` / `desktop-capturer-get-sources`
 - `remote.require()` / `remote-require`

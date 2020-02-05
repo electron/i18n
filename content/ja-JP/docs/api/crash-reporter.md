@@ -98,7 +98,7 @@ crashReporter.start({
 
 ### `crashReporter.getCrashesDirectory()`
 
-Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
 
 ## クラッシュレポートの内容
 

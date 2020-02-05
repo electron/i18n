@@ -131,7 +131,7 @@ headings:
   languages: ภาษา
 taglines:
   languages: เนื้อหาที่แปลเป็นภาษาท้องถิ่นจากชุมชนนักพัฒนาระดับโลกของเรา
-  openjsf: Electron เพิ่งเข้าร่วมกับมูลนิธิ OpenJS ดู <a href="/blog/electron-joins-openjsf"> ประกาศ </a> สำหรับข้อมูลเพิ่มเติม!
+  announcement: Electron เพิ่งเข้าร่วมกับมูลนิธิ OpenJS ดู <a href="/blog/electron-joins-openjsf"> ประกาศ </a> สำหรับข้อมูลเพิ่มเติม!
 help_translate: "ช่วยแปลภาษา"
 footer:
   see_the_faq: คำถามที่พบบ่อยๆ

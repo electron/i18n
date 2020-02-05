@@ -131,7 +131,7 @@ headings:
   languages: اللغات
 taglines:
   languages: محتوى مترجم من مجتمعنا العالمي المذهل من المطورين.
-  openjsf: Electron إنضم حديثا لمؤسسة OpenJS. إطلع على <a href="/blog/electron-joins-openjsf">الإعلان</a> للمزيد من المعلومات!
+  announcement: Electron إنضم حديثا لمؤسسة OpenJS. إطلع على <a href="/blog/electron-joins-openjsf">الإعلان</a> للمزيد من المعلومات!
 help_translate: "المساعدة في الترجمة"
 footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة

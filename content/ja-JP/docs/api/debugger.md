@@ -48,7 +48,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 * `event` Event
 * `method` String - メソッド名。
-* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` any - リモートデバッグプロトコルの "parameters" 属性で定義されたイベントパラメーター。
 
 デバッグ対象で計測イベントが生じる毎に発生します。
 

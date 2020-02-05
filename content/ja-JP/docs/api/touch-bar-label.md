@@ -8,10 +8,10 @@
 
 * `options` オブジェクト 
   * `label` String (任意) - 表示するテキスト。
-  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
+  * `accessibilityLabel` String (任意) - VoiceOver などのスクリーンリーダーが使用するボタンの簡単な説明文。
   * `textColor` String (任意) - 16進数形式、即ち `#ABCDEF` のテキスト色。
 
-When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
+`accessibilityLabel` を定義するときは、macOS [ベストプラクティス](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc) を満たしていることを確認してください。
 
 ### インスタンスプロパティ
 
@@ -23,7 +23,7 @@ When defining `accessibilityLabel`, ensure you have considered macOS [best pract
 
 #### `touchBarLabel.accessibilityLabel`
 
-A `String` representing the description of the label to be read by a screen reader.
+スクリーンリーダーが読み上げるラベルの説明文を表す `String`。
 
 #### `touchBarLabel.textColor`
 

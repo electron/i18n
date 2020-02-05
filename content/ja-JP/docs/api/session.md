@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect'
+#### イベント: 'preconnect'
 
 戻り値:
 
@@ -122,9 +122,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 #### `ses.setProxy(config)`
 
 * `config` Object 
-  * `pacScript` String (optional) - The URL associated with the PAC file.
-  * `proxyRules` String (optional) - Rules indicating which proxies to use.
-  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String (任意) - PAC ファイルに関連付けられた URL。
+  * `proxyRules` String (任意) - 使用するプロキシを示すルール。
+  * `proxyBypassRules` String (任意) - プロキシ設定をバイパスする URL を示すルール。
 
 戻り値 `Promise<void>` - プロキシ設定処理が完了すると実行されます。
 
@@ -358,9 +358,9 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 * `url` String
 
-Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+`url` にあるリソースのダウンロードを初期化します。 この API は、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。
 
-**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+**注釈:** これは [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl) と異なり、ページのオリジンに関連するセキュリティチェックを実行しません。
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -370,8 +370,8 @@ Initiates a download of the resource at `url`. The API will generate a [Download
   * `mimeType` String (任意)
   * `offset` Integer - ダウンロードの範囲の始端。
   * `length` Integer - ダウンロードの長さ。
-  * `lastModified` String (optional) - Last-Modified header value.
-  * `eTag` String (optional) - ETag header value.
+  * `lastModified` String (任意) - ヘッダの最終更新日の値。
+  * `eTag` String (任意) - ヘッダの ETag の値。
   * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
 以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
@@ -394,33 +394,33 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.setSpellCheckerLanguages(languages)`
 
-* `languages` String[] - An array of language codes to enable the spellchecker for.
+* `languages` String[] - スペルチェッカーを有効にする言語コードの配列。
 
-The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。 スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。 `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
 
-**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。 この API は、macOS では何もしません。
 
 #### `ses.getSpellCheckerLanguages()`
 
-Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。 このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。 この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。 この設定は再起動後も持続します。
 
-**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。 この API は、macOS では何もしません。
 
 #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
 
-* `url` String - A base URL for Electron to download hunspell dictionaries from.
+* `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 ホストに必要なファイルが入っている、各リリースの `hunspell_dictionaries.zip` ファイルをこちらで公開しています。
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。 この API は、macOS では何もしません。
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
-* `word` String - The word you want to add to the dictionary
+* `word` String - 辞書に追加したい単語
 
-Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。
 
-**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+**注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書にも書き込まれます
 
 ### インスタンスプロパティ
 
@@ -428,7 +428,7 @@ Returns `Boolean` - Whether the word was successfully written to the custom dict
 
 #### `ses.availableSpellCheckerLanguages` *読み出し専用*
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。 この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
 
 #### `ses.cookies` *読み出し専用*
 
