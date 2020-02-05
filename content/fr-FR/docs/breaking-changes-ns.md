@@ -14,9 +14,9 @@ The content of this document should be moved to `breaking-changes.md` once we ha
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Deprecated
+// Déprécié
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// Remplacer par
 protocol.unregisterProtocol(scheme)
 ```
 
