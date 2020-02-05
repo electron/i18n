@@ -60,7 +60,7 @@ Wenn Sie eine schnelle Lösung bevorzugen, machen Sie die Variablen global, inde
 const { app, Tray } = require('electron')
 app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('Hallo Welt')
 })
 ```
 
@@ -71,7 +71,7 @@ const { app, Tray } = require('electron')
 let tray = null
 app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('Hallo Welt')
 })
 ```
 
