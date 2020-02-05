@@ -172,22 +172,22 @@ As of Electron 7, that `FileList` is now list of all files contained within the 
 
 As an illustration, take a folder with this structure:
 ```console
-folder
-├── file1
-├── file2
-└── file3
+dossier
+├── fichier1
+├── fichier2
+└── fichier3
 ```
 
 In Electron <=6, this would return a `FileList` with a `File` object for:
 ```console
-path/to/folder
+chemin/vers/dossier
 ```
 
 In Electron 7, this now returns a `FileList` with a `File` object for:
 ```console
-/path/to/folder/file3
-/path/to/folder/file2
-/path/to/folder/file1
+/chemin/vers/dossier/fichier3
+/chemin/vers/dossier/fichier2
+/chemin/vers/dossier/fichier1
 ```
 
 Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
