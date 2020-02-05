@@ -16,7 +16,7 @@ The APIs are now synchronous and the optional callback is no longer needed.
 ```javascript
 // Déprécié
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Remplacer par
+// Remplacé par
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -34,9 +34,9 @@ protocol.unregisterProtocol(scheme)
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Deprecated
+// Déprécié
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// Remplacé par
 protocol.registerFileProtocol(scheme, handler)
 ```
 
@@ -47,9 +47,9 @@ The registered or intercepted protocol does not have effect on current page unti
 This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
 
 ```javascript
-// Deprecated
+// Déprécié
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// Remplacé par
 const isRegistered = protocol.isProtocolRegistered(scheme)
 const isIntercepted = protocol.isProtocolIntercepted(scheme)
 ```
