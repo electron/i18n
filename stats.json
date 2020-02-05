@@ -4,13 +4,13 @@
     "code": "ar",
     "phrases": "12097",
     "translated": "1745",
-    "approved": "259",
+    "approved": "260",
     "words": "114739",
     "words_translated": "10627",
-    "words_approved": "853",
+    "words_approved": "870",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 560
+    "qa_issues": 559
   },
   {
     "name": "Bulgarian",
@@ -30,10 +30,10 @@
     "code": "zh-CN",
     "phrases": "12097",
     "translated": "8967",
-    "approved": "2637",
+    "approved": "2638",
     "words": "114739",
     "words_translated": "76810",
-    "words_approved": "20681",
+    "words_approved": "20698",
     "translated_progress": 66,
     "approved_progress": 18,
     "qa_issues": 191
@@ -43,10 +43,10 @@
     "code": "zh-TW",
     "phrases": "12097",
     "translated": "4549",
-    "approved": "1259",
+    "approved": "1260",
     "words": "114739",
     "words_translated": "21612",
-    "words_approved": "3613",
+    "words_approved": "3630",
     "translated_progress": 18,
     "approved_progress": 3,
     "qa_issues": 59
@@ -56,13 +56,13 @@
     "code": "cs",
     "phrases": "12097",
     "translated": "1364",
-    "approved": "256",
+    "approved": "257",
     "words": "114739",
     "words_translated": "4004",
-    "words_approved": "332",
+    "words_approved": "349",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 270
+    "qa_issues": 269
   },
   {
     "name": "Dutch",
@@ -95,26 +95,26 @@
     "code": "fr",
     "phrases": "12097",
     "translated": "9615",
-    "approved": "2632",
+    "approved": "2633",
     "words": "114739",
     "words_translated": "83735",
-    "words_approved": "19205",
+    "words_approved": "19222",
     "translated_progress": 72,
     "approved_progress": 16,
-    "qa_issues": 2126
+    "qa_issues": 2125
   },
   {
     "name": "German",
     "code": "de",
     "phrases": "12097",
     "translated": "5135",
-    "approved": "1431",
+    "approved": "1432",
     "words": "114739",
     "words_translated": "30114",
-    "words_approved": "5521",
+    "words_approved": "5538",
     "translated_progress": 26,
     "approved_progress": 4,
-    "qa_issues": 1528
+    "qa_issues": 1527
   },
   {
     "name": "Hebrew",
@@ -173,10 +173,10 @@
     "code": "ja",
     "phrases": "12097",
     "translated": "12095",
-    "approved": "3907",
+    "approved": "3908",
     "words": "114739",
     "words_translated": "114737",
-    "words_approved": "33720",
+    "words_approved": "33737",
     "translated_progress": 99,
     "approved_progress": 29,
     "qa_issues": 258
@@ -186,13 +186,13 @@
     "code": "ko",
     "phrases": "12097",
     "translated": "5801",
-    "approved": "1663",
+    "approved": "1664",
     "words": "114739",
     "words_translated": "48991",
-    "words_approved": "10884",
+    "words_approved": "10901",
     "translated_progress": 42,
     "approved_progress": 9,
-    "qa_issues": 2144
+    "qa_issues": 2143
   },
   {
     "name": "Persian",
@@ -251,13 +251,13 @@
     "code": "ru",
     "phrases": "12097",
     "translated": "8851",
-    "approved": "4330",
+    "approved": "4331",
     "words": "114739",
     "words_translated": "73251",
-    "words_approved": "33578",
+    "words_approved": "33595",
     "translated_progress": 63,
     "approved_progress": 29,
-    "qa_issues": 1835
+    "qa_issues": 1834
   },
   {
     "name": "Spanish",
@@ -290,13 +290,13 @@
     "code": "th",
     "phrases": "12097",
     "translated": "1614",
-    "approved": "324",
+    "approved": "325",
     "words": "114739",
     "words_translated": "8828",
-    "words_approved": "575",
+    "words_approved": "592",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 746
+    "qa_issues": 745
   },
   {
     "name": "Turkish",
@@ -329,12 +329,12 @@
     "code": "vi",
     "phrases": "12097",
     "translated": "2249",
-    "approved": "583",
+    "approved": "584",
     "words": "114739",
     "words_translated": "10065",
-    "words_approved": "1269",
+    "words_approved": "1286",
     "translated_progress": 8,
     "approved_progress": 1,
-    "qa_issues": 522
+    "qa_issues": 521
   }
 ]
