@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
+# ヘッドレス CI システム (Travis CI, Github Actions, Jenkins) でのテスト
 
 Chromiumベースであるため、 Electronは機能するためにディスプレイドライバを要求します。 もし、Chromiumがディスプレイドライバを見つけられない場合、Electronは起動に失敗します。そのため、あなたがどのように実行するかに関わらず、あなたのテストは実行できません。 Travis, Circle, Jenkins または類似したシステム上でElectronベースアプリケーションのテストには、少し設定が必要になります。 つまり私たちには、仮想ディスプレイドライバが必要です。
 
@@ -32,7 +32,7 @@ install:
 
 ### Github Actions
 
-For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
+Github Actions 用の [Xvfb アクションが利用可能です](https://github.com/marketplace/actions/gabrielbb-xvfb-action)。
 
 ### Jenkins
 
