@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln
 nav:
   apps: Apps
   blog: Blog
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: oder
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln.
+    description: 'Plattformübergreifende Desktop-Anwendungen mit JavaScript, HTML und CSS entwickeln.'
   '/apps':
     title: Electron-Anwendungen
     description: Mit Electron entwickelte Anwendungen
