@@ -1,4 +1,4 @@
-# SharedWorkerInfo Object
+# SharedWorkerInfo 객체
 
-* `id` String - The unique id of the shared worker.
-* `url` String - The url of the shared worker.
+* `id` String - 공유 워커에서 유일한 id.
+* `url` String - 공유 워커의 url.
