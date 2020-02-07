@@ -26,13 +26,13 @@ Chromium은 레이아웃 확대/축소 변경 제한에 대한 지원을 중단�
 
 ### IPC를 통해 non-JS 객체를 보내면 예외가 발생합니다
 
-Electron 8.0에서 IPC는 Structured Clone Algorithm를 사용하도록 변경되었고 이는 유의미한 성능향상을 가져왔습니다. 전환을 쉽게하기 위해 구식 IPC 직렬화 알고리즘이 유지되어 Structured Clone으로 직렬화 할 수 없는 일부 개체에 사용되었습니다. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. 이전 알고리즘이 호출될 때마다 사용 중단 경고가 표시됩니다.
+Electron 8.0에서 IPC는 Structured Clone Algorithm를 사용하도록 변경되었고 이는 유의미한 성능향상을 가져왔습니다. 전환을 쉽게하기 위해 구식 IPC 직렬화 알고리즘이 유지되어 Structured Clone으로 직렬화 할 수 없는 일부 개체에 사용되었습니다. 특히 DOM 객체 (예: `Element`, `Location` 및 `DOMMatrix`), C ++ 클래스가 지원하는 Node.js 객체 (예: `process.env`, `Stream`의 일부 멤버) 및 C ++ 클래스가 지원하는 Electron 객체 (예: `WebContents`, `BrowserWindow` 및 `WebFrame`)는 구조적 클론으로 직렬화 할 수 없습니다. 이전 알고리즘이 호출될 때마다 사용 중단 경고가 표시됩니다.
 
 Electron 9.0에서는 이전의 직렬화 알고리즘이 제거되었으며, 직렬화 할 수 없는 객체를 전송하면 "객체를 복제 할 수 없습니다" 오류가 발생합니다.
 
 ## 중단될 예정 API (8.0)
 
-### Values sent over IPC are now serialized with Structured Clone Algorithm
+### IPC를 통해 보내진 값은 이제 Structured Clone Algorithm로 직렬화 됩니다.
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
@@ -65,9 +65,9 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
 ```js
-// Deprecated
+// 중단예정
 webview.getWebContents()
-// Replace with
+// 다음으로 대체됨
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -146,11 +146,11 @@ const idleTime = getSystemIdleTime()
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 다음으로 대체됨
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -388,19 +388,19 @@ app.getGPUInfo('basic')
 
 When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
-## Breaking API Changes (3.0)
+## 중대한 API 변화 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+다음 리스트는 Electron 3.0에서의 중대한 API 변화를 포함합니다.
 
 ### `app`
 
 ```js
-// Deprecated
+// 중단예정
 app.getAppMemoryInfo()
-// Replace with
+// 다음으로 대체됨
 app.getAppMetrics()
 
-// Deprecated
+// 중단예정
 const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
@@ -408,20 +408,20 @@ const { memory } = metrics[0] // Deprecated property
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 중단예정
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// 다음으로 대체됨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -432,37 +432,37 @@ window.on('app-command', (e, cmd) => {
 ### `clipboard`
 
 ```js
-// Deprecated
+// 중단예정
 clipboard.readRtf()
-// Replace with
+// 다음으로 대체됨
 clipboard.readRTF()
 
-// Deprecated
+// 중단예정
 clipboard.writeRtf()
-// Replace with
+// 다음으로 대체됨
 clipboard.writeRTF()
 
-// Deprecated
+// 중단예정
 clipboard.readHtml()
-// Replace with
+// 다음으로 대체됨
 clipboard.readHTML()
 
-// Deprecated
+// 중단예정
 clipboard.writeHtml()
-// Replace with
+// 다음으로 대체됨
 clipboard.writeHTML()
 ```
 
 ### `crashReporter`
 
 ```js
-// Deprecated
+// 중단예정
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 다음으로 대체됨
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -473,9 +473,9 @@ crashReporter.start({
 ### `nativeImage`
 
 ```js
-// Deprecated
+// 중단예정
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 다음으로 대체됨
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -484,27 +484,27 @@ nativeImage.createFromBuffer(buffer, {
 ### `프로세스`
 
 ```js
-// Deprecated
+// 중단예정
 const info = process.getProcessMemoryInfo()
 ```
 
 ### `screen`
 
 ```js
-// Deprecated
+// 중단예정
 screen.getMenuBarHeight()
-// Replace with
+// 다음으로 대체됨
 screen.getPrimaryDisplay().workArea
 ```
 
 ### `session`
 
 ```js
-// Deprecated
+// 중단예정
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// 다음으로 대체됨
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -513,56 +513,56 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `Tray`
 
 ```js
-// Deprecated
+// 중단예정
 tray.setHighlightMode(true)
-// Replace with
+// 다음으로 대체됨
 tray.setHighlightMode('on')
 
-// Deprecated
+// 중단예정
 tray.setHighlightMode(false)
-// Replace with
+// 다음으로 대체됨
 tray.setHighlightMode('off')
 ```
 
 ### `webContents`
 
 ```js
-// Deprecated
+// 중단예정
 webContents.openDevTools({ detach: true })
-// Replace with
+// 다음으로 대체됨
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// 제거됨
 webContents.setSize(options)
-// There is no replacement for this API
+// 대체할 API 없음
 ```
 
 ### `webFrame`
 
 ```js
-// Deprecated
+// 중단예정
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 다음으로 대체됨
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// 중단예정
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// 다음으로 대체됨
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// 대체할 API 없음
 
-// Removed
+// 제거됨
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// 대체할 API 없음
 
-// Keyboard listeners no longer work on webview tag
+// 키보드 리스너는 webview 태그에서 더이상 동작하지 않음
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -575,17 +575,17 @@ native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플
 
 다음으로 대체: https://atom.io/download/electron
 
-## Breaking API Changes (2.0)
+## 중대한 API 변화 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+다음 리스트는 Electron 2.0에서의 중대한 API 변화를 포함합니다.
 
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -593,23 +593,23 @@ let windowB = new BrowserWindow(optionsB)
 ### `menu`
 
 ```js
-// Removed
+// 제거됨
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// 다음으로 대체됨
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ### `nativeImage`
 
 ```js
-// Removed
+// 제거됨
 nativeImage.toPng()
-// Replaced with
+// 다음으로 대체됨
 nativeImage.toPNG()
 
-// Removed
+// 제거됨
 nativeImage.toJpeg()
-// Replaced with
+// 다음으로 대체됨
 nativeImage.toJPEG()
 ```
 
@@ -620,27 +620,27 @@ nativeImage.toJPEG()
 ### `webContents`
 
 ```js
-// Removed
+// 제거됨
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `webFrame`
 
 ```js
-// Removed
+// 제거됨
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체됨
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 

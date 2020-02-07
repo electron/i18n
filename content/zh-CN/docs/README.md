@@ -104,7 +104,8 @@
 * [进程对象](api/process.md)
 * [支持的命令行开关](api/command-line-switches.md)
 * [环境变量](api/environment-variables.md)
-* [重大的API更新](breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [重要的API变更](breaking-changes.md)
 
 ### 自定义 DOM 元素:
 

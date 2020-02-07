@@ -1,4 +1,4 @@
-# Auto-Updater
+# autoUpdater
 
 > Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
