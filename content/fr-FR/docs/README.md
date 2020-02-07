@@ -104,7 +104,8 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Process Object](api/process.md)
 * [Commandes Supportées](api/command-line-switches.md)
 * [Variables d'environnement](api/environment-variables.md)
-* [Changements majeurs prévus de l'API](breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Modifications importantes de l'API](breaking-changes.md)
 
 ### Éléments DOM Personnalisé :
 
