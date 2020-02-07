@@ -313,7 +313,7 @@ Restituisce:
 
 * `event` Event
 * `name` Stringa
-* `version` String
+* `version` Stringa
 
 Emitted when a plugin process has crashed.
 
