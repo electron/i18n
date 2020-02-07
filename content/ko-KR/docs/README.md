@@ -104,6 +104,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [프로세스 개체](api/process.md)
 * [지원되는 명령행 스위치](api/command-line-switches.md)
 * [환경 변수](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [중요한 API 변화](breaking-changes.md)
 
 ### 사용자 지정 DOM 요소:
