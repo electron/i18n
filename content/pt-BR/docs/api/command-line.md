@@ -1,4 +1,4 @@
-## Class: CommandLine
+## Classe: Linha de Comando
 
 > Manipulate the command line arguments for your app that Chromium reads
 
