@@ -26,13 +26,13 @@ Chromium은 레이아웃 확대/축소 변경 제한에 대한 지원을 중단�
 
 ### IPC를 통해 non-JS 객체를 보내면 예외가 발생합니다
 
-Electron 8.0에서 IPC는 Structured Clone Algorithm를 사용하도록 변경되었고 이는 유의미한 성능향상을 가져왔습니다. 전환을 쉽게하기 위해 구식 IPC 직렬화 알고리즘이 유지되어 Structured Clone으로 직렬화 할 수 없는 일부 개체에 사용되었습니다. In particular, DOM objects (e.g. `Element`, `Location` and `DOMMatrix`), Node.js objects backed by C++ classes (e.g. `process.env`, some members of `Stream`), and Electron objects backed by C++ classes (e.g. `WebContents`, `BrowserWindow` and `WebFrame`) are not serializable with Structured Clone. 이전 알고리즘이 호출될 때마다 사용 중단 경고가 표시됩니다.
+Electron 8.0에서 IPC는 Structured Clone Algorithm를 사용하도록 변경되었고 이는 유의미한 성능향상을 가져왔습니다. 전환을 쉽게하기 위해 구식 IPC 직렬화 알고리즘이 유지되어 Structured Clone으로 직렬화 할 수 없는 일부 개체에 사용되었습니다. 특히 DOM 객체 (예: `Element`, `Location` 및 `DOMMatrix`), C ++ 클래스가 지원하는 Node.js 객체 (예: `process.env`, `Stream`의 일부 멤버) 및 C ++ 클래스가 지원하는 Electron 객체 (예: `WebContents`, `BrowserWindow` 및 `WebFrame`)는 구조적 클론으로 직렬화 할 수 없습니다. 이전 알고리즘이 호출될 때마다 사용 중단 경고가 표시됩니다.
 
 Electron 9.0에서는 이전의 직렬화 알고리즘이 제거되었으며, 직렬화 할 수 없는 객체를 전송하면 "객체를 복제 할 수 없습니다" 오류가 발생합니다.
 
 ## 중단될 예정 API (8.0)
 
-### Values sent over IPC are now serialized with Structured Clone Algorithm
+### IPC를 통해 보내진 값은 이제 Structured Clone Algorithm로 직렬화 됩니다.
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
@@ -582,10 +582,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -620,27 +620,27 @@ nativeImage.toJPEG()
 ### `webContents`
 
 ```js
-// Removed
+// 제거됨
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `webFrame`
 
 ```js
-// Removed
+// 제거됨
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체됨
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
