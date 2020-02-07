@@ -8,7 +8,7 @@
 
 ## 중단될 예정 API (8.0)
 
-### Values sent over IPC are now serialized with Structured Clone Algorithm
+### IPC를 통해 보내진 값은 이제 Structured Clone Algorithm로 직렬화 됩니다.
 
 The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
 
@@ -601,27 +601,27 @@ nativeImage.toJPEG()
 ### `webContents`
 
 ```js
-// Removed
+// 제거됨
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `webFrame`
 
 ```js
-// Removed
+// 제거됨
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체됨
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
