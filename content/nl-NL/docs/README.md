@@ -104,6 +104,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [Procesobject](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Omgevingsvariabelen](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [Belangrijke API wijzigingen](breaking-changes.md)
 
 ### Aangepaste DOM-elementen:
