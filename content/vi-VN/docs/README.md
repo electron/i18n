@@ -104,6 +104,7 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Các biến môi trường (Environment Variables)](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [Những thay đổi API](breaking-changes.md)
 
 ### Tùy chỉnh các DOM Element:
