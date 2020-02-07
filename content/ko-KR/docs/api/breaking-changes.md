@@ -44,9 +44,9 @@ Sending any objects that aren't native JS types, such as DOM objects (e.g. `Elem
 This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
 
 ```js
-// Deprecated
+// 중단예정
 webview.getWebContents()
-// Replace with
+// 다음으로 대체됨
 const { remote } = require('electron')
 remote.webContents.fromId(webview.getWebContentsId())
 ```
@@ -125,11 +125,11 @@ const idleTime = getSystemIdleTime()
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 다음으로 대체됨
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -369,19 +369,19 @@ app.getGPUInfo('basic')
 
 When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
-## Breaking API Changes (3.0)
+## 중대한 API 변화 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+다음 리스트는 Electron 3.0에서의 중대한 API 변화를 포함합니다.
 
 ### `app`
 
 ```js
-// Deprecated
+// 중단예정
 app.getAppMemoryInfo()
-// Replace with
+// 다음으로 대체됨
 app.getAppMetrics()
 
-// Deprecated
+// 중단예정
 const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
@@ -389,20 +389,20 @@ const { memory } = metrics[0] // Deprecated property
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 중단예정
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// 다음으로 대체됨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -413,37 +413,37 @@ window.on('app-command', (e, cmd) => {
 ### `clipboard`
 
 ```js
-// Deprecated
+// 중단예정
 clipboard.readRtf()
-// Replace with
+// 다음으로 대체됨
 clipboard.readRTF()
 
-// Deprecated
+// 중단예정
 clipboard.writeRtf()
-// Replace with
+// 다음으로 대체됨
 clipboard.writeRTF()
 
-// Deprecated
+// 중단예정
 clipboard.readHtml()
-// Replace with
+// 다음으로 대체됨
 clipboard.readHTML()
 
-// Deprecated
+// 중단예정
 clipboard.writeHtml()
-// Replace with
+// 다음으로 대체됨
 clipboard.writeHTML()
 ```
 
 ### `crashReporter`
 
 ```js
-// Deprecated
+// 중단예정
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 다음으로 대체됨
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -454,9 +454,9 @@ crashReporter.start({
 ### `nativeImage`
 
 ```js
-// Deprecated
+// 중단예정
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 다음으로 대체됨
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -465,27 +465,27 @@ nativeImage.createFromBuffer(buffer, {
 ### `프로세스`
 
 ```js
-// Deprecated
+// 중단예정
 const info = process.getProcessMemoryInfo()
 ```
 
 ### `screen`
 
 ```js
-// Deprecated
+// 중단예정
 screen.getMenuBarHeight()
-// Replace with
+// 다음으로 대체됨
 screen.getPrimaryDisplay().workArea
 ```
 
 ### `session`
 
 ```js
-// Deprecated
+// 중단예정
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// 다음으로 대체됨
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -494,56 +494,56 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `Tray`
 
 ```js
-// Deprecated
+// 중단예정
 tray.setHighlightMode(true)
-// Replace with
+// 다음으로 대체됨
 tray.setHighlightMode('on')
 
-// Deprecated
+// 중단예정
 tray.setHighlightMode(false)
-// Replace with
+// 다음으로 대체됨
 tray.setHighlightMode('off')
 ```
 
 ### `webContents`
 
 ```js
-// Deprecated
+// 중단예정
 webContents.openDevTools({ detach: true })
-// Replace with
+// 다음으로 대체됨
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// 제거됨
 webContents.setSize(options)
-// There is no replacement for this API
+// 대체할 API 없음
 ```
 
 ### `webFrame`
 
 ```js
-// Deprecated
+// 중단예정
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 다음으로 대체됨
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// 중단예정
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// 다음으로 대체됨
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// 대체할 API 없음
 
-// Removed
+// 제거됨
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// 대체할 API 없음
 
-// Keyboard listeners no longer work on webview tag
+// 키보드 리스너는 webview 태그에서 더이상 동작하지 않음
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -556,17 +556,17 @@ native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플
 
 다음으로 대체: https://atom.io/download/electron
 
-## Breaking API Changes (2.0)
+## 중대한 API 변화 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+다음 리스트는 Electron 2.0에서의 중대한 API 변화를 포함합니다.
 
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -574,23 +574,23 @@ let windowB = new BrowserWindow(optionsB)
 ### `menu`
 
 ```js
-// Removed
+// 제거됨
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// 다음으로 대체됨
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ### `nativeImage`
 
 ```js
-// Removed
+// 제거됨
 nativeImage.toPng()
-// Replaced with
+// 다음으로 대체됨
 nativeImage.toPNG()
 
-// Removed
+// 제거됨
 nativeImage.toJpeg()
-// Replaced with
+// 다음으로 대체됨
 nativeImage.toJPEG()
 ```
 
