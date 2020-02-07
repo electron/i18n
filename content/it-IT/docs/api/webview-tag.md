@@ -793,7 +793,7 @@ Fired when the renderer process is crashed.
 Restituisce:
 
 * `name` Stringa
-* `version` String
+* `version` Stringa
 
 Fired when a plugin process is crashed.
 
