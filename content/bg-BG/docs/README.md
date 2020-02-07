@@ -104,6 +104,7 @@
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
+* [Chrome Extensions Support](api/extensions.md)
 * [5256783105227699](breaking-changes.md)
 
 ### Персонални DOM елементи:
