@@ -6,6 +6,22 @@
 
 `FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
 
+## 予定されている破壊的なAPIの変更 (10.0)
+
+### `enableRemoteModule` の省略値は `false` です
+
+Electron 9 では、`enableRemoteModule` WebPreferences オプションによって明示的に有効にせずに remote モジュールを使用すると、警告を出すようになりました。 Electron 10 では、remote モジュールはデフォルトで利用できなくなります。 remote モジュールを使用するには、以下のように WebPreferences で `enableRemoteModule: true` を指定する必要があります。
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
+```
+
+私たちは [remote モジュールから離れるように推奨しています](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
+
 ## 予定されている破壊的なAPIの変更 (9.0)
 
 ### `<webview>.getWebContents()`
@@ -386,7 +402,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 

@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
+# हेडलेस सीआई सिस्टम (ट्रेविस सीआई, जेनकिंस) पर परिक्षण
 
 क्रोमियम पर आधारित होने के कारण, इलेक्ट्रॉन को कार्य करने के लिए एक डिस्प्ले ड्राइवर की आवश्यकता होती है । If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. इसलिए इलेक्ट्रॉन आधारित एप्प्स का त्रविस, सर्किल, जेन्किन्स या ऐसे ही अन्य सिस्टम्स पर परिक्षण करने के लिए थोड़ी सी कॉन्फ़िगरेशन की आवश्यकता होती है | संक्षेप में, हमे एक वर्चुअल डिस्प्ले ड्राईवर की ज़रुरत है |
 
@@ -28,10 +28,6 @@ xvfb-maybe electron-mocha ./test/*.js
    - एक्सपोर्ट डिस्प्ले=':99.0'
    - एक्सवीऍफ़बी :99 -स्क्रीन 0 1024x768x24 > /डेव/नल्ल 2>&1 &
 ```
-
-### Github Actions
-
-For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### जेन्किन्स
 

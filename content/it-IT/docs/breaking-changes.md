@@ -6,6 +6,22 @@ I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice J
 
 La stringa `FIXME` è usata nei commenti del codice per denotare cose che dovrebbero essere sistemate per i prossimi rilasci. Vedi https://github.com/electron/electron/search?q=fixme
 
+## Cambiamenti Pianificati API (10.0)
+
+### `enableRemoteModule` defaults to `false`
+
+In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
+```
+
+We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
 ## Cambiamenti Pianificati API (9.0)
 
 ### `<webview>.getWebContents()`

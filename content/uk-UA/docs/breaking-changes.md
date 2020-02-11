@@ -6,6 +6,22 @@
 
 Стрічки `FIXME` використовуються в коментарях коду для маркування речей, які мають бути виправлені для майбутній релізів. Дивіться https://github.com/electron/electron/search?q=fixme
 
+## Заплановані Зміни API (10.0)
+
+### `enableRemoteModule` defaults to `false`
+
+In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
+```
+
+We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
 ## Заплановані Зміни API (9.0)
 
 ### `<webview>.getWebContents()`

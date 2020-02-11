@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
+# Başsız CI Sistemlerde Test (Travis CI, Jenkins)
 
 Chronium'a dayanan Electron'un, çalışması için bir ekran sürücüsü gerekir. If Chromium can't find a display driver, Electron will fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Travis, Circle, Jenkins veya benzeri sistemlerdeki Electron tabanlı uygulamaların test edilmesi bu nedenle biraz yapılandırma gerektirir. Özünde, bir sanal ekran sürücüsü kullanmamız gerekir.
 
@@ -29,10 +29,6 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
-
-### Github Actions
-
-For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### Jenkins
 

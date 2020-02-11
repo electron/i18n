@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
+# Headless CI Systems 测试 (Travis CI, Jenkins)
 
 Electron 基于 Chromium，所以需要一个显示驱动使其运转。 如果 Chromium 无法找到一个显示驱动， Electron 会启动失败，因此无论你如何去运行它，Electron 不会执行你的任何测试。 在 Travis，Circle， Jenkins 或者类似的系统上测试基于Electron的应用时，需要进行一些配置。 本质上，我们需要使用一个 虚拟的显示驱动。
 
@@ -29,10 +29,6 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
-
-### Github Actions
-
-For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### Jenkins
 

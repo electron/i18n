@@ -1,4 +1,4 @@
-# 無顯示卡周邊(Headless)的CI系統上進行測試(如：Travis CI, Github Actions, Jenkins)
+# 在無周邊 CI 系統上測試 (Travis CI, Jenkins)
 
 因為 Electron 是架構在 Chromium 上的，需要顯示驅動程式才能運作。 如果Chromium 無法找到顯示驅動， Electron將會啟動失敗，無論你如何執行，Electron不會執行你程式進行測試。 在 Travis, Circle, Jenkins 或類似的系統上測試 Electron 應用程式，需要一些額外設定。 實際上，我們需要使用虛擬顯示驅動程式。
 
@@ -29,10 +29,6 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
-
-### Github Actions
-
-For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### Jenkins
 

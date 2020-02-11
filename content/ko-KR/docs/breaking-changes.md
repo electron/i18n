@@ -6,6 +6,22 @@
 
 코드 주석으로 `FIXME` 문자는 미래의 릴리즈에서 수정되어야 함을 표시합니다. https://github.com/electron/electron/search?q=fixme 를 참조하세요.
 
+## 중단될 예정 API (10.0)
+
+### `enableRemoteModule` defaults to `false`
+
+In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
+```
+
+We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
 ## 중단될 예정 API (9.0)
 
 ### `<webview>.getWebContents()`
@@ -351,7 +367,7 @@ webFrame.setSpellCheckProvider('en-US', {
 
 ## 중단될 예정 API (4.0)
 
-The following list includes the breaking API changes made in Electron 4.0.
+다음 리스트는 Electron 4.0에서의 중대한 API 변화를 포함합니다.
 
 ### `app.makeSingleInstance`
 

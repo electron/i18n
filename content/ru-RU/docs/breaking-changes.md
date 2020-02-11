@@ -6,6 +6,22 @@
 
 Строка `FIXME` используется в комментариях к коду для обозначения вещей, которые должны быть исправлены в будущих релизах. Смотрите https://github.com/electron/electron/search?q=fixme
 
+## Запланированные критические изменения API (10.0)
+
+### `enableRemoteModule` defaults to `false`
+
+In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+
+```js
+const w = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: true
+  }
+})
+```
+
+We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+
 ## Запланированные критические изменения API (9.0)
 
 ### `<webview>.getWebContents()`
@@ -380,13 +396,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Теперь ведет себя так же, как `basic` на macOS
+// Теперь ведет себя так же с `basic` в macOS
 app.getGPUInfo('basic')
 ```
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
@@ -397,12 +413,12 @@ app.getGPUInfo('basic')
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменено на
+// Заменить на
 app.getAppMetrics()
 
 // Устарело
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Свойство устарело
+const { memory } = metrics[0] // свойство устарело
 ```
 
 ### `BrowserWindow`
@@ -411,7 +427,7 @@ const { memory } = metrics[0] // Свойство устарело
 // Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменено на
+// Заменить на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
@@ -421,7 +437,7 @@ window.on('app-command', (e, cmd) => {
     // делаем что-нибудь
   }
 })
-// Заменено на
+// Заменить на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // делаем что-нибудь
@@ -475,7 +491,7 @@ crashReporter.start({
 ```js
 // Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменить на
+// Заменено на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -515,12 +531,12 @@ ses.setCertificateVerifyProc((request, callback) => {
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменить на
+// Заменено на
 tray.setHighlightMode('off')
 ```
 
@@ -529,7 +545,7 @@ tray.setHighlightMode('off')
 ```js
 // Устарело
 webContents.openDevTools({ detach: true })
-// Заменено на
+// Заменить на
 webContents.openDevTools({ mode: 'detach' })
 
 // Удалено
@@ -542,12 +558,12 @@ webContents.setSize(options)
 ```js
 // Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Заменено на
+// Заменить на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Заменено на
+// Заменить на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
@@ -562,12 +578,12 @@ webview.setAttribute('disableguestresize', '')
 webview.setAttribute('guestinstance', instanceId)
 // Нет замены для этого API
 
-// Слушатели клавиатуры больше не работают в теге webview
+// Слушатели клавиатуры больше не работают в webview теге
 webview.onkeydown&nbsp;= () => { /* обработчик */ }
 webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
-### Node Headers URL
+### URL заголовков Node
 
 Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки, при сборке нативных модулей Node.
 
@@ -604,12 +620,12 @@ menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```js
 // Удалено
 nativeImage.toPng()
-// Заменить на
+// Заменено на
 nativeImage.toPNG()
 
 // Удалено
 nativeImage.toJpeg()
-// Заменить на
+// Заменено на
 nativeImage.toJPEG()
 ```
 
@@ -622,7 +638,7 @@ nativeImage.toJPEG()
 ```js
 // Удалено
 webContents.setZoomLevelLimits(1, 2)
-// Заменено на
+// Заменить на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -631,7 +647,7 @@ webContents.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Заменено на
+// Заменить на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
@@ -640,7 +656,7 @@ webFrame.setVisualZoomLevelLimits(1, 2)
 ```js
 // Удалено
 webview.setZoomLevelLimits(1, 2)
-// Заменить на
+// Заменено на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
