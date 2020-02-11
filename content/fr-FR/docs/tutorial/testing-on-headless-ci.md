@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Github Actions, Jenkins)
+# Tests sur les systèmes CI Headless (Travis CI, Jenkins)
 
 Étant basé sur Chromium, Electron requiert un pilote d’affichage de la fonction. Si Chromium ne peut pas trouver un pilote d’affichage, Electron échouera tout simplement au lancement - et par conséquent, n'exécutera aucun de vos tests, peu importe comment vous les exécutez. Tester les applications Electron sur Travis, Circle, Jenkins ou systèmes similaires exige donc un peu de configuration. En substance, nous devons utiliser un pilote d’affichage virtuel.
 
@@ -29,10 +29,6 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 ```
-
-### Github Actions
-
-For Github Actions, a [Xvfb action is available](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 
 ### Jenkins
 
