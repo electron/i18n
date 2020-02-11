@@ -8,9 +8,9 @@
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### `enableRemoteModule` defaults to `false`
+### `enableRemoteModule` の省略値は `false` です
 
-In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+Electron 9 では、`enableRemoteModule` WebPreferences オプションによって明示的に有効にせずに remote モジュールを使用すると、警告を出すようになりました。 Electron 10 では、remote モジュールはデフォルトで利用できなくなります。 remote モジュールを使用するには、以下のように WebPreferences で `enableRemoteModule: true` を指定する必要があります。
 
 ```js
 const w = new BrowserWindow({
@@ -20,7 +20,7 @@ const w = new BrowserWindow({
 })
 ```
 
-We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+私たちは [remote モジュールから離れるように推奨しています](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 
 ## 予定されている破壊的なAPIの変更 (9.0)
 
