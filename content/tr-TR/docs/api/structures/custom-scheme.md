@@ -1,4 +1,4 @@
-# CustomScheme Object
+# CustomScheme Objesi
 
 * `scheme` String - Ayarlarla birlikte kaydedilen özel şemalar.
 * `ayrıcalıklar` Object (isteğe bağlı) 
