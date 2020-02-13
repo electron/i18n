@@ -1,4 +1,4 @@
-tagline: JavaScript, HTML, CSSを用いてクロスプラットフォームなデスクトップアプリを開発
+tagline: JavaScript, HTML, CSS でクロスプラットフォームなデスクトップアプリ開発
 nav:
   apps: アプリ
   blog: ブログ
@@ -131,7 +131,7 @@ headings:
   languages: 言語
 taglines:
   languages: 世界中の素晴らしい開発者コミュニティによってローカライズされたコンテンツ
-  openjsf: Electron は OpenJS Foundation に加盟しました。詳しくは <a href="/blog/electron-joins-openjsf">お知らせ</a> をご覧ください!
+  announcement: Electron は OpenJS Foundation に加盟しました。詳しくは <a href="/blog/electron-joins-openjsf">お知らせ</a> をご覧ください!
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
@@ -172,7 +172,7 @@ or: または
 pages:
   '/':
     title: Electron | JavaScript, HTML, CSSによるクロスプラットフォームなデスクトップアプリ開発
-    description: 'JavaScript, HTML, CSSを用いてクロスプラットフォームなデスクトップアプリを開発.'
+    description: 'JavaScript, HTML, CSS でクロスプラットフォームなデスクトップアプリ開発。'
   '/apps':
     title: Electron アプリ
     description: Electronで開発されたアプリ

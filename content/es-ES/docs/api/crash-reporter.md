@@ -96,6 +96,10 @@ Elimina un parámetro extra del conjunto actual de parámetros para que no se en
 
 Muestra todos los parámetros que se enviarán al informador de fallos.
 
+### `crashReporter.getCrashesDirectory()`
+
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
 ## Carga útil del informe de fallos
 
 El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:

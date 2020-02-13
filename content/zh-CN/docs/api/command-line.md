@@ -1,38 +1,38 @@
 ## Class: CommandLine
 
-> Manipulate the command line arguments for your app that Chromium reads
+> 操作Chromium读取的应用程序的命令行参数
 
 进程：[主进程](../glossary.md#main-process)
 
-The following example shows how to check if the `--disable-gpu` flag is set.
+下面的例子展示了如何检查`—disable-gpu`标志是否设置。
 
 ```javascript
 const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-For more information on what kinds of flags and switches you can use, check out the [Chrome Command Line Switches](./chrome-command-line-switches.md) document.
+For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
 
 ### 实例方法
 
 #### `commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch, without the leading `--`
+* `switch` String - 命令行开关，不包含前边的-- `--`
 * `value` String (optional) - 给开关设置的值
 
 通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
 
-** 注意: **该方法不会影响 ` process. argv ` The intended usage of this function is to control Chromium's behavior.
+** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
 #### `commandLine.appendArgument(value)`
 
 * ` value `String - 要追加到命令行的参数
 
-Append an argument to Chromium's command line. The argument will be quoted correctly. Switches will precede arguments regardless of appending order.
+在Chromium的命令行中附加一个参数。 The argument will be quoted correctly. 无论附加顺序如何，切换将在参数之前进行。
 
-If you're appending an argument like `--switch=value`, consider using `appendSwitch('switch', 'value')` instead.
+如果你正在追加一个参数，如`--switch=value`, 请考虑使用`appendSwitch('switch', 'value')`
 
-** 注意: **该方法不会影响 ` process. argv ` The intended usage of this function is to control Chromium's behavior.
+** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
 #### `commandLine.hasSwitch(switch)`
 
@@ -46,4 +46,4 @@ If you're appending an argument like `--switch=value`, consider using `appendSwi
 
 返回 `String` - 命令行开关值。
 
-**Note:** When the switch is not present or has no value, it returns empty string.
+**注意：** 当开关不存在或没有值时，它返回空字符串。

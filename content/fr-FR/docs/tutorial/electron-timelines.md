@@ -68,6 +68,13 @@
 </tr>
 <tr>
   <td>9.0.0</td>
+  <td>2020-02-06</td>
+  <td>2020-03-12</td>
+  <td>M82</td>
+  <td>v12</td>
+</tr>
+<tr>
+  <td>10.0.0</td>
   <td>TBD</td>
   <td>TBD</td>
   <td>TBD</td>

@@ -45,6 +45,7 @@
   * [Роден Drag & Drop файл](tutorial/native-file-drag-drop.md)
   * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
   * [5256783105227699](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
-* [5256783105227699](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [5256783105227699](breaking-changes.md)
 
 ### Персонални DOM елементи:
 

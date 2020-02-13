@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Вікно/трей зникає через декілька хвилин.
+## My app's tray disappeared after a few minutes.
 
-Це стається коли змінна, що використовуєтсья для зберігання вікна/трею знищується колектором сміття.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Якщо ви стикнулися з цією проблемою, наступні статті стануть вам у нагоді:
 
@@ -58,7 +58,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -69,7 +69,7 @@ app.on('ready', () => {
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })

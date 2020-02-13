@@ -13,9 +13,9 @@ Voici une liste non exhaustive de pourquoi vous devriez utiliser le module `net`
 * Prise en charge de l'authentification proxy en utilisant basic, digest, NTLM, Kerberos ou en négociant des schémas d'authentification.
 * Prise en charge des proxy de surveillance du trafic: Proxy de type Fiddler utilisés pour le contrôle et la surveillance des accès.
 
-The API components (including classes, methods, properties and event names) are similar to those used in Node.js.
+Les composants de l'API (y compris les classes, méthodes, propriétés et noms d'événements) sont similaires à ceux utilisés dans Node.js.
 
-Example usage:
+Exemple d'utilisation :
 
 ```javascript
 const { app } = require('electron')
@@ -44,8 +44,8 @@ Le module `net` dispose des méthodes suivantes :
 
 ### `net.request(options)`
 
-* `options` (ClientRequestConstructorOptions | String) - The `ClientRequest` constructor options.
+* `options` (ClientRequestConstructorOptions | String) - Les `options du constructeur.</li>
+</ul>
 
-Retourne [`ClientRequest`](./client-request.md)
-
-Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.
+<p>Retourne <a href="./client-request.md"><code>ClientRequest`</a></p> 
+    Créer une instance de [`ClientRequest`](./client-request.md) avec les `options` founies qui sont directement transmis au constructor de `ClientRequest`. La méthode `net.request` doit être utilisée pour émettre des requêtes HTTP sécurisés et non sécurisés selon le schéma de protocole spécifié dans l'objet `options`.

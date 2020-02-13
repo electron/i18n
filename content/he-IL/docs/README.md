@@ -45,6 +45,7 @@
   * [גרירה & נפילה מובנית](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [תמיכה במצב כהה של macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [נגישות](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [משתני סביבה](api/environment-variables.md)
-* [שינויים השוברים את ה־API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [שינויים השוברים את ה־API](breaking-changes.md)
 
 ### אלמנטי DOM מותאמים אישית:
 

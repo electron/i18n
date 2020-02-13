@@ -6,13 +6,13 @@ Ce niveau de modularité et d'extensibilité garantit que tous les développeurs
 
 ## Boilerplate vs CLI
 
-Une "Boilerplayer" n'est qu'un point de départ - une toile, pour ainsi dire - à partir de laquelle vous construisez votre application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Un "Boilerplate" n'est qu'un point de départ - une toile, pour ainsi dire - à partir de laquelle vous construisez votre application. Ils se présentent généralement sous la forme d'un dossier que vous pouvez cloner et personnaliser.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+Un outil en ligne de commande quant à lui est à vos côtés durant tout le processus de développement et de déploiement. Ils sont plus assistants et utiles mais imposent une ligne de conduite sur la manière dont votre code doit être structuré et construit. *Pour les débutants utiliser un outil en ligne de commande peut-être utile*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+Un "outil complet pour construire des applications Electron modernes". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
 
 Forge comes with [a ready-to-use template](https://electronforge.io/templates) using Webpack as a bundler. It includes an example typescript configuration and provides two configuration files to enable easy customization. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
 

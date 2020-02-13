@@ -10,7 +10,7 @@ May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang a
 
 ### Pinabilis na GPU
 
-Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komposisyon. Dahil sa ang frame ay may kinopya sa GPU na nangangailangan ng karagdagang performance, kaya ang mode na ito ay lubos na mas mabagal kaysa sa isa. Ang mga benepisyo nitong mode na WebGL at 3D CSS animations ay suportado.
+Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komposisyon. Dahil sa ang frame ay may kinopya sa GPU na nangangailangan ng karagdagang performance, kaya ang mode na ito ay lubos na mas mabagal kaysa sa isa. The benefit of this mode is that WebGL and 3D CSS animations are supported.
 
 ### Software output device
 
@@ -27,7 +27,7 @@ app.disableHardwareAcceleration()
 
 let win
 
-app.once('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow({
     webPreferences: {
       offscreen: true

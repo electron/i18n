@@ -40,8 +40,8 @@ $ npm run build && npm test
 You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Append `.only` to any `describe` or `it` function call:
 
 ```js
-describe.only('some feature', function () {
-  // ... 只有在這個區塊裡的測試會被執行到
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
 })
 ```
 

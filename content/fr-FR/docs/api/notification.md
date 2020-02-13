@@ -14,7 +14,7 @@ SI vous voulez afficher des notifications depuis un processus de rendu, vous dev
 
 Processus : [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Notification` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
@@ -30,15 +30,17 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
 
 * `options` Object (facultatif) 
   * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * `sous-titre` String (facultatif) *macOS* - Un sous-titre pour la notification, qui sera affiché sous le titre.
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `silencieux` Booléen (facultatif) - Émet ou non un bruit de notification lors de l'affichage de la notification.
+  * `icône` (String | [NativeImage](native-image.md)) (facultatif) - Une icône à utiliser dans la notification.
+  * `hasReply` Boolean (facultatif) *macOS* - Ajout ou non d'une option de réponse en ligne à la notification.
+  * `timeoutType` String (optional) *Linux* *Windows* - The timeout duration of the notification. Can be 'default' or 'never'.
+  * `replyPlaceholder` String (facultatif) *macOS* - L'espace réservé à écrire dans le champ de saisie de réponse en ligne.
+  * `sound` String (facultatif) *macOS* - Le nom du fichier audio à jouer lorsque la notification est affichée.
+  * `urgency` String (optional) *Linux* - The urgency level of the notification. Can be 'normal', 'critical', or 'low'.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `closeButtonText` String (facultatif) *macOS* - Un titre personnalisé pour le bouton de fermeture d'une alerte. Une chaîne vide fera que le texte localisé par défaut sera utilisé.
 
 ### Événements d’instance
 
@@ -94,7 +96,7 @@ Les objets créés avec `new Notification` ont les méthodes d'instance suivante
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Montre immédiatement la notification à l'utilisateur, veuillez noter que cela signifie que contrairement à la Mise en œuvre de la notification HTML5, instanciation d'une `nouvelle notification` fait ne pas le montrer immédiatement à l'utilisateur, vous devez appeler cette méthode avant le système d'exploitation l'affichera.
 
 Si la notification a déjà été affichée auparavant, cette méthode rejettera la notification précédemment affichée et en créera une nouvelle avec des propriétés identiques.
 
@@ -106,39 +108,51 @@ Rejette la notification.
 
 #### `notification.title`
 
-A `String` property representing the title of the notification.
+Une propriété `String` représentant le titre de la notification.
 
 #### `notification.subtitle`
 
-A `String` property representing the subtitle of the notification.
+Une propriété `String` représentant le sous-titre de la notification.
 
 #### `notification.body`
 
-A `String` property representing the body of the notification.
+Une propriété `String` représentant le corps de la notification.
 
 #### `notification.replyPlaceholder`
 
-A `String` property representing the reply placeholder of the notification.
+Une propriété `String` représentant le placeholder de la réponse de la notification.
 
 #### `notification.sound`
 
-A `String` property representing the sound of the notification.
+Une propriété `String` représentant le son de la notification.
 
 #### `notification.closeButtonText`
 
-A `String` property representing the close button text of the notification.
+Une propriété `String` représentant le texte du bouton de fermeture de la notification.
 
 #### `notification.silent`
 
-A `Boolean` property representing whether the notification is silent.
+Une propriété `Boolean` qui indique si la notification est silencieuse.
 
 #### `notification.hasReply`
 
-A `Boolean` property representing whether the notification has a reply action.
+Une propriété `Booléenne` qui indique si la notification a une action de réponse.
+
+#### `notification.urgency` *Linux*
+
+A `String` property representing the urgency level of the notification. Can be 'normal', 'critical', or 'low'.
+
+Default is 'low' - see [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) for more information.
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+A `String` property representing the type of timeout duration for the notification. Can be 'default' or 'never'.
+
+If `timeoutType` is set to 'never', the notification never expires. It stays open until closed by the calling API or the user.
 
 #### `notification.actions`
 
-A [`NotificationAction[]`](structures/notification-action.md) property representing the actions of the notification.
+Une propriété [`NotificationAction[]`](structures/notification-action.md) représentant les actions de la notification.
 
 ### Lire un son
 

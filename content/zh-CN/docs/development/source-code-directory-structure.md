@@ -8,7 +8,48 @@ Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部�
 
 ```diff
 Electron
-├── atom/ - C++ 源代码.
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
+├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── default_app/ - A default app run when Electron is started without
+|                  providing a consumer app.
+├── docs/ - Electron's documentation.
+|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
+|   ├── development/ - Documentation to aid in developing for and with Electron.
+|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
+|   ├── images/ - Images used in documentation.
+|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── lib/ - JavaScript/TypeScript source code.
+|   ├── browser/ - Main process initialization code.
+|   |   ├── api/ - API implementation for main process modules.
+|   |   └── remote/ - Code related to the remote module as it is
+|   |                 used in the main process.
+|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── api/ - API implementation for modules that can be used in
+|   |              both the main and renderer processes
+|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
+|   |                        contextIsolation is enabled.
+|   ├── renderer/ - Renderer process initialization code.
+|   |   ├── api/ - API implementation for renderer process modules.
+|   |   ├── extension/ - Code related to use of Chrome Extensions
+|   |   |                in Electron's renderer process.
+|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   |             the main process.
+|   |   └── web-view/ - Logic that handles the use of webviews in the
+|   |                   renderer process.
+|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
+|   |   |                     processes.
+|   |   └── api/ - API implementation for sandboxed renderer processes.
+|   └── worker/ - Logic that handles proper functionality of Node.js
+|                 environments in Web Workers.
+├── patches/ - Patches applied on top of Electron's core dependencies
+|   |          in order to handle differences between our use cases and
+|   |          default functionality.
+|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
+|   ├── chromium/ - Patches applied to Chromium.
+|   ├── node/ - Patches applied on top of Node.js.
+|   └── v8/ - Patches applied on top of Google's V8 engine.
+├── shell/ - C++ source code.
 |   ├── app/ - 系统入口代码.
 |   ├── browser/ - 包含了主窗口、UI 和所有主进程相关的东西.
 |   |   |          它会告诉渲染进程如何管理页面.
@@ -27,34 +68,35 @@ Electron
 |       |         消息循环中时用到的工具函数和代码.
 |       └── api/ - 同时被主进程和渲染进程使用到的 API 的实现,
 |                  并且是 Electron 内置模块的基础.
-├── chromium_src/ - 从 Chromium 项目中拷贝来的代码. 参见下文。
-├── default_app/ - 在没有提供应用程序的情况下
-|                  启动 Electron 的默认页面.
-├── docs/ - 文档.
-├── lib/ - JavaScript 源代码.
-|   ├── browser/ - Javascript 主进程初始化代码.
-|   |   └── api/ - Javascript API 实现.
-|   ├── common/ - 主进程和渲染器进程使用的 JavaScript.
-|   |   └── api/ - Javascript API 实现.
-|   └── renderer/ - Javascript 渲染器进程初始化代码.
-|       └── api/ - Javascript API 实现.
-├── spec/ - 自动化测试.
+├── spec/ - Components of Electron's test suite run in the renderer process.
+├── spec-main/ - Components of Electron's test suite run in the main process.
 └── BUILD.gn - Electron 的构建规则.
 ```
 
-## `/chromium_src`
-
-`/chromium_src` 中的文件更多地是 Chromium 的片段而不是内容层面的部分。 例如要实现 Papper API, 我们需要一些类似官方 Chrome 一样的联接操作。 我们可能已经构建了相应的源文件作为 [libcc](../glossary.md#libchromiumcontent) 的一部分，但是多数时候我们不需要所有的特性 (一些用于专用和分析的东西)， 所以我们采用其部分代码。 这些可能很容易在 libcc 中已经存在补丁，但在编写目标 libcc 时维护的补丁非常小，而 chromium_src 的变化往往很大。 另外请注意，这些补丁不像我们维护的其他 libcc 补丁，绝对不能推到上游。
-
 ## 其它目录的结构
 
-* **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
-* **tools** - 在 gyp 文件中用到的工具脚本，但与 `script` 目录不同，该目录中的脚本不应该被用户直接调用.
-* **vendor** - 第三方依赖项的源代码，为了防止人们将它与 Chromium 源码中的同名目录相混淆，在这里我们不使用 `third_party` 作为目录名.
-* **node_modules** - 在构建中用到的第三方 node 模块.
-* **out** - `ninja` 的临时输出目录.
+* **.circleci** - Config file for CI with CircleCI.
+* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - 由脚本 `script/create-dist.py` 创建的临时发布目录.
 * **external_binaries** - 下载了不支持用 `gn` 构建的第三方框架的二进制文件.
+* **node_modules** - 在构建中用到的第三方 node 模块.
+* **npm** - Logic for installation of Electron via npm.
+* **out** - `ninja` 的临时输出目录.
+* **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
+
+```diff
+script/ - The set of all scripts Electron runs for a variety of purposes.
+├── codesign/ - Fakes codesigning for Electron apps; used for testing.
+├── lib/ - Miscellaneous python utility scripts.
+└── release/ - Scripts run during Electron's release process.
+    ├── notes/ - Generates release notes for new Electron versions.
+    └── uploaders/ - Uploads various release-related files during release.
+```
+
+* **工具** - Helper scripts used by GN files. 
+  * Scripts put here should never be invoked by users directly, unlike those in `script`.
+* **typings** - TypeScript typings for Electron's internal code.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
 ## 让 Git 子模块保持最新
 
@@ -63,8 +105,8 @@ Electron信息库有一些被提供的依赖, 在 [/vendor](https://github.com/e
 ```sh
 $ git status
 
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (new commits)
+  modified:   vendor/boto (new commits)
 ```
 
 要更新这些被提供的依赖关系，运行以下命令：
@@ -77,5 +119,5 @@ git submodule update --init --recursive
 
 ```sh
 [alias]
-    su = submodule update --init --recursive
+  su = submodule update --init --recursive
 ```

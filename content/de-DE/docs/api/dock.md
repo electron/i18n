@@ -1,10 +1,10 @@
 ## Class: Dock
 
-> Control your app in the macOS dock
+> Steuern Sie Ihre App im MacOS-Dock
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-The following example shows how to bounce your icon on the dock.
+Das folgende Beispiel zeigt, wie Sie Ihr Icon auf dem Dock springen lassen.
 
 ```javascript
 const { app } = require('electron')
@@ -15,9 +15,9 @@ app.dock.bounce()
 
 #### `dock.bounce([type])` _macOS_
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (optional) - Kann `critical` oder `informational` sein. Standard ist `informational`
 
-Returns `Integer` - an ID representing the request.
+Returns `Integer` - Eine ID welche den Request repräsentiert.
 
 When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 

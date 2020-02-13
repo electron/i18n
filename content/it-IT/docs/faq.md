@@ -45,9 +45,9 @@ richiede('elettronica').remote.getGlobal('sharedObject').someProperty = 'nuovo v
 console.log(richiede('Electrn').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## La finestra e icon tray della mia app scompare dopo pochi minuti.
+## My app's tray disappeared after a few minutes.
 
-Questo accade quando la variabile utilizzata per memorizzare la finestra/tray icon è deallocata dal garbage collector.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Se riscontri questo problema, i seguenti articoli potrebbero rivelarsi utili:
 
@@ -58,9 +58,9 @@ Se vuoi una soluzione veloce, puoi rendere le variabili globali cambiando il tuo
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('ciao mondo')
+  tray.setTitle('hello world')
 })
 ```
 
@@ -69,9 +69,9 @@ in questo:
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
-  tray.setTitle('ciao mondo')
+  tray.setTitle('hello world')
 })
 ```
 

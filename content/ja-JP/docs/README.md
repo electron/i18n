@@ -45,6 +45,7 @@
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
   * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
   * [macOS のダークモードのサポート](tutorial/mojave-dark-mode-guide.md)
+  * [Electron でのウェブ埋め込み](tutorial/web-embeds.md)
 * [アクセシビリティ](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@
 * [プロセスオブジェクト](api/process.md)
 * [サポートしているコマンドラインスイッチ](api/command-line-switches.md)
 * [環境変数](api/environment-variables.md)
-* [破壊的な API の変更](api/breaking-changes.md)
+* [Chrome 拡張機能サポート](api/extensions.md)
+* [API の破壊的変更](breaking-changes.md)
 
 ### カスタム DOM 要素:
 

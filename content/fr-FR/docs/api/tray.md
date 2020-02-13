@@ -195,11 +195,11 @@ Définit le texte au survol pour l'icône.
 
 * `title` String
 
-Sets the title displayed next to the tray icon in the status bar (Support ANSI colors).
+Définit le titre affiché à côté de l'icône de la barre d'état dans la barre d'état (couleurs support ANSI).
 
 #### `tray.getTitle()` *macOS*
 
-Returns `String` - the title displayed next to the tray icon in the status bar
+Retourne `String` - le titre affiché à côté de l'icône de la barre d'état
 
 #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
 
@@ -216,11 +216,23 @@ Retourne un `Boolean` - Si oui ou non les événènements de double clic seront 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | String) (optionnel)
+  * `icon` ([NativeImage](native-image.md) | String) (optional) - Icon to use when `iconType` is `custom`.
+  * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. La valeur par défaut est `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `noSound` Boolean (optional) - Do not play the associated sound. Par défaut la valeur est `false`. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
+  * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". Par défaut la valeur est `false`. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
 Affiche une bulle dans la barre d'État.
+
+#### `tray.removeBalloon()` *Windows*
+
+Removes a tray balloon.
+
+#### `tray.focus()` *Windows*
+
+Returns focus to the taskbar notification area. Notification area icons should use this message when they have completed their UI operation. For example, if the icon displays a shortcut menu, but the user presses ESC to cancel it, use `tray.focus()` to return focus to the notification area.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 

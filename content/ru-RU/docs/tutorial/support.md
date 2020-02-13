@@ -2,7 +2,7 @@
 
 ## Поиск поддержки
 
-Если у вас есть проблема с безопасностью, смотрите [документ безопасности](../../SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Если вы ищете помощь в программировании, для ответов на вопросы, или присоединиться к обсуждению с другими разработчиками, которые используют Electron, вы можете взаимодействовать с сообществом в этих местах:
 
@@ -17,7 +17,7 @@
 * [`electron-id`](https://electron-id.slack.com) *(Индонезия)*
 * [`electron-pl`](https://electronpl.github.io) *(Польша)*
 
-Если вы хотите внести свой вклад в Electron, смотрите [документ](../../CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Если вы обнаружили ошибку в [поддерживаемой версии](#supported-versions) Electron, сообщите об этом [issue tracker](../development/issues.md).
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### Currently supported versions
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 Предварительные сборки `ia32` (`i686`) и `x64` (`amd64`) Electron основаны на Ubuntu 12.04, сборка `armv7l` собрана против ARM v7 с прошитым ABI и NEON для Debian Wheezy.
 
-[До релиза Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron также будет продолжать выпуск бинаркой сборки `armv7l` с простым `arm` суффиксом. Both binaries are identical.
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 Будет ли готовая бинарная сборка включена в дистрибутив, зависит от того, включает ли дистрибутив библиотеки, с которыми связан Electron на компилирруемой платформе, поэтому гарантируется работа только в Ubuntu 12.04, но следующие платформы также проверяются, чтобы иметь возможность запускать прекомпилированные сборки Electron:
 

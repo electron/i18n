@@ -1,4 +1,4 @@
-# Testing Widevine CDM
+# 测试 Widevine CDM
 
 在 Electron 中，你可以使用 Widevine CDM 库装载 Chrome 浏览器。
 
@@ -49,7 +49,7 @@ app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.show()
 })

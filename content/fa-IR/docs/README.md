@@ -45,6 +45,7 @@
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [دسترسی](tutorial/accessibility.md) 
   * [اسپکترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ These individual tutorials expand on topics discussed in the guide above.
 * [شیء فرآیند](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### عناصر سفارشی:
 

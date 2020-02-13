@@ -8,6 +8,6 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `opciones` Objeto 
   * `tamaño` Cadena (opcional) - Tamaño del espaciador. Los valores posibles son: 
-    * `small` - Espacio pequeño entre los elementos.
-    * `large` - Espacio grande entre los elementos.
-    * `flexible` - Ocupa todo el espacio disponible.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.

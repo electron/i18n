@@ -1,4 +1,4 @@
-tagline: Bumuo ng platform desktop na mga app na may JavaScript, HTML, at CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Mga App
   blog: Blog
@@ -131,7 +131,7 @@ headings:
   languages: Mga Lengwahe
 taglines:
   languages: Lokal na content galing sa ating awesome global developer community.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "Tumulong sa pagsalin"
 footer:
   see_the_faq: Tingnan ang madalas na mga katanungan
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: ang or
 pages:
   '/':
-    title: Electron | Bumuo ng cross platform descktop na mga app na may JavaScript, HTML, at CSS.
-    description: 'Bumuo ng cross na platform desktop na mga app na may JavaScript, HTML, at CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron na mga App
     description: Mga App na nabuo sa Electron

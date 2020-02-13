@@ -2,7 +2,7 @@
 
 ## Encontrar Soporte
 
-Si tiene un problema de seguridad, consulte el [documento de seguridad](../../SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Si busca ayuda con la programación, respuestas a preguntas o conversaciones con otros desarrolladores que usan Electron, puede interactuar con la comunidad en estos lugares:
 
@@ -17,7 +17,7 @@ Si busca ayuda con la programación, respuestas a preguntas o conversaciones con
 * [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
 * [`electron-pl`](https://electronpl.github.io) *(Polaco)*
 
-Si desea contribuir a Electron, consulte el [documento contribuyente](../../CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Si has encontrado un error en una [versión soportada](#supported-versions) de Electron, infórmalo con el [rastreador de problemas](../development/issues.md).
 
@@ -33,9 +33,9 @@ Todas las versiones soportadas aceptarán peticiones de pull requests externas a
 
 ### Versiones soportadas actualmente
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### Fin de vida
 
@@ -63,7 +63,7 @@ Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. [E
 
 Los binarios preconstruidos `ia32` (`i686`) y `x64` (`amd64`) de Electron están basados en Ubuntu 12.04, el binario `armv7l` está construido contra ARM v7 con ABI de flotación dura y NEON para Debian Wheezy.
 
-[Hasta el lanzamiento de Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron también continuará lanzando el binario `armv7l` con un simple sufijo `arm`. Ambos binarios son idénticos.
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Ambos binarios son idénticos.
 
 Si el compilado binario puede correr en una distribución depende de que la distribución incluye las librerías a las que está ligada Electron en la plataforma construida, así que solo hay garantía de que Ubuntu 12.04 trabaje, pero las siguientes plataformas también están verificadas para correr el precompilado binario de Electron:
 

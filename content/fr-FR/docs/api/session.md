@@ -28,11 +28,11 @@ Le module `session` dispose des méthodes suivantes :
 * `options` Object (facultatif) 
   * `cache` Boolean - Si vous voulez activer le cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Retourne `Session` - Une instance de session de la chaîne de caractères `partition`. Quand il y a une `Session` existante avec la même `partition`, elle sera retournée; sinon une nouvelle instance `Session` sera créée avec `options`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Si `partition` commence par `persist:`, la page utilisera une session persistante disponible pour toutes les pages de l'application avec la même `partition`. s'il n'y a pas de `persist:` préfixe, la page utilisera une session en mémoire. Si le `partition` est vide puis la session par défaut de l'application sera retournée.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Pour créer une `Session` avec `options`, vous devez vous assurer que la `Session` avec la `partition` n'a jamais été utilisée auparavant. Il n'y a pas moyen de changer les `options` d'un objet `Session` existant.
 
 ## Propriétés
 
@@ -82,15 +82,15 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Event: 'preconnect'
 
 Retourne :
 
 * `event` Événement
-* `preconnectUrl` String - The URL being requested for preconnection by the renderer.
-* `allowCredentials` Boolean - True if the renderer is requesting that the connection include credentials (see the [spec](https://w3c.github.io/resource-hints/#preconnect) for more details.)
+* `preconnectUrl` String - L'URL demandée pour la préconnexion par le moteur de rendu .
+* `allowCredentials` Booléen - Vrai si le moteur de rendu demande que la connexion inclue les informations d'identification (voir la [spec](https://w3c.github.io/resource-hints/#preconnect) pour plus de détails.)
 
-Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
+Émis lorsqu'un processus de rendu demande de préconnexion à une URL, généralement à cause de un hint[ressource ](https://w3c.github.io/resource-hints/).
 
 ### Méthodes d’instance
 
@@ -98,19 +98,19 @@ Les méthodes suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.getCacheSize()`
 
-Returns `Promise<Integer>` - the session's current cache size, in bytes.
+Retourne `Promise<Integer>` - la taille actuelle du cache de la session, en octets.
 
 #### `ses.clearCache()`
 
-Returns `Promise<void>` - resolves when the cache clear operation is complete.
+Retourne `Promise<void>` - résout lorsque l'opération de nettoyage du cache est terminée.
 
 Efface le cache HTTP de la session.
 
 #### `ses.clearStorageData([options])`
 
 * `options` Object (facultatif) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
+  * `origin` String (facultatif) - Doit suivre la représentation de `window.location.origin` `scheme://host:port`.
+  * `storages` String[] (facultatif) - Les types de stockage à effacer, peuvent contenir : `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 
 Returns `Promise<void>` - resolves when the storage data has been cleared.
@@ -122,9 +122,9 @@ Writes any unwritten DOMStorage data to disk.
 #### `ses.setProxy(config)`
 
 * `config` Objet 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)`
 
 * `options` Objet 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -230,7 +230,7 @@ Désactive toute émulation de réseau déjà active pour la `session`. Réiniti
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Function | null 
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
@@ -319,17 +319,17 @@ Vide le cache de résolution de l'hôte.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domaines` String - Une liste de serveurs séparés par des virgules pour lesquels l'authentification intégrée est activée.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Définit dynamiquement s'il faut toujours envoyer des identifiants pour l'authentification HTTP NTLM ou Négocier .
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// considère n'importe quelle url se terminant par `example.com`, `foobar.com`, `baz`
+// pour une authentification intégrée.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// considère toutes les urls pour une authentification intégrée.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
@@ -338,11 +338,11 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 * `userAgent` String
 * `acceptLanguages` String (facultatif)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Remplace les `userAgent` et `acceptLanguages` pour cette session.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Le `acceptLanguages` doit être une liste ordonnée de codes de langue séparés par des virgules, pour exemple `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Cela n'affecte pas les `WebContents`, et chaque `WebContents` peut utiliser `webContents.setUserAgent` pour remplacer l'agent utilisateur à l'échelle de la session.
 
 #### `ses.getUserAgent()`
 
@@ -352,7 +352,15 @@ Renvoie `String` - L'utilisateur de cette session.
 
 * `identifier` String - UUID valide.
 
-Returns `Promise<Buffer>` - resolves with blob data.
+Retourne `Promise<Buffer>` - résout avec des données Blob.
+
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -362,71 +370,105 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `type` String (facultatif)
   * `offset` Integer - Portée de départ pour le téléchargement.
   * `length` Integer - Longueur totale du le téléchargement.
-  * `lastModified` String - Valeur Last-Modified du header.
-  * `eTag` String - Valeur du ETag dans le header.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
   * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Autorise la reprise des téléchargements `annulés` ou `interrompus` depuis la `Session`précédente. L'API va générer un [DownloadItem](download-item.md) accessible avec l'événement [will-download](#event-will-download) . Le [DownloadItem](download-item.md) n'aura aucun `WebContents` associé et l'état initial sera `interrompu`. Le téléchargement ne démarre que lorsque l'API `resume` est appelée sur [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options)`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 
-Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+Retourne `Promise<void>` - résout lorsque le cache d'authentification HTTP de la session a été effacé.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - Un tableau de chemin absolu pour précharger les scripts
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+Ajoute des scripts qui seront exécutés sur TOUS les contenus web qui sont associés à cette session juste avant l'exécution normale des scripts `preload`.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Retourne `String[]` un tableau de chemins pour précharger les scripts qui ont été enregistrés.
+
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
 
 ### Instance Properties
 
 Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
+#### `ses.availableSpellCheckerLanguages` *Readonly*
+
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+
 #### `ses.cookies` *Readonly*
 
-A [`Cookies`](cookies.md) object for this session.
+Un objet [`Cookies`](cookies.md) pour cette session.
 
 #### `ses.webRequest` *Readonly*
 
-A [`WebRequest`](web-request.md) object for this session.
+Un objet [`WebRequest`](web-request.md) pour cette session.
 
 #### `ses.protocol` *Readonly*
 
-A [`Protocol`](protocol.md) object for this session.
+Un objet [`Protocole`](protocol.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
 const path = require('path')
 
-app.on('ready', function () {
-  const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
+application. n('ready', function () {
+  protocole const = session.fromPartition('some-partition').protocole
+  . egisterFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({ path: path.normalize(`${__dirname}/${url}`) })
+    callback({ path: path. ormalize(`${__dirname}/${url}`) })
   }, function (error) {
-    if (error) console.error('Failed to register protocol')
+    if (error) console. rror('Échec de l'enregistrement du protocole)
   })
 })
 ```
 
 #### `ses.netLog` *Readonly*
 
-A [`NetLog`](net-log.md) object for this session.
+Un objet [`NetLog`](net-log.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
 
 app.on('ready', async function () {
   const netLog = session.fromPartition('some-partition').netLog
-  netLog.startLogging('/path/to/net-log')
-  // After some network events
-  const path = await netLog.stopLogging()
-  console.log('Net-logs written to', path)
+  netLog. tartLogging('/path/to/net-log')
+  // Après quelques événements de réseau
+  const path = wait netLog. topLogging()
+  console.log('Net-logs écrit vers', chemin)
 })
 ```

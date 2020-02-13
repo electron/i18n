@@ -79,6 +79,8 @@ const constraints = {
 
 Возвращает `Promise<DesktopCapturerSource[]>` - разрешается с массивом объектов [`DesktopCapturerSource`](structures/desktop-capturer-source.md), каждый `DesktopCapturerSource ` представляет экран или отдельное окно, которое может быть захвачено.
 
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+
 ## Предупреждения
 
 `navigator.mediaDevices. etUserMedia` не работает в macOS из-за фундаментального ограничения, из-за которого приложениям, желающим получить доступ к звуку системы, требуется [подписанное расширение ядра](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, и расширение Electron, не предоставляет этого.

@@ -10,7 +10,7 @@ Créer un nouveau menu.
 
 ### Méthodes statiques
 
-The `Menu` class has the following static methods:
+La classe `Menu` a les méthodes statiques suivantes :
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -18,11 +18,11 @@ The `Menu` class has the following static methods:
 
 Définit le `menu` en tant que menu de l’application sur macOS. Sous Windows et Linux, le `menu` sera définie comme le menu principal de chaque fenêtre.
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+Aussi sous Windows et Linux, vous pouvez utiliser un `&` dans le nom de l'élément de niveau supérieur pour indiquer quelle lettre doit obtenir un accélérateur généré. Par exemple, en utilisant `&Fichier` pour le menu de fichiers, l'accélérateur `Alt-F` généré qui ouvre le menu associé. Le caractère indiqué dans l'étiquette du bouton obtient un souligné . Le caractère `&` n'est pas affiché sur l'étiquette du bouton.
 
-Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+Passer `null` supprimera le menu par défaut. Sous Windows et Linux, cela a l'effet supplémentaire de supprimer la barre de menu de la fenêtre.
 
-**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**Note:** Le menu par défaut sera créé automatiquement si l'application ne le définit pas. Il contient des éléments standard tels que `Fichier`, `Modifier`, `Voir`, `Window` et `Aide`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -34,7 +34,7 @@ Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si n
 
 * `action` String
 
-Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Habituellement, vous utiliseriez la propriété [`rôle`](menu-item.md#roles) d'un [`MenuItem`](menu-item.md).
 
 Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) pour plus d'informations sur les actions natives de macOS.
 
@@ -44,9 +44,9 @@ Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.app
 
 Retourne `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Généralement, le `template` est un tableau de `options` pour construire un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
 ### Méthodes d’instance
 
@@ -55,78 +55,78 @@ L'objet `menu` a les méthodes d'instance suivantes:
 #### `menu.popup([options])`
 
 * `options` Object (facultatif) 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `window` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
+  * `x` Number (facultatif) - La valeur par défaut est la position actuelle du curseur de la souris. Doit être déclaré si `y` est déclaré.
+  * `y` Number (facultatif) - La valeur par défaut est la position actuelle du curseur de la souris. Doit être déclaré si `x` est déclaré.
+  * `positioningItem` Number (facultatif) *macOS* - L'index de l'élément de menu à être positionné sous le curseur de la souris aux coordonnées spécifiées. La valeur par défaut est -1.
+  * `callback` Fonction (facultatif) - Appelée lorsque le menu est fermé.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Dépile ce menu sous la forme d'un menu contextuel dans la [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (facultatif) - La fenêtre focalisée est par défaut.
 
-Closes the context menu in the `browserWindow`.
+Ferme le menu contextuel dans la `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Ajoute le `menuItem` au menu.
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+Retourne `MenuItem` l'élément avec le `id` spécifié
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Insère le `menuItem` à la position `pos` du menu.
 
 ### Événements d’instance
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Les objets créés avec `nouveau Menu` ou retournés par `Menu.buildFromTemplate` émettent les événements suivants :
 
 **Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
-#### Event: 'menu-will-show'
+#### Événement : 'menu-will-show'
 
 Retourne :
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+Émis lorsque `menu.popup()` est appelé.
 
-#### Event: 'menu-will-close'
+#### Événement : 'menu-will-close'
 
 Retourne :
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+Émis lorsqu'un popup est fermé manuellement ou avec `menu.closePopup()`.
 
 ### Propriétés d'instance
 
-`menu` objects also have the following properties:
+Les objets `menu` ont également les propriétés suivantes :
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Un tableau `MenuItem[]` contenant les éléments du menu.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Chaque `Menu` consiste en plusieurs [`MenuItem`](menu-item.md)s et chaque `MenuItem` peut avoir un sous-menu.
 
 ## Exemples
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+La classe `Menu` n'est disponible que dans le processus principal, mais vous pouvez également l'utiliser dans le processus de rendu via le module [`distant`](remote.md).
 
 ### Main process
 
-An example of creating the application menu in the main process with the simple template API:
+Un exemple de création du menu d'application dans le processus principal avec l'API simple du modèle :
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -136,8 +136,8 @@ const isMac = process.platform === 'darwin'
 const template = [
   // { role: 'appMenu' }
   ...(isMac ? [{
-    label: app.name,
-    submenu: [
+    label: app. ame,
+    sous-menu : [
       { role: 'about' },
       { type: 'separator' },
       { role: 'services' },
@@ -151,33 +151,33 @@ const template = [
   }] : []),
   // { role: 'fileMenu' }
   {
-    label: 'File',
-    submenu: [
+    label: 'Fichier',
+    sous-menu : [
       isMac ? { role: 'close' } : { role: 'quit' }
     ]
   },
   // { role: 'editMenu' }
   {
-    label: 'Edit',
-    submenu: [
+    label: 'Modifier',
+    sous-menu : [
       { role: 'undo' },
       { role: 'redo' },
       { type: 'separator' },
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      ...(isMac ? [
+      . .(isMac ? [
         { role: 'pasteAndMatchStyle' },
         { role: 'delete' },
         { role: 'selectAll' },
         { type: 'separator' },
         {
-          label: 'Speech',
-          submenu: [
+          label: 'Parle',
+          sous-menu : [
             { role: 'startspeaking' },
             { role: 'stopspeaking' }
           ]
-        }
+
       ] : [
         { role: 'delete' },
         { type: 'separator' },
@@ -187,8 +187,8 @@ const template = [
   },
   // { role: 'viewMenu' }
   {
-    label: 'View',
-    submenu: [
+    label: 'Voir',
+    sous-menu : [
       { role: 'reload' },
       { role: 'forcereload' },
       { role: 'toggledevtools' },
@@ -203,10 +203,10 @@ const template = [
   // { role: 'windowMenu' }
   {
     label: 'Window',
-    submenu: [
+    sous-menu : [
       { role: 'minimize' },
       { role: 'zoom' },
-      ...(isMac ? [
+      . .(isMac ? [
         { type: 'separator' },
         { role: 'front' },
         { type: 'separator' },
@@ -217,79 +217,79 @@ const template = [
     ]
   },
   {
-    role: 'help',
-    submenu: [
+    rôle: 'help',
+    sous-menu : [
       {
-        label: 'Learn More',
-        click: async () => {
+        label: 'En savoir plus',
+        clic : async () => {
           const { shell } = require('electron')
-          await shell.openExternal('https://electronjs.org')
+          attendent shell. penExternal('https://electronjs. rg')
         }
-      }
+
     ]
   }
 ]
 
-const menu = Menu.buildFromTemplate(template)
+const menu = Menu. uildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
 ### Processus de rendu
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Ci-dessous est un exemple de création dynamique d'un menu dans une page web (processus de rendu) en utilisant le module [`distance`](remote.md) et l'afficher lorsque l'utilisateur clique droit sur la page :
 
 ```html
-<!-- index.html -->
+<!-- index. tml -->
 <script>
 const { remote } = require('electron')
 const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
-menu.append(new MenuItem({ type: 'separator' }))
+menu. ppend(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicd') } }))
+menu. ppend(new MenuItem({ type: 'separator' }))
 menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
 window.addEventListener('contextmenu', (e) => {
-  e.preventDefault()
+  e. reventDefault()
   menu.popup({ window: remote.getCurrentWindow() })
 }, false)
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Notes sur le menu d'application macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS a un style complètement différent du menu des applications Windows et Linux. Voici quelques notes pour rendre le menu de votre application plus natif.
 
 ### Standard Menus
 
-On macOS there are many system-defined standard menus, like the [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+Sur macOS, il y a beaucoup de menus standards définis par le système, comme les [`Services`](https://developer.apple.com/documentation/appkit/nsapplication/1428608-servicesmenu?language=objc) et `Windows`. Pour faire de votre menu un menu standard, vous devriez définir le `rôle de votre menu` à l'un des rôles suivants et Electron les reconnaîtra et les fera devenir des menus standard :
 
 * `window`
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### Actions des éléments de menu standard
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS a fourni des actions standard pour certains liens de menu, comme `À propos de xxx`, `Cacher xxx`, et `Cacher les autres`. Pour définir l'action d'un lien de menu à une action standard , vous devez définir l'attribut `rôle` de l'élément de menu.
 
-### Main Menu's Name
+### Nom du menu principal
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+Sur macOS, l'étiquette du premier élément du menu de l'application est toujours le nom de votre application, quel que soit le libellé que vous avez défini. Pour le modifier, modifiez le fichier `Info.plist` de votre pack d'applications. Voir [À propos des fichiers de la liste de propriétés d'information](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) pour plus d'informations.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menu de configuration pour la fenêtre de navigation spécifique (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+La [`setMenu` méthode](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) des fenêtres du navigateur peut définir le menu de certaines fenêtres de navigateur .
 
-## Menu Item Position
+## Position de l'élément de menu
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Vous pouvez utiliser `avant`, `after`, `beforeGroupContaining`, `afterGroupContaining` et `id` pour contrôler comment l'élément sera placé lors de la construction d'un menu avec `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+* `avant` - Insère cet élément avant l'élément avec l'étiquette spécifiée. Si l'élément référencé n'existe pas, l'élément sera inséré à la fin de le menu. Implique également que le lien de menu en question doit être placé dans le même « groupe » que l’élément.
+* `après` - Insère cet élément après l'élément avec l'étiquette spécifiée. Si l'élément référencé n'existe pas, l'élément sera inséré à la fin de le menu. Implique également que le lien de menu en question doit être placé dans le même « groupe » que l’élément.
+* `beforeGroupContaining` - Fournit un moyen pour un seul menu contextuel de déclarer le placement de leur groupe contenant avant le groupe contenant de l'élément avec l'étiquette spécifiée.
+* `afterGroupContaining` - Fournit un moyen pour un seul menu contextuel de déclarer le placement de leur groupe contenant après le groupe contenant de l'élément avec l'étiquette spécifiée.
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+Par défaut, les éléments seront insérés dans l'ordre dans lequel ils existent dans le modèle, sauf si l'un des mots-clés de positionnement spécifiés est utilisé.
 
 ### Exemples
 

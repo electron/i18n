@@ -15,7 +15,7 @@ app.on('ready', async () => {
 })
 ```
 
-查看 [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) 记录应用生命周期的网络事件。
+查看 [`--log-net-log`](command-line-switches.md#--log-net-logpath) 记录应用生命周期的网络事件。
 
 ** 注意: **除了指定的方法, 其他方法只能在 ` app ` 模块的 ` ready ` 事件被触发后使用。
 

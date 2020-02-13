@@ -40,7 +40,7 @@ $ npm run build && npm test
 Anda dapat membuat test suite berjalan lebih cepat dengan mengisolasi tes atau blok tertentu Anda sedang mengerjakan penggunaan Mocha's [tes eksklusif](https://mochajs.org/#exclusive-tests) fitur. Append `.only` to any `describe` or `it` function call:
 
 ```js
-describe.only('some feature', function () {
+describe.only('some feature', () => {
   // ... only tests in this block will be run
 })
 ```

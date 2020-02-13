@@ -25,7 +25,7 @@ Anda dapat menggunakan modul  globalShortcut </ 0> untuk mendeteksi kejadian key
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

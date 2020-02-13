@@ -267,8 +267,8 @@ Devuelve:
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `username` String (opcional)
+  * `password` String (opcional)
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
@@ -283,11 +283,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+Si `callback` es llamado sin un nombre de usuario o contraseña, la solicitud de autenticación sera cancelada y el error de autenticación será retornado a la página.
 
 ### Event: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+Emitido cada vez que hay una actualización de información de la GPU.
 
 ### Evento: 'gpu-process-crashed'
 
@@ -296,7 +296,7 @@ Devuelve:
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+Emitido cuando el proceso de la GPU se crashea o es terminado.
 
 ### Evento: 'renderer-process-crashed'
 
@@ -328,7 +328,7 @@ Emitido cuando Electron ha creado una nueva `session`.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -485,7 +485,7 @@ Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca 
 
 Establece o crea un directorio de registros de tu aplicación el cual puede ser manipulado con `app.getPath()` o `app.setPath(pathName, newPath)`.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+Llamando a `app.setAppLogsPath()` sin un parámetro `path` resultará en que este directorio sea configurado a `~/Library/Logs/YourAppName` en *macOS* y adentro del directorio `userData` en *Linux* y *Windows*.
 
 ### `app.getAppPath()`
 
@@ -515,7 +515,7 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 Retorna `String` - Una ruta a un directorio especial o a un archivo asociado con `name`. Cuando falla, un `Error` es lanzado.
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+Si se llama a `app.getPath('logs')` sin que se llame primero a `app.setAppLogsPath()`, se creará un directorio de registro por defecto equivalente a llamar a `app.setAppLogsPath()` sin un parámetro `path`.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -556,7 +556,7 @@ Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es
 
 Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
 **[Cambiar](modernization/property-updates.md)**
 
@@ -566,13 +566,15 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 Reescribe el nombre de la aplicación actual.
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[Cambiar](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Devuelve `String` - Código de la localización actual de la aplicación. Los valores posibles están documentados [aquí](locales.md).
 
-Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -580,7 +582,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 ### `app.getLocaleCountryCode()`
 
-Returns `String` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Devuelve `Cadena` - Código de país [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) del sistema operativo de usuario. El valor es tomado de API nativas de SO.
 
 **Note:** Cuando no se puede detectar el código de país local, devuelve una cadena vacía.
 
@@ -638,11 +640,19 @@ Este método verifica si el ejecutable acutal es el manejador por defecto para u
 
 El API usa el registro de Windows y LSCopyDefaultHandlerForURLScheme internamente.
 
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
+
 ### `app.setUserTasks(tasks)` *Windows*
 
 * `tarea` [Tarea[]](structures/task.md) - Arreglo de objetos `Tarea`
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the Jump List on Windows.
+Agrega `tasks` a la categoría [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la Jump List en Windows.
 
 `tareas` es un arreglo de objetos [`Task`](structures/task.md).
 
@@ -799,7 +809,7 @@ Invalida la actividad actual [Handoff](https://developer.apple.com/library/ios/d
 
 ### `app.resignCurrentActivity()` *macOS*
 
-Marks the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity as inactive without invalidating it.
+Marca la actividad actual del usuario [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) como inactiva sin invalidarla.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
@@ -816,7 +826,7 @@ Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en
 
 ### `app.importCertificate(options, callback)` *Linux*
 
-* `opciones` Object 
+* `opciones` Objecto 
   * `cetificado` Cadena - camino para el archivo pkcs12.
   * `contraseña` Cadena - Frase clave para el certificado.
 * `callback` Function 
@@ -838,13 +848,13 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and CPU usage statistics of all the processes associated with the app.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMetric` objetos que corresponden a la memoria y estadísticas de uso de la CPU de todos los procesos asociados con la aplicación.
 
 ### `app.getGPUFeatureStatus()`
 
 Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
 
-**Note:** This information is only usable after the `gpu-info-update` event is emitted.
+**Note:** Esta información sólo es usable después de que le evento `gpu-info-update` es emitido.
 
 ### `app.getGPUInfo(infoType)`
 
@@ -966,23 +976,25 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 **[Cambiar](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 Muestra las opciones del panel acerca de la aplicación. Estas opciones estas opciones pueden ser sobrescritas con `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `opciones` Object 
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Establece el panel de opciones. Esto va a sobrescribir los valores de la aplicación definidos en el archivo `.plist` en MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+Establece el panel de opciones. This will override the values defined in the app's `.plist` file on MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 
@@ -1064,7 +1076,7 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 ### `app.applicationMenu`
 
-A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Users can pass a [Menu](menu.md) to set this property.
+A `Menu | null` property that returns [`Menu`](menu.md) if one has been set and `null` otherwise. Los usuarios pueden pasar un [Menú](menu.md) para establecer esta propiedad.
 
 ### `app.badgeCount` *Linux* *macOS*
 
@@ -1090,7 +1102,7 @@ Una propiedad `Boolean` que retorna `true` si la aplicación está empaquetada, 
 
 A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
+Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones de los módulos npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
 ### `app.userAgentFallback`
 

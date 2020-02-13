@@ -9,9 +9,9 @@ on authentication.
 
 ## Enabling Goma
 
-Currently Electron Goma supports both Windows and Linux, we may add macOS
-support at some point in the future.  If you are on a supported platform
-you can enable goma by importing the `goma.gn` config file when using `gn`.
+Currently Electron Goma supports Windows, Linux, and macOS.  If you are
+on a supported platform you can enable goma by importing the `goma.gn` config
+file when using `gn`.
 
 ```bash
 gn gen out/Testing --args="import(\"//electron/build/args/testing.gn\") import(\"//electron/build/args/goma.gn\")"
@@ -25,7 +25,7 @@ the Goma service.  You only need to do this once per-machine.
 
 ```bash
 cd electron/external_binaries/goma
-goma_auth.py login
+./goma_auth.py login
 ```
 
 Once authenticated you need to make sure the goma daemon is running on your
@@ -33,15 +33,17 @@ machine.
 
 ```bash
 cd electron/external_binaries/goma
-goma_ctl.py ensure_start
+./goma_ctl.py ensure_start
 ```
 
 ## Building with Goma
 
 When you are using Goma you can run `ninja` with a substantially higher `j`
-value than would normally be supported by your machine.  Please do not set
-a value higher than **300**, we monitor the goma system and users found to
-be abusing it with unreasonable concurrency will be de-activated.
+value than would normally be supported by your machine.
+
+Please do not set a value higher than **300** on Windows or Linux and
+**80** on macOS, we monitor the goma system and users found to be abusing
+it with unreasonable concurrency will be de-activated.
 
 ```bash
 ninja -C out/Testing electron -j 200

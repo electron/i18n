@@ -45,6 +45,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Drag & Drop Bestanden](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
 * [Procesobject](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Omgevingsvariabelen](api/environment-variables.md)
-* [Belangrijke API wijzigingen](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Belangrijke API wijzigingen](breaking-changes.md)
 
 ### Aangepaste DOM-elementen:
 

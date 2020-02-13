@@ -15,27 +15,27 @@ const { session } = require('electron')
 session.defaultSession.cookies.get({})
   .then((cookies) => {
     console.log(cookies)
-  }).catch((error) => {
+  }). atch((error) => {
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// Interroge tous les cookies associés à une Url spécifique.
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
-  }).catch((error) => {
-    console.log(error)
+  }). atch((erreur) => {
+    console. og(error)
   })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Définit un cookie avec les données de cookie spécifiées;
+// peut écraser les cookies équivalents s'ils existent.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie)
-  .then(() => {
-    // success
-  }, (error) => {
-    console.error(error)
-  })
+  . hen(() => {
+    // succès
+  }, (erreur) => {
+    console. rror(erreur)
+})
 ```
 
 ### Événements d’instance
@@ -63,44 +63,44 @@ Les méthodes suivants sont disponibles pour les instances de `Cookies` :
 #### `cookies.get(filter)`
 
 * `filter` Objet 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all URLs.
+  * `url` String (facultatif) - Récupère les cookies qui sont associés à `url`. Vide implique la récupération des cookies de toutes les URL.
   * `name` String (facultatif) - Filtre les cookies par nom.
   * `domain` String (facultatif) - Récupère les cookies dont les domaines correspondent ou sont des sous-domaines de `domains`.
   * `path` String (facultatif) - Récupère les cookies dont le chemin correspond à `path`.
   * `secure` Boolean (facultatif) - Filtre les cookies par leur propriété de sécuritée.
   * `session` Boolean (facultatif) - filtre les session ou les cookies persistants.
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+Retourne `Promise<Cookie[]>` - Une promesse qui résout un tableau d'objets de cookies.
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+Envoie une demande pour obtenir tous les cookies correspondant à `filter`, et résout une promesse avec la réponse.
 
-#### `cookies.set(details)`
+#### `cookies.set(détails)`
 
 * `details` Objet 
-  * `url` String - The URL to associate the cookie with. The promise will be rejected if the URL is invalid.
+  * `url` String - L'URL avec laquelle associer le cookie. La promesse sera rejetée si l'URL est invalide.
   * `name` String (facultatif) - Le nom du cookie. Vide par défaut si omis.
   * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `domain` String (facultatif) - Le domaine du cookie; il sera normalisé avec un point précédent, de sorte qu'il soit également valide pour les sous-domaines. Vider par défaut si omis.
   * `path` String (facultatif) - Le chemin d'accès du cookie. Vide par défaut si omis.
   * `secure` Boolean (facultatif) - Si le cookie doit être marqué comme sécurisé. False par défaut.
   * `httpOnly` Boolean (facultatif) - Si le cookie doit être marqué comme HTTP uniquement. False par défaut.
   * `expirationDate` Double (facultatif) - La date d'expiration du cookie en nombre de secondes depuis l'epoch UNIX. Si omis, le cookie devient alors un cookie de session et ne sera pas conservé entre deux sessions.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+Retourne `Promise<void>` - Une promesse qui résout lorsque le cookie a été défini
 
-Sets a cookie with `details`.
+Définit un cookie avec `détails`.
 
-#### `cookies.remove(url, name)`
+#### `cookies.remove(url, nom)`
 
 * `url` String - L'url associée au cookie.
 * `name` String - Le nom du cookie à supprimer.
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+Retourne `Promise<void>` - Une promesse qui résout lorsque le cookie a été supprimé
 
-Removes the cookies matching `url` and `name`
+Supprime les cookies correspondant à `url` et `name`
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+Retourne `Promise<void>` - Une promesse qui résout lorsque la boutique de cookies a été vidée
 
 Écrit toutes les données des cookies non écrites sur le disque.

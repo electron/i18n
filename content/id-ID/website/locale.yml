@@ -1,4 +1,4 @@
-tagline: Membangun aplikasi desktop lintas platform dengan JavaScript, HTML dan CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplikasi
   blog: Blog
@@ -131,7 +131,7 @@ headings:
   languages: Bahasa
 taglines:
   languages: Localized content from our awesome global developer community.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "Bantu terjemahkan"
 footer:
   see_the_faq: Lihat pertanyaan yang sering diajukan
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: atau
 pages:
   '/':
-    title: Elektron | Buat aplikasi desktop lintas platform dengan JavaScript, HTML, dan CSS.
-    description: 'Membangun lintas platform aplikasi desktop dengan JavaScript, HTML dan CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Aplikasi Elektronika
     description: Aplikasi Dibangun di Elektron

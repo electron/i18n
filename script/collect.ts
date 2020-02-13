@@ -6,7 +6,7 @@ if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
 
 import * as del from 'del'
 import * as fs from 'fs'
-import * as got from 'got'
+import got from 'got'
 import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
@@ -90,8 +90,7 @@ async function fetchApiData() {
     )
   }
 
-  const response = await got(asset.browser_download_url, { json: true })
-  const apis = response.body
+  const apis = await got(asset.browser_download_url).json()
   const filename = path.join(englishBasepath, 'electron-api.json')
   mkdir(path.dirname(filename))
   console.log(

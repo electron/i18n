@@ -78,15 +78,15 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 1. 모든 새 메이저와 마이너 릴리즈 라인은 베타 시리즈를 암시하는 프리릴리즈 태그 앞에둡니다. 바로 `beta.N`입니다. 예를 들면 다음 처럼요. `2.0.0-beta.1`. 처음 베타 이후엔, 이어지는 베타 릴리즈들은 다음과 같은 제약사항을 만족해야 합니다. 
     1. 변화는 기존 API 와의 호환성을 보장해야 한다. (비활성화는 괜찮습니다.)
     2. 우리의 안정성 타임라인(stability timeline) 을 만날 위험이 반드시 낮아야 한다.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+2. 베타 버전이 출시된 이후에 허용된 변경이 필요한 경우 시험판 태그를 증가합니다. (예: `2.0.0-beta.2`)
+3. 특정 베타 릴리스가 *일반적으로 안정적인 것으로 간주*되면 버전 정보만 변경하여 안정적인 빌드로 다시 릴리스됩니다. (예: `2.0.0`) 첫 번째 안정 후 모든 변경 사항은 이전 버전과 호환되는 버그 또는 보안 수정 사항이어야 합니다.
+4. 안정 버전이 출시된 이후에 버그 수정이나 보안 패치 등이 필요한 경우 *패치* 버전을 증가시킵니다. (예: `2.0.1`)
 
-Specifically, the above means:
+특히 위의 의미는 다음과 같습니다.
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort after Week 3 in the beta cycle is 
+1. 베타주기에서 3주 전까지 파괴적이지 않은 API 변경 사항을 승인해도 괜찮습니다. 이러한 변경 사항으로 인해 중간 정도의 부작용이 발생할 수 있습니다.
+2. 베타 코드의 대부분의 시점에서 기존 코드 경로를 변경하지 않는 기능 변경 사항을 인정해도 괜찮습니다. 사용자는 앱에서 해당 플래그를 명시적으로 활성화 할 수 있습니다.
+3. 베타주기에서 3주차 이후의 모든 기능을 인정하는 것은 
 
 메이저, 마이너 버전이 증가하면 다음과 같은 버전 정보를 갖게 될 것입니다:
 
@@ -138,7 +138,7 @@ Specifically, the above means:
 
 - 풀 리퀘스트의 몇몇 커밋이 시맨틱 선행자를 가지지 않는 것은 괜찮습니다. 풀 리퀘스트 타이틀이 시맨틱한 의미를 전달하기만 한다면요.
 
-# Versioned `master`
+# 버전이 지정된 `master`
 
 - `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
 - 출시 브랜치는 master 브랜치로 병합되지 않습니다.

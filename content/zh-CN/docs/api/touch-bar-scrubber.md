@@ -12,10 +12,10 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
     * `selectedIndex` Integer - 用户选中项排序。
   * `highlight` Function (optional) - Called when the user taps any item. 
     * highlightedIndex Integer - 用户选中项排序.
-  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Defaults to `free`.
+  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### 实例属性
@@ -32,7 +32,7 @@ Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射到`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - 真实意义上的null，不是字符串且不含任何样式。
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - 真实意义上的null，不是字符串且不含任何样式。
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
 

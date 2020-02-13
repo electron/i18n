@@ -8,6 +8,6 @@
 
 * `options` Object 
   * `size` String (任意) - スペーサーのサイズ。以下の値にできます。 
-    * `small` - アイテム間の小さいスペース。
-    * `large` - アイテム間の大きいスペース。
-    * `flexible` - 利用可能なスペース全てを埋める。
+    * `small` - アイテム間の小さいスペース。`NSTouchBarItemIdentifierFixedSpaceSmall` に対応します。これは既定値です。
+    * `large` - アイテム間の大きなスペース。`NSTouchBarItemIdentifierFixedSpaceLarge` に対応します。
+    * `flexible` - 利用可能なスペースを全て占有します。`NSTouchBarItemIdentifierFlexibleSpace` に対応します。

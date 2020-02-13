@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Aplikasi saya jendela/nampan menghilang setelah beberapa menit.
+## My app's tray disappeared after a few minutes.
 
-Ini terjadi ketika variabel yang digunakan untuk menyimpan jendela/nampan mendapat sampah dikumpulkan.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Jika Anda mengalami masalah ini, artikel berikut mungkin bisa membantu:
 
@@ -58,7 +58,7 @@ Jika Anda ingin memperbaiki cepat, Anda bisa membuat variabel global dengan meng
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -69,7 +69,7 @@ ini:
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })

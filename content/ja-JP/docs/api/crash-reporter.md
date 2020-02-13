@@ -96,6 +96,10 @@ crashReporter.start({
 
 クラッシュレポーターに渡されているすべての現在のパラメータを参照します。
 
+### `crashReporter.getCrashesDirectory()`
+
+戻り値 `String` - クラッシュディレクトリは、アップロードされる前に一時保存されます。
+
 ## クラッシュレポートの内容
 
 クラッシュレポーターは、以下のデータを `submitURL` に `multipart/form-data` の `POST` で送信します。

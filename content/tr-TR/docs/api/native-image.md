@@ -12,11 +12,11 @@ Resim çeken API'ler için Electron'da dosya yollarını veya `NativeImage` örn
 const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Veya panodan `NativeImage` döndüren bir görüntü okuyun:
+Or read the image from the clipboard, which returns a `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -29,19 +29,19 @@ console.log(appIcon)
 
 Şu an için `PNG` ve `JPEG` görüntü biçimleri desteklenmektedir. `PNG`, şeffaflığı ve kayıpsız sıkıştırmayı desteklediği için önerilir.
 
-Windows'ta `ICO` simgelerini de dosya yollarından yükleyebilirsiniz. En iyi görüntü kalitesi için aşağıdaki boyutları eklemeniz önerilir:
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Küçük simge 
- * 16x16 (100% DPI ölçeği)
- * 20x20 (125% DPI ölçeği)
- * 24x24 (150% DPI ölçeği)
- * 32x32 (200% DPI ölçeği)
+  * 16x16 (100% DPI ölçeği)
+  * 20x20 (125% DPI ölçeği)
+  * 24x24 (150% DPI ölçeği)
+  * 32x32 (200% DPI ölçeği)
 * Büyük simge 
- * 32x32 (100% DPI ölçeği)
- * 40x40 (125% DPI ölçeği)
- * 48x48 (150% DPI ölçeği)
- * 64x64 (200% DPI ölçeği)
-* 256x256
+  * 32x32 (100% DPI ölçeği)
+  * 40x40 (125% DPI ölçeği)
+  * 48x48 (150% DPI ölçeği)
+  * 64x64 (200% DPI ölçeği)
+  * 256x256
 
 [Bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) bulunan *boyut gereksinimlerini* bölümünü kontrol edin.
 
@@ -49,7 +49,7 @@ Windows'ta `ICO` simgelerini de dosya yollarından yükleyebilirsiniz. En iyi g�
 
 Apple Retina ekranları gibi yüksek DPI desteğine sahip platformlarda, yüksek çözünürlüklü resimleri işaretlemek için resmin temel dosya adından sonra `@2x` ekleyebilirsiniz.
 
-Örnek olarak eğer `icon.png` standart çözünürlüğe sahip normal bir görüntü ise, `icon@2x.png` iki kat DPI yoğunluğuna sahip yüksek çözünürlüklü görüntü olarak değerlendirilir.
+For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
 Aynı anda farklı DPI yoğunluklarına sahip görüntüleri desteklemek istiyorsanız, farklı boyutlardaki görüntüleri aynı dizine koyun ve dosya isimlerini DPI son ekleri olmadan kullanın. Örneğin:
 
@@ -62,11 +62,11 @@ images/
 
 ```javascript
 const { Tray } = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
+const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-DPI için aşağıdaki son ekler de desteklenmektedir:
+The following suffixes for DPI are also supported:
 
 * `@1x`
 * `@1.25x`
@@ -84,7 +84,7 @@ DPI için aşağıdaki son ekler de desteklenmektedir:
 
 Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
-En yaygın olanı, açık ve koyu menü çubuğuna ayarlanabilmesi için menü çubuğu simgesinde bir şablon resmi kullanmaktır.
+The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **Not:** Şablon görüntüsü sadece macOS'ta desteklenmektedir.
 
@@ -114,14 +114,17 @@ Boş bir `NativeImage` örneği oluşturur.
 ```javascript
 const nativeImage = require('electron').nativeImage
 
-let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
+const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `seçenekler` Nesne 
+  * `width` Tamsayı
+  * `height` Tamsayı
+  * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `NativeImage` döndürür
 
@@ -130,7 +133,10 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` obje (isteğe bağlı) *`width` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir. * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir. * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
+* `seçenekler` Obje (opsiyonel) 
+  * `width` Integer (optional) - Required for bitmap buffers.
+  * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir.
+  * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `NativeImage` döndürür
 
@@ -153,9 +159,9 @@ Creates a new `NativeImage` instance from `buffer`. Tries to decode as PNG or JP
 
 NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
-`hslShift` görüntü uygulaması aşağıdaki gibi uygulanır
+`hslShift` görüntü uygulaması aşağıdaki gibi uygulanır:
 
-* `hsl_shift[0]` (renk tonu): Görüntünün mutlak renk tonu değeri - 0 ve 1, renk tonu tekerleğinde (kırmızı) 0 ve 360'a denk gelir.
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
@@ -179,7 +185,8 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
-* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `seçenekler` Obje (opsiyonel) 
+  * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
@@ -191,23 +198,26 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toBitmap([options])`
 
-* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `seçenekler` Obje (opsiyonel) 
+  * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
 #### `image.toDataURL([options])`
 
-* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `seçenekler` Obje (opsiyonel) 
+  * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `String` döndürür - Görüntünün veri URL'si.
 
 #### `image.getBitmap([options])`
 
-* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `seçenekler` Obje (opsiyonel) 
+  * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisini içeririr.
 
-`getBitmap()` ve `toBitmap()` arasındaki fark, `getBitmap()` bitmap verilerini kopyalamamaktadır; bu nedenle, döndürülen arabelleği güncel olay döngüsü işaretinde hemen kullanmalısınız, aksi takdirde veriler değiştirilebilir veya imha edilebilir.
+The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
@@ -245,7 +255,10 @@ Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
-* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Olası değerler `good`, `better` or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. Her üç yöntemin önceden belirlenmiş bir platformda aynı algoritma ile eşleştirilmesi mümkündür.
+* `seçenekler` Nesne 
+  * `width` Integer (optional) - Defaults to the image's width.
+  * `height` Integer (optional) - Defaults to the image's height.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 `NativeImage` Döndürür - Yeniden boyutlanmış resim.
 
@@ -257,7 +270,12 @@ Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde m
 
 #### `image.addRepresentation(options)`
 
-* `options` obje * `scaleFactor` Çift - Gösterilen resimdeki ölçek faktörü. `width` tamsayı (isteğe bağlı) - Varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. `height` Tamsayı (İsteğe bağlı) - varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. * `buffer` Arabellek (isteğe bağlı) - Ham resim verilerini içeren arabelleği ifade eder. * `dataURL` Dizi (isteğe bağlı) - Taban 64 lük sistem ile kodlanmış JPEG ve PNG resmi içeren URL.
+* `seçenekler` Nesne 
+  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `buffer` Arabellek (isteğe bağlı) - Ham resim verilerini içeren arabelleği ifade eder.
+  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Belirli ölçek faktörü için bir görüntü gösterimi ekleyin. Bu kullanılabilir görüntüye açıkca farklı ölçek faktörü gösterimleri eklemek için kullanılabilir. Bu boş görüntülerde çağrılabilir.
 

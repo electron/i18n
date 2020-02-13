@@ -22,7 +22,7 @@ Apple Disk Image는 macOS에서 사용되는 패키징 포맷입니다. DMG 파�
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+인터페이스 설명 언어. Java, C ++, JavaScript 등의 인터페이스를 생성하는 데 사용할 수 있는 형식으로 함수 서명 및 데이터 유형을 작성하십시오.
 
 ### IPC
 
@@ -50,13 +50,13 @@ Apple's Mac App Store의 약자입니다. MAS에 앱을 제출하는 방법에 �
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+프로세스 간 또는 프로세스 간 통신을위한 IPC 시스템이며, 이는 메모리 압박 등에 따라 작업을 별도의 프로세스로 분할 할 수 있는지 여부에 관심이 있기 때문에 중요합니다.
 
 https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md 을 확인하세요.
 
-### native modules
+### 네이티브 모듈
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 이들은 Node.js에서 실행되는 JavaScript와 C/C++ 라이브러리 사이의 인터페이스를 제공하기 위해 주로 사용됩니다.
+네이티브 모듈(Node.js에서 [애드온](https://nodejs.org/api/addons.html)이라고도 함)은 require() 함수를 사용하여 Node.js 또는 Electron에 로드 할 수 있는 C 또는 C ++로 작성된 모듈로 일반 Node.js 모듈처럼 사용됩니다. 이들은 Node.js에서 실행되는 JavaScript와 C/C++ 라이브러리 사이의 인터페이스를 제공하기 위해 주로 사용됩니다.
 
 일랙트론은 노드의 네이티브 모듈을 지원하지만, 당신의 시스템에 설치된 노드와 다른 v8 버전을 사용해서 빌드할 가능성이 매우 높다. 따라서 네이티브 모듈을 빌드할 때는 반드시 수동으로 일랙트론의 헤더위치를 지정해야한다.
 
@@ -64,27 +64,27 @@ Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System은 Microsoft Windows 용 스크립트 기반 설치 프로그램 작성 도구입니다. 이 소프트웨어는 무료 소프트웨어 라이센스의 조합으로 배포되며 InstallShield와 같은 상업용 독점 제품에 대한 널리 사용되는 대안입니다. [electron-builder](https://github.com/electron-userland/electron-builder)는 빌드 대상으로 NSIS를 지원합니다.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR(Off-screen rendering)을 사용하면 배경에 무거운 페이지를 로드한 후 표시 할 수 있습니다(훨씬 빠릅니다). 화면에 표시하지 않고 페이지를 렌더링 할 수 있습니다.
 
 ### 프로세스
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+프로세스는 실행중인 컴퓨터 프로그램의 인스턴스입니다. [메인](#main-process) 및 하나 이상의 [렌더러](#renderer-process) 프로세스를 사용하는 전자 앱은 실제로 여러 프로그램을 동시에 실행하고 있습니다.
 
-Node.js 와 Electron 에선, 각각의 실행 중인 프로세스들은 `process` 객체를 가지고 있습니다. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+Node.js 와 Electron 에선, 각각의 실행 중인 프로세스들은 `process` 객체를 가지고 있습니다. 이 객체는 현재 프로세스에 대한 정보를 제공하고 현재 프로세스를 제어하는 전역입니다. 전역으로 require()를 사용하지 않고도 응용 프로그램에서 항상 사용할 수 있습니다.
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+참고: [메인 프로세스](#main-process), [렌더러 프로세스](#renderer-process)
 
 ### 렌더러 프로세스
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+렌더러 프로세스는 앱의 브라우저 창입니다. 기본 프로세스와 달리 이들 중 여러 개가 있을 수 있으며 각각 별도의 프로세스에서 실행됩니다. 숨길 수도 있습니다.
 
 일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행하고 네이티브 리소스에 액세스 할 수 없습니다. 그러나 Electron 유저들은 Node.js APIs 의 낮은 수준의 운영체제 상호 작용을 허용하는 웹 페이지에서 힘이 있다.
 
-See also: [process](#process), [main process](#main-process)
+참고: [프로세스](#process), [메인 프로세스](#main-process)
 
 ### Squirrel
 
@@ -92,17 +92,17 @@ Squirrel은 Electron 앱에 새로운 버전이 적용되면 자동으로 업데
 
 ### 사용자 공간
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+774/5000 이 용어는 "userland"또는 "userspace"가 운영 체제 커널 외부에서 실행되는 프로그램을 나타내는 Unix 커뮤니티에서 유래했습니다. 보다 최근에는 "노드 코어"에서 사용 가능한 기능과 훨씬 더 큰 "사용자"커뮤니티에서 npm 레지스트리에 게시 한 패키지를 구별하기 위해이 용어가 노드 및 npm 커뮤니티에서 널리 사용되었습니다.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Node와 마찬가지로 Electron은 다중 플랫폼 데스크톱 응용 프로그램 개발에 필요한 모든 기본 요소를 제공하는 작은 API 집합에 중점을 둡니다. 이 디자인 철학을 통해 Electron은 어떻게 사용해야 하는지에 대해 지나치게 규정하지 않고도 유연한 도구를 유지할 수 있습니다. 사용자 공간을 통해 사용자는 "핵심"에서 제공되는 기능 외에 추가 기능을 제공하는 도구를 작성하고 공유 할 수 있습니다.
 
 ### V8
 
 V8은 Google의 오픈소스 자바스크립트 엔진입니다. 이것은 C++로 작성되었으며 구글 크롬에서 사용되고 있습니다. V8은 독립형으로 실행할 수 있으며 모든 C++ 응용프로그램에 임베디드 될 수 있습니다.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron은 Chromium의 일부로 V8을 빌드한 다음 V8을 빌드할 때 노드가 해당 V8을 가리킵니다.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8의 버전 번호는 항상 Chrome의 버전 번호와 일치합니다. Chrome 59에는 V8 5.9가 포함되어 있으며 Chrome 58에는 V8 5.8 등이 포함되어 있습니다.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -110,4 +110,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` 태그는 Electron 앱에 '게스트'컨텐츠 (예: 외부 웹 페이지)를 포함시키는 데 사용됩니다. `iframe`과 비슷하지만 각 웹뷰가 별도의 프로세스에서 실행된다는 점이 다릅니다. 웹 페이지와 동일한 권한이 없으며 앱과 포함 된 콘텐츠 간의 모든 상호 작용이 비동기식입니다. 이렇게하면 내장된 콘텐츠로부터 앱을 안전하게 보호할 수 있습니다.

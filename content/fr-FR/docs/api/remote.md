@@ -4,9 +4,9 @@
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
-The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
+Le module `distant` fournit un moyen simple de faire une communication entre les processus d'inter-processus (IPC) entre le processus de rendu (page Web) et le processus principal.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+Dans Electron, les modules liés à l'interface graphique (comme `dialogue`, `menu` etc.) ne sont disponibles que dans le processus principal, pas dans le processus de rendu. Afin de les utiliser depuis le processus de rendu, le module `ipc` est nécessaire pour envoyer des messages inter-processus au processus principal. Avec le module `distant`, vous pouvez appeler les méthodes de l'objet principal du processus sans envoyer explicitement des messages inter-processus, similaires à la [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation)de Java. Un exemple de création d'une fenêtre de navigateur à partir d'un processus de rendu :
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -14,143 +14,143 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+**Remarque :** Pour l'inverse (accédez au processus de rendu depuis le processus principal), vous pouvez utiliser [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**Remarque :** Le module distant peut être désactivé pour des raisons de sécurité dans les contextes suivants :
 
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+* [`BrowserWindow`](browser-window.md) - en définissant l'option `enableRemoteModule` à `false`.
+* [`<webview>`](webview-tag.md)`</0> - en définissant l'attribut <2>enableremotemodule</2> à <2>false</2>.</li>
+</ul>
 
-## Objet remote
+<h2>Objet remote</h2>
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
-
-In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
-
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
-
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
-
-## Durée de vie de l'objet remote
-
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
-
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
-
-Primary value types like strings and numbers, however, are sent by copy.
-
-## Passing callbacks to the main process
-
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
-
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
-
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
-
-```javascript
-// main process mapNumbers.js
-exports.withRendererCallback = (mapper) => {
-  return [1, 2, 3].map(mapper)
-}
-
-exports.withLocalCallback = () => {
-  return [1, 2, 3].map(x => x + 1)
-}
-```
-
-```javascript
-// renderer process
-const mapNumbers = require('electron').remote.require('./mapNumbers')
-const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
-const withLocalCb = mapNumbers.withLocalCallback()
-
-console.log(withRendererCb, withLocalCb)
-// [undefined, undefined, undefined], [2, 3, 4]
-```
-
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
-
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
-
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
-
-```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // la fenêtre s'est fermée
-})
-```
-
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
-
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
-
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
-
-## Accessing built-in modules in the main process
-
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
-
-```javascript
-const app = require('electron').remote.app
-console.log(app)
-```
-
-## Méthodes
-
-Le module `remote` dispose des méthodes suivantes :
-
-### `remote.require(module)`
-
-* `module` String
-
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
-
-exemple :
-
-```sh
-project/
-├── main
-│   ├── foo.js
-│   └── index.js
-├── package.json
-└── renderer
-    └── index.js
-```
-
-```js
-// main process: main/index.js
-const { app } = require('electron')
-app.on('ready', () => { /* ... */ })
-```
-
-```js
-// un module relatif: main/foo.js
-module.exports = 'bar'
-```
-
-```js
-// renderer process: renderer/index.js
-const foo = require('electron').remote.require('./foo') // bar
-```
-
-### `remote.getCurrentWindow()`
-
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
-
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
-
-### `remote.getCurrentWebContents()`
-
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
-
-### `remote.getGlobal(name)`
-
-* `name` String
-
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
-
-## Propriétés
-
-### `remote.process` *Readonly*
-
-A `NodeJS.Process` object. The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+<p>Chaque objet (y compris les fonctions) retourné par le module <code>distance` représente un objet dans le processus principal (nous l'appelons un objet distant ou une fonction distante). Lorsque vous appelez des méthodes d'un objet distant, appelez une fonction distante, ou créez un nouvel objet avec le constructeur distant (fonction), vous envoyez en fait messages inter-processus synchrones.</p> 
+    Dans l'exemple ci-dessus, [`BrowserWindow`](browser-window.md) et `win` étaient des objets distants et `new BrowserWindow` n'a pas créé d'objet `BrowserWindow` dans le processus de rendu . Au lieu de cela, il a créé un objet `BrowserWindow` dans le processus principal et a renvoyé l'objet distant correspondant dans le processus de rendu, soit l'objet `win`.
+    
+    **Remarque :** Seules les [propriétés énumérables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) présentes lorsque l'objet distant est référencé pour la première fois sont accessibles par télécommande.
+    
+    **Remarque :** Les tableaux et les tampons sont copiés par IPC lorsque vous y accédez via le module `distance` . Les modifier dans le processus de rendu ne les modifie pas dans le processus principal et vice versa.
+    
+    ## Durée de vie de l'objet remote
+    
+    Electron s'assure que tant que l'objet distant dans le processus de rendu vit (en d'autres mots, n'a pas été ramassé), l'objet correspondant dans le processus principal ne sera pas libéré. Lorsque l'objet distant a été collecté , l'objet correspondant dans le processus principal sera déférencé par .
+    
+    Si l'objet distant est divulgué dans le processus de rendu (par ex. stocké dans une carte mais jamais <unk> ), l'objet correspondant dans le processus principal sera également divulgué, donc vous devriez être très prudent de ne pas fuir des objets distants.
+    
+    Les types de valeurs primaires comme les chaînes de caractères et les nombres, sont envoyés par copie.
+    
+    ## Passage des callbacks au processus principal
+    
+    Le code dans le processus principal peut accepter les callbacks du moteur de rendu - par exemple le module `distant` - mais vous devriez être extrêmement prudent lorsque vous utilisez cette fonctionnalité .
+    
+    Premièrement, pour éviter les blocages, les callbacks passés au processus principal sont appelés de manière asynchrone. Vous ne devez pas vous attendre à ce que le processus principal récupère la valeur de retour des rappels passés.
+    
+    Par exemple, vous ne pouvez pas utiliser une fonction du processus de rendu dans un `Array.map` appelé dans le processus principal :
+    
+    ```javascript
+    // main process mapNumbers.js
+    exports.withRendererCallback = (mapper) => {
+      return [1, 2, 3].map(mapper)
+    }
+    
+    exports.withLocalCallback = () => {
+      return [1, 2, 3].map(x => x + 1)
+    }
+    ```
+    
+    ```javascript
+    // renderer process
+    const mapNumbers = require('electron').remote.require('./mapNumbers')
+    const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
+    const withLocalCb = mapNumbers.withLocalCallback()
+    
+    console.log(withRendererCb, withLocalCb)
+    // [undefined, undefined, undefined], [2, 3, 4]
+    ```
+    
+    Comme vous pouvez le voir, la valeur synchrone de la fonction de rappel du moteur de rendu n'était pas comme attendu, et ne correspond pas à la valeur de retour d'un callback identique qui vit dans le processus principal.
+    
+    Deuxièmement, les callbacks passés au processus principal persisteront jusqu'à ce que le processus principal les ramasse.
+    
+    Par exemple, le code suivant semble innocent à première vue. Il installe un callback pour l'événement `close` sur un objet distant :
+    
+    ```javascript
+    require('electron').remote.getCurrentWindow().on('close', () => {
+      // la fenêtre s'est fermée
+    })
+    ```
+    
+    Mais n'oubliez pas que le callback est référencé par le processus principal jusqu'à ce que vous le désinstallez explicitement explicitement. Si vous ne le faites pas, chaque fois que vous rechargez votre fenêtre, la fonction de rappel sera réinstallée, fuyant un rappel pour chaque redémarrage.
+    
+    Pour empirer les choses, puisque le contexte des callbacks précédemment installés a été libéré, les exceptions seront levées dans le processus principal lorsque l'événement `close` est émis.
+    
+    Pour éviter ce problème, assurez-vous de nettoyer toutes les références pour rendre les callbacks passés au processus principal. Cela implique de nettoyer les gestionnaires d'événements, ou en s'assurant que le processus principal est explicitement dit de déréférencer les callbacks qui sont venus d'un processus de rendu qui se termine.
+    
+    ## Accès aux modules intégrés dans le processus principal
+    
+    Les modules intégrés dans le processus principal sont ajoutés en tant que récupérateurs dans le module `distance` , ainsi vous pouvez les utiliser directement comme le module `electron`.
+    
+    ```javascript
+    const app = require('electron').remote.app
+    console.log(app)
+    ```
+    
+    ## Méthodes
+    
+    Le module `remote` dispose des méthodes suivantes :
+    
+    ### `remote.require(module)`
+    
+    * `module` String
+    
+    Retourne `any` - L'objet retourné par `require(module)` dans le processus principal. Les modules spécifiés par leur chemin relatif résoudront par rapport au point d'entrée du processus principal.
+    
+    exemple :
+    
+    ```sh
+    project/
+    ├── main
+    │   ├── foo.js
+    │   └── index.js
+    ├── package.json
+    └── renderer
+        └── index.js
+    ```
+    
+    ```js
+    // main process: main/index.js
+    const { app } = require('electron')
+    app.on('ready', () => { /* ... */ })
+    ```
+    
+    ```js
+    // un module relatif: main/foo.js
+    module.exports = 'bar'
+    ```
+    
+    ```js
+    // renderer process: renderer/index.js
+    const foo = require('electron').remote.require('./foo') // bar
+    ```
+    
+    ### `remote.getCurrentWindow()`
+    
+    Retourne [`BrowserWindow`](browser-window.md) - La fenêtre à laquelle cette page web appartient.
+    
+    **Remarque :** N'utilisez pas `removeAllListeners` sur [`BrowserWindow`](browser-window.md). L'utilisation de ceci peut supprimer tous les auditeurs [`flou`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) , désactiver les événements de clic sur les boutons de la barre tactile, et d'autres conséquences involontaires.
+    
+    ### `remote.getCurrentWebContents()`
+    
+    Retourne [`WebContents`](web-contents.md) - Le contenu web de cette page web.
+    
+    ### `remote.getGlobal(name)`
+    
+    * `name` String
+    
+    Retourne `any` - La variable globale de `name` (par exemple `global[name]`) dans le processus principal.
+    
+    ## Propriétés
+    
+    ### `remote.process` *Readonly*
+    
+    Objet `NodeJS.Process`. L'objet `process` dans le processus principal. Ceci est le même que `remote.getGlobal('process')` mais est mis en cache.

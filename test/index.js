@@ -132,7 +132,9 @@ describe('i18n.website', () => {
 
   it('contains localized strings', () => {
     i18n.website['en-US'].tagline.should.contain('desktop apps')
-    i18n.website['fr-FR'].tagline.should.contain('applications desktop')
+    i18n.website['ru-RU'].tagline.should.contain(
+      'кросс-платформенные приложения'
+    )
   })
 })
 

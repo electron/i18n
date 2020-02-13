@@ -45,6 +45,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
   * [Fichier natif Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
   * [Support du mode sombre sur macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Les web embeds dans Electron](tutorial/web-embeds.md)
 * [Accessibilité](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Process Object](api/process.md)
 * [Commandes Supportées](api/command-line-switches.md)
 * [Variables d'environnement](api/environment-variables.md)
-* [Changements majeurs prévus de l'API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Modifications importantes de l'API](breaking-changes.md)
 
 ### Éléments DOM Personnalisé :
 

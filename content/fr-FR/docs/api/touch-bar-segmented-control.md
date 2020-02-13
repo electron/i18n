@@ -8,20 +8,20 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 
 * `options` Objet 
   * `segmentStyle` String (optionnel) - Style des segments : 
-    * `automatic` - Par défaut. L’apparence du contrôle segmenté est déterminé automatiquement selon le type de fenêtre dans lequel le contrôle est affiché et la position dans la fenêtre.
-    * `rounded` - Le contrôle est affiché en utilisant le style arrondi.
-    * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé.
-    * `round-rect` - Le contrôle est affiché en utilisant le style arrondi rect.
-    * `textured-square` - Le contrôle est affiché en utilisant le style carré texturé.
-    * `capsule` - Le contrôle s’affiche selon le style capsule.
-    * `small-square` - Le contrôle est affiché en utilisant le style petit carré.
-    * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas.
+    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window. Maps to `NSSegmentStyleAutomatic`.
+    * `rounded` - The control is displayed using the rounded style. Maps to `NSSegmentStyleRounded`.
+    * `textured-rounded` - The control is displayed using the textured rounded style. Maps to `NSSegmentStyleTexturedRounded`.
+    * `round-rect` - The control is displayed using the round rect style. Maps to `NSSegmentStyleRoundRect`.
+    * `textured-square` - The control is displayed using the textured square style. Maps to `NSSegmentStyleTexturedSquare`.
+    * `capsule` - The control is displayed using the capsule style. Maps to `NSSegmentStyleCapsule`.
+    * `small-square` - The control is displayed using the small square style. Maps to `NSSegmentStyleSmallSquare`.
+    * `separated` - The segments in the control are displayed very close to each other but not touching. Maps to `NSSegmentStyleSeparated`.
   * `mode` String (optionnel) - Le mode de sélection du contrôle : 
-    * `single` - Par défaut. Un élément sélectionné à la fois, en sélectionner un va désélectionner l'élément précédemment sélectionné.
-    * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément.
-    * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif.
+    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item. Maps to `NSSegmentSwitchTrackingSelectOne`.
+    * `multiple` - Multiple items can be selected at a time. Maps to `NSSegmentSwitchTrackingSelectAny`.
+    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active. Maps to `NSSegmentSwitchTrackingMomentary`.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Un tableau de segments à placer dans ce contrôle.
-  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. Lorsque le mode est multiple, cela sera le dernier élément sélectionné.
+  * `selectedIndex` Integer (facultatif) - L'index du segment actuellement sélectionné, mis automatiquement à jour avec une interaction utilisateur. When the mode is `multiple` it will be the last selected item.
   * `change` Function (optionnel) - Appelée lorsque l'utilisateur sélectionne un nouveau segment. 
     * `selectedIndex` Integer - L'index du segment que l'utilisateur a sélectionné.
     * `isSelected` Boolean - Si après la selection de l'utilisateur, le segment est selectionné ou non.

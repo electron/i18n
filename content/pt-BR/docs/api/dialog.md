@@ -39,6 +39,7 @@ O módulo `dialog` possúi os seguintes métodos:
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Na verdade este valor não cria o arquivo no caminho especificado mas permite que o aplicativo entenda que deverá criar o diretório não existente.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (opcional) *macOS* - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Na verdade este valor não cria o arquivo no caminho especificado mas permite que o aplicativo entenda que deverá criar o diretório não existente.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `dontAddToRecent` *Windows* - Do not add the item being opened to the recent documents list.
   * `message` String (opcional) *macOS* - Mensagem a ser apresentada acima da janela de entrada.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 
@@ -93,7 +95,7 @@ Returns `Promise<Object>` - Resolve with an object containing the following:
 
 * `canceled` Boolean - whether or not the dialog was canceled.
 * `filePaths` String[] - An array of file paths chosen by the user. If the dialog is cancelled this will be an empty array.
-* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+* `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated. (For return values, see [table here](#bookmarks-array).)
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
 
@@ -136,6 +138,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (opcional) *macOS* - Mensagem a ser exibida acima de campos de texto.
   * `nameFieldLabel` String (opcional) *macOS* - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
   * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
+    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `String | undefined`, the path of the file chosen by the user; if the dialog is cancelled it returns `undefined`.
@@ -154,14 +162,20 @@ Os `filters` especificam um array de tipos de arquivo que podem ser exibidos, ve
   * `filters` [FileFilter[]](structures/file-filter.md) (opcional)
   * `message` String (opcional) *macOS* - Mensagem a ser exibida acima de campos de texto.
   * `nameFieldLabel` String (opcional) *macOS* - Rótulo personalizado do texto a ser exibido em frente ao campo do nome do arquivo.
-  * `showsTagField` Boolean (opcional) *macOS* - apresenta a tag do campo de entrada, por padrão `true`.
+  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `properties` String[] (optional) 
+    * `showHiddenFiles` - Mostra arquivos escondidos no dialog.
+    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
+    * `showOverwriteConfirmation` *Linux* - Sets whether the user will be presented a confirmation dialog if the user types a file name that already exists.
+    * `dontAddToRecent` *Windows* - Do not add the item being saved to the recent documents list.
   * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 
 Returns `Promise<Object>` - Resolve with an object containing the following:
 
     * `canceled` Boolean - whether or not the dialog was canceled.
     * `filePath` String (optional) - If the dialog is canceled, this will be `undefined`.
-    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+    * `bookmark` String (optional) _macOS_ _mas_ - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present. (For return values, see [table here](#bookmarks-array).)
     
 
 O argumento `browserWindow` permite que o diálogo seja acoplado a janela parent, tornando-a modal.
@@ -245,6 +259,17 @@ No Windows as opções são mais limitadas, devido às API's do Win32 usadas:
 
 * Como o macOS fornece o seu próprio diálogo de confirmação o argumento `message` não é usado.
 * O argumento `browserWindow` é ignorado já que não é possível fazer essa confirmação um diálogo modal.
+
+## Bookmarks array
+
+`showOpenDialog`, `showOpenDialogSync`, `showSaveDialog`, and `showSaveDialogSync` will return a `bookmarks` array.
+
+| Build Type | securityScopedBookmarks boolean | Return Type | Return Value                   |
+| ---------- | ------------------------------- |:-----------:| ------------------------------ |
+| macOS mas  | True                            |   Success   | `['LONGBOOKMARKSTRING']`       |
+| macOS mas  | True                            |    Error    | `['']` (array of empty string) |
+| macOS mas  | False                           |     NA      | `[]` (empty array)             |
+| non mas    | any                             |     NA      | `[]` (empty array)             |
 
 ## Sheets
 

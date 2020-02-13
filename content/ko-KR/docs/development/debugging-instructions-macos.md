@@ -4,9 +4,15 @@
 
 ## 요구 사항
 
-* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-macos.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-macos.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. 물론 직접 다운로드 받은 Electron 바이너리에도 디버거 연결 및 디버깅을 사용할 수 있지만, 실질적으로 디버깅이 까다롭게 고도의 최적화가 되어있음을 발견하게 될 것입니다: 인라인화, 꼬리 호출, 이외 여러 가지 생소한 최적화가 적용되어 디버거가 모든 변수와 실행 경로를 정상적으로 표시할 수 없습니다.
 
 * **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. 이것은 LLDB, macOS Xcode 의 기본 디버거를 포함합니다. 그것은 데스크톱과 iOS 기기와 시뮬레이터에서 C, Objective-C, C++ 디버깅을 지원합니다.
+
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
 
 ## Electron에 디버거 연결하고 디버깅하기
 
@@ -22,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 LLDB 는 강력한 도구이며 코드 검사를 위한 다양한 전략을 제공합니다. 간단히 소개하자면, JavaScript 에서 올바르지 않은 명령을 호출한다고 가정합시다 - 당신은 명령의 C++ 부분에서 멈추길 원하며 그것은 Electron 소스 내에 있습니다.
 
-Relevant code files can be found in `./atom/`.
+관련 코드 파일은 `./atom/`에 있습니다.
 
 `app.setName()` 을 디버깅한다고 가정합시다, 이것은 `browser.cc` 에 `Browser::SetName()` 으로 정의되어있습니다. `breakpoint` 명령으로 멀추려는 파일과 줄을 명시하여 중단점을 설정합시다:
 
@@ -80,6 +86,8 @@ Process 25244 stopped
    121 	int Browser::GetBadgeCount() {
    122 	  return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 디버깅을 끝내려면, `process continue` 를 실행하세요. 또한 쓰레드에서 실행 줄 수를 지정할 수 있습니다 (`thread until 100`). 이 명령은 현재 프레임에서 100 줄에 도달하거나 현재 프레임을 나가려고 할 때 까지 쓰레드를 실행합니다.
 

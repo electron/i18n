@@ -43,7 +43,7 @@ Le module `globalShortcut` dispose des méthodes suivantes :
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Returns `Boolean` - Whether or not the shortcut was registered successfully.
+Retourne `Boolean` - Si le raccourci a été enregistré avec succès.
 
 Enregistre un raccourci global avec un `accelerator`. Le `callback` est appelé lorsque le raccourci est utilisé par l'utilisateur.
 
@@ -56,14 +56,14 @@ Les accélérateurs suivants ne seront pas enregistrés correctement sur macOS 1
 * "Media Piste Précédente"
 * "Media Stop"
 
-### `globalShortcut.registerAll(accelerators, callback)`
+### `globalShortcut.registerAll(accélérateurs, callback)`
 
-* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `accélérateur` String[] - un tableau de [Accelerator](accelerator.md)s.
 * `callback` Function
 
-Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+Enregistre un raccourci global de tous les éléments `accélérateur` dans `accélérateurs`. Le `callback` est appelé lorsque l'un des raccourcis enregistrés est appuyé par l'utilisateur.
 
-When a given accelerator is already taken by other applications, this call will silently fail. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
+Lorsqu'un accélérateur donné est déjà pris par d'autres applications, cet appel échouera silencieusement. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
 Les accélérateurs suivants ne seront pas enregistrés correctement sur macOS 10.14 Mojave à moins que l'application ait été autorisée en tant qu'[application client approuvée](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html) :
 

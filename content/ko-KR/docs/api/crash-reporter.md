@@ -96,6 +96,10 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 충돌 보고서에 넘겨진 모든 매개 변수를 보여줍니다.
 
+### `crashReporter.getCrashesDirectory()`
+
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
 ## 충돌 보고서 탑재 내용
 
 충돌 보고서는 데이터를 `submitURL`에 `multipart/form-data` 형식으로 `POST` 방식의 요청을 보냅니다.

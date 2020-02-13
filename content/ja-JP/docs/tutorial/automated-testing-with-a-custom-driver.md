@@ -5,13 +5,13 @@ Electron アプリの自動テストを作成するには、アプリケーシ�
 カスタムドライバを作成するには、Node.js の [child_process](https://nodejs.org/api/child_process.html) API を使用します。 テストスイートは、以下のように Electron プロセスを spawn してから、簡単なメッセージングプロトコルを確立します。
 
 ```js
-var childProcess = require('child_process')
-var electronPath = require('electron')
+const childProcess = require('child_process')
+const electronPath = require('electron')
 
-// プロセスを spawn
-var env = { /* ... */ }
-var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-var appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
+// プロセスを生成
+let env = { /* ... */ }
+let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
 // アプリからの IPC メッセージをリッスンする
 appProcess.on('message', (msg) => {
@@ -50,7 +50,7 @@ class TestDriver {
     // rpc レスポンスをハンドル
     this.process.on('message', (message) => {
       // ハンドラを消去
-      var rpcCall = this.rpcCalls[message.msgId]
+      let rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -70,7 +70,7 @@ class TestDriver {
   // driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
     // rpc リクエストを送る
-    var msgId = this.rpcCalls.length
+    let msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -89,13 +89,13 @@ if (process.env.APP_TEST_DRIVER) {
 }
 
 async function onMessage ({ msgId, cmd, args }) {
-  var method = METHODS[cmd]
+  let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    var resolve = await method(...args)
+    let resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    var reject = {
+    let reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -116,10 +116,10 @@ const METHODS = {
 すると、テストスイート内では、以下のようにテストドライバを使用できます。
 
 ```js
-var test = require('ava')
-var electronPath = require('electron')
+const test = require('ava')
+const electronPath = require('electron')
 
-var app = new TestDriver({
+let app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

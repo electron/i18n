@@ -2,7 +2,7 @@
 
 ## Trovare Supporto
 
-Se hai un problema di sicurezza, vedi il [documento di sicurezza](../../SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussione con altri sviluppatori che usano Electron, puoi interagirci in queste posizioni:
 
@@ -17,7 +17,7 @@ Se stai cercando un aiuto di programmazione o vuoi partecipare ad una discussion
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Polonia)*
 
-Se vorresti contribuire ad Electron, vedi il [documento contributi](../../CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 Se hai trovato bug in una [versione supportata](#supported-versions) di Electron, riportalo con il [tracciatore di problemi](../development/issues.md).
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### Currently supported versions
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ Sia `ia32` (`x86`) che `x64` (`amd64`) binari sono forniti per Windows. [Electro
 
 I binari `ia32` (`i686`) e `x64` (`amd64`) di Electron sono compilati su Ubuntu 12.04, i binari `armv7l` sono compilati tramite ARM v7 con hard-float ABI e NEON per Debian Wheezy.
 
-[Fino alla release 2.0 di Electron](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron continuerà a rilasciare i binari `armv7l` con `arm` come semplice suffisso. Both binaries are identical.
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 Se il binario precompilato può essere eseguito su una distribuzione dipende dal fatto che la distribuzione includa le librerie a cui Electron è collegato dalla piattaforma di compilazione, quindi solo su Ubuntu 12.04 è garantita l'esecuzione, ma le seguenti piattaforme sono anche verificate per essere in grado di eseguire i binari precompilati di Electron:
 

@@ -42,9 +42,9 @@ Sa pahina 1.require('electron').remote.getGlobal ('sharedObject').someProperty =
 // Sa pahina2. console.log(require('electron').remote.getGlobal ('sharedObject').someProperty)
 ```
 
-## Ang aking window app's/tray na nawawala pagkatapos ng ilang minuto.
+## My app's tray disappeared after a few minutes.
 
-Nangyayari ito kapag ang variable na ginagamit upang i-imbak ang window/tray ay nakakakuha nakolekta ang basura.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na artikulo:
 
@@ -54,8 +54,8 @@ Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na ar
 Kung gusto mo ng isang mabilis na ayusin, maaari mong gawin ang mga variable global sa pamamagitan ng pagpapalit ng iyong code mula dito:
 
 ```javascript
-const { app, Tray } =kailangan ('electron')
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -64,9 +64,9 @@ app.on('ready', () => {
 sa ganito:
 
 ```javascript
-const { app, Tray } = kailangan('electron')
-hayaan ang tray = wala
-app.on('ready', () => {
+const { app, Tray } = require('electron')
+let tray = null
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })

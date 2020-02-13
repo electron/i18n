@@ -96,7 +96,7 @@ const electron = require('electron')
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 `</pre> 
 
 يجب أن تقوم ` main.js </ 0> بإنشاء النوافذ والتعامل مع جميع أحداث النظام الخاصة بك
@@ -105,14 +105,10 @@ app.on('ready', createWindow)
 النوافذ على نظام MacOS إذا نقر المستخدم على رمز التطبيق في قفص الاتهام.</p>
 
 <pre><code class="javascript">const { app, BrowserWindow } = require('electron')
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win
-
-function createWindow () {
-   // إنشاء نافذة المتصفح.
-  win = new BrowserWindow({
+  
+  function createWindow () {
+    // إنشاء نافذة طولها 800 وعرضها 600.
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -125,22 +121,14 @@ function createWindow () {
 
    // افتح DevTools.
   win.webContents.openDevTools()
-
-  // المنبعث عندما تكون النافذة مغلقة.
-  win.on('closed', () => {
-    // Dereference الكائن نافذة ، وعادة ما يمكنك تخزين النوافذ
-    // في مصفوفة إذا كان تطبيقك يدعم النوافذ المتعددة.
-    // عندما يجب عليك حذف العنصر المقابل.
-    win = null
-  })
 }
 
-// ستتم تسمية هذه الطريقة عندما ينتهي الإلكترون
-// التهيئة وجاهز لإنشاء نوافذ المتصفح.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 // لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// قم بإنهاء عند إغلاق كافة الإطارات.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
 // على macOS من الشائع للتطبيقات وشريط القوائم
    // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q
@@ -152,13 +140,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   //على macOS من الشائع إعادة إنشاء نافذة في التطبيق عندما
   //يتم النقر فوق رمز قفص الاتهام وليس هناك نوافذ أخرى مفتوحة.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// في هذا الملف ، يمكنك تضمين بقية العملية الرئيسية المحددة لتطبيقك
-// الشفرة. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
+// In this file you can include the rest of your app's specific main process
+// code. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
 `</pre> 
 
 وأخيرًا ، فإن ` index.html </ 0> هي صفحة الويب التي تريد إظهارها:</p>

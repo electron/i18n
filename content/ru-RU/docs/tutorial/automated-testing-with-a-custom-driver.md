@@ -5,15 +5,15 @@
 Чтобы создать собственный драйвер, мы будем использовать Node.js API [child_process](https://nodejs.org/api/child_process.html). Набор тестов вызовет процесс Electron, а затем установит простой протокол обмена сообщениями:
 
 ```js
-var childProcess = require('child_process')
-var electronPath = require('electron')
+const childProcess = require('child_process')
+const electronPath = require('electron')
 
-// создаем процесс
-var env = { /* ... */ }
-var stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-var appProcess = childProcess.spawn(electronPath, ['. app'], { stdio, env })
+// spawn the process
+let env = { /* ... */ }
+let stdio = ['inherit', 'inherit', 'inherit', 'ipc']
+let appProcess = childProcess.spawn(electronPath, ['./app'], { stdio, env })
 
-// лушаем IPC сообщений из приложения
+// listen for IPC messages from the app
 appProcess.on('message', (msg) => {
   // ...
 })
@@ -50,7 +50,7 @@ class TestDriver {
     // handle rpc responses
     this.process.on('message', (message) => {
       // pop the handler
-      var rpcCall = this.rpcCalls[message.msgId]
+      let rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
       // reject/resolve
@@ -70,7 +70,7 @@ class TestDriver {
   // to use: driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
     // send rpc request
-    var msgId = this.rpcCalls.length
+    let msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
   }
@@ -89,13 +89,13 @@ if (process.env.APP_TEST_DRIVER) {
 }
 
 async function onMessage ({ msgId, cmd, args }) {
-  var method = METHODS[cmd]
+  let method = METHODS[cmd]
   if (!method) method = () => new Error('Invalid method: ' + cmd)
   try {
-    var resolve = await method(...args)
+    let resolve = await method(...args)
     process.send({ msgId, resolve })
   } catch (err) {
-    var reject = {
+    let reject = {
       message: err.message,
       stack: err.stack,
       name: err.name
@@ -116,10 +116,10 @@ const METHODS = {
 Затем в тесте можно использовать тестовый драйвер следующим образом:
 
 ```js
-var test = require('ava')
-var electronPath = require('electron')
+const test = require('ava')
+const electronPath = require('electron')
 
-var app = new TestDriver({
+let app = new TestDriver({
   path: electronPath,
   args: ['./app'],
   env: {

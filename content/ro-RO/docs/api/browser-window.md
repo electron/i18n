@@ -154,7 +154,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
   * `autoHideMenuBar` Boolean(opțional) - Ascunde bara meniului până când tasta`Alt` este apasată. Modul implicit este `false-fals`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. Modul implicit este `false-fals`.
   * <backgroundColor</code> String (opțional) - Culoarea de fond a ferestrei ca valoare hexadecimală, ca ` #66CD00` sau ` #FFF` sau ` #80FFFFFF` ( alpha în #AARRGGBB formatul este suportat dacă `transparent` este setat la `true-adevărat`). Modul implicit este `#FFF` (alb).
-  * `hasShadow-are umbră` Boolean (opțional) - Daca fereastra ar trebui să aibă umbră. Aceasta este implementată doar în macOS. Modul implicit este ` true-adevărat`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity-opacitate` Number - Număr (opțional) - Setează opacitatea inițială a ferestrei între 0.0 ( transparent în întregime) și 1.0 (opac în totalitate). Acesta este implementat doar în Windows și macOS.
   * `darkTheme-tema închisă` Boolean (opțional) - Forțează utilizarea temei închise pentru fereastră, funcționează doar în câteva dintre mediile desktop-ului ale GTK +3. Modul implicit este ` false-fals`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). Modul implicit este `false-fals`. On Windows, does not work unless the window is frameless.
@@ -164,6 +164,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `hidden-ascuns` - Rezultă într-o bară de titlu ascunsă și într-o fereastră de conținut de dimensiuni complete, dar totuși bara titlului deține controlul standard al ferestrei ("traffic lights") în partea stângă din partea de sus.
     * `hiddenInset` - Rezultă într-o bară de titlu ascunsă cu o nouă alternativă de a privi unde butoanele traffic light - traficul luminilor, sunt ușor mai insetate de marginea ferestrei.
     * `customButtonsOnHover` Boolean (opțional) - Deschide personalizarea și minimizează butoanele în fereastra fară cadru macOS. Aceste butoane nu pot fi arătate doar dacă este planat în stânga de sus a ferestrei. Aceste butoane customizate previn evenimentele malițioase cu mouse-ul care se produc cu butoanele din bara de ustensile ale ferestrei standard. **Note:** Aceasta opțiune este de moment experimentală.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (opțional) - Arată titlul în bara de titlu în modul full screen - ecran complet în macOS pentru toate opțiunile `titleBarStyle`. Modul implicit este `false-fals`.
   * `thickFrame` Boolean (opțional) - Utilizează stilul `WS_THICKFRAME` pentru ferestrele fără cadru în Windows, care adaugă cadru standard al ferestrei. Setat la ` false-fals` va îndeparta umbra ferestrei și animațiile ferestrei. Modul implicit este `true-adevărat`.
   * `vibrancy` String (opțional) - Adaugă ferestrei un tip de efect vibrant, doar în macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
@@ -175,7 +176,7 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `nodeIntegrationInWorker` Boolean (opțional) - Dacă integrarea nodului este activată în web-ul muncitorilor. Modul implicit este `false-fals`. Mai multe despre acestea se pot regăsi în [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (opțional) - Opțiune experimentală pentru a activa suportul Node.js în sub-cadre ca și iframes și ferestre copil. Toate preîncărcarile tale se vor încărca pentru toate iframe-urile, poți utiliza`process.isMainFrame` pentru a determina dacă esti în cadrul principal sau nu.
     * `preload-preîncărcare` String (opțional) - Specifică un scenariu care va fi încărcat înaintea altor scenarii ce aleargă deja în pagină. Acest scenariu va avea mereu acces la nodul API, chiar dacă integrarea nodului este pornită sau nu. Valoarea ar trebui să fie calea absolută a fișierului pentru scenariu. Când integrarea nodurilor este oprită, preîncărcarea scenariului poate reintroduce un simbol global Nod înapoi în scopul global. Vezi exemplul [ aici](process.md#event-loaded).
-    * `sandbox` Boolean (opțional) - Dacă set- setează, acest lucru va face ca sandbox-cutie de nisip să redea asociarea cu fereastra, facând-o compatibilă cu Chromium OS-nivel sandbox și dezabilitând motorul Node.js. Acesta nu este la fel ca opțiunea `nodeIntegration` iar API-urile disponibile la preîncărcarea scenariului este limitată. Citește mai multe despre opțiune [aici](sandbox-option.md). **Notă:** Această curentă opțiune e experimentală și poate fi modificată sau eliminată în viitoarele realizări Electron.
+    * `sandbox` Boolean (opțional) - Dacă set- setează, acest lucru va face ca sandbox-cutie de nisip să redea asociarea cu fereastra, facând-o compatibilă cu Chromium OS-nivel sandbox și dezabilitând motorul Node.js. Acesta nu este la fel ca opțiunea `nodeIntegration` iar API-urile disponibile la preîncărcarea scenariului este limitată. Citește mai multe despre opțiune [aici](sandbox-option.md).
     * `enableRemoteModule` Boolean (opțional)- Activarea modului [` remote-de la distanță`](remote.md). Modul implicit este `true-adevărat`.
     * `session` [Session-Sesiune](session.md#class-session)(opțional) - Setează sesiunea utilizată de pagină. În loc să trimiți direct obiectul Session-Sesiune, poți alege să folosești în loc opțiunea `partition`, care acceptă o partiție a șirului. Atunci când sunt obținute`session-sesiune<code> și <code>partition-partiție`, <0>session</code> va fi cel preferat. Modul implicit este modul implicit al sesiunii.
     * `partition` String(opțional)- Setează sesiunea utilizată de pagină în conformitate cu partiția șirului sesiunii. Dacă `partition` începe cu `persist:`, pagina va utiliza o sesiune persistentă valabilă tuturor paginilor din interiorul aplicației cu aceași`partitio-partiție`. Dacă nu există prefixul `persist:`, pagina va folosi o sesiune în-memorie. Asignând aceași`partition-partiție`, pagini multiple pot arăta aceași sesiune. Modul implicit este modul implicit al sesiunii.
@@ -214,6 +215,8 @@ Crează un nou `BrowserWindow<code> cu propietăți native setate de către <0>o
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -334,14 +337,14 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
@@ -465,7 +468,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -615,6 +618,10 @@ win.excludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### Metode de Instanță
 
@@ -946,6 +953,12 @@ Sets whether the window should show always on top of other windows. After settin
 
 Returns `Boolean` - Whether the window is always on top of other windows.
 
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
+
 #### `win.moveTop()`
 
 Moves window to top(z-order) regardless of focus
@@ -1014,6 +1027,12 @@ Enters or leaves the kiosk mode.
 #### `win.isKiosk()`
 
 Returns `Boolean` - Whether the window is in kiosk mode.
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1201,7 +1220,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Obiect 
+* `Button` Object - Obiect 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (optional) - The text of the button's tooltip.
@@ -1230,7 +1249,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `opțiuni` Obiect 
+* `opțiuni` Object - Obiect 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
@@ -1289,7 +1308,7 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 * `visible` Boolean
 * `opțiuni` Object -Obiect (opțional) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 Sets whether the window should be visible on all workspaces.
 
@@ -1391,11 +1410,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` *Experimental*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 

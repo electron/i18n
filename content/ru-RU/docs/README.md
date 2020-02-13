@@ -45,6 +45,7 @@
   * [Нативное перетаскивание файла](tutorial/native-file-drag-drop.md)
   * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
   * [Поддержка Темного режима macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Доступность](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@
 * [Объект процесса](api/process.md)
 * [Поддерживаемые параметры командной строки](api/command-line-switches.md)
 * [Переменные окружения](api/environment-variables.md)
-* [Критические изменения в API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Критические изменения в API](breaking-changes.md)
 
 ### Пользовательские DOM-элементы:
 

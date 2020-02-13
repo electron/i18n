@@ -43,11 +43,12 @@ shell.openExternal('https://github.com')
 
 デスクトップのデフォルトの方法で、与えられた外部プロトコルの URL を開きます。(たとえば、ユーザーのデフォルトのメールエージェントの mailto: URL)。
 
-### `shell.moveItemToTrash(fullPath)`
+### `shell.moveItemToTrash(fullPath[, deleteOnFail])`
 
 * `fullPath` String
+* `deleteOnFail` Boolean (任意) - ゴミ箱が無効、またはそのボリュームでサポートされていない場合、その項目を一方的に削除するかどうか。*macOS*
 
-戻り値 `Boolean` - アイテムが正常にゴミ箱に移動されたかどうか.
+戻り値 `Boolean` - その項目が正常にゴミ箱に移動されたかどうか.
 
 指定されたファイルをゴミ箱に移動し、操作の状態の Boolean を返します。
 

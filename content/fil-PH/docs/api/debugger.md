@@ -48,7 +48,7 @@ Ibinabalik ang:
 
 * `event` na Kaganapan
 * `method` String - Pangalan ng sistematikong paraan.
-* `params` unknown - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `params` any - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever the debugging target issues an instrumentation event.
 

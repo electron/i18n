@@ -9,7 +9,7 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 * `opciones` Object 
   * `Etiqueta` Cadena (opcional) - tecto del botón en la notificación.
   * `ícono` [imagen nativa](native-image.md) (opcional) - ícono del botón de la notificación.
-  * `Elemento` [barra táctil](touch-bar.md) (opcional) - elementos a mostrar en la notificación.
+  * `items` [TouchBar](touch-bar.md) - Items to display in the popover.
   * `mostrar botón de cerrado` Booleano (opcional) - `verdad` para mostrar un botón de cerrado a la izquierda de la notificación, `falso` para no mostrarlo. Por defecto es `verdad`.
 
 ### Propiedades de Instancia

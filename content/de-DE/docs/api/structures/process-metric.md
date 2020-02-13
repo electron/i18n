@@ -1,7 +1,7 @@
 # ProcessMetric Objekt
 
 * `pid` Integer - Prozess Id des Prozesses.
-* `type` String - Process type. One of the following values: 
+* `type` String - Prozess-Typ. Einer der folgenden Werte: 
   * `Browser`
   * `Tab`
   * `Utility`
@@ -12,10 +12,10 @@
   * `Pepper Plugin Broker`
   * `Unknown`
 * `cpu` [CPUUsage](cpu-usage.md) - CPU-Auslastung des Prozesses.
-* `creationTime` Number - Creation time for this process. The time is represented as number of milliseconds since epoch. Since the `pid` can be reused after a process dies, it is useful to use both the `pid` and the `creationTime` to uniquely identify a process.
+* `CreationTime` Number - Erstellungszeit für diesen Prozess. Die Zeit wird seit der Epoche als Anzahl von Millisekunden dargestellt. Da die `pid` wiederverwendet werden kann, nachdem ein Prozess stirbt, ist es nützlich, sowohl `pid` als auch `creationTime` zu verwenden, um einen Prozess eindeutig zu identifizieren.
 * `memory` [MemoryInfo](memory-info.md) - Speicherinformationen für den Prozess.
 * `sandboxed` Boolean (optional) *macOS* *Windows* - Whether the process is sandboxed on OS level.
-* `integrityLevel` String (optional) *Windows* - One of the following values: 
+* `integrityLevel` String (optional) *Windows* - Einer der folgenden Werte: 
   * `untrusted`
   * `niedrig`
   * `medium`

@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+Sous Linux, il y a aussi un presse-papiers `sélection`. Pour le manipuler vous devez passer `selection` à chaque méthode :
 
 ```javascript
 const { clipboard } = require('electron')
@@ -20,37 +20,37 @@ Le module `clipboard` dispose des méthodes suivantes :
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Retourne `String` - Le contenu du presse-papiers en tant que texte brut.
 
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeText('hello i am a bit of text!')
+clipboard.writeText('bonjour je suis un peu de texte!')
 
-const text = clipboard.readText()
+const text = presse-papiers. eadText()
 console.log(text)
-// hello i am a bit of text!'
+// bonjour je suis un peu de texte !'
 ```
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit le `text` dans le presse-papiers au format texte brut.
 
 ```js
 const { clipboard } = require('electron')
 
-const text = 'hello i am a bit of text!'
+const text = 'bonjour je suis un peu de texte!'
 clipboard.writeText(text)
 ```
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Retourne `String` - Le contenu du presse-papiers en tant que balisage.
 
@@ -67,56 +67,56 @@ console.log(html)
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit le `markup` dans le presse-papiers.
 
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeHTML('<b>Hi</b')
+clipboard.writeHTML('<b>Bonjour</b')
 ```
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Retourne [`NativeImage`](native-image.md) - Le contenu de l'image du presse-papiers.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit l'`image` dans le presse-papiers.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Retourne `String` - Le contenu presse-papiers en RTF.
 
 ```js
 const { clipboard } = require('electron')
 
-clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}')
+clipboard.writeRTF('{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nCeci est du texte {\\b bold}. \par\n}')
 
 const rtf = clipboard.readRTF()
 console.log(rtf)
-// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}
+// {\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nIl s'agit de quelques {\\b bold} text.\\par\n
 ```
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit le `text` dans le presse-papiers en RTF.
 
 ```js
 const { clipboard } = require('electron')
 
-const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\fswiss Helvetica;}\\f0\\pard\nThis is some {\\b bold} text.\\par\n}'
+const rtf = '{\\rtf1\\ansi{\\fonttbl\\f0\\f0\\fswiss Helvetica;}\\f0\\pard\nCeci est un peu {\\b bold} text.\\par\n}'
 clipboard.writeRTF(rtf)
 ```
 
@@ -133,7 +133,7 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit le `title` et `url` dans le presse-papiers comme marque-page.
 
@@ -144,38 +144,38 @@ const { clipboard } = require('electron')
 
 clipboard.writeBookmark({
   text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
+  signet: 'Page d'accueil Electron'
 })
 ```
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard, which is the pasteboard that holds information about the current state of the active application’s find panel.
+Retourne `Chaîne de caractères` - Le texte sur le tableau de bord, qui est le presse-papier qui contient des informations sur l'état actuel du panneau de recherche de l'application active.
 
-This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Cette méthode utilise un IPC synchronisé lorsqu'il est appelé depuis le processus de rendu. La valeur mise en cache est relayée à partir du presse-papier de recherche chaque fois que l'application est activée.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-Writes the `text` into the find pasteboard (the pasteboard that holds information about the current state of the active application’s find panel) as plain text. This method uses synchronous IPC when called from the renderer process.
+Écrit le `texte` dans le presse-papier find (le presse-papier qui contient des informations sur l'état actuel du panneau de recherche de l'application active) en texte brut. Cette méthode utilise un IPC synchronisé lorsqu'il est appelé depuis le processus de rendu.
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Efface le contenu du presse-papiers.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Retourne `String[]` - Un tableau de format pris en charge pour le `type` du presse-papiers.
 
 ```js
 const { clipboard } = require('electron')
 
-const formats = clipboard.availableFormats()
+formats const = clipboard.availableFormats()
 console.log(formats)
 // [ 'text/plain', 'text/html' ]
 ```
@@ -183,7 +183,7 @@ console.log(formats)
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Retourne `Boolean` - Si le presse-papiers prend en charge le `format` spécifié.
 
@@ -192,7 +192,7 @@ const { clipboard } = require('electron')
 
 const hasFormat = clipboard.has('<p>selection</p>')
 console.log(hasFormat)
-// 'true' or 'false
+// 'true' ou 'false
 ```
 
 ### `clipboard.read(format)` *Experimental*
@@ -210,7 +210,7 @@ Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
 ```js
 const { clipboard } = require('electron')
 
-const buffer = Buffer.from('this is binary', 'utf8')
+const buffer = Buffer.from('c'est binary', 'utf8')
 clipboard.writeBuffer('public.utf8-plain-text', buffer)
 
 const ret = clipboard.readBuffer('public.utf8-plain-text')
@@ -223,7 +223,7 @@ console.log(buffer.equals(out))
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit le `buffer` dans le presse-papiers comme `format`.
 
@@ -241,22 +241,22 @@ clipboard.writeBuffer('public.utf8-plain-text', buffer)
   * `html` String (facultatif)
   * `image` [NativeImage](native-image.md) (facultatif)
   * `rtf` String (facultatif)
-  * `bookmark` String (optional) - The title of the URL at `text`.
-* `type` String (optional) - Can be `selection` or `clipboard`; default is 'clipboard'. `selection` is only available on Linux.
+  * `marque-page` String (facultatif) - Le titre de l'URL à `text`.
+* `type` String (facultatif) - Peut être `selection` ou `clipboard`; la valeur par défaut est 'clipboard'. `selection` n'est disponible que sous Linux.
 
 Écrit `data` dans le presse-papiers.
 
 ```js
 const { clipboard } = require('electron')
 
-clipboard.write({
+presse-papiers. rite({
   text: 'test',
   html: '<b>Hi</b>',
   rtf: '{\\rtf1\\utf8 text}',
-  bookmark: 'a title'
+  marque-page : 'un titre'
 })
 
-console.log(clipboard.readText())
+console. og(presse-papiers. eadText())
 // 'test'
 
 console.log(clipboard.readHTML())

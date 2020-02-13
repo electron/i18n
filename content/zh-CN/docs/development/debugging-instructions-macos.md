@@ -8,6 +8,12 @@
 
 * **Xcode**: 除了 Xcode，还安装 Xcode 命令行工具. 它们包括 LLDB，在 Mac OS X 的 Xcode 中的默认调试器。它支持在桌面和iOS设备和模拟器上调试 C，Objective-C 和 C++。
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## 附加并调试 Electron
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
@@ -84,6 +90,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 要完成此时的调试，运行 `process continue`。 你也可以继续，直到这个线程中的某一行被命中(`线程直到100`)。 此命令将在当前帧中运行线程，直到它到达此帧中的行100，或者如果它离开当前帧，则停止。
 

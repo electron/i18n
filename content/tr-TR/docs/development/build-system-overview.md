@@ -40,8 +40,9 @@ $ npm run build && npm test
 Test paketini belirli testi izole ederek veya hali hazırda kullandığınız Mocha' nın </a> özellikli  özel testlerini engelleyerek daha hızlı çalıştırabilirsiniz. Append `.only` to any `describe` or `it` function call:</p> 
 
 ```js
-describe.only('some feature', function () {
-  // ... sadece bu blok içindeki testler çalıştırılacak })
+describe.only('some feature', () => {
+  // ... only tests in this block will be run
+})
 ```
 
 Alternatif olarak, mocha'nın `grep` seçeneğini sadece verilen normal ifade modeliyle eşleşen testleri çalıştırmak için kullanabilirsiniz:

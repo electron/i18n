@@ -1,4 +1,4 @@
-tagline: Construa aplicativos desktop multiplataforma com JavaScript, HTML e CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplicativos
   blog: Blog
@@ -131,7 +131,7 @@ headings:
   languages: Idiomas
 taglines:
   languages: Conteúdo traduzido pela nossa incrível comunidade de desenvolvedores.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "Ajude a traduzir"
 footer:
   see_the_faq: Veja as perguntas frequentes
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: ou
 pages:
   '/':
-    title: Electron | Construa aplicativos multiplataformas com JavaScript, HTML e CSS.
-    description: 'Crie aplicativos desktop multiplataforma com JavaScript, HTML e CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Apps Electron
     description: Aplicativos feitos com Electron

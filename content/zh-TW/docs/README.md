@@ -45,6 +45,7 @@
   * [原生檔案拖放](tutorial/native-file-drag-drop.md)
   * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
   * [支援 macOS 的 Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [協助工具](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ These individual tutorials expand on topics discussed in the guide above.
 * [處理序物件](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [環境變數](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### 自訂 DOM 元素：
 

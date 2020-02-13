@@ -15,7 +15,7 @@ app.on('ready', async () => {
 })
 ```
 
-Voir [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) pour log les évènement réseau à travers le cycle de vie de l'application.
+Voir [`--log-net-log`](command-line-switches.md#--log-net-logpath) pour log les évènement réseau à travers le cycle de vie de l'application.
 
 **Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 

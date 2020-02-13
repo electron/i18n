@@ -2,7 +2,7 @@
 
 ## 寻找技术支持
 
-如果你有安全方面的问题，请阅读 [安全文档](../../SECURITY.md)。
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 如果你想获得编程方面的帮助、问题的答案亦或是想要加入Electron的开发者大家庭，您可以参考以下链接：
 
@@ -17,7 +17,7 @@
 * [`electron-id`](https://electron-id.slack.com) *(印尼语版)*
 * [`electron-pl`](https://electronpl.github.io) *(波兰语版)*
 
-如果你有意为加入Electron的开发，可参阅[贡献文档](../../CONTRIBUTING.md)
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 如果你在Electron的[支持版](#supported-versions)中发现漏洞，请在[问题追踪](../development/issues.md)中提交你发现的漏洞。
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### 当前支持的版本
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ All supported release lines will accept external pull requests to backport fixes
 
 Electron 的 `ia32` (`i686`) 和 `x64` (`amd64`) 预编译版本均是在Ubuntu 12.04 下编译的，`arm` 版的二进制文件是在 ARM v7（硬浮点 ABI 与 Debian Wheezy 版本的 NEON）下完成的。
 
-[在Electron 2.0的发布之前](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)，Electron 也会 继续用简单的` arm `后缀释放` armv7l `二进制文件。 两个二进制文件是相同的。
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. 两个二进制文件是相同的。
 
 预编译版本是否能够正常运行，取决于其中是否包含了编译平台的链接库。所以只有 Ubuntu 12.04 是可以保证能正常运行的，并且以下平台也被证实可以正常运行 Electron 的预编译版本：
 

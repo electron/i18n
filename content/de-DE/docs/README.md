@@ -1,6 +1,6 @@
 # Offizielle Anleitungen
 
-Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Andernfalls nutzen Sie möglicherweise unbeabsichtigt die Dokumentation einer Version von Electron, die Änderungen der API enthält, die mit Ihrer Version von Electron nicht kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
+Bitte nutze die Dokumentation, die mit der Version von Electron übereinstimmt. Die Versionsnummer sollte ein Bestandteil der Seiten-URL sein. Falls nicht, verwenden Sie möglicherweise die Dokumentation einer Development Variante, welche eventuell API Änderungen enthält, die nicht mit Ihrer Electron Version kompatibel sind. Um sich ältere Versionen der Dokumentation anzuschauen, können Sie auf GitHub [nach Tag filtern](https://github.com/electron/electron/tree/v1.4.0) indem Sie das Dropdownmenü "Switch branches/tags" öffnen und den Tag auswählen, der mit Ihrer Version übereinstimmt.
 
 ## Häufig gestellte Fragen
 
@@ -45,6 +45,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
   * [Natives Datei Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [MacOS Dunkler Modus unterstützen](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Zugänglichkeit](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Diese individuellen Tutorials bauen auf den Themen auf, die in dem Handbuch weit
 * [Prozess-Objekt](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Umgebungsvariablen](api/environment-variables.md)
-* [Breaking API Veränderungen](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Veränderungen](breaking-changes.md)
 
 ### Benutzerdefinierte DOM-Elemente:
 

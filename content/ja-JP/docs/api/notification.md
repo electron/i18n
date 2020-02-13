@@ -35,8 +35,10 @@
   * `silent` Boolean (任意) - 通知を表示するときにOSが通知音を鳴らすかどうか。
   * `icon` (String | [NativeImage](native-image.md)) (任意) - 通知に使用されるアイコン。
   * `hasReply` Boolean (任意) *macOS* - 通知に埋め込み返信オプションを追加するかどうか。
+  * `timeoutType` String (任意) *Linux* *Windows* - 通知の消失までの時間。'default' か 'never' にできます。
   * `replyPlaceholder` String (任意) *macOS* - 埋め込み返信入力フィールド内に書かれるプレースホルダ。
   * `sound` String (任意) *macOS* - 通知が表示されるときに再生される音声ファイルの名前。
+  * `urgency` String (任意) *Linux* - 通知の緊急度レベル。'normal'、'critical'、'low' のいずれかにできます。
   * `actions` [NotificationAction[]](structures/notification-action.md) (任意) *macOS* - 通知に追加するアクション。 `NotificationAction` ドキュメント内の有効なアクションと制限を読んで下さい。
   * `closeButtonText` String (任意) *macOS* - アラートの閉じるボタンのカスタムタイトル。 空の文字列を使用すると、デフォルトのローカライズされたテキストが使用されます。
 
@@ -135,6 +137,18 @@ HTML5 Notification の実装とは異なり、`new Notification` でインスタ
 #### `notification.hasReply`
 
 通知に応答アクションがあるかどうかを表す `Boolean` プロパティ。
+
+#### `notification.urgency` *Linux*
+
+通知の緊急度レベルを表す `String`。'normal'、'critical'、'low' のいずれかにできます。
+
+省略値は 'low' - この詳細は [NotifyUrgency](https://developer.gnome.org/notification-spec/#urgency-levels) を参照してください。
+
+#### `notification.timeoutType` *Linux* *Windows*
+
+通知の消失までの時間を表す `String`。'default' か 'never' にできます。
+
+`timeoutType` が 'never' に設定されている場合、通知は自動的に閉じられません。呼び出し元の API かユーザによって閉じられるまで開いたままになります。
 
 #### `notification.actions`
 

@@ -6,11 +6,11 @@ We don't currently have an estimate of when we will enable the `NetworkService` 
 
 The content of this document should be moved to `protocol.md` after we have enabled the `NetworkService` by default in Electron.
 
-> Register a custom protocol and intercept existing protocol requests.
+> Enregistrez un protocole personnalisé et interceptez les requêtes de protocole existantes.
 
 Processus : [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Un exemple d'implémentation d'un protocole qui a le même effet que le protocole `file://` :
 
 ```javascript
 const { app, protocol } = require('electron')
@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 **Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 
-## Using `protocol` with a custom `partition` or `session`
+## Utiliser `protocole` avec une `partition` personnalisée ou `session`
 
 A protocol is registered to a specific Electron [`session`](./session.md) object. If you don't specify a session, then your `protocol` will be applied to the default session that Electron uses. However, if you define a `partition` or `session` on your `browserWindow`'s `webPreferences`, then that window will use a different session and your custom protocol will not work if you just use `electron.protocol.XXX`.
 
@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 Le module `protocol` dispose des méthodes suivantes :
 
-### `protocol.registerSchemesAsPrivileged(customSchemes)`
+### `protocol.registerSchemesAsPriviled(customSchemes)`
 
 * `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
@@ -66,15 +66,15 @@ An example of registering a privileged scheme, that bypasses Content Security Po
 ```javascript
 const { protocol } = require('electron')
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'foo', privileges: { bypassCSP: true } }
+  { scheme: 'foo', privilèges: { bypassCSP: true } }
 ])
 ```
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Un schéma standard adhère à ce que la RFC 3986 appelle la syntaxe [générique de l'URI ](https://tools.ietf.org/html/rfc3986#section-3). Par exemple `http` et `https` sont des schémas standard, alors que `file` ne l'est pas.
 
-Registering a scheme as standard allows relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Registering a scheme as standard allows relative and absolute resources to be resolved correctly when served. Sinon, le schéma se comportera comme le protocole `fichier`, mais sans la possibilité de résoudre les URL relatives.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Par exemple lorsque vous chargez la page suivante avec un protocole personnalisé sans l'enregistrer en tant que schéma standard, l'image ne sera pas chargée car les schémas non standards ne peuvent pas reconnaître les URL relatives :
 
 ```html
 <body>
@@ -82,7 +82,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+L'enregistrement d'un schéma en tant que standard permettra l'accès aux fichiers via l'API [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Sinon, le moteur de rendu lancera une erreur de sécurité pour le schéma.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
@@ -96,7 +96,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 
 Registers a protocol of `scheme` that will send a file as the response. The `handler` will be called with `request` and `callback` where `request` is an incoming request for the `scheme`.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The `filePath` must be an absolute path.
+Pour gérer la `requête`, la `callback` doit être appelée soit avec le chemin du fichier, soit avec un objet qui a une propriété `chemin`. . `callback(filePath)` ou `callback({ path: filePath })`. The `filePath` must be an absolute path.
 
 By default the `scheme` is treated like `http:`, which is parsed differently from protocols that follow the "generic URI syntax" like `file:`.
 
@@ -108,7 +108,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently fro
   * `callback` Function
     * `response` (Buffer | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+Enregistre un protocole de `schéma` qui enverra un `Buffer` en tant que réponse.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data` property.
 
@@ -128,7 +128,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `callback` Function
     * `response` (String | [ProtocolResponse](structures/protocol-response.md))
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Enregistre un protocole de `schéma` qui enverra une `String` en tant que réponse.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data` property.
 
@@ -140,7 +140,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
   * `callback` Function
     * `response` ProtocolResponse
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Enregistre un protocole de `schéma` qui enverra une requête HTTP en réponse.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with an object that has the `url` property.
 
@@ -192,7 +192,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `scheme` String
 
-Unregisters the custom protocol of `scheme`.
+Enregistre le protocole personnalisé de `schéma`.
 
 ### `protocol.isProtocolRegistered(scheme)`
 

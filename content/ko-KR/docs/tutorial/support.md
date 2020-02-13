@@ -1,23 +1,23 @@
-# Electron Support
+# Electron 지원
 
-## Finding Support
+## 지원 찾기
 
-보안 문제가 있다면, [security document](../../SECURITY.md)를 참조하세요.
+만약 보안이 걱정되신다면 [보안 문서](https://github.com/electron/electron/tree/master/SECURITY.md)를 참고해주세요.
 
 프로그래밍 도움말, 질문에 대한 답변 또는 Electron을 사용하는 다른 개발자와 토론에 참여하려는 경우, 다음 위치에서 커뮤니티와 상호 작용할 수 있습니다.
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* `#electron` channel on [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* Atom 포럼의 [`electron`](https://discuss.atom.io/c/electron) 카테고리
+* Freenode의 `#atom-shell` 채널
+* [Atom's Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406)의 `#electron` 채널
+* [`electron-ru`](https://telegram.me/electron_ru) *(러시아어)*
+* [`electron-br`](https://electron-br.slack.com) *(브라질 포르투갈어)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(한국어)*
+* [`electron-jp`](https://electron-jp.slack.com) *(일본어)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(터키어)*
+* [`electron-id`](https://electron-id.slack.com) *(인도네시아어)*
+* [`electron-pl`](https://electronpl.github.io) *(폴란드어)*
 
-Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.md)를 보십시오.
+만약 Electron에 기여하고 싶으시다면 [기여하기 문서](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)를 참고해주세요.
 
 [supported version](#supported-versions) Electron에서 버그를 발견 한다면, [issue tracker](../development/issues.md)에 보고해 주세요.
 
@@ -25,19 +25,19 @@ Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.m
 
 ## 지원되는 버전
 
-The latest three *stable* major versions are supported by the Electron team. For example, if the latest release is 6.x.y, then the 5.x.y as well as the 4.x.y series are supported.
+마지막 세번의 *안정화* 주요 버전은 Electron 팀이 지원합니다. 예를 들어 마지막 릴리스가 6.x.y 라면 5.x.y와 4.x.y 시리즈까기 지원됩니다.
 
-The latest stable release unilaterally receives all fixes from `master`, and the version prior to that receives the vast majority of those fixes as time and bandwidth warrants. The oldest supported release line will receive only security fixes directly.
+마지막 안정화 릴리스는 `master`에서 모든 수정사항을 일방적으로 받고 있으며, 그 이전 버전은 대부분의 수정 사항을 시간 및 대역폭 보증으로 받습니다. 가장 오래된 지원 릴리스 라인은 보안 수정사항만 직접 받습니다.
 
-All supported release lines will accept external pull requests to backport fixes previously merged to `master`, though this may be on a case-by-case basis for some older supported lines. All contested decisions around release line backports will be resolved by the [Releases Working Group](https://github.com/electron/governance/tree/master/wg-releases) as an agenda item at their weekly meeting the week the backport PR is raised.
+지원되는 모든 릴리스 라인은 이전에 `master`에 병합된 수정 사항을 백포트하기 위한 외부 pull request를 수락하지만, 이는 일부 이전 지원되는 라인의 경우 사례에 따라 다를 수 있습니다. 릴리스 라인 백 포트와 관련된 모든 결정은 [릴리즈 워킹 그룹](https://github.com/electron/governance/tree/master/wg-releases)에 의해 백포트 PR이 제기되는 주별 회의에서 의제 항목으로 해결됩니다.
 
-### Currently supported versions
+### 현재 지원되는 버전
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
-### End-of-life
+### 생애 종료
 
 Release branch에서 지원주기가 끝나면, 이 시리즈는 NPM에서 더이상 사용되지 않게 설정되며, 최종 지원 배포가 만들어질 것 입니다. 이 릴리스에서는 지원되지 않는 버전의 Electron이 사용 중임을 알리는 경고가 추가됩니다.
 
@@ -57,16 +57,16 @@ MacOS에는 64 비트 바이너리만 제공되며, 최소 버전은 macOS 10.10
 
 Windows 7 이상을 지원하며, 이전 버전의 Os는 지원하지 않습니다(그리고 동작하지 않음).
 
-32비트 `ia32` (`x86`) 와 64비트 `x64` (`amd64`) 바이너리가 둘다 제공됩니다. [Electron 6.0.8 and later add native support for Windows on Arm (`arm64`) devices](windows-arm.md). Running apps packaged with previous versions is possible using the ia32 binary.
+32비트 `ia32` (`x86`) 와 64비트 `x64` (`amd64`) 바이너리가 둘다 제공됩니다. [Electron 6.0.8 이후부터 Arm (`arm64`) 기기의 Windows 네이티브 지원이 추가됩니다](windows-arm.md). 이전 버전으로 패키징된 앱을 실행하는 것은 가능하지만 ia32 바이너리를 사용할 수 있습니다.
 
 ### Linux
 
 Prebuilt `ia32` (`i686`) 과 `x64` (`amd64`) Electron 바이너리는 Ubuntu 12.04에서 빌드 되었으며, `armv7l`바이너리는 hard-float ABI가 있는 ARM v7 및 Debian Wheezy의 NEON 용으로 제작되었습니다.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Electron 2.0의 릴리스까지](../breaking-changes.md#duplicate-arm-assets) Electron은 `arm`접미사가 있는 `armv7l` 바이너리를 릴리스를 계속하게 됩니다. 두 바이너리는 동일합니다.
 
 사전 빌드 된 바이너리가 배포판에서 실행될 수 있는지 여부는 배포판에 Electron이 빌드중인 플랫폼에서 링크된 라이브러리가 포함되어 있는지 여부에 따라 달라지므로, Ubuntu 12.04에서 작동하도록 보장될 뿐만 아니라, 다음 플랫폼 또한 Electron의 사전 작성된 바이너리를 실행할 수 있음을 검증했습니다:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 이후
 * Fedora 21
 * Debian 8

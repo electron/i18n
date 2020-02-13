@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-밑의 예시는 마지막 윈도우가 종료되었을 때, 애플리케이션을 종료시키는 예시입니다:
+다음은 마지막 윈도우를 닫을 때 애플리케이션도 종료하는 예시입니다.
 
 ```javascript
 const { app } = require('electron')
@@ -92,7 +92,7 @@ Returns:
 * `event` Event
 * `url` String
 
-사용자가 애플리케이션을 URL과 함께 열었을 때 발생합니다. Your application's `Info.plist` file must define the URL scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+사용자가 애플리케이션을 URL과 함께 열었을 때 발생합니다. `Info.plist` 파일의 `CFBundleURLTypes`키에 반드시 URL scheme을 정의해야 합니다. 그리고 `NSPrincipalClass`을 `AtomApplication`으로 설정해야 합니다.
 
 이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
@@ -111,7 +111,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` unknown - 다른 장치의 활동에 의해 저장된 앱별 상태를 포함합니다.
 
 다른 기기에서의 작업을 가져와서 이어서 진행하려는 경우, [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 도중에 발생합니다. 이 이벤트를 핸들링하려면 `event.preventDefault()`를 반드시 호출해야합니다.
 
@@ -142,7 +142,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - 활동에 의해 저장된 앱별 상태를 포함합니다.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)중인 디바이스의 액티비티를, 다른 디바이스에서 계속하는 데 성공한 뒤 발생합니다.
 
@@ -152,7 +152,7 @@ Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` unknown - Contains app-specific state stored by the activity.
+* `userInfo` unknown - 활동에 의해 저장된 앱별 상태를 포함합니다.
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)가 다른 기기에서 재시작될 때 발생합니다. 송신된 정보를 업데이트할 필요가 있다면, 즉시 `event.preventDefault()`를 호출해주십시오. 그리고, 새 `userInfo` 딕셔너리를 구성하여, `app.updateCurrentActivity()`를 시의적절하게 호출해주십시오. 그렇지 않으면 명령이 실패하여, `continue-activity-error` 가 호출됩니다.
 
@@ -254,7 +254,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### 이벤트: 'login'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -283,11 +283,11 @@ app.on('login', (event, webContents, details, authInfo, callback) => {
 })
 ```
 
-If `callback` is called without a username or password, the authentication request will be cancelled and the authentication error will be returned to the page.
+사용자 이름이나 비밀번호 없이 `콜백`을 호출하면 인증 요청이 취소되고 인증 오류가 페이지로 반환됩니다.
 
-### Event: 'gpu-info-update'
+### 이벤트: 'gpu-info-update'
 
-Emitted whenever there is a GPU info update.
+GPU 정보 업데이트가 있을 때마다 발생합니다.
 
 ### 이벤트: 'gpu-process-crashed'
 
@@ -296,9 +296,9 @@ Returns:
 * `event` Event
 * `killed` Boolean
 
-Emitted when the GPU process crashes or is killed.
+GPU 프로세스가 충돌하거나 종료될 때 발생합니다.
 
-### Event: 'renderer-process-crashed'
+### 이벤트: 'renderer-process-crashed'
 
 Returns:
 
@@ -306,7 +306,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `killed` Boolean
 
-Emitted when the renderer process of `webContents` crashes or is killed.
+`webContents`의 렌더러 프로세스가 충돌하거나 종료될 때 발생합니다.
 
 ### 이벤트: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -328,7 +328,7 @@ Electron이 새 `session`을 만들었을 때 발생합니다.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -341,24 +341,24 @@ Returns:
 * `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
 * `workingDirectory` String - 두 번재 instance의 작업 디렉토리입니다.
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed and calls `app.requestSingleInstanceLock()`.
+이 이벤트는 어플리케이션의 두번째 인스턴스가 실행되고 `app.requestSingleInstanceLock()`를 호출하면 첫번째 인스턴스에서 발생한다.
 
-`argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`argv`는 두번째 인스턴스의 명령행 인수의 배열입니다. `workingDirectory`는 이 인스턴스의 작업 디렉토리입니다. 일반적으로 어플리케이션은 기본 창에 초점을 맞추고 최소화하지 않도록하여 이에 응답합니다.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+이 이벤트는 `앱`의 `준비`이벤트가 생성된 후에 생성됩니다.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**참고:** 추가 명령 줄 인수는 `-original-process-start-time`과 같은 Chromium에 의해 추가 될 수 있습니다.
 
-### Event: 'desktop-capturer-get-sources'
+### 이벤트: 'desktop-capturer-get-sources'
 
 Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+`webContents`의 렌더러 프로세스에서 `desktopCapturer.getSources()`가 호출될때 발생합니다. `event.preventDefault()`를 호출하면 빈 소스를 반환합니다.
 
-### Event: 'remote-require'
+### 이벤트: 'remote-require'
 
 Returns:
 
@@ -366,9 +366,9 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents`의 렌더러 프로세스에서 `remote.require()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### Event: 'remote-get-global'
+### 이벤트: 'remote-get-global'
 
 Returns:
 
@@ -376,9 +376,9 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents`의 렌더러 프로세스에서 `remote.getGlobal()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the global from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### Event: 'remote-get-builtin'
+### 이벤트 'remote-get-builtin'
 
 Returns:
 
@@ -386,27 +386,27 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents`의 렌더러 프로세스에서 `remote.getBuiltin()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### Event: 'remote-get-current-window'
-
-Returns:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents'
+### 이벤트: 'remote-get-current-window'
 
 Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents`의 렌더러 프로세스에서 `remote.getCurrentWindow()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-### Event: 'remote-get-guest-web-contents'
+### 이벤트: 'remote-get-current-web-contents'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+`webContents`의 렌더러 프로세스에서 `remote.getCurrentWebContents()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+
+### 이벤트: 'remote-get-guest-web-contents'
 
 Returns:
 
@@ -414,9 +414,9 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
-## 메소드
+## 메서드
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
 
@@ -465,7 +465,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+일렉트론이 초기화될 때 이행(fulfilled)되는 `Promise<void>`를 반환합니다. `app.isReady()`를 확인하고 앱이 준비되지 않았을 때 `ready` 이벤트를 구독하는 작업 대신 편리하게 사용할 수 있습니다.
 
 ### `app.focus()`
 
@@ -556,9 +556,9 @@ Returns `String` - The version of the loaded application. If no version is found
 
 Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+`package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.setName(name)`
 
@@ -566,13 +566,15 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 Overrides the current application's name.
 
-**[Deprecated](modernization/property-updates.md)**
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
@@ -637,6 +639,14 @@ This method checks if the current executable is the default handler for a protoc
 **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
 
 The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -757,14 +767,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 두 번째 인스턴스를 만들려고 하면 원래 있던 윈도우에 포커스를 준다.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // myWindow를 만들고 나머지 과정을 처리한다.
   app.on('ready', () => {
   })
 }
@@ -847,7 +857,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Can be `basic` or `complete`.
+* `infoType` String - `basic` 또는 `complete`.
 
 Returns `Promise<unknown>`
 
@@ -888,17 +898,17 @@ machineModelVersion: '11.5' }
 
 현재 앱의 배지의 수를 설정합니다. `0`으로 설정하여 배지를 숨길 수 있습니다.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+MacOS에서는 Dock 아이콘 위에 표시되고, Linux에서는 Unity 런처를 사용할 때만 표시됩니다.
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
 Returns `Integer` - The current value displayed in the counter badge.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.isUnityRunning()` *Linux*
 
@@ -951,7 +961,7 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
@@ -959,33 +969,35 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
 
-This API must be called after the `ready` event is emitted.
+이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `options` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. 이는 맥OS에서 앱의 `.plist`에 정의된 값을 덮어쓸 것입니다. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
+
+만약 `credits`을 설정하지 않았지만 계속해서 앱에 표시하려면 AppKit은 "Credits.html", "Credits.rtf", "Credits.rtfd"의 순서로 NSBundle클래스의 main 메소드에서 리턴된 번들에서 이를 찾는다. 첫번째 파일을 사용하고 만약 없다면 정보 영역을 비어있게 된다. 더 많은 정보는 애플의 [문서](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc)를 확인하세요.
 
 ### `app.isEmojiPanelSupported()`
 
-Returns `Boolean` - whether or not the current OS version allows for native emoji pickers.
+반환 `Boolean` - 현재 OS 버전에서 기본 이모티콘 선택기를 사용할 수 있는지 여부
 
 ### `app.showEmojiPanel()` *macOS* *Windows*
 
@@ -1006,7 +1018,7 @@ stopAccessingSecurityScopedResource()
 
 Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
-### `app.enableSandbox()` *Experimental*
+### `app.enableSandbox()` *실험적*
 
 Enables full sandbox mode on the app.
 
@@ -1053,13 +1065,13 @@ Would mean that if an app already exists in the user directory, if the user choo
 
 ### `app.accessibilitySupportEnabled` *macOS* *Windows*
 
-A `Boolean` property that's `true` if Chrome's accessibility support is enabled, `false` otherwise. This property will be `true` if the use of assistive technologies, such as screen readers, has been detected. Setting this property to `true` manually enables Chrome's accessibility support, allowing developers to expose accessibility switch to users in application settings.
+`Boolean` 속성이며 Chrome의 접근성 지원이 활성화되어 있으면 `true`, 그 외에는 `false`다. 만약 스크린 리더와 같은 보조기술을 사용이 탐지되면 이 속성은 `true`가 된다. 이 속성을 `true`로 설정하여 Chrome의 접근성 지원을 수동으로 활성화하며 개발자가 앱 설정에서 접근성 스위치를 사용자에게 제공할 수 있도록 합니다.
 
-See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+더 자세한 내용은 [Chromium의 접근성 문서](https://www.chromium.org/developers/design-documents/accessibility) 참고하세요. 기본값으로 비활성화 됩니다.
 
-This API must be called after the `ready` event is emitted.
+이 API는 `ready` 이벤트가 발생한 후에 호출해야 합니다.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**주의:** 접근성 트리를 렌더링하는 것은 당신앱의 성능에 중대한 영향을 줄 수 있습니다. 기본으로 활성화하지 마세요.
 
 ### `app.applicationMenu`
 
@@ -1073,23 +1085,23 @@ On macOS, setting this with any nonzero integer shows on the dock icon. On Linux
 
 **주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
-### `app.commandLine` *Readonly*
+### `app.commandLine` *읽기전용*
 
 A [`CommandLine`](./command-line.md) object that allows you to read and manipulate the command line arguments that Chromium uses.
 
-### `app.dock` *macOS* *Readonly*
+### `app.dock` *macOS* *읽기전용*
 
 A [`Dock`](./dock.md) object that allows you to perform actions on your app icon in the user's dock on macOS.
 
-### `app.isPackaged` *Readonly*
+### `app.isPackaged` *읽기전용*
 
 앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. 다수의 앱에서, 이 속성은 개발 환경과 제품 환경을 구분하는데 사용될 수 있습니다.
 
 ### `app.name`
 
-A `String` property that indicates the current application's name, which is the name in the application's `package.json` file.
+현재 애플리케이션의 이름을 가리키는 `String` 프로퍼티입니다. 애플리케이션의 `package.json` 파일에 있는 이름을 사용합니다.
 
-Usually the `name` field of `package.json` is a short lowercase name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+`package.json`의 `name` 필드는 npm 모듈 명세에 따라 대체로 짧은 소문자 문자열입니다. 애플리케이션 이름에 대문자를 포함하고 싶다면 `productName` 필드에 값을 설정하세요. 일렉트론을 이 필드의 값을 `name` 필드보다 우선 사용합니다.
 
 ### `app.userAgentFallback`
 

@@ -2,7 +2,7 @@
 
 [Online and offline event](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) detection can be implemented in the renderer process using the [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) attribute, part of standard HTML5 API. The `navigator.onLine` attribute returns `false` if any network requests are guaranteed to fail i.e. definitely offline (disconnected from the network). It returns `true` in all other cases. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
 
-Example:
+Exemplu:
 
 *main.js*
 
@@ -11,7 +11,7 @@ const { app, BrowserWindow } = require('electron')
 
 let onlineStatusWindow
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
@@ -45,8 +45,8 @@ There may be instances where you want to respond to these events in the main pro
 const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
-app.on('ready', () => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+app.whenReady().then(() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 

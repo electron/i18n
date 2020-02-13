@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 Il file `main.js` dovrebbe creare le finestre e gestire tutti gli eventi di sistema dell'applicazione. Una versione più completa dell'esempio precedente potrebbe aprire gli strumenti di sviluppo, gestire la finestra chiusa o ricreare finestre su macOS se l'utente fa clic sull'icona dell'app nel dock.
@@ -102,13 +102,9 @@ Il file `main.js` dovrebbe creare le finestre e gestire tutti gli eventi di sist
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Mantiene un riferimento globale all'oggetto window, se non lo fai, la finestra sarà
-// chiusa automaticamente quando l'oggetto JavaScript sarà garbage collected.
-let win
-
 function createWindow () {
-  // Creazione della finestra del browser.
-  win = new BrowserWindow({
+  // Crea la finestra del browser
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,27 +112,19 @@ function createWindow () {
     }
   })
 
-  // e carica l'index.html dell'app.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Apre il Pannello degli Strumenti di Sviluppo.
   win.webContents.openDevTools()
-
-  // Emesso quando la finestra viene chiusa.
-  win.on('closed', () => {
-    // Eliminiamo il riferimento dell'oggetto window;  solitamente si tiene traccia delle finestre
-    // in array se l'applicazione supporta più finestre, questo è il momento in cui 
-    // si dovrebbe eliminare l'elemento corrispondente.
-    win = null
-  })
 }
 
-// Questo metodo viene chiamato quando Electron ha finito
-// l'inizializzazione ed è pronto a creare le finestre browser.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 // Alcune API possono essere utilizzate solo dopo che si verifica questo evento.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// Terminiamo l'App quando tutte le finestre vengono chiuse.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // Su macOS è comune che l'applicazione e la barra menù 
   // restano attive finché l'utente non esce espressamente tramite i tasti Cmd + Q
@@ -148,13 +136,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // Su macOS è comune ri-creare la finestra dell'app quando
   // viene cliccata l'icona sul dock e non ci sono altre finestre aperte.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// in questo file possiamo includere il codice specifico necessario 
-// alla nostra app. Si può anche mettere il codice in file separati e richiederlo qui.
+// In this file you can include the rest of your app's specific main process
+// code. Si può anche mettere il codice in file separati e richiederlo qui.
 ```
 
 Infine il file `index. html` è la pagina web che si desidera visualizzare:

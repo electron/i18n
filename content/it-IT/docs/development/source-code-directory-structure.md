@@ -8,7 +8,48 @@ Ti potrebbe essere richiesta una maggiore conoscenza dell'architettura multi-pro
 
 ```diff
 Electron
-├── atom/ - Codice sorgente C++.
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
+├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── default_app/ - A default app run when Electron is started without
+|                  providing a consumer app.
+├── docs/ - Electron's documentation.
+|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
+|   ├── development/ - Documentation to aid in developing for and with Electron.
+|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
+|   ├── images/ - Images used in documentation.
+|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── lib/ - JavaScript/TypeScript source code.
+|   ├── browser/ - Main process initialization code.
+|   |   ├── api/ - API implementation for main process modules.
+|   |   └── remote/ - Code related to the remote module as it is
+|   |                 used in the main process.
+|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── api/ - API implementation for modules that can be used in
+|   |              both the main and renderer processes
+|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
+|   |                        contextIsolation is enabled.
+|   ├── renderer/ - Renderer process initialization code.
+|   |   ├── api/ - API implementation for renderer process modules.
+|   |   ├── extension/ - Code related to use of Chrome Extensions
+|   |   |                in Electron's renderer process.
+|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   |             the main process.
+|   |   └── web-view/ - Logic that handles the use of webviews in the
+|   |                   renderer process.
+|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
+|   |   |                     processes.
+|   |   └── api/ - API implementation for sandboxed renderer processes.
+|   └── worker/ - Logic that handles proper functionality of Node.js
+|                 environments in Web Workers.
+├── patches/ - Patches applied on top of Electron's core dependencies
+|   |          in order to handle differences between our use cases and
+|   |          default functionality.
+|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
+|   ├── chromium/ - Patches applied to Chromium.
+|   ├── node/ - Patches applied on top of Node.js.
+|   └── v8/ - Patches applied on top of Google's V8 engine.
+├── shell/ - C++ source code.
 |   ├── app/ - Codice di immissione del sistema.
 |   ├── browser/ - Il frontend, che include la finestra principale, l'interfaccia utente,  e tutto ciò 
 |   |   |         che riguarda il processo principale. Questo parla con il renderer per gestire le pagine web.
@@ -27,34 +68,35 @@ Electron
 |       |         dei messaggi dei nodi nel loop dei messaggi di Chromium.
 |       └── api/ - L'implementazione delle API comuni e le foundation dei
 |                  moduli base di Electron.
-├── chromium_src/ - Codice sorgente preso da Chromium. Vedi sotto.
-├── default_app/ - La pagina predefinita da visualizzare quando Electron viene avviato senza
-|                  indicare un'applicazione.
-├── docs/ - Documentazione.
-├── lib/ - Codice sorgente JavaScript.
-|   ├── browser/ - Codice Javascript per l'inizializzazione del processo principale.
-|   |   └── api/ - Implementazione API Javascript.
-|   ├── common/ - JavaScript utilizzato sia dai processi principali che dal renderer
-|   |   └── api/ - implementazione API Javascript.
-|   └── renderer/ - Codice Javascript per l'inizializzazione del processo del renderer.
-|       └── api/ - Implementazione API Javascript.
-├── spec/ - Test automatizzati.
+├── spec/ - Components of Electron's test suite run in the renderer process.
+├── spec-main/ - Components of Electron's test suite run in the main process.
 └── BUILD.gn - Regole di compilazione di Electron.
 ```
 
-## `/chromium_src`
-
-I file in `/chromium_src` sono di solito parti di Chromium che non appartengono al livello dei contenuti. Per esempio, nell'implementazione delle Pepper API abbiamo bisogno di connessioni implementate in maniera del tutto simile a quella adottata dalla distribuzione ufficiale di Chrome. Avremmo potuto compilare le parti più importanti dei sorgenti includendole in [libcc](../glossary.md#libchromiumcontent) ma molto spesso non abbiamo bisogno di tutte le funzionalità (alcune in effetti sembrano codice proprietario, con funzioni di analisi statistica), così abbiamo preso solo alcune parti del codice. Queste avrebbero potuto essere implementate come patch di libcc, ma quando furono scritte uno degli obiettivi principali di libcc era di avere patch di dimensioni molto ridotte, mentre i cambiamenti apportati a chromium_src sono di solito importanti. Inoltre le patch non sarebbero mai entrate a far parte della distribuzione principale, a differenza delle altre patch di libcc che manteniamo abitualmente.
-
 ## Struttura delle altre cartelle
 
-* **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
-* **strumenti** - Script di Helper utilizzati dai file GN, a differenza di `script`, gli script inseriti qui non dovrebbero mai essere invocati direttamente dagli utenti.
-* **vendor** - Codice sorgente di dipendenze di terze parti, non abbiamo utilizzato `third_party` come nome perché confonderebbe la stessa directory nell'albero di codice sorgente di Chromium.
-* **node_modules** - Moduli di terze parti usati per la compilazione.
-* **out** - Directory temporanea di output di `ninja`.
+* **.circleci** - Config file for CI with CircleCI.
+* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - Cartella temporanea creata dallo script `script/create-dist.py` all'atto della creazione di una distribuzione.
 * **external_binaries** - Codice binario di framework di terze parti che non è possibile compilare con `gn`.
+* **node_modules** - Moduli di terze parti usati per la compilazione.
+* **npm** - Logic for installation of Electron via npm.
+* **out** - Directory temporanea di output di `ninja`.
+* **script** - Script usati per finalità di sviluppo come compilazione, assemblaggio dei pacchetti, testing, ecc.
+
+```diff
+script/ - The set of all scripts Electron runs for a variety of purposes.
+├── codesign/ - Fakes codesigning for Electron apps; used for testing.
+├── lib/ - Miscellaneous python utility scripts.
+└── release/ - Scripts run during Electron's release process.
+    ├── notes/ - Generates release notes for new Electron versions.
+    └── uploaders/ - Uploads various release-related files during release.
+```
+
+* **strumenti** - Helper scripts used by GN files. 
+  * Scripts put here should never be invoked by users directly, unlike those in `script`.
+* **typings** - TypeScript typings for Electron's internal code.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
 ## Mantenere aggiornate le dipendenze dei moduli in Git
 
@@ -63,8 +105,8 @@ Il repository di Electron dipende anche da software di terze parti, che è possi
 ```sh
 $ git status
 
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (new commits)
+  modified:   vendor/boto (new commits)
 ```
 
 Per aggiornare queste dipendenze eseguite il seguente comando:
@@ -77,5 +119,5 @@ Se vi accorgete di eseguire il comando molto spesso, potete creare un alias nel 
 
 ```sh
 [alias]
-    su = submodule update --init --recursive
+  su = submodule update --init --recursive
 ```

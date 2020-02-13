@@ -6,7 +6,7 @@
 * `touchSupport` String - `available`, `unavailable`, `unknown`. 
 * `monochrome` Boolean - 디스플레이가 monochrome 디스플레이 인지 아닌지.
 * `accelerometerSupport` String - `available`, `unavailable`, `unknown` 중 하나가 될 수 있습니다.
-* `colorSpace` String - represent a color space (three-dimensional object which contains all realizable color combinations) for the purpose of color conversions
+* `colorSpace` String - 색상 변환을 위해 색상 공간(모든 실현 가능한 색상 조합을 포함하는 3차원 객체) 을 나타냅니다.
 * `colorDepth` Number - 픽셀당 비트 개수.
 * `depthPerComponent` Number - 색상 컴포넌트당 비트 개수.
 * `bounds` [Rectangle](rectangle.md)

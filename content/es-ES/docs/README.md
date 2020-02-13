@@ -45,6 +45,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
   * [Función nativa de arrastrar & soltar de archivos](tutorial/native-file-drag-drop.md)
   * [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
   * [Soporte para Modo Oscuro macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Página web embebida en Electron](tutorial/web-embeds.md)
 * [Accesibilidad](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Estos tutoriales individuales amplían los temas tratados en la guía anterior.
 * [Objeto de proceso](api/process.md)
 * [Cambios de línea de comandos soportados](api/command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
-* [Rupturas de cambios de la API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Rupturas de cambios de la API](breaking-changes.md)
 
 ### Elementos de DOM personalizados:
 

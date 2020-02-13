@@ -45,6 +45,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Yerel dosya sürükle & bırak](tutorial/native-file-drag-drop.md)
   * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
   * [MacOS'da karanlık mod destekletmek](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Erişilebilirlik](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [İşlem Nesnesi](api/process.md)
 * [Desteklenen Komut Satırı Anahtarları](api/command-line-switches.md)
 * [Ortam Değişkenleri](api/environment-variables.md)
-* [API değişiklikleri](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [API değişiklikleri](breaking-changes.md)
 
 ### Özel DOM Elementleri:
 

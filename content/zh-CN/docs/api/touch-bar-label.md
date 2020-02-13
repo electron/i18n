@@ -8,7 +8,10 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `参数` 对象 
   * `label` String (可选) - 显示的文本.
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。
+
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### 实例属性
 
@@ -17,6 +20,10 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 #### `touchBarLabel.label`
 
 表示标签当前文本的字符串。 更改此值会立即更新触摸栏中的标签。
+
+#### `touchBarLabel.accessibilityLabel`
+
+A `String` representing the description of the label to be read by a screen reader.
 
 #### `touchBarLabel.textColor`
 

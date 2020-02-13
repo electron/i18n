@@ -8,6 +8,6 @@ Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `pilihan` Benda 
   * `ukuran` String (opsional) - Ukuran spacer, nilai yang mungkin adalah: 
-    * `kecil` - kecil ruang antara item.
-    * `besar` - besar ruang antara item.
-    * `fleksibel` - mengambil semua ruang yang tersedia.
+    * `small` - Small space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceSmall`. This is the default.
+    * `large` - Large space between items. Maps to `NSTouchBarItemIdentifierFixedSpaceLarge`.
+    * `flexible` - Take up all available space. Maps to `NSTouchBarItemIdentifierFlexibleSpace`.

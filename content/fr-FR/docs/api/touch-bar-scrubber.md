@@ -12,10 +12,10 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
     * `selectedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
   * `highlight` Function (optionnel) - Appelée lorsque l'utilisateur clique sur un élément quelconque. 
     * `highlightedIndex` Integer - L'index de l'élément que l'utilisateur a sélectionné.
-  * `selectedStyle` String (optionnel) - Le style de l'élément sélectionné. `null` par défaut.
-  * `overlayStyle` String (optionnel) - Le style de l'élément superposé. `null` par défaut.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `showArrowButtons` Boolean (optionnel) - `false` par défaut.
-  * `mode` String (optionnel) - `free` par défaut.
+  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optionnel) - `true` par défaut.
 
 ### Propriétés d'instance
@@ -32,7 +32,7 @@ Une `String` représentant le style que l'item sélectionné dans le scrubber de
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Actuellement nulle, pas de chaîne de caractères, supprime tous les styles.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Actuellement nulle, pas de chaîne de caractères, supprime tous les styles.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
 

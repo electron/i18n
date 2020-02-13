@@ -45,6 +45,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Kéo thả tệp native](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Hỗ trợ chế độ màn hình tối macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Các biến môi trường (Environment Variables)](api/environment-variables.md)
-* [Những thay đổi API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Những thay đổi API](breaking-changes.md)
 
 ### Tùy chỉnh các DOM Element:
 

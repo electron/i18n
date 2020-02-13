@@ -129,7 +129,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `timestamp` Duakali
       * `statusGaris` String
       * `statusCode` Bilangan bulat
-      * `responseHeaders` Record<string, string> (optional)
+      * `responseHeaders` Record<string, string[]> (optional)
     * `callback` Fungsi 
       * `headersReceivedResponse` Obyek 
         * `batalkan` Boolean (opsional)
@@ -153,7 +153,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `TipeSumberdaya` String
       * `pengarah` String
       * `timestamp` Duakali
-      * `responseHeaders` Record<string, string> (optional)
+      * `responseHeaders` Record<string, string[]> (optional)
       * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
       * `statusCode` Bilangan bulat
       * `statusGaris` String
@@ -178,7 +178,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `statusGaris` String
       * `ip` String (opsional) - Alamat IP server yang meminta benar-benar dikirim ke.
       * `dariCache` Boolean
-      * `responseHeaders` Record<string, string> (optional)
+      * `responseHeaders` Record<string, string[]> (optional)
   
   `pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
   
@@ -195,7 +195,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `TipeSumberdaya` String
       * `pengarah` String
       * `timestamp` Duakali
-      * `responseHeaders` Record<string, string> (optional)
+      * `responseHeaders` Record<string, string[]> (optional)
       * `dariCache` Boolean
       * `statusCode` Bilangan bulat
       * `statusGaris` String

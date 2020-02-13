@@ -45,6 +45,7 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Natywne przeciąganie i upuszczanie plików](tutorial/native-file-drag-drop.md)
   * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
   * [Wsparcie dla Ciemnego Motywu w macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Dostępność](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
-* [Istotne zmiany w API](api/breaking-changes.md)
+* [Obsługa rozszerzeń Chrome](api/extensions.md)
+* [Istotne zmiany w API](breaking-changes.md)
 
 ### Własne Elementy DOM:
 

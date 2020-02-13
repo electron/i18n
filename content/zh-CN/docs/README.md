@@ -45,6 +45,7 @@
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
   * [离屏渲染](tutorial/offscreen-rendering.md)
   * [支持 macOS 深色模式](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [辅助功能](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@
 * [进程对象](api/process.md)
 * [支持的命令行开关](api/command-line-switches.md)
 * [环境变量](api/environment-variables.md)
-* [重大的API更新](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [重要的API变更](breaking-changes.md)
 
 ### 自定义 DOM 元素:
 

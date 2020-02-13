@@ -1,4 +1,4 @@
-# Windows 10 on Arm
+# تطبيق ويندوز 10
 
 If your app runs with Electron 6.0.8 or later, you can now build it for Windows 10 on Arm. This considerably improves performance, but requires recompilation of any native modules used in your app. It may also require small fixups to your build and packaging scripts.
 
@@ -71,7 +71,7 @@ If you want to develop your application directly on a Windows on Arm device, sub
 
 By default, `node-gyp` unpacks Electron's node headers and downloads the x86 and x64 versions of `node.lib` into `%APPDATA%\..\Local\node-gyp\Cache`, but it does not download the arm64 version ([a fix for this is in development](https://github.com/nodejs/node-gyp/pull/1875).) To fix this:
 
-1. Download the arm64 `node.lib` from https://atom.io/download/v6.0.9/win-arm64/node.lib
+1. Download the arm64 `node.lib` from https://electronjs.org/headers/v6.0.9/win-arm64/node.lib
 2. Move it to `%APPDATA%\..\Local\node-gyp\Cache\6.0.9\arm64\node.lib`
 
 Substitute `6.0.9` for the version you're using.

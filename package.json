@@ -12,9 +12,8 @@
   "devDependencies": {
     "@octokit/rest": "^16.26.0",
     "@types/cheerio": "^0.22.11",
-    "@types/got": "^9.4.4",
     "@types/lodash": "^4.14.134",
-    "@types/node": "^12.12.17",
+    "@types/node": "^13.1.6",
     "@types/rimraf": "^2.0.2",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
@@ -28,7 +27,7 @@
     "get-crowdin-file-ids": "^1.1.1",
     "github-slugger": "^1.2.0",
     "globals": "^12.0.0",
-    "got": "^9.6.0",
+    "got": "^10.2.1",
     "href-type": "^1.0.1",
     "hubdown": "^2.3.2",
     "husky": "^4.0.1",
@@ -43,7 +42,7 @@
     "prettier": "^1.18.2",
     "require-yaml": "^0.0.1",
     "rimraf": "^3.0.0",
-    "semantic-release": "^15.5.0",
+    "semantic-release": "^16.0.4",
     "simple-statistics": "^7.0.2",
     "ts-node": "^8.1.0",
     "typescript": "^3.5.1",
@@ -69,8 +68,8 @@
     "upload-crowdin-glossary": "ts-node script/upload-crowdin-glossary.ts",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v7.1.8",
-  "electronMasterBranchCommit": "349da6af7f20a1199765508a454e941e616b9ad3",
+  "electronLatestStableTag": "v8.0.0",
+  "electronMasterBranchCommit": "6ed396df1780a40fe47cf1aadc58e62a593e55b1",
   "engines": {
     "node": ">=10"
   },

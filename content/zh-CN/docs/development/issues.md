@@ -10,7 +10,7 @@
 
 对于任何问题，个人可以通过三种方式贡献：
 
-1. 通过新建（提出）问题进行讨论：如果您认为您在Electron中发现问题，您应该在`electron/electron`问题跟踪器中通过创建问题来提出。
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. 通过帮助鉴定问题：您可以通过提供辅助信息（一种可以让漏洞被发现的情况）或提出解决问题的建议。
 3. 通过帮助解决问题：这可以通过演示问题不是一个bug或已修复来完成；但更通常，打开一个通过一个具体和可审查的方式改变`electron/electron`中的源代码的拉取请求。
 
@@ -20,7 +20,9 @@
 
 ## 提交漏洞报告
 
-当您在`Electron`中提出问题，您需要完成一个模板。
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--

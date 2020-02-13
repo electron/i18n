@@ -10,7 +10,7 @@
 
 Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem vardır:
 
-1. Konuyu tartışmaya açmak: Eğer bir sorun bulduğunuza inanıyorsanız, `elektron/elektron` sayı izleyicisini açarak bunu rapor edin.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Sorunun öncelikli bir hale getirilmesine yardımcı olmak: Bunu ya detaylandırarak (hata gösteren bir yeniden üretilebilir sınama durumu) ya da sorunu gidermek için öneriler sunarak sağlayın.
 3. Bu sorunu gidermek için yardımcı olmak: Bunu bir hata olmadığını ya da düzeldiğini göstererek; fakat da çok somut ve incelenebilir biçimde ` elektron / elektron </ 0> 'da kaynağında görünmesini sağlayın.</li>
 </ol>
@@ -23,7 +23,9 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
 
 <h2>Hata raporu gönderme</h2>
 
-<p>Sorun izleyici içinde yeni bir başlık açarken <code>electron/electron`, kullanıcılar tarafından doldurulması gereken bir şablon sunulacaktır.</p> 
+<p>To submit a bug report:</p>
+
+<p>When opening a new issue in the <a href="https://github.com/electron/electron/issues/new/choose"><code>electron/electron` issue tracker</a>, users will be presented with a template that should be filled in.</p> 
     ```markdown
     <!--
     Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken birkaç şey: 

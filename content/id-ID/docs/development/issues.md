@@ -10,7 +10,7 @@
 
 Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkontribusi:
 
-1. Dengan membuka diskusi untuk permasalahan: Jika anda yakin anda telah menemukan bug baru di elektron, anda harus melaporkannya dengan cara membuat isu baru di `electron/electron` pelacak masalah/isu.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Dengan membantu menyelesaikan masalah: Anda dapat melakukan dengan salah satu cara ini yaitu menyediakan rincian bantu ( Sebuah tes yang menguji guna membuktikan adanya Bug) atau dengan cara menyediakan saran ke ajukan permasalahan.
 3. Dengan membantu menyelesaikan masalah: Hal tersebut bisa dilakukan dengan cara mendemontrasikan masalah tersebut bukan sebuah Bug atau sudah diperbaiki; namun lebih sering lagi, dengan membuka pull request yang mengganti sumber di `electron/electron` dengan cara yang konkret dan mudah ditinjau.
 
@@ -20,7 +20,9 @@ Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkont
 
 ## Mengirimkan Laporan Bug
 
-Ketika membuka isu di `electron/electron` pelacak isu, pengguna akan di tampilkan dengan templete yang harus di isi.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!-- 

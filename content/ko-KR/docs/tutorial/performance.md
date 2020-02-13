@@ -1,6 +1,6 @@
-# Performance
+# 성능향상
 
-Developers frequently ask about strategies to optimize the performance of Electron applications. Software engineers, consumers, and framework developers do not always agree on one single definition of what "performance" means. This document outlines some of the Electron maintainers' favorite ways to reduce the amount of memory, CPU, and disk resources being used while ensuring that your app is responsive to user input and completes operations as quickly as possible. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
+개발자들이 Electron application의 성능 향상 전략에대해 자주 묻습니다. 소프트웨어 공학자, 소비자, 그리고 프레임워크 개발자들은 단 한가지 "performance"의 정의에 대해 동의하지 않습니다. 이 문서는 몇몇 electron maintainer 들이 선호하는 메모리, cpu, 디스크 resource 사용에 대한 최적화와 최대한 빠르게 유저 입력에 응답하고, 작업을 수행하는 방법에대해 약간이나마 기술하고있습니다. Furthermore, we want all performance strategies to maintain a high standard for your app's security.
 
 Wisdom and information about how to build performant websites with JavaScript generally applies to Electron apps, too. To a certain extent, resources discussing how to build performant Node.js applications also apply, but be careful to understand that the term "performance" means different things for a Node.js backend than it does for an application running on a client.
 

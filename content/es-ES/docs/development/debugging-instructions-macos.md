@@ -8,14 +8,20 @@ Si tiene accidentes o problemas en Electron que usted crea que no son causados p
 
 * **Código X**: adicional al código X, también instala las herramientas del comando de linea de este. Estos incluye LLDB, el depurador por defecto en el código X para Mac OS X. Este soporta depuración en C, C objetivo y C++ en el escritorio y en dispositivos iOS y sus simuladores.
 
+* **.lldbinit**: Crear o editar `~/.lldbinit` para permitir que el código de Chromium sea correctamente mapeado de fuentes.
+    
+    ```text
+    importar script ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## A y depuración Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasando al constructo de depuración de Electron como un parámetro.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
 (lldb) target create "./out/Testing/Electron.app"
-Current executable set to './out/Testing/Electron.app' (x86_64).
+Ejecutable actual establecido en './out/Testing/Electron.app' (x86_64).
 ```
 
 ### Establecer puntos de interrupción
@@ -82,6 +88,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Para finalizar la depuración en este punto, corra `continuar proceso`. También puede continuar hasta cierta linea es tocada en este hilo (`hilo hasta 100`). Este comando correrá el hilo en la estructura actual hasta que alcance la linea 100 en este, o se detiene si deja la estructura en la que se encuentra.
 

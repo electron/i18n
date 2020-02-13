@@ -8,20 +8,20 @@
 
 * `options` Object 
   * `segmentStyle` String (任意) - セグメントのスタイル。 
-    * `automatic` - デフォルト。セグメント化されたコントロールの見た目は、コントロールが表示されているウインドウのタイプとウインドウ内の位置に基づいて自動的に決定されます。
-    * `rounded` - コントロールは丸みのあるスタイルで表示されます。
-    * `textured-rounded` - コントロールは、テクスチャ付きの丸みのあるスタイルで表示されます。
-    * `round-rect` - コントロールは丸角のスタイルで表示されます。
-    * `textured-rounded` - コントロールは、テクスチャ付きの丸角のスタイルで表示されます。
-    * `capsule` - コントロールはカプセル状のスタイルで表示されます。
-    * `small-square` - コントロールは小さな正方形のスタイルで表示されます。
-    * `separated` - コントロール内のセグメントは、互いに非常に近く表示されますが、接触しません。
+    * `automatic` - デフォルト。 セグメントコントロールの見た目は、コントロールを表示しているウインドウタイプとウインドウ内の位置に基づいて自動決定されます。 `NSSegmentStyleAutomatic` に対応します。
+    * `rounded` - コントロールを丸角スタイルで表示します。`NSSegmentStyleRounded` に対応します。
+    * `textured-rounded` - コントロールをテクスチャ付きの丸角スタイルで表示します。`NSSegmentStyleTexturedRounded` に対応します。
+    * `round-rect` - コントロールを丸矩形スタイルで表示します。`NSSegmentStyleRoundRect` に対応します。
+    * `textured-square` - コントロールをテクスチャ付きの正方形スタイルで表示します。`NSSegmentStyleTexturedSquare` に対応します。
+    * `capsule` - コントロールをカプセルスタイルで表示します。`NSSegmentStyleCapsule` に対応します。
+    * `small-square` - コントロールを小さい正方形スタイルで表示します。`NSSegmentStyleSmallSquare` に対応します。
+    * `separated` - コントロール内のセグメントを互いに接触しない程度に近づけて表示します。`NSSegmentStyleSeparated` に対応します。
   * `mode` String (任意) - コントロールの選択モード。 
-    * `single` - デフォルト。一度に1つのアイテムを選択し、1つを選択すると、前に選択したアイテムの選択が解除されます。
-    * `multiple` - 一度に複数のアイテムを選択できます。
-    * `buttons` - セグメントをボタンとして動作させ、各セグメントを押して離すことができますが、アクティブとしてマークされることはありません。
+    * `single` - デフォルト。一度に 1 つのアイテムを選択でき、何かを選択すると、前に選択したアイテムの選択が解除されます。`NSSegmentSwitchTrackingSelectOne` に対応します。
+    * `multiple` - 一度に複数のアイテムを選択できます。`NSSegmentSwitchTrackingSelectAny` に対応します。
+    * `buttons` - セグメントをボタンとして動作させ、各セグメントを押して離すことができますが、アクティブになることはありません。`NSSegmentSwitchTrackingMomentary` に対応します。
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - このコントロールに配置するセグメントの配列。
-  * `selectedIndex` Integer (任意) - ユーザの操作によって自動的に更新される、現在選択されているセグメントのインデックス。 multiple モードでは、最後に選択したアイテムになります。
+  * `selectedIndex` Integer (任意) - ユーザの操作によって自動的に更新される、現在選択されているセグメントのインデックス。 `multiple` モードでは、これは最後に選択したアイテムになります。
   * `change` Function (任意) - ユーザが新しいセグメントを選択したときに呼ばれます。 
     * `selectedIndex` Integer - ユーザが選択したセグメントのインデックス。
     * `isSelected` Boolean - ユーザの選択結果として、セグメントが選択されたかどうか。

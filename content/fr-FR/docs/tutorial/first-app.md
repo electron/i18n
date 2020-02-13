@@ -1,10 +1,10 @@
 # Créer votre première App
 
-Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pouvez le voir comme une variante de node.js qui se concentre sur les applications de bureau au lieu des serveur web.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
+Cela ne veut pas dire qu'Electron est juste une liaison entre du javascript et une librairie d'interface graphique (GUI). Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Note**: Cette exemple est également disponible sur un dépôt que vous pouvez [télécharger et lancer immédiatement](#trying-this-example).
 
 En terme de développement, une application Electron est par essence une application Node.js. Le point de départ est un `package.json` qui est identique à celui d’un module de Node.js. A most basic Electron app would have the following folder structure:
 
@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 Le fichier `main.js` devrait créer les fenêtres et gérer tous les événements système que votre application peut rencontrer. Une version plus complète de l'exemple ci-dessus peut ouvrir les outils pour développeurs, gérer la fermeture des fenêtres, ou recréer les fenêtres sur macOs si l'utilisateur click sur l'icône de l'application dans le dock.
@@ -102,13 +102,9 @@ Le fichier `main.js` devrait créer les fenêtres et gérer tous les événement
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
-// fermee automatiquement quand l'objet JavaScript sera garbage collected.
-let win
-
 function createWindow () {
-  // Créer le browser window.
-  win = new BrowserWindow({
+  // Cree la fenetre du navigateur.
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -121,22 +117,14 @@ function createWindow () {
 
   // Ouvre les DevTools.
   win.webContents.openDevTools()
-
-  // Émit lorsque la fenêtre est fermée.
-  win.on('closed', () => {
-    // Dé-référence l'objet window , normalement, vous stockeriez les fenêtres
-    // dans un tableau si votre application supporte le multi-fenêtre. C'est le moment
-    // où vous devez supprimer l'élément correspondant.
-    win = null
-  })
 }
 
-// Cette méthode sera appelée quand Electron aura fini
-// de s'initialiser et sera prêt à créer des fenêtres de navigation.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 // Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// Quitte l'application quand toutes les fenêtres sont fermées.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // Sur macOS, il est commun pour une application et leur barre de menu
   // de rester active tant que l'utilisateur ne quitte pas explicitement avec Cmd + Q
@@ -148,12 +136,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // Sur macOS, il est commun de re-créer une fenêtre de l'application quand
   // l'icône du dock est cliquée et qu'il n'y a pas d'autres fenêtres d'ouvertes.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// Dans ce fichier, vous pouvez inclure le reste de votre code spécifique au processus principal. Vous pouvez également le mettre dans des fichiers séparés et les inclure ici.
+// In this file you can include the rest of your app's specific main process
+// code. Vous pouvez également le mettre dans des fichiers séparés et les inclure ici.
 ```
 
 Enfin l'`index.html` est la page web à afficher :

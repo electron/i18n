@@ -4,7 +4,7 @@ Ce guide fournit des informations sur comment empaqueter votre application Elect
 
 ## Contexte et exigences
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Avec une plus large communauté Linux, Canonical a pour but de corriger de nombreux problèmes d'installation de logiciels courants avec le projet [`snapcraft`](https://snapcraft.io/) . Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
 Il existe trois méthodes pour créer un fichier `.snap` :
 
@@ -20,7 +20,7 @@ Bien qu'il soit *possible* d'installer `snapcraft` sur macOS avec Homebrew, il n
 
 ## Utilisation de `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. Vous pouvez installer avec :
+Le module fonctionne comme [`electron-winstaller`](https://github.com/electron/windows-installer) et les modules similaires en ce sens que sa portée est limitée à la construction de paquets snap. Vous pouvez installer avec :
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Étape 1 : Empaqueter votre Application Electron
 
-Package the application using [electron-packager](https://github.com/electron/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Empaquetez l’application à l’aide de [electron-packager](https://github.com/electron/electron-packager) (ou d'un outil similaire). Assurez vous de supprimer `node_modules` dont vous n'avez plus besoin dans votre application finale, puisque tout module dont vous n'avez pas besoin augmentera inutilement la taille de votre application.
 
 La sortie devrait ressembler à peu près à ceci :
 
@@ -51,13 +51,13 @@ La sortie devrait ressembler à peu près à ceci :
 
 ### Step 2: Running `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+Depuis un terminal qui a `snapcraft` dans son `PATH`, exécutez `electron-installer-snap` avec seulement `--src`, qui est l'emplacement de votre application Electron créée à la première étape.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. Pour plus d'informations, voir [la doc Snapcraft API](https://docs.snapcraft.io/build-snaps/syntax).
+Si vous avez un pipeline de construction existant, vous pouvez utiliser programmer `electron-installer-snap`. Pour plus d'informations, voir [la doc Snapcraft API](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
@@ -72,7 +72,7 @@ Snapcraft est capable de prendre un fichier `.deb` existant et de le convertir e
 
 ### Étape 1 : Créer un package Debian
 
-Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap` peut être un chemin plus facile pour créer des packages snap. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+Si vous n’avez pas déjà un package `.deb`, utiliser `electron-installer-snap` peut être un chemin plus facile pour créer des packages snap. Cependant, plusieurs solutions pour la création de paquets Debian existent, y compris [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) ou [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
 ### Étape 2 : Créer un snapcraft.yaml
 

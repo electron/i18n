@@ -12,10 +12,10 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
     * `selectedIndex` na Integer - Ang index ng aytem na pinili ng tagagamit.
   * `highlight` Function (optional) - Called when the user taps any item. 
     * `highlightedIndex` na Integer - Ang index ng aytem na ginalaw ng user.
-  * `selectedStyle` String (optional) - Selected item style. Defaults to `null`.
-  * `overlayStyle` String (optional) - Selected overlay item style. Defaults to `null`.
+  * `selectedStyle` String (optional) - Selected item style. Can be `background`, `outline` or `none`. Defaults to `none`.
+  * `overlayStyle` String (optional) - Selected overlay item style. Can be `background`, `outline` or `none`. Defaults to `none`.
   * `showArrowButtons` Boolean (optional) - Defaults to `false`.
-  * `mode` String (optional) - Defaults to `free`.
+  * `mode` String (optional) - Can be `fixed` or `free`. The default is `free`.
   * `continuous` Boolean (optional) - Defaults to `true`.
 
 ### Mga Katangian ng Instance
@@ -32,7 +32,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 * `background` -nagma-map sa `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Nagma-map sa `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Sa aktwal, ang null, at hindi ang isang string, ang nagtatanggal sa lahat ng mga istilo.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga ayte
 
 * `background` -nagma-map sa `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Nagma-map sa `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Sa aktwal, ang null, at hindi ang isang string, ang nagtatanggal sa lahat ng mga istilo.
+* `none` - Removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
 

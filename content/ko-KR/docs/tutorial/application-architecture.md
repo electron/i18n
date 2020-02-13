@@ -1,4 +1,4 @@
-# Electron Application Architecture
+# Electron 애플리케이션 아키텍처
 
 Electron의 API를 살펴보기에 앞서 Electron 에서 사용할 수 있는 두 가지 프로세스 타입에 대해서 논의해 보아야 합니다. 이 둘은 근본적으로 다르기 때문에 자세히 이해할 필요가 있습니다.
 
@@ -6,7 +6,7 @@ Electron의 API를 살펴보기에 앞서 Electron 에서 사용할 수 있는 �
 
 Electron에서 `package.json`의 `main` 스크립트를 실행하는 프로세스를 **메인 프로세스**라고 부릅니다. 메인 프로세스에서 실행되는 스크립트는 웹 페이지들을 GUI 로 표시합니다. Electron 앱은 항상 하나의 메인 프로세스를 가지며, 둘 이상이 되는 경우는 없습니다.
 
-Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고 있기 때문에 Chromium의 멀티 프로세스 아키텍쳐 가 그대로 이용되고 있습니다. Electron 안에서 보여지는 각각의 웹페이지는 자신의 프로세스 안에서 동작하는데, 이 프로세스를 ** 렌더러 (renderer) 프로세스**라고 부릅니다.
+Electron은 웹페이지를 보여주기 위해 Chromium을 사용하고, 그렇기에 Chromium의 멀티 프로세스 아키텍쳐 또한 사용됩니다. Electron 안에서 보여지는 각각의 웹페이지는 자신의 프로세스 안에서 동작하는데, 이 프로세스를 ** 렌더러 (renderer) 프로세스**라고 부릅니다.
 
 일반적인 브라우저에서 웹 페이지는 대개 샌드박스 환경에서 실행되고 네이티브 리소스에는 액세스 할 수 없습니다. 그러나 Electron 을 사용하는 유저는 웹페이지가 Node.js APIs 를 이용할 수 있기 때문에, 보다 낮은 수준에서 운영체제와 상호작용하는 것이 허용되어 있습니다.
 
@@ -82,7 +82,7 @@ npm install --save aws-sdk
 그런 다음, Electron 응용 프로그램에서, Node.js 응용 프로그램을 빌드하는것 처럼 모듈을 require 하고 사용합니다.
 
 ```javascript
-// A ready-to-use S3 Client
+// 즉시 사용 가능한 S3 클라이언트
 const S3 = require('aws-sdk/clients/s3')
 ```
 

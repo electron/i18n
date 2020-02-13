@@ -46,13 +46,13 @@ Les `NODE_OPTIONS` sont strictement interdites dans les applications compilées.
 
 ### `GOOGLE_API_KEY`
 
-You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Vous pouvez fournir une clé API pour faire des requêtes au service Web de géocodage de Google. Pour cela, placez le code suivant dans votre fichier de processus principal, avant d'ouvrir des fenêtres de navigateur qui feront des requêtes de géocodage :
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'VOTRE_CLE_ICI'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Par défaut, une nouvelle clé API Google générée ne peut pas faire de requêtes geocoding. Pour activer les requêtes geocoding, veuillez voir [cette page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+Pour savoir comment obtenir une clé API Google, vous pouvez aller [sur cette page](https://developers.google.com/maps/documentation/javascript/get-api-key). Par défaut, une nouvelle clé API Google générée ne peut pas faire de requêtes geocoding. Pour activer les requêtes geocoding, veuillez voir [cette page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 

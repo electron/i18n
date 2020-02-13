@@ -47,7 +47,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Okno/pole mojej aplikacji zniknęło po kilku minutach.
 
-Ma to miejsce w przypadku, gdy zmienna używana do przechowywania okna/pola jest poddawana automatycznej dealokacji.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 
@@ -58,7 +58,7 @@ Jeśli chcesz szybkiej łatki, możesz zglobalizować zmienne poprzez zmianę ko
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
+app.whenReady().then(() => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
@@ -69,7 +69,7 @@ do tego:
 ```javascript
 const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })

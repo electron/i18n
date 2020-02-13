@@ -1,6 +1,6 @@
 # Prova
 
-We aim to keep the code coverage of Electron high. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
+We aim to keep the code coverage of Electron high. Chiediamo che tutte le richieste pull passino non solo tutti i test esistenti, ma idealmente aggiungano anche nuovi test per coprire il codice modificato e i nuovi scenari. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
 
 This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
@@ -23,15 +23,32 @@ To run only specific tests matching a pattern, run `npm run test --
 
 ### Testing su macchine Windows 10
 
+#### Extra steps to run the unit test:
+
+1. Visual Studio 2019 deve essere installato.
+2. Node headers have to be compiled for your configuration. 
+        powershell
+        ninja -C out\Testing third_party\electron_node:headers
+
+3. The electron.lib has to be copied as node.lib. 
+        powershell
+        cd out\Testing
+        mkdir gen\node_headers\Release
+        copy electron.lib gen\node_headers\Release\node.lib
+
+#### Caratteri mancanti
+
 Alcune macchine Windows 10<0> vengono distribuite prive del font Meiryo; questa circostanza potrebbe causare il fallimento di uno o più test sulla sostituzione dei font. Per installare Meiryo:</p> 
 
 1. Premere il tasto Windows e cercare *Gestisci funzionalità opzionali*.
 2. Clicca *Aggiungi una funzione*.
 3. Seleziona *Caratteri aggiuntivi giapponesi* e clicca *Installa*.
 
-Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
+#### Dimensioni dei pixel
+
+Alcuni test che si basano su dimensioni precise dei pixel potrebbero non funzionare correttamente su dispositivi con impostazioni schermo Hi-DPI a causa di errori di precisione nei punti mobili. Per eseguire correttamente questi test, assicurati che il ridimensionamento del dispositivo sia impostato su 100%.
 
 To configure display scaling:
 
-1. Push the Windows key and search for *Display settings*.
+1. Premi il tasto Windows e cerca *Impostazioni di visualizzazione*.
 2. Under *Scale and layout*, make sure that the device is set to 100%.

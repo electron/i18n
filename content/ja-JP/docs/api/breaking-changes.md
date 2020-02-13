@@ -6,6 +6,83 @@
 
 `FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
 
+## 予定されている破壊的なAPIの変更 (8.0)
+
+### IPC を介して送信される値が構造化複製アルゴリズムでシリアライズされるように
+
+IPC を介して (`ipcRenderer.send`、`ipcRenderer.sendSync`、`WebContents.send` 及び関連メソッドから) オブジェクトを送信できます。このオブジェクトのシリアライズに使用されるアルゴリズムが、カスタムアルゴリズムから V8 組み込みの [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) に切り替わります。これは `postMessage` のメッセージのシリアライズに使用されるものと同じアルゴリズムです。 これにより、大きなメッセージに対するパフォーマンスが 2 倍向上しますが、動作に重大な変更が加えられます。
+
+* 関数、Promise、WeakMap、WeakSet、これらの値を含むオブジェクトを IPC 経由で送信すると、関数らを暗黙的に `undefined` に変換していましたが、代わりに例外が送出されるようになります。
+
+```js
+// 以前:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => メインプロセスに { value: 3 } が着く
+
+// Electron 8 から:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => Error("() => {} could not be cloned.") を投げる
+```
+
+* `NaN`、`Infinity`、`-Infinity` は、`null` に変換するのではなく、正しくシリアライズします。
+* 循環参照を含むオブジェクトは、`null` に変換するのではなく、正しくシリアライズします。
+* `Set`、`Map`、`Error`、`RegExp` の値は、`{}` に変換するのではなく、正しくシリアライズします。
+* `BigInt` の値は、`null` に変換するのではなく、正しくシリアライズします。
+* 疎配列は、`null` の密配列に変換するのではなく、そのままシリアライズします。
+* `Date` オブジェクトは、ISO 文字列表現に変換するのではなく、`Date` オブジェクトとして転送します。
+* 型付き配列 (`Uint8Array`、`Uint16Array`、`Uint32Array` など) は、Node.js の `Buffer` に変換するのではなく、そのまま転送します。
+* Node.js の `Buffer` オブジェクトは、`Uint8Array` として転送します。 基底となる `ArrayBuffer` をラップすることで、`Uint8Array` を Node.js の `Buffer` に変換できます。
+
+```js
+Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+```
+
+ネイティブな JS 型ではないオブジェクト、すなわち DOM オブジェクト (`Element`、`Location`、`DOMMatrix` など)、Node.js オブジェクト (`process.env`、`Stream` のいくつかのメンバーなど)、Electron オブジェクト (`WebContents`、`BrowserWindow`、`WebFrame` など) のようなものは非推奨です。 Electron 8 では、これらのオブジェクトは DeprecationWarning メッセージで以前と同様にシリアライズされます。しかし、Electron 9 以降でこういった類のオブジェクトを送信すると "could not be cloned" エラーが送出されます。
+
+### `<webview>.getWebContents()`
+
+この API は、パフォーマンスとセキュリティの両方に影響する `remote` モジュールを使用して実装されます。 したがって、その用途がはっきりとしている必要があります。
+
+```js
+// 非推奨
+webview.getWebContents()
+// こちらに置換
+const { remote } = require('electron')
+remote.webContents.fromId(webview.getWebContentsId())
+```
+
+ただし、`remote` モジュールをできる限り使用しないことを推奨します。
+
+```js
+// メイン
+const { ipcMain, webContents } = require('electron')
+
+const getGuestForWebContents = function (webContentsId, contents) {
+  const guest = webContents.fromId(webContentsId)
+  if (!guest) {
+    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+  }
+  if (guest.hostWebContents !== contents) {
+    throw new Error(`Access denied to webContents`)
+  }
+  return guest
+}
+
+ipcMain.handle('openDevTools', (event, webContentsId) => {
+  const guest = getGuestForWebContents(webContentsId, event.sender)
+  guest.openDevTools()
+})
+
+// レンダラー
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
+```
+
+### `webFrame.setLayoutZoomLevelLimits()`
+
+Chromium は、レイアウトのズームレベル制限を変更するサポートを削除しました。そのうえ、これは Elcetron でメンテナンスできるものではありません。 この関数は、Electron 8.x では警告を発し、Electron 9.x では存在しなくなります。レイアウトのズームレベル制限は、[こちら](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11) で定義されているように、最小 0.25 から最大 5.0 に固定されました。
+
 ## 予定されている破壊的なAPIの変更 (7.0)
 
 ### Node Headers URL
@@ -48,7 +125,7 @@ const idleTime = getSystemIdleTime()
 ### webFrame Isolated World APIs
 
 ```js
-// Elecron 7.0 削除
+// Electron 7.0 で削除
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -70,23 +147,26 @@ webFrame.setIsolatedWorldInfo(
 
 `webkitdirectory` プロパティは、HTML ファイル上の input でフォルダーを選択できるようにします。 以前の Electron のバージョンでは、input の `event.target.files` において、選択したフォルダーに対応する 1 つの `File` が入った `FileList` を返すという誤った実装がありました。 Electron 7 では、Chrome、Firefox、Edge と同様 ([MDNドキュメントへのリンク](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)) に、`FileList` はフォルダー内に含まれるすべてのファイルのリストになりました。 例として、以下の構造のフォルダーを使用します。
 
-    console
-    folder
-    ├── file1
-    ├── file2
-    └── file3 Electron <= 6では、以下のような 
+```console
+folder
+├── file1
+├── file2
+└── file3
+```
 
-`File` オブジェクトが 1 つ入った `FileList` を返します。
+Electron <= 6 では、以下のような `File` オブジェクトが 1 つ入った `FileList` を返します。
 
-    console
-    path/to/folder Electron 7 では、以下のような 
+```console
+path/to/folder
+```
 
-`File` オブジェクトが入った `FileList` を返します。
+Electron 7 では、以下のような `File` オブジェクトが入った `FileList` を返します。
 
-    console
-    /path/to/folder/file3
-    /path/to/folder/file2
-    /path/to/folder/file1
+```console
+/path/to/folder/file3
+/path/to/folder/file2
+/path/to/folder/file1
+```
 
 `webkitdirectory` は、選択したフォルダーへのパスを公開しないことに注意してください。 フォルダーの内容ではなく選択したフォルダーへのパスが必要な場合は、`dialog.showOpenDialog` API ([リンク](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)) を参照してください。
 
@@ -217,7 +297,7 @@ const w = new BrowserWindow({
 ### webFrame Isolated World APIs
 
 ```js
-// Electron 7.0 で削除
+// 非推奨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -287,7 +367,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 

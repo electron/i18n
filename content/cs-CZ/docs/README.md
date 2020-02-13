@@ -45,6 +45,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
   * [Podpora macOS tmavého módu [Dark Mode]](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### Vlastní prvky DOM:
 

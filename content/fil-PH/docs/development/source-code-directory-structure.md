@@ -8,7 +8,48 @@ Kinakailangan mong maging pamilyar sa [Chromium's multi-process architecture](ht
 
 ```diff
 Electron
-├── atom/ - C++ source code.
+├── build/ - Build configuration files needed to build with GN.
+├── buildflags/ - Determines the set of features that can be conditionally built.
+├── chromium_src/ - Source code copied from Chromium that isn't part of the content layer.
+├── default_app/ - A default app run when Electron is started without
+|                  providing a consumer app.
+├── docs/ - Electron's documentation.
+|   ├── api/ - Documentation for Electron's externally-facing modules and APIs.
+|   ├── development/ - Documentation to aid in developing for and with Electron.
+|   ├── fiddles/ - A set of code snippets one can run in Electron Fiddle.
+|   ├── images/ - Images used in documentation.
+|   └── tutorial/ - Tutorial documents for various aspects of Electron.
+├── lib/ - JavaScript/TypeScript source code.
+|   ├── browser/ - Main process initialization code.
+|   |   ├── api/ - API implementation for main process modules.
+|   |   └── remote/ - Code related to the remote module as it is
+|   |                 used in the main process.
+|   ├── common/ - Relating to logic needed by both main and renderer processes.
+|   |   └── api/ - API implementation for modules that can be used in
+|   |              both the main and renderer processes
+|   ├── isolated_renderer/ - Handles creation of isolated renderer processes when
+|   |                        contextIsolation is enabled.
+|   ├── renderer/ - Renderer process initialization code.
+|   |   ├── api/ - API implementation for renderer process modules.
+|   |   ├── extension/ - Code related to use of Chrome Extensions
+|   |   |                in Electron's renderer process.
+|   |   ├── remote/ - Logic that handes use of the remote module in
+|   |   |             the main process.
+|   |   └── web-view/ - Logic that handles the use of webviews in the
+|   |                   renderer process.
+|   ├── sandboxed_renderer/ - Logic that handles creation of sandboxed renderer
+|   |   |                     processes.
+|   |   └── api/ - API implementation for sandboxed renderer processes.
+|   └── worker/ - Logic that handles proper functionality of Node.js
+|                 environments in Web Workers.
+├── patches/ - Patches applied on top of Electron's core dependencies
+|   |          in order to handle differences between our use cases and
+|   |          default functionality.
+|   ├── boringssl/ - Patches applied to Google's fork of OpenSSL, BoringSSL.
+|   ├── chromium/ - Patches applied to Chromium.
+|   ├── node/ - Patches applied on top of Node.js.
+|   └── v8/ - Patches applied on top of Google's V8 engine.
+├── shell/ - C++ source code.
 |   ├── app/ - System entry code.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
@@ -28,34 +69,35 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── chromium_src/ - Ang "source code" na kinokopya galing sa Chromium. Tingnan sa ibaba.
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
-├── docs/ - Mga Dokumentasyon.
-├── lib/ - Ang "source code" ng "JavaScript".
-|   ├── browser/ - Ang pangunahing proseso ng inisyalisasyon ng "Javascript code".
-|   |   └── api/ - Ang pagpapatupad ng Javascript API.
-|   ├── common/ -Ang parehong pangunahin at "renderer processes" ay gumamit ng "JavaScript"
-|   |   └── api/ - Ang pagpapatupad ng "Javascript API".
-|   └── renderer/ - Ang "Javascript renderer" pinoproseso ang inisyalisasyon ng "code".
-|       └── api/ - Ang pagpapatupad ng "Javascript API".
-├── spec/ - Kusang pagsubok.
+├── spec/ - Components of Electron's test suite run in the renderer process.
+├── spec-main/ - Components of Electron's test suite run in the main process.
 └── BUILD.gn - Building rules of Electron.
 ```
 
-## `/chromium_src`
-
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
-
 ## Ang Istraktura ng Iba pang mga Direktoryo
 
-* **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
-* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Ang "source code" ng pangatlong partido ng mga dependency, tayo ay 'di gumagamit nito `third_party` bilang pangalan dahil ito'y nakakalito para sa kaparehong direktoryo sa "source code tree" ng "Chromium".
-* **node_modules**, Ang pangatlong partido ng mga modyul ng "node" para sa pagbuo.
-* **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
+* **.circleci** - Config file for CI with CircleCI.
+* **.github** - GitHub-specific config files including issues templates and CODEOWNERS.
 * **dist** - Ang pansamantalang direktoryo na likha ng `script/create-dist.py` iskrip kapag gumagawa ng distribusyon.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **node_modules**, Ang pangatlong partido ng mga modyul ng "node" para sa pagbuo.
+* **npm** - Logic for installation of Electron via npm.
+* **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
+* **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
+
+```diff
+script/ - The set of all scripts Electron runs for a variety of purposes.
+├── codesign/ - Fakes codesigning for Electron apps; used for testing.
+├── lib/ - Miscellaneous python utility scripts.
+└── release/ - Scripts run during Electron's release process.
+    ├── notes/ - Generates release notes for new Electron versions.
+    └── uploaders/ - Uploads various release-related files during release.
+```
+
+* **mga tool** - Helper scripts used by GN files. 
+  * Scripts put here should never be invoked by users directly, unlike those in `script`.
+* **typings** - TypeScript typings for Electron's internal code.
+* **vendor** - Source code for some third party dependencies, including `boto` and `requests`.
 
 ## Pagpapanatili ng "Git Submodules" sa Tamang Oras
 
@@ -64,8 +106,8 @@ Ang Electron repository ay mayroon ilang "vendored dependencies", at matatagpuan
 ```sh
 $ git status
 
-    modified:   vendor/depot_tools (new commits)
-    modified:   vendor/boto (new commits)
+  modified:   vendor/depot_tools (new commits)
+  modified:   vendor/boto (new commits)
 ```
 
 Upang hindi mahuli ang mga "vendored dependency", patakbuhin ang mga sumusunod na "command":
@@ -78,5 +120,5 @@ Kung ang "command" na ito ay iyong parating pinapatakbo, maaari kang lumikha ng 
 
 ```sh
 [alias]
-    su = submodule update --init --recursive
+  su = submodule update --init --recursive
 ```

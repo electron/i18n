@@ -40,7 +40,7 @@ $ npm run build && npm test
 Maaaring pabilis ang paggana nito kung ikaw ay magsasagawa ng bukod na pagsusuri tungkol dito o kaya nama'y maaari ring harangin ang kasalukuyan mong ginagawa gamit ang itinatampok ng Mocha na [exclusive tests](https://mochajs.org/#exclusive-tests). Append `.only` to any `describe` or `it` function call:
 
 ```js
-describe.only('some feature', function () {
+describe.only('some feature', () => {
   // ... only tests in this block will be run
 })
 ```

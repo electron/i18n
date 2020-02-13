@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
+`webContents` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Il est responsable du rendu et du contrôle d'une page web et est une propriété de l'objet [`BrowserWindow`](browser-window.md). Un exemple d'accès à l'objet `webContents` :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -63,9 +63,9 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-finish-load` but emitted when the load failed. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Cet événement est comme `did-finish-load` mais émis lorsque le chargement a échoué. La liste complète des codes d'erreur et leur signification est disponible [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-fail-provisional-load'
+#### Événement : 'did-fail-provisional-load'
 
 Retourne :
 
@@ -77,7 +77,7 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-This event is like `did-fail-load` but emitted when the load was cancelled (e.g. `window.stop()` was invoked).
+Cet événement est comme `did-fail-load` mais émis lorsque la charge a été annulée (par exemple `window.stop()` a été appelé).
 
 #### Événement : 'did-frame-finish-load'
 
@@ -114,7 +114,7 @@ Retourne :
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Déclenché lorsque le titre de la page est défini pendant la navigation. `explicitSet` est faux lorsque le titre est synthétisé à partir de l'Url du fichier.
 
 #### Événement : 'page-favicon-updated'
 
@@ -133,26 +133,26 @@ Retourne :
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
-* `options` BrowserWindowConstructorOptions - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` BrowserWindowConstructorOptions - Les options qui seront utilisées pour créer le nouveau [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Les fonctionnalités non standards (fonctionnalités non gérés par Chromium ou Electron) donné à `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `referrer` [Referrer](structures/referrer.md) - Le parrain qui sera passé à la nouvelle fenêtre. Peut ou ne peut pas entraîner l'envoi de l'en-tête `Référent` en fonction de la politique du référent.
 
 Émis lorsque la page demande d'ouvrir une nouvelle fenêtre pour une `url`. Cela peut être demandé par `window.open` ou un lien externe avec `<a target='_blank'>`.
 
 Un nouveau `BrowserWindow` sera créé par défaut pour l'`url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Par exemple :
+Appeler `event.preventDefault()` empêchera Electron de créer automatiquement une nouvelle [`BrowserWindow`](browser-window.md). Si vous appelez `event.preventDefault()` et créez manuellement un nouveau [`BrowserWindow`](browser-window.md) alors vous devez définir `événement. ewGuest` pour référencer la nouvelle instance [`BrowserWindow`](browser-window.md) . Si vous ne le faites pas, cela peut entraîner un comportement inattendu. Par exemple :
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
-  event.preventDefault()
+  événement. reventDefault()
   const win = new BrowserWindow({
-    webContents: options.webContents, // use existing webContents if provided
-    show: false
+    webContents: options. ebContents, // utilise des contenus Web existants si fourni
+    montrer: false
   })
-  win.once('ready-to-show', () => win.show())
+  gagne. nce('ready-to-show', () => win.show())
   if (!options.webContents) {
-    win.loadURL(url) // existing webContents will be navigated automatically
+    gagne. oadURL(url) // webContents existants seront navigués automatiquement
   }
   event.newGuest = win
 })
@@ -173,7 +173,7 @@ Il n'est également pas émis pour les navigations à l'intérieur de la page, c
 
 Appeler `event.preventDefault()` permet d'éviter la navigation.
 
-#### Event: 'did-start-navigation'
+#### Événement : 'did-start-navigation'
 
 Retourne :
 
@@ -184,9 +184,9 @@ Retourne :
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Émis lorsque n'importe quelle image (y compris main) commence à naviguer. `isInplace` sera `true` pour les navigations dans la page.
 
-#### Event: 'will-redirect'
+#### Événement : 'will-redirect'
 
 Retourne :
 
@@ -415,7 +415,7 @@ L'utilisation est pareil que [l'événement `select-client-certificate` de `app`
 Retourne :
 
 * `event` Événement
-* `authenticationResponseDetails` Objet 
+* `description de la réponse à l'authentification` Objet 
   * `url` URL
 * `authInfo` Objet 
   * `isProxy` Boolean
@@ -424,8 +424,8 @@ Retourne :
   * `port` Integer
   * `realm` String
 * `callback` Function 
-  * `username` String (optional)
-  * `password` String (optional)
+  * `nom d'utilisateur` String (facultatif)
+  * `mot de passe` String (facultatif)
 
 Émis lorsque `webContents` veut faire une authentification normale.
 
@@ -509,6 +509,7 @@ Retourne :
   * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
   * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
   * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
   * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -622,7 +623,7 @@ Retourne :
 * `line` Integer
 * `sourceId` String
 
-Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
+Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
@@ -654,7 +655,7 @@ Retourne :
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Event: 'desktop-capturer-get-sources'
+#### Événement : 'desktop-capturer-get-sources'
 
 Retourne :
 
@@ -666,7 +667,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process. C
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `module` String
 
 Emitted when `remote.require()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -675,7 +676,7 @@ Emitted when `remote.require()` is called in the renderer process. Appeler `even
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -684,7 +685,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `ev
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `module` String
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -693,7 +694,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `e
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
@@ -701,7 +702,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appe
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
@@ -709,7 +710,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 Retourne :
 
-* `event` IpcMainEvent
+* `événement` IpcMainEvent
 * `guestWebContents` [WebContents](web-contents.md)
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
@@ -723,7 +724,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. App
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `données postales` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (facultatif)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)). A noop rejection handler is already attached, which avoids unhandled rejection errors.
@@ -740,11 +741,11 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (facultatif) 
-  * `query` Record<String, String> (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Enregistrement<String, String> (facultatif) - Passé à `url.format()`.
+  * `search` String (facultatif) - Passé à `url.format()`.
+  * `hash` String (facultatif) - Passé à `url.format()`.
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+Retourne `Promise<void>` - la promesse se résoudra lorsque la page aura terminé le chargement (voir [`did-finish-load`](web-contents.md#event-did-finish-load)), et rejette si la page ne parvient pas à se charger (voir [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (facultatif) - `false` par défaut.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
 #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 Retourne `Promise<void>`
 
 Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1104,9 +1117,28 @@ console.log(requestId)
 
 * `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
 
-Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+Retourne `Promise<NativeImage>` - résout avec une [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+Capturer une capture instantanée de la page dans `rect`. L'omission de `rect` capturera toute la page visible.
+
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
 
 #### `contents.getPrinters()`
 
@@ -1119,7 +1151,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 * `options` Object (facultatif) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Object (facultatif) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1137,6 +1169,8 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `dpi` Object (facultatif) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `callback` Function (facultatif) 
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1145,7 +1179,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Example usage:
+Exemple d'utilisation :
 
 ```js
 const options = { silent: true, deviceName: 'My-Printer' }
@@ -1318,6 +1352,16 @@ Starts inspecting element at position (`x`, `y`).
 
 Opens the developer tools for the shared worker context.
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `contents.inspectServiceWorker()`
 
 Opens the developer tools for the service worker context.
@@ -1327,7 +1371,9 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Les arguments seront sérialisés en JSON en interne et par conséquent aucune fonction ou chaîne de prototype ne sera inclus.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1431,7 +1479,7 @@ End subscribing for frame presentation events.
 
 * `item` Objet 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
@@ -1524,11 +1572,11 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Chemin vers le fichier de sortie.
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+Prend un instantané de tas V8 et l'enregistre dans `filePath`.
 
 #### `contents.setBackgroundThrottling(allowed)`
 

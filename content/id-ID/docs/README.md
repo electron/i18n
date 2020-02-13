@@ -45,6 +45,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
   * [Rendering di luar layar](tutorial/offscreen-rendering.md)
   * [Supporting macOS Dark Mode](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Aksesibilitas](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
 * [Proses objek](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### Elemen DOM Khusus:
 

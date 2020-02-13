@@ -8,9 +8,15 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 * **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le débogueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs , les appareils iOS et simulateur.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Attacher et débogage d'Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
+Pour démarrer une session de débogage, ouvrez le Terminal et démarrez `lldb`, en passant une version non-version d'Electron en paramètre.
 
 ```sh
 $ lldb ./out/Testing/Electron.app
@@ -41,17 +47,17 @@ L’app sera immédiatement suspendu, puisque l’électron définit le nom de l
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/Testing/Electron.app/Contents/MacOS/Electron' (x86_64)
-Process 25244 stopped
-* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115  }
+Process 25244 launched: '/Users/fr/Code/electron/out/Testing/Electron. pp/Contents/MacOS/Electron' (x86_64)
+Le processus 25244 s'est arrêté
+* thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 au navigateur. c:118, queue = 'com.apple.main-thread', stop reason = point d'arrêt 1.
+    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 dans le navigateur. c:118
+   115 }
    116
-   117  void Browser::SetName(const std::string& name) {
--> 118    name_override_ = name;
-   119  }
+   117 void Browser::SetName(const std::string& name) {
+-> 118 name_override_ = name;
+   119 }
    120
-   121  int Browser::GetBadgeCount() {
+   121 int Browser::GetBadgeCount() {
 (lldb)
 ```
 
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Pour terminer de déboguer à ce stade, exécutez : `process continue`. Vous pouvez également continuer jusqu'à ce que la ligne soit frappée dans ce thread (`thread jusqu'à 100`). Cette commande exécutera le thread dans le frame actif jusqu'à ce qu’il atteigne la ligne 100 dans cette trame ou s’arrête si elle quitte le frame en cours.
 

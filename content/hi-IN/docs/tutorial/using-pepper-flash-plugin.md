@@ -17,34 +17,34 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path') 
 
 // फ़्लैश पथ निर्दिष्ट करें, यह मान कर कि वह मेन.जेएस के साथ उसी डायरेक्टरी में है |
-let pluginName 
-switch (process.platform) {   
- case 'win32':
-     pluginName = 'pepflashplayer.dll'
-     break
-   case 'darwin':
-     pluginName = 'PepperFlashPlayer.plugin'
-     break
-   case 'linux':
-     pluginName = 'libpepflashplayer.so'
-     break
- }
- app.commandLine.appendSwitch('ppapi-flash-path',
- path.join(__dirname, pluginName))
+let pluginName
+switch (process.platform) {
+  case 'win32':
+    pluginName = 'pepflashplayer.dll'
+    break
+  case 'darwin':
+    pluginName = 'PepperFlashPlayer.plugin'
+    break
+  case 'linux':
+    pluginName = 'libpepflashplayer.so'
+    break
+}
+app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
- // वैकल्पिक: फ़्लैश संस्करण निर्दिष्ट करें, जैसे कि, v17.0.0.169 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
+// Optional: Specify flash version, for example, v17.0.0.169
+app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
- app.on('ready', () => {
-   let win = new BrowserWindow({
-     width: 800,
-     height: 600,
-     webPreferences: {
-       plugins: true
-     }
-   })
-   win.loadURL(`file://${__dirname}/index.html`)
-   // और कुछ
- })
+app.whenReady().then(() => {
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      plugins: true
+    }
+  })
+  win.loadURL(`file://${__dirname}/index.html`)
+  // Something else
+})
 ```
 
 प्लगइनस खुद पहुँचाने की बजाये, आप चाहे तो सिस्टम वाइड पेप्पर फ़्लैश प्लगइन भी लोड कर सकते हैं, उसका पथ आपको `app.getPath('pepperFlashSystemPlugin')` बुला कर मिल जायेगा |

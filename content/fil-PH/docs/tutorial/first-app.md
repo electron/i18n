@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
@@ -102,13 +102,9 @@ The `main.js` should create windows and handle all the system events your applic
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-hayaang manalo
-
-function gumawa ngWindow () {
-  // Gumawa ng browser window.
-  win = new BrowserWindow({
+function createWindow () {
+  // Create the browser window.
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -121,20 +117,14 @@ function gumawa ngWindow () {
 
   // Open the DevTools.
   win.webContents.openDevTools()
-
-  //Emitted kapag sarado na ang window.
-  win.on('sarado', () => {
-    // Dereference ang window object, karaniwang itago mo ang windows
-   //sa isang array kung ang iyong app ay sumusuporta sa multi windows, ito ay ang oras kung kailan mo dapat burahin ang kaukulang elemento.
-    win = null
-  })
 }
 
-// Ang paraang ito ay tinatawag kapag ang Electron ay tapos na
-// Inisyalisasyon at handa na itong gumawa ng browser windows.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 Ilang APIs ay maari lamang gamitin matapos ang pangyayaring ito ay nangyayari.
-app.on('humanda', lumikhangWindow)
-Tumigil kapag sarado na ang lahat ng windows.
+app.whenReady().then(createWindow)
+
+// Quit when all windows are closed.
 app.on('window-lahat-sarado', () => {
   // Sa macOS ito ay karaniwan para sa mga aplikasyon at kanilang menu bar
   //para manatiling aktibo hanggang ang gumagamit ay tahasang huminto sa Cmd+Q
@@ -143,11 +133,13 @@ app.on('window-lahat-sarado', () => {
 app.on('activate', () => {
   //Sa macOS ito ay karaniwan upang muling lumikha ng window sa app kapag ang 
   //ang dock icon ay nag-click at wla nang iba pang windows na nakabukas.
-  kung (win === null) {
-    lumikhangWindow()
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow()
   }
 })
-//Sa file na ito pwede mong isama ang iba mo pang app's specific sa pangunahing code. Maari mo rin ilagay ang mga ito sa magkakahiwalay na mga file at dito nangangailangan sila.
+
+// In this file you can include the rest of your app's specific main process
+// code. Maari mo rin ilagay ang mga ito sa magkakahiwalay na mga file at dito nangangailangan sila.
 ```
 
 Sa huli ang`index.html` ay ang web page na gusto mong ipakita:

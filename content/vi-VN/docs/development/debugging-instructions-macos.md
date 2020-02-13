@@ -1,4 +1,4 @@
-# Debugging on macOS
+# Gỡ lỗi trên macOS
 
 Nếu bạn đang gặp phải lỗi hoặc có vấn đề với Electron mà bạn tin rằng lý do không phải từ ứng dụng JavaScript, mà bởi chính Electron, giải quyết lỗi có thể hơi khó khăn một chút, đặc biệt nếu như bạn không quen sử dụng tính năng debugging của native/C++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
@@ -7,6 +7,12 @@ Nếu bạn đang gặp phải lỗi hoặc có vấn đề với Electron mà b
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
 
 ## Attaching to and Debugging Electron
 
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
 

@@ -79,6 +79,8 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 
 Devuelve `Promise<DesktopCapturerSource[]>` - Resuelve con un array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
 
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
+
 ## Advertencias
 
 `navigator.mediaDevices.getUserMedia` no trabaja en macOS para captura de audio debido a una limitación fundamental porque las aplicaciones que quieren acceder al audio del sistema requieren un [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, y por extensión Electron, no proporciona esto.

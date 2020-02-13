@@ -1,7 +1,7 @@
 # ProtocolResponse Object
 
-* `error` Integer (optional) - When assigned, the `request` will fail with the `error` number . 更多的错误号信息，您可以查阅[网络错误列表](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-* `statusCode` Number (optional) - The HTTP response code, default is 200.
+* `error` Integer（可选的） - 如果赋值，`request`将会失败，并返回`error`错误码。 更多的错误号信息，您可以查阅[网络错误列表](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+* `statusCode` Number （可选的） - HTTP响应码，默认是200。
 * `charset` String (optional) - The charset of response body, default is `"utf-8"`.
 * `mimeType` String (optional) - The MIME type of response body, default is `"text/html"`. Setting `mimeType` would implicitly set the `content-type` header in response, but if `content-type` is already set in `headers`, the `mimeType` would be ignored.
 * `headers` Record<string, string | string[]> (optional) - An object containing the response headers. The keys must be String, and values must be either String or Array of String.

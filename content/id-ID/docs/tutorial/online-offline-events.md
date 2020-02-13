@@ -7,14 +7,14 @@ Contoh:
 *main.js*
 
 ```javascript
-const { app, BrowserWindow } = membutuhkan('electron')
+const { app, BrowserWindow } = require('electron')
 
-biarkan onlineStatusWindow
+let onlineStatusWindow
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
-})${__dirname}
+})
 ```
 
 *online-status.html*
@@ -45,8 +45,8 @@ Mungkin ada kejadian di mana Anda ingin menanggapi kejadian ini di Proses utama 
 const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
-app.on('ready', () => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+app.whenReady().then(() => {
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false, webPreferences: { nodeIntegration: true } })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 

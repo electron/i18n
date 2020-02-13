@@ -23,15 +23,32 @@ To run only specific tests matching a pattern, run `npm run test --
 
 ### Testing on Windows 10 devices
 
+#### Zusätzliche Schritte um den Unit-Test auszuführen:
+
+1. Visual Studio 2019 muss installiert sein.
+2. Node-Header müssen für Ihre Konfiguration kompiliert werden. 
+        powershell
+        ninja -C out\Testing third_party\electron_node:headers
+
+3. Die electron.lib muss als node.lib kopiert werden. 
+        powershell
+        cd out\Testing
+        mkdir gen\node_headers\Release
+        copy electron.lib gen\node_headers\Release\node.lib
+
+#### Fehlende Schriften
+
 [Some Windows 10 devices](https://docs.microsoft.com/en-us/typography/fonts/windows_10_font_list) do not ship with the Meiryo font installed, which may cause a font fallback test to fail. To install Meiryo:
 
-1. Push the Windows key and search for *Manage optional features*.
-2. Click *Add a feature*.
-3. Select *Japanese Supplemental Fonts* and click *Install*.
+1. Drücken Sie die Window-Taste und suchen Sie nach *Optionale Funktionen verwalten*.
+2. Klicken Sie auf *Funktion hinzufügen*.
+3. Wählen Sie *japanische Zusatzschrift* aus und klicken Sie auf *installieren*.
+
+#### Pixelmessungen
 
 Some tests which rely on precise pixel measurements may not work correctly on devices with Hi-DPI screen settings due to floating point precision errors. To run these tests correctly, make sure the device is set to 100% scaling.
 
 To configure display scaling:
 
-1. Push the Windows key and search for *Display settings*.
-2. Under *Scale and layout*, make sure that the device is set to 100%.
+1. Drücken Sie die Window-Taste und suchen Sie nach *Anzeigeeinstellungen*.
+2. Stellen Sie unter *Skalieren und Layout* sicher, dass das Gerät auf 100% gesetzt ist.

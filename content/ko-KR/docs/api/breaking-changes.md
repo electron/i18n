@@ -6,53 +6,130 @@
 
 코드 주석으로 `FIXME` 문자는 미래의 릴리즈에서 수정되어야 함을 표시합니다. https://github.com/electron/electron/search?q=fixme 를 참조하세요.
 
+## 중단될 예정 API (8.0)
+
+### IPC를 통해 보내진 값은 이제 Structured Clone Algorithm로 직렬화 됩니다.
+
+The algorithm used to serialize objects sent over IPC (through `ipcRenderer.send`, `ipcRenderer.sendSync`, `WebContents.send` and related methods) has been switched from a custom algorithm to V8's built-in [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), the same algorithm used to serialize messages for `postMessage`. This brings about a 2x performance improvement for large messages, but also brings some breaking changes in behavior.
+
+* Sending Functions, Promises, WeakMaps, WeakSets, or objects containing any such values, over IPC will now throw an exception, instead of silently converting the functions to `undefined`.
+
+```js
+// Previously:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => results in { value: 3 } arriving in the main process
+
+// From Electron 8:
+ipcRenderer.send('channel', { value: 3, someFunction: () => {} })
+// => throws Error("() => {} could not be cloned.")
+```
+
+* `NaN`, `Infinity` and `-Infinity` will now be correctly serialized, instead of being converted to `null`.
+* Objects containing cyclic references will now be correctly serialized, instead of being converted to `null`.
+* `Set`, `Map`, `Error` and `RegExp` values will be correctly serialized, instead of being converted to `{}`.
+* `BigInt` values will be correctly serialized, instead of being converted to `null`.
+* Sparse arrays will be serialized as such, instead of being converted to dense arrays with `null`s.
+* `Date` objects will be transferred as `Date` objects, instead of being converted to their ISO string representation.
+* Typed Arrays (such as `Uint8Array`, `Uint16Array`, `Uint32Array` and so on) will be transferred as such, instead of being converted to Node.js `Buffer`.
+* Node.js `Buffer` objects will be transferred as `Uint8Array`s. You can convert a `Uint8Array` back to a Node.js `Buffer` by wrapping the underlying `ArrayBuffer`:
+
+```js
+Buffer.from(value.buffer, value.byteOffset, value.byteLength)
+```
+
+Sending any objects that aren't native JS types, such as DOM objects (e.g. `Element`, `Location`, `DOMMatrix`), Node.js objects (e.g. `process.env`, `Stream`), or Electron objects (e.g. `WebContents`, `BrowserWindow`, `WebFrame`) is deprecated. In Electron 8, these objects will be serialized as before with a DeprecationWarning message, but starting in Electron 9, sending these kinds of objects will throw a 'could not be cloned' error.
+
+### `<webview>.getWebContents()`
+
+This API is implemented using the `remote` module, which has both performance and security implications. Therefore its usage should be explicit.
+
+```js
+// 중단예정
+webview.getWebContents()
+// 다음으로 대체됨
+const { remote } = require('electron')
+remote.webContents.fromId(webview.getWebContentsId())
+```
+
+However, it is recommended to avoid using the `remote` module altogether.
+
+```js
+// main
+const { ipcMain, webContents } = require('electron')
+
+const getGuestForWebContents = function (webContentsId, contents) {
+  const guest = webContents.fromId(webContentsId)
+  if (!guest) {
+    throw new Error(`Invalid webContentsId: ${webContentsId}`)
+  }
+  if (guest.hostWebContents !== contents) {
+    throw new Error(`Access denied to webContents`)
+  }
+  return guest
+}
+
+ipcMain.handle('openDevTools', (event, webContentsId) => {
+  const guest = getGuestForWebContents(webContentsId, event.sender)
+  guest.openDevTools()
+})
+
+// renderer
+const { ipcRenderer } = require('electron')
+
+ipcRenderer.invoke('openDevTools', webview.getWebContentsId())
+```
+
+### `webFrame.setLayoutZoomLevelLimits()`
+
+Chromium은 레이아웃 확대/축소 변경 제한에 대한 지원을 중단했습니다. 이를 관리하는 Electron의 용량을 넘어섭니다. The function will emit a warning in Electron 8.x, and cease to exist in Electron 9.x. The layout zoom level limits are now fixed at a minimum of 0.25 and a maximum of 5.0, as defined [here](https://chromium.googlesource.com/chromium/src/+/938b37a6d2886bf8335fc7db792f1eb46c65b2ae/third_party/blink/common/page/page_zoom.cc#11).
+
 ## 중단될 예정 API (7.0)
 
 ### Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules. Both will be supported for the foreseeable future but it is recommended that you switch.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다. 두가지 모두 가까운 미래에는 지원할 예정이지만 전환하는 것이 좋습니다.
 
-Deprecated: https://atom.io/download/electron
+더이상 사용하지 않음: https://atom.io/download/electron
 
-Replace with: https://electronjs.org/headers
+다음으로 대체: https://electronjs.org/headers
 
 ### `session.clearAuthCache(options)`
 
-The `session.clearAuthCache` API no longer accepts options for what to clear, and instead unconditionally clears the whole cache.
+`session.clearAuthCache` API는 더이상 지울 항목에 대한 옵션을 허용하지 않고 모든 캐시를 무조건 지웁니다.
 
 ```js
-// Deprecated
+// 더이상 사용하지 않음
 session.clearAuthCache({ type: 'password' })
-// Replace with
+// 다음으로 대체됨
 session.clearAuthCache()
 ```
 
 ### `powerMonitor.querySystemIdleState`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0 에서 제거됨
 powerMonitor.querySystemIdleState(threshold, callback)
-// Replace with synchronous API
+// 동기 API 로 대체됨
 const idleState = getSystemIdleState(threshold)
 ```
 
 ### `powerMonitor.querySystemIdleTime`
 
 ```js
-// Removed in Electron 7.0
+// Electron 7.0에서 제거됨
 powerMonitor.querySystemIdleTime(callback)
-// Replace with synchronous API
+// 동기 API로 대체됨
 const idleTime = getSystemIdleTime()
 ```
 
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Elecron 7.0
+// Electron 7.0 에서 제거됨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// 다음으로 대체됨
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -62,36 +139,36 @@ webFrame.setIsolatedWorldInfo(
   })
 ```
 
-### Removal of deprecated `marked` property on getBlinkMemoryInfo
+### getBlinkMemoryInfo에서 더이상 사용되지 않는 `marked` 프로퍼티 제거
 
-This property was removed in Chromium 77, and as such is no longer available.
+이 프로퍼티는 Chromium 77에서 제거되어 더이상 소용이 없습니다.
 
-### `webkitdirectory` attribute for `<input type="file"/>`
+### `<input type="file"/>`의 `webkitdirectory` 속성
 
-￼ ￼The `webkitdirectory` property on HTML file inputs allows them to select folders. ￼Previous versions of Electron had an incorrect implementation where the `event.target.files` ￼of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ ￼As of Electron 7, that `FileList` is now list of all files contained within ￼the folder, similarly to Chrome, Firefox, and Edge ￼([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ ￼As an illustration, take a folder with this structure: ￼
+￼ The `webkitdirectory` property on HTML file inputs allows them to select folders. Previous versions of Electron had an incorrect implementation where the `event.target.files` of the input returned a `FileList` that returned one `File` corresponding to the selected folder. ￼ As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)). ￼ As an illustration, take a folder with this structure:
 
-    console
-    ￼folder
-    ￼├── file1
-    ￼├── file2
-    ￼└── file3
-    ￼ ￼ ￼In Electron <=6, this would return a 
+```console
+folder
+├── file1
+├── file2
+└── file3
+```
 
-`FileList` with a `File` object for: ￼
+￼ In Electron <=6, this would return a `FileList` with a `File` object for:
 
-    console
-    ￼path/to/folder
-    ￼ ￼ ￼In Electron 7, this now returns a 
+```console
+path/to/folder
+```
 
-`FileList` with a `File` object for: ￼
+￼ In Electron 7, this now returns a `FileList` with a `File` object for:
 
-    console
-    ￼/path/to/folder/file3
-    ￼/path/to/folder/file2
-    ￼/path/to/folder/file1
-    ￼ ￼ ￼Note that 
+```console
+/path/to/folder/file3
+/path/to/folder/file2
+/path/to/folder/file1
+```
 
-`webkitdirectory` no longer exposes the path to the selected folder. ￼If you require the path to the selected folder rather than the folder contents, ￼see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+￼ Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 
 ## 중단될 예정 API (6.0)
 
@@ -220,7 +297,7 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ### webFrame Isolated World APIs
 
 ```js
-// Removed in Electron 7.0
+// Deprecated
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
@@ -292,19 +369,19 @@ app.getGPUInfo('basic')
 
 When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
-## Breaking API Changes (3.0)
+## 중대한 API 변화 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+다음 리스트는 Electron 3.0에서의 중대한 API 변화를 포함합니다.
 
 ### `app`
 
 ```js
-// Deprecated
+// 중단예정
 app.getAppMemoryInfo()
-// Replace with
+// 다음으로 대체됨
 app.getAppMetrics()
 
-// Deprecated
+// 중단예정
 const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
@@ -312,20 +389,20 @@ const { memory } = metrics[0] // Deprecated property
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 중단예정
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// 다음으로 대체됨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -336,37 +413,37 @@ window.on('app-command', (e, cmd) => {
 ### `clipboard`
 
 ```js
-// Deprecated
+// 중단예정
 clipboard.readRtf()
-// Replace with
+// 다음으로 대체됨
 clipboard.readRTF()
 
-// Deprecated
+// 중단예정
 clipboard.writeRtf()
-// Replace with
+// 다음으로 대체됨
 clipboard.writeRTF()
 
-// Deprecated
+// 중단예정
 clipboard.readHtml()
-// Replace with
+// 다음으로 대체됨
 clipboard.readHTML()
 
-// Deprecated
+// 중단예정
 clipboard.writeHtml()
-// Replace with
+// 다음으로 대체됨
 clipboard.writeHTML()
 ```
 
 ### `crashReporter`
 
 ```js
-// Deprecated
+// 중단예정
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 다음으로 대체됨
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -377,9 +454,9 @@ crashReporter.start({
 ### `nativeImage`
 
 ```js
-// Deprecated
+// 중단예정
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 다음으로 대체됨
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -388,27 +465,27 @@ nativeImage.createFromBuffer(buffer, {
 ### `프로세스`
 
 ```js
-// Deprecated
+// 중단예정
 const info = process.getProcessMemoryInfo()
 ```
 
 ### `screen`
 
 ```js
-// Deprecated
+// 중단예정
 screen.getMenuBarHeight()
-// Replace with
+// 다음으로 대체됨
 screen.getPrimaryDisplay().workArea
 ```
 
 ### `session`
 
 ```js
-// Deprecated
+// 중단예정
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// 다음으로 대체됨
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
@@ -417,79 +494,79 @@ ses.setCertificateVerifyProc((request, callback) => {
 ### `Tray`
 
 ```js
-// Deprecated
+// 중단예정
 tray.setHighlightMode(true)
-// Replace with
+// 다음으로 대체됨
 tray.setHighlightMode('on')
 
-// Deprecated
+// 중단예정
 tray.setHighlightMode(false)
-// Replace with
+// 다음으로 대체됨
 tray.setHighlightMode('off')
 ```
 
 ### `webContents`
 
 ```js
-// Deprecated
+// 중단예정
 webContents.openDevTools({ detach: true })
-// Replace with
+// 다음으로 대체됨
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// 제거됨
 webContents.setSize(options)
-// There is no replacement for this API
+// 대체할 API 없음
 ```
 
 ### `webFrame`
 
 ```js
-// Deprecated
+// 중단예정
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 다음으로 대체됨
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// 중단예정
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// 다음으로 대체됨
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// 대체할 API 없음
 
-// Removed
+// 제거됨
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// 대체할 API 없음
 
-// Keyboard listeners no longer work on webview tag
+// 키보드 리스너는 webview 태그에서 더이상 동작하지 않음
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
 ### Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+native Node 모듈을 빌드할 때 `.npmrc`파일의 `disturl`나 명령행 플래그의 `--dist-url`로 정의된 URL입니다.
 
-Deprecated: https://atom.io/download/atom-shell
+더이상 사용하지 않음: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+다음으로 대체: https://atom.io/download/electron
 
-## Breaking API Changes (2.0)
+## 중대한 API 변화 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+다음 리스트는 Electron 2.0에서의 중대한 API 변화를 포함합니다.
 
 ### `BrowserWindow`
 
 ```js
-// Deprecated
+// 중단예정
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 다음으로 대체됨
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -497,23 +574,23 @@ let windowB = new BrowserWindow(optionsB)
 ### `menu`
 
 ```js
-// Removed
+// 제거됨
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// 다음으로 대체됨
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ### `nativeImage`
 
 ```js
-// Removed
+// 제거됨
 nativeImage.toPng()
-// Replaced with
+// 다음으로 대체됨
 nativeImage.toPNG()
 
-// Removed
+// 제거됨
 nativeImage.toJpeg()
-// Replaced with
+// 다음으로 대체됨
 nativeImage.toJPEG()
 ```
 
@@ -524,27 +601,27 @@ nativeImage.toJPEG()
 ### `webContents`
 
 ```js
-// Removed
+// 제거됨
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `webFrame`
 
 ```js
-// Removed
+// 제거됨
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ### `<webview>`
 
 ```js
-// Removed
+// 제거됨
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// 다음으로 대체됨
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 

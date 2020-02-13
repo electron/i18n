@@ -11,4 +11,4 @@
 * `description` String (optional) - 태스크에 대한 설명(툴 팁에 표시됨). `type`가 `task`하는 경우에만 설정해야 합니다.
 * `iconPath` String (optional) - 아이콘을 포함하는 임의의 리소스 파일로 표시될 수 있는 Jump List에 아이콘의 절대 경로를 표시합니다. (e.g. `.ico`, `.exe`, `.dll`). 대게 `process.execPath`를 지정하여 프로그램 아이콘을 표시할 수 있습니다.
 * `iconIndex` Number (optional) - 리소스 파일의 아이콘 인덱스 리소스 파일에 여러 아이콘이 포함되어 있는 경우 이 값을 사용하여 이 테스크에 대해 표시되어야 하는 아이콘의 제로-베이스 인덱스를 지정 할 수 있습니다. 리소스 파일에 하나의 아이콘만 포함된 경우 이 속성을 0으로 설정해야 합니다.
-* `workingDirectory` String (optional) - The working directory. Default is empty.
+* `workingDirectory` String (optional) - 작업 디렉토리. 기본 값은 빈값.

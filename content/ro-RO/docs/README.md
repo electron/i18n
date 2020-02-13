@@ -45,6 +45,7 @@ Există întrebări care sunt solicitate destul de des. Verifică acest lucru î
   * [Fișier nativ drag & drop](tutorial/native-file-drag-drop.md)
   * [Randare în afara ecranului](tutorial/offscreen-rendering.md)
   * [Suportarea modului negru macOS](tutorial/mojave-dark-mode-guide.md)
+  * [Web embeds in Electron](tutorial/web-embeds.md)
 * [Accesibilitate](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -103,7 +104,8 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul procesului](api/process.md)
 * [Comutatoare de linie de comandă acceptate](api/command-line-switches.md)
 * [Variabile de mediu](api/environment-variables.md)
-* [Ruperea modificărilor API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Ruperea modificărilor API](breaking-changes.md)
 
 ### Elemente DOM personalizate:
 

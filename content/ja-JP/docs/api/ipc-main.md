@@ -8,7 +8,7 @@
 
 ## メッセージ送信
 
-また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-args) を参照して下さい。
+また、メインプロセスからレンダラープロセスにメッセージを送ることもできます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。

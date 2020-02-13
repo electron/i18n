@@ -1,3 +1,3 @@
-# InputEvent Object
+# InputEvent 객체
 
-* `modifiers` String[] - `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`를 포함할 수 있는 이벤트의 modifiers 배열.
+* `modifiers` String[] (optional) - 이벤트 수정자는 다음 값의 배열이 될 수 있습니다. `shift`, `control`, `ctrl`, `alt`, `meta`, `command`, `cmd`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
