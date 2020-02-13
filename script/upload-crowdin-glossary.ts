@@ -45,7 +45,7 @@ async function main() {
       })
 
       const props = api.instanceProperties || []
-      props.forEach(prop => {
+      props.forEach((prop: any) => {
         const term = `${api.instanceName}.${prop.name}`
         if (Object.keys(glossary.entries).includes(term)) return
         glossary.add(
