@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "12105",
-    "translated": "5932",
+    "translated": "5934",
     "approved": "1715",
     "words": "114809",
-    "words_translated": "50210",
+    "words_translated": "50240",
     "words_approved": "11630",
     "translated_progress": 43,
     "approved_progress": 10,
-    "qa_issues": 2165
+    "qa_issues": 2167
   },
   {
     "name": "Persian",
