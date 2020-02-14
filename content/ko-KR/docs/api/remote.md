@@ -14,9 +14,9 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture).
+**참고:** 반대의 경우 (메인 프로세스에서 렌더러 프로세스에 접근할 경우), [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture) 를 사용하면 됩니다.
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**참고:** remote 모듈은 다음의 상황에서 보안상의 이유로 비활성화될 수 있습니다.
 
 * [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
 * [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
