@@ -129,6 +129,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
+    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (任意)
   * `callback` Function 
     * `headersReceivedResponse` Object 
@@ -199,6 +200,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
+    * `error` String
 
 `listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。
 
