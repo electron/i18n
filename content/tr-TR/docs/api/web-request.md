@@ -129,6 +129,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Tamsayı
+    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
   * `geri aramak` Function 
     * `headersReceivedResponse` Nesne 
@@ -199,6 +200,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `fromCache` Boolean
     * `statusCode` Tamsayı
     * `statusLine` String
+    * `error` String
 
 Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağırılacaktır.
 

@@ -129,6 +129,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `timestamp` Duakali
       * `statusGaris` String
       * `statusCode` Bilangan bulat
+      * `requestHeaders` Record<string, string>
       * `responseHeaders` Record<string, string[]> (optional)
     * `callback` Fungsi 
       * `headersReceivedResponse` Obyek 
@@ -199,6 +200,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `dariCache` Boolean
       * `statusCode` Bilangan bulat
       * `statusGaris` String
+      * `error` String
   
   Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika sebuah permintaan selesai.
   
