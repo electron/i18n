@@ -129,6 +129,7 @@ The `callback` has to be called with a `response` object.
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
+    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
   * `callback` Function - 回调函数 
     * `headersReceivedResponse` Object 
@@ -199,6 +200,7 @@ The `callback` has to be called with a `response` object.
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
+    * `error` String
 
 当请求完成时，将以 `listener(details)`的方式调用`listener`。
 
