@@ -485,7 +485,7 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 이후에 `app.getPath()` 또는 `app.setPath(pathName, newPath)`를 사용해서 다룰 수 있는, 사용자 앱의 로그를 저장하기 위한 디렉토리를 지정하거나 만듭니다.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+`path` 파라미터없이 `app.setAppLogsPath()`를 호출하면, *macOS*에서는 `~/Library/Logs/YourAppName`으로 설정되고, *Linux*와 *Windows*에서는 `userData` 디렉토리 내부로 설정이 됩니다.
 
 ### `app.getAppPath()`
 
@@ -515,7 +515,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 `String` 반환 - `name`과 관련된 특정한 디렉토리 또는 파일의 경로. 실패 시 `Error`를 발생시킵니다.
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+`app.getPath(‘logs’)`가 `app.setAppLogsPath()` 호출없이 처음으로 호출이 되었다면, `path` 파라미터없이 `app.setAppLogsPath()`를 호출했을 경우와 마찬가지로 기본 로그 디렉토리가 만들어집니다.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -526,7 +526,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
     * `normal` - 32x32
     * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+`Promise<NativeImage>` 반환 - [NativeImage](native-image.md) 형태의 앱 아이콘
 
 Fetches a path's associated icon.
 
