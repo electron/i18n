@@ -376,7 +376,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-`webContents`의 렌더러 프로세스에서 `remote.getGlobal()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the global from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `remote.getGlobal()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 이벤트 'remote-get-builtin'
 
@@ -395,7 +395,7 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-`webContents`의 렌더러 프로세스에서 `remote.getCurrentWindow()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `remote.getCurrentWindow()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 이벤트: 'remote-get-current-web-contents'
 
@@ -404,7 +404,7 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-`webContents`의 렌더러 프로세스에서 `remote.getCurrentWebContents()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `remote.getCurrentWebContents()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 이벤트: 'remote-get-guest-web-contents'
 
@@ -414,7 +414,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `<webview>.getWebContents()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ## 메서드
 
@@ -434,7 +434,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process of `
 
 `exitCode`로 즉시 종료합니다. `exitCode`의 기본값은 0 입니다.
 
-All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
+사용자에게 묻지 않고 모든 창이 즉시 닫히고, `before-quit` 이벤트와 `will-quit` 이벤트가 발생하지 않습니다.
 
 ### `app.relaunch([options])`
 
@@ -444,7 +444,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 현재 인스턴스가 종료되면 앱을 다시 실행합니다.
 
-By default, the new instance will use the same working directory and command line arguments with current instance. `args`가 지정된 경우, 기존 인스턴스의 실행 명령의 인자값 대신 `args`를 실행 명령의 매개변수로 넘겨줍니다. `execPath`가 지정된 경우, 앱이 재시작될 때 현재 앱의 경로 대신 `execPath`경로에 있는 앱이 실행됩니다.
+기본적으로 새로 실행될 인스턴스는 현재 인스턴스와 동일한 실행 경로, 실행 명령의 인자값을 사용합니다. `args`가 지정된 경우, 기존 인스턴스의 실행 명령의 인자값 대신 `args`를 실행 명령의 매개변수로 넘겨줍니다. `execPath`가 지정된 경우, 앱이 재시작될 때 현재 앱의 경로 대신 `execPath`경로에 있는 앱이 실행됩니다.
 
 이 메서드는 호출했을 때 현재 실행중인 앱을 종료하는 것이 아니기 때문에, 앱을 재시작하기 위해서는 `app.relaunch`를 호출한 후에 `app.quit`혹은 `app.exit`을 호출해야 합니다.
 
@@ -481,11 +481,11 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 ### `app.setAppLogsPath([path])`
 
-* `path` String (optional) - A custom path for your logs. Must be absolute.
+* `path` String (선택) - 로그를 위한 커스텀 경로. 절대경로여야 함.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+이후에 `app.getPath()` 또는 `app.setPath(pathName, newPath)`를 사용해서 다룰 수 있는, 사용자 앱의 로그를 저장하기 위한 디렉토리를 지정하거나 만듭니다.
 
-Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
+`path` 파라미터없이 `app.setAppLogsPath()`를 호출하면, *macOS*에서는 `~/Library/Logs/YourAppName`으로 설정되고, *Linux*와 *Windows*에서는 `userData` 디렉토리 내부로 설정이 됩니다.
 
 ### `app.getAppPath()`
 
@@ -493,7 +493,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
 
 ### `app.getPath(name)`
 
-* `name` String - You can request the following paths by the name: 
+* `name` String - 아래와 같은 경로를 name에 넣어 함수를 호출할 수 있습니다. 
   * `home` User의 home 디렉토리.
   * `appData` /user 의 Application Data 디렉토리. 기본적으로 아래와 같은 경로를 가리킵니다: 
     * Windows에서 `%APPDATA%`
@@ -513,9 +513,9 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `logs` 사용자의 log 폴더 경로.
   * `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+`String` 반환 - `name`과 관련된 특정한 디렉토리 또는 파일의 경로. 실패 시 `Error`를 발생시킵니다.
 
-If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
+`app.getPath(‘logs’)`가 `app.setAppLogsPath()` 호출없이 처음으로 호출이 되었다면, `path` 파라미터없이 `app.setAppLogsPath()`를 호출했을 경우와 마찬가지로 기본 로그 디렉토리가 만들어집니다.
 
 ### `app.getFileIcon(path[, options])`
 
@@ -526,9 +526,9 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
     * `normal` - 32x32
     * `large` - *Linux*에서 48x48, *Windows*에서 32x32, *macOS* 미지원.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+`Promise<NativeImage>` 반환 - [NativeImage](native-image.md) 형태의 앱 아이콘
 
-Fetches a path's associated icon.
+Path와 관련된 아이콘을 가져옵니다.
 
 *Windows*에는 2종류의 아이콘이 있습니다:
 
