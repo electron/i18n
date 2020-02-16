@@ -483,7 +483,7 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 * `path` String (선택) - 로그를 위한 커스텀 경로. 절대경로여야 함.
 
-Sets or creates a directory your app's logs which can then be manipulated with `app.getPath()` or `app.setPath(pathName, newPath)`.
+이후에 `app.getPath()` 또는 `app.setPath(pathName, newPath)`를 사용해서 다룰 수 있는, 사용자 앱의 로그를 저장하기 위한 디렉토리를 지정하거나 만듭니다.
 
 Calling `app.setAppLogsPath()` without a `path` parameter will result in this directory being set to `~/Library/Logs/YourAppName` on *macOS*, and inside the `userData` directory on *Linux* and *Windows*.
 
@@ -513,7 +513,7 @@ Calling `app.setAppLogsPath()` without a `path` parameter will result in this di
   * `logs` 사용자의 log 폴더 경로.
   * `pepperFlashSystemPlugin` Pepper Flash 플러그인의 시스템 버전에 대한 전체 경로.
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+`String` 반환 - `name`과 관련된 특정한 디렉토리 또는 파일의 경로. 실패 시 `Error`를 발생시킵니다.
 
 If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being called first, a default log directory will be created equivalent to calling `app.setAppLogsPath()` without a `path` parameter.
 
