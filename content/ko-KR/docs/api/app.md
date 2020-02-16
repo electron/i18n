@@ -376,7 +376,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-`webContents`의 렌더러 프로세스에서 `remote.getGlobal()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the global from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `remote.getGlobal()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 이벤트 'remote-get-builtin'
 
@@ -395,7 +395,7 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-`webContents`의 렌더러 프로세스에서 `remote.getCurrentWindow()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `remote.getCurrentWindow()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 이벤트: 'remote-get-current-web-contents'
 
@@ -404,7 +404,7 @@ Returns:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-`webContents`의 렌더러 프로세스에서 `remote.getCurrentWebContents()`가 호출되었을 때 발생합니다. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+`webContents`의 렌더러 프로세스에서 `remote.getCurrentWebContents()`가 호출되었을 때 발생합니다. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ### 이벤트: 'remote-get-guest-web-contents'
 
@@ -414,7 +414,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. `event.preventDefault()`를 실행하면 모듈이 반환되지 않습니다. `event.returnValue`를 설정하여 임의의 값을 반환할 수 있습니다.
 
 ## 메서드
 
@@ -444,7 +444,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 현재 인스턴스가 종료되면 앱을 다시 실행합니다.
 
-By default, the new instance will use the same working directory and command line arguments with current instance. `args`가 지정된 경우, 기존 인스턴스의 실행 명령의 인자값 대신 `args`를 실행 명령의 매개변수로 넘겨줍니다. `execPath`가 지정된 경우, 앱이 재시작될 때 현재 앱의 경로 대신 `execPath`경로에 있는 앱이 실행됩니다.
+기본적으로 새로 실행될 인스턴스는 현재 인스턴스와 동일한 실행 경로, 실행 명령의 인자값을 사용합니다. `args`가 지정된 경우, 기존 인스턴스의 실행 명령의 인자값 대신 `args`를 실행 명령의 매개변수로 넘겨줍니다. `execPath`가 지정된 경우, 앱이 재시작될 때 현재 앱의 경로 대신 `execPath`경로에 있는 앱이 실행됩니다.
 
 이 메서드는 호출했을 때 현재 실행중인 앱을 종료하는 것이 아니기 때문에, 앱을 재시작하기 위해서는 `app.relaunch`를 호출한 후에 `app.quit`혹은 `app.exit`을 호출해야 합니다.
 
