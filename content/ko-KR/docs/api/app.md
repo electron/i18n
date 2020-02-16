@@ -528,7 +528,7 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 `Promise<NativeImage>` 반환 - [NativeImage](native-image.md) 형태의 앱 아이콘
 
-Fetches a path's associated icon.
+Path와 관련된 아이콘을 가져옵니다.
 
 *Windows*에는 2종류의 아이콘이 있습니다:
 
