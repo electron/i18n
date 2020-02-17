@@ -24,7 +24,7 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 そして、Visual Studio を開きます。 Electron は Visual Studio でビルドされていないため、プロジェクトファイルは含まれていません。しかし、ソースコードファイルを "ファイルとして" 開くことができます。つまり、Visual Studio がそれ単独で開きます。 ブレークポイントを設定することもできます。 Visual Studio は、ソースコードがアタッチされたプロセスで実行されているコードと一致することを自動的に認識し、それに応じてブレークします。
 
-Relevant code files can be found in `./shell/`.
+関連コードファイルは `./shell/` にあります。
 
 ### アタッチ
 
