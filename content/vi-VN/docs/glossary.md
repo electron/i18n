@@ -18,7 +18,7 @@ Apple Disk Image là một định dạng đóng gói được sử dụng bởi
 
 ### IME
 
-Trình chỉnh sửa phương thức nhập liệu. Một chương trình cho phép người dùng nhập các chữ cái và kí tự mà không thể tìm thấy trên bàn phím của họ. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Trình chỉnh sửa phương thức nhập liệu. Một chương trình cho phép người dùng nhập các chữ cái và kí tự mà không thể tìm thấy trên bàn phím của họ. Lấy ví dụ, nó cho phép người dùng bàn phím La-tinh nhập các chữ cái trong tiếng Trung, tiếng Nhật, tiếng Hàn và tiếng Ấn.
 
 ### IDL
 
@@ -30,13 +30,13 @@ IPC là viết tắt cho Inter-Process Communication. Electron sử dụng IPC �
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Cũng được gọi là "libcc".
+Một thư viện mở bao gồm Chromium Content module và tất cả dependency của nó (ví dụ: Blink, V8, vv..). Cũng được gọi là "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Quá trình chính, thường là một tệp tên là main,js, là điểm vào tới mọi ứng dụng Electron. Nó kiểm soát cuộc đời của một ứng dụng, từ khi mở đến khi đóng. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
