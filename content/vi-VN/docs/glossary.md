@@ -64,7 +64,7 @@ Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Nó được phát hành dưới sự kết hợp của nhiều loại giấy phép phần mềm miễn phí, và được sử dụng rộng rãi thay thế cho sản phẩm thương mại độc quyền như InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ NSIS như một build target.
 
 ### OSR
 
