@@ -112,7 +112,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // 并且为你的应用加载index.html
   win.loadFile('index.html')
 
   // 打开开发者工具
