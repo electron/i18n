@@ -36,7 +36,7 @@ Một thư viện mở bao gồm Chromium Content module và tất cả dependen
 
 ### main process
 
-Quá trình chính, thường là một tệp tên là main,js, là điểm vào tới mọi ứng dụng Electron. Nó kiểm soát cuộc đời của một ứng dụng, từ khi mở đến khi đóng. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Quá trình chính, thường là một tệp tên là main,js, là điểm vào tới mọi ứng dụng Electron. Nó kiểm soát cuộc đời của một ứng dụng, từ khi mở đến khi đóng. Nó cũng kiểm soát các phần tử bản địa như là Menu, Thanh Menu, Dock,Tray, vv.. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
