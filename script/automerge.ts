@@ -1,4 +1,4 @@
-import * as Octokit from '@octokit/rest'
+import { Octokit } from '@octokit/rest'
 
 const OWNER = 'electron'
 const REPO = 'i18n'
