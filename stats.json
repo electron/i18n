@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "12107",
-    "translated": "8969",
+    "translated": "8970",
     "approved": "2646",
     "words": "114813",
-    "words_translated": "76819",
+    "words_translated": "76837",
     "words_approved": "20744",
     "translated_progress": 66,
     "approved_progress": 18,
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "12107",
-    "translated": "5959",
+    "translated": "6006",
     "approved": "1723",
     "words": "114813",
-    "words_translated": "50477",
+    "words_translated": "50612",
     "words_approved": "11646",
-    "translated_progress": 43,
+    "translated_progress": 44,
     "approved_progress": 10,
-    "qa_issues": 2179
+    "qa_issues": 2199
   },
   {
     "name": "Persian",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "12107",
-    "translated": "2249",
+    "translated": "2265",
     "approved": "591",
     "words": "114813",
-    "words_translated": "10065",
+    "words_translated": "10224",
     "words_approved": "1327",
     "translated_progress": 8,
     "approved_progress": 1,
-    "qa_issues": 518
+    "qa_issues": 525
   }
 ]
