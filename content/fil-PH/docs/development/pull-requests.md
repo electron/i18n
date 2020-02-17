@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Ikaapat na hakbang: Code
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
 Siguraduhing magpatakbo ng `npm run lint` mula sa oras-oras sa anumang mga pagbabago sa code upang matiyak na sinusunod nila ang estilo ng code ng proyekto.
 

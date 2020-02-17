@@ -24,7 +24,7 @@ $ ./out/Testing/electron.exe ~/my-electron-app/
 
 然后，打开 Visual Studio。 Electron 不是使用 Visual Studio 构建的，因此不包含项目文件 - 但是您可以打开源代码文件 "As File"，这意味着 Visual Studio 将自己打开它们。 您仍然可以设置断点 - Visual Studio 将自动确定源代码与附加过程中运行的代码相匹配，并相应地中断。
 
-Relevant code files can be found in `./atom/`.
+Relevant code files can be found in `./shell/`.
 
 ### 附加
 

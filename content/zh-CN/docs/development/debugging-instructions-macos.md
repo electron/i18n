@@ -28,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 LLDB是一个强大的工具，支持进行多种策略的代码检查。 在这做一个基本的介绍，让我们假设你从 JavaScript 调用一个不正常的命令 - 所以你想打断该命令的 C++ 对应的 Electron 源。
 
-Relevant code files can be found in `./atom/`.
+Relevant code files can be found in `./shell/`.
 
 让我们假设你想调试 `app.setName()`, 在 `browser.cc` 中定义为 `Browser::SetName()`. 使用 `breakpoint` 命令进行断点，指定文件和断点位置:
 
