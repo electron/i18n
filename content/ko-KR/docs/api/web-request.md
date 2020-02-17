@@ -19,7 +19,7 @@ An example of adding `User-Agent` header for requests:
 ```javascript
 const { session } = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// 다음의 url에 대한 모든 요청의 user agent를 변경합니다.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -43,7 +43,7 @@ The following methods are available on instances of `WebRequest`:
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -83,7 +83,7 @@ Some examples of valid `urls`:
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -106,7 +106,7 @@ The `callback` has to be called with a `response` object.
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -123,14 +123,14 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
     * `requestHeaders` Record<string, string>
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `responseHeaders` Record<string, string[]> (선택)
   * `callback` 함수 
     * `headersReceivedResponse` Object 
       * `cancel` Boolean (optional)
@@ -150,11 +150,11 @@ The `callback` has to be called with a `response` object.
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `responseHeaders` Record<string, string[]> (선택)
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
@@ -170,7 +170,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
@@ -179,7 +179,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `statusLine` String
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `responseHeaders` Record<string, string[]> (선택)
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
@@ -192,11 +192,11 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
-    * `responseHeaders` Record<string, string[]> (optional)
+    * `responseHeaders` Record<string, string[]> (선택)
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
@@ -213,7 +213,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `id` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Integer (선택)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
