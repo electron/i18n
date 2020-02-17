@@ -10,7 +10,7 @@ ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](ht
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Thư viện C Run-time (CRT) là một bộ phận của thư viện C++ tiêu chuẩn mà kết hợp chặt chẽ với thư viện ISO C99 tiêu chuẩn. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -18,7 +18,7 @@ Apple Disk Image là một định dạng đóng gói được sử dụng bởi
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Trình chỉnh sửa phương thức nhập liệu. Một chương trình cho phép người dùng nhập các chữ cái và kí tự mà không thể tìm thấy trên bàn phím của họ. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IDL
 
