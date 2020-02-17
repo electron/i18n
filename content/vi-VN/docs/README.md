@@ -45,7 +45,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Kéo thả tệp native](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Hỗ trợ chế độ màn hình tối macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Đính kèm trang trong Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -70,7 +70,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Danh mục bảo mật](tutorial/security.md#checklist-security-recommendations)
 * [Cập Nhật](tutorial/updates.md) 
   * [Triển khai một Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Thực hiện cập nhật trong ứng dụng của bạn](tutorial/updates.md#implementing-updates-in-your-app)
   * [Áp dụng cập nhật](tutorial/updates.md#applying-updates)
 * [Hỗ trợ](tutorial/support.md)
 
