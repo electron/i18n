@@ -28,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 LLDBは強力なツールであり、コード検査のための複数の計画をサポートします。 この基本的な導入では、正しく動作していないコマンドを JavaScript から呼び出していると仮定しましょう。Electron ソース内に対応するコマンドの C++をブレークしたいとします。
 
-関連するコードファイルは `./atom/` にあります。
+Relevant code files can be found in `./shell/`.
 
 `browser.cc` 内に `Browser::SetName()` として定義されている `app.setName()` をデバッグしたいと仮定しましょう。 `breakpoint` コマンドを用いて、以下のようにブレークするファイルと行を指定してブレークポイントを設定します。
 
