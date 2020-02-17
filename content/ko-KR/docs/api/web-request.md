@@ -218,6 +218,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 오류 설명
 
 The `listener` will be called with `listener(details)` when an error occurs.
