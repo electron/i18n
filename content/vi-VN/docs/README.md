@@ -91,7 +91,7 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
   * [Sử dụng các file đóng gói asar](tutorial/application-packaging.md#using-asar-archives)
   * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Thử nghiệm Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Việc sử dụng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -102,9 +102,9 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 
 * [Tóm tắt](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Dòng lệnh chuyển được hỗ trợ](api/command-line-switches.md)
 * [Các biến môi trường (Environment Variables)](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Tiện ích Chrome được hỗ trợ](api/extensions.md)
 * [Những thay đổi API](breaking-changes.md)
 
 ### Tùy chỉnh các DOM Element:
