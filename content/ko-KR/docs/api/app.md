@@ -515,7 +515,7 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 `String` 반환 - `name`과 관련된 특정한 디렉토리 또는 파일의 경로. 실패 시 `Error`를 발생시킵니다.
 
-`app.getPath(‘logs’)`가 `app.setAppLogsPath()` 호출없이 처음으로 호출이 되었다면, `path` 파라미터없이 `app.setAppLogsPath()`를 호출했을 경우와 마찬가지로 기본 로그 디렉토리가 만들어집니다.
+`app.getPath(‘logs’)`가 `app.setAppLogsPath()` 호출없이 처음으로 호출이 되었다면, `path` 파라미터없이 `app.setAppLogsPath()`를 호출했을 경우와 마찬가지로 기본 로그 디렉토리가 반환될겁니다.
 
 ### `app.getFileIcon(path[, options])`
 
