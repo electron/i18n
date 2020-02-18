@@ -52,11 +52,11 @@ Viết tắt của Apple's Mac App Store Để biết thêm chi tiết về các
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Tham khảo https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### các module native
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Chúng phần lớn được sử dụng để cung cấp khớp nối giữa JavaScript chạy trên Node.js và các thư viện C/C++.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
@@ -64,7 +64,7 @@ Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Nó được phát hành dưới sự kết hợp của nhiều loại giấy phép phần mềm miễn phí, và được sử dụng rộng rãi thay thế cho sản phẩm thương mại độc quyền như InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ NSIS như một build target.
 
 ### OSR
 
