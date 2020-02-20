@@ -1,12 +1,12 @@
 # Große Änderungen (NetworkService) (Entwurf)
 
-This document describes changes to Electron APIs after migrating network code to NetworkService API.
+Diese Dokument beschreibt Änderungen an der Electron API nach dem migrieren von Netzwerk Code zu NetworkService API.
 
-We don't currently have an estimate of when we will enable `NetworkService` by default in Electron, but as Chromium is already removing non-`NetworkService` code, we might switch before Electron 10.
+Wir können gerade noch nicht einschätzen wann wir `NetworkService` als Standard in Electron einsetzen, aber wie Chromium schon `NetworkService` aus dem Code entfernt, werden wir vielleicht vor Electron 10 wechseln.
 
-The content of this document should be moved to `breaking-changes.md` once we have determined when to enable `NetworkService` in Electron.
+Der Inhalt dieses Dokumentes sollte zur Datei `breaking-changes.md` verschoben werden, wenn wir entschieden haben wann wir `NetworkService` in Electron aktivieren.
 
-## Planned Breaking API Changes
+## Geplante Änderungen an der Schnittstelle
 
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
@@ -34,13 +34,13 @@ protocol.unregisterProtocol(scheme)
 The APIs are now synchronous and the optional callback is no longer needed.
 
 ```javascript
-// Deprecated
+// Veraltet
 protocol.registerFileProtocol(scheme, handler, () => { /* ... */ })
-// Replace with
+// Ersetzt durch
 protocol.registerFileProtocol(scheme, handler)
 ```
 
-The registered or intercepted protocol does not have effect on current page until navigation happens.
+Das registrierte oder abgefangene Protokoll hat keine Auswirkungen auf die aktuelle Seite, bis eine Navigation stattfindet.
 
 ### `protocol.isProtocolHandled`
 
