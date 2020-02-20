@@ -17,7 +17,6 @@ import {
   IParseElectronGlossaryReturn,
 } from '../lib/parse-electron-glossary'
 import { bashFix } from '../lib/remark-bash-fix'
-import { itsReallyJS } from '../lib/remark-its-really-js'
 import { fiddleUrls } from '../lib/remark-fiddle-urls'
 import { plaintextFix } from '../lib/remark-plaintext-fix'
 const hrefType = require('href-type')
@@ -127,7 +126,7 @@ async function parseFile(file: IParseFile) {
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async (section: $TSFixMe) => {
       const parsed = await hubdown(section.body, {
-        runBefore: [plaintextFix, bashFix, fiddleUrls, itsReallyJS],
+        runBefore: [plaintextFix, bashFix, fiddleUrls],
       })
       const $ = cheerio.load(parsed.content || '')
       file.title =
