@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Accède aux informations sur les sources de médias qui peut être utilisé pour capturer l'audio et la vidéo à partir du bureau en utilisant l'API [`navigator.mediaDevices.getUserMedia`].
+> Accède aux informations sur les sources de médias qui peuvent être utilisées pour capturer l'audio et la vidéo à partir du bureau en utilisant l'API [`navigator.mediaDevices.getUserMedia`].
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
@@ -10,19 +10,19 @@ L'exemple suivant montre comment faire pour capturer la vidéo à partir d'une f
 // Dans le processus renderer.
 const { desktopCapturer } = require('electron')
 
-desktopCapturer.getSources({ types: ['window', 'screen'] }). hen(sources asynchrones => {
-  pour (const source de sources) {
-    if (source. ame === 'Electron') {
-      essayez {
-        const stream = wait navigator. Appareils d'édition. etUserMedia({
+desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
+  for (const source of sources) {
+    if (source.name === 'Electron') {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
           audio: false,
-          vidéo: {
-            obligatoire: {
-              chromeMediaSource: 'bureau',
-              chromeMediaSourceId: source. d,
-              minLargeur : 1280,
-              maxLargeur : 1280,
-              minHauteur : 720,
+          video: {
+            mandatory: {
+              chromeMediaSource: 'desktop',
+              chromeMediaSourceId: source.id,
+              minWidth: 1280,
+              maxWidth: 1280,
+              minHeight: 720,
               maxHeight: 720
             }
           }
@@ -37,9 +37,9 @@ desktopCapturer.getSources({ types: ['window', 'screen'] }). hen(sources asynchr
 })
 
 function handleStream (stream) {
-  const video = document. uerySelector('video')
-  video.srcObject = flux
-  video.onloadedmetadata = (e) => vidéo. lay()
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
 function handleError (e) {
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-Pour capturer la vidéo provenant d'une source fournis par `desktopCapturer`, les options passés à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` et `audio: false`.
+Pour capturer la vidéo provenant d'une source fournie par `desktopCapturer`, les options passées à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` et `audio: false`.
 
-Pour capturer l'audio et la vidéo depuis l'ensemble du bureau, les options passés à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` pour `audio` et `video`, mais ne doit pas inclure l'option `chromeMediaSourceId`.
+Pour capturer l'audio et la vidéo depuis l'ensemble du bureau, les options passées à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` pour `audio` et `video`, mais ne doivent pas inclure l'option `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {

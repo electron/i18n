@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Langkah 4: Kode
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
 Mohon pastikan untuk menjalankan `npm run lint` dari waktu ke waktu di setiap perubahan kode Untuk memastikan bahwa mereka mengikuti style kode projek.
 

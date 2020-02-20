@@ -10,7 +10,7 @@ ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](ht
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Thư viện C Run-time (CRT) là một bộ phận của thư viện C++ tiêu chuẩn mà kết hợp chặt chẽ với thư viện ISO C99 tiêu chuẩn. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -18,7 +18,7 @@ Apple Disk Image là một định dạng đóng gói được sử dụng bởi
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Trình chỉnh sửa phương thức nhập liệu. Một chương trình cho phép người dùng nhập các chữ cái và kí tự mà không thể tìm thấy trên bàn phím của họ. Lấy ví dụ, nó cho phép người dùng bàn phím La-tinh nhập các chữ cái trong tiếng Trung, tiếng Nhật, tiếng Hàn và tiếng Ấn.
 
 ### IDL
 
@@ -30,13 +30,13 @@ IPC là viết tắt cho Inter-Process Communication. Electron sử dụng IPC �
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Cũng được gọi là "libcc".
+Một thư viện mở bao gồm Chromium Content module và tất cả dependency của nó (ví dụ: Blink, V8, vv..). Cũng được gọi là "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Quá trình chính, thường là một tệp tên là main,js, là điểm vào tới mọi ứng dụng Electron. Nó kiểm soát cuộc đời của một ứng dụng, từ khi mở đến khi đóng. Nó cũng kiểm soát các phần tử bản địa như là Menu, Thanh Menu, Dock,Tray, vv.. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
@@ -52,11 +52,11 @@ Viết tắt của Apple's Mac App Store Để biết thêm chi tiết về các
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Tham khảo https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### các module native
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Chúng phần lớn được sử dụng để cung cấp khớp nối giữa JavaScript chạy trên Node.js và các thư viện C/C++.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
@@ -64,7 +64,7 @@ Xem thêm [Cách sử dụng các Module của Node](tutorial/using-native-node-
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Nó được phát hành dưới sự kết hợp của nhiều loại giấy phép phần mềm miễn phí, và được sử dụng rộng rãi thay thế cho sản phẩm thương mại độc quyền như InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) hỗ trợ NSIS như một build target.
 
 ### OSR
 

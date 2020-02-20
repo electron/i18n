@@ -45,7 +45,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Kéo thả tệp native](tutorial/native-file-drag-drop.md)
   * [Offscreen Rendering](tutorial/offscreen-rendering.md)
   * [Hỗ trợ chế độ màn hình tối macOS](tutorial/mojave-dark-mode-guide.md)
-  * [Web embeds in Electron](tutorial/web-embeds.md)
+  * [Đính kèm trang trong Electron](tutorial/web-embeds.md)
 * [Accessibility](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
@@ -70,7 +70,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
   * [Danh mục bảo mật](tutorial/security.md#checklist-security-recommendations)
 * [Cập Nhật](tutorial/updates.md) 
   * [Triển khai một Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Thực hiện cập nhật trong ứng dụng của bạn](tutorial/updates.md#implementing-updates-in-your-app)
   * [Áp dụng cập nhật](tutorial/updates.md#applying-updates)
 * [Hỗ trợ](tutorial/support.md)
 
@@ -91,7 +91,7 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
   * [Sử dụng các file đóng gói asar](tutorial/application-packaging.md#using-asar-archives)
   * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Thử nghiệm Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Việc sử dụng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -102,9 +102,9 @@ Những hướng dẫn sau đây là mở rộng của các chủ đề đã đ�
 
 * [Tóm tắt](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Dòng lệnh chuyển được hỗ trợ](api/command-line-switches.md)
 * [Các biến môi trường (Environment Variables)](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [Tiện ích Chrome được hỗ trợ](api/extensions.md)
 * [Những thay đổi API](breaking-changes.md)
 
 ### Tùy chỉnh các DOM Element:

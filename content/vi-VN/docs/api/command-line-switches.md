@@ -1,4 +1,4 @@
-# Supported Command Line Switches
+# Dòng lệnh chuyển được hỗ trợ
 
 > Command line switches supported by Electron.
 

@@ -28,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 LLDB è un potente strumento e supporta multiple strategie per l'ispezione del codice. Per questa introduzione di base, supponiamo che si stia chiamando un comando da JavaScript che non si sta comportando correttamente - quindi vorresti rompere sulla controparte di questo comando C++ all'interno della sorgente di Electron.
 
-I file di codice rilevanti possono essere trovati in `./atom/`.
+Relevant code files can be found in `./shell/`.
 
 Supponiamo si voglia fare il debug di `app.setName()`, che è definito in `browser.cc` come `Browser::SetName()`. Imposta il breakpoint usando il comando `breakpoint`, specificando file e riga da rompere:
 

@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### ステップ4: コーディング
 
-`electron/electron` リポジトリに対して開かれたほとんどのプルリクエストには、`atom/` フォルダの C/C++ コード、`lib/` フォルダの JavaScript コード、`docs/api/` のドキュメント、`spec/` フォルダのテストの変更が含まれます。
+`electron/electron` リポジトリに対して開かれたほとんどのプルリクエストには、`shell/` フォルダの C/C++ コード、`lib/` フォルダの JavaScript コード、`docs/api/` のドキュメント、`spec/` フォルダのテストの変更が含まれます。
 
 コードの変更時に `npm run lint` を実行して、プロジェクトのコードスタイルに従うようにしてください。
 

@@ -129,6 +129,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
+    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (optional)
   * `callback` פונקציה 
     * `headersReceivedResponse` Object 
@@ -199,6 +200,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `fromCache` Boolean
     * `statusCode` Integer
     * `statusLine` String
+    * `error` String
 
 The `listener` will be called with `listener(details)` when a request is completed.
 

@@ -31,7 +31,7 @@
   * [Использование API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Использование API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
-  * [Стратегия эффективности](tutorial/performance.md)
+  * [Performance Strategies](tutorial/performance.md)
 * Добавление функционала в Ваше приложение 
   * [Уведомления](tutorial/notifications.md)
   * [Недавние документы](tutorial/recent-documents.md)
