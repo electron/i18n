@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "12107",
-    "translated": "2889",
+    "translated": "2891",
     "approved": "792",
     "words": "114813",
-    "words_translated": "10901",
+    "words_translated": "10948",
     "words_approved": "1571",
     "translated_progress": 9,
     "approved_progress": 1,
-    "qa_issues": 609
+    "qa_issues": 610
   },
   {
     "name": "Filipino",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "12107",
-    "translated": "5139",
+    "translated": "5194",
     "approved": "1435",
     "words": "114813",
-    "words_translated": "30176",
+    "words_translated": "30505",
     "words_approved": "5537",
     "translated_progress": 26,
     "approved_progress": 4,
-    "qa_issues": 1529
+    "qa_issues": 1534
   },
   {
     "name": "Hebrew",
