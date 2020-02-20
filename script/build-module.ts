@@ -6,24 +6,48 @@ require('require-yaml')
 import * as walk from 'walk-sync'
 import * as path from 'path'
 import * as fs from 'fs'
-const cleanDeep = require('clean-deep')
+import cleanDeep from 'clean-deep'
 import hubdown = require('hubdown')
 import locales from '../lib/locales'
-const hrefType = require('href-type')
+import * as cheerio from 'cheerio'
 import * as URL from 'url'
 import * as packageJSON from '../package.json'
-const GithubSlugger = require('github-slugger')
-const getIds = require('get-crowdin-file-ids')
-const remark = require('remark')
-const links = require('remark-inline-links')
 import { parseElectronGlossary, IParseElectronGlossaryReturn } from '../lib/parse-electron-glossary'
 import { bashFix } from '../lib/remark-bash-fix'
 import { itsReallyJS } from '../lib/remark-its-really-js'
 import { fiddleUrls } from '../lib/remark-fiddle-urls'
 import { plaintextFix } from '../lib/remark-plaintext-fix'
+const hrefType = require('href-type')
+const GithubSlugger = require('github-slugger')
+const getIds = require('get-crowdin-file-ids')
+const remark = require('remark')
+const links = require('remark-inline-links')
+
+type $TSFixMe = any
+
+interface IParseFile extends walk.Entry {
+  fullyPath?: string
+  locale?: string
+  slug?: string
+  category?: string
+  categoryFancy?: string
+  href?: string
+  githubUrl?: string
+  crowdinFileId?: string
+  ignore?: boolean
+
+  isTutorial?: boolean
+  isApiDoc?: boolean
+  isDevTutorial?: boolean
+  isApiStructureDoc?: boolean
+
+  sections?: $TSFixMe
+
+  title?: string
+  description?: string
+}
 
 const contentDir = path.join(__dirname, '../content')
-import * as cheerio from 'cheerio'
 
 const categoryNames: Record<string, string> = {
   api: 'API',
@@ -36,8 +60,6 @@ const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 function convertToUrlSlash(filePath: string) {
   return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
 }
-
-type $TSFixMe = any
 
 let ids: Record<string, string> = {}
 
@@ -62,7 +84,7 @@ async function parseDocs(): Promise<$TSFixMe> {
   return docs
 }
 
-async function parseFile(file: $TSFixMe) {
+async function parseFile(file: IParseFile) {
   file.fullyPath = path.join(file.basePath, file.relativePath)
   file.locale = file.relativePath.split('/')[0]
   file.slug = path.basename(file.relativePath, '.md')
@@ -125,8 +147,8 @@ async function parseFile(file: $TSFixMe) {
       // fix HREF for relative links
       $('a').each((i, el) => {
         const href = $(el).attr('href')
-        if (!href) {
-          return
+        if (!href || !file.href) {
+          return ''
         }
         const type = hrefType(href)
         if (type !== 'relative' && type !== 'rooted') return
@@ -140,6 +162,9 @@ async function parseFile(file: $TSFixMe) {
       // fix SRC for relative images
       $('img').each((i, el) => {
         const baseUrl = 'https://cdn.rawgit.com/electron/electron'
+        if (!file.href) {
+          return ''
+        }
         const dirname = path.dirname(file.href)
         let src = $(el).attr('src')
         if (!src) {
@@ -169,6 +194,7 @@ async function parseFile(file: $TSFixMe) {
   )
 
   // remove leftover file props from walk-sync
+  // @ts-ignore We need them delete!
   delete file.fullPath
   delete file.fullyPath
   delete file.mode

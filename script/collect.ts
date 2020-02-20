@@ -15,7 +15,7 @@ const electronDocs = require('electron-docs')
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
 const github = new Octokit({
-  auth: process.env.GH_TOKEN ? process.env.GH_TOKEN : '',
+  auth: process.env.GH_TOKEN ?? '',
 })
 
 interface IResponse {
