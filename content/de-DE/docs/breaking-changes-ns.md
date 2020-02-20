@@ -11,12 +11,12 @@ Der Inhalt dieses Dokumentes sollte zur Datei `breaking-changes.md` verschoben w
 ### `protocol.unregisterProtocol`
 ### `protocol.uninterceptProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
 
 ```javascript
-// Deprecated
+// Veraltet
 protocol.unregisterProtocol(scheme, () => { /* ... */ })
-// Replace with
+// Ersetzen durch
 protocol.unregisterProtocol(scheme)
 ```
 
@@ -31,7 +31,7 @@ protocol.unregisterProtocol(scheme)
 ### `protocol.interceptHttpProtocol`
 ### `protocol.interceptStreamProtocol`
 
-The APIs are now synchronous and the optional callback is no longer needed.
+Diese Schnittstelle ist jetzt Synchron und der optionale callback wird nicht länger gebraucht.
 
 ```javascript
 // Veraltet
@@ -44,12 +44,12 @@ Das registrierte oder abgefangene Protokoll hat keine Auswirkungen auf die aktue
 
 ### `protocol.isProtocolHandled`
 
-This API is deprecated and users should use `protocol.isProtocolRegistered` and `protocol.isProtocolIntercepted` instead.
+Diese Schnittstelle ist veraltet anstatt dessen sollten Benutzer `protocol.isProtocolRegistered` und `protocol.isProtocolIntercepted` nutzen.
 
 ```javascript
-// Deprecated
+// Veraltet
 protocol.isProtocolHandled(scheme).then(() => { /* ... */ })
-// Replace with
+// Ersetzen mit
 const isRegistered = protocol.isProtocolRegistered(scheme)
-const isIntercepted = protocol.isProtocolIntercepted(scheme)
+const isIntercepted = protocolIntercepted(scheme)
 ```
