@@ -6,7 +6,7 @@ require('require-yaml')
 import * as walk from 'walk-sync'
 import * as path from 'path'
 import * as fs from 'fs'
-import cleanDeep from 'clean-deep'
+import * as cleanDeep from 'clean-deep'
 import hubdown = require('hubdown')
 import locales, { IResult as ILocalesResult } from '../lib/locales'
 import * as cheerio from 'cheerio'
@@ -206,7 +206,7 @@ async function parseFile(file: IParseFile) {
   delete file.basePath
 
   // remove empty values
-  return cleanDeep(file)
+  return cleanDeep.default(file)
 }
 
 function fixMdLinks(md: string): Promise<string> {
