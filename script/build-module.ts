@@ -6,7 +6,6 @@ require('require-yaml')
 import * as walk from 'walk-sync'
 import * as path from 'path'
 import * as fs from 'fs'
-import * as cleanDeep from 'clean-deep'
 import hubdown = require('hubdown')
 import locales, { IResult as ILocalesResult } from '../lib/locales'
 import * as cheerio from 'cheerio'
@@ -19,6 +18,7 @@ import {
 import { bashFix } from '../lib/remark-bash-fix'
 import { fiddleUrls } from '../lib/remark-fiddle-urls'
 import { plaintextFix } from '../lib/remark-plaintext-fix'
+const cleanDeep = require('clean-deep')
 const hrefType = require('href-type')
 const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
@@ -206,7 +206,7 @@ async function parseFile(file: IParseFile) {
   delete file.basePath
 
   // remove empty values
-  return cleanDeep.default(file)
+  return cleanDeep(file)
 }
 
 function fixMdLinks(md: string): Promise<string> {
