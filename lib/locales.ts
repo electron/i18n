@@ -15,7 +15,7 @@ interface IStats {
   approved_progress: number
 }
 
-interface IResult {
+export interface IResult {
   locale: string
   languageCode: string
   languageName: string
@@ -36,7 +36,7 @@ export default fs
       stat => lang === stat.code || locale === stat.code
     )
 
-    if (locale !== 'en-US' && !stats ) {
+    if (locale !== 'en-US' && !stats) {
       throw new Error(
         `language stats not found! locale: ${locale}, lang: ${lang}`
       )

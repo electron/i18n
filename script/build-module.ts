@@ -8,11 +8,14 @@ import * as path from 'path'
 import * as fs from 'fs'
 import cleanDeep from 'clean-deep'
 import hubdown = require('hubdown')
-import locales from '../lib/locales'
+import locales, { IResult as ILocalesResult } from '../lib/locales'
 import * as cheerio from 'cheerio'
 import * as URL from 'url'
 import * as packageJSON from '../package.json'
-import { parseElectronGlossary, IParseElectronGlossaryReturn } from '../lib/parse-electron-glossary'
+import {
+  parseElectronGlossary,
+  IParseElectronGlossaryReturn,
+} from '../lib/parse-electron-glossary'
 import { bashFix } from '../lib/remark-bash-fix'
 import { itsReallyJS } from '../lib/remark-its-really-js'
 import { fiddleUrls } from '../lib/remark-fiddle-urls'
@@ -63,7 +66,7 @@ function convertToUrlSlash(filePath: string) {
 
 let ids: Record<string, string> = {}
 
-async function parseDocs(): Promise<$TSFixMe> {
+async function parseDocs(): Promise<Partial<IParseFile>[]> {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
@@ -221,12 +224,13 @@ function fixMdLinks(md: string): Promise<string> {
   })
 }
 
-function splitMd(md: string): Array<$TSFixMe> {
+function splitMd(md: string): Array<{ name: null; body: string[] }> {
   const slugger = new GithubSlugger()
-  const sections: Array<{ name: null, body: Array<string> }> = []
+  const sections: Array<{ name: null; body: Array<string> }> = []
   let section = { name: null, body: [] as Array<string> }
   let inCodeBlock = false
-  const isHeading = (line: string) => !inCodeBlock && line.trim().startsWith('#')
+  const isHeading = (line: string) =>
+    !inCodeBlock && line.trim().startsWith('#')
 
   md.split('\n').forEach((curr, i, lines) => {
     if (curr.startsWith('```')) {
@@ -252,15 +256,16 @@ async function main() {
   const docs = await parseDocs()
   const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
-      .filter((doc: $TSFixMe) => doc.locale === locale)
-      .sort((a: $TSFixMe, b: $TSFixMe) => a.slug.localeCompare(b.slug))
-      .reduce((allDocs: $TSFixMe, doc: $TSFixMe) => {
+      .filter(doc => doc.locale === locale)
+      .sort((a, b) => a.slug!.localeCompare(b.slug!))
+      .reduce((allDocs, doc) => {
+        // @ts-ignore
         allDocs[doc.href] = doc
         return allDocs
-      }, {} as Record<string, string>)
+      }, {})
 
     return acc
-  }, {} as Record<string, string>)
+  }, {} as Record<string, Partial<ILocalesResult>>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/${locale}/website/locale.yml`)

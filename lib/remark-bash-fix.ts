@@ -1,5 +1,5 @@
 import * as visit from 'unist-util-visit'
-import { Node } from "unist"
+import { Node } from 'unist'
 
 // TODO: remove this transformer after support for versions
 // which docs use invalid bash tags has been dropped

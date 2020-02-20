@@ -9,7 +9,9 @@ export interface IParseElectronGlossaryReturn {
   description: string
 }
 
-export async function parseElectronGlossary(locale: string): Promise<Array<IParseElectronGlossaryReturn>> {
+export async function parseElectronGlossary(
+  locale: string
+): Promise<Array<IParseElectronGlossaryReturn>> {
   assert(locale, '`locale` is a required argument to parseGlosssaryDoc()')
 
   const sourceFile = path.join(
