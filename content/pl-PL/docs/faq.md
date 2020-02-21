@@ -47,7 +47,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Okno/pole mojej aplikacji zniknęło po kilku minutach.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Ma to miejsce w przypadku, gdy zmienna używana do przechowywania pola jest poddawana automatycznej dealokacji.
 
 Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 
@@ -138,13 +138,13 @@ npm uninstall -g electron
 
 Jednak jeśli pomimo użycia wbudowanego modułu wciąż występuje ten błąd, bardzo prawdopodobnym jest to, że używasz modułu w niewłaściwym procesie. Na przykład `electron.app` może być używany tylko w głównym procesie, podczas gdy `electron.webFrame` dostępny jest tylko w procesach renderowania.
 
-## The font looks blurry, what is this and what can I do?
+## Czcionka wygląda na rozmazaną, co to jest i jak to naprawić?
 
 W przypadku gdy opcja [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) jest wyłączona, czcionki na ekranach LCD mogą wyglądać na rozmazane. Na przykład:
 
 ![przykład renderowania subpikseli](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (Zobacz [ problem ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) by dowiedzieć się więcej).
+Antyaliasing subpikseli wymaga nieprzezroczystego tła warstwy zawierającej tekst. (Zobacz [ problem ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) by dowiedzieć się więcej).
 
 Aby osiągnąć oczekiwany wynik, ustaw właściwość background w konstruktorze [BrowserWindow](api/browser-window.md):
 
