@@ -36,7 +36,7 @@
     "words_approved": "20744",
     "translated_progress": 66,
     "approved_progress": 18,
-    "qa_issues": 191
+    "qa_issues": 192
   },
   {
     "name": "Chinese Traditional",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "12107",
-    "translated": "4331",
+    "translated": "4553",
     "approved": "2049",
     "words": "114813",
-    "words_translated": "20996",
+    "words_translated": "23087",
     "words_approved": "9515",
-    "translated_progress": 18,
+    "translated_progress": 20,
     "approved_progress": 8,
-    "qa_issues": 652
+    "qa_issues": 772
   },
   {
     "name": "Portuguese, Brazilian",
