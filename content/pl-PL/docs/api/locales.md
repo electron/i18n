@@ -15,8 +15,8 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | bh         | Bihari                              |
 | bn         | Bengali                             |
 | br         | Breton                              |
-| bs         | Bosnian                             |
-| ca         | Catalan                             |
+| bs         | Bośniacki                           |
+| ca         | Kataloński                          |
 | co         | Korsykański                         |
 | cs         | Czeski                              |
 | cy         | Walijski                            |
@@ -37,16 +37,16 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | es         | Hiszpański                          |
 | es-419     | Hiszpański (Ameryka Łacińska)       |
 | et         | Estoński                            |
-| eu         | Basque                              |
-| fa         | Persian                             |
+| eu         | Baskijski                           |
+| fa         | Perski                              |
 | fi         | Fiński                              |
 | fil        | Filipiński                          |
-| fo         | Faroese                             |
+| fo         | Farerski                            |
 | fr         | Francuski                           |
 | fr-CA      | Francuski (Kanada)                  |
 | fr-CH      | Francuski (Szwajcaria)              |
 | fr-FR      | Francuski (Francja)                 |
-| fy         | Frisian                             |
+| fy         | Fryzyjski                           |
 | ga         | Irlandzki                           |
 | gd         | Język gaelicki szkocki              |
 | gl         | Galicyjski                          |
@@ -55,7 +55,7 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | ha         | Hausa                               |
 | haw        | Hawajski                            |
 | he         | Hebrajski                           |
-| hi         | Hindi                               |
+| hi         | Hinduski                            |
 | hr         | Chorwacki                           |
 | hu         | Węgierski                           |
 | hy         | Armeński                            |
@@ -92,11 +92,11 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | nn         | Norweski (Nynorsk)                  |
 | no         | Norweski                            |
 | oc         | Prowansalski                        |
-| om         | Oromo                               |
+| om         | Oromski                             |
 | or         | Język orija                         |
 | pa         | Pendżabski                          |
 | pl         | Polski                              |
-| ps         | Pashto                              |
+| ps         | Paszto                              |
 | pt         | Portugalski                         |
 | pt-BR      | Portugalski (Brazylijski)           |
 | pt-PT      | Portugalski (Portugalia)            |
@@ -105,8 +105,8 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | ro         | Rumuński                            |
 | ru         | Rosyjski                            |
 | sd         | Sindhi                              |
-| sh         | Serbo-Croatian                      |
-| si         | Sinhalese                           |
+| sh         | Serbsko-chorwacki                   |
+| si         | Syngalejski                         |
 | sk         | Słowacki                            |
 | sl         | Słoweński                           |
 | sn         | Shona                               |
@@ -114,7 +114,7 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | sq         | Albański                            |
 | sr         | Serbski                             |
 | st         | Język sotho                         |
-| su         | Sundanese                           |
+| su         | Sundajski                           |
 | sv         | Szwedzki                            |
 | sw         | Suahili                             |
 | ta         | Język tamilski                      |
@@ -132,7 +132,7 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Moż
 | ur         | Urdu                                |
 | uz         | Uzbecki                             |
 | vi         | Wietnamski                          |
-| xh         | Xhosa                               |
+| xh         | Khosa                               |
 | yi         | Jidysz                              |
 | yo         | Joruba                              |
 | zh         | Chiński                             |
