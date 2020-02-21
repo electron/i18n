@@ -29,7 +29,7 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * Integracja Node będzie wyłączona dla otwartego okna, jeśli jest wyłączona w oknie nadrzędnym.
 * Izolacja kontekstu będzie włączona w otwartym oknie, jeśli jest włączona w oknie nadrzędnym.
 * JavaScript będzie wyłączony w otwartym oknie, jeśli jest wyłączony w oknie nadrzędnym.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* Niestandardowe funkcjonalności (które nie są obsługiwane przez Chromium lub Electron) przekazane w `features` zostaną przekazane do każdego zarejestrowanego przez `webContent` wydarzenia `new-window` w kluczu `additionalFeatures`.
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
