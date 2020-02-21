@@ -1,6 +1,6 @@
 # Obiekt CustomScheme
 
-* `scheme` String - Custom schemes to be registered with options.
+* `schemat` String - Niestandardowe schematy do zarejestrowania wraz z opcjami.
 * `privileges` Object (opcjonalne) 
   * `standard` Boolean (opcjonalnie) - domyślnie false.
   * `secure` Boolean (opcjonalnie) - domyślnie false.
