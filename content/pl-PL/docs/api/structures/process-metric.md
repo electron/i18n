@@ -15,7 +15,7 @@
 * `creationTime` Numer - Czas tworzenia dla tego procesu. Czas jest reprezentowany jako liczba milisekund od epoch. Ponieważ `pid` może być ponownie użyty po śmierci procesu, przydatne jest użycie `pid` i `creationTime` do jednoznacznego zidentyfikowania procesu.
 * `memory` [MemoryInfo](memory-info.md) - Informacje dotyczące pamięci procesu.
 * `sandboxed` Boolean (opcjonalne) *macOS* *Windows* - Czy proces jest w piaskownicy na poziomie systemu operacyjnego.
-* `integrityLevel` String (optional) *Windows* - One of the following values: 
+* `integrityLevel` String (opcjonalne) *Windows* Jedna z następujących wartości: 
   * `untrusted`
   * `low`
   * `medium`
