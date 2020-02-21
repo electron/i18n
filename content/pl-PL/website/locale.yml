@@ -278,8 +278,8 @@ governance:
     listdescription: "Wszystkie grupy robocze posiadają następujące główne obowiązki:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">Wybierają</a> lidera do <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>reprezentowania</a> grupy.'
+      - Prowadzą raporty z posiedzeń, w tym punkty porządku obrad, punkty dyskusyjne i ich wyniki dostępne dla wszystkich.
       - 'Będą one współpracować i pracować <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">w dobrej wierze</a> z innymi Grupami Roboczymi.'
     see_charter: Sprawdź <a href="https://github.com/electron/governance/tree/master/charter/README.md">statut</a> po więcej informacji.
   code_of_conduct: Organizacja Electron i wszelkie repozytoria od niej zależne przestrzegają następującego <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">kodeksu postępowania.</a>
