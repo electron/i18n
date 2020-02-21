@@ -1,4 +1,4 @@
-tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
+tagline: Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz CSS
 nav:
   apps: Aplikacje
   blog: Blog
@@ -131,7 +131,7 @@ headings:
   languages: Języki
 taglines:
   languages: Przetłumaczony kontent ze wspaniałą globalną społecznością programistów.
-  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron dołączył właśnie do Fundacji OpenJS. Zobacz <a href="/blog/electron-joins-openjsf">ogłoszenie</a>, aby uzyskać więcej informacji!
 help_translate: "Pomóż w tłumaczeniu"
 footer:
   see_the_faq: Zobacz najczęściej zadawane pytania
@@ -166,13 +166,13 @@ clipboard:
   copy_to_clipboard: Kopiuj do Schowka
   copied: Skopiowane
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Uruchom
+  launch_in_fiddle: Uruchom w Fiddle
 or: lub
 pages:
   '/':
-    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz CSS.
+    description: 'Twórz wieloplatformowe aplikacje z użyciem języków JavaScript, HTML oraz CSS.'
   '/apps':
     title: Aplikacje korzystające z Electrona
     description: Aplikacje stworzone przy użyciu Electrona
@@ -238,8 +238,8 @@ governance:
   description: System zarządzania Electrona złożony jest z wielu grup, które zajmują się aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty pomiędzy poszczególnymi grupami.
   wgs: Grupy Robocze
   ecosystem:
-    title: Ecosystem
-    description: Oversees the projects that make Electron app development easier.
+    title: Ekosystem
+    description: Nadzoruje projekty, które ułatwiają tworzenie aplikacji Electron.
   outreach:
     title: Pomoc
     description: Rozwijanie Społeczności Electron
@@ -254,13 +254,13 @@ governance:
     description: Nadzoruje usunięciami/blokowaniem z społeczności.
   security:
     title: Bezpieczeństwo
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: Proaktywnie zapewnia bezpieczeństwo Electron jako projektu, reaguje na napływające incydenty i nadzoruje wprowadzanie poprawek.
   admins:
     title: Administracja
-    description: The Administrative Working Group oversees the entire governance and project.
+    description: Administracyjna Grupa Robocza nadzoruje zarządzanie i cały projekt.
   api:
     title: API
-    description: Oversees public API design based on project principles.
+    description: Nadzoruje publiczne API oparte na zasadach projektu.
   global:
     overview: Przegląd
     associated_repos: Powiązane Repozytoria
@@ -268,10 +268,10 @@ governance:
   definitions:
     title: Definicje
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - <i>Opiekun</i> to każdy, kto odgrywa aktywną rolę w zarządzaniu.
       - <i>Kolaborator</i> udziela się w community, ale nie zajmuje się zarządzaniem.
       - <i>Uczestnikiem</i> jest każdy, kto jest opiekunem lub kolabolatorem.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - <i>Grupa robocza</i> jest grupą opiekunów utworzoną w celu przejęcia odpowiedzialności za niektóre aspekty projektu Electron. Grupy te spotykają się zazwyczaj regularnie, ale w niektórych przypadkach spotykają się tylko w miarę potrzeb, aby wypełnić swoje obowiązki.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
     title: Odpowiedzialność
@@ -283,7 +283,7 @@ governance:
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
   code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+  license: Electron jest licencjonowany <a href="https://github.com/electron/electron/blob/master/LICENSE">licencją MIT</a>.
   repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: Nie znaleziono strony.
