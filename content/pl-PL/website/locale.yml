@@ -272,18 +272,18 @@ governance:
       - <i>Kolaborator</i> udziela się w community, ale nie zajmuje się zarządzaniem.
       - <i>Uczestnikiem</i> jest każdy, kto jest opiekunem lub kolabolatorem.
       - <i>Grupa robocza</i> jest grupą opiekunów utworzoną w celu przejęcia odpowiedzialności za niektóre aspekty projektu Electron. Grupy te spotykają się zazwyczaj regularnie, ale w niektórych przypadkach spotykają się tylko w miarę potrzeb, aby wypełnić swoje obowiązki.
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">Lider</a> prowadzi grupę roboczą.'
   responsibilities:
-    title: Odpowiedzialność
-    listdescription: "All Working Groups have these core responsibilities:"
+    title: Obowiązki
+    listdescription: "Wszystkie grupy robocze posiadają następujące główne obowiązki:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+      - 'Będą one współpracować i pracować <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">w dobrej wierze</a> z innymi Grupami Roboczymi.'
+    see_charter: Sprawdź <a href="https://github.com/electron/governance/tree/master/charter/README.md">statut</a> po więcej informacji.
+  code_of_conduct: Organizacja Electron i wszelkie repozytoria od niej zależne przestrzegają następującego <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">kodeksu postępowania.</a>
   license: Electron jest licencjonowany <a href="https://github.com/electron/electron/blob/master/LICENSE">licencją MIT</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  repository: Sprawdź <a href="https://github.com/electron/governance">repozytorium zarządzania</a>, aby znaleźć więcej informacji na temat struktury zarządzania.
 _404:
   page_not_found: Nie znaleziono strony.
