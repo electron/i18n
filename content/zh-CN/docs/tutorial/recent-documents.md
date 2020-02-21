@@ -1,8 +1,8 @@
 # 最近文档 (Windows & macOS)
 
-Windows 和 macOS 分别通过打开跳转列表（JumpList）和dock菜单使应用程序能够快速的访问最近打开的文档列表。
+Windows 和 macOS 分别通过打开跳转列表和dock菜单使应用程序能够快速的访问最近打开的文档列表。
 
-**跳转列表**
+**JumpList:**
 
 ![跳转列表最近的文件](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
@@ -20,8 +20,8 @@ app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API 来清空最近文件列表。
 
 ```javascript
-const { app } = require('electron')
-app.clearRecentDocuments()
+const { app } = require('electron')app.clearRecentDocuments', () = { ()
+})
 ```
 
 ## Windows 注意事项
