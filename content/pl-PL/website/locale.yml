@@ -277,7 +277,7 @@ governance:
     title: Obowiązki
     listdescription: "Wszystkie grupy robocze posiadają następujące główne obowiązki:"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - Powinni decydować samodzielnie i publicznie ogłosić swoje zasady, np. w jaki sposób podejmowane są decyzje, kiedy przeprowadzane są zebrania oraz kto może w nich brać udział.
       - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">Wybierają</a> lidera do <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>reprezentowania</a> grupy.'
       - Prowadzą raporty z posiedzeń, w tym punkty porządku obrad, punkty dyskusyjne i ich wyniki dostępne dla wszystkich.
       - 'Będą one współpracować i pracować <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">w dobrej wierze</a> z innymi Grupami Roboczymi.'
