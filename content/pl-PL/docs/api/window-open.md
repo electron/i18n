@@ -2,9 +2,9 @@
 
 > Otwiera nowe okno i ładuje adres URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Kiedy `window.open` jest wywołane do utworzenia nowego okna na stronie internetowej, nowa instancja [`BrowserWindow`](browser-window.md) zostanie utworzona dla `url`, a proxy zostanie zwrócone do `window.open`, aby strona miała nad nim ograniczoną kontrolę.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Proxy posiada ograniczoną standardową funkcjonalność, kompatybilną z tradycyjnymi stronami internetowymi. Aby uzyskać pełną kontrolę nad nowym oknem powinieneś utworzyć `BrowserWindow` bezpośrednio.
 
 Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędnego. Aby zastąpić dziedziczone opcje, można je ustawić za pomocą `funkcji` typu String.
 
