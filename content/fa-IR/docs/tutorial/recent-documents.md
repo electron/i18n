@@ -1,4 +1,4 @@
-# Recent Documents (Windows & macOS)
+# 最近文档 (Windows & macOS)
 
 Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
