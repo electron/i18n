@@ -10,7 +10,7 @@
 
 ### `enableRemoteModule` 기본값이 `false`로 설정됨
 
-In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
+Electron9에서 `enableRemoteModule` WebPreferences 옵션을 명시적으로 활성화하지 않고 remote모듈을 사용하면 경고 발생됩니다. Electron 10에서는 remote 모듈은 기본으로 비활성화됩니다. remote 모듈을 사용하기 위해서는 반드시 WebPreferences에서 `enableRemoteModule: true`를 설정해야합니다.
 
 ```js
 const w = new BrowserWindow({
@@ -20,7 +20,7 @@ const w = new BrowserWindow({
 })
 ```
 
-We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
+우리는 [remote 모듈에서 벗어나길 권장합니다.](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)
 
 ## 중단될 예정 API (9.0)
 
