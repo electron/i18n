@@ -2,9 +2,9 @@
 
 > Otwiera nowe okno i ładuje adres URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Kiedy `window.open` jest wywołane do utworzenia nowego okna na stronie internetowej, nowa instancja [`BrowserWindow`](browser-window.md) zostanie utworzona dla `url`, a proxy zostanie zwrócone do `window.open`, aby strona miała nad nim ograniczoną kontrolę.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Proxy posiada ograniczoną standardową funkcjonalność, kompatybilną z tradycyjnymi stronami internetowymi. Aby uzyskać pełną kontrolę nad nowym oknem powinieneś utworzyć `BrowserWindow` bezpośrednio.
 
 Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędnego. Aby zastąpić dziedziczone opcje, można je ustawić za pomocą `funkcji` typu String.
 
@@ -16,7 +16,7 @@ Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędn
 
 Zwraca [`BrowserWindowProxy`](browser-window-proxy.md) - tworzy nowe okno i zwraca wystąpienie klasy `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+Ciąg znaków `features` odpowiada formatowi standardowej przeglądarki, ale każda funkcja musi być kluczem opcji `BrowserWindow`. Oto funkcje, które można ustawić za pomocą `features`: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Na przykład:
 
@@ -26,10 +26,10 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 
 **Uwagi:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* Integracja Node będzie wyłączona dla otwartego okna, jeśli jest wyłączona w oknie nadrzędnym.
+* Izolacja kontekstu będzie włączona w otwartym oknie, jeśli jest włączona w oknie nadrzędnym.
+* JavaScript będzie wyłączony w otwartym oknie, jeśli jest wyłączony w oknie nadrzędnym.
+* Niestandardowe funkcjonalności (które nie są obsługiwane przez Chromium lub Electron) przekazane w `features` zostaną przekazane do każdego zarejestrowanego przez `webContent` wydarzenia `new-window` w kluczu `additionalFeatures`.
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
@@ -38,9 +38,9 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 
 Wysyła komunikat do okna nadrzędnego określonego pochodzenia lub `*` w przypadku braku preferencji pochodzenia.
 
-### Using Chrome's `window.open()` implementation
+### Używanie implementacji Chrome `window.open()`
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Jeśli chcesz użyć wbudowanego w Chrome `window.open()`, ustaw `nativeWindowOpen` na `true` w obiekcie opcji `webPreferences`.
 
 Natywne wywołanie funkcji `window.open()` pozwala na synchroniczny dostęp do otwartych okien, dzięki temu jest to wygodny wybór, jeśli potrzebujesz otworzyć okno dialogowe lub okno Ustawień aplikacji.
 
@@ -50,7 +50,7 @@ Tę opcję można również ustawić poprzez tag `<webview>`:
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+Utworzenie `BrowserWindow` jest konfigurowalne przez wydarzenie `WebContents` — `new-window`.
 
 ```javascript
 // główny proces

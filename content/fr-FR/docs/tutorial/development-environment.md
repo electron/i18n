@@ -53,8 +53,7 @@ Vous utilisez Linux, vous savez donc probablement déjà comment utiliser un cli
 ```sh
 # Cette commande devrait afficher la version de Node.js
 node -v
-
-1 Cette commande devrait afficher la version de npm
+# Cette commande devrait afficher la version de npm
 npm -v
 ```
 
