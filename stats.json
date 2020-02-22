@@ -192,20 +192,20 @@
     "words_approved": "11670",
     "translated_progress": 44,
     "approved_progress": 10,
-    "qa_issues": 2200
+    "qa_issues": 2199
   },
   {
     "name": "Persian",
     "code": "fa",
     "phrases": "12107",
-    "translated": "1143",
+    "translated": "1145",
     "approved": "137",
     "words": "114813",
-    "words_translated": "4708",
+    "words_translated": "4734",
     "words_approved": "270",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": 33
+    "qa_issues": 32
   },
   {
     "name": "Polish",
