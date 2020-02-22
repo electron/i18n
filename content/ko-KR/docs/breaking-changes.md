@@ -8,7 +8,7 @@
 
 ## 중단될 예정 API (10.0)
 
-### `enableRemoteModule` defaults to `false`
+### `enableRemoteModule` 기본값이 `false`로 설정됨
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
 
