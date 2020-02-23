@@ -17,23 +17,23 @@
 ### 推荐阅读
 
  * [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [谈：“Visual Studio Code——第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+ * [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## 检查列表
 
 如果你尝试这些步骤，你的应用可能会略微简洁、快速，而且一般来说会更少出现资源不足的情况。
 
-1. [尽量少加载模块](#1-carelessly-including-modules)
-2. [初始化时减少不必要的代码预加载和执行](#2-loading-and-running-code-too-soon)
-3. [避免阻塞主进程](#3-blocking-the-main-process)
-4. [避免阻塞渲染进程](#4-blocking-the-renderer-process)
+1. [谨慎的加载模块](#1-carelessly-including-modules)
+2. [代码预加载和执行](#2-loading-and-running-code-too-soon)
+3. [阻塞主进程](#3-blocking-the-main-process)
+4. [阻塞渲染进程](#4-blocking-the-renderer-process)
 5. [不必要的polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+6. [不必要的或者阻塞的网络请求](#6-unnecessary-or-blocking-network-requests)
+7. [代码进行分片](#7-bundle-your-code)
 
 ## 1) Carelessly including modules
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+在向你的应用程序添加一个 Node.js 模块之前，请检查这个模块。 这个模块包含了多少依赖？ 简单的一个a `require()`声明中包含了什么种类的资源？ You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
 
 ### 为什么？
 
