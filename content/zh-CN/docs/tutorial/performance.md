@@ -184,15 +184,15 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 ## 5) 不需要的polyfills
 
-Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaScript, HTML和CSS。 If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaScript, HTML和CSS。 如果你重新设计的代码是为整个网页编写的，请确保不会polyfill包含在Electron 中的特性。
 
 ### 为什么？
 
 现在互联网构建网页应用程序时，最老的环境决定了你能够和不能使用的功能。 尽管Electron支持性能良好的 CSS 选择器和动画，但是较早的浏览器可能不支持。 在你可以使用WebGL的场合，你的开发者可能选择了一个资源更加匮乏的解决方案来支持旧机器。
 
-When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
+当它遇到JavaScript时， 你可能已经包含了工具包库，如DOM选择器 jQuery 或是 如`regenerator-runtime`支持`async/await` 的polyfills。
 
-It is rare for a JavaScript-based polyfill to be faster than the equivalent native feature in Electron. Do not slow down your Electron app by shipping your own version of standard web platform features.
+基于 JavaScript 的polyfill速度比Electron 中的原生特征要快一些。 Do not slow down your Electron app by shipping your own version of standard web platform features.
 
 ### 怎么做？
 
