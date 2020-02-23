@@ -169,13 +169,13 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 ### 为什么？
 
-Your app probably has a lot of JavaScript to run in the renderer process. The trick is to execute operations as quickly as possible without taking away resources needed to keep scrolling smooth, respond to user input, or animations at 60fps.
+你的应用可能有很多JavaScript在渲染过程中运行。 有个技巧是尽快执行操作，而不占用保持滚动平滑、响应用户输入或60帧/秒动画所需的资源。
 
-Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
+如果有用户抱怨你的应用“口吃”的时候在渲染的代码中编排操作流就显得尤其重要。
 
 ### 怎么做？
 
-Generally speaking, all advice for building performant web apps for modern browsers apply to Electron's renderers, too. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
+一般来说，所有用于构建现代浏览器的性能网络应用程序的建议，对于Electron 的渲染器也同样适用。 现在处理你的应用的主要两个方法是对于小的操作使用`requestIdleCallback()` 而长时间运行的操作使用 `Web Workers`。
 
 *`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
 
