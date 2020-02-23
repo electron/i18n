@@ -188,7 +188,7 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 ### 为什么？
 
-现在互联网构建网页应用程序时，最老的环境决定了你能够和不能使用的功能。 尽管Electron支持性能良好的 CSS 选择器和动画，但是较早的浏览器可能不支持。 Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
+现在互联网构建网页应用程序时，最老的环境决定了你能够和不能使用的功能。 尽管Electron支持性能良好的 CSS 选择器和动画，但是较早的浏览器可能不支持。 在你可以使用WebGL的场合，你的开发者可能选择了一个资源更加匮乏的解决方案来支持旧机器。
 
 When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
 
