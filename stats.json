@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "12107",
-    "translated": "8970",
+    "translated": "9103",
     "approved": "2646",
     "words": "114813",
-    "words_translated": "76837",
+    "words_translated": "78992",
     "words_approved": "20744",
-    "translated_progress": 66,
+    "translated_progress": 68,
     "approved_progress": 18,
-    "qa_issues": 192
+    "qa_issues": 193
   },
   {
     "name": "Chinese Traditional",
