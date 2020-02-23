@@ -142,13 +142,13 @@ module.exports = { parser }
 
 ## 3) 阻塞主进程
 
-Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 它处理你应用中的窗口，交互和各种组件之间的通信。它还是UI进程的宿主进程。
+Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 它处理你应用中的窗口，交互和各种组件之间的通信。它还是UI线程的宿主进程。
 
-Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
+在任何情况下你都不应阻塞此进程或者运行时间长的用户界面线程。 阻塞UI线程意味着您的整个应用程序将冻结直到主进程准备好继续处理。
 
 ### 为什么？
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. If your window is rendering a buttery-smooth animation, it'll need to talk to the GPU process about that – once again going through the main process.
+主进程及其UI线程基本上是你应用内重大操作的控制塔。 当操作系统告诉您的应用关于 鼠标点击时，它会在到达您的窗口之前通过主进程。 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
 
 Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
 
