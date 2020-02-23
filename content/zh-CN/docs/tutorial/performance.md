@@ -21,10 +21,10 @@
 
 ## 检查列表
 
-Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
+如果你尝试这些步骤，你的应用可能会略微简洁、快速，而且一般来说会更少出现资源不足的情况。
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
+1. [尽量少加载模块](#1-carelessly-including-modules)
+2. [初始化时减少不必要的代码预加载和执行](#2-loading-and-running-code-too-soon)
 3. [Blocking the main process](#3-blocking-the-main-process)
 4. [Blocking the renderer process](#4-blocking-the-renderer-process)
 5. [Unnecessary polyfills](#5-unnecessary-polyfills)
