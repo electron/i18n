@@ -23,15 +23,15 @@
 
 如果你尝试这些步骤，你的应用可能会略微简洁、快速，而且一般来说会更少出现资源不足的情况。
 
-1. [谨慎的加载模块](#1-carelessly-including-modules)
-2. [代码预加载和执行](#2-loading-and-running-code-too-soon)
+1. [谨慎地加载模块](#1-carelessly-including-modules)
+2. [过早的加载和执行代码](#2-loading-and-running-code-too-soon)
 3. [阻塞主进程](#3-blocking-the-main-process)
 4. [阻塞渲染进程](#4-blocking-the-renderer-process)
 5. [不必要的polyfills](#5-unnecessary-polyfills)
 6. [不必要的或者阻塞的网络请求](#6-unnecessary-or-blocking-network-requests)
-7. [代码进行分片](#7-bundle-your-code)
+7. [打包你的代码](#7-bundle-your-code)
 
-## 1) Carelessly including modules
+## 1) 谨慎地加载模块
 
 在向你的应用程序添加一个 Node.js 模块之前，请检查这个模块。 这个模块包含了多少依赖？ 简单的一个a `require()`声明中包含了什么种类的资源？ 你可能发现NPM包注册的最多的或者Github上Star最多的模块实际上并不是最简单或者最小可用的模块。
 
@@ -66,7 +66,7 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
-## 2) Loading and running code too soon
+## 2) 过早的加载和执行代码
 
 如果你有非常繁重的初始化操作，请考虑推迟进行。 程序启动立刻查看应用执行的全部工作。 考虑按照用户操作的顺序将它们错开执行，而不是立刻执行所有的操作。
 
@@ -163,7 +163,7 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 3) Avoid using blocking I/O operations in the main process. 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
 
 
-## 4) 阻塞主进程
+## 4) 阻塞渲染进程
 
 自从 Electron 使用了当前版本的 Chrome，你可以使用Web 平台提供的最新和最优秀的功能来推迟或卸载繁重的操作，以使你的应用保持流畅和迅速的反应。
 
@@ -182,7 +182,7 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 *Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档](./multithreading.md) 和 [MDN 的 Web Workers文档](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
 
 
-## 5) 不需要的polyfills
+## 5) 不必要的polyfills
 
 Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaScript, HTML和CSS。 如果你重新设计的代码是为整个网页编写的，请确保不会polyfill包含在Electron 中的特性。
 
@@ -228,13 +228,13 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 作为一个提示, 从互联网上加载你可能想要更改的而不发送应用程序更新是一个强有力的策略。 为了进一步控制如何加载资源，请考虑使用[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。
 
-## 7) Bundle your code
+## 7) 打包你的代码
 
-As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
+正如中已经指出的那样，"[加载和运行代码太早](#2-loading-and-running-code-too-soon)", 调用 `require()` 是一项繁重的操作。 如果你能够这样做，将你的应用程序的代码打包到单个文件中。
 
 ### 为什么？
 
-Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
+现代JavaScript开发通常涉及许多文件和模块。 While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
 
 ### 怎么做？
 
