@@ -52,19 +52,19 @@
 1. 依赖包含的大小 2) 加载(`require()`) 所需要的资源
 3. 你所加载的资源能够执行你关心的操作
 
-Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
+可以使用命令行上的单个命令生成用于加载模块的 CPU 配置文件和堆内存配置文件 在下面的示例中，我们看一下受欢迎的模块 `request`。
 
 ```sh
 node --cpu-prof --heap-prof -e "require('request')"
 ```
 
-Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
+执行此命令将在您执行的目录下生成一个`.cpuprofile`和一个`.heapprofile` 文件。 这两个文件都可以使用 Chrome 开发者工具进行分析，分别使用 `Performance` 和 `Memory` 标签 进行分析。
 
 ![performance-cpu-prof](../images/performance-cpu-prof.png)
 
 ![performance-heap-prof](../images/performance-heap-prof.png)
 
-In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
+在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
 ## 2) Loading and running code too soon
 
