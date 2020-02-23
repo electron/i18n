@@ -70,15 +70,15 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 如果你有非常繁重的初始化操作，请考虑推迟进行。 程序启动立刻查看应用执行的全部工作。 考虑按照用户操作的顺序将它们错开执行，而不是立刻执行所有的操作。
 
-在传统的Node.js开发中，我们习惯将所有的`require()`语句放在代码顶部。 如果你目前正在使用相同的策略_and_并且使用你不需要立即加载的大型模块编写你的 Electron 应用程序， 使用相同的策略并推迟到更适当的时机加载。
+在传统的Node.js开发中，我们习惯将所有的`require()`语句放在代码顶部。 如果你目前正在使用相同的策略_and_并且使用你不需要立即加载的大型模块编写你的 Electron 应用程序，使用相同的策略并推迟到更适当的时机加载。
 
 ### 为什么？
 
-加载模块是令人吃惊的繁重的操作，尤其是在Windows上。 When your app starts, it should not make users wait for operations that are currently not necessary.
+加载模块是令人吃惊的繁重的操作，尤其是在Windows上。 当你的应用开始，不应该让用户等待当时不需要的操作。
 
-This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
+这似乎是显而易见的， 但许多应用程序在程序启动后可能会马上完成大量的 工作 - 如检查更新，正在下载稍后流程中使用的内容，或执行大型的磁盘I/O 操作。
 
-Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
+让我们把Visual Studio 代码作为一个例子。 当你打开一个文件，它会立刻展示没有高亮任何代码的内容，优先实现和文本交互的功能。 一旦它完成了这项工作，它将继续让代码高亮。
 
 ### 怎么做？
 
