@@ -82,7 +82,7 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 ### 怎么做？
 
-Let's consider an example and assume that your application is parsing files in the fictitious `.foo` format. In order to do that, it relies on the equally fictitious `foo-parser` module. In traditional Node.js development, you might write code that eagerly loads dependencies:
+让我们考虑一个示例，并假定您的应用程序正在以架空的`.foo`形式解析文件 。 为了做到这一点，它依赖同样架空的`foo-parserver` 模块。 在传统的 Node.js 开发中，你可以写代码热加载依赖：
 
 ```js
 const fs = require('fs')
@@ -103,7 +103,7 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In the above example, we're doing a lot of work that's being executed as soon as the file is loaded. Do we need to get parsed files right away? Could we do this work a little later, when `getParsedFiles()` is actually called?
+在上面的例子中，我们做了很多工作，一旦文件加载，我们就会立即执行。 我们需要立即获取解析的文件吗？ 或许我们可以晚一点再做这件事，当`getParsedFiles()` 真正的执行到的时候？
 
 ```js
 // "fs" is likely already being loaded, so the `require()` call is cheap
@@ -138,11 +138,11 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In short, allocate resources "just in time" rather than allocating them all when your app starts.
+简而言之，只有当需要的时候才分配资源，而不是在你的应用启动时分配所有。
 
 ## 3) 阻塞主进程
 
-Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 它处理你应用中的窗口，交互和各种组件之间的通信。它还是UI进程的宿主进程。
 
 Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
 
