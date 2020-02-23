@@ -43,14 +43,14 @@
 
 在许多服务器环境中，启动时间几乎无关紧要。 一个Node.js 服务器要求所有端口的信息可能实际上是“性能更好” 如果服务器在启动时将所有需要的信息加载到内存，这样就能更快地为响应请求。 此示例中讨论的模块不是一个“坏”模块。 然而，Electron 应用不应该将实际上不需要的信息加载、解析和存储在内存中。
 
-In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
+简而言之，一个主要为运行在Linux系统上的Node.js 服务器编写的模块，虽然看起来很好，但是对你的应用性能来说可能是个坏消息。 在这个特殊的示例中，正确的解决方案是根本不需要加载模块， 而是使用了一 个包含在以后版本的 Chromium 中的连接性检查。
 
 ### 怎么做？
 
-When considering a module, we recommend that you check:
+当考虑一个模块时，我们建议你做以下检查：
 
-1. the size of dependencies included 2) the resources required to load (`require()`) it
-3. the resources required to perform the action you're interested in
+1. 依赖包含的大小 2) 加载(`require()`) 所需要的资源
+3. 你所加载的资源能够执行你关心的操作
 
 Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
 
