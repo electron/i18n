@@ -70,11 +70,11 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 如果你有非常繁重的初始化操作，请考虑推迟进行。 程序启动立刻查看应用执行的全部工作。 考虑按照用户操作的顺序将它们错开执行，而不是立刻执行所有的操作。
 
-在传统的Node.js开发中，我们习惯将所有的`require()`语句放在代码顶部。 If you're currently writing your Electron application using the same strategy _and_ are using sizable modules that you do not immediately need, apply the same strategy and defer loading to a more opportune time.
+在传统的Node.js开发中，我们习惯将所有的`require()`语句放在代码顶部。 如果你目前正在使用相同的策略_and_并且使用你不需要立即加载的大型模块编写你的 Electron 应用程序， 使用相同的策略并推迟到更适当的时机加载。
 
 ### 为什么？
 
-Loading modules is a surprisingly expensive operation, especially on Windows. When your app starts, it should not make users wait for operations that are currently not necessary.
+加载模块是令人吃惊的繁重的操作，尤其是在Windows上。 When your app starts, it should not make users wait for operations that are currently not necessary.
 
 This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
 
