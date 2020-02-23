@@ -179,16 +179,16 @@ Electron强大的多进程架构随时准备帮助你完成你的长期任务，
 
 *`requestIdleCallback()`*允许开发者将函数排队为在进程进入空闲期后立刻执行。 它使你能够在不影响用户体验的情况下执行低优先级或后台执行的工作。 想要了解如何使用它的更多信息，[请查看MDN上的文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
-*Web Workers*是在单独线程上运行代码的一个好方式。 There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
+*Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档](./multithreading.md) 和 [MDN 的 Web Workers文档](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
 
 
-## 5) 不必要的多边形
+## 5) 不需要的polyfills
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaScript, HTML和CSS。 If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
 
 ### 为什么？
 
-When building a web application for today's Internet, the oldest environments dictate what features you can and cannot use. Even though Electron supports well-performing CSS filters and animations, an older browser might not. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
+现在互联网构建网页应用程序时，最老的环境决定了你能够和不能使用的功能。 尽管Electron支持性能良好的 CSS 选择器和动画，但是较早的浏览器可能不支持。 Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
 
 When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
 
