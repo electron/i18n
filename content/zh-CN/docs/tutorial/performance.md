@@ -192,20 +192,20 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 当它遇到JavaScript时， 你可能已经包含了工具包库，如DOM选择器 jQuery 或是 如`regenerator-runtime`支持`async/await` 的polyfills。
 
-基于 JavaScript 的polyfill速度比Electron 中的原生特征要快一些。 Do not slow down your Electron app by shipping your own version of standard web platform features.
+基于 JavaScript 的polyfill速度比Electron 中的原生特征要快一些。 不要通过发布你自己的网络平台标准来减慢你的 Electron 应用速度。
 
 ### 怎么做？
 
-Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
+假定当前版本的 Electron不需要使用polyfills。 如果你有所疑虑，检查 [caniuse.com](https://caniuse.com/) 以确认 是否[在你的Electron版本中使用的Chromium版本](../api/process.md#processversionschrome-readonly) 已经支持了你需要的特性.
 
 In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 
 
-## 6) Unnecessary or blocking network requests
+## 6) 不必要或阻塞的网络请求
 
-Avoid fetching rarely changing resources from the internet if they could easily be bundled with your application.
+如果可以轻松地资源将与你的应用程序捆绑起来，避免从互联网中获取很少它。
 
 ### 为什么？
 
