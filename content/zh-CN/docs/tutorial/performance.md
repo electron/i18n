@@ -16,73 +16,73 @@
 
 ### 推荐阅读
 
- * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+ * [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+ * [谈：“Visual Studio Code - 第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## 检查列表
 
-Chances are that your app could be a little leaner, faster, and generally less resource-hungry if you attempt these steps.
+如果你尝试这些步骤，你的应用可能会略微简洁、快速，而且一般来说会更少出现资源不足的情况。
 
-1. [Carelessly including modules](#1-carelessly-including-modules)
-2. [Loading and running code too soon](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
-6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
-7. [Bundle your code](#7-bundle-your-code)
+1. [谨慎的加载模块](#1-carelessly-including-modules)
+2. [代码预加载和执行](#2-loading-and-running-code-too-soon)
+3. [阻塞主进程](#3-blocking-the-main-process)
+4. [阻塞渲染进程](#4-blocking-the-renderer-process)
+5. [不必要的polyfills](#5-unnecessary-polyfills)
+6. [不必要的或者阻塞的网络请求](#6-unnecessary-or-blocking-network-requests)
+7. [代码进行分片](#7-bundle-your-code)
 
 ## 1) Carelessly including modules
 
-Before adding a Node.js module to your application, examine said module. How many dependencies does that module include? What kind of resources does it need to simply be called in a `require()` statement? You might find that the module with the most downloads on the NPM package registry or the most stars on GitHub is not in fact the leanest or smallest one available.
+在向你的应用程序添加一个 Node.js 模块之前，请检查这个模块。 这个模块包含了多少依赖？ 简单的一个a `require()`声明中包含了什么种类的资源？ 你可能发现NPM包注册的最多的或者Github上Star最多的模块实际上并不是最简单或者最小可用的模块。
 
 ### 为什么？
 
-The reasoning behind this recommendation is best illustrated with a real-world example. During the early days of Electron, reliable detection of network connectivity was a problem, resulting many apps to use a module that exposed a simple `isOnline()` method.
+这一建议背后的理由最好用一个真实的例子来说明。 在Electron最开始的那些日子，可靠的检查网络连接是一个问题，导致很多应用公开的使用了一个简单的`isOnline()`方法。
 
-That module detected your network connectivity by attempting to reach out to a number of well-known endpoints. For the list of those endpoints, it depended on a different module, which also contained a list of well-known ports. This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
+该模块通过尝试访问多个众所周知的端点，检测到您的网络连接。 至于这些资源的列表，它取决于一个完全不同的模块，这个模块也包含一个众所周知的端口。 这个依赖本身又依赖一个包含超过 100 000行端口信息的JSON文件的模块。 每当模块加载时(通常用 `require('module')`)，它会加载所有依赖关系并最终读取并解析此 JSON 文件。 解析几千行的JSON是一个非常繁重的操作。 在性能差的机器上，它会占用整整几秒的时间。
 
-In many server contexts, startup time is virtually irrelevant. A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+在许多服务器环境中，启动时间几乎无关紧要。 一个Node.js 服务器要求所有端口的信息可能实际上是“性能更好” 如果服务器在启动时将所有需要的信息加载到内存，这样就能更快地为响应请求。 此示例中讨论的模块不是一个“坏”模块。 然而，Electron 应用不应该将实际上不需要的信息加载、解析和存储在内存中。
 
-In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
+简而言之，一个主要为运行在Linux系统上的Node.js 服务器编写的模块，虽然看起来很好，但是对你的应用性能来说可能是个坏消息。 在这个特殊的示例中，正确的解决方案是根本不需要加载模块， 而是使用了一 个包含在以后版本的 Chromium 中的连接性检查。
 
 ### 怎么做？
 
-When considering a module, we recommend that you check:
+当考虑一个模块时，我们建议你做以下检查：
 
-1. the size of dependencies included 2) the resources required to load (`require()`) it
-3. the resources required to perform the action you're interested in
+1. 依赖包含的大小 2) 加载(`require()`) 所需要的资源
+3. 你所加载的资源能够执行你关心的操作
 
-Generating a CPU profile and a heap memory profile for loading a module can be done with a single command on the command line. In the example below, we're looking at the popular module `request`.
+可以使用命令行上的单个命令生成用于加载模块的 CPU 配置文件和堆内存配置文件 在下面的示例中，我们看一下受欢迎的模块 `request`。
 
 ```sh
 node --cpu-prof --heap-prof -e "require('request')"
 ```
 
-Executing this command results in a `.cpuprofile` file and a `.heapprofile` file in the directory you executed it in. Both files can be analyzed using the Chrome Developer Tools, using the `Performance` and `Memory` tabs respectively.
+执行此命令将在您执行的目录下生成一个`.cpuprofile`和一个`.heapprofile` 文件。 这两个文件都可以使用 Chrome 开发者工具进行分析，分别使用 `Performance` 和 `Memory` 标签 进行分析。
 
 ![performance-cpu-prof](../images/performance-cpu-prof.png)
 
 ![performance-heap-prof](../images/performance-heap-prof.png)
 
-In this example, on the author's machine, we saw that loading `request` took almost half a second, whereas `node-fetch` took dramatically less memory and less than 50ms.
+在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
 ## 2) Loading and running code too soon
 
-If you have expensive setup operations, consider deferring those. Inspect all the work being executed right after the application starts. Instead of firing off all operations right away, consider staggering them in a sequence more closely aligned with the user's journey.
+如果你有非常繁重的初始化操作，请考虑推迟进行。 程序启动立刻查看应用执行的全部工作。 考虑按照用户操作的顺序将它们错开执行，而不是立刻执行所有的操作。
 
-In traditional Node.js development, we're used to putting all our `require()` statements at the top. If you're currently writing your Electron application using the same strategy _and_ are using sizable modules that you do not immediately need, apply the same strategy and defer loading to a more opportune time.
+在传统的Node.js开发中，我们习惯将所有的`require()`语句放在代码顶部。 如果你目前正在使用相同的策略_and_并且使用你不需要立即加载的大型模块编写你的 Electron 应用程序，使用相同的策略并推迟到更适当的时机加载。
 
 ### 为什么？
 
-Loading modules is a surprisingly expensive operation, especially on Windows. When your app starts, it should not make users wait for operations that are currently not necessary.
+加载模块是令人吃惊的繁重的操作，尤其是在Windows上。 当你的应用开始，不应该让用户等待当时不需要的操作。
 
-This might seem obvious, but many applications tend to do a large amount of work immediately after the app has launched - like checking for updates, downloading content used in a later flow, or performing heavy disk I/O operations.
+这似乎是显而易见的， 但许多应用程序在程序启动后可能会马上完成大量的 工作 - 如检查更新，正在下载稍后流程中使用的内容，或执行大型的磁盘I/O 操作。
 
-Let's consider Visual Studio Code as an example. When you open a file, it will immediately display the file to you without any code highlighting, prioritizing your ability to interact with the text. Once it has done that work, it will move on to code highlighting.
+让我们把Visual Studio 代码作为一个例子。 当你打开一个文件，它会立刻展示没有高亮任何代码的内容，优先实现和文本交互的功能。 一旦它完成了这项工作，它将继续让代码高亮。
 
 ### 怎么做？
 
-Let's consider an example and assume that your application is parsing files in the fictitious `.foo` format. In order to do that, it relies on the equally fictitious `foo-parser` module. In traditional Node.js development, you might write code that eagerly loads dependencies:
+让我们考虑一个示例，并假定您的应用程序正在以架空的`.foo`形式解析文件 。 为了做到这一点，它依赖同样架空的`foo-parserver` 模块。 在传统的 Node.js 开发中，你可以写代码热加载依赖：
 
 ```js
 const fs = require('fs')
@@ -103,7 +103,7 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In the above example, we're doing a lot of work that's being executed as soon as the file is loaded. Do we need to get parsed files right away? Could we do this work a little later, when `getParsedFiles()` is actually called?
+在上面的例子中，我们做了很多工作，一旦文件加载，我们就会立即执行。 我们需要立即获取解析的文件吗？ 或许我们可以晚一点再做这件事，当`getParsedFiles()` 真正的执行到的时候？
 
 ```js
 // "fs" is likely already being loaded, so the `require()` call is cheap
@@ -138,17 +138,17 @@ const parser = new Parser()
 module.exports = { parser }
 ```
 
-In short, allocate resources "just in time" rather than allocating them all when your app starts.
+简而言之，只有当需要的时候才分配资源，而不是在你的应用启动时分配所有。
 
 ## 3) 阻塞主进程
 
-Electron's main process (sometimes called "browser process") is special: It is the parent process to all your app's other processes and the primary process the operating system interacts with. It handles windows, interactions, and the communication between various components inside your app. It also houses the UI thread.
+Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是与你应用的所有其他进程的父进程，也是和操作系统交互的关键进程。 它处理你应用中的窗口，交互和各种组件之间的通信。它还是UI线程的宿主进程。
 
-Under no circumstances should you block this process and the UI thread with long-running operations. Blocking the UI thread means that your entire app will freeze until the main process is ready to continue processing.
+在任何情况下你都不应阻塞此进程或者运行时间长的用户界面线程。 阻塞UI线程意味着您的整个应用程序将冻结直到主进程准备好继续处理。
 
 ### 为什么？
 
-The main process and its UI thread are essentially the control tower for major operations inside your app. When the operating system tells your app about a mouse click, it'll go through the main process before it reaches your window. If your window is rendering a buttery-smooth animation, it'll need to talk to the GPU process about that – once again going through the main process.
+主进程及其UI线程基本上是你应用内重大操作的控制塔。 当操作系统告诉您的应用关于 鼠标点击时，它会在到达您的窗口之前通过主进程。 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
 
 Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
 
