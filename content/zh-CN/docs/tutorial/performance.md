@@ -200,7 +200,7 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分](http://youmightnotneedjquery.com/)。
 
-If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
+如果您正在使用 TypeScript 这样的编译器，检查它的配置并确保你的目标是Electron 支持的最新 ECMAScript 版本。
 
 
 ## 6) 不必要或阻塞的网络请求
@@ -210,17 +210,17 @@ If you're using a transpiler/compiler like TypeScript, examine its configuration
 ### 为什么？
 
 许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 现在你要运送到一个真正的桌面应用上，尝试“剪断绳子”是可能的
- - and avoid letting your users wait for resources that never change and could easily be included  in your app.
+ - 并避免让你的用户等待永远没有改变并且可以轻松地将纳入你的应用中的资源。
 
-A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
+一个典型的例子是谷歌字体。 许多开发者使用谷歌令人印象深刻的免费字体集，这些字体通过内容交付网络获取。 方法显而易见：包括几行CSS 和谷歌将处理其余部分。
 
-When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
+构建Electron应用程序时，如果你下载字体并将其包含在应用包中，你的用户将会得到更好的服务。
 
 ### 怎么做？
 
-In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
+在理想情况下，你的应用程序不需要网络就可以运行。 要达到这个目标，你必须了解你的应用正在下载哪些资源以及这些资源的大小。
 
-To do so, open up the developer tools. Navigate to the `Network` tab and check the `Disable cache` option. Then, reload your renderer. Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
+要做到这一点，请打开开发者工具。 导航到 `网络` 选项卡，然后检查 `禁用缓存` 选项。 然后重新加载你的页面。 Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
 
 The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
 
