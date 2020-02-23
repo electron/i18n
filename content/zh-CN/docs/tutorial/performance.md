@@ -16,8 +16,8 @@
 
 ### 推荐阅读
 
- * [Get Started With Analyzing Runtime Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
- * [Talk: "Visual Studio Code - The First Second"](https://www.youtube.com/watch?v=r0OeHRUCCb4)
+ * [从分析运行时性能开始](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/)
+ * [谈：“Visual Studio Code——第一个一秒”](https://www.youtube.com/watch?v=r0OeHRUCCb4)
 
 ## 检查列表
 
@@ -25,9 +25,9 @@
 
 1. [尽量少加载模块](#1-carelessly-including-modules)
 2. [初始化时减少不必要的代码预加载和执行](#2-loading-and-running-code-too-soon)
-3. [Blocking the main process](#3-blocking-the-main-process)
-4. [Blocking the renderer process](#4-blocking-the-renderer-process)
-5. [Unnecessary polyfills](#5-unnecessary-polyfills)
+3. [避免阻塞主进程](#3-blocking-the-main-process)
+4. [避免阻塞渲染进程](#4-blocking-the-renderer-process)
+5. [不必要的polyfills](#5-unnecessary-polyfills)
 6. [Unnecessary or blocking network requests](#6-unnecessary-or-blocking-network-requests)
 7. [Bundle your code](#7-bundle-your-code)
 
