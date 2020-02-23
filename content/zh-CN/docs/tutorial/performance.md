@@ -150,22 +150,22 @@ Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是
 
 主进程及其UI线程基本上是你应用内重大操作的控制塔。 当操作系统告诉您的应用关于 鼠标点击时，它会在到达您的窗口之前通过主进程。 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
 
-Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
+Electron 和 Chromium 谨慎地将大型的磁盘I/O 和 CPU绑定的操作放入新线程，以避免阻塞UI 线程。 你也应该这样做。
 
 ### 怎么做？
 
-Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
+Electron强大的多进程架构随时准备帮助你完成你的长期任务，但其中也包含少量性能陷阱。
 
-1) For long running CPU-heavy tasks, make use of [worker threads](https://nodejs.org/api/worker_threads.html), consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
+1) 对于需要长期占用CPU繁重任务，使用 [worker threads](https://nodejs.org/api/worker_threads.html)， 考虑将它们移动到 BrowserWindow, 或 (作为最后手段) 生成一个专用进程。
 
-2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
+2) 尽可能避免使用同步IPC 和 `remote` 模块。 虽然有合法的使用案例，但使用`remote`模块的时候非常容易不知情地阻塞 UI线程。
 
-3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
+3) Avoid using blocking I/O operations in the main process. 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
 
 
-## 4) Blocking the renderer process
+## 4) 阻塞主进程
 
-Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
+自从 Electron 使用了当前版本的 Chrome，你可以使用Web 平台提供的最新和最优秀的功能来推迟或卸载繁重的操作，以使你的应用保持流畅和迅速的反应。
 
 ### 为什么？
 
