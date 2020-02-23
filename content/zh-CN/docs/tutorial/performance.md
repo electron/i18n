@@ -39,9 +39,9 @@
 
 这一建议背后的理由最好用一个真实的例子来说明。 在Electron最开始的那些日子，可靠的检查网络连接是一个问题，导致很多应用公开的使用了一个简单的`isOnline()`方法。
 
-该模块通过尝试访问多个众所周知的端点，检测到您的网络连接。 至于这些资源的列表，它取决于一个完全不同的模块，这个模块也包含一个众所周知的端口。 This dependency itself relied on a module containing information about ports, which came in the form of a JSON file with more than 100,000 lines of content. Whenever the module was loaded (usually in a `require('module')` statement), it would load all its dependencies and eventually read and parse this JSON file. Parsing many thousands lines of JSON is a very expensive operation. On a slow machine it can take up whole seconds of time.
+该模块通过尝试访问多个众所周知的端点，检测到您的网络连接。 至于这些资源的列表，它取决于一个完全不同的模块，这个模块也包含一个众所周知的端口。 这个依赖本身又依赖一个包含超过 100 000行端口信息的JSON文件的模块。 每当模块加载时(通常用 `require('module')`)，它会加载所有依赖关系并最终读取并解析此 JSON 文件。 解析几千行的JSON是一个非常繁重的操作。 在性能差的机器上，它会占用整整几秒的时间。
 
-In many server contexts, startup time is virtually irrelevant. A Node.js server that requires information about all ports is likely actually "more performant" if it loads all required information into memory whenever the server boots at the benefit of serving requests faster. The module discussed in this example is not a "bad" module. Electron apps, however, should not be loading, parsing, and storing in memory information that it does not actually need.
+在许多服务器环境中，启动时间几乎无关紧要。 一个Node.js 服务器要求所有端口的信息可能实际上是“性能更好” 如果服务器在启动时将所有需要的信息加载到内存，这样就能更快地为响应请求。 此示例中讨论的模块不是一个“坏”模块。 然而，Electron 应用不应该将实际上不需要的信息加载、解析和存储在内存中。
 
 In short, a seemingly excellent module written primarily for Node.js servers running Linux might be bad news for your app's performance. In this particular example, the correct solution was to use no module at all, and to instead use connectivity checks included in later versions of Chromium.
 
