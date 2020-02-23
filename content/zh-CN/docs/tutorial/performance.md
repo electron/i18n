@@ -198,18 +198,18 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 假定当前版本的 Electron不需要使用polyfills。 如果你有所疑虑，检查 [caniuse.com](https://caniuse.com/) 以确认 是否[在你的Electron版本中使用的Chromium版本](../api/process.md#processversionschrome-readonly) 已经支持了你需要的特性.
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分](http://youmightnotneedjquery.com/)。
 
 If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
 
 
 ## 6) 不必要或阻塞的网络请求
 
-如果可以轻松地资源将与你的应用程序捆绑起来，避免从互联网中获取很少它。
+避免从互联网中获取几乎不变化的资源，如果它可以轻松地与你的应用程序捆绑起来。
 
 ### 为什么？
 
-Many users of Electron start with an entirely web-based app that they're turning into a desktop application. As web developers, we are used to loading resources from a variety of content delivery networks. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible
+许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 现在你要运送到一个真正的桌面应用上，尝试“剪断绳子”是可能的
  - and avoid letting your users wait for resources that never change and could easily be included  in your app.
 
 A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
