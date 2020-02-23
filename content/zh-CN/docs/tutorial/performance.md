@@ -220,13 +220,13 @@ Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaS
 
 在理想情况下，你的应用程序不需要网络就可以运行。 要达到这个目标，你必须了解你的应用正在下载哪些资源以及这些资源的大小。
 
-要做到这一点，请打开开发者工具。 导航到 `网络` 选项卡，然后检查 `禁用缓存` 选项。 然后重新加载你的页面。 Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
+要做到这一点，请打开开发者工具。 导航到 `Network` 选项卡，然后检查 `Disable cache` 选项。 然后重新加载你的页面。 除非你的应用禁止重新加载， 你通常可以在使用开发者工具时点击`Cmd + R` 或`Ctrl + R`触发重新加载。
 
-The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
+开发者工具将仔细记录所有网络请求。 第一步，评估正在下载的所有资源，首先侧重于较大的文件。 其中是否有任何图像、字体或媒体文件不会改变并且可以包含在你的包中？ 如果可以，把它们打包。
 
-As a next step, enable `Network Throttling`. Find the drop-down that currently reads `Online` and select a slower speed such as `Fast 3G`. Reload your renderer and see if there are any resources that your app is unnecessarily waiting for. In many cases, an app will wait for a network request to complete despite not actually needing the involved resource.
+下一步，启用 `Network Throttling`。 查找当前读取`Online`的下拉列表，并选择较慢的速度，例如`Fast 3G`。 重新加载你的页面并查看你的应用程序是否有等待任何不必要的资源。 在大多数情况下，尽管实际上不需要相关的资源，应用还是会等待网络请求完成。
 
-As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+作为一个提示, 从互联网上加载你可能想要更改的而不发送应用程序更新是一个强有力的策略。 为了进一步控制如何加载资源，请考虑使用[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。
 
 ## 7) Bundle your code
 
