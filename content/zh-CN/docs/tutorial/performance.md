@@ -23,15 +23,15 @@
 
 如果你尝试这些步骤，你的应用可能会略微简洁、快速，而且一般来说会更少出现资源不足的情况。
 
-1. [谨慎的加载模块](#1-carelessly-including-modules)
-2. [代码预加载和执行](#2-loading-and-running-code-too-soon)
+1. [谨慎地加载模块](#1-carelessly-including-modules)
+2. [过早的加载和执行代码](#2-loading-and-running-code-too-soon)
 3. [阻塞主进程](#3-blocking-the-main-process)
 4. [阻塞渲染进程](#4-blocking-the-renderer-process)
 5. [不必要的polyfills](#5-unnecessary-polyfills)
 6. [不必要的或者阻塞的网络请求](#6-unnecessary-or-blocking-network-requests)
-7. [代码进行分片](#7-bundle-your-code)
+7. [打包你的代码](#7-bundle-your-code)
 
-## 1) Carelessly including modules
+## 1) 谨慎地加载模块
 
 在向你的应用程序添加一个 Node.js 模块之前，请检查这个模块。 这个模块包含了多少依赖？ 简单的一个a `require()`声明中包含了什么种类的资源？ 你可能发现NPM包注册的最多的或者Github上Star最多的模块实际上并不是最简单或者最小可用的模块。
 
@@ -66,7 +66,7 @@ node --cpu-prof --heap-prof -e "require('request')"
 
 在这个例子里，我们看到在作者的机器上加载`request` 大概用了半秒钟，其中 `node-fetch`明显占用了极少的内存并且加载用时少于 50ms。
 
-## 2) Loading and running code too soon
+## 2) 过早的加载和执行代码
 
 如果你有非常繁重的初始化操作，请考虑推迟进行。 程序启动立刻查看应用执行的全部工作。 考虑按照用户操作的顺序将它们错开执行，而不是立刻执行所有的操作。
 
@@ -150,94 +150,94 @@ Electron的主要进程(有时称为“浏览器进程”) 非常特殊：它是
 
 主进程及其UI线程基本上是你应用内重大操作的控制塔。 当操作系统告诉您的应用关于 鼠标点击时，它会在到达您的窗口之前通过主进程。 如果您的窗口呈现黄色平滑动画， 它需要和 GPU 进程进行通信——再次穿越主进程。
 
-Electron and Chromium are careful to put heavy disk I/O and CPU-bound operations onto new threads to avoid blocking the UI thread. You should do the same.
+Electron 和 Chromium 谨慎地将大型的磁盘I/O 和 CPU绑定的操作放入新线程，以避免阻塞UI 线程。 你也应该这样做。
 
 ### 怎么做？
 
-Electron's powerful multi-process architecture stands ready to assist you with your long-running tasks, but also includes a small number of performance traps.
+Electron强大的多进程架构随时准备帮助你完成你的长期任务，但其中也包含少量性能陷阱。
 
-1) For long running CPU-heavy tasks, make use of [worker threads](https://nodejs.org/api/worker_threads.html), consider moving them to the BrowserWindow, or (as a last resort) spawn a dedicated process.
+1) 对于需要长期占用CPU繁重任务，使用 [worker threads](https://nodejs.org/api/worker_threads.html)， 考虑将它们移动到 BrowserWindow, 或 (作为最后手段) 生成一个专用进程。
 
-2) Avoid using the synchronous IPC and the `remote` module as much as possible. While there are legitimate use cases, it is far too easy to unknowingly block the UI thread using the `remote` module.
+2) 尽可能避免使用同步IPC 和 `remote` 模块。 虽然有合法的使用案例，但使用`remote`模块的时候非常容易不知情地阻塞 UI线程。
 
-3) Avoid using blocking I/O operations in the main process. In short, whenever core Node.js modules (like `fs` or `child_process`) offer a synchronous or an asynchronous version, you should prefer the asynchronous and non-blocking variant.
+3) Avoid using blocking I/O operations in the main process. 简而言之，每当Node.js的核心模块 (如`fs` 或 `child_process`) 提供一个同步版本或 异步版本，你更应该使用异步和非阻塞式的变量。
 
 
-## 4) Blocking the renderer process
+## 4) 阻塞渲染进程
 
-Since Electron ships with a current version of Chrome, you can make use of the latest and greatest features the Web Platform offers to defer or offload heavy operations in a way that keeps your app smooth and responsive.
+自从 Electron 使用了当前版本的 Chrome，你可以使用Web 平台提供的最新和最优秀的功能来推迟或卸载繁重的操作，以使你的应用保持流畅和迅速的反应。
 
 ### 为什么？
 
-Your app probably has a lot of JavaScript to run in the renderer process. The trick is to execute operations as quickly as possible without taking away resources needed to keep scrolling smooth, respond to user input, or animations at 60fps.
+你的应用可能有很多JavaScript在渲染过程中运行。 有个技巧是尽快执行操作，而不占用保持滚动平滑、响应用户输入或60帧/秒动画所需的资源。
 
-Orchestrating the flow of operations in your renderer's code is particularly useful if users complain about your app sometimes "stuttering".
+如果有用户抱怨你的应用“口吃”的时候在渲染的代码中编排操作流就显得尤其重要。
 
 ### 怎么做？
 
-Generally speaking, all advice for building performant web apps for modern browsers apply to Electron's renderers, too. The two primary tools at your disposal  are currently `requestIdleCallback()` for small operations and `Web Workers` for long-running operations.
+一般来说，所有用于构建现代浏览器的性能网络应用程序的建议，对于Electron 的渲染器也同样适用。 现在处理你的应用的主要两个方法是对于小的操作使用`requestIdleCallback()` 而长时间运行的操作使用 `Web Workers`。
 
-*`requestIdleCallback()`* allows developers to queue up a function to be executed as soon as the process is entering an idle period. It enables you to perform low-priority or background work without impacting the user experience. For more information about how to use it, [check out its documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback).
+*`requestIdleCallback()`*允许开发者将函数排队为在进程进入空闲期后立刻执行。 它使你能够在不影响用户体验的情况下执行低优先级或后台执行的工作。 想要了解如何使用它的更多信息，[请查看MDN上的文档](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)。
 
-*Web Workers* are a powerful tool to run code on a separate thread. There are some caveats to consider – consult Electron's [multithreading documentation](./multithreading.md) and the [MDN documentation for Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). They're an ideal solution for any operation that requires a lot of CPU power for an extended period of time.
+*Web Workers*是在单独线程上运行代码的一个好方式。 有一些注意事项需要考虑 - 请查阅 Electron 的 [多线程文档](./multithreading.md) 和 [MDN 的 Web Workers文档](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)。 对于长时间并且大量使用CPU的操作来说它们是一个理想的解析器。
 
 
-## 5) 不必要的多边形
+## 5) 不必要的polyfills
 
-One of Electron's great benefits is that you know exactly which engine will parse your JavaScript, HTML, and CSS. If you're re-purposing code that was written for the web at large, make sure to not polyfill features included in Electron.
+Electron的一大好处是，你准确地知道哪个引擎将解析你的 JavaScript, HTML和CSS。 如果你重新设计的代码是为整个网页编写的，请确保不会polyfill包含在Electron 中的特性。
 
 ### 为什么？
 
-When building a web application for today's Internet, the oldest environments dictate what features you can and cannot use. Even though Electron supports well-performing CSS filters and animations, an older browser might not. Where you could use WebGL, your developers may have chosen a more resource-hungry solution to support older phones.
+现在互联网构建网页应用程序时，最老的环境决定了你能够和不能使用的功能。 尽管Electron支持性能良好的 CSS 选择器和动画，但是较早的浏览器可能不支持。 在你可以使用WebGL的场合，你的开发者可能选择了一个资源更加匮乏的解决方案来支持旧机器。
 
-When it comes to JavaScript, you may have included toolkit libraries like jQuery for DOM selectors or polyfills like the `regenerator-runtime` to support `async/await`.
+当它遇到JavaScript时， 你可能已经包含了工具包库，如DOM选择器 jQuery 或是 如`regenerator-runtime`支持`async/await` 的polyfills。
 
-It is rare for a JavaScript-based polyfill to be faster than the equivalent native feature in Electron. Do not slow down your Electron app by shipping your own version of standard web platform features.
+基于 JavaScript 的polyfill速度比Electron 中的原生特征要快一些。 不要通过发布你自己的网络平台标准来减慢你的 Electron 应用速度。
 
 ### 怎么做？
 
-Operate under the assumption that polyfills in current versions of Electron are unnecessary. If you have doubts, check [caniuse.com](https://caniuse.com/) and check if the [version of Chromium used in your Electron version](../api/process.md#processversionschrome-readonly) supports the feature you desire.
+假定当前版本的 Electron不需要使用polyfills。 如果你有所疑虑，检查 [caniuse.com](https://caniuse.com/) 以确认 是否[在你的Electron版本中使用的Chromium版本](../api/process.md#processversionschrome-readonly) 已经支持了你需要的特性.
 
-In addition, carefully examine the libraries you use. Are they really necessary? `jQuery`, for example, was such a success that many of its features are now part of the [standard JavaScript feature set available](http://youmightnotneedjquery.com/).
+此外，仔细检查您使用的三方库。 它们是否真的必要？ 例如，`jQuery`非常成功，它的许多功能现在都是 [标准JavaScript功能设置的 的一部分](http://youmightnotneedjquery.com/)。
 
-If you're using a transpiler/compiler like TypeScript, examine its configuration and ensure that you're targeting the latest ECMAScript version supported by Electron.
+如果您正在使用 TypeScript 这样的编译器，检查它的配置并确保你的目标是Electron 支持的最新 ECMAScript 版本。
 
 
-## 6) Unnecessary or blocking network requests
+## 6) 不必要或阻塞的网络请求
 
-Avoid fetching rarely changing resources from the internet if they could easily be bundled with your application.
+避免从互联网中获取几乎不变化的资源，如果它可以轻松地与你的应用程序捆绑起来。
 
 ### 为什么？
 
-Many users of Electron start with an entirely web-based app that they're turning into a desktop application. As web developers, we are used to loading resources from a variety of content delivery networks. Now that you are shipping a proper desktop application, attempt to "cut the cord" where possible
- - and avoid letting your users wait for resources that never change and could easily be included  in your app.
+许多开始使用基于Web的应用程序的Electron用户后来都使用了桌面应用。 作为网页开发者，我们习惯了从各种内容交付网站加载资源。 现在你要运送到一个真正的桌面应用上，尝试“剪断绳子”是可能的
+ - 并避免让你的用户等待永远没有改变并且可以轻松地将纳入你的应用中的资源。
 
-A typical example is Google Fonts. Many developers make use of Google's impressive collection of free fonts, which comes with a content delivery network. The pitch is straightforward: Include a few lines of CSS and Google will take care of the rest.
+一个典型的例子是谷歌字体。 许多开发者使用谷歌令人印象深刻的免费字体集，这些字体通过内容交付网络获取。 方法显而易见：包括几行CSS 和谷歌将处理其余部分。
 
-When building an Electron app, your users are better served if you download the fonts and include them in your app's bundle.
+构建Electron应用程序时，如果你下载字体并将其包含在应用包中，你的用户将会得到更好的服务。
 
 ### 怎么做？
 
-In an ideal world, your application wouldn't need the network to operate at all. To get there, you must understand what resources your app is downloading \- and how large those resources are.
+在理想情况下，你的应用程序不需要网络就可以运行。 要达到这个目标，你必须了解你的应用正在下载哪些资源以及这些资源的大小。
 
-To do so, open up the developer tools. Navigate to the `Network` tab and check the `Disable cache` option. Then, reload your renderer. Unless your app prohibits such reloads, you can usually trigger a reload by hitting `Cmd + R` or `Ctrl + R` with the developer tools in focus.
+要做到这一点，请打开开发者工具。 导航到 `Network` 选项卡，然后检查 `Disable cache` 选项。 然后重新加载你的页面。 除非你的应用禁止重新加载， 你通常可以在使用开发者工具时点击`Cmd + R` 或`Ctrl + R`触发重新加载。
 
-The tools will now meticulously record all network requests. In a first pass, take stock of all the resources being downloaded, focusing on the larger files first. Are any of them images, fonts, or media files that don't change and could be included with your bundle? If so, include them.
+开发者工具将仔细记录所有网络请求。 第一步，评估正在下载的所有资源，首先侧重于较大的文件。 其中是否有任何图像、字体或媒体文件不会改变并且可以包含在你的包中？ 如果可以，把它们打包。
 
-As a next step, enable `Network Throttling`. Find the drop-down that currently reads `Online` and select a slower speed such as `Fast 3G`. Reload your renderer and see if there are any resources that your app is unnecessarily waiting for. In many cases, an app will wait for a network request to complete despite not actually needing the involved resource.
+下一步，启用 `Network Throttling`。 查找当前读取`Online`的下拉列表，并选择较慢的速度，例如`Fast 3G`。 重新加载你的页面并查看你的应用程序是否有等待任何不必要的资源。 在大多数情况下，尽管实际上不需要相关的资源，应用还是会等待网络请求完成。
 
-As a tip, loading resources from the Internet that you might want to change without shipping an application update is a powerful strategy. For advanced control over how resources are being loaded, consider investing in [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+作为一个提示, 从互联网上加载你可能想要更改的而不发送应用程序更新是一个强有力的策略。 为了进一步控制如何加载资源，请考虑使用[Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。
 
-## 7) Bundle your code
+## 7) 打包你的代码
 
-As already pointed out in "[Loading and running code too soon](#2-loading-and-running-code-too-soon)", calling `require()` is an expensive operation. If you are able to do so, bundle your application's code into a single file.
+正如中已经指出的那样，"[加载和运行代码太早](#2-loading-and-running-code-too-soon)", 调用 `require()` 是一项繁重的操作。 如果你能够这样做，将你的应用程序的代码打包到单个文件中。
 
 ### 为什么？
 
-Modern JavaScript development usually involves many files and modules. While that's perfectly fine for developing with Electron, we heavily recommend that you bundle all your code into one single file to ensure that the overhead included in calling `require()` is only paid once when your application loads.
+现代JavaScript开发通常涉及许多文件和模块。 对于使用Electron开发的人来说这是非常好的事情，我们强烈建议你将你的代码打包到单个文件中以确保调用`require()` 时只在你的应用加载花费一次开销。
 
 ### 怎么做？
 
-There are numerous JavaScript bundlers out there and we know better than to anger the community by recommending one tool over another. We do however recommend that you use a bundler that is able to handle Electron's unique environment that needs to handle both Node.js and browser environments.
+有许多JavaScript打包的方法可供使用，我们知道我们最好不要通过推荐一种工具来激怒社区。 然而，我们的确建议您使用一个能够处理Electron独特的环境的打包程序，它需要处理Node.js 和浏览器两种环境。
 
-As of writing this article, the popular choices include [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/), and [rollup.js](https://rollupjs.org/).
+在撰写这篇文章时，受欢迎的选择包括[Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/)和[rollup.js](https://rollupjs.org/)。
