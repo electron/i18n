@@ -8,6 +8,12 @@ The `FIXME` string is used in code comments to denote things that should be fixe
 
 ## Planned Breaking API Changes (10.0)
 
+### Browser Window Affinity
+
+The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromiums process model for security, performance and maintainability.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
 ### `enableRemoteModule` defaults to `false`
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
@@ -23,6 +29,14 @@ const w = new BrowserWindow({
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ## Planned Breaking API Changes (9.0)
+
+### Loading non-context-aware native modules in the renderer process
+
+As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+
+If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
 ### `<webview>.getWebContents()`
 
@@ -408,7 +422,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 
 The following list includes the breaking API changes in Electron 3.0.
 
-### `app`
+### `ang app`
 
 ```js
 // Deprecated
@@ -421,7 +435,7 @@ const metrics = app.getAppMetrics()
 const { memory } = metrics[0] // Deprecated property
 ```
 
-### `Ang Browser ng Window`
+### `Kulayan ang bintana`
 
 ```js
 // Deprecated
@@ -469,7 +483,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-### `kalabog ng tagapagbalita`
+### `crashReporter`
 
 ```js
 // Deprecated
@@ -595,7 +609,7 @@ Palitan ng: https://atom.io/download/electron
 
 The following list includes the breaking API changes made in Electron 2.0.
 
-### `Ang Browser ng Window`
+### `Kulayan ang bintana`
 
 ```js
 // Deprecated
