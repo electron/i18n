@@ -8,6 +8,12 @@
 
 ## 중단될 예정 API (10.0)
 
+### Browser Window Affinity
+
+The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromiums process model for security, performance and maintainability.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
 ### `enableRemoteModule` 기본값이 `false`로 설정됨
 
 Electron9에서 `enableRemoteModule` WebPreferences 옵션을 명시적으로 활성화하지 않고 remote모듈을 사용하면 경고 발생됩니다. Electron 10에서는 remote 모듈은 기본으로 비활성화됩니다. remote 모듈을 사용하기 위해서는 반드시 WebPreferences에서 `enableRemoteModule: true`를 설정해야합니다.
@@ -23,6 +29,14 @@ const w = new BrowserWindow({
 우리는 [remote 모듈에서 벗어나길 권장합니다.](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)
 
 ## 중단될 예정 API (9.0)
+
+### Loading non-context-aware native modules in the renderer process
+
+As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+
+If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
 ### `<webview>.getWebContents()`
 

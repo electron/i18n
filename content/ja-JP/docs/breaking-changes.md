@@ -8,6 +8,12 @@
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
+### Browser Window の Affinity
+
+`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium プロセスモデルとの共同連携計画の一環として削除されます。
+
+詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
+
 ### `enableRemoteModule` の省略値は `false` です
 
 Electron 9 では、`enableRemoteModule` WebPreferences オプションによって明示的に有効にせずに remote モジュールを使用すると、警告を出すようになりました。 Electron 10 では、remote モジュールはデフォルトで利用できなくなります。 remote モジュールを使用するには、以下のように WebPreferences で `enableRemoteModule: true` を指定する必要があります。
@@ -23,6 +29,14 @@ const w = new BrowserWindow({
 私たちは [remote モジュールから離れるように推奨しています](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31)。
 
 ## 予定されている破壊的なAPIの変更 (9.0)
+
+### レンダラープロセス内でコンテキスト未対応のネイティブモジュールのロード
+
+Electron 9 では、レンダラープロセスでコンテキスト未対応のネイティブモジュールをロードすることはできなくなります。  これは Electron のプロジェクトとしてのセキュリティ、パフォーマンス、保守性を向上させるためです。
+
+これが影響する場合、`app.allowRendererProcessReuse` を `false` に設定して一時的に以前の動作に戻すことができます。  このフラグは Electron 11 までの設定となっており、ネイティブモジュールを更新してコンテキストに対応する必要があります。
+
+詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
 ### `<webview>.getWebContents()`
 

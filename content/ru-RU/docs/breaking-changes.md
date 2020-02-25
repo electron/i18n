@@ -8,6 +8,12 @@
 
 ## Запланированные критические изменения API (10.0)
 
+### Browser Window Affinity
+
+The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromiums process model for security, performance and maintainability.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+
 ### `enableRemoteModule` defaults to `false`
 
 In Electron 9, using the remote module without explicitly enabling it via the `enableRemoteModule` WebPreferences option began emitting a warning. In Electron 10, the remote module is now disabled by default. To use the remote module, `enableRemoteModule: true` must be specified in WebPreferences:
@@ -23,6 +29,14 @@ const w = new BrowserWindow({
 We [recommend moving away from the remote module](https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31).
 
 ## Запланированные критические изменения API (9.0)
+
+### Loading non-context-aware native modules in the renderer process
+
+As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+
+If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+
+For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
 
 ### `<webview>.getWebContents()`
 
@@ -186,7 +200,7 @@ The `webkitdirectory` property on HTML file inputs allows them to select folders
 
 As of Electron 7, that `FileList` is now list of all files contained within the folder, similarly to Chrome, Firefox, and Edge ([link to MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory)).
 
-В качестве иллюстрации возьмем папку с такой структурой:
+As an illustration, take a folder with this structure:
 ```console
 folder
 ├── file1
@@ -199,14 +213,14 @@ In Electron <=6, this would return a `FileList` with a `File` object for:
 path/to/folder
 ```
 
-В Electron 7, теперь он вернет `FileList` с объектом `File` для:
+In Electron 7, this now returns a `FileList` with a `File` object for:
 ```console
 /path/to/folder/file3
 /path/to/folder/file2
 /path/to/folder/file1
 ```
 
-Обратите внимание, что `webkitdirectory` больше не возвращает путь к выбранной папке. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
+Note that `webkitdirectory` no longer exposes the path to the selected folder. If you require the path to the selected folder rather than the folder contents, see the `dialog.showOpenDialog` API ([link](https://github.com/electron/electron/blob/master/docs/api/dialog.md#dialogshowopendialogbrowserwindow-options)).
 ## Запланированные критические изменения API (6.0)
 
 ### `win.setMenu(null)`
@@ -402,7 +416,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-При создании нативных модулей для Windows переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, тогда нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
+При создании нативных модулей для Windows, переменная `win_delay_load_hook` в `binding.gyp` модуля должна быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль на Windows неудачно загрузится, с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 ## Критические изменения API (3.0)
 
