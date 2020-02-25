@@ -10,9 +10,9 @@
 
 ### Browser Window の Affinity
 
-The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromiums process model for security, performance and maintainability.
+`BrowserWindow` を新規構築する際の `affinity` オプションは、セキュリティ、パフォーマンス、保守性のために Chromium プロセスモデルとの共同連携計画の一環として削除されます。
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
 ### `enableRemoteModule` の省略値は `false` です
 
