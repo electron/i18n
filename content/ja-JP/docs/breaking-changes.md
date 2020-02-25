@@ -8,7 +8,7 @@
 
 ## 予定されている破壊的なAPIの変更 (10.0)
 
-### Browser Window Affinity
+### Browser Window の Affinity
 
 The `affinity` option when constructing a new `BrowserWindow` will be removed as part of our plan to more closely align with Chromiums process model for security, performance and maintainability.
 
@@ -30,13 +30,13 @@ const w = new BrowserWindow({
 
 ## 予定されている破壊的なAPIの変更 (9.0)
 
-### Loading non-context-aware native modules in the renderer process
+### レンダラープロセス内でコンテキスト未対応のネイティブモジュールのロード
 
-As of Electron 9 we do not allow loading of non-context-aware native modules in the renderer process.  This is to improve security, performance and maintainability of Electron as a project.
+Electron 9 では、レンダラープロセスでコンテキスト未対応のネイティブモジュールをロードすることはできなくなります。  これは Electron のプロジェクトとしてのセキュリティ、パフォーマンス、保守性を向上させるためです。
 
-If this impacts you, you can temporarily set `app.allowRendererProcessReuse` to `false` to revert to the old behavior.  This flag will only be an option until Electron 11 so you should plan to update your native modules to be context aware.
+これが影響する場合、`app.allowRendererProcessReuse` を `false` に設定して一時的に以前の動作に戻すことができます。  このフラグは Electron 11 までの設定となっており、ネイティブモジュールを更新してコンテキストに対応する必要があります。
 
-For more detailed information see [#18397](https://github.com/electron/electron/issues/18397).
+詳細は [#18397](https://github.com/electron/electron/issues/18397) を参照してください。
 
 ### `<webview>.getWebContents()`
 
