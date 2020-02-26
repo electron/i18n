@@ -597,21 +597,19 @@ Efface la liste des documents récents.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - Le nom de votre protocole, sans le préfixe `://`. Si vous voulez que votre application gère les liens `electron://`, appelez cette méthode avec `electron` comme paramètre.
-* `path` String (facultatif) *Windows* - `process.execPath` par défaut
-* `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
+* `protocol` String - Le nom de votre protocole, sans le préfixe `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
 
 Returns `Boolean` - Si l'appel a réussi.
 
-Cette méthode définit l'exécutable courant comme gestionnaire par défaut pour un protocole. (par exemple le modèle URI). Il vous permet d'intégrer votre application plus en profondeur dans le système d'exploitation. Une fois enregistré, tous les liens avec `votre-protocole://` seront ouverts avec l'exécutable courant. L'ensemble du lien, y compris le protocole, sera transmis en paramètre à votre application.
+Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-Sous Windows, vous pouvez fournir un chemin optionnel de paramètres, le chemin vers votre exécutable, et args, une table d'arguments à passer à votre exécutable lors de son lancement.
-
-**Remarque:** Sur macOS, vous ne pouvez enregistrer que les protocoles qui ont été ajoutés à votre application `info.plist`, qui ne peut pas être modifié au moment de l'exécution. Vous pouvez cependant changer le fichier avec un simple éditeur de texte ou un script pendant la compilation. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) pour plus de détails.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) pour plus de détails.
 
 **Remarque :** Dans un environnement Windows Store (lorsque empaqueté en tant qu'`appx`) cette API retournera `true` pour tous les appels, mais la clé de registre qu'elle définit ne sera pas accessible par d'autres applications. Afin d'enregistrer votre application Windows Store comme gestionnaire de protocole par défaut, vous devez [déclarer le protocole dans votre manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerForURLScheme.
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -629,13 +627,11 @@ Cette méthode vérifie si l'application actuel est l'application par défaut po
 * `path` String (facultatif) *Windows* - `process.execPath` par défaut
 * `args` String[] (facultatif) *Windows* - Un tableau vide par défaut
 
-Retourne `Boolean`
-
-Cette méthode vérifie si l'exécutable courant est le gestionnaire par défaut d'un protocole (par exemple le modèle URI). Si c'est le cas, il retournera true. Sinon, il retournera false.
+Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
 **Remarque:** Sur macOS, vous pouvez utiliser cette méthode pour vérifier si l'application a bien été enregistré comme gestionnaire de protocole par défaut pour un protocole. Vous pouvez également confirmer cela en vérifiant `~/Library/Preferences/com.apple.LaunchServices.plist` sur votre machine macOS. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) pour plus de détails.
 
-L'API utilise en interne le registre de Windows ainsi que LSCopyDefaultHandlerForURLScheme.
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
 
 ### `app.getApplicationNameForProtocol(url)`
 
