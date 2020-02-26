@@ -611,21 +611,19 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
           
           ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
           
-          * `protocol` String - Nama protokol Anda, tanpa `://`. Jika Anda ingin aplikasi Anda menangani tautan `elektron://`, hubungi metode ini dengan `elektron` sebagai parameternya.
-          * `path` String (opsional) *Windows* - Default ke `process.execPath`
-          * `args` String[] (opsional) *Windows* - Default ke array kosong
+          * `protocol` String - Nama protokol Anda, tanpa `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+          * `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+          * `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
           
           Mengembalikan `Boolean` - Apakah panggilan berhasil.
           
-          Metode ini menetapkan executable saat ini sebagai pengendali default untuk sebuah protokol (alias skema URI). Ini memungkinkan Anda mengintegrasikan aplikasi Anda lebih dalam ke dalam sistem operasi. Setelah terdaftar, semua link dengan `your-protocol://` akan dibuka dengan executable saat ini. Seluruh link, termasuk protokol, akan diteruskan ke aplikasi Anda sebagai parameter.
+          Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
           
-          On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-          
-          **Catatan:** Pada macOS, Anda hanya dapat mendaftarkan protokol yang telah ditambahkan ke aplikasi `info.plist`, yang tidak dapat diubah saat runtime. Namun Anda dapat mengubah file dengan editor teks sederhana atau skrip selama waktu pembuatan. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
+          **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
           
           **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
           
-          The API menggunakan Windows Registry dan LSSetDefaultHandlerForURLScheme internal.
+          The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
           
           ### `app.removeAsDefaultProtocolClient(protokol[, path, args])` *macOS* *Windows*
           
@@ -643,13 +641,11 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
           * `path` String (opsional) *Windows* - Default ke `process.execPath`
           * `args` String[] (opsional) *Windows* - Default ke array kosong
           
-          Mengembalikan `Boolean`
-          
-          Metode ini memeriksa apakah executable saat ini adalah default handler untuk sebuah protokol (alias skema URI). Jika demikian, itu akan kembali benar. Jika tidak, itu akan kembali salah.
+          Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
           
           **Catatan:** Pada macOS, Anda dapat menggunakan metode ini untuk memeriksa apakah aplikasi telah terdaftar sebagai pengendali protokol default untuk sebuah protokol. Anda juga dapat memverifikasi ini dengan memeriksa `~/Library/Preferences/com.apple.LaunchServices.plist` pada mesin macOS. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) untuk rincian.
           
-          The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme internal.
+          The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
           
           ### `app.getApplicationNameForProtocol(url)`
           
