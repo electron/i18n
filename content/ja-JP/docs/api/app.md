@@ -600,19 +600,19 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - `://` を除くプロトコルの名前。 For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
+* `protocol` String - `://` を除くプロトコルの名前。 例えば、アプリで `electron://` リンクを処理したい場合、引数を `electron` にしてこのメソッドを呼び出してください。
+* `path` String (任意) *Windows* - Electron 実行形式のパス。省略値は `process.execPath` です。
+* `args` String[] (任意) *Windows* - 実行形式に渡す引数。省略値は空の配列です。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+このメソッドは現在の実行形式をプロトコル (または URI スキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合できます。 登録すると、`プロトコル://` によるすべてのリンクは現在の実行形式で開かれるようになります。 プロトコルを含むリンク全体が、アプリケーションに引数として渡されます。
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
+**注:** macOS の場合はアプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更できません。 しかし、[Electron Forge](https://www.electronforge.io/) や [Electron Packager](https://github.com/electron/electron-packager) を介するかテキストエディタで `info.plist` を編集することで、ビルド時にファイルを変更できます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
 
 **注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。 Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
 
-The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
+この API は内部的に Windows レジストリ や `LSSetDefaultHandlerForURLScheme` を使用します。
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -630,11 +630,11 @@ The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internal
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
 * `args` String[] (任意) *Windows* - 省略値は空の配列
 
-Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
+戻り値 `Boolean` - 現在の実行形式がプロトコル (または URI スキーム) の既定のハンドラーかどうか。
 
 **注:** macOSの場合、このメソッドは、アプリがプロトコルの既定のハンドラーとして登録されていたかをチェックするのに使えます。 macOSのマシン上の `~/Library/Preferences/com.apple.LaunchServices.plist` を確認することでもこれを検証することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) を参照するようにしてください。
 
-The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+この API は内部的に Windows レジストリ や `LSCopyDefaultHandlerForURLScheme` を使用します。
 
 ### `app.getApplicationNameForProtocol(url)`
 
