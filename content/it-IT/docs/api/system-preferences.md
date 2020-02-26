@@ -360,8 +360,6 @@ Returns `Boolean` - whether or not this device has the ability to use Touch ID.
 
 **NOTE:** This API will return `false` on macOS systems older than Sierra 10.12.2.
 
-**[Deprecato](modernization/property-updates.md)**
-
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
 * `reason` String - The reason you are asking for Touch ID authentication
@@ -408,7 +406,7 @@ This user consent was not required until macOS 10.14 Mojave, so this method will
 
 ### `systemPreferences.getAnimationSettings()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `shouldRenderRichAnimation` Boolean - Returns true if rich animations should be rendered. Looks at session type (e.g. remote desktop) and accessibility settings to give guidance for heavy animations.
 * `scrollAnimationsEnabledBySystem` Boolean - Determines on a per-platform basis whether scroll animations (e.g. produced by home/end key) should be enabled.
