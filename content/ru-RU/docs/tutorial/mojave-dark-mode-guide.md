@@ -1,8 +1,8 @@
 # Тёмный режим Mojave
 
-В macOS 10.14 Mojave, Apple представила новый [системный темный режим](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) для всех компьютеров macOS. Если у вашего приложения есть темный режим, вы можете заставить ваше приложение Electron учитывать настройку системного темного режима.
+В macOS 10.14 Mojave, Apple представила новый [системный темный режим](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) для всех компьютеров macOS. If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting using [the nativeTheme api](../api/native-theme.md).
 
-В macOS 10.15 Catalina, Apple представила новую "автоматическую" опцию темного режима для всех компьютеров macOS. Для корректной работы API `isDarkMode` и `Tray` в этом режиме в Catalina у вас либо должно быть установлено `NSRequiresAquaSystemAppearance` в `false` в вашем файле `Info.plist`, либо должен использоваться Electron версии `>=7.0.0`.
+В macOS 10.15 Catalina, Apple представила новую "автоматическую" опцию темного режима для всех компьютеров macOS. In order for the `nativeTheme.shouldUseDarkColors` and `Tray` APIs to work correctly in this mode on Catalina you need to either have `NSRequiresAquaSystemAppearance` set to `false` in your `Info.plist` file or be on Electron `>=7.0.0`.
 
 ## Автоматическое обновление нативных интерфейсов
 
@@ -10,15 +10,12 @@
 
 ## Автоматическое обновление ваших интерфейсов
 
-Если у вашего приложения имеется собственный темный режим, вы должны включить и выключить его при помощи синхронизации с настройками темного режима системы. Вы можете сделать это прослушиванием события изменения темы в модуле Electron `systemPreferences`. Например,
+Если у вашего приложения имеется собственный темный режим, вы должны включить и выключить его при помощи синхронизации с настройками темного режима системы. You can do this by listening for the theme updated event on Electron's `nativeTheme` module. Например,
 
 ```js
 const { nativeTheme } = require('electron')
 
-systemPreferences.subscribeNotification(
-  'AppleInterfaceThemeChangedNotification',
-  function theThemeHasChanged () {
-    updateMyAppTheme(nativeTheme.shouldUseDarkColors)
-  }
-)
+nativeTheme.on('updated', function theThemeHasChanged () {
+  updateMyAppTheme(nativeTheme.shouldUseDarkColors)
+})
 ```

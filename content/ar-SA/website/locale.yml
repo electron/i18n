@@ -1,4 +1,4 @@
-tagline: ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: التطبيقات
   blog: المدونة
@@ -131,7 +131,7 @@ headings:
   languages: اللغات
 taglines:
   languages: محتوى مترجم من مجتمعنا العالمي المذهل من المطورين.
-  openjsf: Electron إنضم حديثا لمؤسسة OpenJS. إطلع على <a href="/blog/electron-joins-openjsf">الإعلان</a> للمزيد من المعلومات!
+  announcement: Electron إنضم حديثا لمؤسسة OpenJS. إطلع على <a href="/blog/electron-joins-openjsf">الإعلان</a> للمزيد من المعلومات!
 help_translate: "المساعدة في الترجمة"
 footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: أو
 pages:
   '/':
-    title: إلكترون | اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.
-    description: 'ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: تطبيقات إلكترون
     description: تطبيقات مبنية على إلكترون

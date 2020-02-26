@@ -1,23 +1,22 @@
-# Accelerator
+# Acceleration
 
 > Define keyboard shortcuts.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+</code>
 
-Examples:
+उदाहरण:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `CommandOrControl + A`
+* `CommandOrControl + A`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+</p> 
 
 ```javascript
 const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Register a 'CommandOrControl+Y' shortcut listener.
-  globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+  >
   })
 })
 ```

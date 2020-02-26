@@ -339,7 +339,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     ```javascript
     const { app } = require('electron')
     
-    app.on('session-created', (event, session) => {
+    app.on('session-created', (session) => {
       console.log(session)
     })
     ```
@@ -578,12 +578,14 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
 
 <p>Mengabaikan nama aplikasi saat ini.</p>
 
+<p><strong>Note:</strong> This function overrides the name used internally by Electron; it does not affect the name that the OS uses.</p>
+
 <p><strong><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong></p>
 
 <h3><code>app.getLocale()`</h3> 
         Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
         
-        To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+        To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
         
         **Catatan:** Saat mendistribusikan aplikasi yang dikemas, Anda juga harus mengirimkan map `locales`.
         
@@ -609,21 +611,19 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
           
           ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
           
-          * `protocol` String - Nama protokol Anda, tanpa `://`. Jika Anda ingin aplikasi Anda menangani tautan `elektron://`, hubungi metode ini dengan `elektron` sebagai parameternya.
-          * `path` String (opsional) *Windows* - Default ke `process.execPath`
-          * `args` String[] (opsional) *Windows* - Default ke array kosong
+          * `protocol` String - Nama protokol Anda, tanpa `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+          * `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+          * `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
           
           Mengembalikan `Boolean` - Apakah panggilan berhasil.
           
-          Metode ini menetapkan executable saat ini sebagai pengendali default untuk sebuah protokol (alias skema URI). Ini memungkinkan Anda mengintegrasikan aplikasi Anda lebih dalam ke dalam sistem operasi. Setelah terdaftar, semua link dengan `your-protocol://` akan dibuka dengan executable saat ini. Seluruh link, termasuk protokol, akan diteruskan ke aplikasi Anda sebagai parameter.
+          Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
           
-          On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-          
-          **Catatan:** Pada macOS, Anda hanya dapat mendaftarkan protokol yang telah ditambahkan ke aplikasi `info.plist`, yang tidak dapat diubah saat runtime. Namun Anda dapat mengubah file dengan editor teks sederhana atau skrip selama waktu pembuatan. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
+          **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
           
           **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
           
-          The API menggunakan Windows Registry dan LSSetDefaultHandlerForURLScheme internal.
+          The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
           
           ### `app.removeAsDefaultProtocolClient(protokol[, path, args])` *macOS* *Windows*
           
@@ -641,13 +641,19 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
           * `path` String (opsional) *Windows* - Default ke `process.execPath`
           * `args` String[] (opsional) *Windows* - Default ke array kosong
           
-          Mengembalikan `Boolean`
-          
-          Metode ini memeriksa apakah executable saat ini adalah default handler untuk sebuah protokol (alias skema URI). Jika demikian, itu akan kembali benar. Jika tidak, itu akan kembali salah.
+          Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
           
           **Catatan:** Pada macOS, Anda dapat menggunakan metode ini untuk memeriksa apakah aplikasi telah terdaftar sebagai pengendali protokol default untuk sebuah protokol. Anda juga dapat memverifikasi ini dengan memeriksa `~/Library/Preferences/com.apple.LaunchServices.plist` pada mesin macOS. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) untuk rincian.
           
-          The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme internal.
+          The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+          
+          ### `app.getApplicationNameForProtocol(url)`
+          
+          * `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+          
+          Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+          
+          This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
           
           ### `app.setUserTasks(tugas)` *Windows*
           
@@ -971,23 +977,25 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
           
           **[Tidak berlaku lagi](modernization/property-updates.md)**
           
-          ### `app.showAboutPanel()` *macOS* *Linux*
+          ### `app.showAboutPanel()`
           
           Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
           
-          ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+          ### `app.setAboutPanelOptions(options)`
           
           * `pilihan` Obyek 
             * `applicationName` String (opsional) - Nama aplikasi.
             * `applicationVersion` String (opsional) - Versi aplikasi.
             * `hak cipta` String (opsional) - Informasi hak cipta.
             * `version` String (optional) *macOS* - The app's build version number.
-            * `credits` String (optional) *macOS* - Credit information.
+            * `credits` String (optional) *macOS* *Windows* - Credit information.
             * `authors` String[] (optional) *Linux* - List of app authors.
             * `website` String (optional) *Linux* - The app's website.
-            * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+            * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
           
           Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on MacOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
+          
+          If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
           
           ### `app.isEmojiPanelSupported()`
           

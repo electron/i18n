@@ -94,20 +94,17 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
-// Zachowaj globalną referencję obiektu okna, jeśli tego nie zrobisz, okno 
-// zostanie zamknięte automatycznie, gdy obiekt JavaScript odśmieci pamięć.
-let win
 
 function createWindow () {
   // Stwórz okno przeglądarki.
-  win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -120,22 +117,14 @@ function createWindow () {
 
   // Otwórz Narzędzia Deweloperskie.
   win.webContents.openDevTools()
-
-  // Emitowane, gdy okno jest zamknięte.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    win = null
-  })
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// Zamknij, gdy wszystkie okna są zamknięte.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
@@ -147,7 +136,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })

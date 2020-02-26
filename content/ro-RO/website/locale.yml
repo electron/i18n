@@ -1,4 +1,4 @@
-tagline: Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: Aplicații
   blog: Blog
@@ -131,7 +131,7 @@ headings:
   languages: Limbi
 taglines:
   languages: Conținut localizat de la o minunată comunitate dezvoltatoare globală.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
 help_translate: "Ajută la traducere"
 footer:
   see_the_faq: Vezi întrebările frecvente
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: sau
 pages:
   '/':
-    title: Electron | Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.
-    description: 'Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Aplicații Electron
     description: Aplicații create cu Electron

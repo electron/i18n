@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Scurtături tastatură
 
 > Configure local and global keyboard shortcuts
 
@@ -32,7 +32,7 @@ You can use the [globalShortcut](../api/global-shortcut.md) module to detect key
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

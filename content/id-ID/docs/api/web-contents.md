@@ -495,6 +495,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
     * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
     * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
     * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
+    * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
     * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
     * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
     * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -608,7 +609,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
   * `line` Integer
   * `sourceId` String
   
-  Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+  Emitted when the associated window logs a console message.
   
   #### Event: 'preload-error'
   
@@ -909,6 +910,16 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
         })
       ```
       
+      #### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+      
+      * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+      * `scripts` [WebSource[]](structures/web-source.md)
+      * `userGesture` Boolean (opsional) - Default adalah `false`.
+      
+      Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+      
+      Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+      
       #### `contents.setIgnoreMenuShortcuts (abaikan)` *Eksperimental*
       
       * `mengabaikan` Boolean
@@ -976,7 +987,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
       > contents.setVisualZoomLevelLimits(1, 3)
       > ```
       
-      #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+      #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
       
       * `minimalLevel` Nomor
       * `maksimalLevel` Nomor
@@ -984,6 +995,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
       Returns `Promise<void>`
       
       Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
+      
+      **Deprecated:** This API is no longer supported by Chromium.
       
       #### `contents.undo()`
       
@@ -1083,6 +1096,25 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
       
       Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
       
+      #### `contents.isBeingCaptured()`
+      
+      Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+      
+      #### `contents.incrementCapturerCount([size, stayHidden])`
+      
+      * `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+      * `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+      
+      Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+      
+      This also affects the Page Visibility API.
+      
+      #### `contents.decrementCapturerCount([stayHidden])`
+      
+      * `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+      
+      Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+      
       #### `konten.mendapatkanpercetakan()`
       
       Dapatkan daftar printer sistem.
@@ -1094,7 +1126,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
       * `pilihan` Objek (opsional) 
         * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
         * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-        * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
+        * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
         * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
         * `margins` Objek (opsional) 
           * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1112,6 +1144,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
         * `dpi` Objek (opsional) 
           * `horizontal` Number (optional) - The horizontal dpi.
           * `vertical` Number (optional) - The vertical dpi.
+        * `header` String (optional) - String to be printed as page header.
+        * `footer` String (optional) - String to be printed as page footer.
       * `callback` Fungsi (opsional) 
         * `success` Boolean - Indicates success of the print call.
         * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1283,6 +1317,16 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
           
           Opens the developer tools for the shared worker context.
           
+          #### `contents.inspectSharedWorkerById(workerId)`
+          
+          * `workerId` String
+          
+          Inspects the shared worker based on its ID.
+          
+          #### `contents.getAllSharedWorkers()`
+          
+          Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+          
           #### `konten.inspectServiceWorker()`
           
           Membuka alat pengembang untuk konteks pekerja layanan.
@@ -1293,7 +1337,9 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
+<p>Send an asynchronous message to the renderer process via <code>channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p> 
+            > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
+            
             The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
             
             Contoh pengiriman pesan dari proses utama ke proses renderer:
@@ -1333,7 +1379,9 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
 </ul>
 
 <p>Send an asynchronous message to a specific frame in a renderer process via
-<code>channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.</p> 
+<code>channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.</p> 
+              > **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
+              
               The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
               
               If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
@@ -1397,7 +1445,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
               
               * `item` Obyek 
                 * `file` String[] | String - The path(s) to the file(s) being dragged.
-                * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+                * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
               
               Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
               

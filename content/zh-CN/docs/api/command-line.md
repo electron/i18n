@@ -11,7 +11,7 @@ const { app } = require('electron')
 app.commandLine.hasSwitch('disable-gpu')
 ```
 
-关于可以使用哪些标志和开关，请查阅[Chrome Command Line Switches](./chrome-command-line-switches.md)文档。
+For more information on what kinds of flags and switches you can use, check out the [Command Line Switches](./command-line-switches.md) document.
 
 ### 实例方法
 
@@ -22,7 +22,7 @@ app.commandLine.hasSwitch('disable-gpu')
 
 通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
 
-** 注意: **该方法不会影响 ` process. argv ` The intended usage of this function is to control Chromium's behavior.
+** 注意: **该方法不会影响 ` process. argv ` 该功能是为控制Chromium行为设计的。
 
 #### `commandLine.appendArgument(value)`
 

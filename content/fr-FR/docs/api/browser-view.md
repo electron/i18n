@@ -13,12 +13,12 @@ Un `BrowserView` peut être utilisé pour intégrer des contenus web supplément
 const { BrowserView, BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ width: 800, height: 600 })
-win.on('closed', () => {
+gagne. n('closed', () => {
   win = null
 })
 
 let view = new BrowserView()
-win.setBrowserView(view)
+win. etBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```
@@ -73,10 +73,10 @@ Retourne `Boolean` - Si la vue est détruite.
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Objet 
-  * `width` Boolean (optional) - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean (optional) - If `true`, the view's height will grow and shrink together with the window. `false` by default.
-  * `horizontal` Boolean (optional) - If `true`, the view's x position and width will grow and shrink proportionally with the window. `false` by default.
-  * `vertical` Boolean (optional) - If `true`, the view's y position and height will grow and shrink proportionally with the window. `false` by default.
+  * `width` Boolean (facultatif) - Si `true`, la largeur de la vue va s'agrandir et se rétrécir ensemble avec la fenêtre. `false` par défaut.
+  * `height` Boolean (facultatif) - Si `true`, la hauteur de la vue va croître et se rétrécir avec la fenêtre. `false` par défaut.
+  * `horizontal` Booléen (facultatif) - Si `true`, la position et la largeur de la vue croîtront et se rétréciront proportionnellement à la fenêtre. `faux` par défaut.
+  * `vertical` Booléen (facultatif) - Si `true`, la position et la hauteur de la vue augmenteront et se rétréciront proportionnellement à la fenêtre. `faux` par défaut.
 
 #### `view.setBounds(bounds)` *Experimental*
 
@@ -88,7 +88,7 @@ Redimensionne et déplace la vue vers les limites fournies par rapport à la fen
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this BrowserView instance as `Object`.
+Les `limites` de cette instance BrowserView comme `Object`.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 

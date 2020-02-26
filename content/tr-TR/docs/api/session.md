@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Event: 'preconnect'
 
 Dönüşler:
 
@@ -122,9 +122,9 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 #### `ses.setProxy(config)`
 
 * `konfigurasyon` Nesne 
-  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
-  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
-  * `proxyBypassRules` Dizesi - Hangi URL'lerin proxy ayarlarını atlaması gerektiğini belirten kurallar.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Returns `Promise<void>` - Resolves when the proxy setting process is complete.
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Deneysel*
+#### `ses.preconnect(options)`
 
 * `seçenekler` Nesne 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -230,7 +230,7 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` İşlev | boş 
   * `istek` Nesne 
     * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
@@ -354,6 +354,14 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 Returns `Promise<Buffer>` - resolves with blob data.
 
+#### `ses.downloadURL(url)`
+
+* `url` Dize
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+
 #### `ses.createInterruptedDownload(options)`
 
 * `seçenekler` Nesne 
@@ -362,8 +370,8 @@ Returns `Promise<Buffer>` - resolves with blob data.
   * `mimeType` String (isteğe bağlı)
   * `offset` Integer - Karşıdan yükleme için başlangıç aralığı.
   * `uzunluk` Integer - Karşıdan yükleme toplam uzunluk.
-  * `lastModified` String - Son değiştirilen başlık değeri.
-  * `eTag` String - ETag başlık değeri.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
   * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
 
 Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
@@ -384,9 +392,43 @@ Adds scripts that will be executed on ALL web contents that are associated with 
 
 Returns `String[]` an array of paths to preload scripts that have been registered.
 
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
 ### Örnek Özellikler
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
+
+#### `ses.availableSpellCheckerLanguages` *Readonly*
+
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
 #### `ses.cookies` *Readonly*
 

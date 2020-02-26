@@ -141,7 +141,7 @@ child.once('ready-to-show', () => {
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. 기본값은 `false`이다.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `skipTaskbar` Boolean (선택) - 윈도우를 작업표시줄에서 보여줄지 여부를 지정한다. 기본값은 `false` 이다.
+  * `skipTaskbar` Boolean (선택) - 윈도우를 작업표시줄에서 안 보이게 할지 말지를 지정한다. 기본값은 `false` 이다.
   * `kiosk` Boolean (optional) - 윈도우를 kiosk 모드로 보여줄지 여부를 지정한다. 기본값은 `false` 이다. 
   * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
@@ -155,7 +155,7 @@ child.once('ready-to-show', () => {
   * `autoHideMenuBar` Boolean (선택) - 메뉴 바를 `Alt` 키를 누르기 전까지 자동으로 숨길지 여부를 지정한다. 기본값은 `false` 이다.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. 기본값은 `false`이다.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 기본값은 `false`이다. On Windows, does not work unless the window is frameless.
@@ -165,6 +165,7 @@ child.once('ready-to-show', () => {
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
@@ -176,7 +177,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. 기본값은 `false`이다. More about this can be found in [Multithreading](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling Node.js support in sub-frames such as iframes and child windows. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
-    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
+    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md).
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
@@ -215,6 +216,8 @@ child.once('ready-to-show', () => {
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -334,14 +337,14 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted after the window has been resized.
 
-#### Event: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 Returns:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
@@ -465,7 +468,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -549,13 +552,13 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-#### `win.webContents` *Readonly*
+#### `win.webContents` *읽기전용*
 
 A `WebContents` object this window owns. All web page related events and operations will be done via it.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
-#### `win.id` *Readonly*
+#### `win.id` *읽기전용*
 
 A `Integer` property representing the unique ID of the window.
 
@@ -615,6 +618,10 @@ win.excludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### 인스턴스 메서드
 
@@ -848,13 +855,13 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 Sets whether the window can be manually resized by user.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isResizable()`
 
 Returns `Boolean` - Whether the window can be manually resized by user.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -862,7 +869,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 Sets whether the window can be moved by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -870,7 +877,7 @@ Returns `Boolean` - Whether the window can be moved by user.
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -878,7 +885,7 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually minimized by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
@@ -886,7 +893,7 @@ Returns `Boolean` - Whether the window can be manually minimized by user
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -894,7 +901,7 @@ On Linux always returns `true`.
 
 Sets whether the window can be manually maximized by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
@@ -902,7 +909,7 @@ Returns `Boolean` - Whether the window can be manually maximized by user.
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -910,13 +917,13 @@ On Linux always returns `true`.
 
 Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isFullScreenable()`
 
 Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -924,7 +931,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 Sets whether the window can be manually closed by user. On Linux does nothing.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -932,7 +939,7 @@ Returns `Boolean` - Whether the window can be manually closed by user.
 
 On Linux always returns `true`.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -945,6 +952,12 @@ Sets whether the window should show always on top of other windows. After settin
 #### `win.isAlwaysOnTop()`
 
 Returns `Boolean` - Whether the window is always on top of other windows.
+
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
 
 #### `win.moveTop()`
 
@@ -1014,6 +1027,12 @@ Enters or leaves the kiosk mode.
 #### `win.isKiosk()`
 
 Returns `Boolean` - Whether the window is in kiosk mode.
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1267,13 +1286,13 @@ Sets whether the window menu bar should hide itself automatically. Once set the 
 
 If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.isMenuBarAutoHide()`
 
 Returns `Boolean` - Whether menu bar automatically hides itself.
 
-**[Deprecated](modernization/property-updates.md)**
+**[더이상 사용하지 않음](modernization/property-updates.md)**
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
@@ -1289,7 +1308,7 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 * `visible` Boolean
 * `options` Object (선택) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 Sets whether the window should be visible on all workspaces.
 
@@ -1391,11 +1410,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *실험적*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *Experimental*
 
@@ -1407,7 +1426,7 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserViews()` *Experimental*
+#### `win.getBrowserViews()` *실험적*
 
 Returns `BrowserView[]` - an array of all BrowserViews that have been attached with `addBrowserView` or `setBrowserView`.
 

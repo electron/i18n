@@ -17,14 +17,14 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 
 ```powershell
-$ ./out/Testing/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### Establecer puntos de interrupción
 
 Luego, abre Visual Studio. Electron no está construido con Visual Studio y, por lo tanto, no contiene un archivo de proyecto - sin embargo, usted puede abrir los archivos de código fuente "Como archivo", lo que significa que Visual Studio los abrirá por sí mismo. Usted puede todavía establecer puntos de interrupción - Visual Studio automáticamente descifrará que el código fuente coincide con el código que se ejecuta en el proceso adjunto y se romperá en consecuencia.
 
-Archivos de códigos relevantes se pueden encontrar en `./atom/`.
+Relevant code files can be found in `./shell/`.
 
 ### Adjuntado
 

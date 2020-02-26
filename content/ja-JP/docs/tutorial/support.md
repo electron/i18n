@@ -2,12 +2,12 @@
 
 ## サポートを探す
 
-セキュリティに関心がある場合は、[セキュリティドキュメント](../../SECURITY.md)をご参照ください。
+セキュリティ上の相談がある場合は、[セキュリティドキュメント](https://github.com/electron/electron/tree/master/SECURITY.md) をご参照ください。
 
-プログラミングの質問に対する回答を探している、またはElectronを使っている他の開発者との議論に参加したいのであれば、各ローケーションのコミュニティで対話できます。
+プログラミングの質問とその回答を探したり、Electron を使っている他の開発者との議論に参加したりしたいのであれば、以下のロケーションのコミュニティで対話できます。
 
-* Atomフォーラム上の[`electron`](https://discuss.atom.io/c/electron)カテゴリ
-* Freenode上の`#atom-shell`チャネル
+* Atom フォーラムの [`electron`](https://discuss.atom.io/c/electron) カテゴリ
+* Freenode の `#atom-shell` チャンネル
 * [Atom の Slack](https://discuss.atom.io/t/join-us-on-slack/16638?source_topic_id=25406) の `#electron` チャンネル
 * [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
 * [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
@@ -17,9 +17,9 @@
 * [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
 * [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
-Electronにコントリビュートしたい場合は、[コントリビューティングドキュメント](../../CONTRIBUTING.md)をご参照ください。
+Electron にコントリビュートしたい場合は、[コントリビュートドキュメント](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) をご参照ください。
 
-[サポートされているバージョン](#supported-versions)のElectronでバグを見つけた場合は、[issue tracker](../development/issues.md)にレポートをおお願いします。
+Electron の [サポートしているバージョン](#supported-versions) にバグを見つけた場合は、[issue tracker](../development/issues.md) にご報告していただけると幸いです。
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron)はコミュニティで保守されている有益なサンプルアプリ、ツール、リソースのリストです。
 
@@ -33,9 +33,9 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 ### 現在のサポート対象バージョン
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提
 
 `ia32` (`i686`) と `x64` (`amd64`) のビルド済みバイナリは、Ubuntu 12.04上でビルドされ、 `armv7l` バイナリは、Debian Wheezy用のhard-float ABIとNEONのARM v7を対象にビルドしています。
 
-[Electron 2.0 がリリースされるまで](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)、Electron は `armv7l` バイナリを単純に `arm` という接尾辞を付けてリリースし続けます。 双方のバイナリは同一です。
+[Electron 2.0 がリリースされるまで](../breaking-changes.md#duplicate-arm-assets)、Electron は `armv7l` バイナリを単純に `arm` という接尾辞を付けてリリースし続けます。 双方のバイナリは同一です。
 
 Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 12.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 

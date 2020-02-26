@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 `main.js`는 창을 생성하고 애플리케이션에서 발생한 모든 시스템 이벤트를 처리합니다. 최종 완성된 예제 코드에서는 개발자 도구를 열거나, 창 닫기 처리, macOS에서 사용자가 dock의 app 아이콘을 클릭했을때 창 재생성하기 등의 기능을 제공하고 있습니다.
@@ -102,13 +102,9 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// window 객체는 전역 변수로 유지. 이렇게 하지 않으면, 
-// 자바스크립트 객체가 가비지 콜렉트될 때 자동으로 창이 닫힐 것입니다.
-let win
-
 function createWindow () {
   // 브라우저 창을 생성합니다.
-  win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,26 +112,19 @@ function createWindow () {
     }
   })
 
-  // 그리고 앱의 index.html를 로드합니다.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // 개발자 도구를 엽니다.
   win.webContents.openDevTools()
-
-  // 창이 닫힐 때 발생합니다
-  win.on('closed', () => {
-    // window 객체에 대한 참조해제. 여러 개의 창을 지원하는 앱이라면 
-    // 창을 배열에 저장할 수 있습니다. 이곳은 관련 요소를 삭제하기에 좋은 장소입니다.
-    win = null
-  })
 }
 
-// 이 메서드는 Electron이 초기화를 마치고 
-// 브라우저 창을 생성할 준비가 되었을 때  호출될 것입니다.
+// 이 메소드는 Electron의 초기화가 완료되고
+// 브라우저 윈도우가 생성될 준비가 되었을때 호출된다.
 // 어떤 API는 이 이벤트가 나타난 이후에만 사용할 수 있습니다.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// 모든 창이 닫혔을 때 종료.
+// 모든 윈도우가 닫히면 종료된다.
 app.on('window-all-closed', () => {
   // macOS에서는 사용자가 명확하게 Cmd + Q를 누르기 전까지는
   // 애플리케이션이나 메뉴 바가 활성화된 상태로 머물러 있는 것이 일반적입니다.
@@ -147,12 +136,12 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // macOS에서는 dock 아이콘이 클릭되고 다른 윈도우가 열려있지 않았다면
   // 앱에서 새로운 창을 다시 여는 것이 일반적입니다.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// 이 파일 안에 당신 앱 특유의 메인 프로세스 코드를 추가할 수 있습니다. 별도의 파일에 추가할 수도 있으며 이 경우 require 구문이 필요합니다.
+// 이 파일에는 나머지 앱의 특정 주요 프로세스 코드를 포함시킬 수 있습니다. 별도의 파일에 추가할 수도 있으며 이 경우 require 구문이 필요합니다.
 ```
 
 마지막으로 `index.html`는 보여주고 싶은 웹 페이지에 해당합니다:

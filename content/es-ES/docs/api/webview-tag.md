@@ -480,7 +480,7 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
   * `printSelectionOnly` Boolean (opcional) - Si se imprime solo la selección.
   * `landscape` Boolean (opcional) - `true` for landscape, `false` for portrait.
 
-Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
+Returns `Promise<Uint8Array>` - Se resuelve cuando los datos PDF son generados.
 
 Imprime la página web de `webview` como PDF, Igual como `webContents.printToPDF(options)`.
 
@@ -542,7 +542,7 @@ Devuelve `Promise<void>`
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
-### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Número
 * `maximumLevel` Número
@@ -551,11 +551,13 @@ Devuelve `Promise<void>`
 
 Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
 
+**Deprecated:** This API is no longer supported by Chromium.
+
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
 Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
-### `<webview>.getWebContents()`
+### `<webview>.getWebContents()` *Deprecated*
 
 Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 

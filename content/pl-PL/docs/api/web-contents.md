@@ -509,6 +509,7 @@ Zwraca:
   * `selectionText` String - Text of the selection that the context menu was invoked on.
   * `titleText` String - Title or alt text of the selection that the context was invoked on.
   * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -622,7 +623,7 @@ Zwraca:
 * `line` Integer
 * `sourceId` String
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (optional) - Default is `false`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
 #### `contents.setIgnoreMenuShortcuts(ignore)` *Eksperymentalne*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 Returns `Promise<void>`
 
 Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1108,6 +1121,25 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
 #### `contents.getPrinters()`
 
 Get the system printer list.
@@ -1119,7 +1151,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 * `options` Obiekt (opcjonalne) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Obiekt (opcjonalne) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1137,6 +1169,8 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
   * `dpi` Obiekt (opcjonalne) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `callback` Funkcja (opcjonalne) 
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1318,6 +1352,16 @@ Starts inspecting element at position (`x`, `y`).
 
 Opens the developer tools for the shared worker context.
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `contents.inspectServiceWorker()`
 
 Opens the developer tools for the service worker context.
@@ -1327,7 +1371,9 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1431,7 +1479,7 @@ End subscribing for frame presentation events.
 
 * `produkt` Object 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 

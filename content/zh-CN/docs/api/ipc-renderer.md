@@ -4,7 +4,7 @@
 
 进程: [ Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。
+`ipcRenderer` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 的实例。 你可以使用它提供的一些方法从渲染进程 (web 页面) 发送同步或异步的消息到主进程。 也可以接收主进程回复的消息。
 
 请从 [ipcMain](ipc-main.md) 查看代码示例。
 
@@ -49,7 +49,9 @@ The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html
 * `channel` String
 * `...args` any[]
 
-通过 `channel` 发送异步消息到主进程，可以携带任意参数。 Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
@@ -60,7 +62,9 @@ The main process handles it by listening for `channel` with the [`ipcMain`](ipc-
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -86,11 +90,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 返回 `any` - 由 [`ipcMain`](ipc-main.md) 处理程序发送过来的值。
 
-通过 `channel` 发送同步消息到主进程，可以携带任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 主进程可以使用 `ipcMain` 监听 [channel](ipc-main.md)来接收这些消息，并通过 `event.returnValue `设置回复消息。
 
-**注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 

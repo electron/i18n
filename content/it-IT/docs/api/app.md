@@ -329,7 +329,7 @@ Emesso quando Electron ha creato una nuova `sessione`.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -569,13 +569,15 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
       
       Sostituisce l'attuale nome dell'app.
       
+      **Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+      
       **[Deprecato](modernization/property-updates.md)**
       
       ### `app.ottieniLocale()`
       
       Restituisce `Stringa` - L'app locale attuale. Possibili restituzioni dei valori sono documentate [qui](locales.md).
       
-      Per impostare il locale, vorrai usare una linea di comando spostata alla startup dell'app, che si trova [qui](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+      Per impostare il locale, vorrai usare una linea di comando spostata alla startup dell'app, che si trova [qui](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
       
       **Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
       
@@ -601,21 +603,19 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
       
       ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
       
-      * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
-      * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
-      * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
+      * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+      * `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+      * `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
       
       Restituisce `Boolean` - Se la chiamata ha avuto successo.
       
-      Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
+      Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
       
-      On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-      
-      **Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
+      **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
       
       **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
       
-      L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL internamente.
+      The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
       
       ### `app.rimuoviComeProtocolloClientDefault(protocollo[, percorso, arg])` *macOS* *Windows*
       
@@ -633,13 +633,19 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
       * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
       * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
       
-      Restituisci `Booleano`
-      
-      Questo metodo controlla se l'eseguibile attuale è come un gestionale per un protocollo (o schema URI). Se sì, restituirà true. Altrimenti, restituirà false.
+      Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
       
       **Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
       
-      L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internamente.
+      The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+      
+      ### `app.getApplicationNameForProtocol(url)`
+      
+      * `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+      
+      Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+      
+      This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
       
       ### `app.impostaTaskUtente(task)` *Windows*
       
@@ -667,9 +673,9 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
       
       * `ok` - Nulla è andato storto.
       * `errore` - Uno o più errori sono avvenuti, abilita il log di esecuzione per mostrare la possibile causa.
-      * `ErroreSeparatoreInvalido` - È stato fatto un tentativo di aggiungere un separatore ad una categoria personalizzata nella Jump List. I separatori sono permessi solo nella categoria `Task` standard.
-      * `ErroreRegistrazioneTipofile` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
-      * `ErroreAccessoNegatoCategoriapersonalizzata` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
+      * `invalidSeparatorError` - È stato fatto un tentativo di aggiungere un separatore ad una categoria personalizzata nella Jump List. I separatori sono permessi solo nella categoria `Tasks` standard.
+      * `fileTypeRegistrationError` - È stato fatto un tentativo di aggiungere un link file alla Jump List per un tipo di file non gestibile dall'app.
+      * `customCategoryAccessDeniedError` - Le categorie personalizzate non possono essere aggiunte alla Jump List per motivi di privacy dell'utente o per le impostazioni di privacy di gruppo.
       
       Se le `categories` sono `null` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
       
@@ -969,23 +975,25 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
       
       **[Deprecato](modernization/property-updates.md)**
       
-      ### `app.showAboutPanel()` *macOS* *Linux*
+      ### `app.showAboutPanel()`
       
       Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
       
-      ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+      ### `app.setAboutPanelOptions(options)`
       
       * `options` Oggetto 
         * `Nomeapplicazione` Stringa (opzionale) - Il nome dell'app.
         * `Versioneapplicazione` Stringa (opzionale) - La versione dell'app.
         * `copyright` Stringa (opzionale) - Informazioni di copyright.
         * `version` String (optional) *macOS* - The app's build version number.
-        * `credits` String (optional) *macOS* - Credit information.
+        * `credits` String (optional) *macOS* *Windows* - Credit information.
         * `authors` String[] (optional) *Linux* - List of app authors.
         * `website` String (optional) *Linux* - The app's website.
-        * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+        * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
       
       Vedi il pannello delle opzioni. This will override the values defined in the app's `.plist` file on MacOS. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli. On Linux, values must be set in order to be shown; there are no defaults.
+      
+      If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
       
       ### `app.isEmojiPanelSupported()`
       

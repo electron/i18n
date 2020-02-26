@@ -1,8 +1,8 @@
 # راهنمای رسمی
 
-لطفا مطمئن شوید که شما با استفاده از اسناد نسخه الکترون را مطابقت میدهید . شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. برای دیدن قدیمی تر نسخه های اسناد، شما می توانید [ مرور بر اساس برچسب ](https://github.com/electron/electron/tree/v1.4.0) در GitHub با باز کردن 'منوی شاخه ها / برچسب ها' کشویی و انتخاب برچسبی که مطابق نسخه شما است.
+Please make sure that you use the documents that match your Electron version. شماره نسخه باید بخشی از URL صفحه باشد. اگر اینطور نمی باشد، شما احتمالا از مستندات گروه توسعه که حاوی تغییرات API است و سازگار با نسخه ای الکترونی شما نیست استفاده میکنید. برای دیدن قدیمی تر نسخه های اسناد، شما می توانید [ مرور بر اساس برچسب ](https://github.com/electron/electron/tree/v1.4.0) در GitHub با باز کردن 'منوی شاخه ها / برچسب ها' کشویی و انتخاب برچسبی که مطابق نسخه شما است.
 
-## سوالات متداول
+## اجازه دادن به
 
 سوالاتی وجود دارد که از اغلب آنها خواسته می شود. قبل از ایجاد یک مسئله آن را بررسی کنید:
 
@@ -104,7 +104,8 @@ These individual tutorials expand on topics discussed in the guide above.
 * [شیء فرآیند](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### عناصر سفارشی:
 

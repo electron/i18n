@@ -2,7 +2,7 @@
 
 ## Finding Support
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+If you have a security concern, please see the [security document](https://github.com/electron/electron/tree/master/SECURITY.md).
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
@@ -17,7 +17,7 @@ If you're looking for programming help, for answers to questions, or to join in 
 * [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
 * [`electron-pl`](https://electronpl.github.io) *(Poland)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+If you'd like to contribute to Electron, see the [contributing document](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
 
@@ -33,9 +33,9 @@ All supported release lines will accept external pull requests to backport fixes
 
 ### Currently supported versions
 
+* 8.x.y
 * 7.x.y
 * 6.x.y
-* 5.x.y
 
 ### End-of-life
 
@@ -63,7 +63,7 @@ Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. [Elec
 
 The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Until the release of Electron 2.0](../breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 預先建置的二進位檔能否在特定發行版本上執行，取決於該發行版本是否包括 Electron 建置平台時連結連結的程式庫，因此只能保證在 Ubuntu 12.04 上能正常運作。但下列平臺中也都經過驗證，能執行 Electron 預先建置二進位檔:
 

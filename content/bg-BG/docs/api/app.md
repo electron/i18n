@@ -328,7 +328,7 @@ Emitted when Electron has created a new `session`.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -566,13 +566,15 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 Замества името на текущото приложение.
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Забележка:** Когато се разпространявате пакетираното приложение, трябва също така да изпратите и `locales` папката.
 
@@ -598,21 +600,19 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - Името на протокола, без `://`. Ако искате вашето приложение да се справят `electron://` връзките, извикайте този метод с `electron` като параметър.
-* `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
-* `args` String [] (по избор) *Windows* - По подразбиране е празен масив
+* `protocol` String - Името на протокола, без `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-Този метод определя текущия изпълнимия файл като манипулатор по подразбиране за протокола (известно още като URI схема). Позволява ви да интегрирате вашето приложение по-дълбоко в операционната система. Веднъж регистрирана, всички връзки с `вашият-протокол://` ще бъдат отворени със сегашния изпълним файл. Цялата връзка, включително и протокола, ще бъде изпратена към вашето приложение, като параметър.
+Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-
-**Забележка:** На macOS можете да регистрирате само протоколи, които са били добавени към `info.plist` на вашето приложение. Тези стойности не могат да бъдат променени по време на изпълнение на приложението. Можете обаче да промените файла с обикновен текстов редактор или скрипт по време на изграждане на рпиложението. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-API използва системния регистър на Windows и LSSetDefaultHandlerForURLScheme вътрешно.
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -630,13 +630,19 @@ API използва системния регистър на Windows и LSSetDe
 * `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
 * `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Връща `Boolean`
-
-Този метод проверява дали текущия изпълнимия файл е манипулатор по подразбиране за протокола (известен също нато URI схема). Ако е така, методът ще върне true, в противен случай false.
+Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
 **Забележка:** На macOS можете да използвате този метод, за да проверите дали приложението е регистрирана като манипулатор по подразбиране за протоколa. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
 
-API използва системния регистър на Windows и LSCopyDefaultHandlerForURLScheme вътрешно.
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -965,23 +971,25 @@ This API must be called after the `ready` event is emitted.
 
 **[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
-* `опции` Object 
+* `options` Object 
   * `applicationName` String (по избор) - Името на приложението.
   * `applicationVersion` String (по избор) - Версията на приложението.
   * `copyright` String (по избор) - Информация за правата при копиране и разпространение.
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Вижте панелът с опции about. This will override the values defined in the app's `.plist` file on MacOS. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли. On Linux, values must be set in order to be shown; there are no defaults.
+
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 

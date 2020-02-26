@@ -12,11 +12,11 @@ Por exemplo, quando for criar uma bandeija ou designar um ícone para uma janela
 const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+const win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Ou ler a imagem a partir do clipboard que retorna um `NativeImage`:
+Or read the image from the clipboard, which returns a `NativeImage`:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -29,19 +29,19 @@ console.log(appIcon)
 
 Atualmente os formatos de imagem `PNG` e `JPEG` são suportados. `PNG` são recomendados pelo seu suporte a transparência e compressão sem perda de qualidade.
 
-No Windows, você também pode carregar icones `ICO` a partir de caminhos de arquivos. Para a melhor qualidade visual é recomendado incluir ao menos os seguintes tamanhos nos:
+On Windows, you can also load `ICO` icons from file paths. For best visual quality, it is recommended to include at least the following sizes in the:
 
 * Ícone pequeno 
- * 16x16 (com escala de DPI com 100%)
- * 20x20 (com escala de DPI com 125%)
- * 24x24 (com escala de DPI com 150%)
- * 32x32 (com escala de DPI com 200%)
+  * 16x16 (com escala de DPI com 100%)
+  * 20x20 (com escala de DPI com 125%)
+  * 24x24 (com escala de DPI com 150%)
+  * 32x32 (com escala de DPI com 200%)
 * Ícone grande 
- * 32x32 (com escala de DPI com 100%)
- * 40x40 (com escala de DPI com 150%)
- * 48x48 (com escala de DPI com 150%)
- * 64x64 (com escala de DPI com 200%)
-* 256x256
+  * 32x32 (com escala de DPI com 100%)
+  * 40x40 (com escala de DPI com 150%)
+  * 48x48 (com escala de DPI com 150%)
+  * 64x64 (com escala de DPI com 200%)
+  * 256x256
 
 Confira a seção *Size requirements* [nesse artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
@@ -49,7 +49,7 @@ Confira a seção *Size requirements* [nesse artigo](https://msdn.microsoft.com/
 
 Em plataformas que possuem suporte para high-DPI como a tela Retina da Apple, você pode acrescentar `@2x` depois do nome base da imagem para marcar-la como imagem de alta resolução.
 
-Por exemplo se `icon.png` é uma imagem normal que possui resolução padrão, então `icon@2x.png` será tratada como uma imagem de alta resolução que tem dupla densidade de DPI.
+For example, if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
 
 Se você deseja ter o suporte para telas com diferentes densidades de DPI ao mesmo tempo, você pode colocar imagens de diferentes tamanhos na mesma pasta e usar o nome do arquivo sem os sufixos de DPI. Como por exemplo:
 
@@ -62,11 +62,11 @@ images/
 
 ```javascript
 const { Tray } = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
+const appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Os seguintes sufixos para DPI são também suportados:
+The following suffixes for DPI are also supported:
 
 * `@1x`
 * `@1.25x`
@@ -84,7 +84,7 @@ Os seguintes sufixos para DPI são também suportados:
 
 Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
-O caso mais comum é usar imagens padrão em ícones de barra de menu assim podendo se adaptar tanto para barras de menus claras quanto escuras.
+The most common case is to use template images for a menu bar icon, so it can adapt to both light and dark menu bars.
 
 **Nota:** Imagens padrão são suportadas somente no macOS.
 
@@ -114,14 +114,17 @@ Cria uma nova instância `NativeImage` de um arquivo localizado em `path`. Esse 
 ```javascript
 const nativeImage = require('electron').nativeImage
 
-let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
+const image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
 ### `nativeImage.createFromBitmap(buffer, options)`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object * `width` Integer * `height` Integer * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object 
+  * `width` Integer
+  * `height` Integer
+  * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `NativeImage`
 
@@ -130,7 +133,10 @@ Creates a new `NativeImage` instance from `buffer` that contains the raw bitmap 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (opcional) * `width` Integer (opcional) - Necessário para buffers de bitmap. * `height` Integer (opicional) - Necessário para buffers de bitmap. * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+* `options` Objeto (opcional) 
+  * `width` Integer (optional) - Required for bitmap buffers.
+  * `height` Integer (opicional) - Necessário para buffers de bitmap.
+  * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `NativeImage`
 
@@ -153,9 +159,9 @@ Retorna `NativeImage`
 
 Cria uma nova instância de `NativeImage` a partir de NSImage o qual direciona para o dado nome da Imagem. See [`System Icons`](https://developer.apple.com/design/human-interface-guidelines/macos/icons-and-images/system-icons/) for a list of possible values.
 
-O `hslShift` é aplicado à imagem com as seguintes regras
+O `hslShift` é aplicado à imagem com as seguintes regras:
 
-* `hsl_shift[0]` (matiz): O valor absoluto da matiz para a imagem - 0 e 1 direciona para 0 e 360 na roda de cores (vermelho).
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
 * `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
 * `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
 
@@ -179,7 +185,8 @@ Os seguintes métodos estão disponíveis nas instâncias da classe `NativeImage
 
 #### `image.toPNG([options])`
 
-* `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+* `options` Objeto (opcional) 
+  * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `PNG` da imagem.
 
@@ -191,23 +198,26 @@ Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_b
 
 #### `image.toBitmap([options])`
 
-* `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+* `options` Objeto (opcional) 
+  * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+* `options` Objeto (opcional) 
+  * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `String` - Os dados de URL da imagem.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
+* `options` Objeto (opcional) 
+  * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
 Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados de bitmap crus (sem alterações) da imagem.
 
-A diferença entre `getBitmap()` e `toBitmap()` é que, `getBitmap()` não copia os dados de bitmap, portanto você tem que usar o buffer retornado imediatamente no instante do loop do evento, senão os dados podem mudar ou serem destruídos.
+The difference between `getBitmap()` and `toBitmap()` is that `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick; otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` no *macOS*
 
@@ -245,7 +255,10 @@ Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
+* `options` Object 
+  * `width` Integer (optional) - Defaults to the image's width.
+  * `height` Integer (optional) - Defaults to the image's height.
+  * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better`, or `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Retorna `NativeImage` - A imagem redimensionada.
 
@@ -257,7 +270,12 @@ Retorna `Float` - A proporção de tela da imagem.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - O fator de escala a ser adicionado à representação da imagem. * `width` Integer (optional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `height` Integer (opcional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `buffer` Buffer (opcional) - O buffer contendo os dados crus (sem alteração) da imagem. * `dataURL` String (opcional) - O URL dos dados contendo tanto um PNG codificado em base 64 ou uma imagem JPEG.
+* `options` Object 
+  * `scaleFactor` Double - The scale factor to add the image representation for.
+  * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`.
+  * `buffer` Buffer (opcional) - O buffer contendo os dados crus (sem alteração) da imagem.
+  * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Adiciona uma imagem de representação para um específico fator de escala. Esse pode ser usado para adicionar explicitamente representações de fatores de escala diferentes para uma imagem. Isso pode ser chamado em imagens vazias.
 

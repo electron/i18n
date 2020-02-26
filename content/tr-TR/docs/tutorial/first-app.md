@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 `main.js` pencereleri oluşturmalı ve uygulamanızın karşılaşabileceği bütün sistem olaylarını işlemelidir. Üstteki örneğin daha tamamlanmış hali geliştirici araçlarını açabilmeli, pencerenin kapanmasını işleyebilmeli veya macOS'de eğer kullanıcı araç çubuğunda uygulamanın ikonuna basarsa pencereyi tekrardan oluşturabilmelidir.
@@ -102,13 +102,9 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Pencere nesnesinin genel bir referansını koruyun, 
-// yoksa JavaScript nesnesi çöpleri topladığında pencere otomatik olarak kapatılır.
-let win
-
 function createWindow () {
   // Tarayıcı penceresini oluştur.
-  win = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,26 +112,19 @@ function createWindow () {
     }
   })
 
-  // ve uygulamanın index.html dosyasını yükle.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // DevTools'u aç.
   win.webContents.openDevTools()
-
-  // Pencere kapatıldığında ortaya çıkar.
-  win.on('closed', () => {
-  //Pencere nesnesini referans dışı bırakın,
-  // uygulamanız çoklu pencereleri destekliyorsa genellikle pencereleri
-  // bir dizide saklarsınız, bu, ilgili öğeyi silmeniz gereken zamandır.
-    win = null
-  })
 }
-// Bu yöntem, Electron başlatmayı tamamladığında
-// ve tarayıcı pencereleri oluşturmaya hazır olduğunda çağrılır.
-// Bazı API'ler sadece bu olayın gerçekleşmesinin ardından kullanılabilir.
-app.on('ready', createWindow)
 
-// Bütün pencereler kapatıldığında çıkış yap.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Bazı API'ler sadece bu olayın gerçekleşmesinin ardından kullanılabilir.
+app.whenReady().then(createWindow)
+
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // MacOS'de kullanıcı CMD + Q ile çıkana dek uygulamaların ve menü barlarının
   // aktif kalmaya devam etmesi normaldir.
@@ -147,12 +136,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   // MacOS'de dock'a tıklandıktan sonra eğer başka pencere yoksa
   // yeni pencere açılması normaldir.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
-// Bu dosyada, uygulamanızın özel ana işleminin geri kalan bölümünü ekleyebilirsiniz
-// Kod. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
+
+// In this file you can include the rest of your app's specific main process
+// code. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
 ```
 
 Kesin olarak göstermek istediğiniz web sayfası `index.html`:

@@ -104,7 +104,8 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Obiectul procesului](api/process.md)
 * [Comutatoare de linie de comandă acceptate](api/command-line-switches.md)
 * [Variabile de mediu](api/environment-variables.md)
-* [Ruperea modificărilor API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Ruperea modificărilor API](breaking-changes.md)
 
 ### Elemente DOM personalizate:
 

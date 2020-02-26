@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 步骤4: 编写代码
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
 请确保都运行 ` npm run lint ` 在任何代码更改后, 以确保它们遵循项目的代码样式。
 
@@ -181,7 +181,7 @@ $ git push origin my-branch
 
 #### 批准和请求更改工作流程
 
-所有代码合并请求都需要您修改过的代码的 [ 代码所有者 ](https://github.com/orgs/electron/teams/code-owners) 进行审批以获得执行。 每当维护者审阅一个代码合并请求时, 他们可能请求更改。 这些可能很小, 例如修复一个错字, 或者可能涉及实质性的更改。 此类请求旨在帮助您, 但有时可能会出现突然或无益的情况, 特别是如果它们不包括 * 如何 * 更改它们的具体建议。
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 尽量不要气馁。 如果你觉得审查是不公平的, 那么说或者寻求另一个项目参与者的投入。 通常, 这种评论是由于审阅者没有足够的时间来审查和无意的。 这样的困难往往可以用一点耐心来解决。 那就是说, 审阅者应该被期望提供有用的反馈。
 
@@ -197,4 +197,4 @@ $ git push origin my-branch
 
 理想情况下, 代码合并请求将在 CI 的所有平台上通过测试 ("变成绿色")。 这意味着所有测试都通过, 并且没有 linting 错误。 然而，CI 自身的基础设施在特定的平台上或者在"不可靠"的测试下会失败("变红") 的情况并不少见。 必须手动检查每个 CI 故障以确定原因。
 
-Ci 在打开请求时自动启动, 但只有 [ 发布者 ](https://github.com/orgs/electron/teams/releasers/members) 才能重新启动 ci 运行。 如果你认为 CI 给出了错误的否定, 请求发布者重新启动测试。
+CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.

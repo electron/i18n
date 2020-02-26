@@ -10,13 +10,13 @@ import got from 'got'
 import { sync as mkdir } from 'make-dir'
 import * as path from 'path'
 import { execSync } from 'child_process'
-import * as Octokit from '@octokit/rest'
+import { Octokit } from '@octokit/rest'
 import { roggy, IResponse as IRoggyResponse } from 'roggy'
 const electronDocs = require('electron-docs')
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
 const github = new Octokit({
-  auth: process.env.GH_TOKEN ? process.env.GH_TOKEN : '',
+  auth: process.env.GH_TOKEN ?? '',
 })
 
 interface IResponse {

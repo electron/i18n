@@ -328,7 +328,7 @@ Emitido cuando Electron ha creado una nueva `session`.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -566,13 +566,15 @@ Usualmente el campo `name` de `package.json` es un nombre corto en minúscula, d
 
 Reescribe el nombre de la aplicación actual.
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[Cambiar](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Devuelve `String` - Código de la localización actual de la aplicación. Los valores posibles están documentados [aquí](locales.md).
 
-Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para establecer la localización, necesitas usar un cambio de línea de comandos al inicio de la aplicación, el cual se puede encontrar [aquí](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
@@ -598,21 +600,19 @@ Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
+Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-En Windows, puedes proveer la ruta de parámetros opcionales, la ruta a tu ejecutable, y args, un array de argumentos para ser pasada al ejecutable de tu aplicación cuando este sea lance.
-
-**Nota:** En macOS, solo puede registrar protocolos que han sido añadidos a la `info.plist` de su aplicación, que no puede ser modificada mientras la aplicación esté corriendo. Usted también puede modificar el archivo con un editor de texto o script durante su creación. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
 
 **Note:** En un entorno de Windows Store (cuando se empaqueta como `appx`) esta API devolverá `true` para todas las llamadas pero la clave de registro que establece no será accesible por otras aplicaciones. Para registrar tu aplicación de Windows Store como gestor de protocolo determinado debe [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-El API usa el registro de Windows y LSSetDefaultHandlerForURLScheme internamente.
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -630,13 +630,19 @@ Este método verifica si el ejecutable actual como el manejador por defecto para
 * `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
 * `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
-Devuelve `Boolean`
-
-Este método verifica si el ejecutable acutal es el manejador por defecto para un protocolo (aka esquema URI). Si es así, regresará verdad. de otra manera, regresará falso.
+Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
 **Nota:** En macOS puede usar este método para verificar si la aplicación ha sido registrada como controladora por defecto para un protocolo. También puedes verificar esto al marcar `~/Library/Preferences/com.apple.LaunchServices.plist` en el dispositivo macOS. Por favor vea la [documentación de Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) para detalles.
 
-El API usa el registro de Windows y LSCopyDefaultHandlerForURLScheme internamente.
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -816,7 +822,7 @@ Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en
 
 ### `app.importCertificate(options, callback)` *Linux*
 
-* `opciones` Object 
+* `opciones` Objecto 
   * `cetificado` Cadena - camino para el archivo pkcs12.
   * `contraseña` Cadena - Frase clave para el certificado.
 * `callback` Function 
@@ -966,23 +972,25 @@ Esta API debe ser llamada antes que el evento `ready` sea emitido.
 
 **[Cambiar](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 Muestra las opciones del panel acerca de la aplicación. Estas opciones estas opciones pueden ser sobrescritas con `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `opciones` Object 
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Establece el panel de opciones. Esto va a sobrescribir los valores de la aplicación definidos en el archivo `.plist` en MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+Establece el panel de opciones. This will override the values defined in the app's `.plist` file on MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. En Linux, los valores deben establecerse para ser mostrados; no hay valores por defecto.
+
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 

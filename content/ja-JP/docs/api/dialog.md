@@ -39,6 +39,7 @@ console.log(dialog)
     * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - 自動的にエイリアス (シンボリックリンク) のパスを解決しないようにします。選択したエイリアスはリンク先のパスの代わりにエイリアスのパスを返します。
     * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `dontAddToRecent` *Windows* - 開いているアイテムを最近開いた書類リストに追加しないようにします。
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
   * `securityScopedBookmarks` Boolean (任意) *macOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 
@@ -86,6 +87,7 @@ dialog.showOpenDialogSync(mainWindow, {
     * `promptToCreate` *Windows* - ダイアログで存在しないファイルパスを入力した場合に、作成を促します。 これは実際にパスにファイルを作成しませんが、アプリケーションによって作成される必要がある存在しないパスが返されることを許可します。
     * `noResolveAliases` *macOS* - 自動的にエイリアス (シンボリックリンク) のパスを解決しないようにします。選択したエイリアスはリンク先のパスの代わりにエイリアスのパスを返します。
     * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `dontAddToRecent` *Windows* - 開いているアイテムを最近開いた書類リストに追加しないようにします。
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
   * `securityScopedBookmarks` Boolean (任意) *macOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 
@@ -93,7 +95,7 @@ dialog.showOpenDialogSync(mainWindow, {
 
 * `canceled` Boolean - dialog がキャンセルされたかそうでないか。
 * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列。この dialog がキャンセルされた場合、これは空の配列になります。
-* `bookmarks` String[] (任意)*macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
+* `bookmarks` String[] (任意) *macOS* *mas* - `filePaths` に対応している配列です。base64 エンコードされたセキュリティスコープ付きブックマーク文字列が格納されています。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -136,6 +138,12 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
+  * `properties` String[] (任意) 
+    * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
+    * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
+    * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `showOverwriteConfirmation` *Linux* - ユーザが既に存在するファイル名を入力した場合に、ユーザに確認ダイアログを表示するかどうかを設定します。
+    * `dontAddToRecent` *Windows* - 保存したアイテムを最近開いた書類リストに追加しないようにします。
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `String | undefined` - ユーザが選択したファイルパス。dialog がキャンセルされた場合は `undefined` を返します。
@@ -155,13 +163,19 @@ dialog.showOpenDialog(mainWindow, {
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
+  * `properties` String[] (任意) 
+    * `showHiddenFiles` - ダイアログで隠しファイルを表示します。
+    * `createDirectory` *macOS* - ダイアログでディレクトリを作成するのを許可します。
+    * `treatPackageAsDirectory` *macOS* - `.app` フォルダのようなパッケージを、ファイルの代わりにディレクトリとして扱います。
+    * `showOverwriteConfirmation` *Linux* - ユーザが既に存在するファイル名を入力した場合に、ユーザに確認ダイアログを表示するかどうかを設定します。
+    * `dontAddToRecent` *Windows* - 保存したアイテムを最近開いた書類リストに追加しないようにします。
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 
 戻り値 `Promise<Object>` - 以下を含むオブジェクトで実行されます。
 
     * `canceled` - Boolean - dialog がキャンセルされたかそうでないか。
     * `filePath` String (任意) - このダイアログがキャンセルされた場合、これは `undefined` になります。
-    * `bookmark` String (任意) _macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するためには `securityScopedBookmarks` を有効にする必要があります。
+    * `bookmark` String (任意) _macOS_ _mas_ - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するためには `securityScopedBookmarks` を有効にする必要があります。 (戻り値については、[この表](#bookmarks-array) を参照してください。)
     
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
@@ -244,6 +258,17 @@ Windowsでは、使用されているWin32 APIのため、オプションはよ�
 
 * OSが独自の確認ダイアログを提供しているため、`message` の引数は使用されません。
 * この確認ダイアログをモーダル表示にすることができないため、`browserWindow` の引数は無視されます。
+
+## ブックマーク配列
+
+`showOpenDialog`、`showOpenDialogSync`、`showSaveDialog`、 `showSaveDialogSync` は `bookmarks` と言う配列を返します。
+
+| ビルド種別     | securityScopedBookmarks 真偽値 |  戻り値の型  | 返り値                      |
+| --------- | --------------------------- |:-------:| ------------------------ |
+| macOS mas | True                        | Success | `['LONGBOOKMARKSTRING']` |
+| macOS mas | True                        |  Error  | `['']` (空文字列の配列)         |
+| macOS mas | False                       |   なし    | `[]` (空の配列)              |
+| non mas   | any                         |   なし    | `[]` (空の配列)              |
 
 ## シート
 

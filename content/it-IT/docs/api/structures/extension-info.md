@@ -1,4 +1,4 @@
 # ExtensionInfo Object
 
 * `name` Stringa
-* `version` String
+* `version` Stringa

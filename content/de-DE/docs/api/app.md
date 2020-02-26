@@ -45,7 +45,7 @@ Rückgabewert:
 
 Wird ausgelöst bevor die App ihre Fenster schließt. Durch das Aufrufen von `event.preventDefault()` wird das Standardverhalten, welches die App beendet, verhindert.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
 
 **Hinweis:** Wenn die Anwendung unter Windows beendet wird, weil das System heruntergefahren oder neu gestartet wird oder der Benutzer sich abmeldet, wird dieses Event nicht ausgelöst.
 
@@ -111,7 +111,7 @@ Rückgabewert:
 
 * `event` Event
 * `type` String - Ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` unknown - Contains app-specific state stored by the activity on another device.
+* `userInfo` Object - Enthält den app-spezifischen Zustand, der von einer Aktivität auf einem anderen Gerät gespeichert wurde.
 
 Wird während [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ausgelöst, wenn eine Aktivität von einem anderen Gerät wieder aufgenommen werden soll. Du solltest `event.preventDefault()` aufrufen wenn du dieses Event verwenden willst.
 
@@ -270,9 +270,9 @@ Rückgabewert:
   * `username` String (optional)
   * `password` String (optional)
 
-Emitted when `webContents` wants to do basic auth.
+Wird ausgelöst wenn `webContents` grundlegende Authentifizierung durchführen will.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Standardmäßig werden alle Authentifizierungen abgebrochen. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -328,7 +328,7 @@ Emittiert wenn Electron eine neue `Session` erstellt.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -528,7 +528,7 @@ If `app.getPath('logs')` is called without called `app.setAppLogsPath()` being c
 
 Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
-Fetches a path's associated icon.
+Ruft das zugeordnete Symbol eines Pfades ab.
 
 In *Windows* gibt es zwei arten von Icons:
 
@@ -566,13 +566,15 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 Überschreibt den Namen der aktuellen Anwendung.
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
@@ -598,21 +600,19 @@ Leere die zuletzt verwendete Dokumenten Liste.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - The name of your protocol, without `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
 
 Returns `Boolean` - Whether the call succeeded.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -630,13 +630,19 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Gibt `Boolean` zurück
-
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
 **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -965,23 +971,25 @@ This API must be called after the `ready` event is emitted.
 
 **[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `options` Object 
   * `applicationName` String (optional) - Der Name der App.
   * `applicationVersion` String (optional) - Die Version der App.
   * `copyright` String (optional) - Copyright Information.
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
+
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 

@@ -96,6 +96,10 @@ crashReporter.start({
 
 Вызов для получения всех текущих параметров, передаваемых процессу по формированию отчета.
 
+### `crashReporter.getCrashesDirectory()`
+
+Returns `String` - The directory where crashes are temporarily stored before being uploaded.
+
 ## Отчет о нагрузке
 
 Процесс отчетов о сбоях отправит следующие данные в `submitURL` как `multipart/form-data` `POST`:

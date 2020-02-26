@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### Event: 'preconnect' *Experimental*
+#### Event: 'preconnect'
 
 Devuelve:
 
@@ -122,9 +122,9 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 #### `ses.setProxy(config)`
 
 * `configuración` Object 
-  * `pacScript` Cadena - El URL asociado con el archivo PAC.
-  * `proxyRules` Cadena - Reglas indicando cual proxy utilizar.
-  * `proxyBypassRules` Cadena - Reglas indicando cuál URL deben eludir la configuración del proxy.
+  * `pacScript` String (optional) - The URL associated with the PAC file.
+  * `proxyRules` String (optional) - Rules indicating which proxies to use.
+  * `proxyBypassRules` String (optional) - Rules indicating which URLs should bypass the proxy settings.
 
 Devuelve `Promise<void>` - Se resuelve cuando el proceso de configuración del proxy está completo.
 
@@ -186,7 +186,7 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
 
 * `url` URL
 
-Returns `Promise<String>` - Resolves with the proxy information for `url`.
+Devuelve `Promise<String>` - Se resuelve con la información del proxy para `url`.
 
 #### `ses.setDownloadPath(path)`
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *Experimental*
+#### `ses.preconnect(options)`
 
 * `opciones` Object 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
@@ -230,7 +230,7 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Reinicia a 
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Function | null 
   * `request` Object 
     * `hostname` String
     * `certificate` [certificate](structures/certificate.md)
@@ -354,6 +354,14 @@ Devuelve `Cadena` - El agente usuario para esta sesión.
 
 Devuelve `Promise<Buffer>` - Se resuelve con datos blob.
 
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+
 #### `ses.createInterruptedDownload(options)`
 
 * `opciones` Object 
@@ -362,8 +370,8 @@ Devuelve `Promise<Buffer>` - Se resuelve con datos blob.
   * `mimeType` Cadena (opcional)
   * `offset` Entero - rango de inicio para la descarga.
   * `longitud` Entero - longitud total de la descarga.
-  * `última modificación` Cadena - Último valor del encabezado modificado.
-  * `eTag` Cadena - Valor Etag del encabezado.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
   * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
 
 Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
@@ -384,9 +392,43 @@ Agrega scripts que se ejecutarán en TODOS los contenidos web que están asociad
 
 Devuelve un array de rutas `String[]` para precargar guiones que han sido registrado.
 
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
 ### Propiedades de Instancia
 
 Las siguientes propiedades están disponibles en instancias de `Sesión`:
+
+#### `ses.availableSpellCheckerLanguages` *Readonly*
+
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
 
 #### `ses.cookies` *Readonly*
 

@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Accède aux informations sur les sources de médias qui peut être utilisé pour capturer l'audio et la vidéo à partir du bureau en utilisant l'API [`navigator.mediaDevices.getUserMedia`].
+> Accède aux informations sur les sources de médias qui peuvent être utilisées pour capturer l'audio et la vidéo à partir du bureau en utilisant l'API [`navigator.mediaDevices.getUserMedia`].
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
@@ -47,9 +47,9 @@ function handleError (e) {
 }
 ```
 
-Pour capturer la vidéo provenant d'une source fournis par `desktopCapturer`, les options passés à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` et `audio: false`.
+Pour capturer la vidéo provenant d'une source fournie par `desktopCapturer`, les options passées à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` et `audio: false`.
 
-Pour capturer l'audio et la vidéo depuis l'ensemble du bureau, les options passés à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` pour `audio` et `video`, mais ne doit pas inclure l'option `chromeMediaSourceId`.
+Pour capturer l'audio et la vidéo depuis l'ensemble du bureau, les options passées à [`navigator.mediaDevices.getUserMedia`] doivent obligatoirement inclure `chromeMediaSource: 'desktop'` pour `audio` et `video`, mais ne doivent pas inclure l'option `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {
@@ -74,13 +74,15 @@ Le module `desktopCapturer` dispose des méthodes suivantes :
 
 * `options` Objet 
   * `types` String[] - un tableau de Chaîne de caractères qui répertorie les types de sources bureau à être capturé, les types disponibles sont `screen` et `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`. Set width or height to 0 when you do not need the thumbnails. This will save the processing time required for capturing the content of each window and screen.
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `thumbnailSize` [Size](structures/size.md) (facultatif) - La taille de la miniature de la source de média doit être redimensionnée. La valeur par défaut est `150` x `150`. Définissez la largeur ou la hauteur à 0 lorsque vous n'avez pas besoin de les vignettes. Cela permettra de gagner le temps de traitement nécessaire pour capturer le contenu de chaque fenêtre et écran.
+  * `fetchWindowIcons` Boolean (facultatif) - Définir à true pour activer la récupération des icônes de fenêtre. La valeur par défaut est faux. Lorsque false la propriété appIcon des sources retourne null. Même si une source a l'écran de type.
 
-Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Retourne `Promise<DesktopCapturerSource[]>` - Résout avec un tableau de [`DesktopCapturerSource`](structures/desktop-capturer-source.md), chaque `DesktopCapturerSource` représente un écran ou une fenêtre individuelle qui peut être capturée.
 
-## Caveats
+**Note** Capturing the screen contents requires user consent on macOS 10.15 Catalina or higher, which can detected by [`systemPreferences.getMediaAccessStatus`].
 
-`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+## Avertissements
 
-It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.
+`navigator.mediaDevices. etUserMedia` ne fonctionne pas sur macOS pour la capture audio en raison d'une limitation fondamentale par laquelle les applications qui veulent accéder à l'audio du système nécessitent une [extension du noyau signée](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, et par extension Electron, ne le fournit pas.
+
+Il est possible de contourner cette limitation en capturant le système audio avec une autre application macOS comme Soundflower et en le passant par un périphérique d'entrée audio virtuel. Ce périphérique virtuel peut ensuite être interrogé avec `navigator.mediaDevices.getUserMedia`.

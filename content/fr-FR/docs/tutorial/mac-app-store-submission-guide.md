@@ -2,7 +2,7 @@
 
 Depuis la version 0.34.0, Electron permet la soumission des applications empaquetées pour le Mac App Store (MAS). Ce guide fournit les informations sur : Comment soumettre votre application et les limites du MAS build.
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**Note:** Pour soumettre une application au Mac App Store, il faut s'inscrire dans le [Apple Developer Programme](https://developer.apple.com/support/compare-memberships/), qui coûte de l'argent.
 
 ## Comment soumettre votre App
 
@@ -20,7 +20,7 @@ Avant de signer votre application, vous devez connaître le Team ID de votre com
 
 Après avoir terminé les préparatifs, vous pouvez empaqueter votre application en suivant [Distribution de l'application](application-distribution.md) et passer ensuite à la signature de votre application.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+Tout d'abord, vous devez ajouter une clé `ElectronTeamID` à votre application `Info.plist`, qui a votre ID d'équipe comme valeur :
 
 ```xml
 <plist version="1.0">
@@ -53,14 +53,14 @@ Ensuite, vous devez préparer les trois fichiers suivant.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1. //FR" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>com.apple.security.app-sandbox</key>
+    <key>com. pple.security.app-sandbox</key>
     <true/>
-    <key>com.apple.security.application-groups</key>
+    <key>com.apple.security. groupes de pplication</key>
     <array>
-      <string>TEAM_ID.your.bundle.id</string>
+      <string>TEAM_ID. notre.bundle.id</string>
     </array>
   </dict>
 </plist>
@@ -102,18 +102,18 @@ LOGINHELPER_PLIST="/path/to/loginhelper.plist"
 
 FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
 
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
-codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" " "$FRAMEWORKS_PATH/Electron Framework. ramework/Versions/A/Electron Framework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework. ramework/Versions/A/Libraries/libffmpeg.dylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode. ylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST"$FRAMEWORKS_PATH/Electron Framework. ramework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper. pp/Contents/MacOS/$APP Helper"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper. pp/"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper. pp/Contents/MacOS/$APP Login Helper"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper. pp/"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" " "$APP_PATH/Contents/MacOS/$APP"
+codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" " "$APP_PATH"
 
-productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
+productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" " "$RESULT_PATH"
 ```
 
 Si vous êtes nouveau dans l'app sandboxing sur macOS, vous devriez également lire le guide d'Apple [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) pour avoir une idée de base. Puis ajoutez les clés pour les autorisations requises par votre application aux fichiers de droits.
@@ -128,7 +128,7 @@ Les modules natifs utilisés dans votre application doivent également être sig
 electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires générés qui ne doivent pas être inclus (car ils devront aussi être signée). Si vous utilisez [electron-packager](https://github.com/electron/electron-packager) avant la version 8.1.0, ajoutez `--ignore=.+\.o$` à vos étapes de compilation pour ignorer ces fichiers. Versions 8.1.0 and later ignore those files by default.
+Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires générés qui ne doivent pas être inclus (car ils devront aussi être signée). Si vous utilisez [electron-packager](https://github.com/electron/electron-packager) avant la version 8.1.0, ajoutez `--ignore=.+\.o$` à vos étapes de compilation pour ignorer ces fichiers. Les versions 8.1.0 et plus tard ignorent ces fichiers par défaut.
 
 ### Envoyer votre App
 
@@ -195,7 +195,7 @@ Voir la [documentation Activer les fichiers sélectionnés par l'utilisateur](ht
 
 ## Algorithmes de chiffrement utilisés par Electron
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
+Selon les pays dans lesquels vous publiez votre application, vous pourriez être requis pour fournir des informations sur les algorithmes de chiffrement utilisés dans votre logiciel . Voir la [documentation de conformité à l'exportation de chiffrement](https://help.apple.com/app-store-connect/#/devc3f64248f) pour plus d'informations.
 
 Electron utilise ces algorithmes de chiffrement suivants :
 

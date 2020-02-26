@@ -509,6 +509,7 @@ Ibinabalik ang:
   * `selectionText` Pisi - Teksto ng pagpili na ang menu ng konteksto ay nananawagan.
   * `titleText` Pisi - Pamagat o alt teksto ng pagpili na ang konteksto ay tinawag sa.
   * `misspelledWord` Pisi - Ang maling salita sa ilalim ng cursor, kung mayroon man.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` Pisi - Ang encoding ng karakter ng frame kung saan hiniling ang menu.
   * `inputFieldType` Pisi - Kung ang konteksto ng menu ay sinasabing sa isang patlang na input, ang uri ng patlang na iyon. Ang posibleng mga halaga ay `wala`, `plainText`, `password`, `iba pang`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
@@ -622,7 +623,7 @@ Ibinabalik ang:
 * `line` Integer
 * `sourceId` String
 
-Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hindi ipapalabas para sa mga window na may *offscreen rendering* na pinapagana.
+Emitted when the associated window logs a console message.
 
 #### Event: 'preload-error'
 
@@ -929,6 +930,16 @@ pagkatapos(resp => resp.json())', totoo)
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opsyonal) - Default ay `huwad`.
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Works like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
 #### `contents.setIgnoreMenuShortcuts(huwag pansinin)` *Eksperimento*
 
 * `huwag pansinin` Boolean
@@ -996,7 +1007,7 @@ Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `mga nilalaman.setVisualZoomLevelLimits (pinakamababang antas, pinakamataas na antas)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
@@ -1004,6 +1015,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 Returns `Promise<void>`
 
 Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `mga nilalaman.undo()`
 
@@ -1086,8 +1099,8 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 
 * `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`webContents.findInPage`] hiling. 
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
-  * `activateSelect` - Tumuon at i-click ang node ng pagpili.
+  * `keepSelection` - I-translate ang mga napili para maging normal.
+  * `activateSelection` - Ipukos at iclick ang node ng napili.
 
 Hinihinto ang `findInPage` kahilingan para sa `webContents` kasama ang ibinigay na `aksyon`.
 
@@ -1109,6 +1122,25 @@ Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
 #### `mga nilalaman.getPrinters()`
 
 Kunin ang listahan ng sistema ng printer.
@@ -1120,7 +1152,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
 * `options` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Na Bagay (opsyonal) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1138,6 +1170,8 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
   * `dpi` Na Bagay (opsyonal) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `callback` Function (opsyonal) 
   * `success` Boolean - Indicates success of the print call.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1319,6 +1353,16 @@ Sinimulan ang pag-inspeksyon ng elemento sa posisyon (`x`, `y`).
 
 Opens the developer tools for the shared worker context.
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `mga nilalaman.inspectServiceWorker()`
 
 Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng manggagawa.
@@ -1328,7 +1372,9 @@ Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng m
 * `channel` String
 * `...args` anuman[]
 
-Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1367,7 +1413,9 @@ app.on('ready', () => {
 * `channel` String
 * `...args` anuman[]
 
-Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1432,7 +1480,7 @@ End subscribing for frame presentation events.
 
 * `item` Bagay 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 

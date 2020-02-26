@@ -509,6 +509,7 @@ Devuelve:
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
   * `tituloTexto` String - Título o texto alt de la selección la cual el contexto fue invocado.
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
+  * `dictionarySuggestions` String[] - An array of suggested words to show the user to replace the `misspelledWord`. Only available if there is a misspelled word and spellchecker is enabled.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Fuente de entrada que invoca el menú contextual. Puede ser `none`, `mouse`, `keyboard`, `touch` o `touchMenu`.
@@ -622,7 +623,7 @@ Devuelve:
 * `line` Íntegro
 * `sourceId` Cadena
 
-Emitido cuando la ventana asociada registra un mensaje de consola. No se emite para ventanas con *Renderización fuera de pantalla* activado.
+Emitted when the associated window logs a console message.
 
 #### Evento: 'error-preload'
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electron's `contextIsolation` feature. Puede aquí suministrar cualquier entero.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+
+Devuelve `Promise<any>` - Una promesa que resuelve con el resultado de la ejecución del código o es rechazada si el resultado del código es una promesa rechazada.
+
+Funciona como `executeJavaScript` pero evaluá `scripts` en un contexto aislado.
+
 #### `contents.setIgnoreMenuShortcuts(ignoreo)` *Experimental*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ Establecer el nivel de máximo y mínimo pizca de zoom.
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Número
 * `maximumLevel` Número
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 Devuelve `Promise<void>`
 
 Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 #### `contents.undo()`
 
@@ -1108,6 +1121,25 @@ Devuelve `Promise<NativeImage>` - Resuelve con el un [NativeImage](native-image.
 
 Captura una instantánea de la página dentro de `rect`. Omitiendo `rect` capturará toda la página visible.
 
+#### `contents.isBeingCaptured()`
+
+Returns `Boolean` - Whether this page is being captured. It returns true when the capturer count is large then 0.
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (optional) - The perferred size for the capturer.
+* `stayHidden` Boolean (optional) - Keep the page hidden instead of visible.
+
+Increase the capturer count by one. The page is considered visible when its browser window is hidden and the capturer count is non-zero. If you would like the page to stay hidden, you should ensure that `stayHidden` is set to true.
+
+This also affects the Page Visibility API.
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (optional) - Keep the page in hidden state instead of visible.
+
+Decrease the capturer count by one. The page will be set to hidden or occluded state when its browser window is hidden or occluded and the capturer count reaches zero. If you want to decrease the hidden capturer count instead you should set `stayHidden` to true.
+
 #### `contents.getPrinters()`
 
 Obtiene la lista de impresora del sistema.
@@ -1119,7 +1151,7 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
 * `opciones` Objecto (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (optional) - Prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
+  * `deviceName` String (optional) - Set the printer device name to use. Must be the system-defined name and not the 'friendly' name, e.g 'Brother_QL_820NWB' and not 'Brother QL-820NWB'.
   * `color` Boolean (optional) - Set whether the printed web page will be in color or grayscale. Default is `true`.
   * `margins` Objecto (opcional) 
     * `marginType` String (optional) - Can be `default`, `none`, `printableArea`, or `custom`. If `custom` is chosen, you will also need to specify `top`, `bottom`, `left`, and `right`.
@@ -1137,6 +1169,8 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md)
   * `dpi` Objecto (opcional) 
     * `horizontal` Number (optional) - The horizontal dpi.
     * `vertical` Number (optional) - The vertical dpi.
+  * `header` String (optional) - String to be printed as page header.
+  * `footer` String (optional) - String to be printed as page footer.
 * `callback` Función (opcional) 
   * `success` Boolean - Indica el éxito de la llamada impresa.
   * `failureReason` String - Called back if the print fails; can be `cancelled` or `failed`.
@@ -1157,11 +1191,11 @@ win.webContents.print(options, (success, errorType) => {
 #### `contents.printToPDF(options)`
 
 * `opciones` Object 
-  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar. Use 0 para margen predeterminado, 1 para no margen y dos para margenes mínimos.
-  * `pageSize` String | Size (opcional) - Especifique el tamaño de la pagina PDF generada. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean (opcional) - Si va a imprimir los fondos CSS.
-  * `printSelectionOnly` Boolean (opcional) - Si se va a imprimir solo la selección.
-  * `landscape` Boolean (opcional) - `true` para landscape, `false` para portrait.
+  * `marginsType` Integer (opcional) - Especifica los tipos de margenes a usar, Usa 0 para el margen por defecto, 1 para no margen y 2 para margenes minimos.
+  * `pageSize` String | Size (opcional) - Especifique el tamaño de la página del PDF Generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean (opcional) - Si se va a imprimir o no el fondo CSS.
+  * `printSelectionOnly` Boolean (opcional) - Se va a imprimir solo la selección.
+  * `landscape` Boolean (opcional) - `true` for landscape, `false` para portrait.
 
 Returns `Promise<Buffer>` - Se resuelve cuando los datos PDF son generados.
 
@@ -1284,7 +1318,7 @@ app.once('ready', () => {
 #### `contents.openDevTools([options])`
 
 * `opciones` Objecto (opcional) 
-  * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado del dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
+  * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
   * `activate` Boolean (opcional) - Si llevar la ventana de devtools abierta al primer plano. El valor predeterminado es `true`.
 
 Abre las herramientas del desarrolador.
@@ -1318,6 +1352,16 @@ Empieza a inspeccionar elementos en la posición (`x`, `y`).
 
 Abre las herramientas de desarrollador para el contexto de los trabajadores compartidos.
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+Inspects the shared worker based on its ID.
+
+#### `contents.getAllSharedWorkers()`
+
+Returns [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - Information about all Shared Workers.
+
 #### `contents.inspectServiceWorker()`
 
 Abre las herramientas de desarrollador para el contexto del trabajador de servicio.
@@ -1327,7 +1371,9 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
+Send an asynchronous message to the renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asíncrono para especificar el frame en el proceso renderizador vía `channel`. Los argumentos serán serializados internamente como JSON y como tal no se incluirán funciones o cadenas de prototipo.
+Send an asynchronous message to a specific frame in a renderer process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 El proceso de renderizado puede manejar el mensaje escuchando el `canal` con el módulo [`ipcRenderer`](ipc-renderer.md).
 
@@ -1431,7 +1479,7 @@ Finalizar suscripción para eventos de presentación de marcos.
 
 * `item` Object 
   * `file` String[] | String - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - La imagen no debe estar en blanco en macOS.
+  * `icon` [NativeImage](native-image.md) | String - The image must be non-empty on macOS.
 
 Configura el `item` como un elemento arrastrable para la operación drag-drop actual. El `file` es la ruta absoluta del archivo que se va a arrastrar, y `icon` es la imagen que se muestra debajo del cursor cuando se arrastra.
 

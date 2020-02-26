@@ -154,7 +154,7 @@ child.once('ready-to-show', () => {
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Only relevant for macOS, as other OSes allow larger-than-screen windows by default. 默认值为 `false`.
   * `backgroundColor` String(可选) - 窗口的背景颜色为十六进制值，例如`#66CD00`, `#FFF`, `#80FFFFFF` (设置`transparent`为`true`方可支持alpha属性，格式为#AARRGGBB)。 默认值为 `#FFF`（白色）。
-  * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
+  * `hasShadow` Boolean (optional) - Whether window should have a shadow. Default is `true`.
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md#transparent-window). 默认值为 `false`. On Windows, does not work unless the window is frameless.
@@ -164,6 +164,7 @@ child.once('ready-to-show', () => {
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
     * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. ** 注意: **此选项目前是实验性的。
+  * `trafficLightPosition` [Point](structures/point.md) (optional) - Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`
   * `fullscreenWindowTitle` Boolean (可选) - 在 macOS 全屏模式时，为所有带 `titleBarStyle` 选项的标题栏显示标题。默认值为 `false`。
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
   * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light`, `ultra-dark`, `header`, `sheet`, `window`, `hud`, `fullscreen-ui`, `tooltip`, `content`, `under-window`, or `under-page`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well. Also note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` have been deprecated and will be removed in an upcoming version of macOS.
@@ -175,7 +176,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
     * `nodeIntegrationInSubFrames` Boolean (可选项)(实验性)，是否允许在子页面(iframe)或子窗口(child window)中集成Node.js； 预先加载的脚本会被注入到每一个iframe，你可以用 `process.isMainFrame` 来判断当前是否处于主框架（main frame）中。
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
-    * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
+    * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md).
     * `enableRemoteModule` Boolean（可选）- 是否启用 [`Remote`](remote.md) 模块。 默认值为 `true`。
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
@@ -214,6 +215,8 @@ child.once('ready-to-show', () => {
     * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
     * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
     * `disableHtmlFullscreenWindowResize` Boolean (optional) - Whether to prevent the window from resizing when entering HTML Fullscreen. Default is `false`.
+    * `accessibleTitle` String (optional) - An alternative title string provided only to accessibility tools such as screen readers. This string is not directly visible to users.
+    * `spellcheck` Boolean (optional) - Whether to enable the builtin spellchecker. Default is `false`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -333,14 +336,14 @@ Please note that using this event implies that the renderer will be considered "
 
 调整窗口大小后触发。
 
-#### 事件: 'will-move' *Windows*
+#### Event: 'will-move' *macOS* *Windows*
 
 返回:
 
 * `event` Event
 * `newBounds` [Rectangle](structures/rectangle.md) - Location the window is being moved to.
 
-在移动窗口之前发出。调用` event.preventDefault() `会阻止窗口被移动。
+Emitted before the window is moved. On Windows, calling `event.preventDefault()` will prevent the window from being moved.
 
 请注意，仅在手动调整窗口大小时才会发出此信息。使用` setBounds ` 或 ` setSize `调整窗口大小时不会发出此事件。
 
@@ -464,7 +467,7 @@ Emitted on trackpad rotation gesture. Continually emitted until rotation gesture
 
 * `webContents` [WebContents](web-contents.md)
 
-返回 `BrowserWindow` - 拥有给定 `webContents` 的窗口.
+Returns `BrowserWindow | null` - The window that owns the given `webContents` or `null` if the contents are not owned by a window.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -614,6 +617,10 @@ win.excludedFromShownWindowsMenu = true
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
+
+#### `win.accessibleTitle`
+
+A `String` property that defines an alternative title provided only to accessibility tools such as screen readers. This string is not directly visible to users.
 
 ### 实例方法
 
@@ -927,7 +934,7 @@ Returns Boolean - whether the window is enabled.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-返回 `Boolean` - 窗口是否被用户关闭了.
+返回 `Boolean` - 窗口是否可以被用户关闭.
 
 在 Linux 上总是返回 ` true `。
 
@@ -944,6 +951,12 @@ Returns Boolean - whether the window is enabled.
 #### `win.isAlwaysOnTop()`
 
 返回 `Boolean` - 当前窗口是否始终在其它窗口之前.
+
+#### `win.moveAbove(mediaSourceId)`
+
+* `mediaSourceId` String - Window id in the format of DesktopCapturerSource's id. For example "window:1869:0".
+
+Moves window above the source window in the sense of z-order. If the `mediaSourceId` is not of type window or if the window does not exist then this method throws an error.
 
 #### `win.moveTop()`
 
@@ -1013,6 +1026,12 @@ win.setSheetOffset(toolbarRect.height)
 #### `win.isKiosk()`
 
 返回 `Boolean` - 判断窗口是否处于kiosk模式.
+
+#### `win.getMediaSourceId()`
+
+Returns `String` - Window id in the format of DesktopCapturerSource's id. For example "window:1234:0".
+
+More precisely the format is `window:id:other_id` where `id` is `HWND` on Windows, `CGWindowID` (`uint64_t`) on macOS and `Window` (`unsigned long`) on Linux. `other_id` is used to identify web contents (tabs) so within the same top level window.
 
 #### `win.getNativeWindowHandle()`
 
@@ -1288,7 +1307,7 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque). On Li
 
 * `visible` Boolean
 * `options` Object (可选) 
-  * `visibleOnFullScreen` Boolean (可选) *macOS* - 设置是否窗口可以在全屏窗口之上显示。
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows *deprecated*
 
 设置窗口是否在所有工作空间上可见
 
@@ -1390,11 +1409,11 @@ Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 
 
 #### `win.setBrowserView(browserView)` *实验*
 
-* `browserView` [BrowserView](browser-view.md) | null - Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) | null - Attach `browserView` to `win`. If there are other `BrowserView`s attached, they will be removed from this window.
 
 #### `win.getBrowserView()` *实验功能*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+Returns `BrowserView | null` - The `BrowserView` attached to `win`. Returns `null` if one is not attached. Throws an error if multiple `BrowserView`s are attached.
 
 #### `win.addBrowserView(browserView)` *实验*
 

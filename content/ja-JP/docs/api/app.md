@@ -328,7 +328,7 @@ Electron が新しい `session` を作成したときに発生します。
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -566,13 +566,15 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 現在のアプリケーションの名前を上書きします。
 
+**注釈:** この関数は、Electron 内で使用する名前を上書きします。OS が使用する名前には影響しません。
+
 **[非推奨](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 戻り値 `String` - 現在のアプリケーションのロケール。とりうる戻り値は [こちら](locales.md) に記されています。
 
-ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md) を参照してください。
+ロケールを設定するには、アプリケーションの起動時にコマンドラインスイッチを使用する必要があります。これについては、[こちら](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md) を参照してください。
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
@@ -598,21 +600,19 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - `://` を除くプロトコルの名前。 アプリで `electron://` リンクを処理したい場合、パラメータとして `electron` を指定してこのメソッドを呼び出してください。
-* `path` String (任意) *Windows* - 省略値は `process.execPath`
-* `args` String[] (任意) *Windows* - 省略値は空の配列
+* `protocol` String - `://` を除くプロトコルの名前。 例えば、アプリで `electron://` リンクを処理したい場合、引数を `electron` にしてこのメソッドを呼び出してください。
+* `path` String (任意) *Windows* - Electron 実行形式のパス。省略値は `process.execPath` です。
+* `args` String[] (任意) *Windows* - 実行形式に渡す引数。省略値は空の配列です。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-このメソッドは現在の実行可能ファイルをプロトコル (別名URIスキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合することができます。 一度登録すると、`your-protocol://` によるすべてのリンクは現在の実行可能ファイルで開かれるようになります。 プロトコルを含む全体のリンクがパラメータとしてアプリケーションに引き渡されます。
+このメソッドは現在の実行形式をプロトコル (または URI スキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合できます。 登録すると、`プロトコル://` によるすべてのリンクは現在の実行形式で開かれるようになります。 プロトコルを含むリンク全体が、アプリケーションに引数として渡されます。
 
-Windowsの場合、オプションのパラメータを指定することができます。path には実行可能ファイルへのパス、args には実行可能ファイルが起動する際に引き渡される引数の配列を指定してください。
-
-**注:** macOSの場合、アプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更することもできません。 しかしながら、単純なテキストエディタもしくはスクリプトでビルド時にファイルを変更することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
+**注:** macOS の場合はアプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更できません。 しかし、[Electron Forge](https://www.electronforge.io/) や [Electron Packager](https://github.com/electron/electron-packager) を介するかテキストエディタで `info.plist` を編集することで、ビルド時にファイルを変更できます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
 
 **注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。 Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
 
-このAPIは内部的にWindowsのレジストリやLSSetDefaultHandlerForURLSchemeを使用します。
+この API は内部的に Windows レジストリ や `LSSetDefaultHandlerForURLScheme` を使用します。
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -630,13 +630,19 @@ Windowsの場合、オプションのパラメータを指定することがで�
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
 * `args` String[] (任意) *Windows* - 省略値は空の配列
 
-戻り値 `Boolean`
-
-このメソッドは現在の実行可能ファイルがプロトコル (別名URIスキーム) の既定のハンドラーであるかをチェックします。もしそうである場合、trueを返却します。そうでない場合、falseを返却します。
+戻り値 `Boolean` - 現在の実行形式がプロトコル (または URI スキーム) の既定のハンドラーかどうか。
 
 **注:** macOSの場合、このメソッドは、アプリがプロトコルの既定のハンドラーとして登録されていたかをチェックするのに使えます。 macOSのマシン上の `~/Library/Preferences/com.apple.LaunchServices.plist` を確認することでもこれを検証することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) を参照するようにしてください。
 
-このAPIは内部的にWindowsのレジストリやLSCopyDefaultHandlerForURLSchemeを使用します。
+この API は内部的に Windows レジストリ や `LSCopyDefaultHandlerForURLScheme` を使用します。
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - 確認するプロトコル名が付いた URL。 類似の他メソッドとは異なり、少なくとも `://` までを含む URL 全体を受け付けます (例: `https://`)。
+
+戻り値 `String` - そのプロトコルを処理するアプリケーションの名前。ハンドラーがない場合は空の文字列です。 たとえば、Electron がその URL のデフォルトハンドラーである場合、Windows と Mac では `Electron` になります。 ただし、厳密な形式に依存しないでください。変更されている可能性があります。 Linux では、`.desktop` 接尾子を付けた別の形式が必要でしょう。
+
+このメソッドは、URL のプロトコル (別名 URI スキーム) のデフォルトハンドラーであるアプリケーション名を返します。
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -965,23 +971,25 @@ app.setLoginItemSettings({
 
 **[非推奨](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 アプリのパネルオプションを示します。このオプションは `app.setAboutPanelOptions(options)`で上書きできます。
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `options` Object 
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
   * `version` String (任意) *macOS* - アプリのビルドバージョン番号。
-  * `credits` String (任意) *macOS* - クレジット情報。
+  * `credits` String (任意) *macOS* *Windows* - クレジット情報。
   * `authors` String[] (任意) *Linux* - アプリの作者のリスト。
   * `website` String (任意) *Linux* - アプリのウェブサイト。
-  * `iconPath` String (任意) *Linux* - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。
+  * `iconPath` String (任意) *Linux* *Windows* - アプリのアイコンへのパス。縦横比を維持しつつ、64x64 ピクセルとして表示されます。
 
-Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+Aboutパネルのオプションを設定します。 MacOS の場合、これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
+
+`credits` を設定していなくてもアプリに表示したい場合、AppKit は NSBundle の main クラスメソッドから返されたバンドル内で、"Credits.html"、"Credits.rtf"、"Credits.rtfd" の順番でファイルを探します。 最初に見つかったファイルが使用されます。見つからない場合、その情報の部分は空白のままです。 詳細は Apple の [ドキュメント](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) を参照してください。
 
 ### `app.isEmojiPanelSupported()`
 

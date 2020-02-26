@@ -10,7 +10,7 @@
 
 Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indibidwal ay makapag-ambag:
 
-1. Sa pamamagitan ng pagbukas nang isyu para sa talakayan: Kung naniniwala ka na nakahanap ka ng isang bagong bug sa Electron, kailangan mo itong ipaalam sa pamamagitan ng paggawa ng bagong isyu sa `electron/electron` na tagasubaybay ng isyu.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Sa pamamagitan nang pagtulong upang ma-triage ang isyu: Magagawa mo ito sa pagbibigay ng asistibong mga detalye (isang mapaparaming kaso ng pagsusuri na nagpapakita ng isang bug) o sa pamamagitan ng pagbibigay ng mga mungkahi upang malutas ang isyu.
 3. Sa pamamagitan ng pagtulong sa paglutas ng isyu: Ito ay maaaring gawin sa pamamagitan ng pagpapakita na ang isyu ay hindi bug o ito ay naayos na; pero kadalasan, sa pamamagitan nang pagbukas ng isang pull request na nagbabago sa pinagmulan sa `electron/electron` sa isang konkreto at masusuring paraan.
 
@@ -20,7 +20,9 @@ Para sa anumang isyu, mayroong tatlong pangunahing pamamaraan na ang isang indib
 
 ## Pagsusumite ng isang Ulat ukol sa Bug
 
-Kapag nagbubukas ng isang bagong isyu sa `electron/electron` na tagasubaybay ng isyu, ang mga gumagamit ay papakitaan ng isang template na dapat mapunan.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--

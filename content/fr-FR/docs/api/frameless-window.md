@@ -1,12 +1,12 @@
 # Fenêtre sans bords
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Ouvre une fenêtre sans barre d'outils, sans bordures ou autre "chrome" graphique.
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Une fenêtre sans cadre est une fenêtre qui n'a pas de [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), les parties de la fenêtre, comme des barres d'outils, qui ne font pas partie de la page Web. Ce sont des options dans la classe [`BrowserWindow`](browser-window.md).
 
 ## Créer une fenêtre sans bords
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Pour créer une fenêtre sans cadre, vous devez définir `frame` à `false` dans [BrowserWindow](browser-window.md)'s `options`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -16,11 +16,11 @@ win.show()
 
 ### Alternatives sur macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Il existe une autre façon de spécifier une fenêtre sans chrominance. Au lieu de définir `frame` à `false` qui désactive à la fois la barre de titre et le contrôle de fenêtre, vous pouvez vouloir masquer la barre de titre et étendre votre contenu à la taille de la fenêtre complète, tout en préservant les contrôles de fenêtres ("feux de circulation") pour les actions de fenêtres standard. Vous pouvez le faire en spécifiant l'option `titleBarStyle` :
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Résultats dans une barre de titre cachée et une fenêtre de contenu en taille réelle, Pourtant, la barre de titre possède toujours les contrôles standard des fenêtres (« feux de circulation ») en haut à gauche.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+Résultats dans une barre de titre cachée avec un aspect alternatif où les boutons de feux de circulation sont un peu plus intégrés à partir du bord de la fenêtre.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Utilise les boutons personnalisés de fermeture dessinée, et miniaturise les boutons qui affichent en survolant en haut à gauche de la fenêtre. Le bouton en plein écran n'est pas disponible en raison des restrictions de fenêtres sans cadre puisqu'ils s'interface avec les masques de fenêtres MacOS d'Apple. Ces boutons personnalisés empêchent les problèmes liés aux événements de la souris qui se produisent avec les boutons standard de la barre d'outils de la fenêtre. Cette option n'est applicable que pour les fenêtres sans cadres.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -50,7 +50,7 @@ win.show()
 
 ## Fenêtre transparente
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+En définissant l'option `transparente` à `true`, vous pouvez également rendre la fenêtre sans cadre transparente :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -60,12 +60,12 @@ win.show()
 
 ### Limitations
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* Vous ne pouvez pas cliquer à travers la zone transparente. Nous allons introduire une API pour définir la forme de fenêtre pour résoudre ce problème, voir [notre problème](https://github.com/electron/electron/issues/1335) pour plus de détails.
+* Les fenêtres transparentes ne sont pas redimensionnables. Définir `redimensionnable` à `true` peut faire que une fenêtre transparente arrête de fonctionner sur certaines plateformes.
+* Le filtre `flur` ne s'applique qu'à la page web, donc il n'y a aucun moyen d'appliquer l'effet de flou au contenu en dessous de la fenêtre (i. . d'autres applications s'ouvrent sur le système de l'utilisateur).
+* Sur les systèmes d'exploitation Windows, les fenêtres transparentes ne fonctionneront pas lorsque DWM est désactivé.
+* Sous Linux, les utilisateurs doivent mettre `--enable-transparent-visuals --disable-gpu` dans la ligne de commande pour désactiver le GPU et permettre à ARGB de rendre une fenêtre transparente, ceci est causé par un bogue amont que [canal alpha ne fonctionne pas sur certains pilotes NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) sur Linux.
+* Sur Mac, l'ombre native de la fenêtre ne sera pas affichée sur une fenêtre transparente.
 
 ## Fenêtre non cliquable
 
@@ -77,37 +77,37 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### Transfert
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+Ignorer les messages de la souris rend la page Web inaccessible au mouvement de la souris, ce qui signifie que les événements de déplacement de la souris ne seront pas émis. Sur les systèmes d'exploitation Windows, un paramètre optionnel peut être utilisé pour déplacer les messages de la souris vers la page web, permettant d'émettre des événements tels que `souris` :
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, { forward: true })
+  gagner. etIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+Cela rend la page web cliquante quand plus de `el`, et retourne à la normale en dehors de elle.
 
 ## Région déplaçable
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+Par défaut, la fenêtre sans cadre ne peut pas être déplacée. Les applications doivent spécifier `-webkit-app-region: glisser` dans CSS pour dire à Electron quelles régions sont glissables (comme la barre de titre standard de l'OS), et les applications peuvent également utiliser `-webkit-app-region : no-drag` pour exclure la zone non glissable de la région glissable. Notez que seules les formes rectangulaires sont actuellement prises en charge.
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+Remarque : `-webkit-app-region: drag` est connu pour avoir des problèmes pendant que les outils de développement sont ouverts. Voir ceci [Problème GitHub](https://github.com/electron/electron/issues/3647) pour plus d'informations, y compris une solution de contournement.
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+Pour que toute la fenêtre puisse être déplacée, vous pouvez ajouter `-webkit-app-region : glisser` comme `body`'s style :
 
 ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+Et notez que si vous avez rendu toute la fenêtre déplaçable, vous devez également marquer les boutons comme non glissables, sinon il serait impossible pour les utilisateurs de cliquer sur eux :
 
 ```css
 button {
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Si vous définissez seulement une barre de titre personnalisée comme glissable, vous devez également rendre tous les boutons de la barre de titre non glissables.
 
 ## Sélection de texte
 
@@ -130,4 +130,4 @@ Dans une fenêtre sans bords, le glisser-déposer peut être en conflit avec la 
 
 ## Menu contextuel
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Sur certaines plateformes, la zone glissable sera traitée comme une image non-client, donc lorsque vous faites un clic droit dessus un menu système apparaîtra. Pour que le menu contextuel se comporte correctement sur toutes les plates-formes, vous ne devriez jamais utiliser un menu contextuel personnalisé sur zones glissables.

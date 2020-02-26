@@ -131,7 +131,7 @@ headings:
   languages: Idiomas
 taglines:
   languages: Encuentra contenido en nuestra increíble comunidad global de desarrolladores.
-  openjsf: Electron just joined the OpenJS Foundation. See <a href="/blog/electron-joins-openjsf">the announcement</a> for more info!
+  announcement: Electron acaba de unirse a la Fundación OpenJS. ¡Mira <a href="/blog/electron-joins-openjsf">el anuncio</a> para más información!
 help_translate: "Ayuda a traducir"
 footer:
   see_the_faq: Ver las preguntas frecuentes
@@ -166,12 +166,12 @@ clipboard:
   copy_to_clipboard: Copiar al portapapeles
   copied: Copiado
 fiddle_launch_button:
-  launch: Launch
-  launch_in_fiddle: Launch in Fiddle
+  launch: Iniciar
+  launch_in_fiddle: Lanzar en Fiddle
 or: o
 pages:
   '/':
-    title: Electron | Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
     description: 'Crea aplicaciones multiplataforma de escritorio con JavaScript, HTML y CSS.'
   '/apps':
     title: Aplicaciones de Electron
@@ -238,7 +238,7 @@ governance:
   description: El sistema de gobernanza Electron está compuesto por grupos de trabajo que supervisan diferentes aspectos del ecosistema Electron, y un grupo de trabajo administrativo que funciona para resolver conflictos entre ellos.
   wgs: Grupos de trabajo
   ecosystem:
-    title: Ecosystem
+    title: Ecosistema
     description: Oversees the projects that make Electron app development easier.
   outreach:
     title: Fuera

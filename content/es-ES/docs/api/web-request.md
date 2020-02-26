@@ -129,6 +129,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
     * `Estatus de código` entero
+    * `requestHeaders` Record<string, string>
     * `responseHeaders` Record<string, string[]> (opcional)
   * `callback` Function 
     * `headersReceivedResponse` Object 
@@ -199,6 +200,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `Desde cache` Booleano
     * `Estatus de código` entero
     * `linea de estatus` Cadena
+    * `error` String
 
 El `listener` será llamado con `listener(details)` cuando una petición es completada.
 

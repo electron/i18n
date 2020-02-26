@@ -51,12 +51,14 @@ Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webBingkai.tetapkanBatasLevelZoomTataletak(minimalLevel, maksimaLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimalLevel` Nomor
 * `maksimalLevel` Nomor
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -68,6 +70,16 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
       * `misspeltWords` String[]
 
 Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
+
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 

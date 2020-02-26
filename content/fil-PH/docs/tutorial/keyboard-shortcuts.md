@@ -32,7 +32,7 @@ Maaari mong gamitin ang module na [globalShortcut](../api/global-shortcut.md) up
 ```js
 const { app, globalShortcut } = require('electron')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })

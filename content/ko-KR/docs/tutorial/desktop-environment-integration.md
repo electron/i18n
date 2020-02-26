@@ -6,24 +6,24 @@
 
 ## 알림(Notifications)
 
-See the [Notifications documentation](notifications.md).
+[알림 문서](notifications.md)를 참고하세요.
 
 ## 최근 문서들(Recent Documents)
 
-See [Recent Documents documentation](recent-documents.md).
+[최근문서들 문서](recent-documents.md)를 참고하세요.
 
 ## 진행 바(Progress Bar)
 
-See the [Progress Bar documentation](progress-bar.md).
+[진행 바 문서](progress-bar.md)를 참고하세요.
 
 ## Unity Launcher(Ubuntu)
 
 See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). (Windows의 TaskBar와 같은 기능)
 
-## Represented File for macOS Window
+## macOS 윈도우에서 표시되는 파일
 
-See the [Represented File documentation](represented-file.md).
+[표시되는 파일 문서](represented-file.md)를 참고하세요.
 
 ## 창 밖으로 파일 드래깅
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+[Native File Drag & Drop 문서](native-file-drag-drop.md)를 참고하세요.

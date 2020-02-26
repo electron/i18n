@@ -8,7 +8,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## 发送消息
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-args) for more information.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。

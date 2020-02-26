@@ -1,4 +1,4 @@
-# Represented File for macOS BrowserWindows
+# macOS BrowserWindows에 대한 파일 표현
 
 macOS는 창에서 대표 파일을 설정할 수 있습니다. 타이틀바에서 파일 아이콘이 있고, 사용자가 Command-Click 또는 Control-Click 키를 누를 경우 파일 경로 팝업이 보여집니다.
 
@@ -6,7 +6,7 @@ macOS는 창에서 대표 파일을 설정할 수 있습니다. 타이틀바에�
 
 **대표 파일 팝업 메뉴:**
 
-![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![대표 파일](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
 대표 파일 관련 API는 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) 과 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos)를 사용할 수 있습니다:
 

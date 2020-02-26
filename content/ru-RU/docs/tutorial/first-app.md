@@ -94,7 +94,7 @@ function createWindow () {
   win.loadFile('index.html')
 }
 
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 ```
 
 Файл `main.js` должен создавать окна и перехватывать все события системы, с которыми ваше приложение может столкнуться. Более сложная версия примера выше должна открывать инструменты разработчика, ждать когда окно будет закрыто или открыто заново на macOS если пользователь кликнул на иконку приложения.
@@ -102,13 +102,9 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Храните глобальную ссылку на объект окна, если вы этого не сделаете, окно будет
-// автоматически закрываться, когда объект JavaScript собирает мусор.
-let win
-
 function createWindow () {
-  // Создаём окно браузера.
-  win = new BrowserWindow({
+  // Создаем окно браузера.
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -116,27 +112,19 @@ function createWindow () {
     }
   })
 
-  // и загрузить index.html приложения.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Отображаем средства разработчика.
   win.webContents.openDevTools()
-
-  // Будет вызвано, когда окно будет закрыто.
-  win.on('closed', () => {
-    // Разбирает объект окна, обычно вы можете хранить окна     
-    // в массиве, если ваше приложение поддерживает несколько окон в это время,
-    // тогда вы должны удалить соответствующий элемент.
-    win = null
-  })
 }
 
-// Этот метод будет вызываться, когда Electron закончит 
-// инициализацию и готов к созданию окон браузера.
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
 // Некоторые API могут использоваться только после возникновения этого события.
-app.on('ready', createWindow)
+app.whenReady().then(createWindow)
 
-// Выходим, когда все окна будут закрыты.
+// Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // Для приложений и строки меню в macOS является обычным делом оставаться
   // активными до тех пор, пока пользователь не выйдет окончательно используя Cmd + Q
@@ -148,13 +136,13 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
    // На MacOS обычно пересоздают окно в приложении,
    // после того, как на иконку в доке нажали и других открытых окон нету.
-  if (win === null) {
+  if (BrowserWindow.getAllWindows().length === 0) {
     createWindow()
   }
 })
 
-// В этом файле вы можете включить код другого основного процесса 
-// вашего приложения. Можно также поместить их в отдельные файлы и применить к ним require.
+// In this file you can include the rest of your app's specific main process
+// code. Можно также поместить их в отдельные файлы и применить к ним require.
 ```
 
 Наконец `index.html` — веб-страница, которую вы хотите показать:

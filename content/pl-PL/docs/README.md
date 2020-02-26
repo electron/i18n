@@ -91,7 +91,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
   * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [Testowanie Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Używanie Pluginu Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 
 * * *
@@ -102,9 +102,10 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 * [Streszczenie](api/synopsis.md)
 * [Process Object](api/process.md)
-* [Supported Command Line Switches](api/command-line-switches.md)
+* [Wspierane Zmienne Konsoli](api/command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
-* [Istotne zmiany w API](api/breaking-changes.md)
+* [Obsługa rozszerzeń Chrome](api/extensions.md)
+* [Istotne zmiany w API](breaking-changes.md)
 
 ### Własne Elementy DOM:
 

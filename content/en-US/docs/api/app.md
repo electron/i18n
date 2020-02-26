@@ -392,7 +392,7 @@ Emitted when Electron has created a new `session`.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -677,13 +677,15 @@ preferred over `name` by Electron.
 
 Overrides the current application's name.
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[Deprecated](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md).
 
 **Note:** When distributing your packaged app, you have to also ship the
 `locales` folder.
@@ -711,34 +713,34 @@ Clears the recent documents list.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - The name of your protocol, without `://`. If you want your
-  app to handle `electron://` links, call this method with `electron` as the
-  parameter.
-* `path` String (optional) _Windows_ - Defaults to `process.execPath`
-* `args` String[] (optional) _Windows_ - Defaults to an empty array
+* `protocol` String - The name of your protocol, without `://`. For example,
+  if you want your app to handle `electron://` links, call this method with
+  `electron` as the parameter.
+* `path` String (optional) _Windows_ - The path to the Electron executable.
+  Defaults to `process.execPath`
+* `args` String[] (optional) _Windows_ - Arguments passed to the executable.
+  Defaults to an empty array
 
 Returns `Boolean` - Whether the call succeeded.
 
-This method sets the current executable as the default handler for a protocol
-(aka URI scheme). It allows you to integrate your app deeper into the operating
-system. Once registered, all links with `your-protocol://` will be opened with
-the current executable. The whole link, including protocol, will be passed to
-your application as a parameter.
-
-On Windows, you can provide optional parameters path, the path to your executable,
-and args, an array of arguments to be passed to your executable when it launches.
+Sets the current executable as the default handler for a protocol (aka URI
+scheme). It allows you to integrate your app deeper into the operating system.
+Once registered, all links with `your-protocol://` will be opened with the
+current executable. The whole link, including protocol, will be passed to your
+application as a parameter.
 
 **Note:** On macOS, you can only register protocols that have been added to
-your app's `info.plist`, which can not be modified at runtime. You can however
-change the file with a simple text editor or script during build time.
-Please refer to [Apple's documentation][CFBundleURLTypes] for details.
+your app's `info.plist`, which cannot be modified at runtime. However, you can
+change the file during build time via [Electron Forge][electron-forge],
+[Electron Packager][electron-packager], or by editing `info.plist` with a text
+editor. Please refer to [Apple's documentation][CFBundleURLTypes] for details.
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API
 will return `true` for all calls but the registry key it sets won't be accessible
 by other applications.  In order to register your Windows Store application
 as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -757,10 +759,8 @@ protocol (aka URI scheme). If so, it will remove the app as the default handler.
 * `path` String (optional) _Windows_ - Defaults to `process.execPath`
 * `args` String[] (optional) _Windows_ - Defaults to an empty array
 
-Returns `Boolean`
-
-This method checks if the current executable is the default handler for a protocol
-(aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Returns `Boolean` - Whether the current executable is the default handler for a
+protocol (aka URI scheme).
 
 **Note:** On macOS, you can use this method to check if the app has been
 registered as the default protocol handler for a protocol. You can also verify
@@ -768,7 +768,22 @@ this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the
 macOS machine. Please refer to
 [Apple's documentation][LSCopyDefaultHandlerForURLScheme] for details.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other
+  methods in this family, this accepts an entire URL, including `://` at a
+  minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty
+  string if there is no handler. For instance, if Electron is the default
+  handler of the URL, this could be `Electron` on Windows and Mac. However,
+  don't rely on the precise format which is not guaranteed to remain unchanged.
+  Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol
+(aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` _Windows_
 
@@ -1170,24 +1185,25 @@ This API must be called after the `ready` event is emitted.
 
 **[Deprecated](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` _macOS_ _Linux_
+### `app.showAboutPanel()`
 
 Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` _macOS_ _Linux_
+### `app.setAboutPanelOptions(options)`
 
 * `options` Object
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
   * `version` String (optional) _macOS_ - The app's build version number.
-  * `credits` String (optional) _macOS_ - Credit information.
+  * `credits` String (optional) _macOS_ _Windows_ - Credit information.
   * `authors` String[] (optional) _Linux_ - List of app authors.
   * `website` String (optional) _Linux_ - The app's website.
-  * `iconPath` String (optional) _Linux_ - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) _Linux_ _Windows_ - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-Set the about panel options. This will override the values defined in the app's
-`.plist` file on MacOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
+Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs][about-panel-options] for more details. On Linux, values must be set in order to be shown; there are no defaults.
+
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 
@@ -1308,6 +1324,8 @@ A `Boolean` property that returns  `true` if the app is packaged, `false` otherw
 [dock-menu]:https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/
 [tasks]:https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
+[electron-forge]: https://www.electronforge.io/
+[electron-packager]: https://github.com/electron/electron-packager
 [CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html

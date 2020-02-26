@@ -4,9 +4,9 @@ Electron는 Pepper Flash 플러그인을 지원합니다. Electron에서 Pepper 
 
 ## Flash 플러그인 복사본 준비
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. 그것의 위치와 버전은 Electron's Pepper Flash 지원에 필요합니다. 다른 위치로 복사 할 수도 있습니다.
+맥OS와 리눅스에서 Pepper Flash 플러그인에 대한 자세한 내용은 Chrome 브라우저에서 `chrome://flash`에 접근하여 확인할 수 있습니다. 그것의 위치와 버전은 Electron's Pepper Flash 지원에 필요합니다. 다른 위치로 복사 할 수도 있습니다.
 
-## Add Electron Switch
+## Electron Switch 추가
 
 Electron 명령 행에 `--ppapi-flash-path` 및 `--ppapi-flash-version`을 직접 추가하거나 app ready 이벤트 전에 `app.commandLine.appendSwitch` 메소드를 사용할 수 있습니다. 또한 `BrowserWindow`의 `플러그인` 옵션을 설정하십시오.
 
@@ -16,7 +16,7 @@ Electron 명령 행에 `--ppapi-flash-path` 및 `--ppapi-flash-version`을 직�
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// main.js와 같은 디렉토리에 있다고 가정하여 flash 경로를 지정하세요.
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -31,10 +31,10 @@ switch (process.platform) {
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
+// 선택: flash버전 지정 (예: v17.0.0.169)
 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
-app.on('ready', () => {
+app.whenReady().then(() => {
   let win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -43,13 +43,13 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // 그 외
 })
 ```
 
 플러그인을 직접 포함하는 대신 시스템 전체의 Pepper Flash 플러그인을 로드 할 수도 있습니다. 경로는 `app.getPath('pepperFlashSystemPlugin')`을 호출하여 받을 수 있습니다.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## `<webview>` 태그에서 Flash 플러그인 활성화
 
 `플러그인` 속성을 `<webview>` 태그에 추가하십시오.
 

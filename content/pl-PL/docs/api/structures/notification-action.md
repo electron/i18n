@@ -5,15 +5,15 @@
 
 ## Platformy / Wsparcie Działań
 
-| Typ czynności | Wspierane platformy | Użycie `text`                   | Domyślny `text`                                                                             | Ograniczenia                                                                                                                                                                                                                                                                      |
-| ------------- | ------------------- | ------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`      | macOS               | Używana jako etykieta przycisku | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Wykorzystywany jest tylko pierwszy. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Typ czynności | Wspierane platformy | Użycie `text`                   | Domyślny `text`                                                                                                    | Ograniczenia                                                                                                                                                                                                                                                                             |
+| ------------- | ------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`      | macOS               | Używana jako etykieta przycisku | "Show" (lub odpowiedni ciąg znaków dla domyślnego języka systemu w przypadku pierwszego `button`, następnie pusty) | Wykorzystywany jest tylko pierwszy. Jeśli podano wiele elementów, te poza pierwszym będą wyświetlane jako dodatkowe akcje (wyświetlane, gdy mysz jest nad przyciskiem akcji). Każda taka akcja jest również niezgodna z `hasReply` i zostanie zignorowana, jeśli `hasReply` jest `true`. |
 
 ### Przycisk wsparcia na macOS
 
 W celu zgłoszenia dodatkowych przycisków do pracy na macOS aplikacja musi spełniać następujące kryteria.
 
 * Aplikacja jest podpisana
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* Aplikacja ma ustawione `NSUserNotificationAlertStyle` na `alert` w `Info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Jeśli jedno z wymagań nie jest spełnione, to przycisk nie będzie wyświetlany.

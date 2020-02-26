@@ -104,7 +104,8 @@ Please make sure that you use the documents that match your Electron version. �
 * [กระบวนการของวัตถุ](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
-* [ทำลายการเปลี่ยนแปลง API](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [ทำลายการเปลี่ยนแปลง API](breaking-changes.md)
 
 ### องค์ประกอบที่กำหนดเอง (Automatic Translation)
 

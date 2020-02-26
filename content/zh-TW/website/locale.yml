@@ -1,4 +1,4 @@
-tagline: 使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式
+tagline: Build cross-platform desktop apps with JavaScript, HTML, and CSS
 nav:
   apps: 應用程式
   blog: 部落格
@@ -131,7 +131,7 @@ headings:
   languages: 語言
 taglines:
   languages: 由我們強大的全球開發者社群提供的在地化內容。
-  openjsf: Electron剛加入OpenJS基金會，請看 <a href="/blog/electron-joins-openjsf">公告</a>了解更多資訊
+  announcement: Electron剛加入OpenJS基金會，請看 <a href="/blog/electron-joins-openjsf">公告</a>了解更多資訊
 help_translate: "幫忙翻譯"
 footer:
   see_the_faq: 看看常見問題集
@@ -171,8 +171,8 @@ fiddle_launch_button:
 or: or
 pages:
   '/':
-    title: Electron | 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式。
-    description: '使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式.'
+    title: Electron | Build cross-platform desktop apps with JavaScript, HTML, and CSS.
+    description: 'Build cross-platform desktop apps with JavaScript, HTML, and CSS.'
   '/apps':
     title: Electron 應用程式
     description: 用 Electron 打造的應用程式

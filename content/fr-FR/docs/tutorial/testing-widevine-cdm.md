@@ -1,4 +1,4 @@
-# Testing Widevine CDM
+# Tester le CDM Widevine
 
 Dans Electron, vous pouvez utiliser le plugin Widevine CDM livré avec le navigateur Chrome.
 
@@ -49,7 +49,7 @@ app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
-app.on('ready', () => {
+app.whenReady().then(() => {
   win = new BrowserWindow()
   win.show()
 })

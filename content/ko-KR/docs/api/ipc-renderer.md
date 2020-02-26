@@ -49,7 +49,9 @@ The `ipcRenderer` module is an [EventEmitter](https://nodejs.org/api/events.html
 * `channel` String
 * `...args` any[]
 
-`channel`을 통해 main 프로세스에 비동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to the main process via `channel`, along with arguments. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process handles it by listening for `channel` with the [`ipcMain`](ipc-main.md) module.
 
@@ -60,7 +62,9 @@ The main process handles it by listening for `channel` with the [`ipcMain`](ipc-
 
 Returns `Promise<any>` - Resolves with the response from the main process.
 
-Send a message to the main process asynchronously via `channel` and expect an asynchronous result. Arguments will be serialized as JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process via `channel` and expect a result asynchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process should listen for `channel` with [`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener).
 
@@ -86,11 +90,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 `any` 반환 - 값은 [`ipcMain`](ipc-main.md) 핸들러를 통해 돌려보냅니다.
 
-`channel`을 통해 main 프로세스에 동기 메시지를 보내고 임의의 인수를 보낼 수도 있습니다. 인수는 내부적으로 JSON으로 serialize 될 것입니다. 따라서 함수나 프로토타입이 포함될 수 없습니다.
+Send a message to the main process via `channel` and expect a result synchronously. Arguments will be serialized with the [Structured Clone Algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), just like [`postMessage`][], so prototype chains will not be included. Sending Functions, Promises, Symbols, WeakMaps, or WeakSets will throw an exception.
+
+> **NOTE**: Sending non-standard JavaScript types such as DOM objects or special Electron objects is deprecated, and will begin throwing an exception starting with Electron 9.
 
 The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.
 
-**참고:** 동기 메시지를 보내는 것은 전체 renderer 프로세스를 차단합니다. 만약 무엇이 동작하는지 알지 못한다면 이것을 사용해선 안됩니다.
+> :warning: **WARNING**: Sending a synchronous message will block the whole renderer process until the reply is received, so use this method only as a last resort. It's much better to use the asynchronous version, [`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args).
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 

@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-#### イベント: 'preconnect' *実験的*
+#### イベント: 'preconnect'
 
 戻り値:
 
@@ -122,9 +122,9 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 #### `ses.setProxy(config)`
 
 * `config` Object 
-  * `pacScript` String - PAC ファイルに関連付けられたURL。
-  * `proxyRules` String - 使用するプロキシを示すルール。
-  * `proxyBypassRules` String - プロキシ設定をバイパスするURLを示すルール。
+  * `pacScript` String (任意) - PAC ファイルに関連付けられた URL。
+  * `proxyRules` String (任意) - 使用するプロキシを示すルール。
+  * `proxyBypassRules` String (任意) - プロキシ設定をバイパスする URL を示すルール。
 
 戻り値 `Promise<void>` - プロキシ設定処理が完了すると実行されます。
 
@@ -216,7 +216,7 @@ window.webContents.session.enableNetworkEmulation({
 window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
-#### `ses.preconnect(options)` *実験的*
+#### `ses.preconnect(options)`
 
 * `options` Object 
   * `url` String - 事前接続の URL。ソケットを開くのに関連するのはオリジンのみです。
@@ -230,7 +230,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Function | null 
   * `request` Object 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
@@ -354,6 +354,14 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `Promise<Buffer>` - blob データで実行されます。
 
+#### `ses.downloadURL(url)`
+
+* `url` String
+
+`url` にあるリソースのダウンロードを初期化します。 この API は、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。
+
+**注釈:** これは [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl) と異なり、ページのオリジンに関連するセキュリティチェックを実行しません。
+
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
@@ -362,8 +370,8 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
   * `mimeType` String (任意)
   * `offset` Integer - ダウンロードの範囲の始端。
   * `length` Integer - ダウンロードの長さ。
-  * `lastModified` String - ヘッダの最終更新日の値。
-  * `eTag` String - ヘッダの ETag の値。
+  * `lastModified` String (任意) - ヘッダの最終更新日の値。
+  * `eTag` String (任意) - ヘッダの ETag の値。
   * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
 以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
@@ -384,9 +392,43 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - スペルチェッカーを有効にする言語コードの配列。
+
+組み込みスペルチェッカーは、ユーザーが入力している言語を自動的に検出しません。 スペルチェッカーが単語を正しくチェックするには、言語コードの配列でこの API を呼び出す必要があります。 `ses.availableSpellCheckerLanguages` プロパティで、サポートしている言語コードのリストを取得できます。
+
+**注意:** macOS では、OS のスペルチェッカーが使用されて言語が自動的に検出されます。 この API は、macOS では何もしません。
+
+#### `ses.getSpellCheckerLanguages()`
+
+戻り値 `String[]` - スペルチェッカーが有効になっている言語コードの配列。 このリストが空の場合、スペルチェッカーは `en-US` の使用へフォールバックします。 この設定が空のリストである場合、Electron は起動時に既定で現在の OS ロケールをこの設定に追加しようとします。 この設定は再起動後も持続します。
+
+**注意:** macOS では、OS のスペルチェッカーが使用されて独自の言語リストを返します。 この API は、macOS では何もしません。
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - Electron が hunspell 辞書をダウンロードする基底 URL。
+
+デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 ホストに必要なファイルが入っている、各リリースの `hunspell_dictionaries.zip` ファイルをこちらで公開しています。
+
+**注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。 この API は、macOS では何もしません。
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - 辞書に追加したい単語
+
+戻り値 `Boolean` - 単語がカスタム辞書に正常に書き込まれたかどうか。
+
+**注釈:** macOS と Windows 10 では、この単語は OS カスタム辞書にも書き込まれます
+
 ### インスタンスプロパティ
 
 `Session` のインスタンスには以下のプロパティがあります。
+
+#### `ses.availableSpellCheckerLanguages` *読み出し専用*
+
+この `String []` 配列は利用可能な既知のすべてのスペルチェッカー言語で構成されます。 この配列にない言語コードを `setSpellCheckerLanaguages` API に提供すると、エラーが発生します。
 
 #### `ses.cookies` *読み出し専用*
 

@@ -51,12 +51,14 @@ Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -68,6 +70,16 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
       * `misspeltWords` String[]
 
 Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
+
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 

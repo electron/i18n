@@ -328,7 +328,7 @@ Emitted when the renderer process of `webContents` crashes or is killed.
 ```javascript
 const { app } = require('electron')
 
-app.on('session-created', (event, session) => {
+app.on('session-created', (session) => {
   console.log(session)
 })
 ```
@@ -566,13 +566,15 @@ Usually the `name` field of `package.json` is a short lowercase name, according 
 
 设置当前应用程序的名字
 
+**Note:** This function overrides the name used internally by Electron; it does not affect the name that the OS uses.
+
 **[过时的](modernization/property-updates.md)**
 
 ### `app.getLocale()`
 
 返回 `string`——当前应用程序的语言环境。可能的返回值被记录在[这里](locales.md)。
 
-要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md)找到。
+要设置区域，则需要在应用启动时使用命令行时打开开关，你可以在[这里](https://github.com/electron/electron/blob/master/docs/api/command-line-switches.md)找到。
 
 ** 注意: **分发打包的应用程序时, 你必须指定 ` locales ` 文件夹。
 
@@ -598,21 +600,19 @@ Returns `String` - User operating system's locale two-letter [ISO 3166](https://
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - 协议的名称, 不包含 `://`。 如果您希望应用程序处理 `electron://` 的链接, 请将 ` electron ` 作为该方法的参数.
-* ` path `String (可选) * Windows *-默认为 ` process.execPath `
-* `args` String[] (可选) *Windows* - 默认为空数组
+* `protocol` String - 协议的名称, 不包含 `://`。 For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
+* `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
 
 返回 ` Boolean `-是否成功调用。
 
-此方法将当前可执行文件设置为协议(也称为URI方案) 的默认处理程序。 它允许您将应用程序更深入地集成到操作系统中。 一旦注册成功, 所有 `your-protocol://` 格式的链接都会使用你的程序打开。 整个链接 (包括协议) 将作为参数传递给您的应用程序。
+Sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-在 Windows 系统中，你可以提供可选参数 path（可执行文件的路径）和 args（在启动时传递给可执行文件的参数数组）
-
-** 注意: **在 macOS 上, 您只能注册已添加到应用程序的 ` info. plist ` 中的协议, 在运行时不能对其进行修改。 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115)
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which cannot be modified at runtime. However, you can change the file during build time via [Electron Forge](https://www.electronforge.io/), [Electron Packager](https://github.com/electron/electron-packager), or by editing `info.plist` with a text editor. 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115)
 
 **Note:** In a Windows Store environment (when packaged as an `appx`) this API will return `true` for all calls but the registry key it sets won't be accessible by other applications. In order to register your Windows Store application as a default protocol handler you must [declare the protocol in your manifest](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol).
 
-API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
+The API uses the Windows Registry and `LSSetDefaultHandlerForURLScheme` internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -630,13 +630,19 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 * ` path `String (可选) * Windows *-默认为 ` process.execPath `
 * `args` String[] (可选) *Windows* - 默认为空数组
 
-返回 `Boolean`
-
-此方法检查当前可执行文件是否是协议(也称为URI方案) 的默认处理程序。如果是, 它将返回true。否则, 它将返回false。
+Returns `Boolean` - Whether the current executable is the default handler for a protocol (aka URI scheme).
 
 ** 注意: **在macOS上, 您可以使用此方法检查应用程序是否已注册为协议的默认协议处理程序。 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 有关详细信息，请参阅 [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme)
 
-该API在内部使用 Windows 注册表和 LSCopyDefaultHandlerForURLScheme。
+The API uses the Windows Registry and `LSCopyDefaultHandlerForURLScheme` internally.
+
+### `app.getApplicationNameForProtocol(url)`
+
+* `url` String - a URL with the protocol name to check. Unlike the other methods in this family, this accepts an entire URL, including `://` at a minimum (e.g. `https://`).
+
+Returns `String` - Name of the application handling the protocol, or an empty string if there is no handler. For instance, if Electron is the default handler of the URL, this could be `Electron` on Windows and Mac. However, don't rely on the precise format which is not guaranteed to remain unchanged. Expect a different format on Linux, possibly with a `.desktop` suffix.
+
+This method returns the application name of the default handler for the protocol (aka URI scheme) of a URL.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
@@ -966,23 +972,25 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **[过时的](modernization/property-updates.md)**
 
-### `app.showAboutPanel()` *macOS* *Linux*
+### `app.showAboutPanel()`
 
 显示应用程序关于面板选项。这些选项可以被 `app.setAboutOptions(options)`覆盖。
 
-### `app.setAboutPanelOptions(options)` *macOS* *Linux*
+### `app.setAboutPanelOptions(options)`
 
 * `options` Object 
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
   * `version` String (optional) *macOS* - The app's build version number.
-  * `credits` String (optional) *macOS* - Credit information.
+  * `credits` String (optional) *macOS* *Windows* - Credit information.
   * `authors` String[] (optional) *Linux* - List of app authors.
   * `website` String (optional) *Linux* - The app's website.
-  * `iconPath` String (optional) *Linux* - Path to the app's icon. Will be shown as 64x64 pixels while retaining aspect ratio.
+  * `iconPath` String (optional) *Linux* *Windows* - Path to the app's icon. On Linux, will be shown as 64x64 pixels while retaining aspect ratio.
 
-设置 "关于" 面板选项。 这将覆盖应在MacOS系统中应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+设置 "关于" 面板选项。 This will override the values defined in the app's `.plist` file on MacOS. 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。 在 Linux 上，没有默认值，所以必须设置值才能显示。
+
+If you do not set `credits` but still wish to surface them in your app, AppKit will look for a file named "Credits.html", "Credits.rtf", and "Credits.rtfd", in that order, in the bundle returned by the NSBundle class method main. The first file found is used, and if none is found, the info area is left blank. See Apple [documentation](https://developer.apple.com/documentation/appkit/nsaboutpaneloptioncredits?language=objc) for more information.
 
 ### `app.isEmojiPanelSupported()`
 

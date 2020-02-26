@@ -6,7 +6,7 @@ Chromium을 기반으로하는, Electron은 디스플레이 드라이버 작동�
 
 우선, [Xvfb](https://en.wikipedia.org/wiki/Xvfb)를 설치합니다. X11 디스플레이 서버 프로토콜을 구현된 가상 프레임 버퍼이며 - 우리가 정확하게 필요로 하는 기능인 화면에 출력하지 않고 메모리에서 모든 그래픽 작업을 수행합니다.
 
-Then, create a virtual Xvfb screen and export an environment variable called DISPLAY that points to it. Electron의 Chromium은 자동으로 `$DISPLAY`를 검색하므로, 더이상 앱의 구성이 필요 없습니다. This step can be automated with Anaïs Betts' [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure Xvfb, if required by the current system. Windows 또는 macOS에서는, 아무 작업도 수행하지 않습니다.
+그런 다음 가상 Xvfb 화면을 만들고 이를 가리키는 DISPLAY라는 환경 변수를 내보냅니다. Electron의 Chromium은 자동으로 `$DISPLAY`를 검색하므로, 더이상 앱의 구성이 필요 없습니다. 이 단계는 Anaïs Betts의 [xvfb-maybe](https://github.com/anaisbetts/xvfb-maybe)로 자동화 할 수 있습니다: `xvfb-maybe`로 테스트 명령을 추가하면 작은 도구가 현재 시스템에 필요한 경우 Xvfb를 자동으로 구성합니다. Windows 또는 macOS에서는, 아무 작업도 수행하지 않습니다.
 
 ```sh
 ## Windows 나 macOS에서, 다음 명령은 electron-mocha 를 실행합니다
@@ -36,7 +36,7 @@ Jenkins의 경우 [Xvfb 플러그인을 사용할 수 있습니다](https://wiki
 
 ### Circle CI
 
-Circle CI is awesome and has Xvfb and `$DISPLAY` [already set up, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI는 훌륭하고 Xvfb와 `$DISPLAY` [이미 설정되어 있으므로 추가 구성이 필요하지 않습니다](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 

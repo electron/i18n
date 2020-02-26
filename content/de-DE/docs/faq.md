@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Das Fenster/Icon meiner App verschwindet nach ein paar Minuten.
+## My app's tray disappeared after a few minutes.
 
-Dies geschieht, wenn die Variable, die verwendet wird, um das Fenster/Taskleistensymbol zu speichern, zur Garbage Collection freigegeben wird.
+This happens when the variable which is used to store the tray gets garbage collected.
 
 Wenn dieses Problem auftritt, könnten die folgenden Artikel hilfreich sein:
 
@@ -58,20 +58,20 @@ Wenn Sie eine schnelle Lösung bevorzugen, machen Sie die Variablen global, inde
 
 ```javascript
 const { app, Tray } = require('electron')
-app.on('ready', () => {
- const tray = new Tray('/path/to/icon.png')
- tray.setTitle('hello world') 
+app.whenReady().then(() => {
+  const tray = new Tray('/path/to/icon.png')
+  tray.setTitle('Hallo Welt')
 })
 ```
 
 wie folgt anpassen:
 
 ```javascript
-const { app, Tray } = require('electron') 
+const { app, Tray } = require('electron')
 let tray = null
-app.on('ready', () => {
- tray = new Tray('/path/to/icon.png')
- tray.setTitle('hello world')
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/icon.png')
+  tray.setTitle('Hallo Welt')
 })
 ```
 

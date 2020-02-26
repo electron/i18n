@@ -1,6 +1,6 @@
 # Selenium 과 WebDriver 사용하기
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+[ChromeDriver - Chrome용 WebDriver](https://sites.google.com/a/chromium.org/chromedriver/)에서:
 
 > WebDriver는 많은 브라우저에서 웹 응용 프로그램을 자동으로 테스트 할 수있는 오픈 소스 도구입니다. 웹 페이지, 사용자 입력, JavaScript 실행 등을 탐색 할 수있는 기능을 제공합니다. ChromeDriver는 Chromium 용 WebDriver의 와이어 프로토콜을 구현하는 독립 실행 형 서버입니다. Chromium 및 WebDriver 팀 구성원이 개발 중입니다.
 
@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// 제목있는 윈도우가 보이는지 검증하는 간단한 테스트
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,19 +24,19 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Check if the window is visible
+    // 윈도우가 보이는지 확인
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
+    // 윈도우가 보이는지 검증
     assert.strictEqual(isVisible, true)
-    // Get the window's title
+    // 윈도우의 제목을 가져옴
     const title = await app.client.getTitle()
-    // Verify the window's title
+    // 윈도우의 제목을 검증
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Log any failures
+    // 실패 로깅
     console.error('Test failed', error.message)
   }
-  // Stop the application
+  // 어플리케이션 중단
   await app.stop()
 }
 
@@ -74,11 +74,11 @@ $ npm install selenium-webdriver
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+  // chrome driver에서 "9515" 포트를 사용
   .usingServer('http://localhost:9515')
   .withCapabilities({
     chromeOptions: {
-      // Here is the path to your Electron binary.
+      // 사용할 Electron 바이너리의 경로
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
     }
   })
@@ -125,13 +125,13 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" is the port opened by chrome driver.
+  host: 'localhost', // chrome driver의 서버로 localhost 사용
+  port: 9515, // chrome driver에서 "9515" 포트를 사용
   desiredCapabilities: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // 사용할 Electron 바이너리의 경로.
+      args: [/* cli arguments */] // Optional, 'app=' + /path/to/your/app/
     }
   }
 }
@@ -153,4 +153,4 @@ client
 
 따로 Electron을 다시 빌드하지 않는 경우 간단히 애플리케이션을 Electron의 리소스 디렉터리에 [배치](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md)하여 바로 테스트 할 수 있습니다.
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+아니면, 앱의 폴더를 가리키는 Electron 바이너리로 실행할 인수를 전달하십시오. 앱을 Electron의 리소스 디렉토리에 복사하여 붙여 넣을 필요가 없습니다.

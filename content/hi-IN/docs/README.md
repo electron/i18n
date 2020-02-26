@@ -104,7 +104,8 @@ These individual tutorials expand on topics discussed in the guide above.
 * [प्रक्रिया ऑब्जेक्ट](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [वातावरण वेरिएबल्स](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Chrome Extensions Support](api/extensions.md)
+* [Breaking API Changes](breaking-changes.md)
 
 ### विशिष्ट डीओएम तत्व:
 

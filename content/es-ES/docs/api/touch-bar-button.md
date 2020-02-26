@@ -8,14 +8,21 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 * `opciones` Object 
   * `Etiqueta` cadena (opcional) - Texto del fondo.
+  * `accessibilityLabel` String (optional) - A short description of the button for use by screenreaders like VoiceOver.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) | String (optional) - Button icon.
-  * `posición del ícono` Cadena (opcional) - Puede ser `izquierda`, `derecha` o `superpuesto`.
+  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`. Defaults to `overlay`.
   * `click` Función (opcional) - Función a llamar cuando se hace click en el fondo.
+
+When defining `accessibilityLabel`, ensure you have considered macOS [best practices](https://developer.apple.com/documentation/appkit/nsaccessibilitybutton/1524910-accessibilitylabel?language=objc).
 
 ### Propiedades de Instancia
 
 Las siguientes propiedades están disponibles en las instancias de `TouchBarButton`:
+
+#### `touchBarButton.accessibilityLabel`
+
+A `String` representing the description of the button to be read by a screen reader. Will only be read by screen readers if no label is set.
 
 #### `touchBarButton.label`
 

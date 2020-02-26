@@ -8,6 +8,12 @@ Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron
 
 * **Xcode**: Bilang karagdagan sa Xcode, i-install rin ang mga kagamitan sa Xcode na pang-utoss na linya. Isinasali nila ang LLDB, ang default na taga-debug sa Xcode sa Mac OS X. Sinusuportahan nito ang debugging C, Objective-C at C++ sa desktop at ios na mga kasangkapan at taga-simulate.
 
+* **.lldbinit**: Create or edit `~/.lldbinit` to allow Chromium code to be properly source-mapped.
+    
+    ```text
+    command script import ~/electron/src/tools/lldb/lldbinit.py
+    ```
+
 ## Pagkakabit at Pagde-debug sa Electron
 
 To start a debugging session, open up Terminal and start `lldb`, passing a non-release build of Electron as a parameter.
@@ -22,7 +28,7 @@ Current executable set to './out/Testing/Electron.app' (x86_64).
 
 Ang LLDB ay isang makapangyarihang kagamitan at sumusuporta sa maraming mga istratehiya sa pagsisiyasat ng code. Para sa simpleng introduksyong ito, ipagpalagay natin na nagtatawag ka ng isang utos mula sa JavaScript na hindi gumagalaw ng tama - kaya gusto mong magtuon sa katumbas nitong C++ na utos sa loob ng pinagkukunan ng Electron.
 
-Relevant code files can be found in `./atom/`.
+Relevant code files can be found in `./shell/`.
 
 Ipagpalagay natin na gusto mong i-debug ang `app.setName()`, na syang inilalarawan sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang utos na `breakpoint` na tumutukoy sa file at linya na pagtutuonan:
 
@@ -80,6 +86,8 @@ Process 25244 stopped
    121  int Browser::GetBadgeCount() {
    122    return badge_count_;
 ```
+
+**NOTE:** If you don't see source code when you think you should, you may not have added the `~/.lldbinit` file above.
 
 Sa puntong ito, para matapos ang pagde-debug, paganahin ang `process continue`. Maaari ka ring magpatuloy hanggang ang isang tiyak na linya ay matamaan sa thread na ito (`thread until 100`). Ang utos na ito ay magpapatakbo sa thread sa kasalukuyan nitong frame hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang frame.
 

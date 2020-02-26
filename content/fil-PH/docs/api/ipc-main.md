@@ -8,7 +8,7 @@ The `ipcMain` module is an [Event Emitter](https://nodejs.org/api/events.html#ev
 
 ## Ipinadalang mga mensahe
 
-Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#contentssendchannel-args) para sa karagdagang impormasyon.
+Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
 
 * Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.

@@ -10,7 +10,7 @@
 
 Para cualquier problema, existen fundamentalmente tres maneras en las que un individuo puede contribuir:
 
-1. Mostrando el problema en una discusión: si crees haber encontrado un nuevo fallo en Electron, debes reportarlo creando un nuevo problema en el issue tracker de `electron/electron`.
+1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues).
 2. Ayudando en el seguimiento del problema: Puedes hacerlo proporcionando detalles asistivos (un caso de prueba reproducible que demuestra el fallo) o proporcionando sugerencias para abordar el problema.
 3. Ayudando a resolver el problema: Esto se puede hacer demostrando que el problema no es un fallo o fue arreglado; Pero mas a menudo, abriendo un pull request que cambia el código fuente de `electron/electron` de una manera concreta y susceptible de revisión.
 
@@ -20,7 +20,9 @@ Para cualquier problema, existen fundamentalmente tres maneras en las que un ind
 
 ## Presentar un informe de error
 
-Al abrir un nuevo problema en el issue tracker de `electron/electron`, a los usuarios se les presentará una plantilla que deberá ser rellenada.
+To submit a bug report:
+
+When opening a new issue in the [`electron/electron` issue tracker](https://github.com/electron/electron/issues/new/choose), users will be presented with a template that should be filled in.
 
 ```markdown
 <!--

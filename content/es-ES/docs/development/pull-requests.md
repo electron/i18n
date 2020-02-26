@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Paso 4: Código
 
-La mayoría de los pull requests abiertos contra el repositorio `electron/electron` incluyen cambios en el código C/C++ en la carpeta `atom/`, el código JavaScript en la carpeta `lib/`, la documentación en `docs/api/` o pruebas en la carpeta `spec/`.
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `shell/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
 Por favor asegúrate de correr `npm run lint` de vez en cuando en cualquier cambio de código para asegurar que estos siguen el estilo de código del proyecto.
 
@@ -181,7 +181,7 @@ Siéntete libre de postear un comentario en el pull request para avisar a los cr
 
 #### Aprobación y Solicitud de Cambios de Workflow
 
-Todos los pull request requieren la aprobación de un [Propietario de Código](https://github.com/orgs/electron/teams/code-owners) en el area que modificaste con el fín de ejecutar. Cada vez que un responsable revisa un pull request ellos pueden solicitar cambios. Estos pueden ser pequeños, tales como corregir un error, o puede implicar cambios sustanciales. Dichas solicitudes tienen la intención de ser útiles, pero a veces pueden venir mediante algo brusco o poco útil, especialmente si no incluyen sugerencias concretas en *como* cambiarlo.
+All pull requests require approval from a [Code Owner](https://github.com/electron/electron/blob/master/.github/CODEOWNERS) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Trata de no estar desmotivado. Si tu sientes que una crítica es injusta, confórmate o busca la entrada de otro contribuyente del proyecto. A menudo ese tipo de comentarios son el resultado de un crítico que no toma el suficiente tiempo para revisar y no son mal intencionados. Estas dificultades a menudo pueden ser resueltas con un poco de paciencia. Dicho esto, se espera que los críticos ofrezcan una crítica útil.
 
@@ -197,4 +197,4 @@ Cada pull request se prueva en el sistema de Integracion Continua (CI) para conf
 
 Idealmente, el pull request pasara("ser verde") en todas las plataformas de CI. Esto quiere decir que pasa todas las pruebas y no hay errores linting. Sin embargo, no es infrecuente para la infraestructura de CI el fallar en plataformas específicas o como son llamadas pruebas "escamosas" a fallar ("be red"). Cada falla de CI debe ser inspeccionada manualmente para determinar la causa.
 
-CI inicia automáticamente cuando abres un pull request, pero solo los [Liberadores](https://github.com/orgs/electron/teams/releasers/members) pueden reiniciar una ejecución CI. Si usted cree que CI esta dando negativos falsos, pregunta a un Liberador para reiniciar las pruebas.
+CI starts automatically when you open a pull request, but only core maintainers can restart a CI run. If you believe CI is giving a false negative, ask a maintainer to restart the tests.

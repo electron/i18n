@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-`DownloadItem` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that represents a download item in Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
+`DownloadItem` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) qui représente un élément de téléchargement dans Electron. Il est utilisé dans l'événement `will-download` de la classe `Session`, et permet aux utilisateurs de gérer les fichiers en cours de téléchargement.
 
 ```javascript
 // Dans le processus principal.
@@ -74,25 +74,25 @@ L'objet `downloadItem` dispose des méthodes suivantes :
 
 * `path` String - Définit le chemin d'accès pour le téléchargement.
 
-Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+Cet API est seulement disponible dans la fonction de rappel de `will-download` dans session. Si l'utilisateur ne définit pas le chemin de sauvegarde via l'API, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[Déprécié](modernization/property-updates.md) : utilisez la propriété `savePath` à la place.**
 
 #### `downloadItem.getSavePath()`
 
 Retourne `String` - Le chemin d'accès pour le téléchargement. Ce sera soit le chemin définit par `downloadItem.setSavePath(path)` ou le chemin indiqué par la boîte de dialogue de sauvegarde.
 
-**[Deprecated](modernization/property-updates.md): use the `savePath` property instead.**
+**[Déprécié](modernization/property-updates.md) : utilisez la propriété `savePath` à la place.**
 
 #### `downloadItem.setSaveDialogOptions(options)`
 
-* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+* `options` SaveDialogOptions - Définit les options de la boîte de dialogue de sauvegarde des fichiers. Cet objet a la même comme le paramètre `options` de [`dialog.showSaveDialog()`](dialog.md).
 
-This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+Cette API permet à l'utilisateur de définir des options personnalisées pour la boîte de dialogue de sauvegarde qui ouvre pour l'élément de téléchargement par défaut. L'API n'est disponible que dans la fonction de rappel `will-download` de la session.
 
 #### `downloadItem.getSaveDialogOptions()`
 
-Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+Retourne `SaveDialogOptions` - Retourne l'objet précédemment défini par `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 
@@ -118,7 +118,7 @@ Annule le téléchargement.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin URL where the item is downloaded from.
+Retourne `String` - L'URL d'origine d'où l'élément est téléchargé.
 
 #### `downloadItem.getMimeType()`
 
@@ -156,7 +156,7 @@ Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `canc
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete URL chain of the item including any redirects.
+Retourne `String[]` - La chaîne d'URL complète de l'élément incluant toutes les redirections.
 
 #### `downloadItem.getLastModifiedTime()`
 
@@ -172,8 +172,8 @@ Retourne `Double` - Le nombre de secondes depuis l'époch UNIX lorsque le télé
 
 ### Propriétés d'instance
 
-#### `downloadItem.savePath`
+#### `chemin d'accès à la sauvegarde`
 
-A `String` property that determines the save file path of the download item.
+Une propriété `String` qui détermine le chemin du fichier de sauvegarde de l'élément téléchargé.
 
-The property is only available in session's `will-download` callback function. If user doesn't set the save path via the property, Electron will use the original routine to determine the save path; this usually prompts a save dialog.
+La propriété n'est disponible que dans la fonction de rappel `will-download` de la session. Si l'utilisateur ne définit pas le chemin de sauvegarde via la propriété, Electron utilisera la routine d'origine pour déterminer le chemin de sauvegarde ; cela demande généralement une boîte de dialogue de sauvegarde.

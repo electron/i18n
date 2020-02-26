@@ -49,7 +49,9 @@
 * `channel` String
 * `...args` any[]
 
-`channel` を介して非同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+引数と共に、`channel` を介してメインプロセスに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 メインプロセスは [`ipcMain`](ipc-main.md) モジュールで `channel` を聴いてそれを処理します。
 
@@ -60,7 +62,9 @@
 
 戻り値 `Promise<any>` - メインプロセスからの応答で解決します。
 
-`channel` を介して非同期でメインプロセスにメッセージを送信し、非同期の結果を待ちます。 引数は内部で JSON としてシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+`channel` を介して非同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 メインプロセスは、[`ipcMain.handle()`](ipc-main.md#ipcmainhandlechannel-listener) で `channel` をリッスンする必要があります。
 
@@ -86,11 +90,13 @@ ipcMain.handle('some-name', async (event, someArgument) => {
 
 戻り値 `any` - [`ipcMain`](ipc-main.md) ハンドラから返された値。
 
-`channel` を介して同期でメインプロセスにメッセージを送ります。更に任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+`channel` を介して同期でメインプロセスにメッセージを送信し、結果を待ちます。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 メインプロセスは [`ipcMain`](ipc-main.md) オブジェクトで `channel` を聴いてそれを処理します。そして `event.returnValue` をセットすることで応答します。
 
-**注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
+> :warning: **警告**: 同期メッセージを送信すると、応答を受信するまでレンダラープロセス全体がブロックされます。そのため、このメソッドは最終手段として使用してください。 非同期バージョンの、[`invoke()`](ipc-renderer.md#ipcrendererinvokechannel-args) を使用することを推奨します。
 
 ### `ipcRenderer.sendTo(webContentsId, channel, ...args)`
 

@@ -509,6 +509,7 @@ win.webContents.on('before-input-event', (event, input) => {
   * `selectionText` String - コンテキストメニューが呼び出されたときの選択テキスト。
   * `titleText` String - コンテキストが呼び出されたときの選択要素の、タイトルまたは alt テキスト。
   * `misspelledWord` String - カーソルの下のスペルミスした単語 (もしあるならば)。
+  * `dictionarySuggestions` String[] - ユーザに `misspelledWord` の置き換えを示す推測した単語の配列。 単語のスペルミスがあり、スペルチェッカーが有効な場合にのみ利用できます。
   * `frameCharset` String - メニューが呼び出されたときのフレームのテキストエンコーディング。
   * `inputFieldType` String - 入力フィールド内でコンテキストメニューが呼び出されたときの、そのタイプ。 `none`、`plainText`、`password`、`other` になれる。
   * `menuSourceType` String - コンテキストメニューが呼び出されたときの入力ソース。`none`、`mouse`、`keyboard`、`touch` または `touchMenu` にできます。
@@ -622,7 +623,7 @@ win.loadURL('http://github.com')
 * `line` Integer
 * `sourceId` String
 
-関連付けられたウィンドウがコンソールメッセージをロギングしたときに発行されます。 *オフスクリーンレンダリング* が有効になっているウィンドウでは発行されません。
+関連付けられたウインドウがコンソールメッセージを出力すると発生します。
 
 #### イベント: 'preload-error'
 
@@ -928,6 +929,16 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
+#### `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])`
+
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (任意) - 省略値は `false`。
+
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
+
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+
 #### `contents.setIgnoreMenuShortcuts(ignore)` *実験的*
 
 * `ignore` Boolean
@@ -995,7 +1006,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 contents.setVisualZoomLevelLimits(1, 3)
 ```
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *非推奨*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
@@ -1003,6 +1014,8 @@ contents.setVisualZoomLevelLimits(1, 3)
 戻り値 `Promise<void>`
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
+
+**非推奨:** この API は Chromium がサポートしなくなりました。
 
 #### `contents.undo()`
 
@@ -1108,6 +1121,25 @@ console.log(requestId)
 
 `rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
+#### `contents.isBeingCaptured()`
+
+戻り値 `Boolean` - このページがキャプチャされているかどうか。 キャプチャ回数が 0 より大きい場合に true を返します。
+
+#### `contents.incrementCapturerCount([size, stayHidden])`
+
+* `size` [Size](structures/size.md) (任意) - キャプチャの推奨サイズ。
+* `stayHidden` Boolean (任意) - ページを表示せずに非表示のままにします。
+
+キャプチャ回数は 1 ずつ増加します。 ブラウザーウインドウが非表示でもキャプチャ回数がゼロではない場合、ページは表示されていると見なされます。 ページを非表示のままにする場合は、`stayHidden` を true に設定していることを確認してください。
+
+これは Page Visibility API にも影響を与えます。
+
+#### `contents.decrementCapturerCount([stayHidden])`
+
+* `stayHidden` Boolean (任意) - ページを表示状態にせず非表示のままにします。
+
+キャプチャ回数は 1 ずつ減少します。 ブラウザウィンドウが隠されるまたはオクルージョンされるか、キャプチャーカウントが 0 になると、ページは非表示状態やオクルージョン状態にセットされます。 代わりに非表示のキャプチャ回数を減らしたい場合は、`stayHidden` を true に設定してください。
+
 #### `contents.getPrinters()`
 
 システムプリンタのリストを取得します。
@@ -1119,7 +1151,7 @@ console.log(requestId)
 * `options` Object (任意) 
   * `silent` Boolean (任意) - プリンタの設定をユーザに尋ねないかどうか。省略値は `false`。
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像を印刷するかどうか。省略値は `false`。
-  * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
+  * `deviceName` String (任意) - 使用するプリンターデバイス名を設定します。'人間向けの' 名称ではなくシステム定義名である必要があります。例えば、'Brother QL-820NWB' ではなく 'Brother_QL_820NWB' とします。
   * `color` Boolean (任意) - 印刷するウェブページをカラーにするかグレースケールにするかを設定します。デフォルトは `true` です。
   * `margins` Object (任意) 
     * `marginType` String (任意) - `default`、`none`、`printableArea` か `custom` にできます。 `custom` を選択した場合、`top`、`bottom`、`left`、`right` も指定する必要があります。
@@ -1137,6 +1169,8 @@ console.log(requestId)
   * `dpi` Object (任意) 
     * `horizontal` Number (任意) - 水平 DPI。
     * `vertical` Number (任意) - 垂直 DPI。
+  * `header` String (任意) - ページヘッダーとして印刷される文字列。
+  * `footer` String (任意) - ページフッターとして印刷される文字列。
 * `callback` Function (任意) 
   * `success` Boolean - 印刷呼び出しの成功を示す。
   * `failureReason` String - 印刷が失敗した場合にコールバックされます。`cancelled` か `failed` になります。
@@ -1318,6 +1352,16 @@ app.once('ready', () => {
 
 共有ワーカーコンテキストの開発者向けツールを開きます。
 
+#### `contents.inspectSharedWorkerById(workerId)`
+
+* `workerId` String
+
+ID に基づいて共有ワーカーのインスペクターを起動します。
+
+#### `contents.getAllSharedWorkers()`
+
+戻り値 [`SharedWorkerInfo[]`](structures/shared-worker-info.md) - すべての共有ワーカーに関する情報。
+
 #### `contents.inspectServiceWorker()`
 
 サービスワーカコンテキストの開発者向けツールを開きます。
@@ -1327,7 +1371,9 @@ app.once('ready', () => {
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 引数は内部で JSON にシリアライズされるので、関数やプロトタイプチェーンは含まれません。
+引数と共に、`channel` を介してレンダラープロセスに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1366,7 +1412,9 @@ app.on('ready', () => {
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は内部で JSON としてシリアライズされ、関数やプロトタイプチェーンのようなものは含まれません。
+引数と共に、`channel` を介してレンダラープロセス内の指定のフレームに非同期メッセージを送信します。 引数は [`postMessage`] [] と同様に [構造化複製アルゴリズム](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) でシリアライズされるため、プロトタイプチェーンは含まれません。 関数、Promise、Symbol、WeakMap、WeakSet の送信は、例外が送出されます。
+
+> **注意**: DOM オブジェクトや特別な Electron オブジェクトなどの非標準の JavaScript 型の送信は廃止され、Electron 9 から例外が送出されるようになります。
 
 レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
 
@@ -1389,7 +1437,7 @@ ipcMain.on('ping', (event) => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`): 
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop、`): 
     * `desktop` - デスクトップ画面タイプ.
     * `mobile` - モバイル画面タイプ.
   * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
@@ -1431,7 +1479,7 @@ ipcMain.on('ping', (event) => {
 
 * `item` Object 
   * `file` String[] | String - ドラッグが開始されたファイルへのパス。
-  * `icon` [NativeImage](native-image.md) - macOS では空にできない画像。
+  * `icon` [NativeImage](native-image.md) | String - 画像です。macOS では空にできません。
 
 現在の D&D 操作のドラッグアイテムに `item` をセットします。`file` はドラッグされるファイルへの絶対パスで、`icon` はドラッグするときにカーソルの下に表示される画像です。
 

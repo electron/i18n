@@ -51,12 +51,14 @@ Définit le niveau maximum et minimum le niveau pinch-to-zoom.
 webFrame.setVisualZoomLevelLimits(1, 3)
 ```
 
-### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)` *Deprecated*
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
 Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
+
+**Deprecated:** This API is no longer supported by Chromium.
 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
@@ -68,6 +70,16 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
       * `misspeltWords` String[]
 
 Définit un fournisseur pour la correction orthographique dans les champs de saisie et les zones de texte.
+
+If you want to use this method you must disable the builtin spellchecker when you construct the window.
+
+```js
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    spellcheck: false
+  }
+})
+```
 
 The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
