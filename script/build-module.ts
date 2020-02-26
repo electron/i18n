@@ -38,6 +38,8 @@ interface IParseFile extends walk.Entry {
   crowdinFileId?: string
   ignore?: boolean
 
+  content?: string
+
   isTutorial?: boolean
   isApiDoc?: boolean
   isDevTutorial?: boolean
@@ -71,6 +73,7 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
   console.time('parsed docs in')
   const markdownFiles = walk
     .entries(contentDir)
+    .filter(file => file.relativePath.includes('/docs'))
     .filter(file => file.relativePath.endsWith('.md'))
   console.log(
     `processing ${markdownFiles.length} files in ${
@@ -84,6 +87,48 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
 
   console.timeEnd('parsed docs in')
   return docs
+}
+
+async function parseBlogs() {
+  ids = await getIds('electron')
+
+  console.time('parsed blogs in')
+  const markdownFiles = walk
+    .entries(contentDir)
+    .filter(file => file.relativePath.includes('website/blog'))
+    .filter(file => file.fullPath.endsWith('.md'))
+  console.log(
+    `processing ${markdownFiles.length} files in ${
+      Object.keys(locales).length
+    } locales`
+  )
+
+  let blogs = await Promise.all(markdownFiles.map(parseBlogFile))
+
+  console.timeEnd('parsed blogs in')
+  return blogs
+}
+
+async function parseBlogFile(file: IParseFile) {
+  file.fullyPath = path.join(file.basePath, file.relativePath)
+  file.locale = file.relativePath.split('/')[0]
+  file.slug = path.basename(file.relativePath, '.md')
+
+  file.href = `/blog/${file.slug}`.replace('//', '/')
+
+  // parse markdown to HTML
+  const markdown = fs.readFileSync(file.fullPath, 'utf8')
+  file.content = markdown
+
+  // remove leftover file props from walk-sync
+  delete file.mode
+  delete file.size
+  delete file.mtime
+  delete file.relativePath
+  delete file.basePath
+
+  // remove empty values
+  return cleanDeep(file)
 }
 
 async function parseFile(file: IParseFile) {
@@ -266,6 +311,19 @@ async function main() {
     return acc
   }, {} as Record<string, Partial<ILocalesResult>>)
 
+  const blogs = await parseBlogs()
+  const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
+    acc[locale] = blogs
+      .filter(doc => doc.locale === locale)
+      .sort((a, b) => a.slug.localeCompare(b.slug))
+      .reduce((allBlogs, blog) => {
+        allBlogs[blog.href] = blog
+        return allBlogs
+      }, {})
+
+    return acc
+  }, {} as Record<string, IParseFile>)
+
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/${locale}/website/locale.yml`)
     return acc
@@ -289,6 +347,7 @@ async function main() {
         locales: locales,
         docs: docsByLocale,
         website: websiteStringsByLocale,
+        blogs: websiteBlogsByLocale,
         glossary: glossary,
         date: new Date(),
       },

@@ -96,6 +96,21 @@ describe('i18n.docs', () => {
   })
 })
 
+describe('i18n.blogs', () => {
+  it('is an object with locales as keys', () => {
+    const locales = Object.keys(i18n.blogs)
+    expect(locales).includes('en-US')
+    expect(locales).includes('ru-RU')
+    expect(locales.length).to.be.above(10)
+  })
+
+  it('is an object with blogs objects as values', () => {
+    const blogs = i18n.blogs['en-US']
+    blogs.should.be.an('object')
+    blogs['/blog/12-week-cadence'].should.be.an('object')
+  })
+})
+
 describe('i18n.glossary', () => {
   it('is an object with locales as keys', () => {
     const locales = Object.keys(i18n.glossary)
