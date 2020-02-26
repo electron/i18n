@@ -1,4 +1,4 @@
-# Supported Command Line Switches
+# Wspierane Zmienne Konsoli
 
 > Przełączniki linii komand wspierane przez Electron.
 

@@ -795,10 +795,6 @@ const alpha = color.substr(6, 2) // "dd"
               <strong>NOTE:</strong> This API will return <code>false</code> on macOS systems older than Sierra 10.12.2.
             </p>
             
-            <p>
-              <strong><a href="modernization/property-updates.md">Tidak berlaku lagi</a></strong>
-            </p>
-            
             <h3>
               <code>systemPreferences.promptTouchID(reason)</code> <em>macOS</em>
             </h3>

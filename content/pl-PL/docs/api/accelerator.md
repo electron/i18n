@@ -2,7 +2,7 @@
 
 > Definiowanie skrótów klawiaturowych.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Akceleratory są to ciągi znaków typu String, które mogą zawierać wiele modyfikatorów oraz kod klawiszy, połączonych przez znak `+` i są używane do definiowania skrótów klawiaturowych w całej aplikacji.
 
 Przykłady:
 
@@ -64,10 +64,10 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * `VolumeUp`, `VolumeDown` i `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` i `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* Klawisze numeryczne 
   * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - klawisz cyfry
+  * `numadd` - klawisz `+`
+  * `numsub` - klawisz `-`
+  * `nummult` - klawisz `*`
+  * `numdiv` - klawisz `/`
