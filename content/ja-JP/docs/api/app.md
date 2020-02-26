@@ -600,21 +600,19 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - `://` を除くプロトコルの名前。 アプリで `electron://` リンクを処理したい場合、パラメータとして `electron` を指定してこのメソッドを呼び出してください。
-* `path` String (任意) *Windows* - 省略値は `process.execPath`
-* `args` String[] (任意) *Windows* - 省略値は空の配列
+* `protocol` String - `://` を除くプロトコルの名前。 例えば、アプリで `electron://` リンクを処理したい場合、引数を `electron` にしてこのメソッドを呼び出してください。
+* `path` String (任意) *Windows* - Electron 実行形式のパス。省略値は `process.execPath` です。
+* `args` String[] (任意) *Windows* - 実行形式に渡す引数。省略値は空の配列です。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-このメソッドは現在の実行可能ファイルをプロトコル (別名URIスキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合することができます。 一度登録すると、`your-protocol://` によるすべてのリンクは現在の実行可能ファイルで開かれるようになります。 プロトコルを含む全体のリンクがパラメータとしてアプリケーションに引き渡されます。
+このメソッドは現在の実行形式をプロトコル (または URI スキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合できます。 登録すると、`プロトコル://` によるすべてのリンクは現在の実行形式で開かれるようになります。 プロトコルを含むリンク全体が、アプリケーションに引数として渡されます。
 
-Windowsの場合、オプションのパラメータを指定することができます。path には実行可能ファイルへのパス、args には実行可能ファイルが起動する際に引き渡される引数の配列を指定してください。
-
-**注:** macOSの場合、アプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更することもできません。 しかしながら、単純なテキストエディタもしくはスクリプトでビルド時にファイルを変更することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
+**注:** macOS の場合はアプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更できません。 しかし、[Electron Forge](https://www.electronforge.io/) や [Electron Packager](https://github.com/electron/electron-packager) を介するかテキストエディタで `info.plist` を編集することで、ビルド時にファイルを変更できます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
 
 **注釈:** Windows ストア 環境 (`appx` としてパッケージされている) 場合、この API はすべての呼び出しに `true` を返しますが、それにセットされたレジストリキーは他のアプリケーションからアクセスできません。 Windows ストア アプリケーションをデフォルトのプロトコルハンドラとして登録するには、[マニフェストでプロトコルを宣言する](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-uap-protocol) 必要があります。
 
-このAPIは内部的にWindowsのレジストリやLSSetDefaultHandlerForURLSchemeを使用します。
+この API は内部的に Windows レジストリ や `LSSetDefaultHandlerForURLScheme` を使用します。
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -632,13 +630,11 @@ Windowsの場合、オプションのパラメータを指定することがで�
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
 * `args` String[] (任意) *Windows* - 省略値は空の配列
 
-戻り値 `Boolean`
-
-このメソッドは現在の実行可能ファイルがプロトコル (別名URIスキーム) の既定のハンドラーであるかをチェックします。もしそうである場合、trueを返却します。そうでない場合、falseを返却します。
+戻り値 `Boolean` - 現在の実行形式がプロトコル (または URI スキーム) の既定のハンドラーかどうか。
 
 **注:** macOSの場合、このメソッドは、アプリがプロトコルの既定のハンドラーとして登録されていたかをチェックするのに使えます。 macOSのマシン上の `~/Library/Preferences/com.apple.LaunchServices.plist` を確認することでもこれを検証することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) を参照するようにしてください。
 
-このAPIは内部的にWindowsのレジストリやLSCopyDefaultHandlerForURLSchemeを使用します。
+この API は内部的に Windows レジストリ や `LSCopyDefaultHandlerForURLScheme` を使用します。
 
 ### `app.getApplicationNameForProtocol(url)`
 

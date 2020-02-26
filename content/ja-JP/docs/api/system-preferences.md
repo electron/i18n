@@ -360,8 +360,6 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 **注意:** この API は Sierra 10.12.2 より古い macOS システムでは `false` を返します。
 
-**[非推奨](modernization/property-updates.md)**
-
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
 * `reason` String - あなたが Touch ID 認証を求める理由
