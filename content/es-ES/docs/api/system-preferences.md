@@ -360,8 +360,6 @@ Devuelve `Boolean` - si este dispositivo tiene la habilidad para usar Touch ID.
 
 **NOTE:** Esta API retornará `false` en sistemas macOS mas viejos que Sierra 10.12.2.
 
-**[Cambiar](modernization/property-updates.md)**
-
 ### `systemPreferences.promptTouchID(reason)` *macOS*
 
 * `reason` String - La razón por la que estás pidiendo por la autenticación Touch ID
