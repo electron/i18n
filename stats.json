@@ -133,14 +133,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "12116",
-    "translated": "1778",
+    "translated": "1797",
     "approved": "261",
     "words": "114935",
-    "words_translated": "15288",
+    "words_translated": "15435",
     "words_approved": "818",
     "translated_progress": 13,
     "approved_progress": 0,
-    "qa_issues": 1318
+    "qa_issues": 1331
   },
   {
     "name": "Indonesian",
