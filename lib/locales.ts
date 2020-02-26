@@ -1,7 +1,7 @@
-const path = require('path')
-const fs = require('fs')
+import * as path from 'path'
+import * as fs from 'fs'
+import * as allStats from '../stats.json'
 const contentDir = path.join(__dirname, '../content')
-const allStats = require('../stats.json')
 
 const {
   getLanguageName,
@@ -10,7 +10,22 @@ const {
   getCountryName,
 } = require('locale-code')
 
-module.exports = fs
+interface IStats {
+  translated_progress: number
+  approved_progress: number
+}
+
+export interface IResult {
+  locale: string
+  languageCode: string
+  languageName: string
+  languageNativeName: string
+  countryCode: string
+  countryName: string
+  stats: IStats
+}
+
+export default fs
   .readdirSync(contentDir)
   .filter(filename =>
     fs.statSync(path.join(contentDir, filename)).isDirectory()
@@ -27,13 +42,14 @@ module.exports = fs
       )
     }
 
-    let result = {
+    let result: IResult = {
       locale: locale,
-      languageCode: locale === 'en-US' ? 'en' : stats.code,
+      languageCode: locale === 'en-US' ? 'en' : stats!.code,
       languageName: getLanguageName(locale),
       languageNativeName: getLanguageNativeName(locale),
       countryCode: getCountryCode(locale),
       countryName: getCountryName(locale),
+      // @ts-ignore | TODO(HashimotoYT): Possible undefined because english not found.
       stats: stats,
     }
 
@@ -64,4 +80,4 @@ module.exports = fs
   .reduce((acc, locale) => {
     acc[locale.locale] = locale
     return acc
-  }, {})
+  }, {} as Record<string, IResult>)

@@ -1,30 +1,57 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
 require('make-promises-safe')
 require('require-yaml')
 
-const walk = require('walk-sync')
-const path = require('path')
-const fs = require('fs')
+import * as walk from 'walk-sync'
+import * as path from 'path'
+import * as fs from 'fs'
+import hubdown = require('hubdown')
+import locales, { IResult as ILocalesResult } from '../lib/locales'
+import * as cheerio from 'cheerio'
+import * as URL from 'url'
+import * as packageJSON from '../package.json'
+import {
+  parseElectronGlossary,
+  IParseElectronGlossaryReturn,
+} from '../lib/parse-electron-glossary'
+import { bashFix } from '../lib/remark-bash-fix'
+import { fiddleUrls } from '../lib/remark-fiddle-urls'
+import { plaintextFix } from '../lib/remark-plaintext-fix'
 const cleanDeep = require('clean-deep')
-const hubdown = require('hubdown')
-const locales = require('../lib/locales')
 const hrefType = require('href-type')
-const URL = require('url')
-const packageJSON = require('../package.json')
 const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 const remark = require('remark')
 const links = require('remark-inline-links')
-const parseElectronGlossary = require('../lib/parse-electron-glossary')
-const plaintextFix = require('../lib/remark-plaintext-fix')
-const bashFix = require('../lib/remark-bash-fix')
-const fiddleUrls = require('../lib/remark-fiddle-urls')
-const itsReallyJS = require('../lib/remark-its-really-js')
+
+type $TSFixMe = any
+
+interface IParseFile extends walk.Entry {
+  fullyPath?: string
+  locale?: string
+  slug?: string
+  category?: string
+  categoryFancy?: string
+  href?: string
+  githubUrl?: string
+  crowdinFileId?: string
+  ignore?: boolean
+
+  isTutorial?: boolean
+  isApiDoc?: boolean
+  isDevTutorial?: boolean
+  isApiStructureDoc?: boolean
+
+  sections?: $TSFixMe
+
+  title?: string
+  description?: string
+}
 
 const contentDir = path.join(__dirname, '../content')
-const cheerio = require('cheerio')
-const categoryNames = {
+
+const categoryNames: Record<string, string> = {
   api: 'API',
   'api/structures': 'API Structures',
   development: 'Development',
@@ -32,13 +59,13 @@ const categoryNames = {
 }
 const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 
-function convertToUrlSlash(filePath) {
+function convertToUrlSlash(filePath: string) {
   return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
 }
 
-let ids = {}
+let ids: Record<string, string> = {}
 
-async function parseDocs() {
+async function parseDocs(): Promise<Partial<IParseFile>[]> {
   ids = await getIds('electron')
 
   console.time('parsed docs in')
@@ -59,8 +86,8 @@ async function parseDocs() {
   return docs
 }
 
-async function parseFile(file) {
-  file.fullPath = path.join(file.basePath, file.relativePath)
+async function parseFile(file: IParseFile) {
+  file.fullyPath = path.join(file.basePath, file.relativePath)
   file.locale = file.relativePath.split('/')[0]
   file.slug = path.basename(file.relativePath, '.md')
 
@@ -88,7 +115,7 @@ async function parseFile(file) {
   file.isApiStructureDoc = file.category === 'api/structures'
 
   // parse markdown to HTML
-  const markdown = fs.readFileSync(file.fullPath, 'utf8')
+  const markdown = fs.readFileSync(file.fullyPath, 'utf8')
 
   // ignore some docs & skip the rest of the parsing logic
   if (markdown.includes(IGNORE_PATTERN)) {
@@ -97,9 +124,9 @@ async function parseFile(file) {
   }
 
   file.sections = await Promise.all(
-    splitMd(await fixMdLinks(markdown)).map(async section => {
+    splitMd(await fixMdLinks(markdown)).map(async (section: $TSFixMe) => {
       const parsed = await hubdown(section.body, {
-        runBefore: [plaintextFix, bashFix, fiddleUrls, itsReallyJS],
+        runBefore: [plaintextFix, bashFix, fiddleUrls],
       })
       const $ = cheerio.load(parsed.content || '')
       file.title =
@@ -122,6 +149,9 @@ async function parseFile(file) {
       // fix HREF for relative links
       $('a').each((i, el) => {
         const href = $(el).attr('href')
+        if (!href || !file.href) {
+          return ''
+        }
         const type = hrefType(href)
         if (type !== 'relative' && type !== 'rooted') return
         const dirname = path.dirname(file.href)
@@ -134,8 +164,14 @@ async function parseFile(file) {
       // fix SRC for relative images
       $('img').each((i, el) => {
         const baseUrl = 'https://cdn.rawgit.com/electron/electron'
+        if (!file.href) {
+          return ''
+        }
         const dirname = path.dirname(file.href)
         let src = $(el).attr('src')
+        if (!src) {
+          return
+        }
         const type = hrefType(src)
         if (type !== 'relative' && type !== 'rooted') return
 
@@ -147,6 +183,7 @@ async function parseFile(file) {
           : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
 
         const parsed = URL.parse(newSrc)
+        if (!parsed.path) return
         parsed.path = path.normalize(parsed.path)
 
         $(el).attr('src', URL.format(parsed))
@@ -159,6 +196,9 @@ async function parseFile(file) {
   )
 
   // remove leftover file props from walk-sync
+  // @ts-ignore We need them delete!
+  delete file.fullPath
+  delete file.fullyPath
   delete file.mode
   delete file.size
   delete file.mtime
@@ -169,11 +209,11 @@ async function parseFile(file) {
   return cleanDeep(file)
 }
 
-function fixMdLinks(md) {
+function fixMdLinks(md: string): Promise<string> {
   return new Promise((resolve, reject) => {
     remark()
       .use(links)
-      .process(md, (err, file) => {
+      .process(md, (err: Error, file: { contents: string }) => {
         if (err) {
           reject(err)
         } else {
@@ -183,12 +223,13 @@ function fixMdLinks(md) {
   })
 }
 
-function splitMd(md) {
+function splitMd(md: string): Array<{ name: null; body: string[] }> {
   const slugger = new GithubSlugger()
-  const sections = []
-  let section = { name: null, body: [] }
+  const sections: Array<{ name: null; body: Array<string> }> = []
+  let section = { name: null, body: [] as Array<string> }
   let inCodeBlock = false
-  const isHeading = line => !inCodeBlock && line.trim().startsWith('#')
+  const isHeading = (line: string) =>
+    !inCodeBlock && line.trim().startsWith('#')
 
   md.split('\n').forEach((curr, i, lines) => {
     if (curr.startsWith('```')) {
@@ -201,7 +242,7 @@ function splitMd(md) {
 
     let next = lines[i + 1]
     if (next === undefined || isHeading(next)) {
-      section.body = section.body.join('\n')
+      section.body = section.body.join('\n') as $TSFixMe
       sections.push(section)
       section = { name: null, body: [] }
     }
@@ -215,21 +256,22 @@ async function main() {
   const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
       .filter(doc => doc.locale === locale)
-      .sort((a, b) => a.slug.localeCompare(b.slug))
+      .sort((a, b) => a.slug!.localeCompare(b.slug!))
       .reduce((allDocs, doc) => {
+        // @ts-ignore
         allDocs[doc.href] = doc
         return allDocs
       }, {})
 
     return acc
-  }, {})
+  }, {} as Record<string, Partial<ILocalesResult>>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/${locale}/website/locale.yml`)
     return acc
-  }, {})
+  }, {} as Record<string, string>)
 
-  const glossary = {}
+  const glossary: Record<string, IParseElectronGlossaryReturn[]> = {}
   for (let locale in locales) {
     glossary[locale] = await parseElectronGlossary(locale)
   }
