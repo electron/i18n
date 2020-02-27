@@ -9,17 +9,17 @@ Ce module n'inclut pas d'interface web. Pour afficher les traces enregistrées, 
 **Remarque :** Vous ne devriez pas utiliser ce module tant que l'événement `ready` du module de l'application n'est pas émis.
 
 ```javascript
-application const { app, contentTracing } = require('electron')
+const { app, contentTracing } = require('electron')
 
-. n('ready', () => {
+app.on('ready', () => {
   (async () => {
-    attendent contentTracing. tartRecording({
+    await contentTracing.startRecording({
       include_categories: ['*']
     })
-    console. og('Tracing started')
-    attendent une nouvelle Promise(resolve => setTimeout(resolve, 5000))
-    const path = wait contentTracing. topRecording()
-    console.log('Tracing data recorded to ' + path)
+    console.log('Commencement de la relève de données')
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    const path = await contentTracing.stopRecording()
+    console.log('Données relevées et enregistrées ' + path)
   })()
 })
 ```
