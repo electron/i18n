@@ -14,9 +14,9 @@ date: '2017-03-14'
 
 [WebTorrent](https://webtorrent.io) は、ブラウザーで動く初のトレントクライアントです。 全て JavaScript で書かれており、P2P 転送に WebRTC を使用できます。 ブラウザのプラグイン、拡張機能、インストールは不要です。
 
-Using open web standards, WebTorrent connects website users together to form a distributed, decentralized browser-to-browser network for efficient file transfer.
+公開のウェブ標準を使用して、WebTorrent はウェブサイトのユーザーを結び付け、効率的なファイル転送のために分配された分散型ブラウザ間ネットワークを形成します。
 
-You can see a demo of WebTorrent in action here: [webtorrent.io](https://webtorrent.io/).
+WebTorrent の実際のデモは [webtorrent.io](https://webtorrent.io/) で見ることができます。
 
 <a href="https://webtorrent.io/">
   <img alt="webtorrent homepage" src="https://cloud.githubusercontent.com/assets/2289/23912149/1543d2ce-089c-11e7-8519-613740c82b47.jpg">
