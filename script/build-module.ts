@@ -297,7 +297,8 @@ function splitMd(md: string): Array<{ name: null; body: string[] }> {
 }
 
 async function main() {
-  const docs = await parseDocs()
+  const [docs, blogs] = await Promise.all([parseDocs(), parseBlogs()])
+
   const docsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = docs
       .filter(doc => doc.locale === locale)
@@ -311,7 +312,6 @@ async function main() {
     return acc
   }, {} as Record<string, Partial<ILocalesResult>>)
 
-  const blogs = await parseBlogs()
   const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = blogs
       .filter(doc => doc.locale === locale)
