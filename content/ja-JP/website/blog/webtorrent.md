@@ -1,18 +1,18 @@
 ---
-title: 'Project of the Week: WebTorrent'
+title: '今週のプロジェクト: WebTorrent'
 author:
   - feross
   - zeke
 date: '2017-03-14'
 ---
 
-This week we caught up with [@feross](https://github.com/feross) and [@dcposch](https://github.com/dcposch) to talk about WebTorrent, the web-powered torrent client that connects users together to form a distributed, decentralized browser-to-browser network.
+今週は [@feross](https://github.com/feross) と [@dcposch](https://github.com/dcposch) が WebTorrent についてお話しします。WebTorrent は、ユーザーをつなぎ合わせて分配された分散型ブラウザ間ネットワークを形成する、ウェブベースのトレントクライアントです。
 
 ---
 
-## What is WebTorrent?
+## WebTorrent とは?
 
-[WebTorrent](https://webtorrent.io) is the first torrent client that works in the browser. It's written completely in JavaScript and it can use WebRTC for peer-to-peer transport. No browser plugin, extension, or installation is required.
+[WebTorrent](https://webtorrent.io) は、ブラウザーで動く初のトレントクライアントです。 全て JavaScript で書かれており、P2P 転送に WebRTC を使用できます。 ブラウザのプラグイン、拡張機能、インストールは不要です。
 
 Using open web standards, WebTorrent connects website users together to form a distributed, decentralized browser-to-browser network for efficient file transfer.
 
