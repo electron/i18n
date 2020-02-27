@@ -25,15 +25,15 @@ date: '2017-02-28'
 
 2015 年末に、WordPress.com の多くを [Calypso](https://github.com/automattic/wp-calypso) 形式で再構築しました。これは、React を使用したオープンソースのモダン JavaScript アプリです。 私たちは Electron の検討を開始し、Calypso にいくつかの変更を加えて、ローカルで実行できるようにしました。 それは信じられないような体験で、さらなる開発に多くの価値を見出しました。
 
-我々には Calypso に取り組むチームがいくつかありました。 To make a full multi-platform GUI client that matched this using traditional desktop technologies would have taken more work. By using Electron, a small team of 2-4 of us were able to leverage the other team’s efforts and build the Desktop app in a couple of months.
+我々には Calypso に取り組むチームがいくつかありました。 従来のデスクトップ技術を使用して、これに一致する完全なマルチプラットフォーム GUI クライアントを作成するには、さらに多くの作業が必要でした。 Electron を使用することで、2 ~ 4 人の小さなチームが他のチームの成果を活用する形で数ヶ月でデスクトップアプリを構築できました。
 
-## What are some challenges you've faced while building WordPress Desktop?
+## WordPress デスクトップ構築の際に直面した課題はありますか?
 
-We got an initial version of the app running very quickly, but tuning it to behave optimally as a desktop app took a lot more time. One big challenge with the app is that you're actually running a copy of Calypso on your own machine - it’s purely an API driven UI. There was a lot of bridging work involved in this, and changes were fed back to Calypso itself.
+アプリの初期バージョンは非常に速く動作しましたが、デスクトップアプリとして最適な動作をするよう調整するには、より多くの時間がかかりました。 このアプリの大きな課題の 1 つは、実際に自身のマシン上で Calypso のコピーを実行していることです。これは純粋に API が駆動する UI です。 ブリッジ作業が多く、変更は Calypso 自体にフィードバックされました。
 
-Additionally a lot of effort was spent packaging the app for different platforms - we provide Windows, macOS, and Linux versions - and there are sufficient differences to make this tricky.
+さらに、Windows、macOS、Linux バージョンを提供するために、各プラットフォーム向けにアプリをパッケージ化する多大な労力が費やされました。
 
-At the time Electron was relatively new and we kept running into issues that were shortly fixed (sometimes the same day!)
+当時、Electron は比較的新しいものであり、すぐに (時には同日中に!) 修正される問題に直面し続けました。
 
 ## In what areas should Electron be improved?
 
