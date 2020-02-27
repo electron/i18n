@@ -32,9 +32,9 @@ Electron チームは、新しい順に 3 つのメジャーバージョンを [
 
 v3.0.0 より前の安定版リリースに関する決定は、スケジュールに従っていませんでした。 v3.0.0 と v4.0.0 において、プロジェクトに内部スケジュールを追加しました。今年の初めに [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline) の安定版リリース日を初めて公開することにしました。 安定版リリース日の発表は全体として好意的に受け止められており、今後のリリースでも継続リリースできることを楽しみにしています。
 
-これらのアップグレード関連の作業を効率化するために、 [ガバナンス](https://electronjs.org/blog/governance) システム内に [アップグレード](https://github.com/electron/governance/tree/master/wg-upgrades) と [リリース](https://github.com/electron/governance/tree/master/wg-releases) の作業グループが作成されました。 They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
+これらのアップグレード関連の作業を効率化するために、 [ガバナンス](https://electronjs.org/blog/governance) システム内に [アップグレード](https://github.com/electron/governance/tree/master/wg-upgrades) と [リリース](https://github.com/electron/governance/tree/master/wg-releases) の作業グループが作成されました。 これらにより、作業をより優先順位付けて委任できます。これは後のリリースごとに効果が出てくるでしょう。
 
-Here is where our new cadence will put us in comparison to Chromium's cadence:
-<img alt="line graph comparing Electron versus Chromium versions" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
+Chromium のケイデンスと比較すると、我々の新たなケイデンスは以下のように位置します。
+<img alt="Electron と Chromium のバージョンを比較する折れ線グラフ" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
 
-📨 If you have questions, please mail us at [info@electronjs.org](mailto:info@electronjs.org).
+📨 ご質問は、[info@electronjs.org](mailto:info@electronjs.org) までメールでお問い合わせください。
