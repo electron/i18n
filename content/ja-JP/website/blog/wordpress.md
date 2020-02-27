@@ -47,17 +47,17 @@ Electron を選んだ主な理由は、非常に活発でオープンなコミ�
 
 ## WordPress デスクトップの今後の予定は何ですか?
 
-私たちのモデルの素晴らしいところは、デスクトップアプリが新しい Calypso 機能の恩恵を受けていることです。この機能は絶えず改善されています。 We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+私たちのモデルの素晴らしいところは、デスクトップアプリが新しい Calypso 機能の恩恵を受けていることです。この機能は絶えず改善されています。 オフラインサポートなどの追加機能をアプリに追加できるようにしたいと思います。オフラインサポートは、アプリを実際にネイティブの領域に持ち込み、システム通知を改善します。
 
-## Are there any teams at Automattic working on other Electron apps?
+## Automattic で他に Electron アプリの作業をしているチームはありますか?
 
-Yes, after our efforts on the Desktop app, the Simplenote team decided to use Electron to build desktop apps for Windows and Linux (a native Mac client already exists). The [Simplenote Electron app](https://github.com/Automattic/simplenote-electron) is also open source and available on Github.
+はい、このデスクトップアプリに取り組んだ後、Simplenote チームは Electron を使用して Windows と Linux 向け (ネイティブ Mac クライアントは既存) のデスクトップアプリを構築することにしました。 [Simplenote Electron アプリ](https://github.com/Automattic/simplenote-electron) もオープンソースとなっており、Github で入手できます。
 
-We've also got an upcoming Raspberry Pi integration that uses Electron.
+また、Electron を使用する Raspberry Pi との統合も予定しています。
 
-If any of that sounds interesting then we'd [love to hear from you](https://automattic.com/work-with-us/)!
+面白そうだと思ったものがあれば、[ご連絡お待ちしてます](https://automattic.com/work-with-us/)!
 
-## Any Electron tips that might be useful to other developers?
+## 他の開発者に役立つ Electron のノウハウはありますか?
 
-The process of shipping signed desktop software is relatively new to us, especially for Windows. we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+署名されたデスクトップソフトウェアを公開するプロセスは、特に Windows において比較的新しいものです。 we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
 
