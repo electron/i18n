@@ -25,14 +25,14 @@ Electron チームは、Electron 8.0.0 のリリース発表にワクワクし�
     * [V8 8.0 ブログ記事](https://v8.dev/blog/v8-release-80)
 
 ### 注目の機能
-* Chrome の組み込みスペルチェッカー機能を使用できるように実装しました。 See more details in [#20692](https://github.com/electron/electron/pull/20692) and [#21266](https://github.com/electron/electron/pull/21266).
-* IPC communication now uses v8's Structured Clone Algorithm. This is faster, more featureful, and less surprising than the existing logic, and brings about a 2x performance boost for large buffers and complex objects. Latency for small messages is not significantly affected. See more details in [#20214](https://github.com/electron/electron/pull/20214).
+* Chrome の組み込みスペルチェッカー機能を使用できるように実装しました。 詳細は [#20692](https://github.com/electron/electron/pull/20692) と [#7189](https://github.com/electron/electron/pull/21266) を参照してください。
+* IPC 通信では、v8 の構造化複製アルゴリズムが使用されるようになりました。 これは既存のロジックよりも驚くほど高速で、機能豊富で、小さくなっています。大容量バッファと複雑なオブジェクトに対するパフォーマンスは約 2 倍に向上します。 小さいメッセージに対する遅延はほとんど影響しません。 詳細は [#20214](https://github.com/electron/electron/pull/20214) を参照してください。
 
-See the [8.0.0 release notes](https://github.com/electron/electron/releases/tag/v8.0.0) for a full list of new features and changes.
+新機能と変更の完全なリストは、[8.0.0 リリースノート](https://github.com/electron/electron/releases/tag/v8.0.0) を参照してください。
 
 ## 破壊的変更
 
-* Show module name in deprecation warning for context-aware modules. [#21952](https://github.com/electron/electron/pull/21952)
+* コンテキスト対応モジュールの非推奨警告でその名前を表示します。 [#21952](https://github.com/electron/electron/pull/21952)
     * This is continued work for a future requirement that native Node modules loaded in the renderer process be either [N-API](https://nodejs.org/api/n-api.html) or [Context Aware](https://nodejs.org/api/addons.html#addons_context_aware_addons). Full info and proposed timeline is detailed in [this issue](https://github.com/electron/electron/issues/18397).
 * IPC を介して送信される値が構造化複製アルゴリズムでシリアライズされるように.  [#20214](https://github.com/electron/electron/pull/20214)
 * Offscreen Rendering is currently disabled due to lack of a maintainer to work on this feature.  It broke during the Chromium upgrade and was subsequently disabled. [#20772](https://github.com/electron/electron/issues/20772)
