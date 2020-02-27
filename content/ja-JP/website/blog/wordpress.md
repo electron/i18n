@@ -35,13 +35,13 @@ date: '2017-02-28'
 
 当時、Electron は比較的新しいものであり、すぐに (時には同日中に!) 修正される問題に直面し続けました。
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
-Electron already provides most of what we need for the Desktop app, and it's progressed rapidly since we started using it. That said, there are some areas that are taken for granted in a desktop app, such as spell checking and find/replace, that are harder to replicate with Electron as-is.
+Electron はすでにデスクトップアプリに必要なもののほとんどを提供しており、私たちが使い始めてから急速に進歩しています。 とはいえ Electron は、スペルチェックや検索/置換など、デスクトップアプリではそのまま複製するのが難しい領域が改善されるべきだと考えます。
 
-We’d also love to see some of the newer Chrome technologies filtering down into Electron too. We’re particularly keen on experimenting with WebVR.
+また、新しい Chrome 技術の一部を Electron でも使いたいです。 私たちは特に WebVR の実験に熱心です。
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
 The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
 
