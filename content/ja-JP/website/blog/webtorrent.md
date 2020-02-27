@@ -24,7 +24,7 @@ WebTorrent の実際のデモは [webtorrent.io](https://webtorrent.io/) で見�
 
 ## Why is this cool?
 
-YouTube のようだけれども、訪問者がサイトコンテンツのホストを助けるビデオサイトを想像してください。 The more people that use a WebTorrent-powered website, the faster and more resilient it becomes.
+YouTube のようだけれども、訪問者がサイトコンテンツのホストを助けるビデオサイトを想像してください。 WebTorrent で強化されたウェブサイトは、利用者が多いほどより高速で強靭になります。
 
 Browser-to-browser communication cuts out the middle-man and lets people communicate on their own terms. No more client/server – just a network of peers, all equal. WebTorrent is the first step in the journey to re-decentralize the Web.
 
