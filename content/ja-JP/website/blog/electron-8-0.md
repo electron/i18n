@@ -6,11 +6,11 @@ author:
 date: '2020-02-04'
 ---
 
-Electron 8.0.0 has been released! It includes upgrades to Chromium `80`, V8 `8.0`, and Node.js `12.13.0`. We've added Chrome's built-in spellchecker, and much more!
+Electron 8.0.0 がリリースされました! これには Chromium `80`、V8 `8.0`、Node.js `12.13.0` へのアップグレードが含まれています。 Chrome の組み込みスペルチェッカーや、その他にも色々と追加しました!
 
 ---
 
-The Electron team is excited to announce the release of Electron 8.0.0! You can install it with npm via `npm install electron@latest` or download it from our [releases website](https://electronjs.org/releases/stable). The release is packed with upgrades, fixes, and new features. We can't wait to see what you build with them! Continue reading for details about this release, and please share any feedback you have!
+Electron チームは、Electron 8.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が含まれています。 新機能たちと共に何を作るのか、楽しみにしています! Continue reading for details about this release, and please share any feedback you have!
 
 ## Notable Changes
 
