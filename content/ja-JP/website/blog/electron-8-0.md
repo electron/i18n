@@ -80,15 +80,15 @@ Electron チームは、Electron 8.0.0 のリリース発表にワクワクし�
     * 印刷ページのヘッダーとフッターのカスタマイズを有効にするオプションを `webContents.print([options], [callback])` に追加しました。 [#19688](https://github.com/electron/electron/pull/19688)
     * ` webContents.getAllSharedWorkers()` と `webContents.inspectSharedWorkerById(workerId)` を介して特定の共有ワーカーをインスペクトする機能が追加されました。 [#20389](https://github.com/electron/electron/pull/20389)
     * WebContents.printToPDF() での `fitToPageEnabled` と `scaleFactor` オプションの対応を追加しました。 [#20436](https://github.com/electron/electron/pull/20436)
-* Updated `webview.printToPDF` documentation to indicate return type is now Uint8Array. [#20505](https://github.com/electron/electron/pull/20505)
+* `webview.printToPDF` のドキュメントを更新し、戻り値型が Uint8Array になったことを示しました。 [#20505](https://github.com/electron/electron/pull/20505)
 
-### Deprecated APIs
-The following APIs are now deprecated:
-* Deprecated the nonfunctional `visibleOnFullScreen` option within `BrowserWindow.setVisibleOnAllWorkspaces` prior to its removal in the next major release version. [#21732](https://github.com/electron/electron/pull/21732)
-* Deprecated `alternate-selected-control-text` on `systemPreferences.getColor(color)` for macOS. [#20611](https://github.com/electron/electron/pull/20611)
-* Deprecated `setLayoutZoomLevelLimits` on `webContents`, `webFrame`, and `<webview> Tag` because Chromium removed this capability. [#21296](https://github.com/electron/electron/pull/21296)
-* The default value of `false` for `app.allowRendererProcessReuse` is now deprecated. [#21287](https://github.com/electron/electron/pull/21287)
-* Deprecated `<webview>.getWebContents()` as it depends on the remote module. [#20726](https://github.com/electron/electron/pull/20726)
+### 非推奨となった API
+これらの API は非推奨になりました。
+* `BrowserWindow.setVisibleOnAllWorkspaces` で機能していない `visibleOnFullScreen` オプションを非推奨にしました。これは次のメジャーリリースバージョンで削除します。 [#21732](https://github.com/electron/electron/pull/21732)
+* macOS の `systemPreferences.getColor(color)` での `alternate-selected-control-text` を非推奨にしました。 [#20611](https://github.com/electron/electron/pull/20611)
+* Chromium がこの機能を削除したため、`webContents`、`webFrame`、`<webview>` の `setLayoutZoomLevelLimits` を非推奨にしました。 [#21296](https://github.com/electron/electron/pull/21296)
+* `app.allowRendererProcessReuse` の省略値 `false` を非推奨にしました。 [#21287](https://github.com/electron/electron/pull/21287)
+* remote モジュールに依存するため、`<webview>.getWebContents()` を非推奨にしました。 [#20726](https://github.com/electron/electron/pull/20726)
 
 ## End of Support for 5.x.y
 
