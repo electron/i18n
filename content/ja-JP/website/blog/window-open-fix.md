@@ -1,5 +1,5 @@
 ---
-title: BrowserView window.open() Vulnerability Fix
+title: BrowserView window.open() の脆弱性の修正
 author: ckerr
 date: '2019-02-03'
 ---
