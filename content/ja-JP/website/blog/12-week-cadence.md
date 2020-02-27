@@ -1,14 +1,14 @@
 ---
-title: New Electron Release Cadence
+title: 新しい Electron リリースケイデンス
 author: sofianguy
 date: '2019-05-13'
 ---
 
-🎉 Electron is moving to release a new major stable version every 12 weeks! 🎉
+🎉 Electron は 12 週ごとに新しいメジャー安定バージョンをリリースします! 🎉
 
 ---
 
-## ⚡️ Wow that's quick! But why?
+## ⚡️ なんて速さだ! でもなんで?
 
 Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either.
 
