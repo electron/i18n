@@ -20,19 +20,19 @@ Chromium は、一貫した 6 週間の [スケジュール](https://www.chromiu
 
 ## 🚧 私と自作 Electron アプリはどうなりますか?
 
-新しい Chromium と V8 の機能と修正プログラムに以前よりも早くアクセスできるようになります。 Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
+新しい Chromium と V8 の機能と修正プログラムに以前よりも早くアクセスできるようになります。 重要なのは、これら新しい変更がいつ _いつ_ 行われるかもわかるため、以前よりも良質な情報で計画できるということです。
 
-The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
+Electron チームは、新しい順に 3 つのメジャーバージョンを [継続サポート](https://electronjs.org/docs/tutorial/support#supported-versions) します。 例えば、[v6.0.0 が 2019 年 7 月 30 日に安定版になった](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) 場合、v6.x、v5.x、v4.x はサポートします。v3.x はサポート終了になります。
 
 ## 💬 App のフィードバックプログラム
 
-Please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) to help us with testing our beta releases and stabilization. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release.
+[アプリフィードバックプログラム](https://electronjs.org/blog/app-feedback-program) に参加して、ベータリリースと安定化のテストに役立ててください。 このプログラムに参加するプロジェクトは、そのアプリで Electron ベータ版をテストします。見返りとして、発見した新しいバグは安定版リリースのために優先します。
 
-## 📝 A brief history of Electron releases
+## 📝 Electronリリースの略歴
 
-The decisions around stable releases before v3.0.0 did not follow a schedule. We added internal schedules to the project with v3.0.0 and v4.0.0. Earlier this year, we decided to publicize our stable release date for the first time for [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline). Announcing our stable release dates was positively received overall and we're excited to continue doing that for future releases.
+v3.0.0 より前の安定版リリースに関する決定は、スケジュールに従っていませんでした。 v3.0.0 と v4.0.0 において、プロジェクトに内部スケジュールを追加しました。今年の初めに [Electron v5.0.0](https://electronjs.org/blog/electron-5-0-timeline) の安定版リリース日を初めて公開することにしました。 安定版リリース日の発表は全体として好意的に受け止められており、今後のリリースでも継続リリースできることを楽しみにしています。
 
-In order to better streamline these upgrade-related efforts, our [Upgrades](https://github.com/electron/governance/tree/master/wg-upgrades) and [Releases](https://github.com/electron/governance/tree/master/wg-releases) Working Groups were created within our [Governance](https://electronjs.org/blog/governance) system. They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
+これらのアップグレード関連の作業を効率化するために、 [ガバナンス](https://electronjs.org/blog/governance) システム内に [アップグレード](https://github.com/electron/governance/tree/master/wg-upgrades) と [リリース](https://github.com/electron/governance/tree/master/wg-releases) の作業グループが作成されました。 They have allowed us to better prioritize and delegate this work, which we hope will become more apparent with each subsequent release.
 
 Here is where our new cadence will put us in comparison to Chromium's cadence:
 <img alt="line graph comparing Electron versus Chromium versions" src="https://user-images.githubusercontent.com/2138661/57543187-86340700-7308-11e9-9745-a9371bb29275.png" />
