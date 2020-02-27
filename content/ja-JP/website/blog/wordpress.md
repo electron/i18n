@@ -11,7 +11,7 @@ date: '2017-02-28'
 
 ---
 
-[![WordPress Apps](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
+[![WordPress アプリ](https://cloud.githubusercontent.com/assets/2289/23391881/ea54d52e-fd2c-11e6-86ec-98fe466d5c5c.gif)](https://apps.wordpress.com/desktop/)
 
 ## WordPress は誰でも知っているけれど、WordPress デスクトップって何?
 
@@ -59,5 +59,5 @@ Electron を選んだ主な理由は、非常に活発でオープンなコミ�
 
 ## 他の開発者に役立つ Electron のノウハウはありますか?
 
-署名されたデスクトップソフトウェアを公開するプロセスは、特に Windows において比較的新しいものです。 we wrote up an article for [Code Signing a Windows App](https://mkaz.blog/code/code-signing-a-windows-application/) which includes the process and a few of the hurdles we went through to do it right.
+署名されたデスクトップソフトウェアを公開するプロセスは、特に Windows において比較的新しいものです。 [Windows アプリのコード署名](https://mkaz.blog/code/code-signing-a-windows-application/) の記事を作成しました。この記事には、そのプロセスとそれを正しく行うために経験したいくつかの壁について書いています。
 
