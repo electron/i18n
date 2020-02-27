@@ -12,14 +12,8 @@ const remark = require('remark')
 const links = require('remark-inline-links')
 const cleanDeep = require('clean-deep')
 const hrefType = require('href-type')
-// const getIds = require('get-crowdin-file-ids')
 
-// TODO
-// let ids: Record<string, string> = {}
-
-export async function parseFile(file: IParseFile) {
-  // ids = await getIds('electron')
-
+export async function parseFile(file: IParseFile, ids: Record<string, string>) {
   file.fullyPath = path.join(file.basePath, file.relativePath)
   file.locale = file.relativePath.split('/')[0]
   file.slug = path.basename(file.relativePath, '.md')
@@ -39,7 +33,7 @@ export async function parseFile(file: IParseFile) {
   // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
 
-  // file.crowdinFileId = ids[`master/content/en-US${file.href}.md`]
+  file.crowdinFileId = ids[`master/content/en-US${file.href}.md`]
 
   // convenience booleans for use in templates
   file.isTutorial = file.category === 'tutorial'
