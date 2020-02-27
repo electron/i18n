@@ -10,22 +10,22 @@ Electron 8.0.0 がリリースされました! これには Chromium `80`、V8 `
 
 ---
 
-Electron チームは、Electron 8.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が含まれています。 新機能たちと共に何を作るのか、楽しみにしています! Continue reading for details about this release, and please share any feedback you have!
+Electron チームは、Electron 8.0.0 のリリース発表にワクワクしています! `npm install electron@latest` から npm でインストールするか、[リリースウェブサイト](https://electronjs.org/releases/stable) からダウンロードできます。 このリリースには、アップグレード、修正、新機能が含まれています。 新機能たちと共に何を作るのか、楽しみにしています! このリリースの詳細については下に続きます。是非ご意見をお聞かせください!
 
-## Notable Changes
+## 変更の目玉
 
-### Stack Changes
+### 累積的変更
 * Chromium `80.0.3987.86`
-    * [New in Chrome 79](https://developers.google.com/web/updates/2019/12/nic79)
-    * [New in Chrome 80](https://chromereleases.googleblog.com/2020/02/stable-channel-update-for-desktop.html)
+    * [Chrome 79 の新機能](https://developers.google.com/web/updates/2019/12/nic79)
+    * [Chrome 80 の新機能](https://chromereleases.googleblog.com/2020/02/stable-channel-update-for-desktop.html)
 * Node.js `12.13.0`
-    * [Node 12.13.0 blog post](https://nodejs.org/en/blog/release/v12.13.0/)
+    * [Node 12.13.0 ブログ記事](https://nodejs.org/en/blog/release/v12.13.0/)
 * V8 `8.0`
-    * [V8 7.9 blog post](https://v8.dev/blog/v8-release-79)
-    * [V8 8.0 blog post](https://v8.dev/blog/v8-release-80)
+    * [V8 7.9 ブログ記事](https://v8.dev/blog/v8-release-79)
+    * [V8 8.0 ブログ記事](https://v8.dev/blog/v8-release-80)
 
-### Highlight Features
-* Implemented usage of Chrome's built-in spellchecker feature. See more details in [#20692](https://github.com/electron/electron/pull/20692) and [#21266](https://github.com/electron/electron/pull/21266).
+### 注目の機能
+* Chrome の組み込みスペルチェッカー機能を使用できるように実装しました。 See more details in [#20692](https://github.com/electron/electron/pull/20692) and [#21266](https://github.com/electron/electron/pull/21266).
 * IPC communication now uses v8's Structured Clone Algorithm. This is faster, more featureful, and less surprising than the existing logic, and brings about a 2x performance boost for large buffers and complex objects. Latency for small messages is not significantly affected. See more details in [#20214](https://github.com/electron/electron/pull/20214).
 
 See the [8.0.0 release notes](https://github.com/electron/electron/releases/tag/v8.0.0) for a full list of new features and changes.
