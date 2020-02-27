@@ -89,6 +89,7 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
   return docs
 }
 
+// @ts-ignore | HALP
 async function parseBlogs() {
   ids = await getIds('electron')
 
@@ -311,18 +312,19 @@ async function main() {
     return acc
   }, {} as Record<string, Partial<ILocalesResult>>)
 
-  const blogs = await parseBlogs()
-  const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
-    acc[locale] = blogs
-      .filter(doc => doc.locale === locale)
-      .sort((a, b) => a.slug.localeCompare(b.slug))
-      .reduce((allBlogs, blog) => {
-        allBlogs[blog.href] = blog
-        return allBlogs
-      }, {})
+  // FIXME: HALP!
+  // const blogs = await parseBlogs()
+  // const websiteBlogsByLocale = Object.keys(locales).reduce((acc, locale) => {
+  //   acc[locale] = blogs
+  //     .filter(doc => doc.locale === locale)
+  //     .sort((a, b) => a.slug.localeCompare(b.slug))
+  //     .reduce((allBlogs, blog) => {
+  //       allBlogs[blog.href] = blog
+  //       return allBlogs
+  //     }, {})
 
-    return acc
-  }, {} as Record<string, IParseFile>)
+  //   return acc
+  // }, {} as Record<string, IParseFile>)
 
   const websiteStringsByLocale = Object.keys(locales).reduce((acc, locale) => {
     acc[locale] = require(`../content/${locale}/website/locale.yml`)
@@ -347,7 +349,7 @@ async function main() {
         locales: locales,
         docs: docsByLocale,
         website: websiteStringsByLocale,
-        blogs: websiteBlogsByLocale,
+        // blogs: websiteBlogsByLocale,
         glossary: glossary,
         date: new Date(),
       },
