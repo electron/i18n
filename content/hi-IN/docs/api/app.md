@@ -600,7 +600,7 @@ Clears the recent documents list.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - The name of your protocol, without `://`. For example, if you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* `protocol` String - The name of your protocol, without `://`. </code>
 * `path` String (optional) *Windows* - The path to the Electron executable. Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Arguments passed to the executable. Defaults to an empty array
 
