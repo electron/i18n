@@ -15,13 +15,13 @@ date: '2017-02-28'
 
 ## WordPress は誰でも知っているけれど、WordPress デスクトップって何?
 
-The [WordPress.com Desktop app](https://apps.wordpress.com/desktop/) provides a seamless cross-platform experience that allows you to focus on your content and design with no browser tabs to distract you — or to keep your sites sidelined but accessible. In combination with our browser support and mobile app you can build your site anywhere, in whatever way helps you get your work done.
+[WordPress.com デスクトップアプリ](https://apps.wordpress.com/desktop/) は、コンテンツとデザインに集中できる、シームレスなクロスプラットフォーム体験を提供します。ブラウザタブが無いので、あなたの集中を削いだり、サイト作りを放って違うサイトを見てしまったりすることはありません。 ブラウザーサポートとモバイルアプリを組み合わせることで、どこでもサイトを作れます。
 
-## Why build a Desktop app for managing WordPress sites? Couldn't it all be web-based?
+## なぜ WordPress サイトを管理するデスクトップアプリを作るのですか? ウェブベースで十分じゃないですか?
 
-It's actually using exactly the same technology you get when visiting [WordPress.com](https://wordpress.com) in your browser. However, it's all locally hosted, so it has minimal load times. With the benefit of native features such as being in your dock, notifications, etc., you really can focus on your WordPress sites and blogging.
+実際、ブラウザで [WordPress.com](https://wordpress.com) にアクセスしたときと全く同じ技術を使用しています。 しかし、これはすべてローカルでホストされるため、読み込み時間が最小限になります。 Dock や通知などのネイティブ機能の恩恵を活用し、WordPress のサイトとブログにより集中できます。
 
-## Why did you choose to build WordPress Desktop on Electron?
+## Electron で WordPress デスクトップを構築することにしたのはなぜですか?
 
 At the end of 2015 we rebuilt much of WordPress.com in the form of [Calypso](https://github.com/automattic/wp-calypso), an open-source modern JavaScript app using React. We started looking at Electron and with some changes to Calypso were able to get it running locally. It was a compelling  experience and we thought there was a lot of value in developing it further.
 
