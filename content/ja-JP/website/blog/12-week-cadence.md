@@ -10,17 +10,17 @@ date: '2019-05-13'
 
 ## ⚡️ なんて速さだ! でもなんで?
 
-Simply put, Chromium doesn't stop shipping so Electron is not going to slow down either.
+簡単に言えば、Chromium は更新を止めないので Electron も遅くなりません。
 
-Chromium releases on a consistent 6-week [schedule](https://www.chromium.org/developers/calendar). To deliver the most up-to-date versions of Chromium in Electron, our schedule needs to track theirs. More information around Chromium's release cycle can be found [here](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md).
+Chromium は、一貫した 6 週間の [スケジュール](https://www.chromium.org/developers/calendar) でリリースされます。 Electron で Chromium の最新バージョンを提供するには、そのスケジュールを追う必要があります。 Chromium のリリースサイクルに関する詳細は [こちら](https://chromium.googlesource.com/chromium/src/+/master/docs/process/release_cycle.md) を参照してください。
 
-## 🚀 Why every 12 weeks?
+## 🚀 なんで 12 週ごとに?
 
-Every 6 weeks, a new Chromium release comes out with new features, bug fixes / security fixes, and V8 improvements. Electron's users have been loud and clear about wanting these changes in a timely manner, so we've adjusted our stable release dates to match every other Chromium stable release. Up first, Electron v6.0.0 will include M76 and is scheduled for stable release on [July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), the same release day as [Chromium M76](https://www.chromestatus.com/features/schedule).
+6 週ごとに、新しい機能、バグ修正/セキュリティ修正、V8 の改善が施された新しい Chromium リリースが出ます。 Electron ユーザーはこの変更を明確に待ち望んでおり、他の Chromium 安定リリースごとに安定リリース日を合わせていました。 最初に、Electron v6.0.0 には M76 が含まれます。これは、[Chromium M76](https://www.chromestatus.com/features/schedule) と同じリリース日である [2019 年 7 月 30 日](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule) で安定版リリースを予定しています。
 
-## 🚧 What does this mean for me and my Electron app?
+## 🚧 私と自作 Electron アプリはどうなりますか?
 
-You'll have access to new Chromium and V8 features and fixes sooner than before. Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
+新しい Chromium と V8 の機能と修正プログラムに以前よりも早くアクセスできるようになります。 Importantly, you'll also know _when_ those new changes are coming, so you'll be able to plan with better information than before.
 
 The Electron team will [continue to support](https://electronjs.org/docs/tutorial/support#supported-versions) the latest three major versions. For example, when [v6.0.0 goes stable on July 30, 2019](https://electronjs.org/docs/tutorial/electron-timelines#600-release-schedule), we will support v6.x, v5.x, and v4.x, while v3.x will reach End-Of-Life.
 
