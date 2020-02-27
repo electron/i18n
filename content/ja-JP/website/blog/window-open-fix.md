@@ -4,23 +4,23 @@ author: ckerr
 date: '2019-02-03'
 ---
 
-A code vulnerability has been discovered that allows Node to be re-enabled in child windows.
+Node を子ウィンドウで再度有効にできるというコードの脆弱性が発見されました。
 
 ---
 
-Opening a BrowserView with `sandbox: true` or `nativeWindowOpen: true` and `nodeIntegration: false` results in a webContents where `window.open` can be called and the newly opened child window will have `nodeIntegration` enabled. This vulnerability affects all supported versions of Electron.
+`sandbox: true` または `nativeWindowOpen: true` と `nodeIntegration: false` で BrowserView を開くと、そこから `window.open` を呼び出すことができます。そうして新しく開いた子ウィンドウでは `nodeIntegration` が有効な webContents が生成されます。 この脆弱性は、すべてのサポートされているバージョンの Electron に影響します。
 
-## Mitigation
+## 緩和策
 
-We've published new versions of Electron which include fixes for  this vulnerability: [`2.0.17`](https://github.com/electron/electron/releases/tag/v2.0.17), [`3.0.15`](https://github.com/electron/electron/releases/tag/v3.0.15), [`3.1.3`](https://github.com/electron/electron/releases/tag/v3.1.3), [`4.0.4`](https://github.com/electron/electron/releases/tag/v4.0.4), and [`5.0.0-beta.2`](https://github.com/electron/electron/releases/tag/v5.0.0-beta.2). We encourage all Electron developers to update their apps to the latest stable version immediately.
+この脆弱性に対する修正を含む新しいバージョンの Electron を公開しました。 [`2.0.17`](https://github.com/electron/electron/releases/tag/v2.0.17)、 [`3.0.15`](https://github.com/electron/electron/releases/tag/v3.0.15)、 [`3.1.3`](https://github.com/electron/electron/releases/tag/v3.1.3)、 [`4.0.4`](https://github.com/electron/electron/releases/tag/v4.0.4)、 [`5.0.0-beta.2`](https://github.com/electron/electron/releases/tag/v5.0.0-beta.2) です。 すべての Electron 開発者は、アプリをすぐに最新の安定バージョンに更新することを推奨します。
 
-If for some reason you are unable to upgrade your Electron version, you can mitigate this issue by disabling all child web contents:
+何らかの理由で Electron バージョンをアップグレードできない場合は、すべての子ウェブコンテンツを無効にすることでこの問題を緩和できます。
 
 ```javascript
 view.webContents.on('-add-new-contents', e => e.preventDefault());
 ```
 
-## Further Information
+## 詳細情報
 
 This vulnerability was found and reported responsibly to the Electron project by [PalmerAL](https://github.com/PalmerAL).
 
