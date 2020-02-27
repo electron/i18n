@@ -46,28 +46,28 @@ Electron チームは、Electron 8.0.0 のリリース発表にワクワクし�
 * `BrowserWindow` API の変更:
     * BrowserWindow オプション `hasShadow` が全プラットフォームで利用可能であることを注意するようにドキュメントを更新しました [#20038](https://github.com/electron/electron/pull/20038)
     * BrowserWindow オプションに `trafficLightPosition` オプションを追加して、信号機ボタンのカスタム位置を指定できるようにしました。 [#21781](https://github.com/electron/electron/pull/21781)
-    * アクセシブルウィンドウのタイトルを設定する `accessibleTitle` オプションを BrowserWindow に追加 しました [#19698](https://github.com/electron/electron/pull/19698)
+    * アクセシブルウィンドウのタイトルを設定する `accessibleTitle` オプションを BrowserWindow に追加しました [#19698](https://github.com/electron/electron/pull/19698)
     * `BrowserWindow.fromWebContents()` が null も返すようになりました [#19983](https://github.com/electron/electron/pull/19983)
     * `BrowserWindow.getMediaSourceId()` と `BrowserWindow.moveAbove(mediaSourceId)` を追加しました。 [#18926](https://github.com/electron/electron/pull/18926)
-    * macOS での `will-move` イベントの対応が追加されました。 [#19641](https://github.com/electron/electron/pull/19641)
+    * macOS での `will-move` イベントの対応を追加しました。 [#19641](https://github.com/electron/electron/pull/19641)
 * 以前にドキュメント化されていなかった `crashReporter.getCrashesDirectory()` をドキュメント化しました。 [#20417](https://github.com/electron/electron/pull/20417)
 * `dialog` API の変更:
     * `dontAddToRecent` プロパティを `dialog.showOpenDialog` や `dialog.showOpenDialogSync` に追加しました。これは開くダイアログで書類を開いても Windows の最近開いたドキュメントに追加しません。 [#19669](https://github.com/electron/electron/pull/19669)
     * `dialog.showSaveDialog` と `dialog.showSaveDialogSync` にプロパティのカスタマイズを追加しました。 [#19672](https://github.com/electron/electron/pull/19672)
 * `Notification` API の変更:
-    * Added `timeoutType` option to allow Linux/Windows users to set the type of notification timeout. [#20153](https://github.com/electron/electron/pull/20153)
-    * Added `urgency`  option to set urgency on Linux notifications. [#20152](https://github.com/electron/electron/pull/20152)
-* `session` API changes:
-    * Updated documentation on `session.setProxy(config)` and `session.setCertificateVerifyProc(proc)` to note optional options. [#19604](https://github.com/electron/electron/pull/19604)
-    * Added `session.downloadURL(url)` to allow to triggering downloads without a BrowserWindow. [#19889](https://github.com/electron/electron/pull/19889)
-    * Added support for HTTP preconnect resource hints via `session.preconnect(options)` and the `preconnect` event. [#18671](http://github.com/electron/electron/pull/18671)
-    * Added `session.addWordToSpellCheckerDictionary` to allow custom words in the dictionary [#21297](http://github.com/electron/electron/pull/21297)
-* Added option to `shell.moveItemToTrash(fullPath[, deleteOnFail])` on macOS to specify what happens when moveItemToTrash fails. [#19700](https://github.com/electron/electron/pull/19700)
-* `systemPreferences` API changes:
-    * Updated `systemPreferences.getColor(color)` documentation for macOS. [#20611](https://github.com/electron/electron/pull/20611)
-    * Added `screen` media type to `systemPreferences.getMediaAccessStatus()`. [#20764](https://github.com/electron/electron/pull/20764)
-* Added `nativeTheme.themeSource` to allow apps to override Chromium and the OS's theme choice. [#19960](https://github.com/electron/electron/pull/19960)
-* TouchBar API changes:
+    * Linux/Windows ユーザーに通知期限切れのタイプを設定できるようにする `timeoutType` オプションを追加しました。 [#20153](https://github.com/electron/electron/pull/20153)
+    * Linux 通知の緊急度を設定する `urgency` オプションを追加しました。 [#20152](https://github.com/electron/electron/pull/20152)
+* `session` API の変更:
+    * `session.setProxy(config)` と `session.setCertificateVerifyProc(proc)` のドキュメントを更新して、任意のオプションを記述しました。 [#19604](https://github.com/electron/electron/pull/19604)
+    * BrowserWindow なしでダウンロードをトリガーできるようにする `session.downloadURL(url)` を追加しました。 [#19889](https://github.com/electron/electron/pull/19889)
+    * `session.preconnect(options)` と `preconnect` イベントによる HTTP 事前接続リソースのヒントへの対応を追加しました。 [#18671](http://github.com/electron/electron/pull/18671)
+    * スペルチェッカー辞書がカスタムワードを使えるようにする `session.addWordToSpellCheckerDictionary` を追加しました [#21297](http://github.com/electron/electron/pull/21297)
+* macOS の `shell.moveItemToTrash(fullPath[, deleteOnFail])` にオプションを追加しました。これは moveItemToTrash が失敗した場合の動作を指定します。 [#19700](https://github.com/electron/electron/pull/19700)
+* `systemPreferences` API の変更:
+    * macOS の `systemPreferences.getColor(color)`ドキュメントを更新しました。 [#20611](https://github.com/electron/electron/pull/20611)
+    * `screen ` メディアタイプを `systemPreferences.getMediaAccessStatus()` に追加しました。 [#20764](https://github.com/electron/electron/pull/20764)
+* `nativeTheme.themeSource` を追加しました。これはアプリが Chromium と OS のテーマ選択をオーバーライドできるようにします。 [#19960](https://github.com/electron/electron/pull/19960)
+* TouchBar API の変更:
     * Added `accessibilityLabel` property to `TouchBarButton` and `TouchBarLabel` to improve TouchBarButton/TouchBarLabel accessibility. [#20454](https://github.com/electron/electron/pull/20454)
     * Updated TouchBar related documentation [#19444](https://github.com/electron/electron/pull/19444)
 * `tray` API changes:
