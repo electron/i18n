@@ -68,18 +68,18 @@ Electron チームは、Electron 8.0.0 のリリース発表にワクワクし�
     * `screen ` メディアタイプを `systemPreferences.getMediaAccessStatus()` に追加しました。 [#20764](https://github.com/electron/electron/pull/20764)
 * `nativeTheme.themeSource` を追加しました。これはアプリが Chromium と OS のテーマ選択をオーバーライドできるようにします。 [#19960](https://github.com/electron/electron/pull/19960)
 * TouchBar API の変更:
-    * Added `accessibilityLabel` property to `TouchBarButton` and `TouchBarLabel` to improve TouchBarButton/TouchBarLabel accessibility. [#20454](https://github.com/electron/electron/pull/20454)
-    * Updated TouchBar related documentation [#19444](https://github.com/electron/electron/pull/19444)
-* `tray` API changes:
-    * Added new options to `tray.displayBalloon()`: `iconType`, `largeIcon`, `noSound` and `respectQuietTime`. [#19544](https://github.com/electron/electron/pull/19544)
-    * Added tray.removeBalloon(), which removes an already displayed balloon notification. [#19547](https://github.com/electron/electron/pull/19547)
-    * Added tray.focus(), which returns focus to the taskbar notification area. feat: add tray.focus() [#19548](https://github.com/electron/electron/pull/19548)
-* `webContents` API changes:
-    * Added `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])` to expose executeJavaScriptInIsolatedWorld on the webContents API. [#21190](https://github.com/electron/electron/pull/21190)
-    * Added methods to capture a hidden webContents. [#21679](https://github.com/electron/electron/pull/21679)
-    * Added options to `webContents.print([options], [callback])` to enable customization of print page headers and footers. [#19688](https://github.com/electron/electron/pull/19688)
-    * Added ability to inspect specific shared workers via `webContents.getAllSharedWorkers()` and `webContents.inspectSharedWorkerById(workerId)`. [#20389](https://github.com/electron/electron/pull/20389)
-    * Added the support of `fitToPageEnabled` and `scaleFactor` options in WebContents.printToPDF(). [#20436](https://github.com/electron/electron/pull/20436)
+    * `accessibilityLabel` プロパティを `TouchBarButton` と `TouchBarLabel` に追加しました。これにより、TouchBarButton/TouchBarLabel のアクセシビリティを改善しました。 [#20454](https://github.com/electron/electron/pull/20454)
+    * TouchBar に関するドキュメントを更新しました [#19444](https://github.com/electron/electron/pull/19444)
+* `tray` API の変更:
+    * `tray.displayBalloon()` に以下の新しいオプションを追加しました。`iconType`、`largeIcon`、`noSound`、`respectQuietTime` です。 [#19544](https://github.com/electron/electron/pull/19544)
+    * tray.removeBalloon() を追加しました。これは、既に表示しているバルーン通知を削除します。 [#19547](https://github.com/electron/electron/pull/19547)
+    * tray.focus() を追加しました。これは、タスクバーの通知領域にフォーカスを戻します。 機能: tray.focus() の追加 [#19548](https://github.com/electron/electron/pull/19548)
+* `webContents` API の変更:
+    * `contents.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture])` を追加しました。これは webContents API 上での executeJavaScriptInIsolatedWorld を公開します。 [#21190](https://github.com/electron/electron/pull/21190)
+    * 非表示の webContents をキャプチャするメソッドを追加しました。 [#21679](https://github.com/electron/electron/pull/21679)
+    * 印刷ページのヘッダーとフッターのカスタマイズを有効にするオプションを `webContents.print([options], [callback])` に追加しました。 [#19688](https://github.com/electron/electron/pull/19688)
+    * ` webContents.getAllSharedWorkers()` と `webContents.inspectSharedWorkerById(workerId)` を介して特定の共有ワーカーをインスペクトする機能が追加されました。 [#20389](https://github.com/electron/electron/pull/20389)
+    * WebContents.printToPDF() での `fitToPageEnabled` と `scaleFactor` オプションの対応を追加しました。 [#20436](https://github.com/electron/electron/pull/20436)
 * Updated `webview.printToPDF` documentation to indicate return type is now Uint8Array. [#20505](https://github.com/electron/electron/pull/20505)
 
 ### Deprecated APIs
