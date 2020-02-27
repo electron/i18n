@@ -111,7 +111,7 @@ Per our [supported versions policy](https://electronjs.org/docs/tutorial/support
 
 ## App のフィードバックプログラム
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. このプログラムに参加するプロジェクトは、そのアプリで Electron ベータ版をテストします。見返りとして、発見した新しいバグは安定版リリースのために優先します。 If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
 
 ## What's Next
 
