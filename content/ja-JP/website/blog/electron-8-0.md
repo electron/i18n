@@ -100,9 +100,9 @@ Electron 5.x.y はプロジェクトの [サポートポリシー](https://elect
 
 ## 次回予告
 
-短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないでチームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 The [tentative 9.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 9 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないでチームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 [仮 9.0.0 スケジュール](https://electronjs.org/docs/tutorial/electron-timelines) では、Electron 9 開発ライフサイクルの主要な日付を示してあります。 また、Electron のバージョン管理の詳細については [バージョン管理のドキュメントを参照](https://electronjs.org/docs/tutorial/electron-versioning) してください。
 
-For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
+今後のバージョンの Electron で予定されている破壊的な変更の詳細については、[予定されている破壊的な変更のドキュメントを参照してください](https://github.com/electron/electron/blob/master/docs/breaking-changes.md)。
 
-### Deprecation of `remote` Module (Starting in Electron 9)
-Due to serious security liabilities, we are beginning plans to deprecate the [`remote` module](https://www.electronjs.org/docs/api/remote) starting in Electron 9. You can read and follow [this issue](https://github.com/electron/electron/issues/21408) that details our reasons for this and includes a proposed timeline for deprecation.
+### `remote` モジュールの非推奨化 (Electron 9 から)
+深刻なセキュリティ面の問題のため、Electron 9 から [`remote` モジュール](https://www.electronjs.org/docs/api/remote) の非推奨化計画を始めています。 [この Issue](https://github.com/electron/electron/issues/21408) を読んで経緯を知ってください。この Issue では、理由を説明し非推奨化予定のタイムラインを提案しています。
