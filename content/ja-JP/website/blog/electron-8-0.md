@@ -44,17 +44,17 @@ Electron チームは、Electron 8.0.0 のリリース発表にワクワクし�
     * `app.getApplicationNameForProtocol(url)` を追加しました。 [#20399](https://github.com/electron/electron/pull/20399)
     * `app.showAboutPanel()` と `app.setAboutPanelOptions(options)` に Windows での対応を追加しました。 [#19420](https://github.com/electron/electron/pull/19420)
 * `BrowserWindow` API の変更:
-    * Updated docs to note that BrowserWindow options `hasShadow` is available on all platforms [#20038](https://github.com/electron/electron/pull/20038)
-    * Added `trafficLightPosition` option to BrowserWindow options to allow custom positioning for traffic light buttons. [#21781](https://github.com/electron/electron/pull/21781)
-    * Added `accessibleTitle` option to BrowserWindow for setting the accessible window title [#19698](https://github.com/electron/electron/pull/19698)
-    * `BrowserWindow.fromWebContents()` can now return null [#19983](https://github.com/electron/electron/pull/19983)
-    * Added `BrowserWindow.getMediaSourceId()` and `BrowserWindow.moveAbove(mediaSourceId)`. [#18926](https://github.com/electron/electron/pull/18926)
-    * Added support for `will-move` event on macOS. [#19641](https://github.com/electron/electron/pull/19641)
-* Documented previously undocumented `crashReporter.getCrashesDirectory()`. [#20417](https://github.com/electron/electron/pull/20417)
-* `dialog` API changes:
-    * Added `dontAddToRecent` property to `dialog.showOpenDialog` and `dialog.showOpenDialogSync` to prevent documents from being added to recent documents on Windows in open dialogs. [#19669](https://github.com/electron/electron/pull/19669)
-    * Added property customization to `dialog.showSaveDialog` and `dialog.showSaveDialogSync`. [#19672](https://github.com/electron/electron/pull/19672)
-* `Notification` API changes:
+    * BrowserWindow オプション `hasShadow` が全プラットフォームで利用可能であることを注意するようにドキュメントを更新しました [#20038](https://github.com/electron/electron/pull/20038)
+    * BrowserWindow オプションに `trafficLightPosition` オプションを追加して、信号機ボタンのカスタム位置を指定できるようにしました。 [#21781](https://github.com/electron/electron/pull/21781)
+    * アクセシブルウィンドウのタイトルを設定する `accessibleTitle` オプションを BrowserWindow に追加 しました [#19698](https://github.com/electron/electron/pull/19698)
+    * `BrowserWindow.fromWebContents()` が null も返すようになりました [#19983](https://github.com/electron/electron/pull/19983)
+    * `BrowserWindow.getMediaSourceId()` と `BrowserWindow.moveAbove(mediaSourceId)` を追加しました。 [#18926](https://github.com/electron/electron/pull/18926)
+    * macOS での `will-move` イベントの対応が追加されました。 [#19641](https://github.com/electron/electron/pull/19641)
+* 以前にドキュメント化されていなかった `crashReporter.getCrashesDirectory()` をドキュメント化しました。 [#20417](https://github.com/electron/electron/pull/20417)
+* `dialog` API の変更:
+    * `dontAddToRecent` プロパティを `dialog.showOpenDialog` や `dialog.showOpenDialogSync` に追加しました。これは開くダイアログで書類を開いても Windows の最近開いたドキュメントに追加しません。 [#19669](https://github.com/electron/electron/pull/19669)
+    * `dialog.showSaveDialog` と `dialog.showSaveDialogSync` にプロパティのカスタマイズを追加しました。 [#19672](https://github.com/electron/electron/pull/19672)
+* `Notification` API の変更:
     * Added `timeoutType` option to allow Linux/Windows users to set the type of notification timeout. [#20153](https://github.com/electron/electron/pull/20153)
     * Added `urgency`  option to set urgency on Linux notifications. [#20152](https://github.com/electron/electron/pull/20152)
 * `session` API changes:
