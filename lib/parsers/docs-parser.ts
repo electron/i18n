@@ -1,9 +1,25 @@
 import * as path from 'path'
 import * as fs from 'fs'
+import * as URL from 'url'
+import * as packageJSON from '../../package.json'
+import { bashFix, fiddleUrls, plaintextFix } from '../remark-index'
 import { IParseFile, $TSFixMe } from '../interfaces'
-import { categoryNames } from '../constants'
+import hubdown = require('hubdown')
+import * as cheerio from 'cheerio'
+import { categoryNames, IGNORE_PATTERN } from '../constants'
+const GithubSlugger = require('github-slugger')
+const remark = require('remark')
+const links = require('remark-inline-links')
+const cleanDeep = require('clean-deep')
+const hrefType = require('href-type')
+// const getIds = require('get-crowdin-file-ids')
+
+// TODO
+// let ids: Record<string, string> = {}
 
 export async function parseFile(file: IParseFile) {
+  // ids = await getIds('electron')
+
   file.fullyPath = path.join(file.basePath, file.relativePath)
   file.locale = file.relativePath.split('/')[0]
   file.slug = path.basename(file.relativePath, '.md')
@@ -23,7 +39,7 @@ export async function parseFile(file: IParseFile) {
   // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
 
-  file.crowdinFileId = ids[`master/content/en-US${file.href}.md`]
+  // file.crowdinFileId = ids[`master/content/en-US${file.href}.md`]
 
   // convenience booleans for use in templates
   file.isTutorial = file.category === 'tutorial'

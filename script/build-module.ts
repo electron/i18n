@@ -14,15 +14,10 @@ import {
   parseElectronGlossary,
   IParseElectronGlossaryReturn,
 } from '../lib/parse-electron-glossary'
-const getIds = require('get-crowdin-file-ids')
 
 const contentDir = path.join(__dirname, '../content')
 
-let ids: Record<string, string> = {}
-
 async function parseDocs(): Promise<Partial<IParseFile>[]> {
-  ids = await getIds('electron')
-
   console.time('parsed docs in')
   const markdownFiles = walk
     .entries(contentDir)
@@ -43,8 +38,6 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
 }
 
 async function parseBlogs() {
-  ids = await getIds('electron')
-
   console.time('parsed blogs in')
   const markdownFiles = walk
     .entries(contentDir)
