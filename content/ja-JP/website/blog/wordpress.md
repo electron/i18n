@@ -43,11 +43,11 @@ Electron はすでにデスクトップアプリに必要なもののほとん�
 
 ## Electron の好きなところは何ですか?
 
-The main reason we chose Electron, and it's biggest strength, is the very active and open community. Automattic has always believed in open source. It is one of our core tenets, and the Electron project and community follows a lot of the core beliefs of being very open and positive.
+Electron を選んだ主な理由は、非常に活発でオープンなコミュニティだからです。それが何よりの強みです。 Automattic は常にオープンソースを信奉しています。 それは私たちの中核理念の一つで、Electron プロジェクトとコミュニティは、非常にオープンかつ前向きであるという中核理念の多くに沿っています。
 
-## What's coming next in WordPress Desktop?
+## WordPress デスクトップの今後の予定は何ですか?
 
-The great thing about our model is that the Desktop app benefits from any new Calypso feature - there are constant improvements. We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
+私たちのモデルの素晴らしいところは、デスクトップアプリが新しい Calypso 機能の恩恵を受けていることです。この機能は絶えず改善されています。 We’re hoping we can add additional features to the app such as offline support, which would really take the app into native territory, and better system notifications.
 
 ## Are there any teams at Automattic working on other Electron apps?
 
