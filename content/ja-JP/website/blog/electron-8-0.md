@@ -90,17 +90,17 @@ Electron チームは、Electron 8.0.0 のリリース発表にワクワクし�
 * `app.allowRendererProcessReuse` の省略値 `false` を非推奨にしました。 [#21287](https://github.com/electron/electron/pull/21287)
 * remote モジュールに依存するため、`<webview>.getWebContents()` を非推奨にしました。 [#20726](https://github.com/electron/electron/pull/20726)
 
-## End of Support for 5.x.y
+## 5.x.y サポート終了
 
-Electron 5.x.y has reached end-of-support as per the project's [support policy](https://electronjs.org/docs/tutorial/support#supported-versions). Developers and applications are encouraged to upgrade to a newer version of Electron.
+Electron 5.x.y はプロジェクトの [サポートポリシー](https://electronjs.org/docs/tutorial/support#supported-versions) に則りサポート終了となりました。 開発者とアプリケーションは新しいバージョンの Electron にアップグレードすることを推奨します。
 
 ## App のフィードバックプログラム
 
-We continue to use our [App Feedback Program](https://electronjs.org/blog/app-feedback-program) for testing. Projects who participate in this program test Electron betas on their apps; and in return, the new bugs they find are prioritized for the stable release. If you'd like to participate or learn more, [check out our blog post about the program](https://electronjs.org/blog/app-feedback-program).
+テストには引き続き [アプリフィードバックプログラム](https://electronjs.org/blog/app-feedback-program) を使用します。 このプログラムに参加するプロジェクトは、そのアプリで Electron ベータ版をテストします。見返りとして、発見した新しいバグは安定版リリースのために優先します。 参加や詳細については、[プログラムに関するブログ記事を確認してください](https://electronjs.org/blog/app-feedback-program)。
 
-## What's Next
+## 次回予告
 
-In the short term, you can expect the team to continue to focus on keeping up with the development of the major components that make up Electron, including Chromium, Node, and V8. Although we are careful not to make promises about release dates, our plan is release new major versions of Electron with new versions of those components approximately quarterly. The [tentative 9.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 9 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
+短期的には、Chromium、Node、V8 といった Electron を構成する主要コンポーネントの開発に遅れないでチームが注力し続けるでしょう。 リリース日について約束しないように注意していますが、予定では約四半期ごとに新しいメジャーバージョンの Electron を、各コンポーネントの新しいバージョンに対してリリースします。 The [tentative 9.0.0 schedule](https://electronjs.org/docs/tutorial/electron-timelines) maps out key dates in the Electron 9 development life cycle. Also, [see our versioning document](https://electronjs.org/docs/tutorial/electron-versioning) for more detailed information about versioning in Electron.
 
 For information on planned breaking changes in upcoming versions of Electron, [see our Planned Breaking Changes doc](https://github.com/electron/electron/blob/master/docs/breaking-changes.md).
 
