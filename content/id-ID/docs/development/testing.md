@@ -21,7 +21,11 @@ dengan aturan gaya pengkodean. <code> npm jalanakan lint-py </ 0> dan akan memer
 
 <h2>Pengujian unit</h2>
 
-<p>Untuk menjalankan semua unit test, jalankan <code> npm jalankan test </ 0>. Tes unitnya adalah Elektron
+<p>If you are not using <a href="https://github.com/electron/build-tools">build-tools</a>,
+ensure that that name you have configured for your
+local build of Electron is one of <code>Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+
+Untuk menjalankan semua unit test, jalankan ` npm jalankan test </ 0>. Tes unitnya adalah Elektron
 aplikasi (surprise!) yang bisa ditemukan di folder <code> spasi </ 0>. Perhatikan bahwa itu mempunyai miliknya sendiri
 <code> package.json </ 0> dan karena itu dependensinya tidak didefinisikan
 di level atas <code> package.json </ 0>.</p>
