@@ -16,6 +16,8 @@
 
 ## 单元测试
 
+If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+
 要运行所有单元测试，请执行 `npm run test`。 单元测试其实也是一个Electron应用！你可以在`spec` 文件夹中找到它。 请注意，单元测试也有自己的 `package.json`，因此它的依赖没有在最顶层的`package.json`中定义。
 
 若要通过匹配模式运行单个测试，可以执行 `npm run test --
