@@ -1,5 +1,5 @@
 import * as visit from 'unist-util-visit'
-import { electronLatestStableTag } from '../package.json'
+import { electronLatestStableTag } from '../../package.json'
 import { Node } from 'unist'
 
 const regex = /(javascript.*|js.*) fiddle='([^']*)'(.*)/

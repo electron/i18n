@@ -2,7 +2,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import * as URL from 'url'
 import * as packageJSON from '../../package.json'
-import { bashFix, fiddleUrls, plaintextFix } from '../remark-index'
+import { bashFix, fiddleUrls, plaintextFix } from '../transfomers'
 import { IParseFile, $TSFixMe } from '../interfaces'
 import hubdown = require('hubdown')
 import * as cheerio from 'cheerio'
