@@ -50,9 +50,9 @@ YouTube のようだけれども、訪問者がサイトコンテンツのホス
 
 黎明期の頃、BitTorrent は TCP を転送プロトコルとして使用していました。 その後、TCP よりも優れた性能と更なるメリットを持った uTP が登場しました。 すべての上流トレントクライアントは最終的に uTP を採用し、現在はどちらのプロトコルでも BitTorrent を使用できます。 WebRTC プロトコルは次の必然的な段階です。 すべてのデスクトップ BitTorrent クライアントと数百万のウェブブラウザで構成される 1 つの巨大な P2P ネットワーク — これはウェブブラウザとの相互運用性を保証します。
 
-“Web peers” (torrent peers that run in a web browser) make the BitTorrent network stronger by adding millions of new peers, and spreading BitTorrent to dozens of new use cases. WebTorrent follows the BitTorrent spec as closely as possible, to make it easy for existing BitTorrent clients to add support for WebTorrent.
+"ウェブピア" (ウェブブラウザで実行されるトレントピア) は、数百万の新しいピアを追加し、BitTorrent を多数の新しいユースケースに広めることで、BitTorrent ネットワークを強化します。 WebTorrent は、既存の BitTorrent クライアントが WebTorrent サポートを簡単に追加できるように、できるだけ BitTorrent 仕様に準拠しています。
 
-Some torrent apps like [Vuze](https://www.vuze.com/) already support web peers, but we didn't want to wait around for the rest to add support. **So basically, WebTorrent Desktop was our way to speed up the adoption of the WebTorrent protocol.** By making an awesome torrent app that people really want to use, we increase the number of peers in the network that can share torrents with web peers (i.e. users on websites).
+[Vuze](https://www.vuze.com/) のような一部のトレントアプリはウェブピアを既にサポートしていますが、他のアプリのサポート追加を待ちたくはありませんでした。 **So basically, WebTorrent Desktop was our way to speed up the adoption of the WebTorrent protocol.** By making an awesome torrent app that people really want to use, we increase the number of peers in the network that can share torrents with web peers (i.e. users on websites).
 
 ## What are some interesting use cases for torrents beyond what people already know they can do?
 
