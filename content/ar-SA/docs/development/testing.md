@@ -16,6 +16,8 @@ There is not a lot of Python in this repository, but it too is governed by codin
 
 ## وحدة الإختبارات
 
+If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+
 لتشغيل جميع وحدات الاختبارات، نفذ `npm run test`. وحدات الإختبارات هي تطبيق إلكترون (مفاجأة!) يمكن العثور عليها بداخل مجلد `spec`. لاحظ أن لديها `package.json` الخاص بها، وبالتالي لا يتم تعريف التبعيات الخاصة بها في `package.json` الخاصة المستوى الأعلى.
 
 To run only specific tests matching a pattern, run `npm run test --

@@ -16,6 +16,8 @@ There is not a lot of Python in this repository, but it too is governed by codin
 
 ## Testes Unitários
 
+If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+
 Para executar todos os testes unitários, execute: `npm run test`. Em uma aplicação Electron os testes podem ser encontrados na pasta `spec`. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 
 To run only specific tests matching a pattern, run `npm run test --

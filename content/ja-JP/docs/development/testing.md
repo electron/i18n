@@ -16,6 +16,8 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 ## ユニットテスト
 
+If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+
 すべてのユニットテストを実行するには、`npm run test` を実行します。 ユニットテストは `spec` フォルダにある Electron アプリ (ｵﾄﾞﾛｷ!) です。 その `package.json` もあり、その依存関係はトップレベルの `package.json` には定義されていないことに注意してください。
 
 パターンに一致する特定のテストだけを実行するには、`npm run test -- -g=PATTERN` で、`PATTERN` を実行したいテストに一致する正規表現に置き換えて実行します。 例として、IPC テストのみを実行したい場合は、`npm run test -g ipc` を実行します。
