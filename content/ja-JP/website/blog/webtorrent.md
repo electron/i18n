@@ -78,15 +78,15 @@ WebTorrent で作られた一番すごいものといえば、間違いなく、
 
 そのため、ほとんどのブラウザーが PDF ファイルを描画できるように、Brave はマグネットリンクとトレントファイルを描画できます。 これらは、ブラウザがネイティブでサポートするただの別種のコンテンツです。
 
-One of the co-founders of Brave is actually Brendan Eich, the creator of JavaScript, the language we wrote WebTorrent in, so we think it's pretty cool that Brave chose to integrate WebTorrent.
+なんと、Brave の共同創設者の 1 人は、WebTorrent の作成に使われた言語 JavaScript の作成者 Brendan Eich です。その Brave が WebTorrent 統合を選んだなんてとてもカッコよくないですか?
 
-## Why did you choose to build WebTorrent Desktop on Electron?
+## Electron で WebTorrent デスクトップを構築することにしたのはなぜですか?
 
 <a href="https://webtorrent.io/desktop/">
   <img alt="WebTorrent Desktop main window" src="https://cloud.githubusercontent.com/assets/2289/23912150/15444542-089c-11e7-91ab-7fe3f1e5ee43.jpg" align="right" width="450">
 </a>
 
-There is a meme that Electron apps are "bloated" because they include the entire Chrome content module in every app. In some cases, this is partially true (an Electron app installer is usually ~40MB, where an OS-specific app installer is usually ~20MB).
+Electron アプリはすべてのアプリに Chrome コンテンツモジュール全体を含むため、"肥大化" していると言われています。これは、場合によっては部分的に当てはまります (Electron アプリインストーラーは通常 ~40MB ですが、OS 固有のアプリインストーラーでは通常 ~20MB)。
 
 However, in the case of WebTorrent Desktop, we use nearly every Electron feature, and many dozens of Chrome features in the course of normal operation. If we wanted to implement these features from scratch for each platform, it would have taken months or years longer to build our app, or we would have only been able to release for a single platform.
 
