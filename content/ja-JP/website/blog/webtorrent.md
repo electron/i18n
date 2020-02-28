@@ -58,15 +58,15 @@ YouTube のようだけれども、訪問者がサイトコンテンツのホス
 
 WebTorrent の一番すごい用法というと、ピアアシスト配信でしょう。 [Wikipedia](https://www.wikipedia.org/) や [インターネットアーカイブ](https://archive.org/) などの非営利プロジェクトは、訪問者にリソースを提供してもらうことで帯域幅とホスティングコストを削減できます。 人気コンテンツは、ブラウザ間で迅速かつ安価に提供できます。 たまにしかアクセスされないコンテンツは、オリジンサーバーから HTTP 経由で確実に提供できます。
 
-インターネットアーカイブはトレントファイルを実際に既に更新しているため、WebTorrent でうまく動作します。 So if you want to embed Internet Archive content on your site, you can do it in a way that reduces hosting costs for the Archive, allowing them to devote more money to actually archiving the web!
+インターネットアーカイブはトレントファイルを実際に既に更新しているため、WebTorrent でうまく動作します。 なので、サイトにインターネットアーカイブのコンテンツを埋め込みたい場合でも、トレントでアーカイブのホスティングコストを削減し、アーカイブ側は実際にウェブをアーカイブすることに資金を注げます。
 
-There are also exciting business use cases, from CDNs to app delivery over P2P.
+CDN から P2P を介したアプリ配信といった、面白いビジネスユースケースもあります。
 
-## What are some of your favorite projects that use WebTorrent?
+## WebTorrent を使うお気に入りのプロジェクトはありますか?
 
 ![gaia app screenshot](https://cloud.githubusercontent.com/assets/2289/23912148/154392c8-089c-11e7-88a8-3d4bcb1d2a94.jpg)
 
-The coolest thing built with WebTorrent, hands down, is probably [Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html). It's a slick 3D interactive simulation of the Milky Way. The data loads from a torrent, right in your browser. It's awe-inspiring to fly through our star system and realize just how little we humans are compared to the vastness of our universe.
+WebTorrent で作られた一番すごいものといえば、間違いなく、[Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html) でしょう。 これは、ぬるぬる動く天の川の 3D インタラクティブシミュレーションです。 データはトレントから直接ブラウザに読み込まれます。 It's awe-inspiring to fly through our star system and realize just how little we humans are compared to the vastness of our universe.
 
 You can read about how this was made in [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93), a blog post where the author, Charlie Hoey, explains how he built the star map with WebGL and WebTorrent.
 
