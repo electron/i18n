@@ -124,13 +124,13 @@ jQuery を使用する世代のフロントエンドプログラマーを Node.j
 
 プロジェクトの参加に興味がある場合は、[私たちの GitHub ページ](https://github.com/feross/webtorrent-desktop) を見てください!
 
-## Any Electron development tips that might be useful to other developers?
+## 他の開発者に役立つ Electron 開発のノウハウはありますか?
 
-[Feross](http://feross.org/), one of the WebTorrent Desktop contributors, recently gave a talk *"Real world Electron: Building Cross-platform desktop apps with JavaScript"* at NodeConf Argentina that contains useful tips for releasing a polished Electron app. The talk is especially useful if you're at the stage where you have a basic working app and you're trying to take it to the next level of polish and professionalism.
+WebTorrent デスクトップのコントリビューターの 1 人である [Feross](http://feross.org/) は、最近 NodeConf Argentina で *"Electron の世界: JavaScript でクロスプラットフォームアプリを構築"* という講演を行い、洗練された Electron アプリをリリースするための便利なヒントを紹介しました。この講演は、あなたが基本的な実用アプリを持っている段階にいて、それを次のレベルの洗練と専門的な領域に昇華させようとしているのであれば非常に役立ちます。
 
-[Watch here](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
+[動画はこちら](https://www.youtube.com/watch?v=YLExGgEnbFY): <iframe width="100%" height="360" src="https://www.youtube.com/embed/YLExGgEnbFY?rel=0" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 
-[Slides here](https://speakerdeck.com/feross/real-world-electron):
+[スライドはこちら](https://speakerdeck.com/feross/real-world-electron):
 
 <script async class="speakerdeck-embed" data-id="5aae08bb7c5b4dbd89060cff11bb1300" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
