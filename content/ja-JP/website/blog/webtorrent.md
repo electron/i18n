@@ -88,7 +88,7 @@ WebTorrent で作られた一番すごいものといえば、間違いなく、
 
 Electron アプリはすべてのアプリに Chrome コンテンツモジュール全体を含むため、"肥大化" していると言われています。これは、場合によっては部分的に当てはまります (Electron アプリインストーラーは通常 ~40MB ですが、OS 固有のアプリインストーラーでは通常 ~20MB)。
 
-However, in the case of WebTorrent Desktop, we use nearly every Electron feature, and many dozens of Chrome features in the course of normal operation. If we wanted to implement these features from scratch for each platform, it would have taken months or years longer to build our app, or we would have only been able to release for a single platform.
+しかし、WebTorrent デスクトップの場合、Electron のほぼすべての機能を使用しますし、通常の操作では何十もの Chrome 機能を使用します。 If we wanted to implement these features from scratch for each platform, it would have taken months or years longer to build our app, or we would have only been able to release for a single platform.
 
 Just to get an idea, we use Electron's [dock integration](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (to show download progress), [menu bar integration](https://electronjs.org/docs/api/menu) (to run in the background), [protocol handler registration](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (to open magnet links), [power save blocker](https://electronjs.org/docs/api/power-save-blocker/) (to prevent sleep during video playback), and [automatic updater](https://electronjs.org/docs/api/auto-updater). As for Chrome features, we use plenty: the `<video>` tag (to play many different video formats), the `<track>` tag (for closed captions support), drag-and-drop support, and WebRTC (which is non-trivial to use in a native app).
 
