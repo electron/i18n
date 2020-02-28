@@ -112,17 +112,17 @@ jQuery を使用する世代のフロントエンドプログラマーを Node.j
 
 これを修正するため、トレントエンジンを [IPC](https://electronjs.org/docs/api/ipc-main/) を介して通信する 2 つ目の非表示のレンダラープロセスに移動しました。 こうすれば、そのプロセスが短時間に多くの CPU を使用する場合でも、UI スレッドは影響を受けません。 滑らかなスクロールとアニメーションには非常に満足です。
 
-Note: we had to put the torrent engine in a renderer process, instead of a "main" process, because we need access to WebRTC (which is only available in the renderer.)
+注釈: WebRTC (レンダラーでのみ使用可能) にアクセスする必要があるため、"メイン" プロセスではなく、レンダラープロセスにトレントエンジンを配置する必要がありました。
 
-## In what areas should Electron be improved?
+## Electron はどういった領域で改善されるべきでしょうか?
 
-One thing we'd love to see is better documentation about how to build and ship production-ready apps, especially around tricky subjects like code signing and auto-updating. We had to learn about best practices by digging into source code and asking around on Twitter!
+本番用のアプリを構築して配信する方法や、特にコード署名や自動更新などのトリッキーなテーマについて、より良いドキュメントを望んでいます。 私たちは、ソースコードを研究して Twitter で尋ねてベストプラクティスについて学ぶ必要がありました!
 
-## Is WebTorrent Desktop done? If not, what's coming next?
+## WebTorrent デスクトップは開発終了ですか? それとも、今後何かありますか?
 
-We think the current version of WebTorrent Desktop is excellent, but there's always room for improvement. We're currently working on improving polish, performance, subtitle support, and video codec support.
+現行の WebTorrent デスクトップは素晴らしいと思いますが、改善の余地は常にあります。 現在、細かい点の修正、パフォーマンス、字幕サポート、映像コーデックサポートの改善に取り組んでいます。
 
-If you're interested in getting involved in the project, check out [our GitHub page](https://github.com/feross/webtorrent-desktop)!
+プロジェクトの参加に興味がある場合は、[私たちの GitHub ページ](https://github.com/feross/webtorrent-desktop) を見てください!
 
 ## Any Electron development tips that might be useful to other developers?
 
