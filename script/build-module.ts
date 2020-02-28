@@ -33,7 +33,7 @@ async function parseDocs(): Promise<Partial<IParseFile>[]> {
       Object.keys(locales).length
     } locales`
   )
-  let docs = await Promise.all(markdownFiles.map((file) => parseFile(file, ids)))
+  let docs = await Promise.all(markdownFiles.map(file => parseFile(file, ids)))
 
   // ignore some docs
   docs = docs.filter(doc => !doc.ignore)
@@ -98,6 +98,19 @@ async function main() {
     glossary[locale] = await parseElectronGlossary(locale)
   }
 
+  // Writes locales.json
+  fs.writeFileSync(
+    path.join(__dirname, '../dist/locales.json'),
+    JSON.stringify(
+      {
+        locales,
+        date: new Date(),
+      },
+      null,
+      2
+    )
+  )
+
   fs.writeFileSync(
     path.join(__dirname, '../index.json'),
     JSON.stringify(
@@ -108,7 +121,6 @@ async function main() {
         ),
         electronLatestStableTag: packageJSON.electronLatestStableTag,
         electronMasterBranchCommit: packageJSON.electronMasterBranchCommit,
-        locales: locales,
         docs: docsByLocale,
         website: websiteStringsByLocale,
         blogs: websiteBlogsByLocale,

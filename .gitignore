@@ -2,3 +2,4 @@
 .npmrc
 index.json
 node_modules/
+dist/
