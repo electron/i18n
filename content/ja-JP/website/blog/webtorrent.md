@@ -94,11 +94,11 @@ Electron アプリはすべてのアプリに Chrome コンテンツモジュー
 
 言うまでもなく、トレントエンジンは多くの Node API が存在することを前提とした JavaScript で記述されています。特に、`require('net')` と `require('dgram')` によって TCP と UDP ソケットをサポートしています。
 
-Basically, Electron is just what we needed and had the exact set of features we needed to ship a solid, polished app in record time.
+まとめると、Electron は私たちが必要としていたもので、堅牢で洗練されたアプリを記録的な速さで配信するために必要で正確な機能群を備えていました。
 
-## What are your favorite things about Electron?
+## Electron の好きなところは何ですか?
 
-The WebTorrent library has been in development as an open source side project for two years. **We made WebTorrent Desktop in four weeks.** Electron is the primary reason that we were able to build and ship our app so quickly.
+WebTorrent ライブラリは、オープンソースサイドプロジェクトとして 2 年間開発中です。 **We made WebTorrent Desktop in four weeks.** Electron is the primary reason that we were able to build and ship our app so quickly.
 
 Just as Node.js made server programming accessible to a generation of jQuery-using front-end programmers, Electron makes native app development accessible to anyone familiar with Web or Node.js development. Electron is extremely empowering.
 
