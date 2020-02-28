@@ -66,15 +66,15 @@ CDN から P2P を介したアプリ配信といった、面白いビジネス�
 
 ![gaia app screenshot](https://cloud.githubusercontent.com/assets/2289/23912148/154392c8-089c-11e7-88a8-3d4bcb1d2a94.jpg)
 
-WebTorrent で作られた一番すごいものといえば、間違いなく、[Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html) でしょう。 これは、ぬるぬる動く天の川の 3D インタラクティブシミュレーションです。 データはトレントから直接ブラウザに読み込まれます。 It's awe-inspiring to fly through our star system and realize just how little we humans are compared to the vastness of our universe.
+WebTorrent で作られた一番すごいものといえば、間違いなく、[Gaia 3D Star Map](http://charliehoey.com/threejs-demos/gaia_dr1.html) でしょう。 これは、ぬるぬる動く天の川の 3D インタラクティブシミュレーションです。 データはトレントから直接ブラウザに読み込まれます。 銀河系を飛び回り、私たち人間が宇宙の広大さに比べてどれだけ小さいかを実感すると同時に畏敬の念を抱きます。
 
-You can read about how this was made in [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93), a blog post where the author, Charlie Hoey, explains how he built the star map with WebGL and WebTorrent.
+この作成方法は、著者の Charlie Hoey が WebGL と WebTorrent で天体図を作成した方法を説明しているブログ記事 [Torrenting The Galaxy](https://medium.com/@flimshaw/torrenting-the-galaxy-extracting-2-million-3d-stars-from-180gb-of-csvs-457ff70c0f93) で読むことができます。
 
 <a href="https://brave.com/">
   <img alt="brave logo" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
 </a>
 
-We're also huge fans of [Brave](https://brave.com/). Brave is a browser that automatically blocks ads and trackers to make the web faster and safer. Brave recently added torrent support, so you can [view traditional torrents without using a separate app](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/). That feature is powered by WebTorrent.
+また、私たちは [Brave](https://brave.com/) の大ファンです。 Brave は、広告とトラッカーを自動的にブロックして、ウェブをより高速で安全にするブラウザです。 最近、Brave はトレントサポートを追加しました。そのため、[従来のトレントを外部アプリなしで閲覧](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/) できます。 That feature is powered by WebTorrent.
 
 So, just like how most browsers can render PDF files, Brave can render magnet links and torrent files. They're just another type of content that the browser natively supports.
 
