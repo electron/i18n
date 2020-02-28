@@ -90,9 +90,9 @@ Electron アプリはすべてのアプリに Chrome コンテンツモジュー
 
 しかし、WebTorrent デスクトップの場合、Electron のほぼすべての機能を使用しますし、通常の操作では何十もの Chrome 機能を使用します。 プラットフォームごとにこれらの機能をゼロから実装していれば、アプリを構築するのに数ヶ月から数年かかるか、単一のプラットフォームでしかリリースできなかったでしょう。
 
-Just to get an idea, we use Electron's [dock integration](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (to show download progress), [menu bar integration](https://electronjs.org/docs/api/menu) (to run in the background), [protocol handler registration](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (to open magnet links), [power save blocker](https://electronjs.org/docs/api/power-save-blocker/) (to prevent sleep during video playback), and [automatic updater](https://electronjs.org/docs/api/auto-updater). As for Chrome features, we use plenty: the `<video>` tag (to play many different video formats), the `<track>` tag (for closed captions support), drag-and-drop support, and WebRTC (which is non-trivial to use in a native app).
+アイデアを実現するため、Electron の [Dock 統合](https://electronjs.org/docs/api/app/#appdockbouncetype-macos) (ダウンロード進捗を表示)、[メニューバー統合](https://electronjs.org/docs/api/menu) (バックグラウンド実行)、[プロトコルハンドラーの登録](https://electronjs.org/docs/api/app/#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) (マグネットリンクを開く)、[powerSaveBlocker](https://electronjs.org/docs/api/power-save-blocker/) (映像再生中のスリープ防止)、[自動更新](https://electronjs.org/docs/api/auto-updater) といった機能を使用しました。 Chrome の機能については、`<video>` タグ (多種に渡る動画形式の再生)、`<track>` (字幕対応用)、ドラッグアンドドロップ対応、WebRTC (ネイティブアプリでの使用は難しい) など、色々と使用しています。
 
-Not to mention: our torrent engine is written in JavaScript and assumes the existence of lots of Node APIs, but especially `require('net')` and `require('dgram')` for TCP and UDP socket support.
+言うまでもなく、トレントエンジンは多くの Node API が存在することを前提とした JavaScript で記述されています。特に、`require('net')` と `require('dgram')` によって TCP と UDP ソケットをサポートしています。
 
 Basically, Electron is just what we needed and had the exact set of features we needed to ship a solid, polished app in record time.
 
