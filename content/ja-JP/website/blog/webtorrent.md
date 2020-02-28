@@ -26,21 +26,21 @@ WebTorrent の実際のデモは [webtorrent.io](https://webtorrent.io/) で見�
 
 YouTube のようだけれども、訪問者がサイトコンテンツのホストを助けるビデオサイトを想像してください。 WebTorrent で強化されたウェブサイトは、利用者が多いほどより高速で強靭になります。
 
-Browser-to-browser communication cuts out the middle-man and lets people communicate on their own terms. No more client/server – just a network of peers, all equal. WebTorrent is the first step in the journey to re-decentralize the Web.
+ブラウザ間通信は仲介者を排除し、人々が各々の条件で通信できます。 クライアント/サーバーは不要です。ピアのネットワークがあれば、みな平等です。 WebTorrent は、ウェブを再分散化する道程の初めの一歩です。
 
-## Where does Electron come into the picture?
+## Electron はどこに登場するのですか?
 
-About one year ago, we decided to build [WebTorrent Desktop](https://webtorrent.io/desktop/), a version of WebTorrent that runs as a desktop app.
+約 1 年前、デスクトップアプリ版 WebTorrent である [WebTorrent デスクトップ](https://webtorrent.io/desktop/) を作成することにしました。
 
 [![WebTorrent Desktop player window](https://cloud.githubusercontent.com/assets/2289/23912152/154aef0a-089c-11e7-8544-869b0cd642b1.jpg)](https://webtorrent.io/desktop/)
 
-We created WebTorrent Desktop for three reasons:
+私たちは、以下の 3 つの理由の下に WebTorrent デスクトップを作りました。
 
-1. We wanted a clean, lightweight, ad-free, open source torrent app
-2. We wanted a torrent app with good streaming support
-3. We need a "hybrid client" that connects the BitTorrent and WebTorrent networks
+1. 簡潔、軽量、広告なしのオープンソーストレントアプリが欲しい
+2. 優良なストリーミングサポート付きトレントアプリが欲しい
+3. BitTorrent と WebTorrent ネットワークを繋ぐ "ハイブリッドクライアント" が欲しい
 
-## If we can already download torrents in my web browser, why a desktop app?
+## トレントは既にウェブブラウザでダウンロードできるのに、なぜデスクトップアプリなのですか?
 
 First, a bit of background on the design of WebTorrent.
 
