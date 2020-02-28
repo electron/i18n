@@ -98,17 +98,17 @@ Electron アプリはすべてのアプリに Chrome コンテンツモジュー
 
 ## Electron の好きなところは何ですか?
 
-WebTorrent ライブラリは、オープンソースサイドプロジェクトとして 2 年間開発中です。 **We made WebTorrent Desktop in four weeks.** Electron is the primary reason that we were able to build and ship our app so quickly.
+WebTorrent ライブラリは、オープンソースサイドプロジェクトとして 2 年間開発中です。 **WebTorrent デスクトップは 4 週間で作成しました。**アプリを非常に迅速に構築して配信できたのは Electron であることが主な理由です。
 
-Just as Node.js made server programming accessible to a generation of jQuery-using front-end programmers, Electron makes native app development accessible to anyone familiar with Web or Node.js development. Electron is extremely empowering.
+jQuery を使用する世代のフロントエンドプログラマーを Node.js がサーバープログラミングに導いたのと同じで、Electron はウェブや Node.js の開発に精通している人なら誰でもネイティブアプリ開発に手を出せるようにします。 Electron は非常に強力です。
 
-## Do the website and the Desktop client share code?
+## ウェブサイトとデスクトップクライアントはコードを共有していますか?
 
-Yes, the [`webtorrent` npm package](https://npmjs.com/package/webtorrent) works in Node.js, in the browser, and in Electron. The exact same code can run in all environments – this is the beauty of JavaScript. It's today's universal runtime. Java Applets promised "Write Once, Run Anywhere" apps, but that vision never really materialized for a number of reasons. Electron, more than any other platform, actually gets pretty darn close to that ideal.
+はい、[`webtorrent` npm パッケージ](https://npmjs.com/package/webtorrent) は、Node.js、ブラウザ、Electron で動作します。 全く同じコードがすべての環境で実行できる — これが JavaScript の美です。 これが今日の万国共通の実行環境です。 Java Applets は "一度書けば、どこでも動く" アプリを約束しましたが、その理想は多くの理由で実際には実現しませんでした。 Electron は、他のどのプラットフォームよりも、本当にその理想に接近しています。
 
-## What are some challenges you've faced while building WebTorrent?
+## WebTorrent デスクトップ構築の際に直面した課題はありますか?
 
-In early versions of the app, we struggled to make the UI performant. We put the torrent engine in the same renderer process that draws the main app window which, predictably, led to slowness anytime there was intense CPU activity from the torrent engine (like verifying the torrent pieces received from peers).
+アプリの初期版では、UI パフォーマンスの向上に苦労しました。 We put the torrent engine in the same renderer process that draws the main app window which, predictably, led to slowness anytime there was intense CPU activity from the torrent engine (like verifying the torrent pieces received from peers).
 
 We fixed this by moving the torrent engine to a second, invisible renderer process that we communicate with over [IPC](https://electronjs.org/docs/api/ipc-main/). This way, if that process briefly uses a lot of CPU, the UI thread will be unaffected. Buttery-smooth scrolling and animations are so satisfying.
 
