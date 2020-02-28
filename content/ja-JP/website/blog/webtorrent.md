@@ -56,9 +56,9 @@ YouTube のようだけれども、訪問者がサイトコンテンツのホス
 
 ## あまり知られていないような、興味深いトレントの用法はありますか?
 
-WebTorrent の一番すごい用法というと、ピアアシスト配信でしょう。 Non-profit projects like [Wikipedia](https://www.wikipedia.org/) and the [Internet Archive](https://archive.org/) could reduce bandwidth and hosting costs by letting visitors chip in. Popular content can be served browser-to-browser, quickly and cheaply. Rarely-accessed content can be served reliably over HTTP from the origin server.
+WebTorrent の一番すごい用法というと、ピアアシスト配信でしょう。 [Wikipedia](https://www.wikipedia.org/) や [インターネットアーカイブ](https://archive.org/) などの非営利プロジェクトは、訪問者にリソースを提供してもらうことで帯域幅とホスティングコストを削減できます。 人気コンテンツは、ブラウザ間で迅速かつ安価に提供できます。 たまにしかアクセスされないコンテンツは、オリジンサーバーから HTTP 経由で確実に提供できます。
 
-The Internet Archive actually already updated their torrent files so they work great with WebTorrent. So if you want to embed Internet Archive content on your site, you can do it in a way that reduces hosting costs for the Archive, allowing them to devote more money to actually archiving the web!
+インターネットアーカイブはトレントファイルを実際に既に更新しているため、WebTorrent でうまく動作します。 So if you want to embed Internet Archive content on your site, you can do it in a way that reduces hosting costs for the Archive, allowing them to devote more money to actually archiving the web!
 
 There are also exciting business use cases, from CDNs to app delivery over P2P.
 
