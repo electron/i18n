@@ -74,9 +74,9 @@ WebTorrent で作られた一番すごいものといえば、間違いなく、
   <img alt="brave logo" src="https://cloud.githubusercontent.com/assets/2289/23912147/1542ad4a-089c-11e7-8106-15c8e34298a9.png" width="150" align="left">
 </a>
 
-また、私たちは [Brave](https://brave.com/) の大ファンです。 Brave は、広告とトラッカーを自動的にブロックして、ウェブをより高速で安全にするブラウザです。 最近、Brave はトレントサポートを追加しました。そのため、[従来のトレントを外部アプリなしで閲覧](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/) できます。 That feature is powered by WebTorrent.
+また、私たちは [Brave](https://brave.com/) の大ファンです。 Brave は、広告とトラッカーを自動的にブロックして、ウェブをより高速で安全にするブラウザです。 最近、Brave はトレントサポートを追加しました。そのため、[従来のトレントを外部アプリなしで閲覧](https://torrentfreak.com/brave-a-privacy-focused-browser-with-built-in-torrent-streaming-170219/) できます。 この機能は WebTorrent で動作しています。
 
-So, just like how most browsers can render PDF files, Brave can render magnet links and torrent files. They're just another type of content that the browser natively supports.
+そのため、ほとんどのブラウザーが PDF ファイルを描画できるように、Brave はマグネットリンクとトレントファイルを描画できます。 これらは、ブラウザがネイティブでサポートするただの別種のコンテンツです。
 
 One of the co-founders of Brave is actually Brendan Eich, the creator of JavaScript, the language we wrote WebTorrent in, so we think it's pretty cool that Brave chose to integrate WebTorrent.
 
