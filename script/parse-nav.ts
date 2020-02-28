@@ -2,7 +2,8 @@ import * as cheerio from 'cheerio'
 import * as path from 'path'
 import * as fs from 'fs'
 const i18n = require('../')
-const locales = Object.keys(i18n.locales)
+import { locales as localeses } from '../dist/locales.json'
+const locales = Object.keys(localeses)
 
 function getNav(locale: string) {
   const docs = i18n.docs[locale]
