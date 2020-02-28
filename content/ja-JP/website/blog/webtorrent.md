@@ -42,13 +42,13 @@ YouTube のようだけれども、訪問者がサイトコンテンツのホス
 
 ## トレントは既にウェブブラウザでダウンロードできるのに、なぜデスクトップアプリなのですか?
 
-First, a bit of background on the design of WebTorrent.
+初めに、WebTorrent 設計の背景を少しだけお話しましょう。
 
 <a href="https://webtorrent.io/desktop/">
   <img alt="webtorrent desktop logo" src="https://cloud.githubusercontent.com/assets/2289/23912151/154657e2-089c-11e7-9889-6914ce71ebc9.png" width="200" align="right">
 </a>
 
-In the early days, BitTorrent used TCP as its transport protocol. Later, uTP came along promising better performance and additional advantages over TCP. Every mainstream torrent client eventually adopted uTP, and today you can use BitTorrent over either protocol. The WebRTC protocol is the next logical step. It brings the promise of interoperability with web browsers – one giant P2P network made up of all desktop BitTorrent clients and millions of web browsers.
+黎明期の頃、BitTorrent は TCP を転送プロトコルとして使用していました。 その後、TCP よりも優れた性能と更なるメリットを持った uTP が登場しました。 すべての上流トレントクライアントは最終的に uTP を採用し、現在はどちらのプロトコルでも BitTorrent を使用できます。 WebRTC プロトコルは次の必然的な段階です。 すべてのデスクトップ BitTorrent クライアントと数百万のウェブブラウザで構成される 1 つの巨大な P2P ネットワーク — これはウェブブラウザとの相互運用性を保証します。
 
 “Web peers” (torrent peers that run in a web browser) make the BitTorrent network stronger by adding millions of new peers, and spreading BitTorrent to dozens of new use cases. WebTorrent follows the BitTorrent spec as closely as possible, to make it easy for existing BitTorrent clients to add support for WebTorrent.
 
