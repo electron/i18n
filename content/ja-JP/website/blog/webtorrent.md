@@ -108,9 +108,9 @@ jQuery を使用する世代のフロントエンドプログラマーを Node.j
 
 ## WebTorrent デスクトップ構築の際に直面した課題はありますか?
 
-アプリの初期版では、UI パフォーマンスの向上に苦労しました。 We put the torrent engine in the same renderer process that draws the main app window which, predictably, led to slowness anytime there was intense CPU activity from the torrent engine (like verifying the torrent pieces received from peers).
+アプリの初期版では、UI パフォーマンスの向上に苦労しました。 メインアプリウィンドウを描画するレンダラープロセスと同じ所にトレントエンジンを配置していました。このため、予想どおり、トレントエンジンからの激しい CPU 演算 (ピアから受信したトレントピースの検証など) が発生した場合は常に低速になっていました。
 
-We fixed this by moving the torrent engine to a second, invisible renderer process that we communicate with over [IPC](https://electronjs.org/docs/api/ipc-main/). This way, if that process briefly uses a lot of CPU, the UI thread will be unaffected. Buttery-smooth scrolling and animations are so satisfying.
+これを修正するため、トレントエンジンを [IPC](https://electronjs.org/docs/api/ipc-main/) を介して通信する 2 つ目の非表示のレンダラープロセスに移動しました。 こうすれば、そのプロセスが短時間に多くの CPU を使用する場合でも、UI スレッドは影響を受けません。 滑らかなスクロールとアニメーションには非常に満足です。
 
 Note: we had to put the torrent engine in a renderer process, instead of a "main" process, because we need access to WebRTC (which is only available in the renderer.)
 
