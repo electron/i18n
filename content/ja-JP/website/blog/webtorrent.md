@@ -52,11 +52,11 @@ YouTube のようだけれども、訪問者がサイトコンテンツのホス
 
 "ウェブピア" (ウェブブラウザで実行されるトレントピア) は、数百万の新しいピアを追加し、BitTorrent を多数の新しいユースケースに広めることで、BitTorrent ネットワークを強化します。 WebTorrent は、既存の BitTorrent クライアントが WebTorrent サポートを簡単に追加できるように、できるだけ BitTorrent 仕様に準拠しています。
 
-[Vuze](https://www.vuze.com/) のような一部のトレントアプリはウェブピアを既にサポートしていますが、他のアプリのサポート追加を待ちたくはありませんでした。 **So basically, WebTorrent Desktop was our way to speed up the adoption of the WebTorrent protocol.** By making an awesome torrent app that people really want to use, we increase the number of peers in the network that can share torrents with web peers (i.e. users on websites).
+[Vuze](https://www.vuze.com/) のような一部のトレントアプリはウェブピアを既にサポートしていますが、他のアプリのサポート追加を待ちたくはありませんでした。 **元来、WebTorrent デスクトップは WebTorrent プロトコルの採用を促進する手段でした。**誰もが使いたくなるような素晴らしいトレントアプリを作成することで、ウェブピア (ウェブサイト上のユーザなど) とトレントを共有できるネットワーク内のピア数を増やすのです。
 
-## What are some interesting use cases for torrents beyond what people already know they can do?
+## あまり知られていないような、興味深いトレントの用法はありますか?
 
-One of the most exciting uses for WebTorrent is peer-assisted delivery. Non-profit projects like [Wikipedia](https://www.wikipedia.org/) and the [Internet Archive](https://archive.org/) could reduce bandwidth and hosting costs by letting visitors chip in. Popular content can be served browser-to-browser, quickly and cheaply. Rarely-accessed content can be served reliably over HTTP from the origin server.
+WebTorrent の一番すごい用法というと、ピアアシスト配信でしょう。 Non-profit projects like [Wikipedia](https://www.wikipedia.org/) and the [Internet Archive](https://archive.org/) could reduce bandwidth and hosting costs by letting visitors chip in. Popular content can be served browser-to-browser, quickly and cheaply. Rarely-accessed content can be served reliably over HTTP from the origin server.
 
 The Internet Archive actually already updated their torrent files so they work great with WebTorrent. So if you want to embed Internet Archive content on your site, you can do it in a way that reduces hosting costs for the Archive, allowing them to devote more money to actually archiving the web!
 
