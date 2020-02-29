@@ -45,9 +45,9 @@ richiede('elettronica').remote.getGlobal('sharedObject').someProperty = 'nuovo v
 console.log(richiede('Electrn').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's tray disappeared after a few minutes.
+## La tray della mia app è scomparsa dopo pochi minuti.
 
-This happens when the variable which is used to store the tray gets garbage collected.
+Questo si verifica quando la variabile che è usata per archiviare la tray raccoglie scarti.
 
 Se riscontri questo problema, i seguenti articoli potrebbero rivelarsi utili:
 
