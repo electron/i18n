@@ -103,7 +103,7 @@
 * [Process Object](api/process.md)
 * [Supported Command Line Switches](api/command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [Chrome Extensions Support](api/extensions.md)
+* [دعم إضافات Chrome](api/extensions.md)
 * [كسر تغييرات API](breaking-changes.md)
 
 ### عناصر DOM مخصصة:
@@ -135,7 +135,7 @@
 * [شاشة](api/screen.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [TouchBar](api/touch-bar.md)
+* [شريط اللمس](api/touch-bar.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
