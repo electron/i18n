@@ -8,7 +8,7 @@ date: '2017-12-06'
 
 ---
 
-This change means you'll see the major version bump more often, and it will usually be a major update to Chromium. Patch releases will also be more stable, as they will now only contain bug fixes with no new features.
+この変更によりメジャーバージョンが頻繁に上がるようになり、これは通常 Chromium 対応のメジャーアップデートになります。 また、パッチリリースにはバグ修正のみが含まれ、新機能を含みません。そのため、パッチリリースの安定性も向上します。
 
 **メジャーバージョンの単位**
 
@@ -27,7 +27,7 @@ This change means you'll see the major version bump more often, and it will usua
 * Chromium パッチの修正関連
 * Electron のバグ修正
 
-Because Electron's semver ranges will now be more meaningful, we recommend installing Electron using npm's default `--save-dev` flag, which will prefix your version with `^`, keeping you safely up to date with minor and patch updates:
+Electron の semver 範囲がより意味を持つようになるため、Electron をインストールする時は npm 既定の `--save-dev` フラグの使用を推奨します。これにより、バージョンの前に `^` が付けられ、マイナーやパッチの更新を安全にできます。
 
 ```sh
 npm install --save-dev electron
