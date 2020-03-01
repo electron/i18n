@@ -4,17 +4,17 @@ author: jlord
 date: '2016-08-23'
 ---
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+アクセシビリティの高いアプリケーションを作ることは重要です。開発者がすべてのユーザ向けのより良いアプリケーション開発を手助けする新機能 [Devtron](https://electronjs.org/devtron) と [Spectron](https://electronjs.org/spectron) を紹介します。
 
 ---
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Electron アプリケーションのアクセシビリティに関する懸念は、どちらも最終的に HTML であるため、ウェブサイトと同様です。 しかし、Electron アプリケーションでは、アプリケーションに監査機を指す URL がないため、アクセシビリティ監査にオンラインリソースを使用することはできません。
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) for more information.
+これらの新機能は、監査ツールを Electron アプリに提供します。 Spectron でテストに監査を追加するか、開発者向けツール内で Devtron で監査を使用するかを選択できます。 詳細は、ツールの概要を読むか [アクセシビリティドキュメント](https://electronjs.org/docs/tutorial/accessibility/) をご覧ください。
 
 ### Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. 例:
+Spectron テストフレームワークで、アプリケーション内の各ウィンドウと `<webview>` タグを監視できます。 以下に例を示します。
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -28,11 +28,11 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### Devtron
 
-In Devtron there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Devtronでは新機能のアクセシビリティタブが利用できます。このタブでは、アプリケーション内の監視結果をソートしたり、フィルタによって絞り込んだりできます。
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron スクリーンショット](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+いずれのツールも Google が Chrome 向けに開発した [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) ライブラリを利用しています。 このライブラリが使用しているアクセシビリティ監査のルールに関する詳細は、[リポジトリの wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) に記載されています。
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility/) with a pull request.
+これ以外の Electron 向けに使用可能な素晴らしいアクセシビリティツールをご存じの方は、 ぜひ[アクセシビリティに関するドキュメント](https://electronjs.org/docs/tutorial/accessibility/) に追加してプルリクエストをお送りください。
 
