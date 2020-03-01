@@ -1,5 +1,5 @@
 ---
-title: SQLite Vulnerability Fix
+title: SQLite の脆弱性の修正
 author: ckerr
 date: '2018-12-18'
 ---
