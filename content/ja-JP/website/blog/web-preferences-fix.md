@@ -58,6 +58,6 @@ This code will manually enforce that the top level windows `webPreferences` is m
 
 This vulnerability was found and reported responsibly to the Electron project by [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
