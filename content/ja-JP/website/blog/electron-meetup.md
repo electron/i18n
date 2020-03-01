@@ -1,10 +1,10 @@
 ---
-title: Electron Meetup at GitHub HQ
+title: GitHub 本社での Electron 交流会
 author: jlord
 date: '2015-09-17'
 ---
 
-Join us September 29th at GitHub's HQ for an Electron meetup hosted by Atom team members [@jlord](https://github.com/jlord) and [@kevinsawicki](https://github.com/kevinsawicki). There will be talks, food to snack on, and time to hangout and meet others doing cool things with Electron. We'll also have a bit of time to do lightning talks for those interested. Hope to see you there!
+9月29日の GitHub 本社の Electron 交流会に参加しましょう。Atom チームのメンバー [@jlord](https://github.com/jlord) と [@kevinsawicki](https://github.com/kevinsawicki) が主催します。 There will be talks, food to snack on, and time to hangout and meet others doing cool things with Electron. We'll also have a bit of time to do lightning talks for those interested. Hope to see you there!
 
 ---
 
