@@ -33,6 +33,6 @@ Electron の semver 範囲がより意味を持つようになるため、Electr
 npm install --save-dev electron
 ```
 
-For developers interested only in bug fixes, you should use the tilde semver prefix e.g. `~2.0.0`, which which will never introduce new features, only fixes to improve stability.
+バグ修正にのみ関心がある開発者は、チルダを前に付けた semver を使用するとよいでしょう。`~2.0.0` は、新機能は導入せずに安定性を改善する修正のみを導入します。
 
-For more details, see [electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning).
+詳細は、[electronjs.org/docs/tutorial/electron-versioning](https://electronjs.org/docs/tutorial/electron-versioning) を参照してください。
