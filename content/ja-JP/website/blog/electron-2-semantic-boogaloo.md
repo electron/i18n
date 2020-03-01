@@ -1,10 +1,10 @@
 ---
-title: 'Electron 2.0 and Beyond - Semantic Versioning'
+title: 'Electron 2.0 以降 - セマンティックバージョニング'
 author: groundwater
 date: '2017-12-06'
 ---
 
-A new major version of Electron is in the works, and with it some changes to our versioning strategy. As of version 2.0.0, Electron will strictly adhere to Semantic Versioning.
+新しいメジャーバージョンの Electron が開発中です。そこで、バージョン管理戦略にいくつかの変更を加えます。 バージョン 2.0.0 から、Electron はセマンティックバージョニングに厳密に従います。
 
 ---
 
