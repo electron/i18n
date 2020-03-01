@@ -8,7 +8,7 @@ Electron のはじめかたをお探しですか? リリースされたばかり
 
 ---
 
-**Out now:**
+**現在、こういったものがあります。**
 
 <a href="http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord"><img src="https://cloud.githubusercontent.com/assets/2289/23483197/d14f716e-fe86-11e6-95da-dcfe73bb86f7.jpg" width="200"></a>
 
@@ -26,7 +26,7 @@ Electron のはじめかたをお探しですか? リリースされたばかり
 
 <br>
 
-Electron のはじめかたをお探しの方は、最初のものを試してみてください。 The second goes into more detail about building apps with great tips from Nylas's [Evan Morikawa](https://twitter.com/E0M).
+Electron のはじめかたをお探しの方は、最初のものを試してみてください。 2 つ目は、Nylas の [Evan Morikawa](https://twitter.com/E0M) による素晴らしい助言と共にアプリ構築について詳しく説明しています。
 
-We are currently working on two more podcasts that should come out next month, keep an eye on the [@ElectronJS](https://twitter.com/ElectronJS) Twitter account for updates.
+現在、来月公開予定の 2 つのポッドキャストに取り組んでいます。最新情報は Twitter アカウント [@ElectronJS](https://twitter.com/ElectronJS) でお知らせします。
 
