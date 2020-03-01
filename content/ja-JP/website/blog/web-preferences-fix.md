@@ -21,7 +21,7 @@ You are impacted if any user code runs inside an `iframe` / can create an `ifram
 
 You are also impacted if you open any of your windows with the `nativeWindowOpen: true` or `sandbox: true` option.  Although this vulnerability also requires an XSS vulnerability to exist in your app, you should still apply one of the mitigations below if you use either of these options.
 
-## Mitigation
+## 緩和策
 
 We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
 
@@ -54,7 +54,7 @@ enforceInheritance(mainWindow.webContents)
 
 This code will manually enforce that the top level windows `webPreferences` is manually applied to all child windows infinitely deep.
 
-## Further Information
+## 詳細情報
 
 This vulnerability was found and reported responsibly to the Electron project by [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
