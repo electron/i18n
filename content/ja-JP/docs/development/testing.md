@@ -14,9 +14,9 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 このリポジトリにはたくさんの Python はありませんが、これもコーディングスタイルの規則によって管理されています。`npm run lint-py` は、`pylint` を使ってすべての Python をチェックします。
 
-## ユニットテスト
+## 単体テスト
 
-If you are not using [build-tools](https://github.com/electron/build-tools), ensure that that name you have configured for your local build of Electron is one of `Testing`, `Release`, `Default`, `Debug`, or you have set `process.env.ELECTRON_OUT_DIR`. Without these set, Electron will fail to perform some pre-testing steps.
+[build-tools](https://github.com/electron/build-tools) を使用していない場合は、Electron のローカルビルド用コンフィグ名を確認してください。これは、`Testing`、`Release`、`Default`、`Debug`、設定した `process.env.ELECTRON_OUT_DIR` のいずれかです。 これらをセットしていないと、Electron はテスト前の手順を実行できないことがあります。
 
 すべてのユニットテストを実行するには、`npm run test` を実行します。 ユニットテストは `spec` フォルダにある Electron アプリ (ｵﾄﾞﾛｷ!) です。 その `package.json` もあり、その依存関係はトップレベルの `package.json` には定義されていないことに注意してください。
 
