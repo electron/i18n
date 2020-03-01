@@ -8,12 +8,12 @@ date: '2015-09-17'
 
 ---
 
-**Talks**
+**講演**
 
 - [Jibo](http://jibo.com) の **Jonathan Ross** と **Francois Laberge** は、Electron でロボットをアニメ化する方法を共有します。
 - **Jessica Lord** は、Electron 製の学習ツール [Git-it](https://github.com/jlord/git-it-electron) の制作について講演します。
-- **Tom Moor** will talk about the pros and cons of building  video and screen sharing on Electron with [speak.io](https://speak.io).
-- **Ben Gotow** will preview N1: [The Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) and talk about developing it on Electron.
+- **Tom Moor** は、[speak.io](https://speak.io) を使用して、Electron でビデオと画面の共有を構築する長所と短所について講演します。
+- **Ben Gotow** は N1 の [The Nylas Mail Client](https://www.nylas.com/blog/splitting-the-atom) を見せつつ、Electron での開発について講演します。
 
 ### 詳細
 
