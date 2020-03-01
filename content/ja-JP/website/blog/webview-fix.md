@@ -52,7 +52,7 @@ app.on('web-contents-created', (event, win) => {
 
 This vulnerability was found and reported responsibly to the Electron project by Brendan Scarvell of [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
 To report a vulnerability in Electron, please email security@electronjs.org.
 
