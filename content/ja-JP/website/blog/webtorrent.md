@@ -22,7 +22,7 @@ WebTorrent の実際のデモは [webtorrent.io](https://webtorrent.io/) で見�
   <img alt="webtorrent ホームページ" src="https://cloud.githubusercontent.com/assets/2289/23912149/1543d2ce-089c-11e7-8519-613740c82b47.jpg">
 </a>
 
-## Why is this cool?
+## これが凄いと言われるのはなぜですか?
 
 YouTube のようだけれども、訪問者がサイトコンテンツのホストを助けるビデオサイトを想像してください。 WebTorrent で強化されたウェブサイトは、利用者が多いほどより高速で強靭になります。
 
