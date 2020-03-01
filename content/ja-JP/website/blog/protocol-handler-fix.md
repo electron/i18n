@@ -31,6 +31,6 @@ app.setAsDefaultProtocolClient(protocol, process.execPath, [
 
 See the [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API for more details.
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
 If you wish to report a vulnerability in Electron, email security@electronjs.org.
