@@ -4,7 +4,7 @@ author: marshallofsound
 date: '2019-03-07'
 ---
 
-A High severity vulnerability has been discovered in Chrome which affects all software based on Chromium, including Electron.
+Chrome に高レベルの重大な脆弱性が発見されました。Electron を含む Chromium ベースのすべてのソフトウェアに影響します。
 
 This vulnerability has been assigned `CVE-2019-5786`.  You can read more about it in the [Chrome Blog Post](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
