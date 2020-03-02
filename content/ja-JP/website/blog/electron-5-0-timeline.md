@@ -1,5 +1,5 @@
 ---
-title: Electron v5.0.0 Timeline
+title: Electron v5.0.0 タイムライン
 author: sofianguy
 date: '2019-01-25'
 ---
