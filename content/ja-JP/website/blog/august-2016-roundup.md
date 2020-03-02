@@ -4,11 +4,11 @@ author: jlord
 date: '2016-09-06'
 ---
 
-Here are the new Electron apps that were added to the site in August.
+こちらは 8 月時点でサイトに追加された新しい Electron アプリです。
 
 ---
 
-The site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+このサイトは、コミュニティからの [プルリクエスト](https://github.com/electron/electronjs.org/pulls) を経て新しい [アプリ](https://electronjs.org/apps) と [交流会](https://electronjs.org/community) に更新されます。 You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
 
 If you've made an Electron app or host a meetup, make a [pull request](https://github.com/electron/electronjs.org) to add it to the site and it will make the next roundup.
 
