@@ -1,34 +1,34 @@
 ---
-title: SQLite Vulnerability Fix
+title: SQLite の脆弱性の修正
 author: ckerr
 date: '2018-12-18'
 ---
 
-A remote code execution vulnerability, "[Magellan](https://blade.tencent.com/magellan/index_en.html)," has been discovered affecting software based on SQLite or Chromium, including all versions of Electron.
+リモートコード実行の脆弱性 "[Magellan](https://blade.tencent.com/magellan/index_en.html)" が発見されました。SQLite、Chromium、全バージョンの Electron ベースのソフトウェアに影響します。
 
 ---
 
-## Scope
+## 影響範囲
 
-Electron applications using Web SQL are impacted.
+Web SQL を使用する Electron アプリケーションが影響を受けます。
 
 
-## Mitigation
+## 緩和策
 
-Affected apps should stop using Web SQL or upgrade to a patched version of Electron.
+影響を受けるアプリは、Web SQL を使用停止するか、パッチを当てたバージョンの Electron にアップグレードする必要があります。
 
-We've published new versions of Electron which include fixes for this vulnerability:
+以下の通り、この脆弱性に対する修正を含む新しいバージョンの Electron を公開しました。
   * [4.0.0-beta.11](https://github.com/electron/electron/releases/tag/v4.0.0-beta.11)
   * [3.1.0-beta.4](https://github.com/electron/electron/releases/tag/v3.1.0-beta.4)
   * [3.0.13](https://github.com/electron/electron/releases/tag/v3.0.13)
   * [2.0.16](https://github.com/electron/electron/releases/tag/v2.0.16)
 
-There are no reports of this in the wild; however, affected applications are urged to mitigate.
+これに関する被害報告はありませんが、影響を受けるアプリケーションは緩和策を実施してください。
 
-## Further Information
+## 詳細情報
 
-This vulnerability was discovered by the Tencent Blade team, who have published [a blog post that discusses the vulnerability](https://blade.tencent.com/magellan/index_en.html).
+この脆弱性は Tencent Blade チームによって発見されました。彼らは [この脆弱性について論じたブログ記事](https://blade.tencent.com/magellan/index_en.html) を公開しています。
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。

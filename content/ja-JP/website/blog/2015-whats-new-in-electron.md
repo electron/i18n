@@ -1,82 +1,82 @@
 ---
-title: What's New in Electron
+title: Electron が新しくなりました
 author: jlord
 date: '2015-10-15'
 ---
 
-There have been some interesting updates and talks given on Electron recently, here's a roundup.
+近日中、Electron に面白いアップデートと講演がいくつかあります。ここではそのまとめを紹介します。
 
 ---
 
-## Source
+## 資料
 
-Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
+Electron は `v0.32.0` で Chrome 45 に更新します。 その他アップデートもあります...
 
-### Better Documentation
+### ドキュメントの改善
 
-![new docs](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
+![新しくなったドキュメント](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
 
-We have restructured and standardized the documentation to look better and read better. There are also community-contributed translations of the documentation, like Japanese and Korean.
+見た目と読みやすさを向上するために、ドキュメントを再構成し標準化しました。 日本語や韓国語など、コミュニティが寄稿したドキュメントの翻訳もあります。
 
-Related pull requests: [electron/electron#2028](https://github.com/electron/electron/pull/2028), [electron/electron#2533](https://github.com/electron/electron/pull/2533), [electron/electron#2557](https://github.com/electron/electron/pull/2557), [electron/electron#2709](https://github.com/electron/electron/pull/2709), [electron/electron#2725](https://github.com/electron/electron/pull/2725), [electron/electron#2698](https://github.com/electron/electron/pull/2698), [electron/electron#2649](https://github.com/electron/electron/pull/2649).
+関連するプルリクエストは次の通りです。 [electron/electron#2028](https://github.com/electron/electron/pull/2028)、 [electron/electron#2533](https://github.com/electron/electron/pull/2533)、 [electron/electron#2557](https://github.com/electron/electron/pull/2557)、 [electron/electron#2709](https://github.com/electron/electron/pull/2709)、 [electron/electron#2725](https://github.com/electron/electron/pull/2725)、 [electron/electron#2698](https://github.com/electron/electron/pull/2698)、 [electron/electron#2649](https://github.com/electron/electron/pull/2649)。
 
 ### Node.js 4.1.0
 
-Since `v0.33.0` Electron ships with Node.js 4.1.0.
+`v0.33.0` から Electron は Node.js 4.1.0 を同梱します。
 
-Related pull request: [electron/electron#2817](https://github.com/electron/electron/pull/2817).
+関連するプルリクエストは [electron/electron#2817](https://github.com/electron/electron/pull/2817) です。
 
 ### node-pre-gyp
 
-Modules relying on `node-pre-gyp` can now be compiled against Electron when building from source.
+`node-pre-gyp` 依存のモジュールは、ソースからビルドするときに Electron に対してコンパイルできるようになりました。
 
-Related pull request: [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175).
+関連するプルリクエストは [mapbox/node-pre-gyp#175](https://github.com/mapbox/node-pre-gyp/pull/175) です。
 
-### ARM Support
+### ARM サポート
 
-Electron now provides builds for Linux on ARMv7. It runs on popular platforms like Chromebook and Raspberry Pi 2.
+Electron は ARMv7 の Linux 向けビルドを提供するようになります。 Chromebook や Raspberry Pi 2 といった人気プラットフォームで動きます。
 
-Related issues: [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138), [electron/electron#2094](https://github.com/electron/electron/pull/2094), [electron/electron#366](https://github.com/electron/electron/issues/366).
+関連する Issue は次の通りです。 [atom/libchromiumcontent#138](https://github.com/atom/libchromiumcontent/pull/138)、 [electron/electron#2094](https://github.com/electron/electron/pull/2094)、 [electron/electron#366](https://github.com/electron/electron/issues/366)。
 
-### Yosemite-style Frameless Window
+### Yosemite 式フレームレスウインドウ
 
-![frameless window](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
+![フレームレスウィンドウ](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
 
-A patch by [@jaanus](https://github.com/jaanus) has been merged that, like the other built-in OS X apps, allows creating frameless windows with system traffic lights integrated on OS X Yosemite and later.
+[@jaanus](https://github.com/jaanus) によるパッチがマージされました。OS X Yosemite 以降は、他の組み込み OS X アプリと同様に、システム信号機ボタンが統合されたフレームレスウィンドウを作成できます。
 
-Related pull request: [electron/electron#2776](https://github.com/electron/electron/pull/2776).
+関連するプルリクエストは [electron/electron#2776](https://github.com/electron/electron/pull/2776) です。
 
-### Google Summer of Code Printing Support
+### Google Summer of Code 印刷サポート
 
-After the Google Summer of Code we have merged patches by [@hokein](https://github.com/hokein) to improve printing support, and add the ability to print the page into PDF files.
+Google Summer of Code 開催後、[@hokein](https://github.com/hokein) によるパッチをマージして、印刷サポートを改善し、ページを PDF ファイルに印刷する機能を追加しました。
 
-Related issues: [electron/electron#2677](https://github.com/electron/electron/pull/2677), [electron/electron#1935](https://github.com/electron/electron/pull/1935), [electron/electron#1532](https://github.com/electron/electron/pull/1532), [electron/electron#805](https://github.com/electron/electron/issues/805), [electron/electron#1669](https://github.com/electron/electron/pull/1669), [electron/electron#1835](https://github.com/electron/electron/pull/1835).
+関連する Issue は次の通りです。 [electron/electron#2677](https://github.com/electron/electron/pull/2677)、 [electron/electron#1935](https://github.com/electron/electron/pull/1935)、 [electron/electron#1532](https://github.com/electron/electron/pull/1532)、 [electron/electron#805](https://github.com/electron/electron/issues/805)、 [electron/electron#1669](https://github.com/electron/electron/pull/1669)、 [electron/electron#1835](https://github.com/electron/electron/pull/1835)。
 
 ## Atom
 
-Atom has now upgraded to Electron `v0.30.6` running Chrome 44. An upgrade to `v0.33.0` is in progress on [atom/atom#8779](https://github.com/atom/atom/pull/8779).
+Atom は Chrome 44 を動かしている Electron `v0.30.6` にアップグレードされました。 `v0.33.0` へのアップグレードは [atom/atom#8779](https://github.com/atom/atom/pull/8779) で進行中です。
 
-## Talks
+## 講演
 
-GitHubber [Amy Palamountain](https://github.com/ammeep) gave a great introduction to Electron in a talk at [Nordic.js](https://nordicjs2015.confetti.events). She also created the [electron-accelerator](https://github.com/ammeep/electron-accelerator) library.
+GitHubber の [Amy Palamountain](https://github.com/ammeep) は、[Nordic.js](https://nordicjs2015.confetti.events) の講演で Electron について素晴らしい紹介をしました。 彼女は [electron-accelerator](https://github.com/ammeep/electron-accelerator) ライブラリも作成しています。
 
-#### Building native applications with Electron by Amy Palomountain
+#### Amy Palomountain による Electron でのネイティブアプリケーション構築
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
-[Ben Ogle](https://github.com/benogle), also on the Atom team, gave an Electron talk at [YAPC Asia](http://yapcasia.org/2015/):
+同じく Atom チームの [Ben Ogle](https://github.com/benogle) は、[YAPC Asia](http://yapcasia.org/2015/) で Electron の講演を行いました。
 
-#### Building Desktop Apps with Web Technologies by Ben Ogle
+#### Ben Ogle によるウェブ技術を使用したデスクトップアプリ構築
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
-Atom team member [Kevin Sawicki](https://github.com/kevinsawicki) and others gave talks on Electron at the [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) meetup recently. The [videos](http://www.wagonhq.com/blog/electron-meetup) have been posted, here are a couple:
+Atom チームのメンバー [Kevin Sawicki](https://github.com/kevinsawicki) などが最近 [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) 交流会で Electron について講演しました。 こちらに [映像](http://www.wagonhq.com/blog/electron-meetup) が二つ投稿されています。
 
-#### The History of Electron by Kevin Sawicki
+#### Kevin Sawicki による Electron 史
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
-#### Making a web app feel native by Ben Gotow
+#### Ben Gotow によるネイティブ風ウェブアプリ制作
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 

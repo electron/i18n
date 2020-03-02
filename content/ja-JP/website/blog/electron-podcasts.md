@@ -1,32 +1,32 @@
 ---
-title: Electron Podcasts
+title: Electron の Podcast
 author: jlord
 date: '2016-07-26'
 ---
 
-Looking for an introduction to Electron? Two new podcasts have just been released that give a great overview of what it is, why it was built, and how it is being used.
+Electron のはじめかたをお探しですか? リリースされたばかりの 2 つの新しい Podcast を、どういうもので、なぜ作られたか、どうやって使うのかについて、その概要をお教えします。
 
 ---
 
-**Out now:**
+**現在、こういったものがあります。**
 
 <a href="http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord"><img src="https://cloud.githubusercontent.com/assets/2289/23483197/d14f716e-fe86-11e6-95da-dcfe73bb86f7.jpg" width="200"></a>
 
-### [Hanselminutes: Creating cross-platform Electron apps](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
+### [Hanselminutes: クロスプラットフォームの Electron アプリを作る](http://hanselminutes.com/534/creating-cross-platform-electron-apps-with-jessica-lord)
 
-> Is Electron "just Chrome in a frame" or is it so much more? Jessica sets Scott on the right path and explains exactly where the Electron platform fits into your development world.
+> Electron は "ただのフレーム内のChrome" なのか、それともそれ以上のものなのか? Jessica が Scott を導く形で、Electron プラットフォームが開発業界のどこに適合するのかを的確に説明します。
 
 <br>
 
 <a href="https://javascriptair.com/episodes/2016-07-06"><img src="https://raw.githubusercontent.com/javascriptair/site/master/resources/logo.png" width="200"></a>
 
-### [JavaScript Air: Electron Apps](https://javascriptair.com/episodes/2016-07-06)
+### [JavaScript Air: Electron アプリ](https://javascriptair.com/episodes/2016-07-06)
 
-> Electron is becoming more and more of a relevant and popular way of building multi-platform desktop apps with web technologies. Let's get a dive into this awesome tech and see how we can use it to enhance our own experience and our user's experience on the desktop.
+> Electron は、ウェブ技術を使用してマルチプラットフォームのデスクトップアプリを作成する、妥当で人気な方法の一つになりつつあります。 このすばらしい技術に参加して、Electron を使ってデスクトップでの開発者のエクスペリエンスとユーザのエクスペリエンスを強化する流れを見てみましょう。
 
 <br>
 
-If you're looking for an introduction to Electron, give the first a listen. The second goes into more detail about building apps with great tips from Nylas's [Evan Morikawa](https://twitter.com/E0M).
+Electron のはじめかたをお探しの方は、最初のものを試してみてください。 2 つ目は、Nylas の [Evan Morikawa](https://twitter.com/E0M) による素晴らしい助言と共にアプリ構築について詳しく説明しています。
 
-We are currently working on two more podcasts that should come out next month, keep an eye on the [@ElectronJS](https://twitter.com/ElectronJS) Twitter account for updates.
+現在、来月公開予定の 2 つのポッドキャストに取り組んでいます。最新情報は Twitter アカウント [@ElectronJS](https://twitter.com/ElectronJS) でお知らせします。
 

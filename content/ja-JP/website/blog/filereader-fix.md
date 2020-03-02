@@ -4,7 +4,7 @@ author: marshallofsound
 date: '2019-03-07'
 ---
 
-A High severity vulnerability has been discovered in Chrome which affects all software based on Chromium, including Electron.
+Chrome に高レベルの重大な脆弱性が発見されました。Electron を含む Chromium ベースのすべてのソフトウェアに影響します。
 
 This vulnerability has been assigned `CVE-2019-5786`.  You can read more about it in the [Chrome Blog Post](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
@@ -12,15 +12,15 @@ Please note that Chrome has reports of this vulnerability being used in the wild
 
 ---
 
-## Scope
+## 影響範囲
 
-This affects any Electron application that may run third-party or untrusted JavaScript.
+これはサードパーティや信頼できない JavaScript を実行する恐れのある Electron アプリケーションに影響します。
 
-## Mitigation
+## 緩和策
 
-Affected apps should upgrade to a patched version of Electron.
+影響を受けるアプリは、パッチを当てたバージョンの Electron にアップグレードする必要があります。
 
-We've published new versions of Electron which include fixes for this vulnerability:
+以下の通り、この脆弱性に対する修正を含む新しいバージョンの Electron を公開しました。
   * [4.0.8](https://github.com/electron/electron/releases/tag/v4.0.8)
   * [3.1.6](https://github.com/electron/electron/releases/tag/v3.1.6)
   * [3.0.16](https://github.com/electron/electron/releases/tag/v3.0.16)
@@ -29,10 +29,10 @@ We've published new versions of Electron which include fixes for this vulnerabil
 The latest beta of Electron 5 was tracking Chromium 73 and therefore is already patched:
   * [5.0.0-beta.5](https://github.com/electron/electron/releases/tag/v5.0.0-beta.5)
 
-## Further Information
+## 詳細情報
 
 This vulnerability was discovered by Clement Lecigne of Google's Threat Analysis Group and reported to the Chrome team.  The Chrome blog post can be found [here](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。

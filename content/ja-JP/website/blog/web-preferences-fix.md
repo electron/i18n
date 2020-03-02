@@ -8,20 +8,20 @@ A remote code execution vulnerability has been discovered affecting apps with th
 
 ---
 
-## Affected Platforms
+## 影響を受けるプラットフォーム
 
 You are impacted if:
 
 1. You embed _any_ remote user content, even in a sandbox
 2. You accept user input with any XSS vulnerabilities
 
-_Details_
+_詳細_
 
 You are impacted if any user code runs inside an `iframe` / can create an `iframe`. Given the possibility of an XSS vulnerability it can be assumed that most apps are vulnerable to this case.
 
 You are also impacted if you open any of your windows with the `nativeWindowOpen: true` or `sandbox: true` option.  Although this vulnerability also requires an XSS vulnerability to exist in your app, you should still apply one of the mitigations below if you use either of these options.
 
-## Mitigation
+## 緩和策
 
 We've published new versions of Electron which include fixes for  this vulnerability: [`3.0.0-beta.7`](https://github.com/electron/electron/releases/tag/v3.0.0-beta.7), [`2.0.8`](https://github.com/electron/electron/releases/tag/v2.0.8), [`1.8.8`](https://github.com/electron/electron/releases/tag/v1.8.8), and [`1.7.16`](https://github.com/electron/electron/releases/tag/v1.7.16). We urge all Electron developers to update their apps to the latest stable version immediately.
 
@@ -54,10 +54,10 @@ enforceInheritance(mainWindow.webContents)
 
 This code will manually enforce that the top level windows `webPreferences` is manually applied to all child windows infinitely deep.
 
-## Further Information
+## 詳細情報
 
 This vulnerability was found and reported responsibly to the Electron project by [Matt Austin](https://twitter.com/mattaustin) of [Contrast Security](https://www.contrastsecurity.com/security-influencers/cve-2018-15685).
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。

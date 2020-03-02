@@ -1,26 +1,26 @@
 ---
-title: Protocol Handler Vulnerability Fix
+title: プロトコルハンドラの脆弱性の修正
 author: zeke
 date: '2018-01-22'
 ---
 
-A remote code execution vulnerability has been discovered affecting Electron apps that use custom protocol handlers. This vulnerability has been assigned the CVE identifier [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006).
+リモートコード実行の脆弱性が発見されました。カスタムプロトコルハンドラを使用している Electron アプリに影響します。 この脆弱性には CVE 識別子 [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006) が割り当てられています。
 
 ---
 
-## Affected Platforms
+## 影響を受けるプラットフォーム
 
-Electron apps designed to run on Windows that register themselves as the default handler for a protocol, like `myapp://`, are vulnerable.
+Windows 向けに設計された Electron アプリが影響を受けます。`myapp://` のようなプロトコルのデフォルトハンドラに自身を登録することで起きる脆弱性です。
 
-Such apps can be affected regardless of how the protocol is registered, e.g. using native code, the Windows registry, or Electron's [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API.
+ネイティブコード、Windows レジストリ、Electron の [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API を使用しているようなアプリは、プロトコルの登録方法に関係なく影響を受ける可能性があります。
 
-macOS and Linux are **not vulnerable** to this issue.
+macOS と Linux には、この問題での **脆弱性はありません**。
 
-## Mitigation
+## 緩和策
 
-We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
+この脆弱性に対する修正を含む新しいバージョンの Electron を公開しました。 [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5)、 [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12)、 [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17) です。 Electron 開発者全員は、アプリをすぐに最新の安定バージョンに更新することを推奨します。
 
-If for some reason you are unable to upgrade your Electron version, you can append `--` as the last argument when calling [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), which prevents Chromium from parsing further options. The double dash `--` signifies the end of command options, after which only positional parameters are accepted.
+何らかの理由で Electron バージョンをアップグレードできない場合は、[app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) を呼び出すときに、最後の引数として `--` を追加します。これにより、Chromium がそれ以降の引数を解析しなくなります。 ダブルダッシュ `-` はコマンドオプションの終わりを示し、その後は位置引数のみを受け入れます。
 
 ```js
 app.setAsDefaultProtocolClient(protocol, process.execPath, [
@@ -29,8 +29,8 @@ app.setAsDefaultProtocolClient(protocol, process.execPath, [
 ])
 ```
 
-See the [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API for more details.
+詳細については、[app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) を参照してください。
 
-To learn more about best practices for keeping your Electron apps secure, see our [security tutorial](https://electronjs.org/docs/tutorial/security).
+Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-If you wish to report a vulnerability in Electron, email security@electronjs.org.
+Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
