@@ -1,10 +1,10 @@
 ---
-title: 'July 2016&#58; New Apps and Meetups'
+title: '2016 年 7 月号 & #58; 新しいアプリと交流会'
 author: jlord
 date: '2016-08-04'
 ---
 
-We're starting a monthly roundup to highlight activity in the Electron community. Each roundup will feature things like new apps, upcoming meetups, tools, videos, etc.
+Electron コミュニティでの活動を強調するために、月刊のまとめを始めます。 各まとめには、新しいアプリ、今後の交流会、ツール、映像などが掲載されます。
 
 ---
 
