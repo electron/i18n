@@ -1,16 +1,16 @@
 ---
-title: Atom Shell is now Electron
+title: Atom Shell は Electron になりました
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+Atom Shell は Electron という名前になりました。 新しいホームページ [electronjs.org](https://electronjs.org) で Electron とその開発者の制作物を詳しく学ぶことができます。
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+Electron は、当初 Chromium/Node.js イベントループ統合とネイティブ API を処理するために [Atom エディタ](https://atom.io) 用に構築したクロスプラットフォームアプリケーションシェルです。
 
 When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
 
