@@ -20,7 +20,7 @@ Electron は、当初 Chromium/Node.js イベントループ統合とネイテ�
 
 新しくなった [electronjs.org](https://electronjs.org) を見て、人々が Electron で構築したアプリを色々と見てみましょう。もしくは、[ドキュメント](https://github.com/electron/electron/tree/master/docs#readme) を見て他に何ができるのかもっと学びましょう。
 
-既に始めている方は、Electron で構築しているアプリについて話がしたいと思うでしょう。 Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+既に始めている方は、Electron で構築しているアプリについて話がしたいと思うでしょう。 [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) にメールで詳しく教えてもらえませんか。 新しくなった [@ElectronJS](https://twitter.com/electronjs) Twitter アカウントをフォローして、プロジェクトと繋がったままにもできます。
 
 :zap: :blue_heart: :electric_plug:
 
