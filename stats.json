@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "15199",
-    "translated": "1799",
+    "translated": "1811",
     "approved": "291",
     "words": "154599",
-    "words_translated": "10796",
+    "words_translated": "10958",
     "words_approved": "985",
-    "translated_progress": 6,
+    "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 557
+    "qa_issues": 560
   },
   {
     "name": "Bulgarian",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "15199",
-    "translated": "5264",
+    "translated": "5269",
     "approved": "1479",
     "words": "154599",
-    "words_translated": "30665",
+    "words_translated": "30775",
     "words_approved": "5623",
     "translated_progress": 19,
     "approved_progress": 3,
-    "qa_issues": 1534
+    "qa_issues": 1536
   },
   {
     "name": "Hebrew",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "15199",
-    "translated": "12597",
+    "translated": "12764",
     "approved": "4072",
     "words": "154599",
-    "words_translated": "119732",
+    "words_translated": "121784",
     "words_approved": "34776",
-    "translated_progress": 77,
+    "translated_progress": 78,
     "approved_progress": 22,
-    "qa_issues": 266
+    "qa_issues": 269
   },
   {
     "name": "Korean",
