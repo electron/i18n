@@ -58,7 +58,7 @@ Atom は Chrome 44 を動かしている Electron `v0.30.6` にアップグレ�
 
 ## 講演
 
-GitHubber [Amy Palamountain](https://github.com/ammeep) gave a great introduction to Electron in a talk at [Nordic.js](https://nordicjs2015.confetti.events). She also created the [electron-accelerator](https://github.com/ammeep/electron-accelerator) library.
+GitHubber の [Amy Palamountain](https://github.com/ammeep) は、[Nordic.js](https://nordicjs2015.confetti.events) の講演で Electron について素晴らしい紹介をしました。 彼女は [electron-accelerator](https://github.com/ammeep/electron-accelerator) ライブラリも作成しています。
 
 #### Building native applications with Electron by Amy Palomountain
 
