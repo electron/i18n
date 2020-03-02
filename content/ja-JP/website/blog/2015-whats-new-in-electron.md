@@ -1,5 +1,5 @@
 ---
-title: What's New in Electron
+title: Electron が新しくなりました
 author: jlord
 date: '2015-10-15'
 ---
@@ -8,13 +8,13 @@ date: '2015-10-15'
 
 ---
 
-## Source
+## 資料
 
 Electron は `v0.32.0` で Chrome 45 に更新します。 その他アップデートもあります...
 
-### Better Documentation
+### ドキュメントの改善
 
-![new docs](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
+![新しくなったドキュメント](https://cloud.githubusercontent.com/assets/1305617/10520600/d9dc0ae8-731f-11e5-9bd7-c1651639eb2a.png)
 
 見た目と読みやすさを向上するために、ドキュメントを再構成し標準化しました。 日本語や韓国語など、コミュニティが寄稿したドキュメントの翻訳もあります。
 
@@ -40,7 +40,7 @@ Electron は ARMv7 の Linux 向けビルドを提供するようになります
 
 ### Yosemite 式フレームレスウインドウ
 
-![frameless window](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
+![フレームレスウィンドウ](https://cloud.githubusercontent.com/assets/184253/9849445/7397d308-5aeb-11e5-896f-08ac7693c8c0.png)
 
 [@jaanus](https://github.com/jaanus) によるパッチがマージされました。OS X Yosemite 以降は、他の組み込み OS X アプリと同様に、システム信号機ボタンが統合されたフレームレスウィンドウを作成できます。
 
@@ -60,23 +60,23 @@ Atom は Chrome 44 を動かしている Electron `v0.30.6` にアップグレ�
 
 GitHubber の [Amy Palamountain](https://github.com/ammeep) は、[Nordic.js](https://nordicjs2015.confetti.events) の講演で Electron について素晴らしい紹介をしました。 彼女は [electron-accelerator](https://github.com/ammeep/electron-accelerator) ライブラリも作成しています。
 
-#### Building native applications with Electron by Amy Palomountain
+#### Amy Palomountain による Electron でのネイティブアプリケーション構築
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/OHOPSvTltPI" frameborder="0" allowfullscreen></iframe></div>
 
-[Ben Ogle](https://github.com/benogle), also on the Atom team, gave an Electron talk at [YAPC Asia](http://yapcasia.org/2015/):
+同じく Atom チームの [Ben Ogle](https://github.com/benogle) は、[YAPC Asia](http://yapcasia.org/2015/) で Electron の講演を行いました。
 
-#### Building Desktop Apps with Web Technologies by Ben Ogle
+#### Ben Ogle によるウェブ技術を使用したデスクトップアプリ構築
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/WChjh5zaUdw" frameborder="0" allowfullscreen></iframe></div>
 
-Atom team member [Kevin Sawicki](https://github.com/kevinsawicki) and others gave talks on Electron at the [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) meetup recently. The [videos](http://www.wagonhq.com/blog/electron-meetup) have been posted, here are a couple:
+Atom チームのメンバー [Kevin Sawicki](https://github.com/kevinsawicki) などが最近 [Bay Are Electron User Group](http://www.meetup.com/Bay-Area-Electron-User-Group/) 交流会で Electron について講演しました。 こちらに [映像](http://www.wagonhq.com/blog/electron-meetup) が二つ投稿されています。
 
-#### The History of Electron by Kevin Sawicki
+#### Kevin Sawicki による Electron 史
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/tP8Yp1boQ9c" frameborder="0" allowfullscreen></iframe></div>
 
-#### Making a web app feel native by Ben Gotow
+#### Ben Gotow によるネイティブ風ウェブアプリ制作
 
 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/JIRXVGVPzn8" frameborder="0" allowfullscreen></iframe></div>
 
