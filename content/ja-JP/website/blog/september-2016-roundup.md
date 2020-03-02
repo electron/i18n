@@ -8,9 +8,9 @@ Here are the new Electron apps and talks that were added to the site in Septembe
 
 ---
 
-This site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. You can [watch the repository](https://github.com/electron/electronjs.org) to get notifications of new additions or if you're not interested in _all_ of the site's changes, subscribe to the [blog RSS feed](https://electronjs.org/feed.xml).
+This site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. [レポジトリを Watch](https://github.com/electron/electronjs.org) すれば新しい追加の通知を受け取ることができます。_全て_ のサイトの変更に関心がない場合は、[ブログ RSS フィード](https://electronjs.org/feed.xml) に登録してください。
 
-If you've made an Electron app or host a meetup, make a [pull request](https://github.com/electron/electronjs.org) to add it to the site and it will make the next roundup.
+Electron アプリを作成したり、交流会を開催したりしている場合、[プルリクエスト](https://github.com/electron/electronjs.org) を作成するとサイトに追加して次のまとめに載ります。
 
 ### New Talks
 
@@ -21,7 +21,7 @@ In September, GitHub held its GitHub Universe conference billed as the event for
 
 Also, if you happen to be in Paris on December 5, Zeke will be [giving an Electron talk at dotJS 2016](https://twitter.com/dotJS/status/783615732307333120).
 
-### New Apps
+### 新しいアプリ
 
 |                                                                                     |                                                           |                                                                                                                                     |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
