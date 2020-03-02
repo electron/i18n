@@ -4,13 +4,13 @@ author: jlord
 date: '2015-10-15'
 ---
 
-There have been some interesting updates and talks given on Electron recently, here's a roundup.
+近日中、Electron に面白いアップデートと講演がいくつかあります。ここではそのまとめを紹介します。
 
 ---
 
 ## Source
 
-Electron is now up to date with Chrome 45 as of `v0.32.0`. Other updates include...
+Electron は `v0.32.0` で Chrome 45 に更新します。 その他アップデートもあります...
 
 ### Better Documentation
 
