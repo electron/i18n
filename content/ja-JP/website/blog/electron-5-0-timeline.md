@@ -15,8 +15,8 @@ Electron と Chromium の変遷を並べて見てみましょう。
 
 2018 年の後半、私たちの最優先事項は、より早くリリースして Chromium に追いつくことでした。 これは事前に決めたタイムラインを遵守することで成功しました。 Electron 3.0.0 と 4.0.0 は、各リリース 2 ~ 3 か月のタイムラインでリリースされました。 5.0.0 以降のリリースでもそのペースを続けるつもりです。 ほぼ四半期ごとに Electron のメジャーリリースが行われ、Chromium のリリースペースに追いつきます。 Chromium の安定版リリースに先んじることは常に私たちの目標であり、私たちはそれを着実に進めています。
 
-[Node.js](https://github.com/nodejs/Release) や [Chromium](https://chromiumdash.appspot.com/schedule) のように将来の日付を約束したいのですが、_まだ_ その段階ではありません。 We are optimistic that we will reach a long-term timeline in the future.
+[Node.js](https://github.com/nodejs/Release) や [Chromium](https://chromiumdash.appspot.com/schedule) のように将来の日付を約束したいのですが、_まだ_ その段階ではありません。 将来的には長期的なスケジュールに変化するだろうと楽観視しています。
 
-With that in mind, we are taking first steps by publicly posting our release schedule for v5.0.0. You can find that [here](https://electronjs.org/docs/tutorial/electron-timelines).
+それを念頭に置いて、v5.0.0 のリリーススケジュールを公開することで第一段階を進めています。スケジュールは [こちら](https://electronjs.org/docs/tutorial/electron-timelines) にあります。
 
-To help us with testing our beta releases and stabilization, please consider joining our [App Feedback Program](https://electronjs.org/blog/app-feedback-program).
+ベータ版リリースと安定化のテストに役立てるため、[アプリフィードバックプログラム](https://electronjs.org/blog/app-feedback-program) への参加をご検討ください。
