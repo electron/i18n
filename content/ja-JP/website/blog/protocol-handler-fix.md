@@ -10,15 +10,15 @@ date: '2018-01-22'
 
 ## 影響を受けるプラットフォーム
 
-Electron apps designed to run on Windows that register themselves as the default handler for a protocol, like `myapp://`, are vulnerable.
+Windows 向けに設計された Electron アプリが影響を受けます。`myapp://` のようなプロトコルのデフォルトハンドラに自身を登録することで起きる脆弱性です。
 
-Such apps can be affected regardless of how the protocol is registered, e.g. using native code, the Windows registry, or Electron's [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API.
+ネイティブコード、Windows レジストリ、Electron の [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows) API を使用しているようなアプリは、プロトコルの登録方法に関係なく影響を受ける可能性があります。
 
-macOS and Linux are **not vulnerable** to this issue.
+macOS と Linux には、この問題での **脆弱性はありません**。
 
 ## 緩和策
 
-We've published new versions of Electron which include fixes for this vulnerability: [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5), [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12), and [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17). We urge all Electron developers to update their apps to the latest stable version immediately.
+この脆弱性に対する修正を含む新しいバージョンの Electron を公開しました。 [`1.8.2-beta.5`](https://github.com/electron/electron/releases/tag/v1.8.2-beta.5)、 [`1.7.12`](https://github.com/electron/electron/releases/tag/v1.7.12)、 [`1.6.17`](https://github.com/electron/electron/releases/tag/v2.6.17) です。 Electron 開発者全員は、アプリをすぐに最新の安定バージョンに更新することを推奨します。
 
 If for some reason you are unable to upgrade your Electron version, you can append `--` as the last argument when calling [app.setAsDefaultProtocolClient](https://electronjs.org/docs/api/app#appsetasdefaultprotocolclientprotocol-path-args-macos-windows), which prevents Chromium from parsing further options. The double dash `--` signifies the end of command options, after which only positional parameters are accepted.
 
