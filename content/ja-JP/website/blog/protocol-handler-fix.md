@@ -1,14 +1,14 @@
 ---
-title: Protocol Handler Vulnerability Fix
+title: プロトコルハンドラの脆弱性の修正
 author: zeke
 date: '2018-01-22'
 ---
 
-A remote code execution vulnerability has been discovered affecting Electron apps that use custom protocol handlers. This vulnerability has been assigned the CVE identifier [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006).
+リモートコード実行の脆弱性が発見されました。カスタムプロトコルハンドラを使用している Electron アプリに影響します。 この脆弱性には CVE 識別子 [CVE-2018-1000006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000006) が割り当てられています。
 
 ---
 
-## Affected Platforms
+## 影響を受けるプラットフォーム
 
 Electron apps designed to run on Windows that register themselves as the default handler for a protocol, like `myapp://`, are vulnerable.
 
