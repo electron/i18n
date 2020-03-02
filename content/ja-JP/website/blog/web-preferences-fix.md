@@ -8,7 +8,7 @@ A remote code execution vulnerability has been discovered affecting apps with th
 
 ---
 
-## Affected Platforms
+## 影響を受けるプラットフォーム
 
 You are impacted if:
 
