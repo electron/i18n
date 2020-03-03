@@ -412,6 +412,8 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 デフォルトでは、Electron は Chromium CDN から hunspell 辞書をダウンロードします。 この動作をオーバーライドする場合は、この API を使用して、独自ホスト版の hunspell 辞書を辞書ダウンローダーが指すようにすることができます。 ホストに必要なファイルが入っている、各リリースの `hunspell_dictionaries.zip` ファイルをこちらで公開しています。
 
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+
 **注意:** macOS では、OS のスペルチェッカーが使用されるため辞書ファイルをダウンロードしません。 この API は、macOS では何もしません。
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
