@@ -8,7 +8,7 @@ Here are the new Electron apps and talks that were added to the site in Septembe
 
 ---
 
-This site is updated with new [apps](https://electronjs.org/apps) and [meetups](https://electronjs.org/community) through [pull requests](https://github.com/electron/electronjs.org/pulls) from the community. [レポジトリを Watch](https://github.com/electron/electronjs.org) すれば新しい追加の通知を受け取ることができます。_全て_ のサイトの変更に関心がない場合は、[ブログ RSS フィード](https://electronjs.org/feed.xml) に登録してください。
+このサイトはコミュニティからの[プルリクエスト](https://github.com/electron/electronjs.org/pulls) を通して新しい [アプリ](https://electronjs.org/apps) と [交流会](https://electronjs.org/community) で更新されます。 [レポジトリを Watch](https://github.com/electron/electronjs.org) すれば新しい追加の通知を受け取ることができます。_全て_ のサイトの変更に関心がない場合は、[ブログ RSS フィード](https://electronjs.org/feed.xml) に登録してください。
 
 Electron アプリを作成したり、交流会を開催したりしている場合、[プルリクエスト](https://github.com/electron/electronjs.org) を作成するとサイトに追加して次のまとめに載ります。
 
