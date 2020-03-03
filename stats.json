@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "15199",
-    "translated": "12910",
+    "translated": "13056",
     "approved": "4072",
     "words": "154599",
-    "words_translated": "123315",
+    "words_translated": "124648",
     "words_approved": "34776",
-    "translated_progress": 79,
+    "translated_progress": 80,
     "approved_progress": 22,
-    "qa_issues": 276
+    "qa_issues": 279
   },
   {
     "name": "Korean",
