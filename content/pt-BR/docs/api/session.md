@@ -412,37 +412,37 @@ Returns `String[]` - An array of language codes the spellchecker is enabled for.
 
 By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+Se os arquivos presentes em `hunspell_dictionaries.zip` estiverem disponíveis em `https://example.com/dictionaries/language-code.bdic` então você deve chamar esta api com `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Tome atenção à barra no final. A URL para os dicionários é formada como `${url}${filename}`.
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+**Nota:** No macOS é utilizado o corretor ortográfico do sistema operacional e, portanto, não baixamos nenhum arquivo de dicionário. Esta API é não é um operador no macOS.
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
 * `word` String - The word you want to add to the dictionary
 
-Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+Retorna `Boolean` - Se a palavra foi escrita com sucesso no dicionário personalizado.
 
-**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+**Nota:** No macOS e Windows 10, esta palavra será escrita também no dicionário personalizado do sistema operacional
 
 ### Propriedades de Instância
 
-The following properties are available on instances of `Session`:
+As seguintes propriedades estão disponíveis em instâncias de `Session`:
 
 #### `ses.availableSpellCheckerLanguages` *Readonly*
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+Uma matriz `String[]` que consiste em todas as linguagens de correção ortográfica disponíveis. Fornecer um código de idioma para a API `setSpellCheckerLanaguages` que não está nesta matriz resultará em um erro.
 
 #### `ses.cookies` *Readonly*
 
-A [`Cookies`](cookies.md) object for this session.
+Um objeto [`Cookies`](cookies.md) para esta sessão.
 
 #### `ses.webRequest` *Readonly*
 
-A [`WebRequest`](web-request.md) object for this session.
+Um objeto [`WebRequest`](web-request.md) para esta sessão.
 
 #### `ses.protocol` *Readonly*
 
-A [`Protocol`](protocol.md) object for this session.
+Um objeto [`Protocol`](protocol.md) para esta sessão.
 
 ```javascript
 const { app, session } = require('electron')
@@ -461,7 +461,7 @@ app.on('ready', function () {
 
 #### `ses.netLog` *Readonly*
 
-A [`NetLog`](net-log.md) object for this session.
+Um objeto [`NetLog`](net-log.md) para esta sessão.
 
 ```javascript
 const { app, session } = require('electron')
