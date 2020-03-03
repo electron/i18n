@@ -1,18 +1,18 @@
 ---
-title: Mac App Store and Windows Auto Updater on Electron
+title: Electron での Mac App Store と Windows 自動更新
 author: jlord
 date: '2015-11-05'
 ---
 
-Recently Electron added two exciting features: a Mac App Store compatible build and a built-in Windows auto updater.
+最近、Electron は 2 つの面白い機能を追加しました。Mac App Store 互換ビルドと組み込み Windows 自動更新です。
 
 ---
 
-## Mac App Store Support
+## Mac App Store サポート
 
 <img src='https://cloud.githubusercontent.com/assets/1305617/10928574/a301640c-825e-11e5-918e-a06b7a55dcb4.png' width="300" />
 
-As of `v0.34.0` each Electron release includes a build compatible with the Mac App Store. Previously an application built on Electron would not comply with Apple's requirements for the Mac App Store. Most of these requirements are related to the use of private APIs. In order to sandbox Electron in such a way that it complies with the requirements two modules needed to be removed:
+`v0.34.0 ` 現在、Electron の各リリースは Mac App Store 互換のビルドとなっています。 以前は、Electronで構築されたアプリケーションは、Mac App Store に提出する際の Apple の要件を満たしていませんでした。 これら要件のほとんどは、非公開 API の使用に関するものです。 Electron をサンドボックス化して要件を満たすようにするには、2 つのモジュールを削除する必要があります。
 
 - `crash-reporter`
 - `auto-updater`
