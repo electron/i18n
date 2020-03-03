@@ -11,7 +11,7 @@
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+Пожалуйста, также убедитесь, что ваша система и версия Python поддерживают по крайней мере TLS 1.2. Это зависит от вашей версии macOS и Python. Для быстрого тестирования, запустите:
 
 ```sh
 $ npx @electron/check-python-tls
