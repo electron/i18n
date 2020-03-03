@@ -1,10 +1,10 @@
 ---
-title: 'September 2016&#58; New Apps'
+title: '2016 年 9 月号 & #58; 新しいアプリ'
 author: haacked
 date: '2016-10-06'
 ---
 
-Here are the new Electron apps and talks that were added to the site in September.
+こちらは 9 月時点でサイトに追加された新しい Electron アプリと講演です。
 
 ---
 
@@ -12,23 +12,23 @@ Here are the new Electron apps and talks that were added to the site in Septembe
 
 Electron アプリを作成したり、交流会を開催したりしている場合、[プルリクエスト](https://github.com/electron/electronjs.org) を作成するとサイトに追加して次のまとめに載ります。
 
-### New Talks
+### 新しい講演
 
-In September, GitHub held its GitHub Universe conference billed as the event for people building the future of software. There were a couple of interesting Electron talks at the event.
+9 月に、GitHub は GitHub Universe カンファレンスを開催し、ソフトウェアの未来を築く人々のためのイベントだと宣言しました。 このイベントでは、面白い Electron の講演がいくつかありました。
 
-* [Making Electron Development Simpler, More Pleasant, and More Productive](https://www.youtube.com/watch?v=Eqg_IqVeI5s) by Machisté Quintana, a Software Engineer at Slack.
-* [Electron: Desktop Apps with Web Languages](https://www.youtube.com/watch?v=FNHBfN8c32U) by Zeke Sikelianos, an Electron Developer at GitHub.
+* Slack のソフトウェアエンジニア Machisté Quintana による [Electron の開発をより単純に、より快適に、より生産的に](https://www.youtube.com/watch?v=Eqg_IqVeI5s)。
+* GitHub の Electron 開発者 Zeke Sikelianos による [Electron: ウェブ言語を使用したデスクトップアプリ](https://www.youtube.com/watch?v=FNHBfN8c32U)。
 
-Also, if you happen to be in Paris on December 5, Zeke will be [giving an Electron talk at dotJS 2016](https://twitter.com/dotJS/status/783615732307333120).
+また、12 月 5 日のパリで、Zeke は [dotJS 2016 で Electron の講演を行います](https://twitter.com/dotJS/status/783615732307333120)。
 
 ### 新しいアプリ
 
 |                                                                                     |                                                           |                                                                                                                                     |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| <img src='/images/apps/pexels-icon.png' width='50' />              | [Pexels](https://www.pexels.com/pro/mac-and-windows-app/) | Search for completely free photos and copy them into your clipboard                                                                 |
-| <img src='/images/apps/timestamp-icon.png' width='50' />           | [Timestamp](https://mzdr.github.io/timestamp/)            | A better macOS menu bar clock with a customizable date/time display and a calendar                                                  |
-| <img src='/images/apps/harmony-icon.png' width='50' />             | [Harmony](http://getharmony.xyz/)                         | Music player compatible with Spotify, Soundcloud, Play Music and your local files                                                   |
-| <img src='/images/apps/uphone-icon.png' width='50' />              | [uPhone](http://www.integraccs.com)                       | WebRTC Desktop Phone                                                                                                                |
+| <img src='/images/apps/pexels-icon.png' width='50' />              | [Pexels](https://www.pexels.com/pro/mac-and-windows-app/) | 完全無料の写真を検索、クリップボードにコピーします                                                                                                           |
+| <img src='/images/apps/timestamp-icon.png' width='50' />           | [Timestamp](https://mzdr.github.io/timestamp/)            | カスタマイズ可能な日付/時刻表示とカレンダーを備える、優れた macOS メニューバー時計                                                                                       |
+| <img src='/images/apps/harmony-icon.png' width='50' />             | [Harmony](http://getharmony.xyz/)                         | Spotify、Soundcloud、Play Music、ローカルファイル互換の音楽プレーヤー                                                                                    |
+| <img src='/images/apps/uphone-icon.png' width='50' />              | [uPhone](http://www.integraccs.com)                       | WebRTC デスクトップ通話                                                                                                                     |
 | <img src='/images/apps/sealtalk-icon.png' width='50' />            | [SealTalk](http://sealtalk.im)                            | Instant-messaging App powered by RongCloud IM Cloud Service and IM SDK                                                              |
 | <img src='/images/apps/infinity-icon.png' width='50' />            | [Infinity](https://ycosxapp.github.io)                    | An easy way to make presentation                                                                                                    |
 | <img src='/images/apps/cycligent-git-tool-icon.png' width='50' />  | [Cycligent Git Tool](https://www.cycligent.com/git-tool)  | Straightforward, graphic GUI for your Git projects                                                                                  |
