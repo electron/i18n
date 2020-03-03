@@ -23,9 +23,9 @@ Node.js インテグレーションを無効している Electron アプリケ�
 
 ## 緩和策
 
-This vulnerability is fixed in today's [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13), [1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4), and [2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) releases.
+この脆弱性は本日の [1.7.13](https://github.com/electron/electron/releases/tag/v1.7.13)、[1.8.4](https://github.com/electron/electron/releases/tag/v1.8.4)、[2.0.0-beta.5](https://github.com/electron/electron/releases/tag/v2.0.0-beta.5) のリリースで修正されました。
 
-Developers who are unable to upgrade their application's Electron version can mitigate the vulnerability with the following code:
+アプリケーションの Electron のバージョンをアップグレードできない開発者は、以下のコードで脆弱性を軽減できます。
 
 ```js
 app.on('web-contents-created', (event, win) => {
@@ -39,8 +39,8 @@ app.on('web-contents-created', (event, win) => {
   })
 })
 
-// and *IF* you don't use WebViews at all,
-// you might also want
+// WebView も全く使用しない *場合* は、
+// 以下も必要になる場合があります
 app.on('web-contents-created', (event, win) => {
   win.on('will-attach-webview', (event, webPreferences, params) => {
     event.preventDefault();
@@ -50,11 +50,11 @@ app.on('web-contents-created', (event, win) => {
 
 ## 詳細情報
 
-This vulnerability was found and reported responsibly to the Electron project by Brendan Scarvell of [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/).
+この脆弱性は [Trustwave SpiderLabs](https://www.trustwave.com/Company/SpiderLabs/) の Brendan Scarvell によって発見され、Electron プロジェクトに責任ある形で報告されました。
 
 Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
-To report a vulnerability in Electron, please email security@electronjs.org.
+Electron の脆弱性を報告する場合は、security@electronjs.org にメールでご連絡お願いします。
 
-Please join our [email list](https://groups.google.com/forum/#!forum/electronjs) to receive updates about releases and security updates.
+[メールリスト](https://groups.google.com/forum/#!forum/electronjs) に参加すると、リリースとセキュリティアップデートに関する更新情報を受信できます。
 
