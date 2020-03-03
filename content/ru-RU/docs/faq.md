@@ -67,12 +67,7 @@ app.whenReady().then(() => {
 на этот:
 
 ```javascript
-const { app, Tray } = require('electron')
-let tray = null
-app.whenReady().then(() => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
-})
+{ app, Tray }
 ```
 
 ## У меня не получается использовать jQuery/RequireJS/Meteor/AngularJS в Electron.
