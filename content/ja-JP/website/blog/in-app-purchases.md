@@ -1,10 +1,10 @@
 ---
-title: "New in Electron 2: In-App Purchases"
+title: "Electron 2 の新機能: アプリ内課金"
 author: zeke
 date: '2018-04-04'
 ---
   
-The new Electron 2.0 release line is [packed](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) with new features and fixes. One of the highlights from this new major version is a new [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) for Apple's [Mac App Store](https://support.apple.com/en-us/HT202023).
+新しい Electron 2.0 リリースラインは新しい機能と修正が [詰め込まれて](https://github.com/electron/electron/releases/tag/v2.0.0-beta.1) います。 One of the highlights from this new major version is a new [`inAppPurchase` API](https://github.com/electron/electron/blob/master/docs/api/in-app-purchase.md) for Apple's [Mac App Store](https://support.apple.com/en-us/HT202023).
 
 ---
 
