@@ -1,12 +1,12 @@
 # Distribuição de Aplicativos
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Para distribuir sua aplicação com Electron, você precisa empacotá-la e convertê-la. O jeito mais fácil de fazer isso é utilizando uma das ferramentas externas de empacotamento a seguir:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Essas ferramentas cuidarão de todos os passos que você precisa tomar para obter aplicações Electron distribuíveis; como empacotar a aplicação, converter o executável, configurar os ícones corretos e, opcionalmente, criar instaladores.
 
 ## Distribuição manual
 
@@ -99,7 +99,7 @@ It is also possible to rebrand Electron by changing the product name and buildin
 
 Criar um fork personalizado do Electron, na maioria dos casos, não é algo que você precise fazer para criar seu aplicativo, mesmo em aplicativos a "nível de produção". Usando uma ferramenta como o `electron-packager` ou o `electron-forge`, você será capaz de personalizar a marca do produto final sem ter que realizar esses passos.
 
-Você vai precisar criar um fork do Electron caso você tenha código C++ personalizado que você queira inserir diretamente no Electron e que não pode ser publicado/enviado ou foi rejeitado pela versão oficial. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Você vai precisar criar um fork do Electron caso você tenha código C++ personalizado que você queira inserir diretamente no Electron e que não pode ser publicado/enviado ou foi rejeitado pela versão oficial. Como mantenedores do Electron, nós gostaríamos muito de manter a sua versão funcionando, então, por favor, tente ao máximo fazer com que suas alterações entrem na versão oficial do Electron; será muito muito mais prático para você e nós agradecemos a sua ajuda.
 
 #### Criando uma distribuição customizada com surf-build
 

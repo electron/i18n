@@ -1,26 +1,26 @@
 ---
-title: Atom Shell is now Electron
+title: Atom Shell は Electron になりました
 author: kevinsawicki
 date: '2015-04-23'
 ---
 
-Atom Shell is now called Electron. You can learn more about Electron and what people are building with it at its new home [electronjs.org](https://electronjs.org).
+Atom Shell は Electron という名前になりました。 新しいホームページ [electronjs.org](https://electronjs.org) で Electron とその開発者の制作物を詳しく学ぶことができます。
 
 ---
 
 [![electron](https://cloud.githubusercontent.com/assets/671378/7396651/b7fae482-ee57-11e4-97a2-053515654c75.png)](https://electronjs.org)
 
-Electron is the cross-platform application shell we originally built for the [Atom editor](https://atom.io) to handle the Chromium/Node.js event loop integration and native APIs.
+Electron は、当初 Chromium/Node.js イベントループ統合とネイティブ API を処理するために [Atom エディタ](https://atom.io) 用に構築したクロスプラットフォームアプリケーションシェルです。
 
-When we got started, our goal wasn't just to support the needs of a text editor. We also wanted to create a straightforward framework that would allow people to use web technologies to build cross-platform desktop apps with all of the native trimmings.
+これを始めたときの目標は、テキストエディタの要件をサポートすることだけではありませんでした。 ウェブ技術を使用して、ネイティブの付属品すべてを備えたクロスプラットフォームデスクトップアプリを構築できる平易なフレームワークも作成したいと考えました。
 
-In two years, Electron has grown immensely. It now includes automatic app updates, Windows installers, crash reporting, notifications, and other useful native app features &mdash; all exposed through JavaScript APIs. And we have more in the works. We plan to extract even more libraries from Atom to make building a native app with web technologies as easy as possible.
+2 年の時を経て、Electron は非常に成長しました。 これには、アプリの自動更新、Windows インストーラー、クラッシュレポート、通知、そしてその他の便利なネイティブアプリ機能が含まれており、これはすべてJavaScript API を通して公開されています。 そして、私たちはさらなる作業をしています。 Atom からさらに多くのライブラリを抽出し、ウェブ技術でネイティブアプリをできるだけ簡単に構築できるようにする予定です。
 
-So far, individual developers, early-stage startups, and large companies have built apps on Electron. They've created a huge range of apps &mdash; including chat apps, database explorers, map designers, collaborative design tools, and mobile prototyping apps.
+これまで、個人開発者、若いスタートアップ企業、大企業は、Electron でアプリを構築しています。 チャットアプリ、データベースエクスプローラー、マップデザイナー、共同設計ツール、モバイルプロトタイプアプリなど、幅広いアプリを作成してきました。
 
-Check out the new [electronjs.org](https://electronjs.org) to see more of the apps people have built on Electron or take a look at the [docs](https://github.com/electron/electron/tree/master/docs#readme) to learn more about what else you can make.
+新しくなった [electronjs.org](https://electronjs.org) を見て、人々が Electron で構築したアプリを色々と見てみましょう。もしくは、[ドキュメント](https://github.com/electron/electron/tree/master/docs#readme) を見て他に何ができるのかもっと学びましょう。
 
-If you've already gotten started, we'd love to chat with you about the apps you're building on Electron. Email [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) to tell us more. You can also follow the new [@ElectronJS](https://twitter.com/electronjs) Twitter account to stay connected with the project.
+既に始めている方は、Electron で構築しているアプリについて話がしたいと思うでしょう。 [info@electronjs.org](mailto:info@electronjs.org?Subject=Electron) にメールで詳しく教えてもらえませんか。 新しくなった [@ElectronJS](https://twitter.com/electronjs) Twitter アカウントをフォローして、プロジェクトと繋がったままにもできます。
 
 :zap: :blue_heart: :electric_plug:
 

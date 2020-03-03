@@ -1,14 +1,14 @@
 ---
-title: Chromium FileReader Vulnerability Fix
+title: Chromium FileReader の脆弱性の修正
 author: marshallofsound
 date: '2019-03-07'
 ---
 
 Chrome に高レベルの重大な脆弱性が発見されました。Electron を含む Chromium ベースのすべてのソフトウェアに影響します。
 
-This vulnerability has been assigned `CVE-2019-5786`.  You can read more about it in the [Chrome Blog Post](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
+この脆弱性は `CVE-2019-5786` と命名されています。  詳細は [Chrome ブログ記事](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html) を参照してください。
 
-Please note that Chrome has reports of this vulnerability being used in the wild so it is strongly recommended you upgrade Electron ASAP.
+Chrome でこの脆弱性が悪用されているという報告があります。なるべく早く Electron を更新することを強く推奨します。
 
 ---
 
@@ -26,12 +26,12 @@ Please note that Chrome has reports of this vulnerability being used in the wild
   * [3.0.16](https://github.com/electron/electron/releases/tag/v3.0.16)
   * [2.0.18](https://github.com/electron/electron/releases/tag/v2.0.18)
 
-The latest beta of Electron 5 was tracking Chromium 73 and therefore is already patched:
+Electron 5 の最新ベータ版は Chromium 73 を追っていたので、パッチは適用済みです。
   * [5.0.0-beta.5](https://github.com/electron/electron/releases/tag/v5.0.0-beta.5)
 
 ## 詳細情報
 
-This vulnerability was discovered by Clement Lecigne of Google's Threat Analysis Group and reported to the Chrome team.  The Chrome blog post can be found [here](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html).
+この脆弱性は Google の Threat Analysis Group の Clement Lecigne によって発見され、Chrome チームに報告されました。  その Chrome ブログ記事は [こちら](https://chromereleases.googleblog.com/2019/03/stable-channel-update-for-desktop.html) です。
 
 Electron アプリを堅牢に保つベストプラクティスの詳細は、[セキュリティチュートリアル](https://electronjs.org/docs/tutorial/security) を参照してください。
 
