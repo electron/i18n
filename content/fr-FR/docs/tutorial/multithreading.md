@@ -1,6 +1,6 @@
 # Multithreading
 
-Avec [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), il est possible d'exécuter du code JavaScript au niveau du système d'exploitation.
+С помощью [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), есть возможность запускать JavaScript в потоках на уровне операционной системы.
 
 ## Multi-threaded Node.js
 
