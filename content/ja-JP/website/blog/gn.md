@@ -1,5 +1,5 @@
 ---
-title: "Using GN to Build Electron"
+title: "GN を使って Electron を構築する"
 author: nornagon
 date: '2018-09-05'
 ---
