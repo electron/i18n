@@ -17,13 +17,13 @@ date: '2015-11-05'
 - `crash-reporter`
 - `auto-updater`
 
-Additionally some behaviors have changed with respect to detecting DNS changes, video capture and accessibility features. You can read more about the changes and [submitting your app to the Mac App store](https://electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide) in the documentation. The distributions can be found on the [Electron releases page](https://github.com/electron/electron/releases), prefixed with `mas-`.
+加えて、DNS の変更、ビデオキャプチャ、アクセシビリティ機能の検出に関して、いくつかの動作が変更されました。 変更の詳細についてはドキュメント内の [Mac App Store へのアプリ提出](https://electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide) を参照してください。 このディストリビューションは [Electron リリースページ](https://github.com/electron/electron/releases) にあり、頭に `mas-` が付いています。
 
-Related Pull Requests: [electron/electron#3108](https://github.com/electron/electron/pull/3108), [electron/electron#2920](https://github.com/electron/electron/pull/2920)
+関連するプルリクエストは以下の通りです。[electron/electron#3108](https://github.com/electron/electron/pull/3108)、[electron/electron#2920](https://github.com/electron/electron/pull/2920)
 
-## Windows Auto Updater
+## Windows 自動更新
 
-In Electron `v0.34.1` the `auto-updater` module was improved in order to work with [`Squirrel.Windows`](https://github.com/Squirrel/Squirrel.Windows). This means that Electron ships with easy ways for auto updating your app on both OS X and Windows. You can read more on [setting up your app for auto updating on Windows](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) in the documentation.
+Electron `v0.34.1` では、`auto-updater` モジュールが [`Squirrel.Windows` で動作するように改善されました](https://github.com/Squirrel/Squirrel.Windows)。 つまり、Electron なら OS X と Windows の両方で簡単に自動更新できるアプリを公開できます。 ドキュメントに [Windows での自動更新のアプリ設定](https://github.com/electron/electron/blob/master/docs/api/auto-updater.md#windows) に関する読み物があります。
 
-Related Pull Request: [electron/electron#1984](https://github.com/electron/electron/pull/1984)
+関連するプルリクエストは [electron/electron#1984](https://github.com/electron/electron/pull/1984) です。
 
