@@ -4,11 +4,11 @@ author: nornagon
 date: '2018-09-05'
 ---
 
-Electron now uses GN to build itself. Here's a discussion of why.
+Electron は、GN を使用して自身を構築しています。 その理由についてこちらで説明します。
 
 ---
 
-# GYP and GN
+# GYP と GN
 
 When Electron was first released in 2013, Chromium's build configuration was written with [GYP](https://gyp.gsrc.io/), short for "Generate Your Projects".
 
