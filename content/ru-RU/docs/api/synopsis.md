@@ -2,13 +2,13 @@
 
 > Как использовать Node.js и Electron API.
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+Все [встроенные модули Node.js](https://nodejs.org/api/) доступны в Electron и сторонних модулях (включая [нативные модули](../tutorial/using-native-node-modules.md)).
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Кроме того, Electron предоставляет дополнительные встроенные модули для разработки нативных дестопных приложений. Некоторые модули доступны только в основном процессе, некоторые доступны только в процессе рендерера (веб-страницы), а некоторые могут быть использованы в обоих процессах.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
+Основное правило: если модуль связан с [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) или системой низкого уровня, то должно быть доступно только в основном процессе. Вы должны быть знакомы с понятием [основной процесс против редеринга](../tutorial/application-architecture.md#main-and-renderer-processes) скриптов для использования этих модулей.
 
-The main process script is like a normal Node.js script:
+Скрипт основного процесса похож на обычный скрипт Node.js:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+Процесс рендерера ничем не отличается от обычной веб-страницы, за исключением дополнительной возможности использования модулей узлов:
 
 ```html
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+Чтобы запустить приложение, прочитайте [Запуск приложения](../tutorial/first-app.md#running-your-app).
 
 ## Деструктирующее присваивание
 
