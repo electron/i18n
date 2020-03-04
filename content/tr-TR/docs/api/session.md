@@ -412,17 +412,17 @@ Returns `String[]` - An array of language codes the spellchecker is enabled for.
 
 By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
 
-If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+` hunspell_dictionaries.zip ` içerisinde mevcut olan dosyalar ` https://example.com/dictionaries/language-code.bdic ` adresinde mevcutsa bu Api'yı ` ses.setSpellCheckerDictionaryDownloadURL ('https://example.com/dictionaries/') ` ile çağırmalısınız. Lütfen sondaki eğik çizgiye dikkat edin. Sözlüklerin URL'si ` ${url} ${filename} ` olarak oluşturulur.
 
-**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+** Not: ** macOS'ta OS yazım denetleyicisi kullanılır ve bu nedenle herhangi bir sözlük dosyası indirmiyoruz. Bu API, macOS'ta bir işlemdir.
 
 #### `ses.addWordToSpellCheckerDictionary(word)`
 
 * `word` String - The word you want to add to the dictionary
 
-Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+`Boolean` değerini döndürür - Kelimenin özel sözlüğe başarıyla yazılıp yazılmadığı.
 
-**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+**Note:** MacOS ve Windows 10'da bu kelime OS özel sözlüğüne de yazılacak
 
 ### Örnek Özellikler
 
@@ -430,19 +430,19 @@ Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.availableSpellCheckerLanguages` *Readonly*
 
-A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+Bilinen tüm yazım denetleyici dillerinden oluşan bir `String[]` dizisi. Bir dil sağlama Bu dizide olmayan `setSpellCheckerLanaguages` API'sinin kodu bir hataya neden olur.
 
 #### `ses.cookies` *Readonly*
 
-A [`Cookies`](cookies.md) object for this session.
+Bu oturum için bir [`Cookies`](cookies.md) nesnesi.
 
 #### `ses.webRequest` *Readonly*
 
-A [`WebRequest`](web-request.md) object for this session.
+Bu oturum için bir [`WebRequest`](web-request.md) nesnesi.
 
 #### `ses.protocol` *Readonly*
 
-A [`Protocol`](protocol.md) object for this session.
+Bu oturum için bir [`Protocol`](protocol.md) nesnesi.
 
 ```javascript
 const { app, session } = require('electron')
@@ -461,7 +461,7 @@ app.on('ready', function () {
 
 #### `ses.netLog` *Readonly*
 
-A [`NetLog`](net-log.md) object for this session.
+Bu oturum için bir [`NetLog`](net-log.md) nesnesi.
 
 ```javascript
 const { app, session } = require('electron')
