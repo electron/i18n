@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "15202",
-    "translated": "10569",
+    "translated": "10570",
     "approved": "3621",
     "words": "154633",
-    "words_translated": "95087",
+    "words_translated": "95099",
     "words_approved": "29991",
     "translated_progress": 61,
     "approved_progress": 19,
-    "qa_issues": 2869
+    "qa_issues": 2870
   },
   {
     "name": "Tagalog",
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "15202",
-    "translated": "7571",
+    "translated": "7583",
     "approved": "2337",
     "words": "154633",
-    "words_translated": "58841",
+    "words_translated": "58984",
     "words_approved": "17094",
     "translated_progress": 38,
     "approved_progress": 11,
-    "qa_issues": 2336
+    "qa_issues": 2343
   },
   {
     "name": "Ukrainian",
