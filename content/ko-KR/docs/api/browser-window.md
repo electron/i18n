@@ -114,7 +114,7 @@ child.once('ready-to-show', () => {
 
 프로세스: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`BrowserWindow`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)이다.
 
 `BrowserWindow`는 `options`로 설정된 네이티브 속성과 함께, 새로운 <0>BrowserWindow</0>를 생성한다.
 
@@ -123,8 +123,8 @@ child.once('ready-to-show', () => {
 * `options` Object (선택) 
   * `width` Integer (선택) - 윈도우의 넓이이며, 단위는 픽셀이다. 기본값은 `800`이다.
   * `height` Integer (선택) - 윈도우의 높이이며, 단위는 픽셀이다. 기본값은 `600`이다.
-  * `x` Integer (optional) - (**required** if y is used) Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) - (**required** if x is used) Window's top offset from screen. Default is to center the window.
+  * `x` Integer (선택) - (y를 사용한다면 **반드시 선언되어야**한다.) 화면상에서 표시되는 윈도우의 좌측 시작지점이다. 기본값은 윈도우의 중앙지점이다.
+  * `y` Integer (선택) - (x를 사용한다면 **반드시 선언되어야**한다.) 화면상에서 표시되는 윈도우의 상단 시작지점이다. 기본값은 윈도우의 중앙지점이다.
   * `useContentSize` Boolean (선택) - 실제 윈도우의 크기는 윈도우 프레임의 크기를 포함해서 살짝 크기 때문에, `width`와 `height`를 웹 페이지의 크기로 사용하고자 할 때 사용한다. 기본값은 `false`이다.
   * `center` Boolean (선택) - 윈도우를 화면의 중심에 표시한다.
   * `minWidth` Integer (선택) - 윈도우의 최소 넓이를 지정한다. 기본값은 `0`이다.
@@ -136,7 +136,7 @@ child.once('ready-to-show', () => {
   * `minimizable` Boolean (선택) - 윈도우를 최소화할 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
   * `maximizable` Boolean (선택) - 윈도우를 최대화할 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
   * `closable` Boolean (선택) - 윈도우를 닫을 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
+  * `focusable` Boolean (선택) - 창에 초점을 맞출 수 있는지 여부. 기본값은 `true`이다. Windows에서는 `focusable: false`를 설정하는 것은 `skipTaskbar: true`도 설정하는 것을 의미합니다. Linux에서는 `focusable: false`를 설정하는 것이 그 창과 wm과의 상호작용을 중지하게 만듭니다. 따라서 그 창은 항상 워크스페이스의 최상단에 위치하게 됩니다.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. 기본값은 `false`이다.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
