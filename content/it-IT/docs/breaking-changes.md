@@ -60,6 +60,10 @@ In Electron 8.0, IPC was changed to use the Structured Clone Algorithm, bringing
 
 In Electron 9.0, the old serialization algorithm has been removed, and sending such non-serializable objects will now throw an "object could not be cloned" error.
 
+### `shell.openItem` --> `shell.openPath`
+
+The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+
 ## Cambiamenti Pianificati API (8.0)
 
 ### Values sent over IPC are now serialized with Structured Clone Algorithm

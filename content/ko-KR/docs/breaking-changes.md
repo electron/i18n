@@ -60,6 +60,10 @@ Electron 8.0에서 IPC는 Structured Clone Algorithm를 사용하도록 변경�
 
 Electron 9.0에서는 이전의 직렬화 알고리즘이 제거되었으며, 직렬화 할 수 없는 객체를 전송하면 "객체를 복제 할 수 없습니다" 오류가 발생합니다.
 
+### `shell.openItem` --> `shell.openPath`
+
+The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+
 ## 중단될 예정 API (8.0)
 
 ### IPC를 통해 보내진 값은 이제 Structured Clone Algorithm로 직렬화 됩니다.

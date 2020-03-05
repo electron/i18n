@@ -60,6 +60,10 @@ Electron 8.0 では、構造化複製アルゴリズムを使用するように 
 
 Electron 9.0 では、旧シリアライズアルゴリズムが削除されました。先ほどのシリアライズ不可能なオブジェクトを送信すると、"object could not be cloned" (オブジェクトを複製できませんでした) というエラーが送出されます。
 
+### `shell.openItem` --> `shell.openPath`
+
+The `shell.openItem` API has been replaced with an asynchronous `shell.openPath` API. You can see the original API proposal and reasoning [here](https://github.com/electron/governance/blob/master/wg-api/spec-documents/shell-openitem.md).
+
 ## 予定されている破壊的なAPIの変更 (8.0)
 
 ### IPC を介して送信される値が構造化複製アルゴリズムでシリアライズされるように
@@ -416,7 +420,7 @@ app.getGPUInfo('basic')
 
 ### `win_delay_load_hook`
 
-Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
+Windows 向けにネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 ## 破壊的な API の変更 (3.0)
 
