@@ -220,7 +220,7 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `iconType` String (optional) - Can be `none`, `info`, `warning`, `error` or `custom`. Default is `custom`.
   * `title` String
   * `content` String
-  * `largeIcon` Boolean (optional) - The large version of the icon should be used. Default is `true`. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
+  * `largeIcon` Boolean (optional) - The large version of the icon should be used. 기본값은 `true`이다. Maps to [`NIIF_LARGE_ICON`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_large_icon-0x00000020).
   * `noSound` Boolean (optional) - Do not play the associated sound. 기본값은 `false`이다. Maps to [`NIIF_NOSOUND`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_nosound-0x00000010).
   * `respectQuietTime` Boolean (optional) - Do not display the balloon notification if the current user is in "quiet time". 기본값은 `false`이다. Maps to [`NIIF_RESPECT_QUIET_TIME`](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/ns-shellapi-notifyicondataa#niif_respect_quiet_time-0x00000080).
 
