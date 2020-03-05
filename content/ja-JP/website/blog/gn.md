@@ -10,17 +10,17 @@ Electron は、GN を使用して自身を構築しています。 その理由�
 
 # GYP と GN
 
-When Electron was first released in 2013, Chromium's build configuration was written with [GYP](https://gyp.gsrc.io/), short for "Generate Your Projects".
+2013 年、最初に Electron がリリースされたとき、Chromium のビルド構成は [GYP](https://gyp.gsrc.io/) で記述されていました。これは "Generate Your Projects" の略です。
 
-In 2014, the Chromium project introduced a new build configuration tool called [GN](https://gn.googlesource.com/gn/) (short for "Generate [Ninja](https://ninja-build.org/)") Chromium's build files were migrated to GN and GYP was removed from the source code.
+2014 年、Chromium プロジェクトは [GN](https://gn.googlesource.com/gn/) ("Generate [Ninja](https://ninja-build.org/)") を導入しました。Chromium のビルドファイルは GN に移行され、GYP はソースコードから削除されました。
 
-Electron has historically kept a separation between the main [Electron code](https://github.com/electron/electron) and [libchromiumcontent](https://github.com/electron/libchromiumcontent), the part of Electron that wraps Chromium's 'content' submodule. Electron has carried on using GYP, while libchromiumcontent -- as a subset of Chromium -- switched to GN when Chromium did.
+歴史的に、Electron はメインの [Electron コード](https://github.com/electron/electron) と [libchromiumcontent](https://github.com/electron/libchromiumcontent) を分離しています。これは、Chromium の 'content' サブモジュールをラップする Electron の一部です。 Electron は GYP を使用し続けましたが、Chromium の方の libchromiumcontent は GN に切り替えました。
 
-Like gears that don't quite mesh, there was friction between using the two build systems. Maintaining compatibility was error-prone, from compiler flags and `#defines` that needed to be meticulously kept in sync between Chromium, Node, V8, and Electron.
+ピッタリ噛まない歯車のように、2 つのビルドシステムの間に摩擦がありました。 互換性の維持にはエラーが発生しやすくなりました。コンパイラフラグと `#define` を Chromium、Node、V8、Electron 間で細心の注意を払って同期する必要があるからです。
 
-To address this, the Electron team has been working on moving everything to GN. Today, the [commit](https://github.com/electron/electron/pull/14097) to remove the last of the GYP code from Electron was landed in master.
+これに対処するため、Electron チームは全てを GN へ移行してきました。 そしてついに、Electron 最後の GYP コード削除の [コミット](https://github.com/electron/electron/pull/14097)が master に乗りました。
 
-# What this means for you
+# 開発者にとっての意義
 
 If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
 
