@@ -338,9 +338,9 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
 
-Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
 
 **[过时的](modernization/property-updates.md)**
 
@@ -348,7 +348,7 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 * `appearance` String | null - 可以是 `dark` 或 `light`
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
 
 **[过时的](modernization/property-updates.md)**
 
