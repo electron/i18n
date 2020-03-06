@@ -334,15 +334,13 @@ Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise
 
 获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
-
 **[过时的](modernization/property-updates.md)**
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
 
-返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
+Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
 
 **[过时的](modernization/property-updates.md)**
 
@@ -350,7 +348,7 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 * `appearance` String | null - 可以是 `dark` 或 `light`
 
-设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
+Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
 **[过时的](modernization/property-updates.md)**
 
@@ -429,5 +427,3 @@ This property is only available on macOS 10.14 Mojave or newer.
 A `String` property that can be `dark`, `light` or `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
-
-需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
