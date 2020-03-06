@@ -1402,13 +1402,13 @@ Note that `appearance-based`, `light`, `dark`, `medium-light`, and `ultra-dark` 
 
 #### `win.setTrafficLightPosition(position)` *macOS*
 
-* `position` [Point](structures/point.md)
+* `posizione` [Punto](structures/point.md)
 
-Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+Configura una posizione personalizzata per i pulsanti del semaforo. Può essere usato solo con `titleBarStyle` impostato a `nascosto`.
 
 #### `win.getTrafficLightPosition()` *macOS*
 
-Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+Restituisce `Punto` - La posizione corrente per i pulsanti del semaforo. Può essere usato solo con `titleBarStyle` impostato a `nascosto`.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
