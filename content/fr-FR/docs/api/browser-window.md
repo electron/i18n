@@ -1398,6 +1398,16 @@ Ajoute un effet de vibrance à la fenêtre du navigateur. Passer `null` ou une c
 
 Notez que `appearance-based`, `light`, `dark`, `medium-light`, et `ultra-dark` ont été obsolètes et seront supprimées dans une prochaine version de macOS.
 
+#### `win.setTrafficLightPosition(position)` *macOS*
+
+* `position` [Point](structures/point.md)
+
+Set a custom position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
+#### `win.getTrafficLightPosition()` *macOS*
+
+Returns `Point` - The current position for the traffic light buttons. Can only be used with `titleBarStyle` set to `hidden`.
+
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar | null
