@@ -92,6 +92,42 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
+#### Event: 'spellcheck-dictionary-initialized'
+
+Връща:
+
+* `event` Събитие
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+
+#### Event: 'spellcheck-dictionary-download-begin'
+
+Връща:
+
+* `event` Събитие
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+Връща:
+
+* `event` Събитие
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Връща:
+
+* `event` Събитие
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+
 ### Инстантни методи
 
 The following methods are available on instances of `Session`:
@@ -108,7 +144,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -196,7 +232,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
+* `опции` Object 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -218,7 +254,7 @@ window.webContents.session.enableNetworkEmulation({ offline: true })
 
 #### `ses.preconnect(options)`
 
-* `options` Object 
+* `опции` Object 
   * `url` String - URL for preconnect. Only the origin is relevant for opening the socket.
   * `numSockets` Number (optional) - number of sockets to preconnect. Must be between 1 and 6. Defaults to 1.
 
@@ -236,7 +272,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `certificate` [Certificate](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
-  * `обратно повикване` Функция 
+  * `callback` Function 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `0` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indicates failure.
@@ -265,7 +301,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `обратно повикване` Функция 
+  * `callback` Function 
     * `permissionGranted` Boolean - Allow or deny the permission.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String (optional) - The url of the `openExternal` request.
@@ -288,7 +324,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Функция<boolean> | null 
+* `handler` Function<boolean> | null 
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission. Please note that if the request comes from a subframe you should use `requestingUrl` to check the request origin.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -364,7 +400,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `опции` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
@@ -410,7 +446,7 @@ Returns `String[]` - An array of language codes the spellchecker is enabled for.
 
 * `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
 If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
 
