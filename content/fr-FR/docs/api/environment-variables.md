@@ -42,7 +42,12 @@ Les options non supportées sont :
 --use-openssl-ca
 ```
 
-Les `NODE_OPTIONS` sont strictement interdites dans les applications compilées.
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+
+```sh
+--max-http-header-size
+--http-parser
+```
 
 ### `GOOGLE_API_KEY`
 
