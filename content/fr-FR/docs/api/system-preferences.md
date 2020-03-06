@@ -334,8 +334,6 @@ Returns `String` - Can be `dark`, `light` or `unknown`.
 
 Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Veuillez noter que jusqu'à ce qu'Electron soit compilé en ciblant le SDK 10.14, votre application `effectiveAppearance` sera par défaut à 'light' et n'héritera pas de la préférence de l'OS. Dans l'intervalle pour que votre application hérite de la préférence de l'OS, vous devez définir la touche `NSRequiresAquaSystemAppearance` dans vos applications `Info. liste` à `faux`. Si vous utilisez `electron-packager` ou `electron-forge` il vous suffit de définir l'option `enableDarwinDarkMode` à `true`. Voir l'API [Electron Packager](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) pour plus de détails.
-
 **[Déprécié ](modernization/property-updates.md)**
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
@@ -400,9 +398,9 @@ This user consent was not required on macOS 10.13 High Sierra or lower so this m
 
 Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. Les valeurs de ces clés seront utilisées pour remplir les boîtes de dialogue des permissions afin que l'utilisateur soit correctement informé du but de la demande de permission. Voir [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) pour plus d'informations sur la façon de les définir dans le contexte d'Electron.
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
 
-Ce consentement de l'utilisateur n'était pas requis avant macOS 10. 4 Mojave, donc cette méthode retournera toujours `true` si votre système fonctionne 10.13 Haute Sierra ou moins.
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
 
 ### `systemPreferences.getAnimationSettings()`
 
@@ -412,22 +410,20 @@ Retourne `Object`:
 * `scrollAnimationsEnabledBySystem` Boolean - Détermine par plate-forme si les animations de défilement (par exemple produites par la touche maison/fin) doivent être activées.
 * `prefersReducedMotion` Booléen - Détermine si l'utilisateur souhaite des mouvements réduits basés sur des API de plate-forme.
 
-Retourne un objet avec les paramètres d'animation du système.
+Returns an object with system animation settings.
 
 ## Propriétés
 
 ### `systemPreferences.appLevelApparence` *macOS*
 
-Une propriété `String` qui peut être `dark`, `light` ou `unknown`. Il détermine le paramètre d'apparence macOS pour votre application. Cette correspondance aux valeurs dans: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Définir ceci remplacera la valeur par défaut du système ainsi que la valeur de `getEffectiveAppearance`.
+A `String` property that can be `dark`, `light` or `unknown`. It determines the macOS appearance setting for your application. This maps to values in: [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). Setting this will override the system default as well as the value of `getEffectiveAppearance`.
 
-Les valeurs possibles qui peuvent être définies sont `dark` et `light`, et les valeurs de retour possibles sont `dark`, `light`, et `unknown`.
+Possible values that can be set are `dark` and `light`, and possible return values are `dark`, `light`, and `unknown`.
 
-Cette propriété n'est disponible que sur macOS 10.14 Mojave ou plus récent.
+This property is only available on macOS 10.14 Mojave or newer.
 
 ### `systemPreferences.effectiveAppearance` *macOS* *Readonly*
 
-Une propriété `String` qui peut être `dark`, `light` ou `unknown`.
+A `String` property that can be `dark`, `light` or `unknown`.
 
-Retourne le paramètre d'apparence macOS qui est actuellement appliqué à votre application, correspond à [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
-
-Veuillez noter que jusqu'à ce qu'Electron soit compilé en ciblant le SDK 10.14, votre application `effectiveAppearance` sera par défaut à 'light' et n'héritera pas de la préférence de l'OS. Dans l'intervalle pour que votre application hérite de la préférence de l'OS, vous devez définir la touche `NSRequiresAquaSystemAppearance` dans vos applications `Info. liste` à `faux`. Si vous utilisez `electron-packager` ou `electron-forge` il vous suffit de définir l'option `enableDarwinDarkMode` à `true`. Voir l'API [Electron Packager](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) pour plus de détails.
+Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
