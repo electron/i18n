@@ -22,14 +22,14 @@ Electron は、GN を使用して自身を構築しています。 その理由�
 
 # 開発者にとっての意義
 
-If you're contributing to Electron itself, the process of checking out and building Electron from `master` or 4.0.0 is very different than it was in 3.0.0 and earlier. See the [GN build instructions](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) for details.
+Electron 自体にコントリビュートしている方は、`master` もしくは 4.0.0 から Electron をチェックアウトしてビルドするプロセスが 3.0.0 以前と大きく変わります。 詳細は [GN ビルド手順](https://github.com/electron/electron/blob/master/docs/development/build-instructions-gn.md) を参照してください。
 
-If you're developing an app with Electron, there are a few minor changes you might notice in the new Electron 4.0.0-nightly; but more than likely, Electron's change in build system will be totally transparent to you.
+Electron でアプリを開発している方は、新しい Electron 4.0.0-nightly でのいくつかの小さな変更に気付くかもしれません。しかし、Electron ビルドシステムが変わったことによる影響はおそらくありません。
 
-# What this means for Electron
+# Electron にとっての意義
 
-GN is [faster](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) than GYP and its files are more readable and maintainable. Moreover, we hope that using a single build configuration system will reduce the work required to upgrade Electron to new versions of Chromium.
+GN は GYP より [高速](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) で、ファイルの可読性が高く保守も容易です。 さらに、単体のビルド構成システムを使用することで、Electron を Chromium の新バージョンへアップグレードするにあたって必要な作業が軽減されるでしょう。
 
- * It's already helped development on Electron 4.0.0 substantially because Chromium 67 removed support for MSVC and switched to building with Clang on Windows. With the GN build, we inherit all the compiler commands from Chromium directly, so we got the Clang build on Windows for free!
+ * Chromium 67 では MSVC サポートを削除し、Windows でも Clang を使用したビルドに切り替えました。そのため、Electron 4.0.0 での開発は既に大幅に支援されています。 GN ビルドでは、Chromium からすべてのコンパイラコマンドを直接継承するため、Windows 用 Clang ビルドを無料で入手できます!
 
- * It's also made it easier for Electron to use [BoringSSL](https://boringssl.googlesource.com/boringssl/) in a unified build across Electron, Chromium, and Node -- something that was [problematic before](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library).
+ * また、Electron、Chromium、Node 間で同じビルドの [BoringSSL](https://boringssl.googlesource.com/boringssl/) を Electron に使用しやすくなりました。これはもはや [過去の問題](https://electronjs.org/blog/electron-internals-using-node-as-a-library#shared-library-or-static-library) です。

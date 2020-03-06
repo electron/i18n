@@ -1,18 +1,18 @@
 ---
-title: Electron's API Docs as Structured Data
+title: Electron の API ドキュメントを構造化データに
 author: zeke
 date: '2016-09-27'
 ---
 
-Today we're announcing some improvements to Electron's documentation. Every new release now includes a [JSON file](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) that describes all of Electron's public APIs in detail. We created this file to enable developers to use Electron's API documentation in interesting new ways.
+本日、Electron のドキュメントに対していくつか改善する点を発表します。 新しいリリースごとに、Electron のすべての公開 API を詳細に説明する [JSON ファイル](https://github.com/electron/electron/releases/download/v1.4.1/electron-api.json) を同梱します。 このファイルを作成したことで、開発者は Electron の API ドキュメントの面白くて新しい使用方法ができるようになりました。
 
 ---
 
-## Schema overview
+## スキーマの概要
 
-Each API is an object with properties like name, description, type, etc. Classes such as `BrowserWindow` and `Menu` have additional properties describing their instance methods, instance properties, instance events, etc.
+各 API は、名前、説明、型などの特性を持つオブジェクトです。 `BrowserWindow` や `Menu` のようなクラスには、インスタンスメソッド、インスタンスプロパティ、インスタンスイベントなどもあります。
 
-Here's an excerpt from the schema that describes the `BrowserWindow` class:
+以下は `BrowserWindow` クラスを説明しているスキーマからの抜粋です。
 
 ```js
 {
@@ -34,7 +34,7 @@ Here's an excerpt from the schema that describes the `BrowserWindow` class:
 }
 ```
 
-And here's an example of a method description, in this case the `apis.BrowserWindow.instanceMethods.setMaximumSize` instance method:
+次に、メソッドの説明の例を示します。以下は `apis.BrowserWindow.instanceMethods.setMaximumSize` インスタンスメソッドです。
 
 ```js
 {
@@ -51,33 +51,33 @@ And here's an example of a method description, in this case the `apis.BrowserWin
 }
 ```
 
-## Using the new data
+## 新しいデータを使う
 
-To make it easy for developers to use this structured data in their projects, we've created [electron-docs-api](https://www.npmjs.com/package/electron-api-docs), a small npm package that is published automatically whenever there's a new Electron release.
+開発者がプロジェクトでこの構造化データを簡単に使用できるように、新しい Electron リリースごとに自動公開される小さな npm パッケージ [electron-docs-api](https://www.npmjs.com/package/electron-api-docs) を作成しました。
 
 ```sh
 npm install electron-api-docs --save
 ```
 
-For instant gratification, try out the module in your Node.js REPL:
+すぐに試したいなら、Node.js REPL 内でこのモジュールを試してみてください。
 
 ```sh
 npm i -g trymodule && trymodule electron-api-docs=apis
 ```
 
-## How the data is collected
+## データの収集方法
 
-Electron's API documentation adheres to [Electron Coding Style](https://github.com/electron/electron/blob/master/docs/development/coding-style.md) and the [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md#readme), so its content can be programmatically parsed.
+Electron の API ドキュメントは [Electron Coding Style](https://github.com/electron/electron/blob/master/docs/development/coding-style.md) と [Electron Styleguide](https://github.com/electron/electron/blob/master/docs/styleguide.md#readme) に準拠しているため、内容はプログラムで解析できます。
 
-The [electron-docs-linter](https://github.com/electron/electron-docs-linter) is a new development dependency of the `electron/electron` repository. It is a command-line tool that lints all the markdown files and enforces the rules of the styleguide. If errors are found, they are listed and the release process is halted. If the API docs are valid, the `electron-json.api` file is created and [uploaded to GitHub](https://github.com/electron/electron/releases/tag/v1.4.1) as part of the Electron release.
+[electron-docs-linter](https://github.com/electron/electron-docs-linter) は `electron/electron` レポジトリの新しい開発用依存関係となります。 これは、すべての Markdown ファイルを lint し、スタイルガイドのルールを適用するコマンドラインツールです。 エラーが見つかった場合、それらが列挙され、リリースプロセスが停止します。 API ドキュメントが有効な場合、`electron-json.api` ファイルが作成され、Electron リリースの一部として [GitHub にアップロード](https://github.com/electron/electron/releases/tag/v1.4.1) されます。
 
 ## Standard Javascript and Standard Markdown
 
-Earlier this year, Electron's codebase was updated to use the [`standard`](http://standardjs.com/) linter for all JavaScript. Standard's README sums up the reasoning behind this choice:
+今年の始め頃に Electron のコードベースが更新され、全 JavaScript で [`standard`](http://standardjs.com/) リンターが使用されました。 Standard の README は、この決定の後ろ盾である理由の要約です。
 
 > Adopting standard style means ranking the importance of code clarity and community conventions higher than personal style. This might not make sense for 100% of projects and development cultures, however open source can be a hostile place for newbies. Setting up clear, automated contributor expectations makes a project healthier.
 
-We also recently created [standard-markdown](https://github.com/zeke/standard-markdown) to verify that all the JavaScript code snippets in our documentation are valid and consistent with the style in the codebase itself.
+また、ドキュメント内のすべての JavaScript コードスニペットが有効であり、コードベース自体のスタイルと一貫性があることを確認するために、少し前に [standard-markdown](https://github.com/zeke/standard-markdown) を作成しました。
 
 Together these tools help us use continuous integration (CI) to automatically find errors in pull requests. This reduces the burden placed on humans doing code review, and gives us more confidence about the accuracy of our documentation.
 
