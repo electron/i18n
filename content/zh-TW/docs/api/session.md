@@ -92,6 +92,42 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
+#### Event: 'spellcheck-dictionary-initialized'
+
+回傳:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+
+#### Event: 'spellcheck-dictionary-download-begin'
+
+回傳:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+回傳:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+回傳:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+
 ### 物件方法
 
 The following methods are available on instances of `Session`:
@@ -108,7 +144,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options])`
 
-* `options` Object (選用) 
+* `options` 物件 (選用) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -158,25 +194,25 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Match all hostnames that match the pattern HOSTNAME_PATTERN.
   
-  範例: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
     Match a particular domain suffix.
     
-    範例: ".google.com", ".com", "http://.google.com"
+    Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
   Match URLs which are IP address literals.
   
-  範例: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGTH_IN_BITS`
   
   Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
   
-  範例: "192.168.1.1/16", "fefe:13::abc/33".
+  Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
@@ -335,7 +371,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (選用)
+* `acceptLanguages` String (optional)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -366,7 +402,7 @@ Initiates a download of the resource at `url`. The API will generate a [Download
 * `options` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (選用)
+  * `mimeType` String (optional)
   * `offset` Integer - Start range for the download.
   * `length` Integer - Total length of the download.
   * `lastModified` String (optional) - Last-Modified header value.
@@ -409,7 +445,7 @@ Returns `String[]` - An array of language codes the spellchecker is enabled for.
 
 * `url` String - A base URL for Electron to download hunspell dictionaries from.
 
-By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
 
 If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
 
