@@ -92,6 +92,42 @@ Rückgabewert:
 
 Emitted when a render process requests preconnection to a URL, generally due to a [resource hint](https://w3c.github.io/resource-hints/).
 
+#### Event: 'spellcheck-dictionary-initialized'
+
+Kehrt zurück:
+
+* `event` Event
+* `languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully initialized. This occurs after the file has been downloaded.
+
+#### Event: 'spellcheck-dictionary-download-begin'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file starts downloading
+
+#### Event: 'spellcheck-dictionary-download-success'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file has been successfully downloaded
+
+#### Event: 'spellcheck-dictionary-download-failure'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>languageCode` String - The language code of the dictionary file
+
+Emitted when a hunspell dictionary file download fails. For details on the failure you should collect a netlog and inspect the download request.
+
 ### Beispiel Methoden
 
 The following methods are available on instances of `Session`:
@@ -356,121 +392,121 @@ Returns `Promise<Buffer>` - resolves with blob data.
 
 #### `ses.downloadURL(url)`
 
-* ` URL </ 0>  Zeichenfolge</li>
-</ul>
+* `URL` Zeichenfolge
 
-<p>Initiates a download of the resource at <code>url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.</p> 
-  **Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
-  
-  #### `ses.createInterruptedDownload(options)`
-  
-  * `options` Object 
-    * `path` String - Absolute path of the download.
-    * `urlChain` String[] - Complete URL chain for the download.
-    * `mimeType` String (optional)
-    * `offset` Integer - Start range for the download.
-    * `length` Integer - Total length of the download.
-    * `lastModified` String (optional) - Last-Modified header value.
-    * `eTag` String (optional) - ETag header value.
-    * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
-  
-  Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
-  
-  #### `ses.clearAuthCache(options)`
-  
-  * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-  
-  Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
-  
-  #### `ses.setPreloads(preloads)`
-  
-  * `preloads` String[] - An array of absolute path to preload scripts
-  
-  Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
-  
-  #### `ses.getPreloads()`
-  
-  Returns `String[]` an array of paths to preload scripts that have been registered.
-  
-  #### `ses.setSpellCheckerLanguages(languages)`
-  
-  * `languages` String[] - An array of language codes to enable the spellchecker for.
-  
-  The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
-  
-  **Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
-  
-  #### `ses.getSpellCheckerLanguages()`
-  
-  Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
-  
-  **Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
-  
-  #### `ses.setSpellCheckerDictionaryDownloadURL(url)`
-  
-  * `url` String - A base URL for Electron to download hunspell dictionaries from.
-  
-  By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here.
-  
-  If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
-  
-  **Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
-  
-  #### `ses.addWordToSpellCheckerDictionary(word)`
-  
-  * `word` String - The word you want to add to the dictionary
-  
-  Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
-  
-  **Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
-  
-  ### Instanz Eigenschaften
-  
-  The following properties are available on instances of `Session`:
-  
-  #### `ses.availableSpellCheckerLanguages` *Readonly*
-  
-  A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
-  
-  #### `ses.cookies` *Readonly*
-  
-  A [`Cookies`](cookies.md) object for this session.
-  
-  #### `ses.webRequest` *Readonly*
-  
-  A [`WebRequest`](web-request.md) object for this session.
-  
-  #### `ses.protocol` *Readonly*
-  
-  A [`Protocol`](protocol.md) object for this session.
-  
-  ```javascript
-  const { app, session } = require('electron')
-  const path = require('path')
-  
-  app.on('ready', function () {
-    const protocol = session.fromPartition('some-partition').protocol
-    protocol.registerFileProtocol('atom', function (request, callback) {
-      var url = request.url.substr(7)
-      callback({ path: path.normalize(`${__dirname}/${url}`) })
-    }, function (error) {
-      if (error) console.error('Failed to register protocol')
-    })
+Initiates a download of the resource at `url`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event.
+
+**Note:** This does not perform any security checks that relate to a page's origin, unlike [`webContents.downloadURL`](web-contents.md#contentsdownloadurlurl).
+
+#### `ses.createInterruptedDownload(options)`
+
+* `options` Object 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String (optional) - Last-Modified header value.
+  * `eTag` String (optional) - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+
+#### `ses.clearAuthCache(options)`
+
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+
+Returns `Promise<void>` - resolves when the session’s HTTP authentication cache has been cleared.
+
+#### `ses.setPreloads(preloads)`
+
+* `preloads` String[] - An array of absolute path to preload scripts
+
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+
+#### `ses.getPreloads()`
+
+Returns `String[]` an array of paths to preload scripts that have been registered.
+
+#### `ses.setSpellCheckerLanguages(languages)`
+
+* `languages` String[] - An array of language codes to enable the spellchecker for.
+
+The built in spellchecker does not automatically detect what language a user is typing in. In order for the spell checker to correctly check their words you must call this API with an array of language codes. You can get the list of supported language codes with the `ses.availableSpellCheckerLanguages` property.
+
+**Note:** On macOS the OS spellchecker is used and will detect your language automatically. This API is a no-op on macOS.
+
+#### `ses.getSpellCheckerLanguages()`
+
+Returns `String[]` - An array of language codes the spellchecker is enabled for. If this list is empty the spellchecker will fallback to using `en-US`. By default on launch if this setting is an empty list Electron will try to populate this setting with the current OS locale. This setting is persisted across restarts.
+
+**Note:** On macOS the OS spellchecker is used and has it's own list of languages. This API is a no-op on macOS.
+
+#### `ses.setSpellCheckerDictionaryDownloadURL(url)`
+
+* `url` String - A base URL for Electron to download hunspell dictionaries from.
+
+By default Electron will download hunspell dictionaries from the Chromium CDN. If you want to override this behavior you can use this API to point the dictionary downloader at your own hosted version of the hunspell dictionaries. We publish a `hunspell_dictionaries.zip` file with each release which contains the files you need to host here, the file server must be **case insensitive** you must upload each file twice, once with the case it has in the ZIP file and once with the filename as all lower case.
+
+If the files present in `hunspell_dictionaries.zip` are available at `https://example.com/dictionaries/language-code.bdic` then you should call this api with `ses.setSpellCheckerDictionaryDownloadURL('https://example.com/dictionaries/')`. Please note the trailing slash. The URL to the dictionaries is formed as `${url}${filename}`.
+
+**Note:** On macOS the OS spellchecker is used and therefore we do not download any dictionary files. This API is a no-op on macOS.
+
+#### `ses.addWordToSpellCheckerDictionary(word)`
+
+* `word` String - The word you want to add to the dictionary
+
+Returns `Boolean` - Whether the word was successfully written to the custom dictionary.
+
+**Note:** On macOS and Windows 10 this word will be written to the OS custom dictionary as well
+
+### Instanz Eigenschaften
+
+The following properties are available on instances of `Session`:
+
+#### `ses.availableSpellCheckerLanguages` *Readonly*
+
+A `String[]` array which consists of all the known available spell checker languages. Providing a language code to the `setSpellCheckerLanaguages` API that isn't in this array will result in an error.
+
+#### `ses.cookies` *Readonly*
+
+A [`Cookies`](cookies.md) object for this session.
+
+#### `ses.webRequest` *Readonly*
+
+A [`WebRequest`](web-request.md) object for this session.
+
+#### `ses.protocol` *Readonly*
+
+A [`Protocol`](protocol.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+const path = require('path')
+
+app.on('ready', function () {
+  const protocol = session.fromPartition('some-partition').protocol
+  protocol.registerFileProtocol('atom', function (request, callback) {
+    var url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  }, function (error) {
+    if (error) console.error('Failed to register protocol')
   })
-  ```
-  
-  #### `ses.netLog` *Readonly*
-  
-  A [`NetLog`](net-log.md) object for this session.
-  
-  ```javascript
-  const { app, session } = require('electron')
-  
-  app.on('ready', async function () {
-    const netLog = session.fromPartition('some-partition').netLog
-    netLog.startLogging('/path/to/net-log')
-    // After some network events
-    const path = await netLog.stopLogging()
-    console.log('Net-logs written to', path)
-  })
-  ```
+})
+```
+
+#### `ses.netLog` *Readonly*
+
+A [`NetLog`](net-log.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+
+app.on('ready', async function () {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  const path = await netLog.stopLogging()
+  console.log('Net-logs written to', path)
+})
+```
