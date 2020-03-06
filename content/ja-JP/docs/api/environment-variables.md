@@ -42,7 +42,12 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` はパッケージされたアプリ内では明示的に許可されません。
+`NODE_OPTIONS` are explicitly disallowed in packaged apps, except for the following:
+
+```sh
+--max-http-header-size
+--http-parser
+```
 
 ### `GOOGLE_API_KEY`
 
