@@ -334,8 +334,6 @@ Devuelve `String` - Puede ser `dark`, `light` o `unknown`.
 
 Obtiene confiración de la apariencia de macOS que está actulemente aplicada, mapea a [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Por favor, tenga en cuenta que hasta que Electron es construido con el SDK 10.14, la `effectiveAppearance` de tu aplicación será por defecto ´light´ y no heredará la preferencia del sistema oprativo. Mientras tanto para que su aplicación herede la preferencia del sistema operativo debes establecer la clave `NSRequiresAquaSystemAppearance` en tus aplicaciones `Info.plist` a `false`. Si estas usando `electron-packager` o `electron-forge` solo establece la opción de empaquetador `enableDarwinDarkMode` a `true`. Consulte la [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
-
 **[Cambiar](modernization/property-updates.md)**
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS* *Deprecated*
@@ -429,5 +427,3 @@ This property is only available on macOS 10.14 Mojave or newer.
 A `String` property that can be `dark`, `light` or `unknown`.
 
 Returns the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
-
-Por favor, tenga en cuenta que hasta que Electron es construido con el SDK 10.14, la `effectiveAppearance` de tu aplicación será por defecto ´light´ y no heredará la preferencia del sistema oprativo. Mientras tanto para que su aplicación herede la preferencia del sistema operativo debes establecer la clave `NSRequiresAquaSystemAppearance` en tus aplicaciones `Info.plist` a `false`. Si estas usando `electron-packager` o `electron-forge` solo establece la opción de empaquetador `enableDarwinDarkMode` a `true`. Consulte la [Electron Packager API](https://github.com/electron/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) para más detalles.
